@@ -1,0 +1,12 @@
+diff --git a/node_modules/vitepress-plugin-tabs/dist/index.js b/node_modules/vitepress-plugin-tabs/dist/index.js
+index 4f2d4af..f34c67d 100644
+--- a/node_modules/vitepress-plugin-tabs/dist/index.js
++++ b/node_modules/vitepress-plugin-tabs/dist/index.js
+@@ -178,6 +178,7 @@ var parseTabsParams = (input) => {
+ };
+ var tabsPlugin = (md) => {
+   md.use(container_plugin, "tabs", {
++    marker: "+",
+     render(tokens, index) {
+       const token = tokens[index];
+       if (token.nesting === 1) {

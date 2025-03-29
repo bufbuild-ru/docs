@@ -16,11 +16,15 @@ This command makes sure that the `<input>` location has no breaking changes comp
 
 #### \--against _string_
 
-Required. The source, module, or image to check against. Must be one of format \[binpb,dir,git,json,mod,protofile,tar,txtpb,yaml,zip\]
+Required, except if --against-registry is set. The source, module, or image to check against. Must be one of format \[binpb,dir,git,json,mod,protofile,tar,txtpb,yaml,zip\]
 
 #### \--against-config _string_
 
 The buf.yaml file or data to use to configure the against source, module, or image
+
+#### \--against-registry
+
+Run breaking checks against the latest commit on the default branch in the registry. All modules in the input must have a name configured, otherwise this will fail. If a remote module is not found with the configured name, then this will fail. This cannot be set with --against.
 
 #### \--config _string_
 

@@ -1,8 +1,36 @@
 # Release notes
 
+## v0.3.16
+
+**_Release Date:_** 2025-03-27 | **_Status:_** latest
+
+### Bug Fixes
+
+- Fix metrics aggregation on partition level
+
+### Features and Improvements
+
+- Update the Prometheus exporter's behavior to always use underscored metric names
+
+## v0.3.15
+
+**_Release Date:_** 2025-03-25
+
+### Bug Fixes
+
+- Fix possible but rare infinite loop in archive cleaning
+- Fix configuring the S3 endpoint in Bufstream's Helm chart values.
+
+### Features and Improvements
+
+- Improve robustness of handling unexpected Protocol Buffer data when writing to Parquet files
+- Allow Iceberg™ tables to self-heal if there are errors during archiving
+- Schema enforcement now ensures the specified schema ID on a record matches the subject/topic it's produced to
+- Additional performance improvements
+
 ## v0.3.14
 
-**_Release Date:_** 2025-03-18 | **_Status:_** latest
+**_Release Date:_** 2025-03-18
 
 ### Bug Fixes
 

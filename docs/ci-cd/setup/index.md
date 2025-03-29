@@ -27,7 +27,7 @@ The first step is to get `buf` running on your CI/CD worker. To do so, you'll ne
 
 PROJECT=<your-project-name>
 # Use your desired buf version
-BUF_VERSION=1.50.1
+BUF_VERSION=1.51.0
 # buf is installed to ~/bin/your-project-name.
 BIN_DIR=$HOME/bin/$PROJECT
 

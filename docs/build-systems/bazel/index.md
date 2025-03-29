@@ -87,7 +87,7 @@ By default, `rules_buf_toolchains` loads the latest `buf` version. For hermetic 
 ```diff
 # rules_buf fetches the sha based on the version number--the version is enough for hermetic builds.
 -rules_buf_toolchains()
-+rules_buf_toolchains(version = "v1.50.1")
++rules_buf_toolchains(version = "v1.51.0")
 ```
 
 :::

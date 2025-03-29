@@ -392,6 +392,14 @@ export default defineConfig({
                         ],
                       },
                       {
+                        text: 'Customize appearance',
+                        link: '/docs/bsr/admin/instance/customize-appearance/',
+                      },
+                      {
+                        text: 'Customize homepage',
+                        link: '/docs/bsr/admin/instance/customize-homepage/',
+                      },
+                      {
                         text: 'User lifecycle',
                         link: '/docs/bsr/admin/instance/user-lifecycle/',
                       },

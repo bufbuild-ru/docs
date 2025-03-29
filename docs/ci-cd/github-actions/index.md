@@ -168,7 +168,7 @@ jobs:
         with:
           buf_api_token: ${{ secrets.BUF_API_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          version: "1.50.1"
+          version: "1.51.0"
       # Run a lint check on Protobuf sources
       - uses: bufbuild/buf-lint-action@v1
       # Run breaking change detection for Protobuf sources against the current

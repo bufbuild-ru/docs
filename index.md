@@ -13,7 +13,7 @@ hero:
 
 ::: info Postscript
 
-Our goal is to create a complete copy of the [buf.build](https://buf.build/) website because it is blocked in many countries:
+Our goal is to create a mirror of the [buf.build](https://buf.build/) website because it is blocked in many countries:
 
 ::: details
 ![](/ip-address-blocking.png)
@@ -22,6 +22,7 @@ Our goal is to create a complete copy of the [buf.build](https://buf.build/) web
 ## Roadmap
 
 - :white_check_mark: [Documentation](/docs/)
+- :hammer_and_wrench: Blog
 - :hammer_and_wrench: Remote plugins for generating code
 - :hammer_and_wrench: Schema registry for hosting your .proto files and generated SDKs
 - :hammer_and_wrench: On-premises installation for self-hosted code generation

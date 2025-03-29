@@ -45,6 +45,16 @@ plugins:
     # Whether to generate code for the well-known types.
     # Optional.
     include_wkt: false
+# Include only these types for this plugin.
+    # Optional.
+types:
+  - "foo.v1.User"
+# Exclude these types for this plugin.
+    # Optional.
+exclude_types:
+      - "buf.validate.oneof"
+      - "buf.validate.message"
+      - "buf.validate.field""
 
     # The name of a local plugin if discoverable in "${PATH}" or its path in the file system.
   - local: protoc-gen-es
@@ -198,6 +208,10 @@ inputs:
     types:
       - "foo.v1.User"
       - "foo.v1.UserService"
+# Exclude these types.
+# Optional.
+exclude_types:
+  - "buf.validate"
     # Only generate code for files in these paths.
     # If empty, include all paths.
     paths:
@@ -331,6 +345,10 @@ The format for build errors, printed to stderr. Must be one of \[text,json,msvs,
 #### \--exclude-path _strings_
 
 Exclude specific files or directories, e.g. "proto/a/a.proto", "proto/a" If specified multiple times, the union is taken
+
+#### \--exclude-type _strings_
+
+The types (package, message, enum, extension, service, method) that should be excluded from this image. When specified, the resulting image will omit descriptors for the specified types and remove any references to them, such as fields typed to an excluded message or enum, or custom options tied to an excluded extension. The image is first filtered by the included types, then further reduced by the excluded. Flag usage overrides buf.gen.yaml
 
 #### \-h, --help
 

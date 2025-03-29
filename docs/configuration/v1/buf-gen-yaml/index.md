@@ -43,8 +43,8 @@
     ::: tip Note
 
     ```text
-    If you don't specify a plugin version, the latest version is pulled in. To avoid unexpected updates
-    and possible breaking changes, pin to a specific version.
+      If you don't specify a plugin version, the latest version is pulled in. To avoid unexpected updates
+      and possible breaking changes, pin to a specific version.
     ```
 
     :::

@@ -7,7 +7,7 @@ Our goal is to create a mirror of the [buf.build](https://buf.build/) website be
 ## Roadmap
 
 - ✅ [Documentation](https://bufbuild.ru/docs/)
-- 🛠️ Blog
+- ✅ [Blog](https://bufbuild.ru/blog/)
 - 🛠️ Remote plugins for generating code
 - 🛠️ Schema registry for hosting your .proto files and generated SDKs
 - 🛠️ On-premises installation for self-hosted code generation

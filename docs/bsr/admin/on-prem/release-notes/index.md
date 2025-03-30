@@ -176,9 +176,9 @@ Expand to see previous releases
 
 **_Release Date:_** 2024-05-20 | **_Database version:_** 279 | **_Minimum CLI version:_** v1.24.0
 
-- **[The next generation of Buf CLI](https://buf.build/blog/buf-cli-next-generation):** The Buf CLI and its associated configuration have been completely overhauled to support monorepos as first-class citizens. Buf CLI `v1.32.0` and newer require at least `v1.8.0` of the BSR for operations that interact with the BSR.
-- **[New and improved BSR UI](https://buf.build/blog/enhanced-buf-push-bsr-ui)**: Alongside the [new Buf CLI](https://buf.build/blog/buf-cli-next-generation), we’re excited to introduce an enhanced `buf push` and unveil an updated Buf Schema Registry (BSR) UI. We’ve made significant changes to both `push` and the UI to eliminate friction when onboarding new teams and codebases to the BSR.
-- **[Insomnia Support](https://buf.build/blog/kong-insomnia-grpc-bsr-support):** The BSR now integrates with Kong Insomnia, making gRPC even easier to use.
+- **[The next generation of Buf CLI](/blog/buf-cli-next-generation/index.md):** The Buf CLI and its associated configuration have been completely overhauled to support monorepos as first-class citizens. Buf CLI `v1.32.0` and newer require at least `v1.8.0` of the BSR for operations that interact with the BSR.
+- **[New and improved BSR UI](/blog/enhanced-buf-push-bsr-ui/index.md)**: Alongside the [new Buf CLI](/blog/buf-cli-next-generation/index.md), we’re excited to introduce an enhanced `buf push` and unveil an updated Buf Schema Registry (BSR) UI. We’ve made significant changes to both `push` and the UI to eliminate friction when onboarding new teams and codebases to the BSR.
+- **[Insomnia Support](/blog/kong-insomnia-grpc-bsr-support/index.md):** The BSR now integrates with Kong Insomnia, making gRPC even easier to use.
 - **Fewer authentication redirects:** We are now handling authentication refresh tokens on the backend, so users should no longer see multiple redirects in the browser when their auth token expires.
 
 ---
@@ -227,7 +227,7 @@ Expand to see previous releases
 **_Release Date:_** 2024-01-24 | **_Database version:_** 246 | **_Minimum CLI version:_** v1.23.0
 
 - **Python registry:** The BSR now serves the Python index at `/gen/python/simple` in addition to `/gen/python` so that Artifactory correctly detects that the BSR serves a Python repository.
-- **Types usage:** Types usage can now be viewed from the admin panel for enterprise and on-prem BSR instances. For example, if your BSR is https://buf.example.com, then usage will be available at https://buf.example.com/admin/usage.
+- **Types usage:** Types usage can now be viewed from the admin panel for enterprise and on-prem BSR instances. For example, if your BSR is <https://buf.example.com>, then usage will be available at <https://buf.example.com/admin/usage>.
 
 ## v1.4.0
 
@@ -249,7 +249,7 @@ Expand to see previous releases
 **_Release Date:_** 2023-12-05 | **_Database version:_** 241 | **_Minimum CLI version:_** v1.23.0
 
 - **Python support for [generated SDKs](../../../generated-sdks/python/):** Python engineers no longer need to manage a Protobuf toolchain or generate code locally—they can now download pre-packaged generated code for their Protobuf schemas from the BSR using package management tools like pip, Poetry, Conda, and others that support [PEP 503 - Simple Repository API](https://peps.python.org/pep-0503/).
-- **[Governance workflow](https://buf.build/blog/review-governance-workflow):** The BSR now provides the ability to configure a customer SMTP server to send email messages for the governance workflow.
+- **[Governance workflow](/blog/review-governance-workflow/index.md):** The BSR now provides the ability to configure a customer SMTP server to send email messages for the governance workflow.
 - **Account Merging:** When a new SSO provider is configured, existing BSR users will automatically be migrated to the new provider based on email matching the next time they log in.
 - **SLO Dashboards:** The SLO alerting threshold for slow requests has been decreased from 250s to 75s, in an effort to be more responsive to slow requests. Additionally, the histogram buckets for HTTP metrics have been adjusted so they're now in parity with RPC metrics. Please upgrade by [importing the new files](../observability/#grafana-dashboards).
 
@@ -269,7 +269,7 @@ Expand to see previous releases
 
 **_Release date:_** 2023-10-03 | **_Database version:_** 222 | **_Minimum CLI version:_** v1.23.0
 
-- The BSR now allows customers to [enforce uniqueness of Protobuf types and file paths across all modules](https://buf.build/blog/type-path-uniqueness). This helps to prevent name conflicts between Protobuf types in an application, which could result in fatal runtime exceptions and outages.
+- The BSR now allows customers to [enforce uniqueness of Protobuf types and file paths across all modules](/blog/type-path-uniqueness/index.md). This helps to prevent name conflicts between Protobuf types in an application, which could result in fatal runtime exceptions and outages.
 - BSR Search now includes results from the content of a module. Module content can be either a module element (service, method, message, enum) or a module file (`.proto`).
 - BSR generated docs now support [syntax highlighting and markdown table rendering](../../../documentation/create-docs/#formatting-syntax).
 - This release includes new SLO Dashboards for non-RPC endpoints to give visibility into the entire BSR as a whole. There are now separate dashboards to monitor all HTTP requests and Registry requests. See [Observability](../observability/) for more information.

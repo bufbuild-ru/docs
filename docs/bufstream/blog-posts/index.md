@@ -2,7 +2,7 @@
 
 ---
 
-### [Multi-region, active-active Bufstream at 100 GiB/s](https://buf.build/blog/bufstream-multi-region)
+### [Multi-region, active-active Bufstream at 100 GiB/s](/blog/bufstream-multi-region/index.md)
 
 **March 7, 2025**
 
@@ -10,7 +10,7 @@
 
 ---
 
-### [Bufstream on Spanner: 100 GiB/s with zero operational overhead](https://buf.build/blog/bufstream-on-spanner)
+### [Bufstream on Spanner: 100 GiB/s with zero operational overhead](/blog/bufstream-on-spanner/index.md)
 
 **March 5, 2025**
 
@@ -18,7 +18,7 @@
 
 ---
 
-### [Bufstream is the only cloud-native Kafka implementation validated by Jepsen](https://buf.build/blog/bufstream-jepsen-report)
+### [Bufstream is the only cloud-native Kafka implementation validated by Jepsen](/blog/bufstream-jepsen-report/index.md)
 
 **November 12, 2024**
 
@@ -26,7 +26,7 @@
 
 ---
 
-### [Bufstream: Kafka at 8x lower cost](https://buf.build/blog/bufstream-kafka-lower-cost)
+### [Bufstream: Kafka at 8x lower cost](/blog/bufstream-kafka-lower-cost/index.md)
 
 **July 9, 2024**
 

@@ -22,7 +22,7 @@ Our goal is to create a mirror of the [buf.build](https://buf.build/) website be
 ## Roadmap
 
 - :white_check_mark: [Documentation](/docs/)
-- :hammer_and_wrench: Blog
+- :white_check_mark: [Blog](/blog/)
 - :hammer_and_wrench: Remote plugins for generating code
 - :hammer_and_wrench: Schema registry for hosting your .proto files and generated SDKs
 - :hammer_and_wrench: On-premises installation for self-hosted code generation

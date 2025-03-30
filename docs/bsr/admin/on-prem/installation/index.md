@@ -6,8 +6,8 @@ The BSR is designed to run on Kubernetes, and is distributed as a Helm Chart and
 
 Alongside this documentation you should have received two files:
 
-1.  A _keyfile_ to pull the BSR Helm Chart and accompanying Docker images from an OCI registry. This keyfile should contain a base64 encoded string.
-2.  A _license_ to operate the BSR. The license file should contain `buflicense-` followed by a base64 encoded string.
+1. A _keyfile_ to pull the BSR Helm Chart and accompanying Docker images from an OCI registry. This keyfile should contain a base64 encoded string.
+2. A _license_ to operate the BSR. The license file should contain `buflicense-` followed by a base64 encoded string.
 
 You will need both to proceed.
 
@@ -25,7 +25,7 @@ $ cat keyfile | helm registry login -u _json_key_base64 --password-stdin \
 Create a Kubernetes namespace in the k8s cluster for the `bsr` Helm Chart to use:
 
 ```console
-$ kubectl create namespace bsr
+kubectl create namespace bsr
 ```
 
 ## 3\. Create a pull secret
@@ -86,7 +86,7 @@ storage:
 
 Alternatively, you may instead use an access key pair.
 
-1.  Add the `accessKeyId` to the configuration:
+1. Add the `accessKeyId` to the configuration:
 
     ```yaml
     storage:
@@ -100,7 +100,7 @@ Alternatively, you may instead use an access key pair.
         # endpoint: "example.com" # Optional
     ```
 
-2.  Create a k8s secret containing the s3 access secret key:
+2. Create a k8s secret containing the s3 access secret key:
 
     ```console
     $ kubectl create secret --namespace bsr generic bufd-storage \
@@ -148,7 +148,7 @@ The service accounts to be bound to the federated identity credentials are named
 
 Alternatively, you may instead use the storage account key.
 
-1.  Set the required helm values:
+1. Set the required helm values:
 
     ```yaml
     storage:
@@ -159,7 +159,7 @@ Alternatively, you may instead use the storage account key.
         useAccountKey: true
     ```
 
-2.  Create a k8s secret containing an Azure storage account key:
+2. Create a k8s secret containing an Azure storage account key:
 
     ```console
     $ kubectl create secret --namespace bsr generic bufd-storage \
@@ -330,7 +330,7 @@ auth:
     # Optionally, configure the attribute containing groups membership information,
     # to enable support for automated organization membership provisioning.
     # Note that if configured, a user will not be permitted to log in to the BSR if the attribute is missing from the SAML assertion.
-    # https://buf.build/docs/bsr/private/user-lifecycle#autoprovisioning
+    # https://bufbuild.ru/docs/bsr/admin/instance/user-lifecycle/#autoprovisioning
     groupsAttributeName: ""
   # Optional
   # A list of emails that will be granted BSR admin permissions on login

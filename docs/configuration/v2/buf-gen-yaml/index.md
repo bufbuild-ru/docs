@@ -25,12 +25,12 @@ version: v2
 # 'clean', when set to true, deletes the directories, zip files, and/or jar files specified in the `out` field for
 # all plugins before running code generation.
 clean: true
-# 'managed' contains the configuration for managed mode: https://buf.build/docs/generate/managed-mode
+# 'managed' contains the configuration for managed mode: https://bufbuild.ru/docs/generate/managed-mode
 # It has three top-level keys: 'enabled', 'disable', and 'override'.
 #
 # When managed mode is enabled, it uses default values for certain file and field options during code
 # generation. Options, accepted values, and defaults are documented here:
-# https://buf.build/docs/generate/managed-mode#default-behavior
+# https://bufbuild.ru/docs/generate/managed-mode#default-behavior
 # The 'disable' key configures modules, paths, fields, and/or options that are excluded from managed
 # mode's behavior. The 'override' key configures field and file option values that override the
 # default values managed mode uses during code generation.
@@ -281,7 +281,7 @@ For field option `override` rules, there are 5 possible keys:
 
 **Required.** One of:
 
-- `remote`: Indicates a remote plugin hosted on either the public BSR at https://buf.build or a private BSR.
+- `remote`: Indicates a remote plugin hosted on either the public BSR at <https://buf.build> or a private BSR.
   - For all public BSR plugins, this must take the form: `buf.build/<owner-org>/<plugin-name>:<plugin-version>`
   - For custom plugins, this takes the form: `<bsr-server>/<owner-org>/<plugin-name>:<plugin-version>`
   - `<plugin-version>` is optional. If it isn't present, the latest version is used. If it's specified, the `revision` field can be specified to pin an exact version.
@@ -352,7 +352,7 @@ plugins:
 - `all`: This makes a single plugin invocation with all input files, which is roughly equivalent to this:
 
   ```console
-  $ protoc -I . $(find . -name '\*.proto')
+  protoc -I . $(find . -name '\*.proto')
   ```
 
   This option is needed for certain plugins that expect all files to be given at once. The BSR also sets the value to `all` for remote plugin generation to improve performance.

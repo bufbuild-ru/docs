@@ -33,6 +33,10 @@ export default defineConfig({
         text: 'Docs',
         link: '/docs/',
       },
+      {
+        text: 'Blog',
+        link: '/blog/',
+      },
     ],
 
     sidebar: [

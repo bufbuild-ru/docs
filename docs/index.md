@@ -16,7 +16,7 @@ Your one-stop-shop for local Protobuf development.</div>
 <div onclick="window.location.href = '/docs/best-practices/style-guide'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><h5>Protobuf Style Guide</h5>
 Recommendations on rules to follow when writing Protobuf APIs.</div>
 
-<div onclick="window.open('https://buf.build/blog')" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><h5>Blog</h5>
+<div onclick="window.location.href = '/blog'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><h5>Blog</h5>
 Stay up to date with Buf product launches.</div>
 
 <div onclick="window.open('https://buf.build/contact-us')" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><h5>Contact Us</h5>

@@ -45,6 +45,8 @@ jobs:
         run: cp buf-docs.svg .vitepress/dist
       - name: Copy robots.txt
         run: cp robots.txt .vitepress/dist
+      - name: Copy favicon.png
+        run: cp favicon.png .vitepress/dist
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

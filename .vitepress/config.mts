@@ -1321,5 +1321,6 @@ export default defineConfig({
             accurateTrackBounce:true
       });`,
     ],
+    ['link', { rel: 'icon', href: '/favicon.png' }],
   ],
 });

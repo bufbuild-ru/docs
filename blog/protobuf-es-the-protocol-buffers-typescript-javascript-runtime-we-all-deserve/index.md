@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Protobuf-ES: The Protocol Buffers TypeScript/JavaScript runtime we all deserve"
+  tagline: "October 28, 2022"
 ---
 
 Today we're excited to announce the release of [Protobuf-ES](https://github.com/bufbuild/protobuf-es), an implementation of Protocol Buffers for TypeScript and JavaScript with full support for the [ECMAScript standard](https://262.ecma-international.org/13.0/).

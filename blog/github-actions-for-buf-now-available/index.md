@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "GitHub Actions for Buf now available"
+  tagline: "April 20, 2021"
 ---
 
 _Note. This post was originally published in April 2021 and has been updated for accuracy based on recent improvements._

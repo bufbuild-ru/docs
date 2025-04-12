@@ -1,124 +1,230 @@
 # Metrics
 
-## Bufstream metrics
-
 Bufstream exposes metrics to monitor Kafka producers, consumers, topics, and the status of the Bufstream broker. It reports all metrics with a `cluster.name` attribute set by the Helm chart [cluster](../../reference/configuration/helm-values/#helm.values.cluster) attribute or the [cluster](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.BufstreamConfig.cluster) setting in the `bufstream.yaml` config file. We recommend setting this name to a unique value for each cluster—for example, `staging` for a pre-production cluster and `prod` for a production cluster.
 
-## Available Metrics
+## Available metrics
 
-| Name                               | Type                                                  | Attributes                  | Description                                                    |
-| ---------------------------------- | ----------------------------------------------------- | --------------------------- | -------------------------------------------------------------- |
-| bufstream.intake.delete.latency    | Gauge                                                 | cluster.name                | The latency between an intake entry being written and deleted. |
-| bufstream.kafka.active_connections | Gauge                                                 | authentication.principal_id |
-| cluster.name                       | Active number of connections to the Bufstream broker. |
-| bufstream.kafka.active_requests    | Gauge                                                 | cluster.name                |
+#### bufstream.intake.delete.latency
 
-kafka.api.key  
-kafka.api.version | Active requests by API key and version. |
-| bufstream.kafka.consumer.group.count | Gauge | cluster.name  
-kafka.consumer.group.state | Number of consumer groups by state. |
-| bufstream.kafka.consumer.group.generation | Gauge | cluster.name  
-kafka.consumer.group.id | The generation number of a consumer group. Not reported if consumer group aggregation is enabled. |
-| bufstream.kafka.consumer.group.joins | Counter | cluster.name  
-kafka.consumer.group.id | The number of joins for a consumer group. |
-| bufstream.kafka.consumer.group.lag | Gauge | cluster.name  
-kafka.consumer.group.id  
-kafka.topic.name  
-kafka.topic.partition | The lag between a group member's committed offset and the partition's high watermark. |
-| bufstream.kafka.consumer.group.member.count | Gauge | cluster.name  
-kafka.consumer.group.id | The number of consumers in a group. Not reported if consumer group aggregation is enabled. |
-| bufstream.kafka.consumer.group.offset | Gauge | cluster.name  
-kafka.consumer.group.id  
-kafka.topic.name  
-kafka.topic.partition | The latest offset committed for a consumer group. Not reported if consumer group, topic, or partition aggregation is enabled. |
-| bufstream.kafka.consumer.group.offset.lag | Gauge | cluster.name  
-kafka.topic.name  
-kafka.topic.partition | The lag between a group member committing an offset in a transaction and the offset being applied. |
-| kafka.consumer.group.offset.commit.latency | Gauge | cluster.name  
-kafka.topic.name  
-kafka.topic.partition | The latency between committing and processing the latest offset update in seconds. |
-| bufstream.kafka.fetch.bytes | Counter | cluster.name  
-fetch.source  
-kafka.topic.name  
-kafka.topic.partition | Amount of data fetched by topic and partition. |
-| bufstream.kafka.fetch.record.count | Counter | cluster.name  
-fetch.source  
-kafka.topic.name  
-kafka.topic.partition | The number of records fetched by topic and partition. |
-| bufstream.kafka.fetch.record.data_enforcement.errors | Counter | cluster.name  
-data_enforcement.action  
-data_enforcement.error_type  
-kafka.topic.name  
-kafka.topic.partition | Number of errors fetching from a topic with [data enforcement](../../data-governance/schema-enforcement/) enabled. |
-| bufstream.kafka.fetch.requests | Counter | cluster.name  
-kafka.error_code  
-kafka.topic.name | The number of fetch requests for a given topic. For successful fetches, `kafka.error_code` will be `none`. |
-| bufstream.kafka.mtls.authentication.count | Counter | authentication.principal_id  
-cluster.name | The number of mTLS authentications. |
-| bufstream.kafka.produce.bytes | Counter | cluster.name  
-kafka.topic.name  
-kafka.topic.partition | The number of bytes produced by topic and partition. |
-| bufstream.kafka.produce.delay.duration | Histogram | cluster.name  
-kafka.topic.name | The delay between record creation time and log append time in seconds. |
-| bufstream.kafka.produce.record.count | Counter | cluster.name  
-kafka.topic.name  
-kafka.topic.partition | The number of records produced by topic and partition. |
-| bufstream.kafka.produce.record.data_enforcement.errors | Counter | cluster.name  
-data_enforcement.action  
-data_enforcement.error_type  
-kafka.topic.name  
-kafka.topic.partition | Number of errors producing to a topic with [data enforcement](../../data-governance/schema-enforcement/) enabled. |
-| bufstream.kafka.produce.requests | Counter | cluster.name  
-kafka.error_code  
-kafka.topic.name | The number of produce requests by topic name and error code. For successful produces, `kafka.error_code` will be `none`. |
-| bufstream.kafka.produce.uncompressed_bytes | Counter | cluster.name  
-kafka.topic.name | The number of uncompressed bytes produced (by topic). |
-| bufstream.kafka.request.bytes | Histogram | authentication.principal_id  
-cluster.name  
-kafka.api.key  
-kafka.api.version | The number of bytes in a Kafka request. |
-| bufstream.kafka.request.count | Counter | authentication.principal_id  
-cluster.name  
-kafka.api.key  
-kafka.api.version  
-kafka.error_code  
-server.error_kind  
-kafka.consumer.group.id (only Join/Sync/LeaveGroup and Heartbeat) | Number of processed Kafka requests. Includes the error code and server error kind for troubleshooting failed requests. |
-| bufstream.kafka.request.latency | Histogram | cluster.name  
-kafka.api.key  
-kafka.api.version | The latency of processed requests in seconds. |
-| bufstream.kafka.response.bytes | Histogram | authentication.principal_id  
-cluster.name  
-kafka.api.key  
-kafka.api.version | The number of bytes in each Kafka response. |
-| bufstream.kafka.sasl.authentication.count | Counter | authentication.principal_id  
-cluster.name  
-sasl.mechanism  
-sasl.outcome | The number of SASL authentications. |
-| bufstream.kafka.topic.count | Gauge | cluster.name | The number of topics in the cluster. |
-| bufstream.kafka.topic.partition.count | Gauge | cluster.name  
-kafka.topic.name | The number of partitions in a topic. |
-| bufstream.kafka.topic.partition.offset.high_water_mark | Gauge | cluster.name  
-kafka.topic.name  
-kafka.topic.partition | A lower bound on the high water mark of a partition. Not reported if topic or partition aggregation is enabled. |
-| bufstream.kafka.topic.partition.offset.last_stable_offset | Gauge | cluster.name  
-kafka.topic.name  
-kafka.topic.partition | A lower bound on the last stable offset of a partition. Not reported if topic or partition aggregation is enabled. |
-| bufstream.kafka.topic.partition.offset.low_water_mark | Gauge | cluster.name  
-kafka.topic.name  
-kafka.topic.partition | A lower bound on the low water mark of a partition. Not reported if topic or partition aggregation is enabled. |
-| bufstream.kafka.topic.partition.retained_bytes | Gauge | cluster.name  
-kafka.topic.name  
-kafka.topic.partition | A lower bound on the size of records in a partition. |
-| bufstream.kafka.topic.partition.retained_records | Gauge | cluster.name  
-kafka.topic.name  
-kafka.topic.partition | An estimate of the number of records retained in a partition. |
-| bufstream.status | Gauge | cluster.name  
-status.probe | The result (0 = healthy, 1 = warning, 2 = error) of status probes on each Bufstream broker. |
-| bufstream.storage.bytes | Gauge | cluster.name  
-storage.type | The number of bytes stored in the Bufstream storage layers. |
-| bufstream.storage.keys | Gauge | cluster.name  
-storage.type | The number of keys stored in the Bufstream storage layers. |
+| Type  | Attributes   | Description                                                    |
+| ----- | ------------ | -------------------------------------------------------------- |
+| Gauge | cluster.name | The latency between an intake entry being written and deleted. |
+
+#### bufstream.kafka.active_connections
+
+| Type  | Attributes                                   | Description                                           |
+| ----- | -------------------------------------------- | ----------------------------------------------------- |
+| Gauge | authentication.principal_id <br>cluster.name | Active number of connections to the Bufstream broker. |
+
+#### bufstream.kafka.active_requests
+
+| Type  | Attributes                                           | Description                             |
+| ----- | ---------------------------------------------------- | --------------------------------------- |
+| Gauge | cluster.name <br>kafka.api.key <br>kafka.api.version | Active requests by API key and version. |
+
+#### bufstream.kafka.consumer.group.count
+
+| Type  | Attributes                                  | Description                         |
+| ----- | ------------------------------------------- | ----------------------------------- |
+| Gauge | cluster.name <br>kafka.consumer.group.state | Number of consumer groups by state. |
+
+#### bufstream.kafka.consumer.group.generation
+
+| Type  | Attributes                               | Description                                                                                       |
+| ----- | ---------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Gauge | cluster.name <br>kafka.consumer.group.id | The generation number of a consumer group. Not reported if consumer group aggregation is enabled. |
+
+#### bufstream.kafka.consumer.group.joins
+
+| Type    | Attributes                               | Description                               |
+| ------- | ---------------------------------------- | ----------------------------------------- |
+| Counter | cluster.name <br>kafka.consumer.group.id | The number of joins for a consumer group. |
+
+#### bufstream.kafka.consumer.group.lag
+
+| Type  | Attributes                                                                              | Description                                                                           |
+| ----- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Gauge | cluster.name <br>kafka.consumer.group.id <br>kafka.topic.name <br>kafka.topic.partition | The lag between a group member's committed offset and the partition's high watermark. |
+
+#### bufstream.kafka.consumer.group.member.count
+
+| Type  | Attributes                               | Description                                                                                |
+| ----- | ---------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Gauge | cluster.name <br>kafka.consumer.group.id | The number of consumers in a group. Not reported if consumer group aggregation is enabled. |
+
+#### bufstream.kafka.consumer.group.offset
+
+| Type  | Attributes                                                                              | Description                                                                                                                   |
+| ----- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Gauge | cluster.name <br>kafka.consumer.group.id <br>kafka.topic.name <br>kafka.topic.partition | The latest offset committed for a consumer group. Not reported if consumer group, topic, or partition aggregation is enabled. |
+
+#### bufstream.kafka.consumer.group.offset.lag
+
+| Type  | Attributes                                                  | Description                                                                                        |
+| ----- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Gauge | cluster.name <br>kafka.topic.name <br>kafka.topic.partition | The lag between a group member committing an offset in a transaction and the offset being applied. |
+
+| kafka.consumer.group.offset.commit.latency
+
+| Type  | Attributes                                                  | Description                                                                        |
+| ----- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| Gauge | cluster.name <br>kafka.topic.name <br>kafka.topic.partition | The latency between committing and processing the latest offset update in seconds. |
+
+#### bufstream.kafka.fetch.bytes
+
+| Type    | Attributes                                                                   | Description                                    |
+| ------- | ---------------------------------------------------------------------------- | ---------------------------------------------- |
+| Counter | cluster.name <br>fetch.source <br>kafka.topic.name <br>kafka.topic.partition | Amount of data fetched by topic and partition. |
+
+#### bufstream.kafka.fetch.record.count
+
+| Type    | Attributes                                                                   | Description                                           |
+| ------- | ---------------------------------------------------------------------------- | ----------------------------------------------------- |
+| Counter | cluster.name <br>fetch.source <br>kafka.topic.name <br>kafka.topic.partition | The number of records fetched by topic and partition. |
+
+#### bufstream.kafka.fetch.record.data_enforcement.errors
+
+| Type    | Attributes                                                                                                              | Description                                                                                                        |
+| ------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Counter | cluster.name <br>data_enforcement.action <br>data_enforcement.error_type <br>kafka.topic.name <br>kafka.topic.partition | Number of errors fetching from a topic with [data enforcement](../../data-governance/schema-enforcement/) enabled. |
+
+#### bufstream.kafka.fetch.requests
+
+| Type    | Attributes                                             | Description                                                                                                |
+| ------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| Counter | cluster.name <br>kafka.error_code <br>kafka.topic.name | The number of fetch requests for a given topic. For successful fetches, `kafka.error_code` will be `none`. |
+
+#### bufstream.kafka.mtls.authentication.count
+
+| Type    | Attributes                                   | Description                         |
+| ------- | -------------------------------------------- | ----------------------------------- |
+| Counter | authentication.principal_id <br>cluster.name | The number of mTLS authentications. |
+
+#### bufstream.kafka.produce.bytes
+
+| Type    | Attributes                                                  | Description                                          |
+| ------- | ----------------------------------------------------------- | ---------------------------------------------------- |
+| Counter | cluster.name <br>kafka.topic.name <br>kafka.topic.partition | The number of bytes produced by topic and partition. |
+
+#### bufstream.kafka.produce.delay.duration
+
+| Type      | Attributes                        | Description                                                            |
+| --------- | --------------------------------- | ---------------------------------------------------------------------- |
+| Histogram | cluster.name <br>kafka.topic.name | The delay between record creation time and log append time in seconds. |
+
+#### bufstream.kafka.produce.record.count
+
+| Type    | Attributes                                                  | Description                                            |
+| ------- | ----------------------------------------------------------- | ------------------------------------------------------ |
+| Counter | cluster.name <br>kafka.topic.name <br>kafka.topic.partition | The number of records produced by topic and partition. |
+
+#### bufstream.kafka.produce.record.data_enforcement.errors
+
+| Type    | Attributes                                                                                                              | Description                                                                                                       |
+| ------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Counter | cluster.name <br>data_enforcement.action <br>data_enforcement.error_type <br>kafka.topic.name <br>kafka.topic.partition | Number of errors producing to a topic with [data enforcement](../../data-governance/schema-enforcement/) enabled. |
+
+#### bufstream.kafka.produce.requests
+
+| Type    | Attributes                                             | Description                                                                                                              |
+| ------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| Counter | cluster.name <br>kafka.error_code <br>kafka.topic.name | The number of produce requests by topic name and error code. For successful produces, `kafka.error_code` will be `none`. |
+
+#### bufstream.kafka.produce.uncompressed_bytes
+
+| Type    | Attributes                        | Description                                           |
+| ------- | --------------------------------- | ----------------------------------------------------- |
+| Counter | cluster.name <br>kafka.topic.name | The number of uncompressed bytes produced (by topic). |
+
+#### bufstream.kafka.request.bytes
+
+| Type      | Attributes                                                                           | Description                             |
+| --------- | ------------------------------------------------------------------------------------ | --------------------------------------- |
+| Histogram | authentication.principal_id <br>cluster.name <br>kafka.api.key <br>kafka.api.version | The number of bytes in a Kafka request. |
+
+#### bufstream.kafka.request.count
+
+| Type    | Attributes                                                                                                                                                                                            | Description                                                                                                            |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Counter | authentication.principal_id <br>cluster.name <br>kafka.api.key <br>kafka.api.version <br>kafka.error_code <br>server.error_kind <br>kafka.consumer.group.id (only Join/Sync/LeaveGroup and Heartbeat) | Number of processed Kafka requests. Includes the error code and server error kind for troubleshooting failed requests. |
+
+#### bufstream.kafka.request.latency
+
+| Type      | Attributes                                           | Description                                   |
+| --------- | ---------------------------------------------------- | --------------------------------------------- |
+| Histogram | cluster.name <br>kafka.api.key <br>kafka.api.version | The latency of processed requests in seconds. |
+
+#### bufstream.kafka.response.bytes
+
+| Type      | Attributes                                                                           | Description                                 |
+| --------- | ------------------------------------------------------------------------------------ | ------------------------------------------- |
+| Histogram | authentication.principal_id <br>cluster.name <br>kafka.api.key <br>kafka.api.version | The number of bytes in each Kafka response. |
+
+#### bufstream.kafka.sasl.authentication.count
+
+| Type    | Attributes                                                                       | Description                         |
+| ------- | -------------------------------------------------------------------------------- | ----------------------------------- |
+| Counter | authentication.principal_id <br>cluster.name <br>sasl.mechanism <br>sasl.outcome | The number of SASL authentications. |
+
+#### bufstream.kafka.topic.count
+
+| Type  | Attributes   | Description                          |
+| ----- | ------------ | ------------------------------------ |
+| Gauge | cluster.name | The number of topics in the cluster. |
+
+#### bufstream.kafka.topic.partition.count
+
+| Type  | Attributes                        | Description                          |
+| ----- | --------------------------------- | ------------------------------------ |
+| Gauge | cluster.name <br>kafka.topic.name | The number of partitions in a topic. |
+
+#### bufstream.kafka.topic.partition.offset.high_water_mark
+
+| Type  | Attributes                                                  | Description                                                                                                     |
+| ----- | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Gauge | cluster.name <br>kafka.topic.name <br>kafka.topic.partition | A lower bound on the high water mark of a partition. Not reported if topic or partition aggregation is enabled. |
+
+#### bufstream.kafka.topic.partition.offset.last_stable_offset
+
+| Type  | Attributes                                                  | Description                                                                                                        |
+| ----- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Gauge | cluster.name <br>kafka.topic.name <br>kafka.topic.partition | A lower bound on the last stable offset of a partition. Not reported if topic or partition aggregation is enabled. |
+
+#### bufstream.kafka.topic.partition.offset.low_water_mark
+
+| Type  | Attributes                                                  | Description                                                                                                    |
+| ----- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Gauge | cluster.name <br>kafka.topic.name <br>kafka.topic.partition | A lower bound on the low water mark of a partition. Not reported if topic or partition aggregation is enabled. |
+
+#### bufstream.kafka.topic.partition.retained_bytes
+
+| Type  | Attributes                                                  | Description                                          |
+| ----- | ----------------------------------------------------------- | ---------------------------------------------------- |
+| Gauge | cluster.name <br>kafka.topic.name <br>kafka.topic.partition | A lower bound on the size of records in a partition. |
+
+#### bufstream.kafka.topic.partition.retained_records
+
+| Type  | Attributes                                                  | Description                                                   |
+| ----- | ----------------------------------------------------------- | ------------------------------------------------------------- |
+| Gauge | cluster.name <br>kafka.topic.name <br>kafka.topic.partition | An estimate of the number of records retained in a partition. |
+
+#### bufstream.status
+
+| Type  | Attributes                    | Description                                                                                 |
+| ----- | ----------------------------- | ------------------------------------------------------------------------------------------- |
+| Gauge | cluster.name <br>status.probe | The result (0 = healthy, 1 = warning, 2 = error) of status probes on each Bufstream broker. |
+
+#### bufstream.storage.bytes
+
+| Type  | Attributes                    | Description                                                 |
+| ----- | ----------------------------- | ----------------------------------------------------------- |
+| Gauge | cluster.name <br>storage.type | The number of bytes stored in the Bufstream storage layers. |
+
+#### bufstream.storage.keys
+
+| Type  | Attributes                    | Description                                                |
+| ----- | ----------------------------- | ---------------------------------------------------------- |
+| Gauge | cluster.name <br>storage.type | The number of keys stored in the Bufstream storage layers. |
 
 ## Attributes
 

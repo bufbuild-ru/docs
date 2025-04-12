@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "The Buf Schema Registry is out of beta! Announcing new Buf Schema Registry plans and pricing updates"
+  tagline: "April 12, 2023"
 ---
 
 We are excited to announce that the Buf Schema Registry (BSR) is officially out of beta!

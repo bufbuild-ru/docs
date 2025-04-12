@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "BSR Generated Documentation now supports Protobuf options"
+  tagline: "December 21, 2022"
 ---
 
 We are excited to share an update to the Generated Documentation feature within the BSR, which now includes support for most built-in Protobuf options. 🎉

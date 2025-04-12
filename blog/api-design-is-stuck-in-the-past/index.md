@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "API design is stuck in the past"
+  tagline: "November 12, 2020"
 ---
 
 The industry has embraced statically typed languages, but API design remains twenty years in the past. Schema driven development presents an opportunity to pull API design into the present.

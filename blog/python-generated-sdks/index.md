@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Generated Python SDKs are now available in the BSR"
+  tagline: "November 29, 2023"
 ---
 
 **Today we’re announcing the release of Python support for** [**generated SDKs**](/docs/bsr/generated-sdks/python/index.md) **in the Buf Schema Registry (BSR)!** Python engineers no longer need to manage a Protobuf toolchain or generate code locally—they can now download pre-packaged generated code for their Protobuf schemas from the BSR using package management tools like pip, Poetry, Conda, and others that support [PEP 503 - Simple Repository API](https://peps.python.org/pep-0503/). These packages are automatically made available when schema changes are pushed to the BSR.

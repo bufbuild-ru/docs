@@ -3,9 +3,10 @@ layout: home
 
 hero:
   name: "Multi-region, active-active Bufstream at 100 GiB/s"
+  tagline: "March 7, 2025"
 ---
 
-**Bufstream — Buf’s drop-in replacement for Apache Kafka® — now supports business-critical workloads with multi-region, active-active clusters on GCP. Unlike other solutions, multi-region Bufstream clusters scale without limit, easily tolerate full region outages, add no operational complexity, and have clear SLAs. And at just $2.3M/month for 100 GiB/s of writes and 300 GiB/s of reads, multi-region Bufstream is 3x cheaper and infinitely more operable than a self-hosted Apache Kafka stretch cluster.**
+Bufstream — Buf’s drop-in replacement for Apache Kafka® — now supports business-critical workloads with multi-region, active-active clusters on GCP. Unlike other solutions, multi-region Bufstream clusters scale without limit, easily tolerate full region outages, add no operational complexity, and have clear SLAs. And at just $2.3M/month for 100 GiB/s of writes and 300 GiB/s of reads, multi-region Bufstream is 3x cheaper and infinitely more operable than a self-hosted Apache Kafka stretch cluster.
 
 ## Key takeaways
 

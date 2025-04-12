@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Connect RPC for JavaScript: Connect-ES 2.0 is now generally available"
+  tagline: "November 20, 2024"
 ---
 
 _Today, we’re announcing the_ [_2.0 release of the Connect-ES project_](https://github.com/connectrpc/connect-es/releases/tag/v2.0.0)_, the TypeScript implementation of Connect for Web browsers and Node.js. This release introduces improved support for major frameworks and simplified code generation._ [_Connect-ES 2.0_](https://github.com/connectrpc/connect-es) _now uses_ [_Protobuf-ES 2.0_](https://github.com/bufbuild/protobuf-es) _APIs to leverage reflection, extension registries, and Protobuf custom options. The 2.0 release is a major version bump and comes with breaking changes. Read on to learn what’s changed and how to migrate to the 2.0 release._
@@ -14,7 +15,7 @@ _Today, we’re announcing the_ [_2.0 release of the Connect-ES project_](https:
 - [Connect interceptors](https://connectrpc.com/docs/go/interceptors/) can now use custom options, reflection, field presence, and other APIs to provide security, data quality, data governance, and other middleware within Connect-ES clients and servers.
 - A unified code generation plugin, [protoc-gen-es](https://www.npmjs.com/package/@bufbuild/protoc-gen-es), simplifies configuration and minimizes the potential for compatibility errors.
 
-# Why Connect-ES 2.0 is a major version bump
+## Why Connect-ES 2.0 is a major version bump
 
 We were forced to [introduce breaking changes within the Protobuf-ES project](/blog/protobuf-es-v2/index.md) to ensure compatibility with [Protobuf Editions](/blog/protobuf-editions-are-here/index.md), so naturally this resulted in a reverberating breaking change for Connect-ES users. However, this enabled us to provide better support popular JavaScript frameworks like SvelteKit, Redux, and React Server Components.
 

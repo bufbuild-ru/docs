@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "The Protobuf Language Specification"
+  tagline: "September 12, 2022"
 ---
 
 At Buf, our goal is to improve the way software systems integrate by making schema-driven development a ["pit of success"](https://ricomariani.medium.com/pit-of-success-for-organizations-a046a0eae7b2). And we've put our money on Protobuf as the winning way to describe those schemas. We are expanding on the work of the Protobuf team by providing the community a [complete language spec](https://protobuf.com/docs/language-spec).

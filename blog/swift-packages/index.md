@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Swift generated SDKs are now available for Xcode and SPM"
+  tagline: "July 12, 2023"
 ---
 
 **Today we’re announcing the release of Swift support for** [**generated SDKs**](/docs/bsr/generated-sdks/swift/index.md) **in the Buf Schema Registry (BSR)!** Swift engineers no longer need to manage a Protobuf toolchain or generate code locally—they can now download pre-packaged generated code for their Protobuf schemas from the BSR using Swift Package Manager and Xcode. These packages are automatically made available when schema changes are pushed to the BSR.

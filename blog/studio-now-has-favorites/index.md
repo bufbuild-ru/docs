@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Buf Studio Now Has Favorites!"
+  tagline: "December 16, 2022"
 ---
 
 ## What is Buf Studio?

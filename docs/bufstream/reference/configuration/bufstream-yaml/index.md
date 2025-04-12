@@ -72,6 +72,10 @@ The `bufstream.yaml` file defines configuration for a Bufstream broker. The Bufs
 
 \_[`DataEnforcementConfig`](#buf.bufstream.config.v1alpha1.DataEnforcementConfig)\_Configuration for data enforcement via schemas of records flowing in and out of the broker.
 
+### `iceberg_integration`
+
+\_[`IcebergIntegrationConfig`](#buf.bufstream.config.v1alpha1.IcebergIntegrationConfig)\_Configuration for Iceberg integration, for exposing Kafka topics as tables in Apache Iceberg v2 format.
+
 ### `available_memory_bytes`
 
 \_uint64_The maximum amount of memory bufstream should consider usable.By default this is expected to be 4GiB per vCPU, as determined at startup. The configured value is not a hard limit, and is used to influence the default sizes of various caches. Explicitly setting a cache size elsewhere overrides any settings derived from this value.
@@ -571,6 +575,14 @@ Configuration of data enforcement policies applied to records.
 
 \_list<[`DataEnforcementPolicy`](#buf.bufstream.config.v1alpha1.DataEnforcementPolicy)\>\_Policies to attempt to apply to fetch responses. The first policy that matches the topic will be used. If none match, no data enforcement will occur.
 
+### `IcebergIntegrationConfig`
+
+Configuration of Iceberg integration settings, for archiving Kafka topic data to Iceberg tables.
+
+#### `catalogs`
+
+\_list<[`IcebergCatalog`](#buf.bufstream.config.v1alpha1.IcebergCatalog)\>\_The catalogs that host Iceberg table metadata.
+
 ### `HostPort`
 
 A network host and optional port pair.
@@ -771,6 +783,26 @@ A set of policies to apply data enforcement rules on records flowing into or out
 
 \_[`Element`](#buf.bufstream.config.v1alpha1.DataEnforcementPolicy.Element)\_The policy to apply to a record's value. If unset, enforcement will not occur.
 
+### `IcebergCatalog`
+
+A single catalog server, used to maintain an Iceberg table by updating its schema and adding and removing data files from the table.
+
+#### `name`
+
+\_string_Name of this catalog, used to disambiguate multiple catalogs used across topics and tables.
+
+#### `rest`
+
+\_[`RESTCatalogConfig`](#buf.bufstream.config.v1alpha1.RESTCatalogConfig)\_REST catalog. Valid table names must be in the form "namespace.table". The namespace may contain multiple components such as "ns1.ns2.ns3.table". The underlying catalog implementation that provides the REST API may impose further constraints on table and namespace naming.Also see https://github.com/apache/iceberg/blob/main/open-api/rest-catalog-open-api.yaml
+
+#### `biglake_metastore`
+
+\_[`BigLakeMetastoreConfig`](#buf.bufstream.config.v1alpha1.BigLakeMetastoreConfig)\_Google Cloud BigLake Metastore. Valid table names must be in the form "database.table".
+
+#### `bigquery_metastore`
+
+\_[`BigQueryMetastoreConfig`](#buf.bufstream.config.v1alpha1.BigQueryMetastoreConfig)\_Google Cloud BigQuery Metastore. Valid table names must be in the form "dataset.table". This catalog is still in Preview/Beta but is expected to eventually replace usages of Google Cloud BigLake Metastore.
+
 ### `Certificate`
 
 A certificate chain and private key pair.
@@ -903,6 +935,74 @@ Rules applied to either the key or value of a record.
 
 \_[`RedactPolicy`](#buf.bufstream.config.v1alpha1.RedactPolicy)\_If set, parsed messages will have the specified fields redacted. For produce, this will result in data loss.
 
+### `RESTCatalogConfig`
+
+Configuration for the REST Iceberg catalog API.
+
+#### `url`
+
+\_string_Root URL (including protocol and any required path prefix) of the catalog server.
+
+#### `uri_prefix`
+
+\_string_Optional URI prefix. This is separate from any URI prefix present in `url`. This prefix appears after the "/v1/" API path component but before the remainder of the URI path.
+
+#### `tls`
+
+\_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig)\_TLS configuration. If unset and the url field specifies https, a default configuration is used.
+
+#### `basic_auth`
+
+\_[`BasicAuth`](#buf.bufstream.config.v1alpha1.BasicAuth)\_Authenticate against the Iceberg catalog using basic auth credentials.
+
+#### `bearer_token`
+
+\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\_Authenticate against the Iceberg catalog with the given static bearer token (which could be a long-lived OAuth2 token).
+
+#### `oauth2`
+
+\_[`OAuth2Config`](#buf.bufstream.config.v1alpha1.OAuth2Config)\_Authenticate against the Iceberg catalog with the given OAuth2 configuration.
+
+#### `sigv4`
+
+\_[`AWSSigV4Config`](#buf.bufstream.config.v1alpha1.AWSSigV4Config)\_Authenticate against the Iceberg catalog using AWS Signature V4 request signing.
+
+#### `jwt`
+
+\_[`JWTConfig`](#buf.bufstream.config.v1alpha1.JWTConfig)\_Authenticate against the Iceberg catalog using JWTs.
+
+### `BigLakeMetastoreConfig`
+
+Configuration for using BigLake Metastore as an Iceberg catalog.
+
+#### `project`
+
+\_string_The GCP project of the BigLake Metastore. If empty, this is assumed to be the current project in which the bufstream workload is running.
+
+#### `location`
+
+\_string (required)\_The location of the BigLake Metastore. (Note that BigQuery can only access Metastore instances in the same location.)
+
+#### `catalog`
+
+\_string (required)\_The name of an Iceberg catalog in the Metastore.
+
+### `BigQueryMetastoreConfig`
+
+Configuration for using BigQuery Metastore as an Iceberg catalog.
+
+#### `project`
+
+\_string_The GCP project of the BigQuery Metastore. If empty, this is assumed to be the current project in which the bufstream workload is running.
+
+#### `location`
+
+\_string_The location for any BigQuery datasets that are created. Must be present if cloud_resource_connection is present. Otherwise, if absent, datasets cannot be auto-created, so any dataset referenced by an Iceberg table name must already exist.
+
+#### `cloud_resource_connection`
+
+\_string_The name of a BigQuery Cloud Resource connection. This is only the simple name of the connection, not the full name. Since a BigQuery dataset can only use connections in the same project and location, the full connection name (which includes its project and location) is not necessary.If absent, no override connection will be associated with created tables.
+
 ### `LabelValueList`
 
 #### `values`
@@ -982,6 +1082,82 @@ The redaction rules applied to parsed elements during data enforcement.
 #### `shallow`
 
 \_bool_By default, fields will be redacted recursively in the message. If shallow is set to true, only the top level fields will be evaluated.
+
+### `OAuth2Config`
+
+Configuration for a client using OAuth2 to generate access tokens for authenticating with a server.
+
+#### `token_endpoint_url`
+
+\_string_The URL of the token endpoint, used to provision access tokens for use with requests to the catalog. If not specified, this defaults to the catalog's base URL with "v1/oauth/tokens" appended to the URI path, which matches the URI of the endpoint as specified in the Iceberg Catalog's OpenAPI spec.
+
+#### `scope`
+
+\_string_The scope to request when provisioning an access token. If not specified, defaults to "catalog".
+
+#### `client_id`
+
+\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)\_The credentials used to authenticate to the token endpoint.
+
+#### `client_secret`
+
+\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)\_The credentials used to authenticate to the token endpoint.
+
+#### `tls`
+
+\_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig)\_Optional alternate TLS configuration for the token endpoint. If not specified, accessing the token endpoint will use the same TLS configuration as used for accessing other REST catalog endpoints. (See RESTCatalogConfig.tls).
+
+### `AWSSigV4Config`
+
+Configuration for a client to use AWS Signature V4 to authenticate with a server by signing the request contents.
+
+#### `region`
+
+\_string_The AWS region to indicate in the credential scope of the signature.This field defaults to the region of the broker's host.
+
+#### `service`
+
+\_string_The AWS service to indicate in the credential scope of the signature. The default service depends on how this configuration is used. For authenticating with an Iceberg REST catalog, it defaults to "execute-api".
+
+#### `access_key_id`
+
+\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\_Specifies the AWS access key ID for authentication to the bucket.By default, authentication is performed using the metadata service of the broker's host. If set, `secret_access_key` must also be provided.
+
+#### `secret_access_key`
+
+\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\_Specifies the AWS secret access key for authentication to the bucket.By default, authentication is performed using the metadata service of the broker's host. If set, `access_key_id` must also be provided.
+
+### `JWTConfig`
+
+Configuration for minting JWTs for authenticating with a server.
+
+#### `alg`
+
+\_[`JWTAlgorithm`](#buf.bufstream.config.v1alpha1.JWTAlgorithm) (required)\_Specifies the algorithm to use when generating a JWT.
+
+#### `key`
+
+\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)\_Specifies the key used to sign JWTs. For HMAC keyed hashes, the value is a sequence of opaque bytes used as a shared secret. For the others (asymmetric digital signature algorithms), the value must be a PEM-encoded private key. The type of the key must match the configured algorithm.
+
+#### `expiry`
+
+\_duration_The duration after which a newly minted JWT will expire. If not specified and use_jti is not set, JWTs will default to a duration of one hour.
+
+#### `use_jti`
+
+\_bool_When set, JWTs will be used exactly once. Furthermore, each JWT will be assigned a unique ID, which servers can record to prevent re-use (and to more strongly prevent replay attacks). Note that this involves creating and signing a new JWT for every request, which will use extra CPU resources and can add latency to each request.
+
+#### `issuer`
+
+\_string (required)\_The issuer claim in the JWT.
+
+#### `subject`
+
+\_string (required)\_The subject claim in the JWT.
+
+#### `audience`
+
+\_string_The optional audience claim in the JWT.
 
 ### `SCRAMCredentials`
 
@@ -1140,7 +1316,13 @@ Local, on-disk storageThis option is for debugging purposes and should only be u
 
 Use metadata storage (e.g., in_memory or etcd).This option should only be used for testing purposes.
 
+#### `AZURE`
+
+Azure Blob Storage
+
 ### `PartitionGranularity`
+
+The granularity of time-based partitioning of Parquet files.
 
 #### `PARTITION_GRANULARITY_UNSPECIFIED`
 
@@ -1281,6 +1463,62 @@ Rejects the record batch containing the error, returning an error to the caller.
 #### `FILTER_RECORD`
 
 Filters out the record from the batch, while preserving the rest of the data. Note that this will result in data loss if used on the producer side. On the consumer side, invalid records will be skipped.
+
+### `JWTAlgorithm`
+
+Supported algorithms for computing a signature or keyed hash when creating a new JWT.
+
+#### `ED25519`
+
+The ED25519 algorithm. The JWT key must be an ED25519 private key.
+
+#### `ECDSA_SHA256`
+
+The ECDSA algorithm combined with SHA256. The JWT key must be an ECDSA private key.
+
+#### `ECDSA_SHA384`
+
+The ECDSA algorithm combined with SHA384. The JWT key must be an ECDSA private key.
+
+#### `ECDSA_SHA512`
+
+The ECDSA algorithm combined with SHA512. The JWT key must be an ECDSA private key.
+
+#### `RSA_SHA256`
+
+The RSA PKCS algorithm combined with SHA256. The JWT key must be an RSA private key.
+
+#### `RSA_SHA384`
+
+The RSA PKCS algorithm combined with SHA384. The JWT key must be an RSA private key.
+
+#### `RSA_SHA512`
+
+The RSA PKCS algorithm combined with SHA512. The JWT key must be an RSA private key.
+
+#### `RSAPSS_SHA256`
+
+The RSA PSS algorithm combined with SHA256. The JWT key must be an RSA private key.
+
+#### `RSAPSS_SHA384`
+
+The RSA PSS algorithm combined with SHA384. The JWT key must be an RSA private key.
+
+#### `RSAPSS_SHA512`
+
+The RSA PSS algorithm combined with SHA512. The JWT key must be an RSA private key.
+
+#### `HMAC_SHA256`
+
+The HMAC+SHA256 keyed hash algorithm. The JWT key is the binary shared secret.
+
+#### `HMAC_SHA384`
+
+The HMAC+SHA384 keyed hash algorithm. The JWT key is the binary shared secret.
+
+#### `HMAC_SHA512`
+
+The HMAC+SHA512 keyed hash algorithm. The JWT key is the binary shared secret.
 
 ### `HashFunction`
 

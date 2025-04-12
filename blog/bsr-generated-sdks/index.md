@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Give clients pre-built native libraries for your APIs with zero effort"
+  tagline: "December 4, 2023"
 ---
 
 Deploying Protobuf APIs across platforms can be challenging since many clients are unfamiliar with `protoc`, its plugins, and the configuration they require. Backend engineers often have to spend valuable time explaining to clients across the company how they should generate their client stubs to invoke the underlying APIs. At the end of the day, both backend teams and their clients end up frustrated.

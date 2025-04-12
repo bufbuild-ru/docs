@@ -1,27 +1,55 @@
 # Release notes
 
+## v0.3.18
+
+**_Release date:_** 2025-04-08 | **_Status:_** latest
+
+#### Bug fixes
+
+- Fix [KIP-724](https://issues.apache.org/jira/browse/KAFKA-12872) implementation to return an error instead of closing the connection when receiving legacy v0 or v1 message formats
+
+#### Features and improvements
+
+- Add bearer token and OAuth (including AWS SigV4 and JWT) support to REST Iceberg catalog integrations
+- Instrument additional trace spans around Produce API flow
+- Include client label attributes on request latency metrics
+- Additional performance improvements
+
+## v0.3.17
+
+**_Release date:_** 2025-04-02
+
+#### Bug fixes
+
+- Match KIP-32 produce timestamp behavior and support `message.timestamp.difference.max.ms` config setting
+
+#### Features and improvements
+
+- Release preview of Microsoft Azure cloud support
+- Additional performance improvements
+
 ## v0.3.16
 
-**_Release Date:_** 2025-03-27 | **_Status:_** latest
+**_Release date:_** 2025-03-27
 
-### Bug Fixes
+#### Bug fixes
 
 - Fix metrics aggregation on partition level
 
-### Features and Improvements
+#### Features and improvements
 
 - Update the Prometheus exporter's behavior to always use underscored metric names
 
 ## v0.3.15
 
-**_Release Date:_** 2025-03-25
+**_Release date:_** 2025-03-25
 
-### Bug Fixes
+#### Bug fixes
 
 - Fix possible but rare infinite loop in archive cleaning
 - Fix configuring the S3 endpoint in Bufstream's Helm chart values.
 
-### Features and Improvements
+#### Features and improvements
 
 - Improve robustness of handling unexpected Protocol Buffer data when writing to Parquet files
 - Allow Iceberg™ tables to self-heal if there are errors during archiving
@@ -30,14 +58,14 @@
 
 ## v0.3.14
 
-**_Release Date:_** 2025-03-18
+**_Release date:_** 2025-03-18
 
-### Bug Fixes
+#### Bug fixes
 
 - Fix `SASL/SCRAM` validation for usernames including `,` or `=`
 - Fix `SASL/SCRAM` admin password normalization to match major clients' behavior
 
-### Features and Improvements
+#### Features and improvements
 
 - Add `kafka.partition` column to Parquet and Iceberg™ table schemas
 - Set identifier fields of Iceberg™ tables as a composite of `kafka.partition` and `kafka.offset` fields
@@ -48,13 +76,13 @@
 
 ## v0.3.13
 
-**_Release Date:_** 2025-03-11
+**_Release date:_** 2025-03-11
 
-### Bug Fixes
+#### Bug fixes
 
 - Enhance validation of records to reject corrupted payloads sent by a producer
 
-### Features and Improvements
+#### Features and improvements
 
 - Significantly decrease read traffic to metadata storage
 - Update Docker image to move `serve` subcommand to the `CMD` stanza
@@ -65,16 +93,16 @@
 
 ## v0.3.12
 
-**_Release Date:_** 2025-03-04
+**_Release date:_** 2025-03-04
 
-### Bug Fixes
+#### Bug fixes
 
 - Fix zstd codec pooling to properly release resources when garbage collected
 - Fix config validation to not fail when the metrics exporter address is unspecified
 - Expanded `SASLHandshake` API minimum version to support librdkafka
 - Cleanup spurious `SASL/SCRAM` logging
 
-### Features and Improvements
+#### Features and improvements
 
 - Add `OAUTH` mechanism to SASL authentication
 - Decrease metadata storage read traffic by ~50%
@@ -87,17 +115,17 @@
 
 ## v0.3.11
 
-**_Release Date:_** 2025-02-28
+**_Release date:_** 2025-02-28
 
-### Bug Fixes
+#### Bug fixes
 
 - Fix mTLS client authentication configuration in Helm chart values
 
 ## v0.3.10
 
-**_Release Date:_** 2025-02-25
+**_Release date:_** 2025-02-25
 
-### Bug Fixes
+#### Bug fixes
 
 - Fix config validation on CreateTopics and AlterConfig APIs
 - Properly error if `storage.endpoint` config value is set for the GCS provider
@@ -105,7 +133,7 @@
 - Fail CSR-based parsing of records that are not Protocol Buffers if the `skip_parse` option is not enabled
 - Avoid querying the CSR API for out-of-range schema IDs, typically due to malformed data
 
-### Features and Improvements
+#### Features and improvements
 
 - Release preview of mTLS and SASL authentication
 - Release preview of Google Cloud Spanner metadata storage
@@ -117,13 +145,13 @@
 
 ## v0.3.9
 
-**_Release Date:_** 2025-02-13
+**_Release date:_** 2025-02-13
 
-### Bug Fixes
+#### Bug fixes
 
 - Fix regression in schema enforcement coercion behavior
 
-### Features and Improvements
+#### Features and improvements
 
 - Release preview of Apache Parquet and Iceberg™ archiving
 - Reduce memory allocations when decoding compressed record batches
@@ -133,19 +161,19 @@
 
 ## v0.3.8
 
-**_Release Date:_** 2025-02-11
+**_Release date:_** 2025-02-11
 
 ::: tip NoteBufstream instances will now be referred to as "brokers" instead of "agents" in release notes, documentation, and logs.
 
 :::
 
-### Bug Fixes
+#### Bug fixes
 
 - Fix several issues that would block graceful shutdown of a broker
 - Fix panic in data enforcement when a fetch or produce policy is unset
 - Return proper `INVALID_REQUEST` error code for Describe/Alter/IncrementalAlterConfig requests targeting unknown resource types
 
-### Features and Improvements
+#### Features and improvements
 
 - Added support for `compression.type` cluster and per-topic configuration to change archival compression mode
 - Optimized (de)compression behavior for produced records to reduce CPU and memory usage
@@ -160,20 +188,20 @@
 
 ## v0.3.7
 
-**_Release Date:_** 2025-01-28
+**_Release date:_** 2025-01-28
 
 ::: tip NoteClusters on v0.1.x must first upgrade to a v0.2.x release before upgrading to this or any later release.
 
 :::
 
-### Bug Fixes
+#### Bug fixes
 
 - Fixed archive timestamp calculation when intake files need to be deleted
 - Fixed rare data race where shelving would compete with incomplete transactions in a sequence
 - Fixed malformed `nonce` log attributes
 - Treat concurrent archiving as success instead of an error
 
-### Features and Improvements
+#### Features and improvements
 
 - Updated archive storage key format
 - Added `kafka.consumer.group.id` attribute to `bufstream.kafka.request.count` metrics for Kafka APIs that operate against consumer groups
@@ -188,14 +216,14 @@
 
 ## v0.3.6
 
-**_Release Date:_** 2025-01-14
+**_Release date:_** 2025-01-14
 
-### Bug Fixes
+#### Bug fixes
 
 - Fix fetching from compacted topics containing offset gaps (introduced by pre-v0.2.0 bugs or from retention-deletions)
 - Rate-limit internal administrative tasks to prevent OOM-ing the broker
 
-### Features and Improvements
+#### Features and improvements
 
 - Introduce `bufstream admin repair topics` command to detect and fix errors
 - Move `bufstream admin clean-topics` to `bufstream admin clean topics`
@@ -208,9 +236,9 @@
 
 ## v0.3.5
 
-**_Release Date:_** 2025-01-10
+**_Release date:_** 2025-01-10
 
-### Bug Fixes
+#### Bug fixes
 
 - Fix Kafka service shutdown handling so it waits for in-flight requests to complete before returning
 - Capture transport-level timeouts and cancellations of in-flight Kafka requests, including a new `server.error_kind` attribute
@@ -218,7 +246,7 @@
 - Only return fatal `ILLEGAL_GENERATION` errors on consumer group heartbeats and syncs for fenced members, reducing rebalancing noise
 - Fix unit mismatch in latency calculations for archiver, sequencer, and consumer groups used in performing background operations
 
-### Features and Improvements
+#### Features and improvements
 
 - Limit number of consumer group offset updates per group to control load on the metadata storage
 - Add options to skip archiving/shelving/vacuuming when running the `admin clean-topics` CLI command
@@ -230,14 +258,14 @@
 
 ## v0.3.4
 
-**_Release Date:_** 2025-01-02
+**_Release date:_** 2025-01-02
 
-### Bug Fixes
+#### Bug fixes
 
 - Fix shelving and archiving delays when a partition has no existing archive data or is idle
 - Only expire group members after a heartbeat request
 
-### Features and Improvements
+#### Features and improvements
 
 - Process consumer group offset updates in concurrent batches to improve throughput by several orders of magnitude
 - Improve Datadog dashboard's display of cluster-wide metrics, metrics aggregations, and display settings
@@ -248,9 +276,9 @@
 
 ## v0.3.3
 
-**_Release Date:_** 2024-12-19
+**_Release date:_** 2024-12-19
 
-### Bug Fixes
+#### Bug fixes
 
 - Return correct error code for `Heartbeat`, `SyncGroup`, and `OffsetCommit` responses when the consumer group is empty, which may cause some clients to fail to join
 - Fix data enforcement `PASS_THROUGH` behavior for invalid produce records which were instead being rejected
@@ -258,7 +286,7 @@
 - Always include error code attribute in request count metrics
 - Fix consumer group lag metric units
 
-### Features and Improvements
+#### Features and improvements
 
 - Include first stable release of user-facing metrics, dashboards, and alerts for Datadog and Grafana
 - Update metrics aggregation behavior to allow user control over cardinality
@@ -271,16 +299,16 @@
 
 ## v0.3.2
 
-**_Release Date:_** 2024-12-12
+**_Release date:_** 2024-12-12
 
-### Bug Fixes
+#### Bug fixes
 
 - Reduce logging when metrics cannot resolve a deleted topic name
 - Fix unpopulated fields in `DescribeCluster` and `DescribeLogDirs` responses
 - Fix an issue where `localhost` might resolve to both `127.0.0.1` and `::1` but IPv6 is disabled on the loopback device
 - Fix proper creation of an empty batch in a compacted archive containing no records
 
-### Features and Improvements
+#### Features and improvements
 
 - Improve error messages on broker startup and invalid configuration
 - Limit concurrent archiving operations based on available memory
@@ -293,13 +321,13 @@
 
 ## v0.3.1
 
-**_Release Date:_** 2024-12-03
+**_Release date:_** 2024-12-03
 
-### Bug Fixes
+#### Bug fixes
 
 - Fix etcd garbage collection bug which could lead to large database sizes
 
-### Features and Improvements
+#### Features and improvements
 
 - Update metrics units to match OTEL recommendations
 - Allow configuring OTLP temporality preference
@@ -307,9 +335,9 @@
 
 ## v0.3.0
 
-**_Release Date:_** 2024-12-03
+**_Release date:_** 2024-12-03
 
-### Bug Fixes
+#### Bug fixes
 
 - Fix routing bug that caused inconsistent load distribution among brokers
 - Fix regression in the DescribeCluster API that returned non-unique broker hostnames, affecting certain clients
@@ -317,7 +345,7 @@
 - Make consumer group offset processing more robust when groups are abruptly deleted
 - Redact sensitive record data in debug logs
 
-### Features and Improvements
+#### Features and improvements
 
 - Improve compatibility with Kafka 3.9.0 clients
 - Improve consumer group performance
@@ -348,11 +376,17 @@ New clusters will automatically opt-in to the new partition sequencing groups, h
 7.  Run `bufstream admin set sequence-shard-count 64 --url=<admin URL>` and check results
 8.  Re-enable Kafka traffic to the cluster if disabled
 
-## v0.2.0
+---
 
-**_Release Date:_** 2024-11-08
+# Older releases
 
-### Bug Fixes
+Expand to see previous releases
+
+### v0.2.0
+
+**_Release date:_** 2024-11-08
+
+#### Bug fixes
 
 - Fix a data race when flushing the intake cache
 - Log the correct Kafka address on startup
@@ -362,7 +396,7 @@ New clusters will automatically opt-in to the new partition sequencing groups, h
 - Fix a bug in epoch calculation that erroneously invalidated in-progress offset updates
 - Improve archiving behavior during cluster auto-scaling
 
-### Features and Improvements
+#### Features and improvements
 
 - Support TLS for all cluster communications, including broker-to-broker and among etcd nodes
 - Implement [KIP-394](https://cwiki.apache.org/confluence/display/KAFKA/KIP-394%3A+Require+member.id+for+initial+join+group+request)
@@ -379,11 +413,11 @@ New clusters will automatically opt-in to the new partition sequencing groups, h
 - Various improvements to CLI reference documentation
 - Other miscellaneous performance optimizations
 
-## v0.1.3
+### v0.1.3
 
-**_Release Date:_** 2024-10-30
+**_Release date:_** 2024-10-30
 
-### Bug Fixes
+#### Bug fixes
 
 - Fix a bug in v0.1.2's transaction numbering that silently discarded some commits and aborts
 - Return errors when clients attempt to change the outcome of a committed or aborted transaction
@@ -395,7 +429,7 @@ New clusters will automatically opt-in to the new partition sequencing groups, h
 - Fix archiving of internal usage-tracking topic
 - Miscellaneous fixes to log and metrics output
 
-### Features and Improvements
+#### Features and improvements
 
 - Order transaction-related RPCs with logical clocks, preventing re-ordering within Bufstream
 - Support more concurrent producers by decreasing etcd heartbeat frequency
@@ -409,11 +443,11 @@ New clusters will automatically opt-in to the new partition sequencing groups, h
 - Reduce metrics cardinality by decreasing number of histogram buckets
 - Assorted improvements to logging and internal tracing
 
-## v0.1.2
+### v0.1.2
 
-**_Release Date:_** 2024-08-19 | **_Status:_** archived*This release has been archived due to a regression in the transaction processing system. All production workloads should continue to use version [0.1.1](#v011).*
+**_Release date:_** 2024-08-19 | **_Status:_** archived*This release has been archived due to a regression in the transaction processing system. All production workloads should continue to use version [0.1.1](#v011).*
 
-### Bug Fixes
+#### Bug fixes
 
 - Fixes error-handling bug in topic auto-creation
 - Reduces error probability when Bufstream attempts to calculate the last stable or next unstable offset
@@ -422,7 +456,7 @@ New clusters will automatically opt-in to the new partition sequencing groups, h
 - Assigns all transactions a monotonic number so that concurrent complete operations no longer result in transactions completing multiple times for a topic partition -- Bufstream now applies only the first completion for a given transaction number
 - Addresses checkpoint error when Bufstream attempts to archive internal topics
 
-### Features and Improvements
+#### Features and improvements
 
 - Expands Bufstream's Kafka conformance testing suite
 - Exposes Kafka configs in the Helm chart so that they can be set directly
@@ -432,47 +466,47 @@ New clusters will automatically opt-in to the new partition sequencing groups, h
 - Allows topic replication factor to be set to `-1` -- in cases where the topic replication factor is not set to -1 or 1, Bufstream will return an error
 - Improves compatibility with RedPanda console when displaying topics and offsets
 
-## v0.1.1
+### v0.1.1
 
-**_Release Date:_** 2024-08-14
+**_Release date:_** 2024-08-14
 
-### Bug Fixes
+#### Bug fixes
 
 - Fixes off-by-one error in archive requests
 
-### Features and Improvements
+#### Features and improvements
 
 - Adds config option `kafka.exact_log_offsets` that when set to true will always return the exact offset for fetch requests
 - Updates and documents recommended default values in the helm chart
 - Improves error handling for produce requests and transactions
 
-## v0.1.0
+### v0.1.0
 
-**_Release Date:_** 2024-08-09
+**_Release date:_** 2024-08-09
 
-### Bug Fixes
+#### Bug fixes
 
 - Fixes panic when coercing a message payload to Confluent Schema Registry format
 - Respects `acks=0` setting on produce and does not wait for or guarantee the success of the produce request
 
-### Features and Improvements
+#### Features and improvements
 
 - Adds helm value `exact_log_sizes` that determines whether exact log sizes should be fetched for all topics and partitions
 - Documents dynamic configuration options
 - Adds configuration options for consumer group session timeout: `group.consumer.session.timeout.ms`, `group.consumer.min.session.timeout.ms`, `group.consumer.max.session.timeout.ms`
 
-## v0.0.4
+### v0.0.4
 
-**_Release Date:_** 2024-08-06
+**_Release date:_** 2024-08-06
 
-### Bug Fixes
+#### Bug fixes
 
 - Fixed memory leak when uploading objects to S3 storage
 - Removed redundant zone lookups when resolving metadata requests
 - Fixed `Fetch` response to work with `librdkafka`\-based clients (including the `confluent-kafka` Python client)
 - Amended various API responses to match expectations of the `segmentio/kafka-go` and `IBM/sarama` Go clients
 
-### Features and Improvements
+#### Features and improvements
 
 - Allow command-line flags to override YAML configuration
 - Support deleting topics by name with `DeleteTopics`
@@ -480,15 +514,15 @@ New clusters will automatically opt-in to the new partition sequencing groups, h
 - Reduce debug log volume
 - Improve cache throughput
 
-## v0.0.3
+### v0.0.3
 
-**_Release Date:_** 2024-07-25
+**_Release date:_** 2024-07-25
 
-### Bug Fixes
+#### Bug fixes
 
 - Change `dataEnforcement` key in helm chart to an empty object so that it does not emit a warning when coalescing values
 
-### Features and Improvements
+#### Features and improvements
 
 - Enable retries with backoff by default
 - Return an error if Bufstream cannot resolve the producer ID
@@ -497,16 +531,16 @@ New clusters will automatically opt-in to the new partition sequencing groups, h
 - Improve topic metadata management
 - Change shut down behavior such that Bufstream will wait for the archiver to finish before shutting down
 
-## v0.0.2
+### v0.0.2
 
-**_Release Date:_** 2024-07-10
+**_Release date:_** 2024-07-10
 
-### Features and Improvements
+#### Features and improvements
 
 - Emit build version in helm chart logs
 
-## v0.0.1
+### v0.0.1
 
-**_Release Date:_** 2024-07-09
+**_Release date:_** 2024-07-09
 
 - Initial release

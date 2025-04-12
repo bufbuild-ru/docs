@@ -120,7 +120,7 @@ extend google.protobuf.FieldOptions {
 This table shows which files, messages, and extensions are included for various types from `foo.proto` and `bar.proto` if specified as the argument to `--type`:
 
 | Type                       | Files                    | Messages                             | Extensions        |
-| -------------------------- | ------------------------ | ------------------------------------ | ----------------- |
+| :------------------------- | :----------------------- | :----------------------------------- | :---------------- |
 | `buf build --type pkg.Foo` | `foo.proto`, `bar.proto` | `pkg.Foo`, `pkg.Bar`, `other.Qux`    | `other.baz`       |
 | `buf build --type pkg.Bar` | `foo.proto`              | `pkg.Bar`                            |                   |
 | `buf build --type pkg.Baz` | `foo.proto`, `bar.proto` | `pkg.Baz`, `other.Quux`, `other.Qux` | `other.my_option` |

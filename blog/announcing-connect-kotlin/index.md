@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Announcing Connect-Kotlin: Connect is now fully supported on mobile!"
+  tagline: "February 22, 2023"
 ---
 
 When writing software, engineers often make mistakes implementing an agreed upon API by incorrectly defining the data structure, misnaming a key, or even specifying the wrong endpoint path. These errors make collaborating across iOS, Android, frontend, and backend difficult as they necessitate back-and-forth coordination and exhaustive testing. Connect’s goal is to eliminate these hardships by using a single Protobuf schema to generate idiomatic and deterministic code for all platforms, replacing handwritten boilerplate. So far, [Connect-Swift](https://connectrpc.com/swift) has made it incredibly easy to build iOS APIs, and [Connect-Web](https://connectrpc.com/docs/web/getting-started) and [Connect-Go](https://connectrpc.com/docs/go/getting-started) have done the same for the frontend and backend.

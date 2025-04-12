@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Authzed Case Study: Maintaining a Stable Protocol Buffers API"
+  tagline: "June 15, 2021"
 ---
 
 **Our friends at** [**Authzed**](https://authzed.com/) **recently adopted Buf and have given us the honor of writing about their experience.**

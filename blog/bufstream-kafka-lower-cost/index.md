@@ -3,9 +3,10 @@ layout: home
 
 hero:
   name: "Bufstream: Kafka at 8x lower cost"
+  tagline: "July 9, 2024"
 ---
 
-**We're excited to announce the public beta of** [**Bufstream**](https://buf.build/product/bufstream)**, a drop-in replacement for Apache Kafka deployed entirely in your own VPC that's 8x less expensive to operate.**
+We're excited to announce the public beta of [Bufstream](https://buf.build/product/bufstream), a drop-in replacement for Apache Kafka deployed entirely in your own VPC that's 8x less expensive to operate.
 
 ## Key takeaways
 
@@ -50,5 +51,3 @@ In the coming months, we'll also allow Bufstream operators to opt into storing s
 Bufstream deploys into any AWS or GCP Kubernetes cluster with a simple Helm chart, and it works with any S3-compatible object store. Each Bufstream deployment is fully self-contained: it doesn't rely on a cloud control plane, send telemetry to Buf, or have a hard dependency on any Buf-managed SaaS at all. For production use, we charge a usage-based fee of $0.002 per GiB of write traffic, without any additional per-call, per-core, or per-instance costs. For the 1 GiB/s write load in our benchmark, the [monthly fees add up to $5,184](/docs/bufstream/cost/index.md#optimized-for-cloud-economics) and are already included in the $11,147 total cost.
 
 We'd love to partner with you to reduce Kafka costs, improve data quality, and tighten data governance. You can get a feel for Bufstream with our [interactive demo](/docs/bufstream/quickstart/index.md), dig into our [benchmarks and cost analysis](/docs/bufstream/cost/index.md), or chat with us in the [Buf Slack](https://buf.build/b/slack). For production deployments or to schedule a demo with our team, [reach out to us directly](https://buf.build/contact-us)!
-
-‍

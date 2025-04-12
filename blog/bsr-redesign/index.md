@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "BSR redesign"
+  tagline: "August 25, 2022"
 ---
 
 We're excited to finally launch the new BSR redesign. The BSR has come a long way in the last 2 years and we're thrilled to share the new design with you.

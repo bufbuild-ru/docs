@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Generated SDKs for C++ are now available on the Buf Schema Registry"
+  tagline: "August 28, 2024"
 ---
 
 We’re excited to announce that in addition to [C#](/docs/bsr/generated-sdks/nuget/index.md), [Go](/docs/bsr/generated-sdks/go/index.md), [JavaScript/TypeScript](/docs/bsr/generated-sdks/npm/index.md), [Java/Kotlin](/docs/bsr/generated-sdks/maven/index.md), [Python](/docs/bsr/generated-sdks/python/index.md), [Swift](/docs/bsr/generated-sdks/swift/index.md), and [Rust](/docs/bsr/generated-sdks/cargo/index.md), the Buf Schema Registry now provides generated SDKs for C++ via CMake. The BSR's CMake repository currently serves generated SDKs for the widely used [protocolbuffers/cpp](https://buf.build/protocolbuffers/cpp) and [grpc/cpp](https://buf.build/grpc/cpp) plugins.

@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Introducing Cacheable RPCs in Connect"
+  tagline: "May 3, 2023"
 ---
 
 Resource caching is an effective strategy to improve performance and reduce load when running a service. Unfortunately, because gRPC requests use `POST` requests, implementing caching for gRPC services the way one would with RESTful services is often cumbersome or impossible.

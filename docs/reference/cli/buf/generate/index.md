@@ -45,13 +45,13 @@ plugins:
     # Whether to generate code for the well-known types.
     # Optional.
     include_wkt: false
-# Include only these types for this plugin.
+    # Include only these types for this plugin.
     # Optional.
-types:
-  - "foo.v1.User"
-# Exclude these types for this plugin.
+    types:
+      - "foo.v1.User"
+    # Exclude these types for this plugin.
     # Optional.
-exclude_types:
+    exclude_types:
       - "buf.validate.oneof"
       - "buf.validate.message"
       - "buf.validate.field""
@@ -208,10 +208,10 @@ inputs:
     types:
       - "foo.v1.User"
       - "foo.v1.UserService"
-# Exclude these types.
-# Optional.
-exclude_types:
-  - "buf.validate"
+    # Exclude these types.
+    # Optional.
+    exclude_types:
+      - "buf.validate"
     # Only generate code for files in these paths.
     # If empty, include all paths.
     paths:

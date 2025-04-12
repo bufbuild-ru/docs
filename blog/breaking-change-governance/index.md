@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Governance & breaking change policy enforcement for enterprises"
+  tagline: "July 10, 2023"
 ---
 
 **Today we’re introducing the ability to** [**configure breaking change policy enforcement in the BSR UI**](/docs/bsr/policy-checks/breaking/overview/index.md) **for customers on our Enterprise plan, which provides a guarantee that breaking schema changes cannot be mistakenly deployed through the BSR and cause downstream outages or data loss.**

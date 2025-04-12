@@ -1,4 +1,4 @@
-# Deploy Bufstream to Google Cloud
+# Deploy Bufstream to Google Cloud with etcd
 
 This page walks you through installing Bufstream into your Google Cloud Platform (GCP) deployment by setting your Helm values and installing the provided Helm chart. See the [GCP configuration](../configure/) page for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
 

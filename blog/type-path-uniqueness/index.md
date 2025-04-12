@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Type & path uniqueness policy enforcement for enterprises"
+  tagline: "September 5, 2023"
 ---
 
 Avoiding name conflicts between Protobuf types in an application is critical to service stability, as failing to do so will result in fatal runtime exceptions and outages. Preventing these failures can prove challenging due to the fact that these conflicts may be introduced by other module dependencies despite your own code being flawless, such as when multiple libraries provide their own copies of `google.type.Timestamp`. A detailed example is available later in this post.

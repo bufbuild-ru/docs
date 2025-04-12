@@ -448,6 +448,26 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 
 \_float_Trace sample ratio.Defaults to `0.1`.
 
+### `storage.azure.accessKeyId`
+
+\_string_Azure storage account name to use for auth instead of the metadata server.Defaults to `""`.
+
+### `storage.azure.bucket`
+
+\_string_Azure storage account container name.Defaults to `""`.
+
+### `storage.azure.endpoint`
+
+\_string_Azure storage account endpoint to use—for example, https://.blob.core.windows.netDefaults to `""`.
+
+### `storage.azure.prefix`
+
+\_string_Azure prefix to use for all stored files.Defaults to `""`.
+
+### `storage.azure.secretName`
+
+\_string_Kubernetes secret containing a `secret_access_key` (as the Azure storage account key) to use instead of the metadata server.Defaults to `""`.
+
 ### `storage.gcs.bucket`
 
 \_string_GCS bucket name.Defaults to `""`.
@@ -702,6 +722,17 @@ storage:
     # -- S3 Access Key ID to use instead of the metadata server.
     accessKeyId: ""
     # -- Kubernetes secret containing a `secret_access_key` (as the secret key) to use instead of the metadata server.
+    secretName: ""
+  azure:
+    # -- Azure storage account container name.
+    bucket: ""
+    # -- Azure storage account endpoint to use—for example, https://<storage account>.blob.core.windows.net
+    endpoint: ""
+    # -- Azure prefix to use for all stored files.
+    prefix: ""
+    # -- Azure storage account name to use for auth instead of the metadata server.
+    accessKeyId: ""
+    # -- Kubernetes secret containing a `secret_access_key` (as the Azure storage account key) to use instead of the metadata server.
     secretName: ""
 observability:
   # -- Log level to use.

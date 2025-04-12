@@ -22,8 +22,8 @@ workspace_root
 
 ```yaml
 version: v2
-# 'clean', when set to true, deletes the directories, zip files, and/or jar files specified in the `out` field for
-# all plugins before running code generation.
+# 'clean', when set to true, deletes the directories, zip files, and/or jar files specified in the
+# `out` field for all plugins before running code generation.
 clean: true
 # 'managed' contains the configuration for managed mode: https://bufbuild.ru/docs/generate/managed-mode
 # It has three top-level keys: 'enabled', 'disable', and 'override'.
@@ -132,7 +132,7 @@ managed:
       field: package1.Message2.field3
 # 'plugins' is a list of plugin configurations used for buf generate.
 #
-# A 'plugin' configuration has 8 possible keys:
+# A 'plugin' configuration has 10 possible keys:
 #  - one of (required):
 #    - 'remote': remote plugin name (for example buf.build/protocolbuffers/go)
 #    - 'protoc_builtin': a 'protoc' built-in plugin (for example 'cpp' for 'protoc-gen-cpp')
@@ -144,6 +144,8 @@ managed:
 #  - 'strategy': a string for the invocation strategy, which is the same as v1 (optional)
 #  - 'include_imports': <boolean> (optional, precedence given to CLI flag)
 #  - 'include_wkt': <boolean> (optional, precedence given to CLI flag)
+#  - 'types': <string> a list of the types that the plugin should be limited to
+#  - 'exclude_types': <string> a list of the types that the plugin should exclude
 plugins:
   # BSR remote plugin
   - remote: buf.build/protocolbuffers/go
@@ -161,7 +163,7 @@ plugins:
   # Absolute paths automatically work
   - local: /usr/bin/path/to/protoc-gen-validate
     out: gen/proto
-  # Binary plugin with arguments and includes
+  # Binary plugin with arguments, includes, and excludes
   - local: ["go", "run", "google.golang.org/protobuf/cmd/protoc-gen-go"]
     out: gen/proto
     opt:
@@ -171,9 +173,17 @@ plugins:
     strategy: all
     include_imports: true
     include_wkt: true
+    # Include only these types for this plugin.
+    # Optional.
+    types:
+      - "foo.v1.User"
+    # Exclude these types for this plugin.
+    # Optional.
+    exclude_types:
+      - "buf.validate"
 # 'inputs' is a list of inputs that will be run for buf generate. It's an
 # optional key for v2 buf.gen.yaml and allows you to specify options based on the type
-# of input (https://buf.build/docs/reference/inputs.md#source) being configured.
+# of input (https://bufbuild.ru/docs/reference/inputs.md#source) being configured.
 inputs:
   # Git repository
   - git_repo: https://github.com/acme/weather.git
@@ -281,7 +291,7 @@ For field option `override` rules, there are 5 possible keys:
 
 **Required.** One of:
 
-- `remote`: Indicates a remote plugin hosted on either the public BSR at <https://buf.build> or a private BSR.
+- `remote`: Indicates a remote plugin hosted on either the public BSR at https://buf.build or a private BSR.
   - For all public BSR plugins, this must take the form: `buf.build/<owner-org>/<plugin-name>:<plugin-version>`
   - For custom plugins, this takes the form: `<bsr-server>/<owner-org>/<plugin-name>:<plugin-version>`
   - `<plugin-version>` is optional. If it isn't present, the latest version is used. If it's specified, the `revision` field can be specified to pin an exact version.
@@ -352,7 +362,7 @@ plugins:
 - `all`: This makes a single plugin invocation with all input files, which is roughly equivalent to this:
 
   ```console
-  protoc -I . $(find . -name '\*.proto')
+  $ protoc -I . $(find . -name '\*.proto')
   ```
 
   This option is needed for certain plugins that expect all files to be given at once. The BSR also sets the value to `all` for remote plugin generation to improve performance.
@@ -365,15 +375,34 @@ plugins:
 
 **Optional.** Generates Well-Known Types. Can't be set without `--include-imports`. This setting works the same as the `--include-wkt` flag on `buf generate`—if they conflict with each other, the flag gets precedence.
 
+### `types`
+
+**Optional.** Include only the specified types when generating with this plugin. This is similar to the `inputs.types` key, but scopes to the plugin instead.
+
+### `exclude-types`
+
+**Optional.** Exclude the specified types when generating with this plugin.
+
+::: tip Filtering order for 'types' and 'exclude-types'The `types` and `exclude-types` filters can be scoped to inputs, to plugins, or both. In addition, they can be applied to inputs both in `buf.gen.yaml` and as command-line flags. Filtering cumulatively restricts the types that are generated, and is applied in this order:
+
+1.  Per input in `buf.gen.yaml`.
+2.  Per plugin in `buf.gen.yaml`.
+3.  Against all inputs when specified in the command line.
+
+Each filter operates on the input image that's the result of the previous operation.
+
+:::
+
 ## `inputs`
 
 **Optional.** A list of inputs to generate code for. In previous Buf configurations, the input was passed to `buf generate` from the CLI, but in the `v2` configuration, it's specified in `buf.gen.yaml` so that all code generation settings are in one place.The accepted input types are the same as the [input types](../../../reference/inputs/#source) currently supported by the Buf CLI, with each key listed on a separate line. Every input can also optionally take the following sub-keys:
 
 - `types`: Include only the specified types when generating.
 - `paths`: Include only the specified paths when generating.
+- `exclude_types`: Exclude the specified types when generating.
 - `exclude_paths`: Exclude the specified paths when generating.
 
-These have the same behavior as their corresponding Buf CLI flags, `--type`, `--path`, and `--exclude-path`. The flag always takes precedence over the configuration key.
+These have the same behavior as their corresponding Buf CLI flags, `--type`, `--path`, `--exclude-types`, and `--exclude-path`. The flag always takes precedence over the configuration key.
 
 ### `directory`
 
@@ -385,7 +414,7 @@ String. Specifies a remote BSR module as the input, with the location as the val
 
 ### `tarball`
 
-Specifies a local or remote (http/https) tarball, with the location as the value. You can optionally specify the following sub-keys:
+Specifies a local or remote (http/https) tarball, with the location as the value. Authentication for HTTPS and SSH locations is documented in [Buf CLI inputs](../../../reference/inputs/#authentication). You can optionally specify the following sub-keys:
 
 - `strip_components`: Integer. Reads at the relative path and strips some number of components.
 - `subdir`: String. Reads at the relative path and uses the subdirectory specified within the archive as the base directory.
@@ -395,7 +424,7 @@ When generating, `strip_components` is applied before `subdir`.
 
 ### `zip_archive`
 
-Specifies a local or remote (http/https) zip archive, with the location as the value. You can optionally specify the following sub-keys:
+Specifies a local or remote (http/https) zip archive, with the location as the value. Authentication for HTTPS and SSH locations is documented in [Buf CLI inputs](../../../reference/inputs/#authentication). You can optionally specify the following sub-keys:
 
 - `strip_components`: Integer. Reads at the relative path and strips some number of components.
 - `subdir`: String. Reads at the relative path and uses the subdirectory specified within the archive as the base directory.
@@ -404,7 +433,7 @@ When generating, `strip_components` is applied before `subdir`.
 
 ### `git_repo`
 
-Specifies a Git repo as the input, with the location as the key value. The path to the Git repository can be either a local `.git` directory or a remote location (http/https/ssh/git). You can optionally specify the following sub-keys:
+Specifies a Git repo as the input, with the location as the key value. The path to the Git repository can be either a local `.git` directory or a remote location (http/https/ssh/git). Authentication for HTTPS and SSH locations is documented in [Buf CLI inputs](../../../reference/inputs/#authentication). You can optionally specify the following sub-keys:
 
 - `branch`: String. Use a specific branch of the repo as the input.
 - `tag`: String. Use a specific commit or tag in the repo as the input.

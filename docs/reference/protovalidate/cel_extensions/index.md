@@ -1,12 +1,12 @@
 # CEL extensions
 
-This page documents the variables, custom functions, and overloads that Protovalidate adds to [Common Expression Language (CEL)](https://cel.dev). All [standard rules](https://github.com/bufbuild/protovalidate/blob/main/docs/standard-constraints.md) are defined in CEL expressions and often leverage these Protovalidate-specific CEL extensions.They are all available in any [custom](https://github.com/bufbuild/protovalidate/blob/main/docs/custom-constraints.md) or [predefined](https://github.com/bufbuild/protovalidate/blob/main/docs/predefined-constraints.md) rule's CEL expression unless otherwise noted.
+This page documents the variables, custom functions, and overloads that Protovalidate adds to [Common Expression Language (CEL)](https://cel.dev). All [standard rules](../../../protovalidate/schemas/standard-rules/) are defined in CEL expressions and often leverage these Protovalidate-specific CEL extensions.They are all available in any [custom](../../../protovalidate/schemas/custom-rules/) or [predefined](../../../protovalidate/schemas/predefined-rules/) rule's CEL expression unless otherwise noted.
 
 ## Variables
 
 ### this
 
-`this` refers to the current value. When defining a [field rule](https://github.com/bufbuild/protovalidate/blob/main/docs/custom-constraints.md#field-level-constraints), `this` refers to the value of the field. When defining a [message rule](https://github.com/bufbuild/protovalidate/blob/main/docs/custom-constraints.md#message-level-constraints), `this` refers to the message itself. Its fields can be accessed via dot notation.
+`this` refers to the current value. When defining a [field rule](../../../protovalidate/schemas/custom-rules/#field-rules), `this` refers to the value of the field. When defining a [message rule](../../../protovalidate/schemas/custom-rules/#message-rules), `this` refers to the message itself. Its fields can be accessed via dot notation.
 
 ### now
 
@@ -14,11 +14,11 @@ This page documents the variables, custom functions, and overloads that Protoval
 
 ### rule
 
-_Only available within [predefined rules](https://github.com/bufbuild/protovalidate/blob/main/docs/predefined-constraints.md)_.`rule` refers to the value assigned to a predefined rule when used as a field within a Protobuf message.
+_Only available within [predefined rules](../../../protovalidate/schemas/predefined-rules/)_.`rule` refers to the value assigned to a predefined rule when used as a field within a Protobuf message. See [complex predefined rules](../../../protovalidate/schemas/predefined-rules/#define-complex-predefined-rules) for an example.
 
 ### rules
 
-_Only available within [predefined rules](https://github.com/bufbuild/protovalidate/blob/main/docs/predefined-constraints.md)_.Within a predefined rule, `rules` is an instance of the underlying Protovalidate rule message being extended. For example, the `rules` variable made available to a CEL expression for a predefined rule extending `StringRules` is an instance of the StringRules message itself.
+_Only available within [predefined rules](../../../protovalidate/schemas/predefined-rules/)_.Within a predefined rule, `rules` is an instance of the underlying Protovalidate rule message being extended. For example, the `rules` variable made available to a CEL expression for a predefined rule extending `StringRules` is an instance of the StringRules message itself. See [complex predefined rules](../../../protovalidate/schemas/predefined-rules/#define-complex-predefined-rules) for an example.
 
 ## Double functions
 

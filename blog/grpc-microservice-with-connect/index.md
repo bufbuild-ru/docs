@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Building a modern gRPC-powered microservice using Node.js, Typescript, and Connect"
+  tagline: "April 27, 2023"
 ---
 
 _Authored by Joe McKenney, CEO of_ [_Dopt_](https://dopt.com/)

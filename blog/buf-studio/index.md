@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Buf Studio: Interact with gRPC and Protobuf APIs directly from your browser"
+  tagline: "July 28, 2022"
 ---
 
 [Buf Studio](https://buf.build/studio) is an interactive web UI for all your gRPC and Protobuf services stored on the [Buf Schema Registry](https://buf.build/product/bsr). Buf Studio makes it easy to:

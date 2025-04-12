@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "The Buf Schema Registry is now on the AWS and Google Cloud Marketplaces"
+  tagline: "December 12, 2023"
 ---
 
 We're excited to announce that the [Buf Schema Registry](https://buf.build/product/bsr) (BSR) is now available on the [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-4novs4ul4h3hg) and [Google Cloud Marketplace](https://console.cloud.google.com/marketplace/product/bufbuild-public/buf-schema-registry). Enterprise customers can purchase through the cloud marketplaces and accelerate their deployment of the BSR.

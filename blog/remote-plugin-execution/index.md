@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Remote plugin execution with the Buf Schema Registry"
+  tagline: "March 9, 2022"
 ---
 
 A while back, we [announced](/blog/announcing-bsr/index.md) that we had released the [Buf Schema Registry](/docs/bsr/index.md) (BSR), a centralized platform for managing Protobuf assets, into beta. In the announcement post, we briefly [outlined](/blog/announcing-bsr/index.md#hosted-plugins) a BSR feature called **hosted plugins**, which enables you to generate code using [Protobuf plugins](/docs/migration-guides/migrate-remote-generation-alpha/index.md) remotely, on the BSR, rather than on your local machine.

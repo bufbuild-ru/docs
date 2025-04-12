@@ -65,9 +65,12 @@ deps:
 
 :::
 
-## Viewing dependencies
+## Viewing dependencies and dependents
 
-You can view any repository's dependencies by going to the **Deps** tab. The tab displays all of the direct and indirect dependencies at the commit they're pinned to. All entries are clickable, allowing you to navigate to and explore each dependency's codebase.![BSR dependency tab view](../../../images/bsr/deps-view.png)
+You can view any module's direct and indirect dependencies, and any modules that depend on it, by going to the **Deps** tab in its repository. All entries are clickable, allowing you to navigate to and explore each dependency's codebase.![BSR dependency tab view](../../../images/bsr/deps-view.png)
+
+- **Dependencies** shows only the dependencies of the module _at the specific label or commit that you're currently viewing_.
+- **Used by** shows dependents on the module for any of its labels and commits, for each dependent's _latest commit in its default label_. Older commits or other labels within the dependent aren't displayed.
 
 ## How Buf resolves imports
 

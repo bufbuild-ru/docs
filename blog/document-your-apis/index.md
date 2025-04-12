@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Document Your APIs and Increase Your Developer Productivity"
+  tagline: "August 19, 2021"
 ---
 
 Documentation is a fantastic developer productivity tool that can be applied by all levels of software engineers during the development process.

@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Introducing buf format"
+  tagline: "April 4, 2022"
 ---
 
 Today we're excited to announce the release of `buf format` as part of version [1.3.1](https://github.com/bufbuild/buf/releases/tag/v1.3.1) of the `buf` CLI. This feature enables you to format your Protobuf files in accordance with what we at Buf take to be the industry standards.

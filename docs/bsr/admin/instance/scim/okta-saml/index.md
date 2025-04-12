@@ -47,14 +47,13 @@ The steps below must be carried out by users with administrative privileges in y
 7.  Click **Save**.
 8.  In the **Attribute Mappings** section below, ensure the following attribute mappings are set. Unmap all other attributes.
 
-    | Attribute                                            | Value                                                      |
-    | ---------------------------------------------------- | ---------------------------------------------------------- |
-    | `userName`                                           | Configured in Sign On settings (should be mapped to Email) |
-    | `givenName`                                          | `user.firstName`                                           |
-    | `familyName`                                         | `user.lastName`                                            |
-    | `email`                                              | `user.email`                                               |
-    | `emailType`                                          | `(user.email != null && user.email != "") ? 'work' : ''`   |
-    | (specified only if `user.email` isn't null or empty) |
+    | Attribute    | Value                                                                                                             |
+    | ------------ | ----------------------------------------------------------------------------------------------------------------- |
+    | `userName`   | Configured in Sign On settings (should be mapped to Email)                                                        |
+    | `givenName`  | `user.firstName`                                                                                                  |
+    | `familyName` | `user.lastName`                                                                                                   |
+    | `email`      | `user.email`                                                                                                      |
+    | `emailType`  | `(user.email != null && user.email != "") ? 'work' : ''` <br>(specified only if `user.email` isn't null or empty) |
 
 ## Provision users
 

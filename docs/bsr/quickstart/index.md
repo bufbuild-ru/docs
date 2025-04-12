@@ -12,11 +12,11 @@ The Buf Schema Registry (BSR) is the missing package manager for Protobuf, allow
 - Have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [`go`](https://go.dev/dl/) installed and in your `$PATH`.
 - [Create a Buf account](https://buf.build/signup?original_uri=/signup/), allowing you to access and share modules.
 - Click here -> USERNAME and set it to your BSR username to update the code examples.
-- Clone the [`buf-quickstart`](https://github.com/bufbuild/buf-quickstart) repo and go to the example code directory:
+- Clone the [`buf-examples`](https://github.com/bufbuild/buf-examples) repo and go to the example code directory:
 
   ```console
-  $ git clone git@github.com:bufbuild/buf-quickstart.git && \
-      cd buf-quickstart/bsr/start/server
+  $ git clone git@github.com:bufbuild/buf-examples.git && \
+      cd buf-examples/bsr/quickstart/start/server
   ```
 
 The quickstart contains a `start` directory, where you work on the example files, and a `finish` directory that you can use to compare against.
@@ -96,7 +96,7 @@ Before you publish your fix, you should generate code from your Protobuf files a
 
 ```go
 import (
-    _ "github.com/bufbuild/buf-quickstart/bsr/server/gen/buf/validate" // [!code highlight]
+    _ "github.com/bufbuild/buf-examples/bsr/quickstart/start/server/gen/buf/validate" // [!code highlight]
 )
 ```
 
@@ -113,7 +113,7 @@ managed:
   enabled: true
   override:
     - file_option: go_package_prefix
-      value: github.com/bufbuild/buf-quickstart/server/gen
+      value: github.com/bufbuild/buf-examples/bsr/quickstart/server/gen
 + disable:
 +   - file_option: go_package
 +     module: buf.build/bufbuild/protovalidate
@@ -142,7 +142,7 @@ $ go run cmd/main.go
 
 :::
 
-::: tip NoteThe server code in `cmd/main.go` is [preconfigured](https://github.com/bufbuild/buf-quickstart/blob/main/buf-schema-registry/bsr/start/server/cmd/main.go#L30-L34) with the Protovalidate interceptor. Normally you need to add that to your code also—see the [Protovalidate documentation](https://github.com/bufbuild/protovalidate) for specifics.
+::: tip NoteThe server code in `cmd/main.go` is [preconfigured](https://github.com/bufbuild/buf-examples/blob/main/bsr/quickstart/start/server/cmd/main.go#L30-L34) with the Protovalidate interceptor. Normally you need to add that to your code also—see the [Protovalidate documentation](https://github.com/bufbuild/protovalidate) for specifics.
 
 :::
 
@@ -457,12 +457,26 @@ Replace the code in `client/cmd/main.go` with the following boilerplate—you ca
 ::: info bsr/start/client/cmd/main.go
 
 ```go
+// Copyright 2020-2025 Buf Technologies, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License. // [!code highlight]
+// You may obtain a copy of the License at // [!code highlight]
+// // [!code highlight]
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 package main
 
 import (
-    tagv1 "buf.build/gen/go/xUSERNAMEx/common/protocolbuffers/go/tag/v1" // [!code highlight]
-    "buf.build/gen/go/xUSERNAMEx/invoice/connectrpc/go/invoice/v1/invoicev1connect" // [!code highlight]
-    invoicev1 "buf.build/gen/go/xUSERNAMEx/invoice/protocolbuffers/go/invoice/v1" // [!code highlight]
+    tagv1 "buf.build/gen/go/xUSERNAMEx/common/protocolbuffers/go/tag/v1"
+    "buf.build/gen/go/xUSERNAMEx/invoice/connectrpc/go/invoice/v1/invoicev1connect"
+    invoicev1 "buf.build/gen/go/xUSERNAMEx/invoice/protocolbuffers/go/invoice/v1"
     "connectrpc.com/connect"
     "context"
     "log"

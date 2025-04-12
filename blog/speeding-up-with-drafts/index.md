@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Speeding up development with BSR drafts"
+  tagline: "January 25, 2023"
 ---
 
 > Drafts have been superceded by branches. For more information please see the [module documentation](/docs/bsr/module/publish/index.md#pushing-with-labels).

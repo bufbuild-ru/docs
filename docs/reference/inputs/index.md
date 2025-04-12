@@ -286,7 +286,7 @@ The formats below are deprecated. They should continue to work forever, but we r
 
 ## Authentication
 
-Archives, Git repositories, and Buf image files can be read from remote locations. For those remote locations that need authentication, a couple mechanisms exist.
+Archives, Git repositories, and Buf image files can be read from remote locations. For those remote locations that need authentication, a couple of mechanisms exist.
 
 ### HTTPS
 

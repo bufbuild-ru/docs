@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "An update on our fundraising"
+  tagline: "December 8, 2021"
 ---
 
 At Buf, we are hard at work on our mission to deprecate REST/JSON and move the industry towards a future of [schema driven development](/blog/api-design-is-stuck-in-the-past/index.md) with Protobuf. Together as a growing team, we’ve been heads down building features and expanding functionality of the Buf CLI and the Buf Schema Registry. As a result, we’ve been purposefully quiet about our fundraising success, reflecting our company value of focusing on making an impact on the API ecosystem, rather than how we are financing the journey.

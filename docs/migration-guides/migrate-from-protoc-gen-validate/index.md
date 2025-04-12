@@ -2,7 +2,7 @@
 
 Migrating from `protoc-gen-validate` to Protovalidate should be safe, incremental, and relatively painless. We recommend migrating to Protovalidate using the migration tool, but there may be cases where manual migration is required or preferred. Each workflow is outlined below.
 
-::: tip NoteProtovalidate performs all validations using reflection, so there is no `protoc` plugin touse or manage and it doesn't require any code generation. You don't need the `protoc-gen-validate` plugin, and shouldn't use it with Protovalidate.
+::: tip NoteProtovalidate performs all validations using reflection, so there's no `protoc` plugin to use or manage, and it doesn't require any code generation. You don't need the `protoc-gen-validate` plugin, and shouldn't use it with Protovalidate.
 
 :::
 
@@ -11,16 +11,10 @@ Migrating from `protoc-gen-validate` to Protovalidate should be safe, incrementa
 ### Prerequisites
 
 - Have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [`go`](https://go.dev/dl/) installed and in your `$PATH`.
-- Clone the `protovalidate` repo:
+- Clone the `protovalidate` repo and go to its directory:
 
   ```console
-  $ git clone https://github.com/bufbuild/protovalidate.git
-  ```
-
-- Navigate to its directory:
-
-  ```console
-  $ cd protovalidate
+  $ git clone https://github.com/bufbuild/protovalidate.git && cd protovalidate
   ```
 
 ### Migration workflow

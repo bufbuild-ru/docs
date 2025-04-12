@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "The real reason to use Protobuf is not performance"
+  tagline: "November 15, 2023"
 ---
 
 The real reason to use Protobuf is not performance. Although fast serialization and small request/response payloads are certainly nice benefits that Protobuf happens to provide, they aren’t why Protobuf is so important. You should care about Protobuf because it’s the most widely-used and battle-tested _schema definition language_. Defining your APIs as programmatic schemas, and being able to share and use those schemas at both build-time and runtime, is where Protobuf really shines.

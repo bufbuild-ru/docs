@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Bazel rules"
+  tagline: "June 20, 2022"
 ---
 
 Today we're excited to release Bazel rules for `buf`, [rules_buf](https://github.com/bufbuild/rules_buf).

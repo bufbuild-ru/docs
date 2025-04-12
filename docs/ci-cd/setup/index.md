@@ -4,7 +4,7 @@
 
 :::
 
-[Continuous Integration/Continuous Deployment (CI/CD)](https://en.wikipedia.org/wiki/CI/CD) is a software development practice that automates building, testing, and deploying software. If you are working with Protobuf, then `buf` should be part of all three of these development stages.This guide illustrates how to integrate `buf` into general CI/CD solutions, such as [CircleCI](https://circleci.com) and [TravisCI](https://travis-ci.org).This guide is also supplemented by the [buf-examples](https://github.com/bufbuild/buf-examples) repository, which provides a functional example for integrating `buf` into [CircleCI](https://circleci.com), [TravisCI](https://travis-ci.org), or [GitHub Actions](https://github.com/features/actions). For a quick solution that uses a [Makefile](https://github.com/bufbuild/buf-examples/blob/master/Makefile), see [buf-examples](https://github.com/bufbuild/buf-examples).
+[Continuous Integration/Continuous Deployment (CI/CD)](https://en.wikipedia.org/wiki/CI/CD) is a software development practice that automates building, testing, and deploying software. If you are working with Protobuf, then the Buf CLI should be part of all three of these development stages.This guide illustrates how to integrate the Buf CLI into general CI/CD solutions, such as [CircleCI](https://circleci.com) and [TravisCI](https://travis-ci.org).
 
 ::: tip NoteWe don't have an SDK for the Buf CLI. If you want to use the Buf CLI as part of some automation, you should shell out to it.
 
@@ -12,9 +12,7 @@
 
 ## Installation
 
-Code availableFor a functional example, see the [buf-examples](https://github.com/bufbuild/buf-examples) repository.
-
-The first step is to get `buf` running on your CI/CD worker. To do so, you'll need an install script. `buf` can be downloaded from a release or built from source.
+The first step is to get the Buf CLI running on your CI/CD worker. To do so, you'll need an install script. It can be downloaded from a release or built from source.
 
 +++tabs key:ac042d3c949c2e69ff4f27c2a0f5e648
 
@@ -27,7 +25,7 @@ The first step is to get `buf` running on your CI/CD worker. To do so, you'll ne
 
 PROJECT=<your-project-name>
 # Use your desired buf version
-BUF_VERSION=1.51.0
+BUF_VERSION=1.52.1
 # buf is installed to ~/bin/your-project-name.
 BIN_DIR=$HOME/bin/$PROJECT
 
@@ -39,11 +37,11 @@ chmod +x "$BIN_DIR/buf"
 
 :::
 
-This script sends a request to the `buf` GitHub Releases using [`curl`](https://curl.se/docs) for the given `BUF_VERSION` and operating system. The binary is then given executable permission.
+This script sends a request to the the Buf CLI GitHub Releases using [`curl`](https://curl.se/docs) for the given `BUF_VERSION` and operating system. The binary is then given executable permission.
 
 == Build from source
 
-If you intend to `buf` from source, this assumes that you have the Go toolchain available in your CI/CD.If not, see the [Go Documentation](https://golang.org/) for more details.
+If you intend to install the Buf CLI from source, this assumes that you have the Go toolchain available in your CI/CD.If not, see the [Go Documentation](https://golang.org/) for more details.
 
 ::: info install.sh
 
@@ -60,8 +58,6 @@ rm -rf $BUF_TMP
 +++
 
 ## Running lint and breaking change detection
-
-Code availableFor a functional example, see the [buf-examples](https://github.com/bufbuild/buf-examples) repository.
 
 To run lint checks with your job, simply add `buf lint` to it and you're good to go.If your [`buf.yaml`](../../configuration/v2/buf-yaml/) is defined at the root of your repository, you can run the linter with this command:
 
@@ -99,7 +95,7 @@ Also valid:
 $ buf breaking proto --against "ssh://git@github.com/<your-org>/<your-repo>.git#branch=main,subdir=proto"
 ```
 
-If you are on [TravisCI](https://travis-ci.org) or [CircleCI](https://circleci.com) they don't clone any branches outside of the one being tested, so this enables `buf` to clone using the remote and run the [breaking change detector](../../breaking/overview/).
+If you are on [TravisCI](https://travis-ci.org) or [CircleCI](https://circleci.com) they don't clone any branches outside of the one being tested, so this enables the Buf CLI to clone using the remote and run the [breaking change detector](../../breaking/overview/).
 
 ## Handling concurrent non-breaking changes
 

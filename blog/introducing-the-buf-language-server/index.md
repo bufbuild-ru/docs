@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Introducing the Buf Language Server"
+  tagline: "August 19, 2022"
 ---
 
 At Buf, we sometimes experiment to figure out how we can best help move the Protobuf community forward. Sometimes these experiments don't really go anywhere, but other times they turn into real products. Traditionally, we've kept these experiments internal until they're production-ready, but we'd like to start sharing more of these experiments with the community, even if they don't end up going anywhere. Today we're excited to publicize one of these experiments - the beginnings of a Protobuf language server that speaks the standard Language Server Protocol ([LSP](https://microsoft.github.io/language-server-protocol)) available at [github.com/bufbuild/buf-language-server](https://github.com/bufbuild/buf-language-server).

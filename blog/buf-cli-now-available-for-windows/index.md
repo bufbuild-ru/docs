@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Buf CLI Now Available for Windows!"
+  tagline: "August 30, 2021"
 ---
 
 🎉 Binaries for `buf`, `protoc-gen-buf-breaking`, and `protoc-gen-buf-lint` are now available for Windows, starting from [v0.54.1](https://github.com/bufbuild/buf/releases/tag/v0.54.1)!

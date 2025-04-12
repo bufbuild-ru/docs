@@ -64,7 +64,7 @@ You can also assign more granular member rights ("Read", "Limited Write", "Write
 Base roles apply to all members of the organization. You can elevate the base role individually for the organization members, and add outside collaborators with an arbitrary role. Every organization has a set of base resource roles that apply to all members of the organization. The default roles:
 
 | Repository |
-| ---------- |
+| :--------- |
 | Write      |
 
 Organization owners can modify the base resource roles depending on the requirements of the organization. These roles are configurable on the organization settings page.

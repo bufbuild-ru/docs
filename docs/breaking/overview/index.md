@@ -89,7 +89,7 @@ Because `buf breaking` is part of a CLI, you can easily integrate it into CI/CD 
 
 ## Usage examples
 
-The most basic usage of `buf breaking` is to check your local files against your local Git repository. However, you can specify both the input and the schema you're checking against in multiple ways, so you can use `buf breaking` in many types of workflows.
+The most basic usage of `buf breaking` is to check your local files against your local Git repository. However, you can specify both the input and the schema you're checking against in multiple ways, so you can use `buf breaking` in many types of workflows. You must use either the `--against` or [`--against-registry`](#buf-schema-registry) flags.
 
 ### Custom options
 
@@ -131,9 +131,9 @@ You can compare against a subdirectory in your git repository. For example, if y
 $ buf breaking --against '.git#tag=v1.0.0,subdir=proto'
 ```
 
-### Buf Schema Registry repository
+### Buf Schema Registry
 
-If you're already using the BSR in your Protobuf workflow, then comparing your local module against the latest version stored in the BSR is a common use case.
+You can compare a single module against the latest version stored in the BSR:
 
 ```console
 $ buf breaking --against <REMOTE>/<ORGANIZATION>/<REPOSITORY>
@@ -146,6 +146,14 @@ $ buf breaking --against buf.build/acme/petapis
 ```
 
 :::
+
+You can also compare all modules in an input (such as your local workspace) at once:
+
+```console
+$ buf breaking --against-registry
+```
+
+To use the `--against-registry` flag, all modules in the input must have a `name` to be resolvable to the BSR, or `buf breaking` errors.
 
 ### Archives (`.tar` and `.zip`)
 

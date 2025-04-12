@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Generated SDKs for Rust now available on the Buf Schema Registry"
+  tagline: "June 13, 2024"
 ---
 
 We’re excited to announce that in addition to [Go](/docs/bsr/generated-sdks/go/index.md), [JavaScript/TypeScript](/docs/bsr/generated-sdks/npm/index.md), [Java/Kotlin](/docs/bsr/generated-sdks/maven/index.md), [Python](/docs/bsr/generated-sdks/python/index.md), and [Swift](/docs/bsr/generated-sdks/swift/index.md), the Buf Schema Registry now provides [generated SDKs for Rust](/docs/bsr/generated-sdks/cargo/index.md). Our Rust SDK crates are available natively to the Rust ecosystem using a custom crate registry that’s powered by our zero-dependency [remote plugins](https://buf.build/plugins) platform. For Rust SDKs, we’re now offering the popular community-maintained [neoeinstein-prost](https://buf.build/community/neoeinstein-prost) and [neoeinstein-tonic](https://buf.build/community/neoeinstein-tonic) compiler wrappers for the widely used [Prost](https://github.com/tokio-rs/prost) and [Tonic](https://github.com/hyperium/tonic) projects.

@@ -521,12 +521,30 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                       {
-                        text: 'Deploy',
-                        link: '/docs/bufstream/deployment/gcp/deploy/',
+                        text: 'Deploy with etcd',
+                        link: '/docs/bufstream/deployment/gcp/deploy-etcd/',
+                      },
+                      {
+                        text: 'Deploy with Spanner',
+                        link: '/docs/bufstream/deployment/gcp/deploy-spanner/',
                       },
                       {
                         text: 'Configure',
                         link: '/docs/bufstream/deployment/gcp/configure/',
+                      },
+                    ],
+                  },
+                  {
+                    text: 'Azure',
+                    collapsed: true,
+                    items: [
+                      {
+                        text: 'Deploy',
+                        link: '/docs/bufstream/deployment/azure/deploy/',
+                      },
+                      {
+                        text: 'Configure',
+                        link: '/docs/bufstream/deployment/azure/configure/',
                       },
                     ],
                   },
@@ -551,6 +569,10 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: 'Overview', link: '/docs/bufstream/iceberg/' },
+                  {
+                    text: 'Quickstart',
+                    link: '/docs/bufstream/iceberg/quickstart/',
+                  },
                   {
                     text: 'Configuration',
                     link: '/docs/bufstream/iceberg/configuration/',
@@ -728,6 +750,71 @@ export default defineConfig({
             ],
           },
           {
+            text: 'Protovalidate',
+            collapsed: true,
+            items: [
+              { text: 'Overview', link: '/docs/protovalidate/' },
+              { text: 'Quickstart', link: '/docs/protovalidate/quickstart/' },
+              {
+                text: 'Using Protovalidate',
+                collapsed: true,
+                items: [
+                  {
+                    text: 'Adding Protovalidate',
+                    link: '/docs/protovalidate/schemas/adding-protovalidate/',
+                  },
+                  {
+                    text: 'Standard rules',
+                    link: '/docs/protovalidate/schemas/standard-rules/',
+                  },
+                  {
+                    text: 'Custom rules',
+                    link: '/docs/protovalidate/schemas/custom-rules/',
+                  },
+                  {
+                    text: 'Predefined rules',
+                    link: '/docs/protovalidate/schemas/predefined-rules/',
+                  },
+                ],
+              },
+              {
+                text: 'RPC quickstarts',
+                collapsed: true,
+                items: [
+                  {
+                    text: 'Connect and Go',
+                    link: '/docs/protovalidate/quickstart/connect-go/',
+                  },
+                  {
+                    text: 'gRPC and Go',
+                    link: '/docs/protovalidate/quickstart/grpc-go/',
+                  },
+                  {
+                    text: 'gRPC and Java',
+                    link: '/docs/protovalidate/quickstart/grpc-java/',
+                  },
+                  {
+                    text: 'gRPC and Python',
+                    link: '/docs/protovalidate/quickstart/grpc-python/',
+                  },
+                ],
+              },
+              {
+                text: 'Kafka quickstart',
+                link: '/docs/protovalidate/quickstart/bufstream/',
+              },
+              { text: 'Advanced CEL topics', link: '/docs/protovalidate/cel/' },
+              {
+                text: 'Migrate from protoc-gen-validate',
+                link: '/docs/migration-guides/migrate-from-protoc-gen-validate/',
+              },
+              {
+                text: 'Further reading',
+                link: '/docs/protovalidate/further-reading/',
+              },
+            ],
+          },
+          {
             text: 'Integrations',
             collapsed: true,
             items: [
@@ -748,7 +835,6 @@ export default defineConfig({
                     text: 'GitHub Action',
                     link: '/docs/ci-cd/github-actions/',
                   },
-                  { text: 'GitHub App', link: '/docs/ci-cd/github-app/' },
                 ],
               },
               {
@@ -1237,6 +1323,108 @@ export default defineConfig({
                 text: 'Protovalidate',
                 collapsed: true,
                 items: [
+                  {
+                    text: 'Violations',
+                    link: '/docs/reference/protovalidate/violations/',
+                  },
+                  {
+                    text: 'Standard rules',
+                    collapsed: true,
+                    items: [
+                      {
+                        text: 'Any',
+                        link: '/docs/reference/protovalidate/rules/any_rules/',
+                      },
+                      {
+                        text: 'Bool',
+                        link: '/docs/reference/protovalidate/rules/bool_rules/',
+                      },
+                      {
+                        text: 'Bytes',
+                        link: '/docs/reference/protovalidate/rules/bytes_rules/',
+                      },
+                      {
+                        text: 'Double',
+                        link: '/docs/reference/protovalidate/rules/double_rules/',
+                      },
+                      {
+                        text: 'Duration',
+                        link: '/docs/reference/protovalidate/rules/duration_rules/',
+                      },
+                      {
+                        text: 'Enum',
+                        link: '/docs/reference/protovalidate/rules/enum_rules/',
+                      },
+                      {
+                        text: 'Fixed32',
+                        link: '/docs/reference/protovalidate/rules/fixed32_rules/',
+                      },
+                      {
+                        text: 'Fixed64',
+                        link: '/docs/reference/protovalidate/rules/fixed64_rules/',
+                      },
+                      {
+                        text: 'Float',
+                        link: '/docs/reference/protovalidate/rules/float_rules/',
+                      },
+                      {
+                        text: 'Int32',
+                        link: '/docs/reference/protovalidate/rules/int32_rules/',
+                      },
+                      {
+                        text: 'Int64',
+                        link: '/docs/reference/protovalidate/rules/int64_rules/',
+                      },
+                      {
+                        text: 'Map',
+                        link: '/docs/reference/protovalidate/rules/map_rules/',
+                      },
+                      {
+                        text: 'Message',
+                        link: '/docs/reference/protovalidate/rules/message_rules/',
+                      },
+                      {
+                        text: 'Oneof',
+                        link: '/docs/reference/protovalidate/rules/oneof_rules/',
+                      },
+                      {
+                        text: 'Repeated',
+                        link: '/docs/reference/protovalidate/rules/repeated_rules/',
+                      },
+                      {
+                        text: 'Sfixed32',
+                        link: '/docs/reference/protovalidate/rules/sfixed32_rules/',
+                      },
+                      {
+                        text: 'Sfixed64',
+                        link: '/docs/reference/protovalidate/rules/sfixed64_rules/',
+                      },
+                      {
+                        text: 'Sint32',
+                        link: '/docs/reference/protovalidate/rules/sint32_rules/',
+                      },
+                      {
+                        text: 'Sint64',
+                        link: '/docs/reference/protovalidate/rules/sint64_rules/',
+                      },
+                      {
+                        text: 'String',
+                        link: '/docs/reference/protovalidate/rules/string_rules/',
+                      },
+                      {
+                        text: 'Timestamp',
+                        link: '/docs/reference/protovalidate/rules/timestamp_rules/',
+                      },
+                      {
+                        text: 'Uint32',
+                        link: '/docs/reference/protovalidate/rules/uint32_rules/',
+                      },
+                      {
+                        text: 'Uint64',
+                        link: '/docs/reference/protovalidate/rules/uint64_rules/',
+                      },
+                    ],
+                  },
                   {
                     text: 'CEL extensions',
                     link: '/docs/reference/protovalidate/cel_extensions/',

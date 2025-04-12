@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Introducing the Buf Reflection API & Prototransform"
+  tagline: "February 2, 2023"
 ---
 
 The Protobuf binary format has many advantages — it is compact and efficient, and it has clever features that allow for a wide variety of schema changes to be both backward- and forward-compatible. However, it is not possible to make meaningful sense of the data without knowing its schema. Not only is it not human-friendly since all fields are identified by an integer instead of by a semantic name, but it also uses a very simple wire format which reuses various value encoding strategies for different value types. This means it is not even possible to usefully interpret encoded values without a schema. For example, one cannot know if a value is a text string, a binary blob, or a nested message structure.

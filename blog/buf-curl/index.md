@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Introducing buf curl - Call your gRPC endpoints with the simplicity of buf"
+  tagline: "January 12, 2023"
 ---
 
 Today, we’re introducing a new tool for Protobuf APIs: [`buf curl`](/docs/curl/usage/index.md).

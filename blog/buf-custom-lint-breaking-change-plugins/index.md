@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Introducing custom lint and breaking change plugins for Buf"
+  tagline: "September 18, 2024"
 ---
 
 Buf has brought standards enforcement and compatibility checking for Protobuf into the mainstream - for almost half a decade, Buf's toolchain has set the standard across the industry for how to govern your Protobuf APIs effectively. However, Buf has always only worked using the lint and breaking rules that we've provided to users, not allowing for authorship of a company's own rules as they see fit. While we've heard the desire for users to implement their own rules, we wanted to make sure that if we brought this functionality to the Buf platform, it was done right. As we've heard more and more use cases, we decided to pursue this head-on.

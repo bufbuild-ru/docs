@@ -42,21 +42,21 @@ The BSR currently supports generated SDKs for these languages:
 
 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px">
 
-<div onclick="window.open('/docs/docs/bsr/generated-sdks/go/')" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/go.svg" width="32" /><strong>Go</strong></div>
+<div onclick="window.location.href = '/docs/bsr/generated-sdks/go/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/go.svg" width="32" /><strong>Go</strong></div>
 
-<div onclick="window.open('/docs/docs/bsr/generated-sdks/npm/')" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/javascript.svg" width="32" /><strong>JavaScript and TypeScript</strong></div>
+<div onclick="window.location.href = '/docs/bsr/generated-sdks/npm/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/javascript.svg" width="32" /><strong>JavaScript and TypeScript</strong></div>
 
-<div onclick="window.open('/docs/docs/bsr/generated-sdks/maven/')" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/java.svg" width="32" /><strong>Java and Kotlin</strong></div>
+<div onclick="window.location.href = '/docs/bsr/generated-sdks/maven/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/java.svg" width="32" /><strong>Java and Kotlin</strong></div>
 
-<div onclick="window.open('/docs/docs/bsr/generated-sdks/swift/')" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/swift.svg" width="32" /><strong>Swift</strong></div>
+<div onclick="window.location.href = '/docs/bsr/generated-sdks/swift/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/swift.svg" width="32" /><strong>Swift</strong></div>
 
-<div onclick="window.open('/docs/docs/bsr/generated-sdks/python/')" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/python.svg" width="32" /><strong>Python</strong></div>
+<div onclick="window.location.href = '/docs/bsr/generated-sdks/python/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/python.svg" width="32" /><strong>Python</strong></div>
 
-<div onclick="window.open('/docs/docs/bsr/generated-sdks/cargo/')" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/rust.svg" width="32" /><strong>Rust/Cargo</strong></div>
+<div onclick="window.location.href = '/docs/bsr/generated-sdks/cargo/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/rust.svg" width="32" /><strong>Rust/Cargo</strong></div>
 
-<div onclick="window.open('/docs/docs/bsr/generated-sdks/nuget/')" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/csharp.svg" width="32" /><strong>C#/Dotnet</strong></div>
+<div onclick="window.location.href = '/docs/bsr/generated-sdks/nuget/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/csharp.svg" width="32" /><strong>C#/Dotnet</strong></div>
 
-<div onclick="window.open('/docs/docs/bsr/generated-sdks/cmake/')" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/cpp.svg" width="32" /><strong>C++</strong></div>
+<div onclick="window.location.href = '/docs/bsr/generated-sdks/cmake/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/cpp.svg" width="32" /><strong>C++</strong></div>
 
 </div>
 

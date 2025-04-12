@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Audit breaking changes with the Buf Schema Registry's governance workflow"
+  tagline: "November 6, 2023"
 ---
 
 _The_ [_Buf Schema Registry_](https://buf.build/product/bsr) _(BSR) is the source of truth for your Protobuf APIs, and is the best way to share schemas across repositories, generate consistent code, and integrate Protobuf with Kafka. This launch adds the ability to govern schema evolution from a centralized place, ensuring APIs progress safely over time._

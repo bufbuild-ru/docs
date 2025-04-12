@@ -101,7 +101,7 @@ If you're currently using any of our individual GitHub Actions ([buf-setup-actio
 Some of the previous Actions' parameter names have changed. The table below maps the old values to the new ones:
 
 | Old Action          | Old name                   | New name           | Notes    |
-| ------------------- | -------------------------- | ------------------ | -------- |
+| :------------------ | :------------------------- | :----------------- | :------- |
 | buf-setup-action    | `buf_api_token`            | `token`            |          |
 |                     | `buf_user`                 | —                  | Not used |
 |                     | `buf_domain`               | `domain`           |          |
@@ -168,7 +168,7 @@ jobs:
         with:
           buf_api_token: ${{ secrets.BUF_API_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          version: "1.51.0"
+          version: "1.52.1"
       # Run a lint check on Protobuf sources
       - uses: bufbuild/buf-lint-action@v1
       # Run breaking change detection for Protobuf sources against the current

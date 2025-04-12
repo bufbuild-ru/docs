@@ -11,13 +11,13 @@ The migration from v1 to v2 configuration files encompasses a lot of changes und
 For the vast majority of configurations, the migration tool does everything you need. Run it from the root of your Git repository, and it finds all `buf.yaml`, `buf.gen.yaml`, and `buf.work.yaml` files and upgrades them to v2 `buf.yaml` and `buf.gen.yaml` files at the Git root:
 
 ```console
-buf config migrate
+$ buf config migrate
 ```
 
 If you want to see what the v2 files and directory structure look like before making any changes, you can print the diff to stdout first:
 
 ```console
-buf config migrate --diff
+$ buf config migrate --diff
 ```
 
 The migration tool does have one case where it doesn't detect the configuration files: if you have configuration files with a non-standard name (for example, if you've specified language-specific templates for code generation like `buf.gen.go.yaml`).You also may not want to migrate all of your files at once for various reasons, such as:
@@ -30,7 +30,7 @@ In these cases, you can manually specify exactly which files you want to migrate
 ::: info Migrate only buf.gen.yaml files at the specified paths
 
 ```console
-buf config migrate --buf-gen-yaml </paths/to/files>
+$ buf config migrate --buf-gen-yaml </paths/to/files>
 ```
 
 :::
@@ -258,8 +258,8 @@ In v1 configs, the command must be run twice to capture both directories because
 ::: info v1—must run command twice
 
 ```console
-buf generate proto
-buf generate baz
+$ buf generate proto
+$ buf generate baz
 ```
 
 :::
@@ -280,7 +280,7 @@ inputs:
 ::: info v2—generates code for all inputs specified in buf.yaml
 
 ```console
-buf generate
+$ buf generate
 ```
 
 :::

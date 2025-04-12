@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Announcing protoc-gen-validate v1.0 and our plans for v2.0"
+  tagline: "April 24, 2023"
 ---
 
 **We’re excited to announce that after half a decade of** [**`protoc-gen-validate`**](https://github.com/bufbuild/protoc-gen-validate) **(“PGV”) wallowing with an “alpha” label, we’re promoting PGV to v1.0, ensuring all current workflows with PGV will be stable into the future.**

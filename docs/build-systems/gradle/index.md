@@ -15,7 +15,7 @@ To get started, you'll need to add the Buf Gradle plugin:
 
 ```kotlin
 plugins {
-  id("build.buf") version "0.8.4"
+  id("build.buf") version "0.10.2"
 }
 ```
 

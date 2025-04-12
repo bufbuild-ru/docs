@@ -6,8 +6,8 @@ The BSR is designed to run on Kubernetes, and is distributed as a Helm Chart and
 
 Alongside this documentation you should have received two files:
 
-1. A _keyfile_ to pull the BSR Helm Chart and accompanying Docker images from an OCI registry. This keyfile should contain a base64 encoded string.
-2. A _license_ to operate the BSR. The license file should contain `buflicense-` followed by a base64 encoded string.
+1.  A _keyfile_ to pull the BSR Helm Chart and accompanying Docker images from an OCI registry. This keyfile should contain a base64 encoded string.
+2.  A _license_ to operate the BSR. The license file should contain `buflicense-` followed by a base64 encoded string.
 
 You will need both to proceed.
 
@@ -25,7 +25,7 @@ $ cat keyfile | helm registry login -u _json_key_base64 --password-stdin \
 Create a Kubernetes namespace in the k8s cluster for the `bsr` Helm Chart to use:
 
 ```console
-kubectl create namespace bsr
+$ kubectl create namespace bsr
 ```
 
 ## 3\. Create a pull secret
@@ -65,9 +65,51 @@ The BSR requires either S3-compatible object storage, Azure Blob Storage, or GCS
 
 #### S3
 
-+++tabs key:14dd5889446981744016b24ab2b163db
++++tabs key:11fb64bc4eb4281eabe2f15f9ba97fb0
 
-== Instance profile (recommended)
+== EKS Pod Identity (recommended)
+
+To allow access to the S3 bucket, the `bufd` and `oci-registry` services require [EKS Pod Identity](https://docs.aws.amazon.com/eks/latest/userguide/pod-id-association.html) to be configured so the pods can assume an IAM role. To configure the storage, set the following Helm values, filling in your S3 variables:
+
+```yaml
+storage:
+  use: s3
+  s3:
+    bucketName: "my-bucket-name"
+    region: "us-east-1"
+    # forcePathStyle: false # Optional, use path-style bucket URLs (http://s3.amazonaws.com/BUCKET/KEY)
+    # insecure: false # Optional, disable TLS
+    # endpoint: "example.com" # Optional
+```
+
+With this configuration, the helm chart creates two k8s service accounts that needs to be bound to the IAM role by creating Pod Identity Associations: `bufd-service-account` and `oci-registry-service-account`.
+
+== OIDC Provider
+
+To allow access to the S3 bucket, the `bufd` and `oci-registry` services require [IRSA](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) to be configured so the pods can assume an IAM role. To configure the storage, set the following Helm values, filling in your S3 bucket name and required annotations:
+
+```yaml
+storage:
+  use: s3
+  s3:
+    bucketName: "my-bucket-name"
+    region: "us-east-1"
+    # forcePathStyle: false # Optional, use path-style bucket URLs (http://s3.amazonaws.com/BUCKET/KEY)
+    # insecure: false # Optional, disable TLS
+    # endpoint: "example.com" # Optional
+bufd:
+  serviceAccount:
+    annotations:
+      eks.amazonaws.com/role-arn: arn:aws:iam::<account id>:role/<role name>
+ociregistry:
+  serviceAccount:
+    annotations:
+      eks.amazonaws.com/role-arn: arn:aws:iam::<account id>:role/<role name>
+```
+
+With this configuration, the helm chart creates two k8s service accounts that needs to be bound to the AWS IAM role trust relationship: `bufd-service-account` and `oci-registry-service-account`.
+
+== Instance profile
 
 The bufd client and oci-registry will attempt to acquire credentials from the environment. To configure the storage set the following Helm values, filling in your S3 variables:
 
@@ -86,7 +128,7 @@ storage:
 
 Alternatively, you may instead use an access key pair.
 
-1. Add the `accessKeyId` to the configuration:
+1.  Add the `accessKeyId` to the configuration:
 
     ```yaml
     storage:
@@ -100,7 +142,7 @@ Alternatively, you may instead use an access key pair.
         # endpoint: "example.com" # Optional
     ```
 
-2. Create a k8s secret containing the s3 access secret key:
+2.  Create a k8s secret containing the s3 access secret key:
 
     ```console
     $ kubectl create secret --namespace bsr generic bufd-storage \
@@ -108,6 +150,31 @@ Alternatively, you may instead use an access key pair.
     ```
 
 +++
+
+##### Required permissions
+
+To interact with S3, the BSR IAM role needs to be granted the following permissions:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject",
+        "s3:ListBucket",
+        "s3:AbortMultipartUpload",
+        "s3:ListBucketMultipartUploads",
+        "s3:ListMultipartUploadParts"
+      ],
+      "Resource": ["arn:aws:s3:::<bucket-name>", "arn:aws:s3:::<bucket-name>/*"]
+    }
+  ]
+}
+```
 
 #### Azure Blob Storage
 
@@ -148,7 +215,7 @@ The service accounts to be bound to the federated identity credentials are named
 
 Alternatively, you may instead use the storage account key.
 
-1. Set the required helm values:
+1.  Set the required helm values:
 
     ```yaml
     storage:
@@ -159,7 +226,7 @@ Alternatively, you may instead use the storage account key.
         useAccountKey: true
     ```
 
-2. Create a k8s secret containing an Azure storage account key:
+2.  Create a k8s secret containing an Azure storage account key:
 
     ```console
     $ kubectl create secret --namespace bsr generic bufd-storage \
@@ -330,7 +397,7 @@ auth:
     # Optionally, configure the attribute containing groups membership information,
     # to enable support for automated organization membership provisioning.
     # Note that if configured, a user will not be permitted to log in to the BSR if the attribute is missing from the SAML assertion.
-    # https://bufbuild.ru/docs/bsr/admin/instance/user-lifecycle/#autoprovisioning
+    # https://bufbuild.ru/docs/bsr/admin/instance/user-lifecycle#autoprovisioning
     groupsAttributeName: ""
   # Optional
   # A list of emails that will be granted BSR admin permissions on login
@@ -381,7 +448,9 @@ $ kubectl create secret --namespace bsr generic bufd-client-secret \
 
 ### Configure Ingress
 
-The BSR uses a Kubernetes [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource to handle incoming traffic and for terminating TLS. The domain used here must match the `host` set in the Helm values above.
+The BSR uses a Kubernetes [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource to handle incoming traffic and for terminating TLS.
+
+WarningThe domain used here must match the `host` set in the Helm values above.
 
 WarningTLS is required for the BSR to function properly. HTTP2 is preferred to allow for gRPC support.
 

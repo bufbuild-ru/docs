@@ -3,11 +3,12 @@ layout: home
 
 hero:
   name: "Bufstream is the only cloud-native Kafka implementation validated by Jepsen"
+  tagline: "November 12, 2024"
 ---
 
-[**Jepsen**](https://jepsen.io/) **is the gold standard for distributed systems testing, and Bufstream is the only cloud-native Kafka implementation that has been independently tested by Jepsen. Today, we're releasing the results of that testing: a clean bill of health, validating that Bufstream maintains consistency even in the face of cascading infrastructure failures. We also highlight a years-long effort to fix a fundamental flaw in the Kafka transaction protocol.**
-
 > 🎯 If you'd rather go straight to the source, [click here for the full Jepsen report](https://jepsen.io/analyses/bufstream-0.1.0).
+
+[Jepsen](https://jepsen.io/) is the gold standard for distributed systems testing, and Bufstream is the only cloud-native Kafka implementation that has been independently tested by Jepsen. Today, we're releasing the results of that testing: a clean bill of health, validating that Bufstream maintains consistency even in the face of cascading infrastructure failures. We also highlight a years-long effort to fix a fundamental flaw in the Kafka transaction protocol.
 
 ## Key takeaways
 

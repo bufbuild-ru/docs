@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Connect-Swift 1.0 is now generally available"
+  tagline: "November 11, 2024"
 ---
 
 We’re excited to share that [Connect-Swift](https://github.com/connectrpc/connect-swift) has officially reached v1.0—its first stable release! With this milestone, the library’s battle-tested APIs will remain stable until its next major release. Projects can rely on Connect-Swift without worrying that future releases will cause breakages or require migrations.

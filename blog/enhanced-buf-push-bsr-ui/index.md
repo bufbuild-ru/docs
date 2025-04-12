@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Introducing the newly improved BSR UI and buf push experience"
+  tagline: "May 17, 2024"
 ---
 
 Alongside the [next generation of the Buf CLI](/blog/buf-cli-next-generation/index.md), we’re excited to introduce an enhanced `buf push` and unveil an updated Buf Schema Registry (BSR) UI. We’ve made significant changes to both `push` and the UI to eliminate friction when onboarding new teams and codebases to the BSR:

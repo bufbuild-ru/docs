@@ -44,19 +44,7 @@ An [administrator](../user-lifecycle/#admin-users) can access the BSR's audit lo
 
 These events have a `User` as an affected resource.
 
-| Event            | Details                                                                                                                                                                                                   |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| User Created     | User creates an account in the BSR server.                                                                                                                                                                |
-| User Deactivated | BSR admin accounts are able to deactivate Users’ accounts. In that scenario, an `UserDeactivated` event is logged.                                                                                        |
-| User Deleted     | Depending on the BSR instance configuration, Users might be able to self-delete their accounts. BSR administrators can also force-delete BSR users. In both scenarios, the user deletion event is logged. |
-| User Logged In   | BSR logs a `UserLoggedIn` event in three scenarios:                                                                                                                                                       |
-
-1.  User authenticated/logged in via SAML (their account is auto provisioned in the system).
-2.  User logged in via SSO (OAuth/OIDC) and already had a registered account.
-3.  User logged in via SSO (OAuth/OIDC) and then registers an account (we only log the event if the user follows through with the account registration).
-
-|
-| User Logged Out | User manually logs out of the server. |
+<div class="joplin-table-wrapper"><table><tbody><tr><th>Event</th><th>Details</th></tr><tr><td>User Created</td><td>User creates an account in the BSR server.</td></tr><tr><td>User Deactivated</td><td>BSR admin accounts are able to deactivate Users’ accounts. In that scenario, an <code>UserDeactivated</code> event is logged.</td></tr><tr><td>User Deleted</td><td>Depending on the BSR instance configuration, Users might be able to self-delete their accounts. BSR administrators can also force-delete BSR users. In both scenarios, the user deletion event is logged.</td></tr><tr><td>User Logged In</td><td>BSR logs a <code>UserLoggedIn</code> event in three scenarios:<ol><li>User authenticated/logged in via SAML (their account is auto provisioned in the system).</li><li>User logged in via SSO (OAuth/OIDC) and already had a registered account.</li><li>User logged in via SSO (OAuth/OIDC) and then registers an account (we only log the event if the user follows through with the account registration).</li></ol></td></tr><tr><td>User Logged Out</td><td>User manually logs out of the server.</td></tr></tbody></table></div>
 
 ### Organization events
 

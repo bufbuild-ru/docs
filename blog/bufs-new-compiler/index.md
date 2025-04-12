@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Buf's New Compiler"
+  tagline: "October 19, 2022"
 ---
 
 It may come as a surprise to some Buf users, but the Buf CLI uses a [custom Protobuf compiler](/docs/reference/internal-compiler/index.md), written in Go. Instead of shelling out to Google's reference compiler, `protoc`, the Buf CLI handles compilation of proto source files in process. We've put a lot of effort over the past couple of years into making sure our compiler matches the behavior of `protoc`, so that the switch to using Buf for new users is transparent and painless. (It was that same effort that led to our creation of a [comprehensive specification for the language](https://protobuf.com/docs/language-spec).)

@@ -87,7 +87,7 @@ By default, `rules_buf_toolchains` loads the latest `buf` version. For hermetic 
 ```diff
 # rules_buf fetches the sha based on the version number--the version is enough for hermetic builds.
 -rules_buf_toolchains()
-+rules_buf_toolchains(version = "v1.51.0")
++rules_buf_toolchains(version = "v1.52.1")
 ```
 
 :::
@@ -105,7 +105,7 @@ The rules work alongside `proto_library` rules. You can configure `rules_buf` us
 #### Attributes
 
 | Name    | Description                                  | Type                                        | Mandatory | Default |
-| ------- | -------------------------------------------- | ------------------------------------------- | --------- | ------- |
+| :------ | :------------------------------------------- | :------------------------------------------ | :-------- | :------ |
 | name    | A unique name for this repository.           | [Name](https://bazel.build/concepts/labels) | required  |         |
 | modules | The module pins `remote/owner/repo:revision` | List of strings                             | required  |         |
 
@@ -155,7 +155,7 @@ We recommend using a single `buf_dependencies` rule for each `buf.yaml` file. Th
 #### Attributes
 
 | Name      | Description                                              | Type                                                             | Mandatory | Default                                                            |
-| --------- | -------------------------------------------------------- | ---------------------------------------------------------------- | --------- | ------------------------------------------------------------------ |
+| :-------- | :------------------------------------------------------- | :--------------------------------------------------------------- | :-------- | :----------------------------------------------------------------- |
 | `name`    | A unique name for this target.                           | [Name](https://bazel.build/concepts/labels)                      | required  |                                                                    |
 | `config`  | The [`buf.yaml`](../../configuration/v2/buf-yaml/) file. | [Label](https://bazel.build/docs/build-ref.html#labels)          | optional  | Applies the [default](../../configuration/v2/buf-yaml/) `buf.yaml` |
 | `targets` | `proto_library` targets to lint                          | [List of labels](https://bazel.build/docs/build-ref.html#labels) | required  |                                                                    |
@@ -194,7 +194,7 @@ We recommend having a single `buf_lint_test` for each `proto_library` target. Th
 #### Attributes
 
 | Name                   | Description                                                                                                                                           | Type                                                             | Mandatory | Default                                                            |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | --------- | ------------------------------------------------------------------ |
+| :--------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------- | :-------- | :----------------------------------------------------------------- |
 | `name`                 | A unique name for this target.                                                                                                                        | [Name](https://bazel.build/concepts/labels)                      | required  |                                                                    |
 | `against`              | The image file to check against.                                                                                                                      | [Label](https://bazel.build/docs/build-ref.html#labels)          | required  |                                                                    |
 | `config`               | The `buf.yaml` file.                                                                                                                                  | [Label](https://bazel.build/docs/build-ref.html#labels)          | optional  | Applies the [default](../../configuration/v2/buf-yaml/) `buf.yaml` |
@@ -359,18 +359,11 @@ This creates the file `buf_deps.bzl` with the `buf_deps` macro that loads the `b
 
 #### Arguments
 
-| Argument | Mandatory | Default |
-| -------- | --------- | ------- |
-
-| `-from_file file`
-
-Must be one of `buf.yaml` or `buf.lock`. When using `buf.yaml`, the rule imports from the associated `buf.lock` file. | Required | |
-| `-to_macro macroFile%defName`
-
-Tells Gazelle to write new repository rules into a `.bzl` macro function rather than the `WORKSPACE` file. | Optional | '' |
-| `-prune true` | False
-
-When true, Gazelle removes `buf_dependencies` rules that no longer have equivalent `buf.yaml` files. | Optional |
+| Argument                                                                                                                                          | Mandatory                                                                                                           | Default  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------- |
+| `-from_file file` <br> <br>Must be one of `buf.yaml` or `buf.lock`. When using `buf.yaml`, the rule imports from the associated `buf.lock` file.  | Required                                                                                                            |          |
+| `-to_macro macroFile%defName` <br> <br>Tells Gazelle to write new repository rules into a `.bzl` macro function rather than the `WORKSPACE` file. | Optional                                                                                                            | ''       |
+| `-prune true`                                                                                                                                     | False <br> <br>When true, Gazelle removes `buf_dependencies` rules that no longer have equivalent `buf.yaml` files. | Optional |
 
 ### Lint
 

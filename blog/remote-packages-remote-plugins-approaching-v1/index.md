@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Remote packages and remote plugins are approaching v1!"
+  tagline: "December 1, 2022"
 ---
 
 Remote packages are now called "generated SDKs". See the [documentation](/docs/bsr/generated-sdks/overview/index.md) for more information.

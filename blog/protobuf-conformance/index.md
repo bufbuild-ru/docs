@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "Protobuf-ES is the only fully-compliant Protobuf library for JavaScript"
+  tagline: "March 21, 2023"
 ---
 
 One of the promises of Protobuf is a schema-based API that works seamlessly across implementations and languages. The ability to send and receive data over application boundaries in a predictable and reliable way offers developers a confidence that they cannot achieve by using REST.

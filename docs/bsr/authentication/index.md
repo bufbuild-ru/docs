@@ -107,7 +107,7 @@ $ export BUF_TOKEN=${YOUR_TOKEN}
 The `BUF_TOKEN` environment variable can also contain tokens with specific BSR addresses. Each token has the format `${BUF_TOKEN}@${BSR_HOSTNAME}` with multiple tokens separated by a comma. The Buf CLI finds the correct authentication token for each remote address. You can set `BUF_TOKEN` by running the following command:
 
 ```console
-$ export BUF_TOKEN=${TOKEN1}@{BSR_HOSTNAME1},${TOKEN2}@{BSR_HOSTNAME2},...
+$ export BUF_TOKEN=${TOKEN1}@${BSR_HOSTNAME1},${TOKEN2}@${BSR_HOSTNAME2},...
 ```
 
 ### Order of precedence

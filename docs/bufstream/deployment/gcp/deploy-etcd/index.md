@@ -1,6 +1,6 @@
 # Deploy Bufstream to Google Cloud with etcd
 
-This page walks you through installing Bufstream into your Google Cloud Platform (GCP) deployment by setting your Helm values and installing the provided Helm chart. See the [GCP configuration](../configure/) page for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
+This page walks you through installing Bufstream into your Google Cloud Platform (GCP) deployment, using etcd for metadata storage. See the [GCP configuration](../configure/) page for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
 
 ## Prerequisites
 
@@ -362,7 +362,7 @@ $ ZONES=(<zone1> <zone2> <zone3>)
 
 ### 2\. Create GCP service account association for all zones
 
-Create a bufstream account association for the GCP service account in each zone:
+Create a Bufstream account association for the GCP service account in each zone:
 
 ```console
 $ for ZONE in $ZONES; do

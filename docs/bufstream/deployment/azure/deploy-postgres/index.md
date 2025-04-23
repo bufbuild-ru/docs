@@ -1,6 +1,6 @@
-# Deploy Bufstream to Azure
+# Deploy Bufstream to Azure with Azure Database for PostgreSQL
 
-This page walks you through installing Bufstream into your Azure deployment by setting your Helm values and installing the provided Helm chart. See the [Azure configuration](../configure/) page for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
+This page walks you through installing Bufstream into your Azure deployment, using PostgreSQL for metadata storage. See the [Azure configuration](../configure/) page for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
 
 ## Prerequisites
 
@@ -8,6 +8,7 @@ To deploy Bufstream on Azure, you need the following before you start:
 
 - A Kubernetes cluster (v1.27 or newer)
 - An Azure Storage account and blob storage container
+- An Azure Database for PostgreSQL flexible server (version 14 or higher)
 - A Bufstream managed identity, with read/write permission to the storage container above.
 - Helm (v3.12.0 or newer)
 
@@ -56,6 +57,33 @@ $ az storage container create \
     --auth-mode login
 ```
 
+## Create an Azure Database for PostgreSQL flexible server
+
+Create a new Azure Database for PostgreSQL flexible server
+
+```console
+$ az postgres flexible-server create \
+  --name <server-name> \
+  --resource-group <group-name> \
+  --location <region> \
+  --version 16 \
+  --password-auth enabled \
+  --admin-user postgres \
+  --admin-password <postgres-user-password> \
+  --tier generalpurpose \
+  --sku-name Standard_D4ds_v5 \
+  --storage-type premium_lrs \
+  --storage-size 32 \
+  --performance-tier p20 \
+  --storage-auto-grow enabled \
+  --high-availability zoneredundant \
+  --public-access all \
+  --create-default-database enabled \
+  --database-name bufstream
+```
+
+For more details about instance creation, see the [official docs](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/quickstart-create-server). For a more secure setup, using [private access](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-networking-private) instead of a public IP is recommended.
+
 ## Create a managed identity and assign role to Microsoft Entra Workload ID for WIF
 
 The managed identity must be given the `Storage Blob Data Contributor` role with access to the target container.
@@ -93,61 +121,6 @@ Create a Kubernetes namespace in the k8s cluster for the `bufstream` deployment 
 ```console
 $ kubectl create namespace bufstream
 ```
-
-## Deploy etcd
-
-Bufstream requires an [`etcd`](https://etcd.io/) cluster. To set up an example deployment of `etcd` on Kubernetes, use the [Bitnami `etcd` Helm chart](https://github.com/bitnami/charts/tree/main/bitnami/etcd) with the following values:
-
-```console
-$ helm install \
-  --namespace bufstream \
-  bufstream-etcd \
-  oci://registry-1.docker.io/bitnamicharts/etcd \
-  -f - <<EOF
-replicaCount: 3
-persistence:
-  enabled: true
-  size: 10Gi
-  storageClass: ""
-autoCompactionMode: periodic
-autoCompactionRetention: 30s
-removeMemberOnContainerTermination: false
-resourcesPreset: none
-auth:
-  rbac:
-    create: false
-    enabled: false
-  token:
-    enabled: false
-metrics:
-  useSeparateEndpoint: true
-customLivenessProbe:
-  httpGet:
-    port: 9090
-    path: /livez
-    scheme: "HTTP"
-  initialDelaySeconds: 10
-  periodSeconds: 30
-  timeoutSeconds: 15
-  failureThreshold: 10
-customReadinessProbe:
-  httpGet:
-    port: 9090
-    path: /readyz
-    scheme: "HTTP"
-  initialDelaySeconds: 20
-  timeoutSeconds: 10
-extraEnvVars:
-  - name: ETCD_LISTEN_CLIENT_HTTP_URLS
-    value: "http://0.0.0.0:8080"
-EOF
-```
-
-Check that `etcd` is running after installation.
-
-Warning`etcd` is sensitive to disk performance, so we recommend using the [Azure Disks Container Storage Interface](https://learn.microsoft.com/en-us/azure/aks/azure-disk-csi) with `Premium SSD v2` disks.
-
-The storage class in the example above can be changed by setting the `persistence.storageClass` value to a custom storage class using those disks.
 
 ## Deploy Bufstream
 
@@ -235,27 +208,41 @@ Alternatively, you can use a shared key pair.
 
 +++
 
-#### Configure `etcd`
+#### Configure PostgreSQL
 
-Then, configure Bufstream to connect to the `etcd` cluster:
+Get the endpoint address of the PostgreSQL instance:
+
+```console
+$ az postgres flexible-server show \
+  --name <server-name> \
+  --resource-group <resource-group> \
+  --query "{endpoint:fullyQualifiedDomainName}" \
+  --output table
+```
+
+Create a secret with the DSN to connect to the PostgreSQL instance:
+
+```console
+kubectl create secret --namespace bufstream generic bufstream-postgres \
+      --from-literal=dsn='postgresql://postgres:<postgres-user-password>@<endpoint-address>:5432/bufstream?sslmode=require'
+```
+
+Then, configure Bufstream to connect to PostgreSQL:
 
 ::: info bufstream-values.yaml
 
 ```yaml
 metadata:
-  use: etcd
-  etcd:
-    # etcd addresses to connect to
-    addresses:
-      - host: "bufstream-etcd.bufstream.svc.cluster.local"
-        port: 2379
+  use: postgres
+  postgres:
+    secretName: bufstream-postgres
 ```
 
 :::
 
 ### 3\. Install the Helm chart
 
-Proceed to the [zonal deployment steps](./#zonal-deployment) if you want to deploy Bufstream with zone-aware routing. If not, follow the instructions below to deploy the basic Helm chart.Add the following to the `bufstream-values.yaml` Helm values file to make bufstream brokers automatically detect their zone:
+Proceed to the [zonal deployment steps](#zonal-deployment) if you want to deploy Bufstream with zone-aware routing. If not, follow the instructions below to deploy the basic Helm chart.Add the following to the `bufstream-values.yaml` Helm values file to make bufstream brokers automatically detect their zone:
 
 ```yaml
 discoverZoneFromNode: true
@@ -284,12 +271,9 @@ bufstream:
     annotations:
       azure.workload.identity/client-id: <managed identity client id>
 metadata:
-  use: etcd
-  etcd:
-    # etcd addresses to connect to
-    addresses:
-      - host: "bufstream-etcd.bufstream.svc.cluster.local"
-        port: 2379
+  use: postgres
+  postgres:
+    secretName: bufstream-postgres
 discoverZoneFromNode: true
 ```
 
@@ -308,12 +292,9 @@ storage:
     accessKeyId: mystorageaccount
     secretName: bufstream-storage
 metadata:
-  use: etcd
-  etcd:
-    # etcd addresses to connect to
-    addresses:
-      - host: "bufstream-etcd.bufstream.svc.cluster.local"
-        port: 2379
+  use: postgres
+  postgres:
+    secretName: bufstream-postgres
 discoverZoneFromNode: true
 ```
 
@@ -415,12 +396,9 @@ bufstream:
     annotations:
       azure.workload.identity/client-id: <managed identity client id>
 metadata:
-  use: etcd
-  etcd:
-    # etcd addresses to connect to
-    addresses:
-      - host: "bufstream-etcd.bufstream.svc.cluster.local"
-        port: 2379
+  use: postgres
+  postgres:
+    secretName: bufstream-postgres
 ```
 
 :::

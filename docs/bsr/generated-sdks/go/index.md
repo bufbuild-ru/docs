@@ -1,6 +1,6 @@
 # Go packages
 
-The Buf Schema Registry provides generated SDKs for Go from modules and plugins using `go get`, just like any other Go library. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.See the [tutorial](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.The BSR Go module proxy implements the [GOPROXY protocol](https://golang.org/ref/mod#goproxy-protocol) for [Buf modules](../../../concepts/modules-workspaces/) by generating SDKs on the fly—Go code stubs aren't generated until you request them using `go get`. Once generated, they're cached, and the cached SDKs are returned from subsequent requests.
+The Buf Schema Registry provides generated SDKs for Go from modules and plugins using `go get`, just like any other Go library. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.See the [tutorial](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.The BSR Go module proxy implements the [GOPROXY protocol](https://golang.org/ref/mod#goproxy-protocol) for [Buf modules](../../../cli/modules-workspaces/) by generating SDKs on the fly—Go code stubs aren't generated until you request them using `go get`. Once generated, they're cached, and the cached SDKs are returned from subsequent requests.
 
 ## Using Go modules
 
@@ -80,7 +80,7 @@ Note the apparent duplication in the import path. In the example above, `connect
 
 ## Versions
 
-By default, when you `go get` a [Buf module](../../../concepts/modules-workspaces/), the BSR generates code from the most recent [reference](../../../concepts/modules-workspaces/#referencing-a-module) for the module. However, you can also install a specific module version by referencing an explicit version or a label with the `@` syntax. To discover SDK versions, you can browse a repository's SDKs page, which has installation instructions and an interactive UI.
+By default, when you `go get` a [Buf module](../../../cli/modules-workspaces/), the BSR generates code from the most recent [reference](../../../cli/modules-workspaces/#referencing-a-module) for the module. However, you can also install a specific module version by referencing an explicit version or a label with the `@` syntax. To discover SDK versions, you can browse a repository's SDKs page, which has installation instructions and an interactive UI.
 
 ### Latest
 
@@ -100,7 +100,7 @@ $ go get buf.build/gen/go/connectrpc/eliza/connectrpc/go@COMMIT_ID
 
 ### Label
 
-The BSR supports [commits on labels](../../../concepts/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../../concepts/repositories/#default-label).To get the generated SDK for the module at a label, using the latest plugin version:
+The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../repositories/#default-label).To get the generated SDK for the module at a label, using the latest plugin version:
 
 ```console
 $ go get buf.build/gen/go/connectrpc/eliza/connectrpc/go@LABEL

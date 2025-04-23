@@ -4,7 +4,7 @@
 
 :::
 
-`buf.gen.yaml` is a configuration file used by the `buf generate` command to generate integration code for the languages of your choice. This file is most often used with a [module](../../../concepts/modules-workspaces/) (but can be used with other [input](../../../reference/inputs/) types), and is typically placed next to your [`buf.work.yaml`](../buf-work-yaml/) file at the root of your Protobuf files:
+`buf.gen.yaml` is a configuration file used by the `buf generate` command to generate integration code for the languages of your choice. This file is most often used with a [module](../../../cli/modules-workspaces/) (but can be used with other [input](../../../reference/inputs/) types), and is typically placed next to your [`buf.work.yaml`](../buf-work-yaml/) file at the root of your Protobuf files:
 
 ```text
 .
@@ -209,11 +209,11 @@ service WeatherVisionService {
 
 #### `except`
 
-**Optional.** Removes the specified modules from the default `csharp_namespace` option behavior. The `except` keys **must** be valid [module names](../../../concepts/modules-workspaces/).
+**Optional.** Removes the specified modules from the default `csharp_namespace` option behavior. The `except` keys **must** be valid [module names](../../../cli/modules-workspaces/).
 
 #### `override`
 
-**Optional.** Overrides the `csharp_namespace` value used for specific modules. The `override` keys **must** be valid [module names](../../../concepts/modules-workspaces/).
+**Optional.** Overrides the `csharp_namespace` value used for specific modules. The `override` keys **must** be valid [module names](../../../cli/modules-workspaces/).
 
 ### `go_package_prefix`
 
@@ -237,7 +237,7 @@ If the Protobuf file's package declaration conforms to the [`PACKAGE_VERSION_SUF
 
 #### `except`
 
-**Optional.** Removes certain modules from the `go_package` option behavior. The `except` values **must** be valid [module names](../../../concepts/modules-workspaces/). There are situations where you may want to enable managed mode for the `go_package` option in _most_ of your Protobuf files, but not necessarily for _all_ of your Protobuf files. This is particularly relevant for the `buf.build/googleapis/googleapis` module, which points its `go_package` value to an [external repository](https://github.com/googleapis/go-genproto). Popular libraries such as [grpc-go](https://github.com/grpc/grpc-go) depend on these `go_package` values, so it's important that managed mode does not overwrite them.
+**Optional.** Removes certain modules from the `go_package` option behavior. The `except` values **must** be valid [module names](../../../cli/modules-workspaces/). There are situations where you may want to enable managed mode for the `go_package` option in _most_ of your Protobuf files, but not necessarily for _all_ of your Protobuf files. This is particularly relevant for the `buf.build/googleapis/googleapis` module, which points its `go_package` value to an [external repository](https://github.com/googleapis/go-genproto). Popular libraries such as [grpc-go](https://github.com/grpc/grpc-go) depend on these `go_package` values, so it's important that managed mode does not overwrite them.
 
 #### `override`
 
@@ -286,7 +286,7 @@ managed:
 
 #### `except`
 
-**Optional.** Removes the specified modules from the `java_package` option behavior. The `except` keys **must** be valid [module names](../../../concepts/modules-workspaces/).
+**Optional.** Removes the specified modules from the `java_package` option behavior. The `except` keys **must** be valid [module names](../../../cli/modules-workspaces/).
 
 #### `override`
 
@@ -306,7 +306,7 @@ managed:
 
 #### `except`
 
-**Optional.** Removes the specified modules from the `objc_class_prefix` option behavior. The `except` keys **must** be valid [module names](../../../concepts/modules-workspaces/).
+**Optional.** Removes the specified modules from the `objc_class_prefix` option behavior. The `except` keys **must** be valid [module names](../../../cli/modules-workspaces/).
 
 #### `override`
 
@@ -373,11 +373,11 @@ managed:
 
 #### `except`
 
-**Optional.** Removes the specified modules from the `ruby_package` file option override behavior. The `except` keys **must** be valid [module names](../../../concepts/modules-workspaces/).
+**Optional.** Removes the specified modules from the `ruby_package` file option override behavior. The `except` keys **must** be valid [module names](../../../cli/modules-workspaces/).
 
 #### `override`
 
-**Optional.** Overrides the `ruby_package` file option value used for specific modules. The `override` keys **must** be valid [module names](../../../concepts/modules-workspaces/).
+**Optional.** Overrides the `ruby_package` file option value used for specific modules. The `override` keys **must** be valid [module names](../../../cli/modules-workspaces/).
 
 ### `override`
 

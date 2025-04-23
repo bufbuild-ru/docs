@@ -69,7 +69,7 @@ That represents:
 - Commit timestamp: `20240523144506`
 - Commit short name: `ce529d32d80c`
 
-If you need a more specific version than the latest, such as needing to install a specific plugin version, you can use the [`buf registry sdk version`](../../../reference/cli/buf/registry/sdk/version/) command.The BSR supports [commits on labels](../../../concepts/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../../concepts/repositories/#default-label).Only commits that are on the default label at the time they're pushed to the BSR have populated timestamps. Timestamps on commits pushed to other labels are set to `00000000000000` to easily distinguish them as changes in labels that are still in development.
+If you need a more specific version than the latest, such as needing to install a specific plugin version, you can use the [`buf registry sdk version`](../../../reference/cli/buf/registry/sdk/version/) command.The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../repositories/#default-label).Only commits that are on the default label at the time they're pushed to the BSR have populated timestamps. Timestamps on commits pushed to other labels are set to `00000000000000` to easily distinguish them as changes in labels that are still in development.
 
 ## Available plugins
 

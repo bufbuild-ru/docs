@@ -16,15 +16,15 @@ With access to these two services, Bufstream brokers can elastically scale to me
 ```bash
 # Bufstream brokers are only available for Mac and Linux!
 
-curl -sSL -o bufstream-broker \
+curl -sSL -o bufstream \
     "https://buf.build/dl/bufstream/latest/bufstream-$(uname -s)-$(uname -m)" && \
-    chmod +x bufstream-broker
+    chmod +x bufstream
 ```
 
 Run the Bufstream broker in local mode:
 
 ```bash
-./bufstream-broker serve
+./bufstream serve
 ```
 
 A log line similar to this should print out (time and level fields stripped):
@@ -94,7 +94,7 @@ git clone https://github.com/bufbuild/bufstream-demo.git
 Move the broker into `bufstream-demo` then enter that directory:
 
 ```bash
-mv bufstream-broker ./bufstream-demo && \
+mv bufstream ./bufstream-demo && \
     cd ./bufstream-demo
 ```
 
@@ -106,7 +106,7 @@ Open two more terminals in `bufstream-demo`, for a total of three:
 
 ### First-class schema support
 
-Bufstream integrates directly with any registry that implements Confluent Schema Registry API to provide first-class support for Protobuf schemas on the broker-side. Bufstream's understanding of the schema of your topic[1](#fn:1) allows it to provide some interesting functionality unavailable in other Kafka-compatible implementations.In this tutorial, we'll use the [Buf Schema Registry](../../bsr/) as our Confluent-compatible schema registry. The BSR has the ability to automatically associate Protobuf messages that it stores with subjects via a custom message option contained in the [buf.build/bufbuild/confluent](https://buf.build/bufbuild/confluent) [module](../../concepts/modules-workspaces/). In the bufstream-demo example, we associate the [`EmailUpdated`](https://demo.buf.dev/bufbuild/bufstream-demo/docs/main:bufstream.demo.v1#bufstream.demo.v1.EmailUpdated) message with the `email-updated` topic (via the `email-updated-value` subject).
+Bufstream integrates directly with any registry that implements Confluent Schema Registry API to provide first-class support for Protobuf schemas on the broker-side. Bufstream's understanding of the schema of your topic[1](#fn:1) allows it to provide some interesting functionality unavailable in other Kafka-compatible implementations.In this tutorial, we'll use the [Buf Schema Registry](../../bsr/) as our Confluent-compatible schema registry. The BSR has the ability to automatically associate Protobuf messages that it stores with subjects via a custom message option contained in the [buf.build/bufbuild/confluent](https://buf.build/bufbuild/confluent) [module](../../cli/modules-workspaces/). In the bufstream-demo example, we associate the [`EmailUpdated`](https://demo.buf.dev/bufbuild/bufstream-demo/docs/main:bufstream.demo.v1#bufstream.demo.v1.EmailUpdated) message with the `email-updated` topic (via the `email-updated-value` subject).
 
 ```protobuf
 message EmailUpdated {
@@ -164,7 +164,7 @@ If given a CSR URL, the producer performs schema enforcement and enveloping for 
 ::: info Broker terminal
 
 ```bash
-./bufstream-broker serve
+./bufstream serve
 ```
 
 :::
@@ -272,7 +272,7 @@ In your three terminals, kill your running Bufstream instance, producer and cons
 ::: info Broker terminal
 
 ```bash
-./bufstream-broker serve --config config/bufstream.yaml
+./bufstream serve --config config/bufstream.yaml
 ```
 
 :::
@@ -305,7 +305,7 @@ From the producer, you should see something similar to the following:
 ```console
 msg="produced semantically valid protobuf message" id=a002750d-d01f-4b82-8f29-4737153d5efe
 msg="produced semantically invalid protobuf message" id=510111ab-a078-4bc8-87aa-96d71748c207
-msg="error on produce of invalid data" error="failed to produce: INVALID_RECORD: This record has failed the validation on broker and hence be rejected."
+msg="error on produce of invalid data" error="failed to produce: INVALID_RECORD: This record has failed the validation on the broker and hence been rejected."
 ```
 
 :::
@@ -354,7 +354,7 @@ Then, kill the processes and bring them back up:
 ::: info Broker terminal
 
 ```bash
-./bufstream-broker serve --config config/bufstream.yaml
+./bufstream serve --config config/bufstream.yaml
 ```
 
 :::
@@ -386,8 +386,8 @@ From the producer:
 
 ```console
 msg="produced semantically valid protobuf message" id=89ab6b85-c9df-4382-8f79-5ae88921da9f
-msg="error on produce of semantically invalid protobuf message" error="failed to produce: INVALID_RECORD: This record has failed the validation on broker and hence be rejected."
-msg="error on produce of invalid data" error="failed to produce: INVALID_RECORD: This record has failed the validation on broker and hence be rejected."
+msg="error on produce of semantically invalid protobuf message" error="failed to produce: INVALID_RECORD: This record has failed the validation on the broker and hence been rejected."
+msg="error on produce of invalid data" error="failed to produce: INVALID_RECORD: This record has failed the validation on the broker and hence been rejected."
 ```
 
 :::

@@ -33,7 +33,7 @@ $ protoc \
     $(find proto -name '*.proto')
 ```
 
-With `protoc`, each `-I` flag represents a directory used to search for imports. For example, given the above `protoc` invocation, the `proto/acme/weather/v1/weather.proto` and `vendor/protoc-gen-validate/validate/validate.proto` files are imported as `acme/weather/v1/weather.proto` and `validate/validate.proto`, respectively.The placement of the `buf.yaml` is analogous to a `protoc` include (`-I`) path. **With `buf`, there is no `-I` flag**—each `protoc` `-I` path maps to a `path` field in the `buf.yaml` configuration file (called a [module](../../concepts/modules-workspaces/)) and collectively defines a workspace.The example shown above can be adapted to `buf` by adding a `buf.yaml` config file at the root of the `-I` directories (which becomes the root of the workspace) and specifying both directories as modules:
+With `protoc`, each `-I` flag represents a directory used to search for imports. For example, given the above `protoc` invocation, the `proto/acme/weather/v1/weather.proto` and `vendor/protoc-gen-validate/validate/validate.proto` files are imported as `acme/weather/v1/weather.proto` and `validate/validate.proto`, respectively.The placement of the `buf.yaml` is analogous to a `protoc` include (`-I`) path. **With `buf`, there is no `-I` flag**—each `protoc` `-I` path maps to a `path` field in the `buf.yaml` configuration file (called a [module](../../cli/modules-workspaces/)) and collectively defines a workspace.The example shown above can be adapted to `buf` by adding a `buf.yaml` config file at the root of the `-I` directories (which becomes the root of the workspace) and specifying both directories as modules:
 
 ```text
 .

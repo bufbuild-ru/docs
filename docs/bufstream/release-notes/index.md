@@ -1,8 +1,64 @@
 # Release notes
 
-## v0.3.18
+## v0.3.21
 
 **_Release date:_** 2025-04-08 | **_Status:_** latest
+
+::: tip Note**Breaking changes:** This release removes all of the `--config.*` CLI flags.
+
+:::
+
+#### Bug fixes
+
+- Fix OffsetFetch response to conform to client expectations when a partition is unknown to a consumer group
+- Allow old data enforcement validators to be evicted from the cache, freeing up their memory
+- Fix a bug in SigV4 authorization for Iceberg REST catalogs
+- Avoid erroneous logs when `fetch_eager` is disabled
+
+#### Features and improvements
+
+- Remove `--config.*` flags from `serve` and `migrate` commands
+- Prevent PostgreSQL connection cycling when transactions are short-circuited
+- Add additional tracing around the produce flow
+- Reduce `bufstream` binary size by ~30MiB
+- Additional performance improvements
+
+## v0.3.20
+
+**_Release date:_** 2025-04-16
+
+#### Bug fixes
+
+- Partial rollback of changes to in-flight gauges to avoid a deadlock
+- Fix the PostgreSQL status probe query which would cause healthchecks to fail
+
+## v0.3.19
+
+**_Release date:_** 2025-04-15 | **_Status:_** archived*This release has been archived due to a permanent start-up bug when using PostgreSQL (other metadata stores are not impacted). All production workloads should upgrade to use version [0.3.20](#v0320).*
+
+::: tip Note**Breaking changes:** This release removes the following `serve` CLI command flags:
+
+- `--available-memory`: Should be configured instead with `BUFSTREAM_AVAILABLE_MEMORY` or the Go runtime's `GOMEMLIMIT` environment variable
+- `--etcd.address`: Only impacted the embedded etcd implementation
+- `--nokafka`: Vestigial flag removed
+
+:::
+
+#### Bug fixes
+
+- Fix categorization of certain compound storage errors causing inaccurate observability labeling
+
+#### Features and improvements
+
+- Release preview of PostgreSQL support on AWS and GCP
+- Reduce contention on the metadata service from idle partitions
+- Minimize allocations from in-flight gauge metrics and storage key computations
+- Remove `--available-memory`, `--etcd.address`, and `--nokafka` flags from `serve` command
+- Additional performance improvements
+
+## v0.3.18
+
+**_Release date:_** 2025-04-08
 
 #### Bug fixes
 

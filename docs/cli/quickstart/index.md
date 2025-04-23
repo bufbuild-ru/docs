@@ -29,7 +29,7 @@ $ cd buf-tour/start/getting-started-with-buf-cli
 
 ### Configure the workspace
 
-You configure a Buf CLI workspace with a [`buf.yaml`](../../configuration/v2/buf-yaml/) file, which defines the list of Protobuf file directories that you want to treat as logical units, or [modules](../../concepts/modules-workspaces/). Create the file with this command:
+You configure a Buf CLI workspace with a [`buf.yaml`](../../configuration/v2/buf-yaml/) file, which defines the list of Protobuf file directories that you want to treat as logical units, or [modules](../modules-workspaces/). Create the file with this command:
 
 ::: info ~/.../buf-tour/start/getting-started-with-buf-cli
 
@@ -491,5 +491,5 @@ The Buf CLI is a powerful tool that streamlines the workflow for protocol buffer
 
 ## Related docs
 
-- Learn about [modules and workspaces](../../concepts/modules-workspaces/) in more detail.
+- Learn about [modules and workspaces](../modules-workspaces/) in more detail.
 - Read the [`buf.yaml`](../../configuration/v2/buf-yaml/) and [`buf.gen.yaml`](../../configuration/v2/buf-gen-yaml/) configuration file reference pages.

@@ -4,7 +4,7 @@
 
 :::
 
-`buf.gen.yaml` is a configuration file used by the `buf generate` command to generate integration code for the languages of your choice. This file is most often used with a Buf [workspace](../../../concepts/modules-workspaces/), but can be used with other [input](../../../reference/inputs/) types. It's typically placed with your [`buf.yaml`](../buf-yaml/) file at the root of your Protobuf files:
+`buf.gen.yaml` is a configuration file used by the `buf generate` command to generate integration code for the languages of your choice. This file is most often used with a Buf [workspace](../../../cli/modules-workspaces/), but can be used with other [input](../../../reference/inputs/) types. It's typically placed with your [`buf.yaml`](../buf-yaml/) file at the root of your Protobuf files:
 
 ```text
 workspace_root
@@ -410,7 +410,7 @@ String. Specifies a local directory path as the input, with the location as the 
 
 ### `module`
 
-String. Specifies a remote BSR module as the input, with the location as the value. A [commit or label](../../../concepts/commits-labels/) can also be specified.Example: `buf.build/acme/weather`, `buf.build/acme/weather:main`, `buf.build/acme/weather:7abdb7802c8f4737a1a23a35ca8266ef`
+String. Specifies a remote BSR module as the input, with the location as the value. A [commit or label](../../../bsr/commits-labels/) can also be specified.Example: `buf.build/acme/weather`, `buf.build/acme/weather:main`, `buf.build/acme/weather:7abdb7802c8f4737a1a23a35ca8266ef`
 
 ### `tarball`
 

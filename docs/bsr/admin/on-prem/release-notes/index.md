@@ -1,5 +1,14 @@
 # Release notes
 
+## v1.21.0
+
+**_Release date:_** 2025-04-21 | **_Database version:_** 350 | **_Minimum CLI version:_** v1.24.0
+
+- **[Customize homepage](../../instance/customize-homepage/):** We’ve updated the custom homepage to include an opt-in getting started guide that will only be accessible to authenticated users.
+- **Types usage:** Admins can now access a more detailed dashboard about the [types usage for specific owners or repositories](../../../../subscription/manage-costs/#types-usage-dashboard) in their BSR instance.
+- **Security group mapping:** When [mapping security groups to BSR organizations](../../instance/user-lifecycle/#map-a-security-group-to-a-bsr-organization) you can now optionally override a group member's role by specifying a `role_override`.
+- **Code generation:** We’ve enabled remote code generation caching by default if networking isn't enabled in the [sandbox](../architecture/#bufsandboxd). When enabled, this setting allows the BSR to reuse previously generated code when the same artifact is requested by a user, resulting in faster code generation response times. Administrators of BSR instances where plugins may generate non-deterministic results due to noncompliance with [the plugin protocol](../../../remote-plugins/custom-plugins/#plugin-protocol-requirements) may want to consider disabling the cache by setting `generationCache: false` in the Helm chart.
+
 ## v1.20.1
 
 **_Release date:_** 2025-04-07 | **_Database version:_** 339 | **_Minimum CLI version:_** v1.24.0
@@ -109,7 +118,7 @@
 **_Release date:_** 2024-10-09 | **_Database version:_** 301 | **_Minimum CLI version:_** v1.24.0
 
 - **Generated SDKs:** [NuGet](../../../generated-sdks/nuget/) and [CMake](../../../generated-sdks/cmake/) generated SDKs are now enabled for all BSR on-prem installations.
-- **Cargo registry update:** License information is now added to Cargo crates. The crate uses the [module license](../../../../concepts/modules-workspaces/#module-license) from its associated commit, otherwise it falls back to a raw LICENSE file if it's present in the module.
+- **Cargo registry update:** License information is now added to Cargo crates. The crate uses the [module license](../../../../cli/modules-workspaces/#module-license) from its associated commit, otherwise it falls back to a raw LICENSE file if it's present in the module.
 - We've updated the NuGet Repository to skip dependencies on [protocolbuffers/wellknowntypes](https://buf.build/protocolbuffers/wellknowntypes), allowing the `Google.Protobuf` package to pull in the correct dependency.
 
 ## v1.12.1
@@ -122,7 +131,7 @@
 
 **_Release date:_** 2024-09-11 | **_Database version:_** 299 | **_Minimum CLI version:_** v1.24.0
 
-- **[Artifactory support for NuGet](../../../../tool-integrations/artifactory/#nuget-setup):** Users can now configure the BSR as a remote NuGet repository in Artifactory.
+- **[Artifactory support for NuGet](../../../generated-sdks/artifactory/):** Users can now configure the BSR as a remote NuGet repository in Artifactory.
 - We fixed an issue that prevented the generation of Cargo assets for older plugin versions.
 
 ---

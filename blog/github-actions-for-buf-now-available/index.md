@@ -123,7 +123,7 @@ The [**Buf Schema Registry (BSR)**](/docs/bsr/index.md) is a platform that serve
 
 Once you've setup lint rules and breaking change detection a natural next step is to synchronize your Protocol Buffers files with the BSR. Building on the example above, you can adapt this workflow so that commits merged into the `main` branch will automatically push Protocol Buffers file updates to the BSR.
 
-This might be a good time to read about [Modules](/docs/concepts/modules-workspaces/index.md). A collection of Protocol Buffers files that are configured, built, and versioned as a logical unit.
+This might be a good time to read about [Modules](/docs/cli/modules-workspaces/index.md). A collection of Protocol Buffers files that are configured, built, and versioned as a logical unit.
 
 To write to the BSR you'll need an API token. For details on creating a token [click here](/docs/bsr/authentication/index.md#create-an-api-token). Once you've created a token you'll want to store it as an encrypted [GitHub Secret](https://docs.github.com/en/actions/reference/encrypted-secrets). In this example we'll refer to this token as `BUF_TOKEN`.
 

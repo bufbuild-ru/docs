@@ -21,7 +21,7 @@ As a result, you only need to install a single generated SDK to use the schema.
 
 ## Developing against pre-release code
 
-In addition to simpler dependency management, generated SDKs also make iterating on Protobuf APIs easier. All [labels](../../../concepts/commits-labels/#labels) in the BSR produce SDKs, allowing consumer teams to work with pre-release client code before pushing their APIs to the default label. Consumers can use the latest version of a generated SDK (the default) or pin it to a specific commit or label instead.Go to the tutorial to learn [how to install generated SDKs from the BSR](../tutorial/), or the guides linked below for manual installation instructions and specific versioning syntax.
+In addition to simpler dependency management, generated SDKs also make iterating on Protobuf APIs easier. All [labels](../../commits-labels/#labels) in the BSR produce SDKs, allowing consumer teams to work with pre-release client code before pushing their APIs to the default label. Consumers can use the latest version of a generated SDK (the default) or pin it to a specific commit or label instead.Go to the tutorial to learn [how to install generated SDKs from the BSR](../tutorial/), or the guides linked below for manual installation instructions and specific versioning syntax.
 
 ## Configuration limitations
 
@@ -62,5 +62,5 @@ The BSR currently supports generated SDKs for these languages:
 
 ## Related docs
 
-- Learn about [commits and labels](../../../concepts/commits-labels/)
+- Learn about [commits and labels](../../commits-labels/)
 - [Setting up recommended SDKs](../../admin/instance/recommended-sdks/)

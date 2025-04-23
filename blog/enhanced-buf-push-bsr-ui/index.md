@@ -21,7 +21,7 @@ To give you more insight into how modules in the BSR map to content in your sour
 
 ### What are labels?
 
-A [label](/docs/concepts/commits-labels/index.md#labels) is a mutable pointer to a commit that tracks the history of commits it has pointed to. It combines the functionality of what used to be branches, tags, and drafts into a single, simple concept. Labels give you the ability to mirror how you organize code in your source control provider, as well as track state that might not be represented in source control at all. For example, you could have a label that tracks the state of your APIs that have been deployed (not just committed to source control). Because labels are tracked in the BSR alongside commits, you can use labels to compare changes within your module, and soon, you’ll be able to protect labels and enforce breaking change policies on them — giving you even more granular control over what is available to API consumers.
+A [label](/docs/bsr/commits-labels/index.md#labels) is a mutable pointer to a commit that tracks the history of commits it has pointed to. It combines the functionality of what used to be branches, tags, and drafts into a single, simple concept. Labels give you the ability to mirror how you organize code in your source control provider, as well as track state that might not be represented in source control at all. For example, you could have a label that tracks the state of your APIs that have been deployed (not just committed to source control). Because labels are tracked in the BSR alongside commits, you can use labels to compare changes within your module, and soon, you’ll be able to protect labels and enforce breaking change policies on them — giving you even more granular control over what is available to API consumers.
 
 ### Pushing with source control metadata
 
@@ -33,11 +33,11 @@ On `push`, you can now supply flags that read the target module's source control
 
 If you’re using git, we’ve added a new flag `--git-metadata`, which conveniently sets all of the above parameters automatically based on information from your git checkout. If you attempt to set this flag and have untracked changes or uncommitted code then `buf push` will error, protecting you from unexpected breaking changes.
 
-Check out the documentation to learn more about [using labels](/docs/concepts/commits-labels/index.md) and [pushing with metadata](/docs/reference/cli/buf/push/index.md).
+Check out the documentation to learn more about [using labels](/docs/bsr/commits-labels/index.md) and [pushing with metadata](/docs/reference/cli/buf/push/index.md).
 
 ## Support for monorepos
 
-Because `buf push` now wholly supports [workspaces](/docs/concepts/modules-workspaces/index.md#referencing-a-module), it’s easier than ever to sync the state of a monorepo to the BSR. You can now push a collection of modules as a workspace, and when you do, Buf will create a new commit in the BSR in dependency order for each module in the workspace automatically.
+Because `buf push` now wholly supports [workspaces](/docs/cli/modules-workspaces/index.md#referencing-a-module), it’s easier than ever to sync the state of a monorepo to the BSR. You can now push a collection of modules as a workspace, and when you do, Buf will create a new commit in the BSR in dependency order for each module in the workspace automatically.
 
 For a deep-dive into workspace push, read our [companion blog post](/blog/buf-cli-next-generation/index.md).
 

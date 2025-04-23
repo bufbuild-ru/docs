@@ -101,7 +101,7 @@ That represents:
 - Commit timestamp: `20240717164601`
 - Commit short name: `6bcea16e2570`
 
-The BSR supports [commits on labels](../../../concepts/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../../concepts/repositories/#default-label).Commits on the default label have released versions, and all other commits have unreleased versions.
+The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../repositories/#default-label).Commits on the default label have released versions, and all other commits have unreleased versions.
 
 ## Available plugins
 

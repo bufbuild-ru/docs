@@ -6,7 +6,7 @@ This is Buf's style guide for Protobuf. It's a purposefully concise reference fo
 
 ### Files and packages
 
-All files should have a package defined. [(Why?)](../../lint/rules/#minimal)All files of the same package should be in the same directory. All files should be in a directory that matches their package name. [(Why?)](../../lint/rules/#minimal)For example, with this [module](../../concepts/modules-workspaces/) defined in the `proto` directory, expect these `package` values:
+All files should have a package defined. [(Why?)](../../lint/rules/#minimal)All files of the same package should be in the same directory. All files should be in a directory that matches their package name. [(Why?)](../../lint/rules/#minimal)For example, with this [module](../../cli/modules-workspaces/) defined in the `proto` directory, expect these `package` values:
 
 ```text
 .

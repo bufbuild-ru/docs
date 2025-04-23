@@ -90,7 +90,7 @@ service ObjectService {
 }
 ```
 
-Where things get really interesting is when your cursor is on an identifier that is defined in another file, package, or module. In fact, the `textDocument/definition` endpoint adopts the same semantics as the [`buf`](https://github.com/bufbuild/buf) CLI so that references are resolved to the descriptors defined in your [workspace](/docs/reference/workspaces/index.md) (defined by a [`buf.work.yaml`](/docs/configuration/v1/buf-work-yaml/index.md)), or the [module cache](/docs/concepts/modules-workspaces/index.md#module-cache) for dependencies included in your [`buf.lock`](/docs/configuration/v1/buf-lock/index.md) manifest.
+Where things get really interesting is when your cursor is on an identifier that is defined in another file, package, or module. In fact, the `textDocument/definition` endpoint adopts the same semantics as the [`buf`](https://github.com/bufbuild/buf) CLI so that references are resolved to the descriptors defined in your [workspace](/docs/reference/workspaces/index.md) (defined by a [`buf.work.yaml`](/docs/configuration/v1/buf-work-yaml/index.md)), or the [module cache](/docs/cli/modules-workspaces/index.md#module-cache) for dependencies included in your [`buf.lock`](/docs/configuration/v1/buf-lock/index.md) manifest.
 
 A tool like this is tremendously helpful for understanding exactly where a descriptor is defined - it's not always clear where descriptors are resolved from `import` statements alone, especially if multiple files from the same package are imported like so:
 

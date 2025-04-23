@@ -18,7 +18,7 @@ $ yarn config set @buf:registry https://buf.build/gen/npm/v1
 
 ### Using private packages
 
-To install SDKs generated from private [Buf modules](../../../concepts/modules-workspaces/), you need to configure NPM to send an authentication token with each request to the BSR NPM registry:
+To install SDKs generated from private [Buf modules](../../../cli/modules-workspaces/), you need to configure NPM to send an authentication token with each request to the BSR NPM registry:
 
 ```console
 $ npm config set //buf.build/gen/npm/v1/:_authToken {token}
@@ -70,7 +70,7 @@ $ npm install @buf/connectrpc_eliza.bufbuild_es
 
 ## Versions
 
-By default, when you `npm install` a [Buf module](../../../concepts/modules-workspaces/), the BSR generates code from the most recent [reference](../../../concepts/modules-workspaces/#referencing-a-module) for the module. However, you can also install a specific SDK version using NPM's standard `@` syntax, referencing an explicit version or a commit or label name. To discover SDK versions, you can browse a repository's SDK page, which has installation instructions and an interactive UI.The basic install command is:
+By default, when you `npm install` a [Buf module](../../../cli/modules-workspaces/), the BSR generates code from the most recent [reference](../../../cli/modules-workspaces/#referencing-a-module) for the module. However, you can also install a specific SDK version using NPM's standard `@` syntax, referencing an explicit version or a commit or label name. To discover SDK versions, you can browse a repository's SDK page, which has installation instructions and an interactive UI.The basic install command is:
 
 ```console
 $ npm install @buf/connectrpc_eliza.bufbuild_es
@@ -94,7 +94,7 @@ $ npm install @buf/connectrpc_eliza.bufbuild_es@commit-8b8b971d6fde4dc8ba5d96f9f
 
 ### Label
 
-The BSR supports [commits on labels](../../../concepts/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../../concepts/repositories/#default-label). The SDK uses the `label-` prefix to indicate that a label is being referenced.To get the generated SDK for the module at a label, using the latest plugin version:
+The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../repositories/#default-label). The SDK uses the `label-` prefix to indicate that a label is being referenced.To get the generated SDK for the module at a label, using the latest plugin version:
 
 ```console
 $ npm install @buf/connectrpc_eliza.bufbuild_es@label-demo

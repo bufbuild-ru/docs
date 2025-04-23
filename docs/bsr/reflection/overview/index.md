@@ -22,14 +22,12 @@ The Buf Reflection API can be found in the public BSR: [buf.build/bufbuild/refle
 
 The endpoint accepts a module name, in `<bsr-domain>/<owner>/<repo>` format. For example, `buf.build/connectrpc/eliza` is the module name for the Eliza service (a demo service for [Connect](https://connectrpc.com)). The domain of the BSR is "buf.build" (the public BSR); the owner is the "connectrpc" organization; and the repo name is "eliza".Here's an example API request for downloading the [`buf.build/connectrpc/eliza`](https://buf.build/connectrpc/eliza) module:
 
-```text
-> POST /buf.reflect.v1beta1.FileDescriptorSetService/GetFileDescriptorSet HTTP/1.1
-> Host: buf.build
-> Authorization: Bearer <insert-buf-token-here>
-> Content-Type: application/json
-> Connect-Protocol-Version: 1
->
-> {"module": "buf.build/connectrpc/eliza"}
+```console
+$ curl \
+    https://buf.build/buf.reflect.v1beta1.FileDescriptorSetService/GetFileDescriptorSet \
+    -H "Authorization: Bearer ${BUF_TOKEN}" \
+    -H "Content-Type: application/json" \
+    -d '{"module": "buf.build/connectrpc/eliza"}'
 ```
 
 Assuming a valid BSR token is used in the `Authorization` header, this returns a `FileDescriptorSet` that describes the files in the requested module, which describe the Eliza RPC service and all related message types.The above request doesn't contain a `version` field in the request, which means it returns the latest version. This is the same as asking for `"version": "main"`, which also returns the latest version. The version can also refer to a [commit](https://buf.build/connectrpc/eliza/commits/main), either via the commit name or an associated label.
@@ -44,18 +42,12 @@ See the [Overview](../../module/dependency-management/) section on dependencies 
 
 The request may also include a field named `symbols` that's an array of fully qualified names. If present and non-empty, the returned schema is pruned to only include the data required to describe the requested symbols. All other content in the module is omitted. This is particularly useful with large modules, to reduce the amount of schema data that a client needs to download. For example, a client might need the schema for a single service, but it's defined in a large module that defines _many_ services. The request can indicate the name of the service of interest in the `symbols` field to get back only what it needs and nothing else. Here's an example that returns only the `google.longrunning.Operations` service from the [`buf.build/googleapis/googleapis`](https://buf.build/googleapis/googleapis) module:
 
-```text
-> POST /buf.reflect.v1beta1.FileDescriptorSetService/GetFileDescriptorSet HTTP/1.1
-> Host: buf.build
-> Authorization: Bearer <insert-buf-token-here>
-> Content-Type: application/json
-> Connect-Protocol-Version: 1
->
-> {
->    "module": "buf.build/googleapis/googleapis",
->    "version": "75b4300737fb4efca0831636be94e517",
->    "symbols": ["google.longrunning.Operations"]
-> }
+```console
+$ curl \
+    https://buf.build/buf.reflect.v1beta1.FileDescriptorSetService/GetFileDescriptorSet \
+    -H "Authorization: Bearer ${BUF_TOKEN}" \
+    -H "Content-Type: application/json" \
+    -d '{"module": "buf.build/googleapis/googleapis", "version": "75b4300737fb4efca0831636be94e517", "symbols": ["google.longrunning.Operations"]}'
 ```
 
 This currently returns a response that's about 11k. If we leave out the `symbols` field from the request, the response is about 10x that size.

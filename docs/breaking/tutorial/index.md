@@ -15,7 +15,7 @@ As you evolve your Protobuf schemas, you might introduce breaking changes—eith
 
 ## Inspect the workspace
 
-[Modules](../../concepts/modules-workspaces/) represent a collection of files that are configured, built, and versioned as a logical unit when performing Buf CLI operations. Workspaces are collections of modules and are configured by the `buf.yaml` configuration file, which should usually be put above the directories that contain the modules within it. The example code provides a workspace and module to work with, so start there. From the directory you cloned into, go to the tutorial code:
+[Modules](../../cli/modules-workspaces/) represent a collection of files that are configured, built, and versioned as a logical unit when performing Buf CLI operations. Workspaces are collections of modules and are configured by the `buf.yaml` configuration file, which should usually be put above the directories that contain the modules within it. The example code provides a workspace and module to work with, so start there. From the directory you cloned into, go to the tutorial code:
 
 ```console
 $ cd buf-tour/start/tutorial-breaking

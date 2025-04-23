@@ -1,6 +1,6 @@
-# Deploy Bufstream to AWS
+# Deploy Bufstream to AWS with etcd
 
-This page walks you through installing Bufstream into your AWS deployment by setting your Helm values and installing the provided Helm chart. See the [AWS configuration](../configure/) page for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
+This page walks you through installing Bufstream into your AWS deployment, using etcd for metadata storage. See the [AWS configuration](../configure/) page for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
 
 ## Prerequisites
 
@@ -128,7 +128,7 @@ You can authenticate to S3 with access keys, or you can use Kubernetes Workload 
 - [OIDC provider](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
 - [Access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
 
-## Create a S3 Bucket
+## Create an S3 Bucket
 
 If you don't already have one, you need the `AmazonS3FullAccess` role. To create a new S3 bucket, you need the `AmazonS3FullAccess` role.
 
@@ -428,7 +428,7 @@ metadata:
 
 ### 3\. Install the Helm chart
 
-Proceed to the [zonal deployment steps](./#zonal-deployment) if you want to deploy Bufstream with zone-aware routing. If not, follow the instructions below to deploy the basic Helm chart.After following the steps above, the set of Helm values should be similar to the example below:
+Proceed to the [zonal deployment steps](#zonal-deployment) if you want to deploy Bufstream with zone-aware routing. If not, follow the instructions below to deploy the basic Helm chart.After following the steps above, the set of Helm values should be similar to the example below:
 
 +++tabs key:856b4f5d9314b0e898cfa429826c66f3
 

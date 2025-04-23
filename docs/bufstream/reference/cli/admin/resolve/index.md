@@ -14,6 +14,14 @@ Resolves consumer group, topic, and partition related identifiers.
 
 ### Flags
 
+#### \--consumer-group-id-hashes _strings_
+
+Consumer group ID hashes to resolve
+
+#### \--consumer-group-ids _strings_
+
+Consumer group IDs to resolve
+
 #### \--format _string_
 
 The output format to use. Must be one of \[yaml,json\]
@@ -22,15 +30,17 @@ The output format to use. Must be one of \[yaml,json\]
 
 help for resolve
 
-#### \--resolve.consumer_group_id_hashes _strings_
+#### \--topart-ids _strings_
 
-#### \--resolve.consumer_group_ids _strings_
+Topic/partition IDs to resolve
 
-#### \--resolve.topart_ids _strings_
+#### \--topic-uuids _strings_
 
-#### \--resolve.topic_uuids _strings_
+Topic UUIDs to resolve
 
-#### \--resolve.topics _strings_
+#### \--topics _strings_
+
+Topics to resolve
 
 ### Flags inherited from parent commands
 

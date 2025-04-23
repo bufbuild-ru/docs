@@ -87,7 +87,7 @@ By default, `rules_buf_toolchains` loads the latest `buf` version. For hermetic 
 ```diff
 # rules_buf fetches the sha based on the version number--the version is enough for hermetic builds.
 -rules_buf_toolchains()
-+rules_buf_toolchains(version = "v1.52.1")
++rules_buf_toolchains(version = "v1.53.0")
 ```
 
 :::
@@ -375,7 +375,7 @@ $ bazel query 'kind(buf_lint_test, //...)'
 
 ### Breaking change detection
 
-To run [breaking change detection](../../breaking/overview/) against Protobuf sources, you need to add a Gazelle [directive](https://github.com/bazelbuild/bazel-gazelle#directives) that points to an [Image](../../reference/images/) target to generate breaking change detection rules. Gazelle directives are top-level comments in Bazel [`BUILD` files](https://docs.bazel.build/versions/main/build-ref.html#BUILD_files) that provide Gazelle with configuration.See the [Image inputs](#image-input) section for instructions on maintaining image files themselves.Add this Gazelle directive to the top of the `BUILD` file at the root of the [Buf Module](../../concepts/modules-workspaces/), which is the directory with a [`buf.yaml`](../../configuration/v2/buf-yaml/) file.
+To run [breaking change detection](../../breaking/overview/) against Protobuf sources, you need to add a Gazelle [directive](https://github.com/bazelbuild/bazel-gazelle#directives) that points to an [Image](../../reference/images/) target to generate breaking change detection rules. Gazelle directives are top-level comments in Bazel [`BUILD` files](https://docs.bazel.build/versions/main/build-ref.html#BUILD_files) that provide Gazelle with configuration.See the [Image inputs](#image-input) section for instructions on maintaining image files themselves.Add this Gazelle directive to the top of the `BUILD` file at the root of the [Buf Module](../../cli/modules-workspaces/), which is the directory with a [`buf.yaml`](../../configuration/v2/buf-yaml/) file.
 
 ::: info BUILD
 
@@ -425,7 +425,7 @@ $ bazel query 'kind(buf_breaking_test, //...)'
 
 #### Example: Module vs. Package mode
 
-Let's consider a Buf [module](../../concepts/modules-workspaces/) with this directory structure:
+Let's consider a Buf [module](../../cli/modules-workspaces/) with this directory structure:
 
 ```text
 ├── buf.yaml

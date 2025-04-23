@@ -557,6 +557,6 @@ To find out more about how you can build better with Buf, check out some of our 
 
 - [Buf CLI quickstart](../../cli/quickstart/)
 - [Buf Schema Registry overview](../)
-- [Modules and workspaces](../../concepts/modules-workspaces/) concepts guide
-- [Repositories](../../concepts/repositories/) concepts guide
+- [Modules and workspaces](../../cli/modules-workspaces/) concepts guide
+- [Repositories](../repositories/) concepts guide
 - [Dependency management](../module/dependency-management/) in the BSR

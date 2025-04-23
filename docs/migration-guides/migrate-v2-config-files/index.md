@@ -190,7 +190,7 @@ modules:
 
 :::
 
-::: tip NoteSee [Modules and workspaces](../../concepts/modules-workspaces/) and the [v2 buf.yaml reference](../../configuration/v2/buf-yaml/) for more details about file layout and configuration settings.
+::: tip NoteSee [Modules and workspaces](../../cli/modules-workspaces/) and the [v2 buf.yaml reference](../../configuration/v2/buf-yaml/) for more details about file layout and configuration settings.
 
 :::
 
@@ -360,5 +360,5 @@ Command "update" is deprecated, use "buf dep update" instead. However, "buf mod 
 ## Related docs
 
 - [`buf.yaml`](../../configuration/v2/buf-yaml/) and [`buf.gen.yaml`](../../configuration/v2/buf-gen-yaml/) configuration file references
-- [Modules and workspaces](../../concepts/modules-workspaces/), [repositories](../../concepts/repositories/), and [commits and labels](../../concepts/commits-labels/) concepts pages
+- [Modules and workspaces](../../cli/modules-workspaces/), [repositories](../../bsr/repositories/), and [commits and labels](../../bsr/commits-labels/) concepts pages
 - [Pushing to the BSR](../../bsr/module/publish/) guide

@@ -1,6 +1,6 @@
 # Buf CLI inputs
 
-The various I/O options for the Buf CLI may seem a bit daunting—this reference aims to sort out both what these options do, and why they're necessary.In general, a Buf input is a collection of Protobuf files acted on by many of the Buf CLI commands. In most cases, the input is a [module](../../concepts/modules-workspaces/), but a variety of other formats are supported and explained below.
+The various I/O options for the Buf CLI may seem a bit daunting—this reference aims to sort out both what these options do, and why they're necessary.In general, a Buf input is a collection of Protobuf files acted on by many of the Buf CLI commands. In most cases, the input is a [module](../../cli/modules-workspaces/), but a variety of other formats are supported and explained below.
 
 ::: tip NoteBy default, the Buf CLI uses the current directory as its input for all commands.
 
@@ -21,7 +21,7 @@ Generally, your only goal is to work with `.proto` files on disk. The Buf CLI wo
 
 ### The Buf Schema Registry (BSR)
 
-The core primitive for Buf is the [module](../../concepts/modules-workspaces/). Protobuf on its own has **no concept of modules**, only files. The Buf Schema Registry ([BSR](../../bsr/)) is a registry for Buf modules that you want to manage across teams and even organizations.With the BSR, you can refer to any version of a Buf module and use it as an input for each of the `buf` commands. You can lint all the Protobuf files in the `buf.build/acme/petapis` module, for example, with the `buf lint` command:
+The core primitive for Buf is the [module](../../cli/modules-workspaces/). Protobuf on its own has **no concept of modules**, only files. The Buf Schema Registry ([BSR](../../bsr/)) is a registry for Buf modules that you want to manage across teams and even organizations.With the BSR, you can refer to any version of a Buf module and use it as an input for each of the `buf` commands. You can lint all the Protobuf files in the `buf.build/acme/petapis` module, for example, with the `buf lint` command:
 
 ```console
 $ buf lint buf.build/acme/petapis

@@ -10,7 +10,7 @@ The `buf.gen.yaml` file controls how the `buf generate` command executes Protobu
 
 ## Choose your input
 
-Remote plugins generate code for [inputs](../../../reference/inputs/). An input can be a Git repository, tarball, zip file, or a local directory containing Protobuf files configured with a [`buf.yaml`](../../../configuration/v2/buf-yaml/) configuration file. Buf refers to such directories of Protobuf files as [modules](../../../concepts/modules-workspaces/).For our purposes, we'll assume you have a directory of `.proto` files with a `buf.yaml` configuration file that defines them as a workspace with at least one module. To create a `buf.yaml` in your current directory if you don't have one, run this command:
+Remote plugins generate code for [inputs](../../../reference/inputs/). An input can be a Git repository, tarball, zip file, or a local directory containing Protobuf files configured with a [`buf.yaml`](../../../configuration/v2/buf-yaml/) configuration file. Buf refers to such directories of Protobuf files as [modules](../../../cli/modules-workspaces/).For our purposes, we'll assume you have a directory of `.proto` files with a `buf.yaml` configuration file that defines them as a workspace with at least one module. To create a `buf.yaml` in your current directory if you don't have one, run this command:
 
 ```console
 $ buf config init

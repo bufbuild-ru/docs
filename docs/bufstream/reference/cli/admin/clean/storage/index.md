@@ -14,7 +14,7 @@ Note that this will result in all existing state being deleted!Local storage is 
 
 ### Flags
 
-#### \--data_dir _string_
+#### \--data-dir _string_
 
 The location of the storage.The default for Darwin and Linux is $XDG_DATA_HOME/bufstream if $XDG_DATA_HOME is set, otherwise $HOME/.local/share/bufstream.If Bufstream supports Windows in the future, the default will be %!L(MISSING)ocalAppData%!(MISSING)bufstream.
 

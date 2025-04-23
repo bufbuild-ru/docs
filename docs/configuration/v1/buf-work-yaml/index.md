@@ -4,7 +4,7 @@
 
 :::
 
-The `buf.work.yaml` file is used to define a [workspace](../../../reference/workspaces/), where one or more modules can coexist and interoperate within a common directory. Workspaces make it possible for local [modules](../../../concepts/modules-workspaces/) to import Protobuf files from other local modules, and unlock other powerful use cases that operate on multiple modules at the same time.The diagram and file below represent a complete example of a `buf.work.yaml` configuration file and its corresponding tree layout containing the `buf.build/acme/petapis` and `buf.build/acme/paymentapis` modules:
+The `buf.work.yaml` file is used to define a [workspace](../../../reference/workspaces/), where one or more modules can coexist and interoperate within a common directory. Workspaces make it possible for local [modules](../../../cli/modules-workspaces/) to import Protobuf files from other local modules, and unlock other powerful use cases that operate on multiple modules at the same time.The diagram and file below represent a complete example of a `buf.work.yaml` configuration file and its corresponding tree layout containing the `buf.build/acme/petapis` and `buf.build/acme/paymentapis` modules:
 
 ```text
 .

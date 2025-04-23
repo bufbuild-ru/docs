@@ -1,6 +1,6 @@
 # Dependency management
 
-Buf modules can depend on other modules that share a [workspace](../../../concepts/modules-workspaces/), or on remote modules hosted on the Buf Schema Registry (BSR) that are explicitly configured as workspace dependencies. Remote modules can be community modules such as [`googleapis`](https://buf.build/googleapis/googleapis) or modules owned by your organization that aren't part of the workspace.
+Buf modules can depend on other modules that share a [workspace](../../../cli/modules-workspaces/), or on remote modules hosted on the Buf Schema Registry (BSR) that are explicitly configured as workspace dependencies. Remote modules can be community modules such as [`googleapis`](https://buf.build/googleapis/googleapis) or modules owned by your organization that aren't part of the workspace.
 
 ## Configuring dependencies
 
@@ -184,11 +184,11 @@ Every time a module is pushed to a BSR repository, the CLI sends the source file
 
 - [Configuration file](../../../configuration/v2/buf-yaml/): `buf.yaml`
 - [Dependencies lock file](../../../configuration/v1/buf-lock/): `buf.lock`
-- [Module's license](../../../concepts/modules-workspaces/#module-license): `LICENSE`
-- [Module's documentation](../../../concepts/modules-workspaces/#module-documentation): `buf.md`, or `README.md`
+- [Module's license](../../../cli/modules-workspaces/#module-license): `LICENSE`
+- [Module's documentation](../../../cli/modules-workspaces/#module-documentation): `buf.md`, or `README.md`
 - All of your `*.proto` files.
 
-For a deep dive on these files, see Buf's [source management](../../../concepts/modules-workspaces/#workspace-layout) docs.
+For a deep dive on these files, see Buf's [source management](../../../cli/modules-workspaces/#workspace-layout) docs.
 
 :::
 

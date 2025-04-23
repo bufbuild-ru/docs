@@ -6,6 +6,8 @@ hero:
   name: "Blog"
 ---
 
+- April 22, 2025 [Tip of the week #3:  Enum names need prefixes](/blog/totw-3-enum-names-need-prefixes/index.md)
+- April 15, 2025 [Tip of the week #2: Compress your Protos!](/blog/totw-2-compress-protos/index.md)
 - April 8, 2025 [Tip of the week #1: Field names are forever](/blog/totw-1-field-names/index.md)
 - March 7, 2025 [Multi-region, active-active Bufstream at 100 GiB/s](/blog/bufstream-multi-region/index.md)
 - March 5, 2025 [Bufstream on Spanner: 100 GiB/s with zero operational overhead](/blog/bufstream-on-spanner/index.md)
@@ -21,8 +23,8 @@ hero:
 - June 13, 2024 [Generated SDKs for Rust now available on the Buf Schema Registry](/blog/bsr-generated-sdks-for-rust/index.md)
 - June 4, 2024 [Connect RPC joins CNCF: gRPC you can bet your business on](/blog/connect-rpc-joins-cncf/index.md)
 - May 30, 2024 [Connect RPC vs. Google gRPC: Conformance Deep Dive](/blog/grpc-conformance-deep-dive/index.md)
-- May 17, 2024 [Introducing the newly improved BSR UI and buf push experience](/blog/enhanced-buf-push-bsr-ui/index.md)
 - May 17, 2024 [Introducing the next generation of the Buf CLI: still v1 and backwards-compatible](/blog/buf-cli-next-generation/index.md)
+- May 17, 2024 [Introducing the newly improved BSR UI and buf push experience](/blog/enhanced-buf-push-bsr-ui/index.md)
 - May 9, 2024 [Protobuf Editions are here: don’t panic](/blog/protobuf-editions-are-here/index.md)
 - May 3, 2024 [The BSR now integrates with Kong Insomnia, making gRPC even easier to use](/blog/kong-insomnia-grpc-bsr-support/index.md)
 - December 12, 2023 [The Buf Schema Registry is now on the AWS and Google Cloud Marketplaces](/blog/cloud-marketplaces/index.md)

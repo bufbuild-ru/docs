@@ -72,9 +72,11 @@ configOverrides:
     delay_max: 50ms
 ```
 
-## Metadata storage (`etcd`)
+## Metadata storage
 
-Bufstream requires an `etcd` cluster in which to persist cluster metadata. We recommend [configuring `etcd`](https://etcd.io/docs/v3.5/op-guide/configuration/) with the following settings:
+### etcd
+
+We recommend [configuring `etcd`](https://etcd.io/docs/v3.5/op-guide/configuration/) with the following settings:
 
 ```yaml
 auto-compaction-mode: periodic
@@ -82,6 +84,10 @@ auto-compaction-retention: 30s
 ```
 
 As `etcd` is sensitive to disk performance, we recommend using SSD-backed disks.
+
+### CloudSQL
+
+Resource requirements depend on the expected load, but we recommend using an instance with a minimum of 4 vCPUs and 8 GiB RAM (`db-custom-4-8192` instance class) with a minimum of 100 GB of provisioned storage.
 
 ### Permissions
 

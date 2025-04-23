@@ -1,6 +1,6 @@
 # Modules and workspaces
 
-All Buf operations and features work with collections of Protobuf files that you configure, rather than specifying file paths on the command line. This page describes how to define these collections for both your local environment and for pushing to the Buf Schema Registry (BSR) to share with your team, customers, or the wider Buf community.A _module_ is the key primitive in the Buf ecosystem, and represents a collection of Protobuf files that are configured, built, and versioned as a logical unit. Modules simplify file discovery and eliminate the need for complex `protoc` build scripts that define your Protobuf sources with `-I`. Instead, you configure a module in the `buf.yaml` file, which specifies the location of the files, any exclusions, and its linting and breaking change detection rule sets if they're different from the workspace defaults._Workspaces_ are collections of modules that are defined together in the same `buf.yaml` file to create a local working environment. They can contain a single module or multiple modules. All modules in a workspace can import each other without specific dependency declarations, and also share any dependencies that are defined for the workspace (for example, on an external module such as [`googleapis`](https://buf.build/googleapis/googleapis)).Workspaces are also the default input for Buf CLI commands, and are the unit used to push content to the BSR. Pushing the workspace means that all modules in the workspace are pushed to their respective BSR [repositories](../repositories/).
+All Buf operations and features work with collections of Protobuf files that you configure, rather than specifying file paths on the command line. This page describes how to define these collections for both your local environment and for pushing to the Buf Schema Registry (BSR) to share with your team, customers, or the wider Buf community.A _module_ is the key primitive in the Buf ecosystem, and represents a collection of Protobuf files that are configured, built, and versioned as a logical unit. Modules simplify file discovery and eliminate the need for complex `protoc` build scripts that define your Protobuf sources with `-I`. Instead, you configure a module in the `buf.yaml` file, which specifies the location of the files, any exclusions, and its linting and breaking change detection rule sets if they're different from the workspace defaults._Workspaces_ are collections of modules that are defined together in the same `buf.yaml` file to create a local working environment. They can contain a single module or multiple modules. All modules in a workspace can import each other without specific dependency declarations, and also share any dependencies that are defined for the workspace (for example, on an external module such as [`googleapis`](https://buf.build/googleapis/googleapis)).Workspaces are also the default input for Buf CLI commands, and are the unit used to push content to the BSR. Pushing the workspace means that all modules in the workspace are pushed to their respective BSR [repositories](../../bsr/repositories/).
 
 ## Workspace layout
 
@@ -252,9 +252,9 @@ The module cache is only used for dependencies declared in the `deps` field. For
 
 ## Referencing a module
 
-A _reference_ is the string used to refer to a specific version of the module stored in the BSR. It includes the module's name and can optionally include either a [commit or a label](../commits-labels/).
+A _reference_ is the string used to refer to a specific version of the module stored in the BSR. It includes the module's name and can optionally include either a [commit or a label](../../bsr/commits-labels/).
 
-- If no commit or label is explicitly referenced, then the reference resolves to the latest approved commit on the [repository's default label](../repositories/#default-label).
+- If no commit or label is explicitly referenced, then the reference resolves to the latest approved commit on the [repository's default label](../../bsr/repositories/#default-label).
 - If the reference includes a label, it resolves to the latest approved commit associated with that label. Referencing modules by labels other than the default label is helpful when working across teams or workspaces on multiple modules so that you can depend on pre-release code while working in parallel.
 
 The examples below show how to reference a module in the `deps` declaration of a `buf.yaml` file, but the format usually applies.
@@ -291,6 +291,6 @@ deps:
 
 ## Related docs
 
-- Read about [repositories](../repositories/) and [commits and labels](../commits-labels/)
+- Read about [repositories](../../bsr/repositories/) and [commits and labels](../../bsr/commits-labels/)
 - Learn more about [dependency management](../../bsr/module/dependency-management/) in the BSR
 - Read the [`buf.yaml` configuration file](../../configuration/v2/buf-yaml/) documentation

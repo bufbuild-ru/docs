@@ -1,6 +1,6 @@
 # Publish modules to the BSR
 
-When you want to make a module available for other developers, you push it to the Buf Schema Registry (BSR). Once the module is in the BSR, its code, documentation, and generated SDKs can be accessed by anyone with the correct permissions for your repository. This page describes how to push locally, how to archive and unarchive labels, and how pushing works in CI/CD environments.Pushing to the BSR also interacts with the BSR's [policy checks](../../policy-checks/breaking/overview/) and [Confluent Schema Registry integration](../../kafka/overview/) features. See their documentation and [Commits and labels](../../../concepts/commits-labels/#governance-interaction) for more details.
+When you want to make a module available for other developers, you push it to the Buf Schema Registry (BSR). Once the module is in the BSR, its code, documentation, and generated SDKs can be accessed by anyone with the correct permissions for your repository. This page describes how to push locally, how to archive and unarchive labels, and how pushing works in CI/CD environments.Pushing to the BSR also interacts with the BSR's [policy checks](../../policy-checks/breaking/overview/) and [Confluent Schema Registry integration](../../kafka/overview/) features. See their documentation and [Commits and labels](../../commits-labels/#governance-interaction) for more details.
 
 ## Module and repository setup
 
@@ -48,7 +48,7 @@ When you push from your workspace, the Buf CLI automatically resolves the intern
 
 ## Pushing with labels
 
-Labels allow you to add a commit to the history of a specific stream of development like a release or a feature, similar to branches and tags in a VCS. If no other label is applied, the commit is added to the history of the [default label](../../../concepts/repositories/#default-label), which is similar to the default branch in a VCS (for example `main` in Git).As a best practice, we recommend always explicitly specifying the labels you want to push to rather than relying on the current default label in the BSR. See [Commits and labels](../../../concepts/commits-labels/) for more details about label properties and behavior.To apply a label to a commit, add the `--label` flag—you can add multiple labels in the same push command by adding multiple flags:
+Labels allow you to add a commit to the history of a specific stream of development like a release or a feature, similar to branches and tags in a VCS. If no other label is applied, the commit is added to the history of the [default label](../../repositories/#default-label), which is similar to the default branch in a VCS (for example `main` in Git).As a best practice, we recommend always explicitly specifying the labels you want to push to rather than relying on the current default label in the BSR. See [Commits and labels](../../commits-labels/) for more details about label properties and behavior.To apply a label to a commit, add the `--label` flag—you can add multiple labels in the same push command by adding multiple flags:
 
 ::: info Apply the 'v1.0.1' and 'releases' labels to the commit
 
@@ -118,6 +118,6 @@ The BSR evaluates the incoming commit against all existing module labels, with t
 
 ## Related docs
 
-- Read about [repositories](../../../concepts/repositories/) and [commits and labels](../../../concepts/commits-labels/).
+- Read about [repositories](../../repositories/) and [commits and labels](../../commits-labels/).
 - Learn more about [dependency management](../dependency-management/) in the BSR.
 - Read the [`buf.yaml` configuration file](../../../configuration/v2/buf-yaml/) documentation.

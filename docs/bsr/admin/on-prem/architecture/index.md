@@ -5,8 +5,8 @@ On-prem deployments of the BSR are effectively air-gapped from Buf. No sharing o
 ## Dependencies
 
 - **PostgreSQL** (version 14+): Stores application data such as users, organizations, repositories, and commit references
-- **Redis** (version 6+): Caches compiled modules
-- **S3-compatible storage** or **Azure Blob Storage**: Persists BSR [modules](../../../../concepts/modules-workspaces/) as binary representations of a set of Protobuf files
+- **Redis** (version 6+): Caches compiled modules and other performance-enhancing data
+- **S3-compatible storage** or **Azure Blob Storage**: Persists BSR [modules](../../../../cli/modules-workspaces/) as binary representations of a set of Protobuf files
 
 ### External dependencies
 

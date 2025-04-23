@@ -25,7 +25,7 @@ The first step is to get the Buf CLI running on your CI/CD worker. To do so, you
 
 PROJECT=<your-project-name>
 # Use your desired buf version
-BUF_VERSION=1.52.1
+BUF_VERSION=1.53.0
 # buf is installed to ~/bin/your-project-name.
 BIN_DIR=$HOME/bin/$PROJECT
 
@@ -147,4 +147,4 @@ For more details on authenticating to the `BSR`, see [Authentication](../../bsr/
 
 ## CI caching
 
-To enable caching of modules downloaded by the Buf CLI, you can either configure caching of the `~/.cache` directory, or set the `BUF_CACHE_DIR` environment variable to a directory of your choice and cache that directory.For more information about module caching, see the [module cache docs](../../concepts/modules-workspaces/#module-cache).
+To enable caching of modules downloaded by the Buf CLI, you can either configure caching of the `~/.cache` directory, or set the `BUF_CACHE_DIR` environment variable to a directory of your choice and cache that directory.For more information about module caching, see the [module cache docs](../../cli/modules-workspaces/#module-cache).

@@ -65,11 +65,11 @@ To try AKHQ with Bufstream on your local machine, you'll need [Docker](https://d
 
 ```bash
 docker run -p 9092:9092 \
-  us-docker.pkg.dev/buf-images-1/bufstream-public/images/bufstream:latest \
-  --inmemory \
-  --config.kafka.public_address.host host.docker.internal \
-  --config.kafka.public_address.port 9092 \
-  --config.kafka.address.host 0.0.0.0
+  --env BUFSTREAM_KAFKA_HOST=0.0.0.0 \
+  --env BUFSTREAM_KAFKA_PUBLIC_HOST=host.docker.internal \
+  --env BUFSTREAM_KAFKA_PUBLIC_PORT=9092 \
+  bufbuild/bufstream:latest \
+  --inmemory
 ```
 
 In a separate terminal, add the following configuration to `akhq.yaml` in your current working directory:

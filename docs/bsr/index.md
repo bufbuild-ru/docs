@@ -4,7 +4,7 @@ Welcome to the **Buf Schema Registry (BSR)**! This overview covers what the BSR 
 
 ## What's the BSR?
 
-The BSR stores and manages Protobuf files as versioned [modules](../concepts/modules-workspaces/) so that individuals and organizations can consume and publish their APIs without friction.The BSR comes with a browseable UI, dependency management, API validation, versioning, generated documentation, and an extendable plugin system that powers remote code generation.
+The BSR stores and manages Protobuf files as versioned [modules](../cli/modules-workspaces/) so that individuals and organizations can consume and publish their APIs without friction.The BSR comes with a browseable UI, dependency management, API validation, versioning, generated documentation, and an extendable plugin system that powers remote code generation.
 
 ### BSR goals
 

@@ -10,7 +10,7 @@ The links below go to detailed usage guides. See the [Buf CLI reference](../refe
 - [`generate`](../generate/overview/): Generate code stubs from Protobuf files using `protoc` plugins
 - [`breaking`](../breaking/overview/): Verify no breaking changes have been made, to guard against compatibility issues
 - [`lint`](../lint/overview/) and [`format`](../format/style/): Lint and format your Protobuf files according to best practice and your org rules
-- [`curl`](../curl/usage/): Test your APIs by invoking an RPC endpoint, similar to using `cURL`
+- [`curl`](../curl/usage/): Test your APIs by invoking an RPC endpoint, similar to using `curl`
 - `convert`: Convert a message from binary to JSON or vice versa—useful when debugging or testing
 - `config`, `registry`, `push`, and [`export`](../bsr/module/export/): Manage your repositories in the Buf Schema Registry
 
@@ -20,7 +20,7 @@ The Buf CLI interacts with several configuration files, depending on the operati
 
 ### `buf.yaml`
 
-[`buf.yaml`](../configuration/v2/buf-yaml/) defines a workspace and the configurations for each [module](../concepts/modules-workspaces/) within it. It's the primary configuration file, and defines each module's directory, name, `lint` and `breaking` configurations, and any files to exclude, along with the workspace's shared dependencies.
+[`buf.yaml`](../configuration/v2/buf-yaml/) defines a workspace and the configurations for each [module](modules-workspaces/) within it. It's the primary configuration file, and defines each module's directory, name, `lint` and `breaking` configurations, and any files to exclude, along with the workspace's shared dependencies.
 
 ### `buf.lock`
 

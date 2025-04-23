@@ -12,7 +12,7 @@ We are excited to share an update to the Generated Documentation feature within 
 
 A major feature provided by the [Buf Schema Registry](/docs/bsr/index.md) (BSR) is automatic documentation generation for Protobuf APIs. Documentation is a fantastic developer productivity tool that can be applied by all levels of software engineers during the development process. Good documentation makes a major impact, but it can become a maintenance headache when decoupled from code. Therein lies the beauty of generated documentation!
 
-When a [module](/docs/concepts/modules-workspaces/index.md) is pushed to the BSR, we automatically generate comprehensive documentation for that module and display it in the recently redesigned BSR interface, making it easily discoverable for consumers. Visit our earlier blog post for more details on [how to document APIs](/blog/document-your-apis/index.md) in Protobuf source code.
+When a [module](/docs/cli/modules-workspaces/index.md) is pushed to the BSR, we automatically generate comprehensive documentation for that module and display it in the recently redesigned BSR interface, making it easily discoverable for consumers. Visit our earlier blog post for more details on [how to document APIs](/blog/document-your-apis/index.md) in Protobuf source code.
 
 ## What are Protobuf options?
 
@@ -63,6 +63,6 @@ Other built-in options are rendered inline with the same source code style as sh
 
 ## Try out Generated Documentation today!
 
-We’re excited for you to try out the new BSR Generated Documentation, available now! You can take advantage of the new functionality by pushing a module to the BSR. If you haven’t yet pushed your first module to the BSR, you can [read more about modules](/docs/concepts/modules-workspaces/index.md) or [walk through the Buf tour](/docs/cli/quickstart/index.md). For any questions or concerns, don't hesitate to reach out to us on [Slack](https://buf.build/b/slack) - we'd love to hear from you!
+We’re excited for you to try out the new BSR Generated Documentation, available now! You can take advantage of the new functionality by pushing a module to the BSR. If you haven’t yet pushed your first module to the BSR, you can [read more about modules](/docs/cli/modules-workspaces/index.md) or [walk through the Buf tour](/docs/cli/quickstart/index.md). For any questions or concerns, don't hesitate to reach out to us on [Slack](https://buf.build/b/slack) - we'd love to hear from you!
 
 ‍

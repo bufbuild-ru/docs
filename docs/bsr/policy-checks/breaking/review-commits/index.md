@@ -30,4 +30,4 @@ When a commit has been pushed with a breaking change, additional commits may sta
 
 ## Related docs
 
-- Learn about [commits and labels](../../../../concepts/commits-labels/)
+- Learn about [commits and labels](../../../commits-labels/)

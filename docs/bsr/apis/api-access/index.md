@@ -24,17 +24,17 @@ Authorization: Bearer <token>
 
 ## Examples
 
-### cURL
+### curl
 
 ```console
 $ curl \
    https://buf.build/buf.reflect.v1beta1.FileDescriptorSetService/GetFileDescriptorSet \
    -H "Authorization: Bearer ${BUF_TOKEN}" \
    -H "Content-Type: application/json" \
-   -X POST -d '{"module": "buf.build/connectrpc/eliza"}'
+   -d '{"module": "buf.build/connectrpc/eliza"}'
 ```
 
-cURL is a great way for us to understand how to access the APIs, but it's unlikely to be useful in application code. For that, let's look at an example using another feature of the BSR called [generated SDKs](../../generated-sdks/overview/), which can generate an API client package for you to use just like using any other third-party package. For this example, we'll use Go.
+`curl` is a great way for us to understand how to access the APIs, but it's unlikely to be useful in application code. For that, let's look at an example using another feature of the BSR called [generated SDKs](../../generated-sdks/overview/), which can generate an API client package for you to use just like using any other third-party package. For this example, we'll use Go.
 
 ### SDK
 

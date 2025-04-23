@@ -60,9 +60,11 @@ Bufstream manages the object lifecycle directly, including deleting expired or c
 
 For Bufstream to interact with your storage account, you need to update the configuration with the appropriate permissions. At minimum, the `Storage Blob Data Contributor` [RBAC role](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) is required on the Storage account container.
 
-## Metadata storage (`etcd`)
+## Metadata storage
 
-Bufstream requires an `etcd` cluster in which to persist cluster metadata. We recommend [configuring `etcd`](https://etcd.io/docs/v3.5/op-guide/configuration/) with the following settings:
+### etcd
+
+We recommend [configuring `etcd`](https://etcd.io/docs/v3.5/op-guide/configuration/) with the following settings:
 
 ```yaml
 auto-compaction-mode: periodic
@@ -71,7 +73,11 @@ auto-compaction-retention: 30s
 
 Because `etcd` is sensitive to disk performance, we recommend using `Premium SSD v2` disks.
 
-### `etcd` permissions
+### Azure Database for PostgreSQL flexible server
+
+Resource requirements depend on the expected load, but we recommend using an instance with a minimum of 4 vCPUs and 16 GiB RAM (`Standard_D4ds_v5` compute size) with the `P20 (2300 iops)` Performance tier or greater.
+
+### Permissions
 
 Bufstream uses the [Bitnami etcd package](https://bitnami.com/stack/etcd/helm). Most Bitnami containers are non-root, and therefore privileged tasks like mounting volumes may fail during deployment because the containers don't have the correct privileges to modify ownership of the filesystem.If a Bufstream deploy fails as a result of `etcd` attempting to mount a persistent volume, the following error appears in your logs:
 

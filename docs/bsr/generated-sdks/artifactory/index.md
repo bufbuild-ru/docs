@@ -1,25 +1,101 @@
-# Artifactory
+# Using Artifactory
 
 This feature is only available on the Pro and Enterprise plans.
 
-The Buf Schema Registry (BSR) provides generated SDKs of generated code through standard registry APIs in each language. This makes it easy to configure artifact management tools like Artifactory to work with the BSR.
+The Buf Schema Registry (BSR) provides generated SDKs of generated code through standard registry APIs in each language. This makes it easy to configure artifact management tools like Artifactory to work with the BSR.This guide uses the `buf.example.com` BSR instance and `https://example.jfrog.io` Artifactory instance as examples, but these should be substituted with the domains of your own instances.
 
-::: tip NoteThis article uses the `buf.example.com` BSR instance and `https://example.jfrog.io` Artifactory instance as examples, but these should be substituted with the domains of your own instances.
+## Setup
 
-:::
+You must be a BSR instance admin to set up Artifactory.
 
-## Go setup
++++tabs key:630b555e8416c8dec9e29cc2b5711592
+
+== Go
 
 1.  First, add a new Go remote repository to your Artifactory instance at `https://example.jfrog.io/ui/admin/repositories/remote/new`.
     - Set **Repository Key** to `buf-go`
     - Set **URL** to `https://buf.example.com/gen/go`
     - Open the **Advanced** tab and check **Bypass HEAD Requests**
-2.  In your BSR, create a [bot user](../../bsr/admin/instance/bot-users/) with a token. Then set the **User Name** and **Access Token** of the `buf-go` repository in Artifactory to the BSR username and token of the bot user that you created.
+2.  In your BSR, create a [bot user](../../admin/instance/bot-users/) with a token. Then set the **User Name** and **Access Token** of the `buf-go` repository in Artifactory to the BSR username and token of the bot user that you created.
 3.  Create a new virtual repository named `go`, or use an existing virtual Go repository.
     - Edit the virtual repository and add `buf-go` to the included items under `go`
     - Ensure that the `go-remote` remote repository is also added to included items
 
-### Individual developers
+== NPM
+
+1.  First, add a new NPM remote repository to your Artifactory instance at `https://example.jfrog.io/ui/admin/repositories/remote/new`.
+    - Set **Repository Key** to `buf-npm`
+    - Set **URL** to `https://buf.example.com/gen/npm/v1`
+    - Set **Repository Layout** and **Remote Layout Mapping** to `npm-default`
+    - Open the **Advanced** tab and check **Bypass HEAD Requests**
+2.  In your BSR, create a [bot user](../../admin/instance/bot-users/) with a token. Then set the **User Name** and **Access Token** of the `buf-npm` repository in Artifactory to the BSR user name and token of the bot user that you created.
+3.  Create a new virtual repository named `npm`, or use an existing virtual NPM repository.
+    - Edit the virtual repository and add `buf-npm` to the included items under `npm`
+4.  Add another remote repository to act as a mirror for the official npm registry:
+    - Set **Repository Key** to `npm-official`
+    - Set **URL** to `https://registry.npmjs.org/`
+
+== Maven
+
+1.  First, add a new Maven remote repository to your Artifactory instance at `https://example.jfrog.io/ui/admin/repositories/remote/new`.
+    - Set **Repository Key** to `buf-maven`
+    - Set **URL** to `https://buf.example.com/gen/maven`
+    - Scroll down to the **General** section and uncheck **Handle Snapshots** - the Buf Maven Repository doesn't support snapshots
+2.  In your BSR, create a bot user with a token. Then set the **User Name** and **Access Token** of the `buf-maven` repository in Artifactory to the BSR user name and token of the bot user that you created.
+3.  Add another remote repository to act as a mirror for Maven Central:
+    - Set **Repository Key** to `maven-central`
+    - Set **URL** to `https://repo1.maven.org/maven2/`
+4.  Create a new virtual repository named `maven`, or use an existing virtual Maven repository.
+    - Edit the virtual repository and add `buf-maven` and `maven-central` to the included items under `maven`
+
+== Python
+
+1.  First, add a new Python remote repository to your Artifactory instance at `https://example.jfrog.io/ui/admin/repositories/remote/new`.
+    - Set **Repository Key** to `buf-python`
+    - Set **URL** to `https://buf.example.com/gen/python`
+    - Ensure **Repository Layout** is `simple-default` and **Remote Layout Mapping** is unset
+    - Set **Registry URL** to `https://buf.example.com/gen/python`
+    - Set **Registry Suffix** to `simple`
+    - Open the **Advanced** tab and check **Bypass HEAD Requests**
+2.  In your BSR, create a [bot user](../../admin/instance/bot-users/) with a token. Then set the **User Name** and **Access Token** of the `buf-python` repository in Artifactory to the BSR user name and token of the bot user that you created.
+3.  Create a new virtual repository named `python`, or use an existing virtual Python repository.
+    - Edit the virtual repository and add `buf-python` to the included items under `python`
+4.  (Optional) Add another remote repository to act as a mirror for the official PyPI repository. This step is only required to bring in plugin dependencies such as the `protobuf` package - if you already have your own repository with these packages, you can use that repository instead.
+    - Set **Key** to `pypi-official`
+    - Set **URL** to `https://files.pythonhosted.org`
+    - Set **Registry URL** to `https://pypi.org`
+    - Set **Registry Suffix** to `simple`
+
+== Cargo
+
+1.  First, add a new Cargo remote repository to your Artifactory instance at `https://example.jfrog.io/ui/admin/repositories/remote/new`.
+    - Set **Repository Key** to `buf-cargo`
+    - Set **URL** to `https://buf.example.com/gen/cargo`
+    - Set **Repository Layout** to `cargo-default` and ensure **Remote Layout Mapping** is unset
+    - Set **Registry URL** to `https://buf.example.com/gen/cargo`
+    - Ensure **Enable sparse index support** is checked on - the Buf Cargo Registry only supports the sparse index
+    - If you want to allow unauthenticated access to download crates, ensure **Allow anonymous download and search** is checked on
+      - Checking this option may require a re-index of the repository, which can be done in Application->Artifactory->Artifacts, right click and click **Recalculate Index**
+    - Open the **Advanced** tab and check **Bypass HEAD Requests**
+2.  In your BSR, create a [bot user](../../admin/instance/bot-users/) with a token. Then set the **User Name** and **Access Token** of the `buf-cargo` repository in Artifactory to the BSR user name and token of the bot user that you created.
+
+== NuGet
+
+1.  First, add a new NuGet remote repository to your Artifactory instance at `https://example.jfrog.io/ui/admin/repositories/remote/new`.
+    - Set **Repository Key** to `buf-nuget`
+    - Set **URL** to `https://buf.example.com/gen/nuget`
+    - Set **NuGet v3 Feed URL** to `https://buf.example.com/gen/nuget/index.json`
+    - Ensure **NuGet Feed Context Path** and **NuGet Symbol Server URL** are unset
+    - Enable **Force Authentication**
+2.  In your BSR, create a [bot user](../../admin/instance/bot-users/) with a token. Then set the **User Name** and **Access Token** of the `buf-nuget` repository in Artifactory to the BSR username and token of the bot user that you created.
+
++++
+
+## Usage
+
++++tabs key:e9af9db9d43b16fd3bf90df47b70e8d0
+
+== Go
 
 1.  Click **Set Up Client/CI Tool** on the `go` virtual repository and follow the instructions.
 2.  Run the following in a terminal to configure Artifactory as the go proxy:
@@ -40,21 +116,7 @@ The Buf Schema Registry (BSR) provides generated SDKs of generated code through 
     $ go get buf.example.com/gen/go/acme/petapis/protocolbuffers/go
     ```
 
-## NPM setup
-
-1.  First, add a new NPM remote repository to your Artifactory instance at `https://example.jfrog.io/ui/admin/repositories/remote/new`.
-    - Set **Repository Key** to `buf-npm`
-    - Set **URL** to `https://buf.example.com/gen/npm/v1`
-    - Set **Repository Layout** and **Remote Layout Mapping** to `npm-default`
-    - Open the **Advanced** tab and check **Bypass HEAD Requests**
-2.  In your BSR, create a [bot user](../../bsr/admin/instance/bot-users/) with a token. Then set the **User Name** and **Access Token** of the `buf-npm` repository in Artifactory to the BSR user name and token of the bot user that you created.
-3.  Create a new virtual repository named `npm`, or use an existing virtual NPM repository.
-    - Edit the virtual repository and add `buf-npm` to the included items under `npm`
-4.  Add another remote repository to act as a mirror for the official npm registry:
-    - Set **Repository Key** to `npm-official`
-    - Set **URL** to `https://registry.npmjs.org/`
-
-### Individual developers
+== NPM
 
 1.  Click **Set Up Client/CI Tool** on the `npm` virtual repository and follow the instructions.
 2.  Run the following to configure Artifactory as a global registry, so that all `npm install` requests are routed to it.
@@ -81,24 +143,13 @@ The Buf Schema Registry (BSR) provides generated SDKs of generated code through 
     $ npm install @bufteam/example_hello-service.protocolbuffers_js
     ```
 
-## Maven setup
-
-1.  First, add a new Maven remote repository to your Artifactory instance at `https://example.jfrog.io/ui/admin/repositories/remote/new`.
-    - Set **Repository Key** to `buf-maven`
-    - Set **URL** to `https://buf.example.com/gen/maven`
-    - Scroll down to the **General** section and uncheck **Handle Snapshots** - the Buf Maven Repository doesn't support snapshots
-2.  In your BSR, create a bot user with a token. Then set the **User Name** and **Access Token** of the `buf-maven` repository in Artifactory to the BSR user name and token of the bot user that you created.
-3.  Add another remote repository to act as a mirror for Maven Central:
-    - Set **Repository Key** to `maven-central`
-    - Set **URL** to `https://repo1.maven.org/maven2/`
-4.  Create a new virtual repository named `maven`, or use an existing virtual Maven repository.
-    - Edit the virtual repository and add `buf-maven` and `maven-central` to the included items under `maven`
-
-### Individual developers
+== Maven
 
 Click **Set Up Client/CI Tool** on the `maven` virtual repository and follow the instructions.
 
-#### mvn
+mvnGradle
+
+== Python
 
 For `mvn`, you add the following server to your `~/.m2/settings.xml` file, replacing `{ArtifactoryUsername}` with your Artifactory username, and `{ArtifactoryToken}` with the token you just generated during setup.
 
@@ -159,7 +210,7 @@ Then, to use packages add the dependency to your `pom.xml` file. The easiest way
 
 :::
 
-#### Gradle
+== Cargo
 
 For `gradle`, Artifactory doesn't supply instructions. Add your Artifactory repository to your `build.gradle` or `build.gradle.kts` file, and supply your Artifactory username and token as a username and password in Gradle Properties for the repository using [credentials](https://docs.gradle.org/current/userguide/declaring_repositories.html#sec:handling_credentials).For example, you could add your credentials to a `gradle.properties` file in your project, replacing `{ArtifactoryUsername}` with your Artifactory username, and `{ArtifactoryToken}` with the token you just generated during setup:
 
@@ -224,25 +275,7 @@ dependencies {
 
 :::
 
-## Python setup
-
-1.  First, add a new Python remote repository to your Artifactory instance at `https://example.jfrog.io/ui/admin/repositories/remote/new`.
-    - Set **Repository Key** to `buf-python`
-    - Set **URL** to `https://buf.example.com/gen/python`
-    - Ensure **Repository Layout** is `simple-default` and **Remote Layout Mapping** is unset
-    - Set **Registry URL** to `https://buf.example.com/gen/python`
-    - Set **Registry Suffix** to `simple`
-    - Open the **Advanced** tab and check **Bypass HEAD Requests**
-2.  In your BSR, create a [bot user](../../bsr/admin/instance/bot-users/) with a token. Then set the **User Name** and **Access Token** of the `buf-python` repository in Artifactory to the BSR user name and token of the bot user that you created.
-3.  Create a new virtual repository named `python`, or use an existing virtual Python repository.
-    - Edit the virtual repository and add `buf-python` to the included items under `python`
-4.  (Optional) Add another remote repository to act as a mirror for the official PyPI repository. This step is only required to bring in plugin dependencies such as the `protobuf` package - if you already have your own repository with these packages, you can use that repository instead.
-    - Set **Key** to `pypi-official`
-    - Set **URL** to `https://files.pythonhosted.org`
-    - Set **Registry URL** to `https://pypi.org`
-    - Set **Registry Suffix** to `simple`
-
-### Individual developers
+== NuGet
 
 1.  Click **Set Up Client/CI Tool** on the `python` virtual repository and follow the instructions. You should end up with an `index-url` in your `~/.pip/pip.conf` file, containing a URL like:
 
@@ -256,20 +289,7 @@ dependencies {
     $ pip install example_hello-service_protocolbuffers_python
     ```
 
-## Cargo setup
-
-1.  First, add a new Cargo remote repository to your Artifactory instance at `https://example.jfrog.io/ui/admin/repositories/remote/new`.
-    - Set **Repository Key** to `buf-cargo`
-    - Set **URL** to `https://buf.example.com/gen/cargo`
-    - Set **Repository Layout** to `cargo-default` and ensure **Remote Layout Mapping** is unset
-    - Set **Registry URL** to `https://buf.example.com/gen/cargo`
-    - Ensure **Enable sparse index support** is checked on - the Buf Cargo Registry only supports the sparse index
-    - If you want to allow unauthenticated access to download crates, ensure **Allow anonymous download and search** is checked on
-      - Checking this option may require a re-index of the repository, which can be done in Application->Artifactory->Artifacts, right click and click **Recalculate Index**
-    - Open the **Advanced** tab and check **Bypass HEAD Requests**
-2.  In your BSR, create a [bot user](../../bsr/admin/instance/bot-users/) with a token. Then set the **User Name** and **Access Token** of the `buf-cargo` repository in Artifactory to the BSR user name and token of the bot user that you created.
-
-### Individual developers
+== mvn
 
 1.  Click **Set Up Client/CI Tool** on the `buf-cargo` remote repository and follow the instructions. At minimum, you should end up with a `registries.artifactory` configuration in your `.cargo/config.toml` file:
 
@@ -286,17 +306,7 @@ dependencies {
     $ cargo add --registry artifactory example_hello-service_community_neoeinstein-prost
     ```
 
-## NuGet setup
-
-1.  First, add a new NuGet remote repository to your Artifactory instance at `https://example.jfrog.io/ui/admin/repositories/remote/new`.
-    - Set **Repository Key** to `buf-nuget`
-    - Set **URL** to `https://buf.example.com/gen/nuget`
-    - Set **NuGet v3 Feed URL** to `https://buf.example.com/gen/nuget/index.json`
-    - Ensure **NuGet Feed Context Path** and **NuGet Symbol Server URL** are unset
-    - Enable **Force Authentication**
-2.  In your BSR, create a [bot user](../../bsr/admin/instance/bot-users/) with a token. Then set the **User Name** and **Access Token** of the `buf-nuget` repository in Artifactory to the BSR username and token of the bot user that you created.
-
-### Individual developers
+== Gradle
 
 1.  Click **Set Up Client/CI Tool** on the `buf-nuget` remote repository and follow the instructions. At minimum, you should end up with an `Artifactory` package source in your `NuGet.config` file:
 
@@ -313,3 +323,5 @@ dependencies {
     ```console
     $ dotnet add package Bsr.Example.HelloService.Grpc.Csharp
     ```
+
++++

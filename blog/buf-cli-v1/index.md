@@ -34,7 +34,7 @@ Managing `.proto` files has long been a pain point in the Protobuf ecosystem. In
 
 ### The Buf Schema Registry (BSR)
 
-You can use the `buf` CLI to interact with the [Buf Schema Registry](/docs/bsr/index.md), which provides a centralized platform for managing Protobuf assets, like [versioned Buf modules](/docs/concepts/modules-workspaces/index.md) and [Protobuf plugins](/docs/bsr/remote-plugins/overview/index.md), and features like [remote code generation](/blog/announcing-bsr/index.md#remote-code-generation), [generated Protobuf API documentation](/docs/bsr/documentation/overview/index.md), and [hosted Protobuf plugins](/docs/migration-guides/migrate-remote-generation-alpha/index.md). The BSR recently [went beta](/blog/announcing-bsr/index.md) and most BSR-related `buf` actions are under the `buf beta` command, but we aim to bring `buf`'s BSR functionality out of beta soon.
+You can use the `buf` CLI to interact with the [Buf Schema Registry](/docs/bsr/index.md), which provides a centralized platform for managing Protobuf assets, like [versioned Buf modules](/docs/cli/modules-workspaces/index.md) and [Protobuf plugins](/docs/bsr/remote-plugins/overview/index.md), and features like [remote code generation](/blog/announcing-bsr/index.md#remote-code-generation), [generated Protobuf API documentation](/docs/bsr/documentation/overview/index.md), and [hosted Protobuf plugins](/docs/migration-guides/migrate-remote-generation-alpha/index.md). The BSR recently [went beta](/blog/announcing-bsr/index.md) and most BSR-related `buf` actions are under the `buf beta` command, but we aim to bring `buf`'s BSR functionality out of beta soon.
 
 ## The meaning of the 1.0 milestone
 

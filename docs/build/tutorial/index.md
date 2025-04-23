@@ -31,7 +31,7 @@ lint:
 
 :::
 
-Add a declaration for each directory you want to treat as a [module](../../concepts/modules-workspaces/). The value should be relative to the workspace root. For example, if you have a directory of `.proto` files named `foo`, your configuration should look like this:
+Add a declaration for each directory you want to treat as a [module](../../cli/modules-workspaces/). The value should be relative to the workspace root. For example, if you have a directory of `.proto` files named `foo`, your configuration should look like this:
 
 ::: info Adding a module
 

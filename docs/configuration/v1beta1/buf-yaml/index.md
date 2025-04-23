@@ -4,7 +4,7 @@
 
 :::
 
-The `buf.yaml` file defines a [module](../../../concepts/modules-workspaces/), and is placed at the root of the Protobuf source files it defines. The placement of the `buf.yaml` configuration tells `buf` where to search for `.proto` files, and how to handle imports.This file contains [lint](../../../lint/rules/) and [breaking change detection](../../../breaking/rules/) rules, and if applicable, the name of your module and a list of dependencies.
+The `buf.yaml` file defines a [module](../../../cli/modules-workspaces/), and is placed at the root of the Protobuf source files it defines. The placement of the `buf.yaml` configuration tells `buf` where to search for `.proto` files, and how to handle imports.This file contains [lint](../../../lint/rules/) and [breaking change detection](../../../breaking/rules/) rules, and if applicable, the name of your module and a list of dependencies.
 
 ## Default values
 
@@ -43,11 +43,11 @@ The `version` key is **required**, and defines the current configuration version
 
 ### `name`
 
-The `name` is **optional**, and uniquely identifies your module. The `name` **must** be a valid [module name](../../../concepts/modules-workspaces/) and is directly associated with the repository that owns it.
+The `name` is **optional**, and uniquely identifies your module. The `name` **must** be a valid [module name](../../../cli/modules-workspaces/) and is directly associated with the repository that owns it.
 
 ### `deps`
 
-The `deps` key is **optional**, and declares one or more modules that your module depends on. Each `deps` entry **must** be a module reference, and, is directly associated with a repository, as well as a [reference](../../../concepts/modules-workspaces/#referencing-a-module), which is either a tag or commit. A complete example of the different `deps` format is shown below:
+The `deps` key is **optional**, and declares one or more modules that your module depends on. Each `deps` entry **must** be a module reference, and, is directly associated with a repository, as well as a [reference](../../../cli/modules-workspaces/#referencing-a-module), which is either a tag or commit. A complete example of the different `deps` format is shown below:
 
 ::: info buf.yaml
 

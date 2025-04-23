@@ -82,7 +82,7 @@ The URL contains these elements:
 - _PLUGIN_NAME_ is the name of the plugin.
 - _REFERENCE_ must be one of the following:
   - `latest`: uses the most recent versions of both the module (on its default label) and the plugin.
-  - [label name](../../../concepts/commits-labels/#labels): uses the latest commit for the given label and the most recent plugin version
+  - [label name](../../commits-labels/#labels): uses the latest commit for the given label and the most recent plugin version
   - commit ID: uses the explicit BSR module commit and the most recent plugin version. The commit must be the full module commit name.
   - a full version reference, in the format `vX.Y.Z-commit.N`. Here, `X.Y.Z` represents the plugin version, `commit` refers to the module's shortened commit name (12 characters), and `N` refers to the plugin revision number. This format is commonly used when you want complete control over generation, allowing you to pin to a specific module commit and plugin version.
 - _FILE_EXT_ is the file extension of the archive. This can be either `tar.gz` or `zip`.

@@ -22,7 +22,7 @@ There have been previous tools that allow you to call gRPC endpoints. In fact, i
 
 To get a sense for how `buf curl` works, let’s take a look at a few examples.
 
-First, let’s use `buf curl` to invoke a gRPC endpoint with local Protobuf sources and no server reflection. This uses the [module](/docs/concepts/modules-workspaces/index.md) defined in the `proto` directory of [github.com/connectrpc/examples-go](https://github.com/connectrpc/examples-go) to invoke our demo ElizaService:
+First, let’s use `buf curl` to invoke a gRPC endpoint with local Protobuf sources and no server reflection. This uses the [module](/docs/cli/modules-workspaces/index.md) defined in the `proto` directory of [github.com/connectrpc/examples-go](https://github.com/connectrpc/examples-go) to invoke our demo ElizaService:
 
 ```protobuf
 $ git clone https://github.com/connectrpc/examples-go && \

@@ -18,7 +18,7 @@ Once you've created the repository, you can begin pushing to it. To create a new
 
 1.  Go to the user dropdown and click **Repositories**.![Screenshot of user dropdown](../../../images/bsr/nav-user-dropdown.png)
 2.  Click **Create repository**.
-3.  In the popup that appears, give the repository a name and set its visibility. See the [Repository concepts](../../../concepts/repositories/#visibility) page for more detail about visibility settings.
+3.  In the popup that appears, give the repository a name and set its visibility. See the [Repository concepts](../../repositories/#visibility) page for more detail about visibility settings.
 4.  Click **Create**.
 
 ## Change repository settings
@@ -39,7 +39,7 @@ To add metadata:
 
 ### Change default label
 
-When you create a repository, it has a default label of `main`, for parity with most version control systems. Subject to certain [restrictions](../../../concepts/repositories/#name-change-restrictions), you can change the default to point to a different label.To change the default label pointer:
+When you create a repository, it has a default label of `main`, for parity with most version control systems. Subject to certain [restrictions](../../repositories/#name-change-restrictions), you can change the default to point to a different label.To change the default label pointer:
 
 1.  In the BSR, navigate to your repository, select **Settings**, then go to the **Change default label** section.
 2.  Start typing in the **Select new label** box—it provides type-ahead results to help you filter all of the available labels.
@@ -149,5 +149,5 @@ The following names are reserved terms and can't be used as repository names:
 
 ## Related docs
 
-- Learn more about [repositories](../../../concepts/repositories/) and their properties.
+- Learn more about [repositories](../../repositories/) and their properties.
 - Read [Manage organizations](../../admin/manage-organizations/) and [Manage members and roles](../../admin/manage-members/)

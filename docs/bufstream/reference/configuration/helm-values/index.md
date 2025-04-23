@@ -62,7 +62,7 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 
 ### `bufstream.deployment.extraContainers`
 
-\_list_Bufstream Deployment additional containers to run besides the bufstream container.Defaults to `[]`.
+\_list_Bufstream Deployment additional containers to run alongside the bufstream container.Defaults to `[]`.
 
 ### `bufstream.deployment.extraEnv`
 
@@ -174,7 +174,7 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 
 ### `bufstream.podDisruptionBudget.maxUnavailable`
 
-\_string_Number of pods that are unavailable after eviction as number or percentage (eg.: 50%). Has higher precedence over `minAvailable`Defaults to `""`.
+\_string_Number of pods that are unavailable after eviction as number or percentage (e.g.: 50%). Has higher precedence over `minAvailable`Defaults to `""`.
 
 ### `bufstream.podDisruptionBudget.minAvailable`
 
@@ -234,7 +234,7 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 
 ### `discoverZoneFromNode`
 
-\_bool_When true it enables additional permissions so Bufstream can get the zone via the Kubernetes API server by reading the zone topology label of the node the bufstream pod is running on. Bufstream won't attempt to do the discovery if the zone option is false.Defaults to `false`.
+\_bool_When true, it enables additional permissions so Bufstream can get the zone via the Kubernetes API server by reading the zone topology label of the node the bufstream pod is running on. Bufstream won't attempt to do the discovery if the zone option is false.Defaults to `false`.
 
 ### `extraObjects`
 
@@ -246,7 +246,7 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 
 ### `kafka.address`
 
-\_object_The address the Kafka server should listen on. This defaults to 0.0.0.0 (any) and 9092 port.Defaults to `{"host":"0.0.0.0","port":9092}`.
+\_object_The address the Kafka server should listen on. This defaults to 0.0.0.0 (any) and port 9092.Defaults to `{"host":"0.0.0.0","port":9092}`.
 
 ### `kafka.authentication`
 
@@ -298,11 +298,11 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 
 ### `kafka.publicAddress`
 
-\_object_The public address clients should use to connect to the Kafka server. This defaults to the K8S service DNS and 9092 port.Defaults to `{host: "<service>.<namespace>.svc.cluster.local", port: 9092}`.
+\_object_The public address clients should use to connect to the Kafka server. This defaults to the K8S service DNS and port 9092.Defaults to `{host: "<service>.<namespace>.svc.cluster.local", port: 9092}`.
 
 ### `kafka.requestBufferSize`
 
-\_int_The number of kafka request to unmarshal and buffer before processing.Defaults to `5`.
+\_int_The number of kafka requests to unmarshal and buffer before processing.Defaults to `5`.
 
 ### `kafka.tlsCertificateSecrets`
 
@@ -322,7 +322,7 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 
 ### `kafka.zoneBalanceStrategy`
 
-\_string_How to balance clients across zones, when client does not specify a zone. One of: \["BALANCE_STRATEGY_UNSPECIFIED", "BALANCE_STRATEGY_PARTITION", "BALANCE_STRATEGY_HOST", "BALANCE_STRATEGY_CLIENT_ID"\]Defaults to `"BALANCE_STRATEGY_PARTITION"`.
+\_string_How to balance clients across zones, when the client does not specify a zone. One of: \["BALANCE_STRATEGY_UNSPECIFIED", "BALANCE_STRATEGY_PARTITION", "BALANCE_STRATEGY_HOST", "BALANCE_STRATEGY_CLIENT_ID"\]Defaults to `"BALANCE_STRATEGY_PARTITION"`.
 
 ### `metadata.etcd.addresses`
 
@@ -331,6 +331,46 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 ### `metadata.etcd.tls`
 
 \_object_TLS client configuration for bufstream to connect to etcd.Defaults to `{}`.
+
+### `metadata.postgres.cloudsql`
+
+\_object_Cloud SQL configuration.Defaults to `{"iam":false,"instance":"","privateIP":false}`.
+
+### `metadata.postgres.cloudsql.iam`
+
+\_bool_Connect using CloudSQL IAM authentication.Defaults to `false`.
+
+### `metadata.postgres.cloudsql.instance`
+
+\_string_Cloud SQL instance connection name to connect to, typically in the format "project-name:region:instance-name".Defaults to `""`.
+
+### `metadata.postgres.cloudsql.privateIP`
+
+\_bool_Connect to the CloudSQL instance using a private IP.Defaults to `false`.
+
+### `metadata.postgres.dsn`
+
+\_string_Postgres DSN.Defaults to `""`.
+
+### `metadata.postgres.env`
+
+\_string_Environment variable name containing a Postgres DSN. See `bufstream.deployment.extraEnv` for configuring environment variables.Defaults to `""`.
+
+### `metadata.postgres.pool`
+
+\_object_Connection pool configuration.Defaults to `{"maxConnections":0,"minConnections":0}`.
+
+### `metadata.postgres.pool.maxConnections`
+
+\_int_The maximum size of the connection pool. Defaults to 10.Defaults to `0`.
+
+### `metadata.postgres.pool.minConnections`
+
+\_int_The minimum size of the connection pool.Defaults to `0`.
+
+### `metadata.postgres.secretName`
+
+\_string_Kubernetes secret with a `dsn` key containing a Postgres DSN.Defaults to `""`.
 
 ### `metadata.spanner.databaseName`
 
@@ -362,11 +402,11 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 
 ### `observability.exporter.address`
 
-\_string_Open Telemetry base endpoint to push metrics and traces. The value has a host and an optional port. It should not include the URL path, such as "/v1/traces" or the scheme. This can be overriden by metrics.address or tracing.address.Defaults to `""`.
+\_string_Open Telemetry base endpoint to push metrics and traces. The value has a host and an optional port. It should not include the URL path, such as "/v1/traces" or the scheme. This can be overridden by metrics.address or tracing.address.Defaults to `""`.
 
 ### `observability.exporter.insecure`
 
-\_bool_Whether to disable TLS for the exporter's HTTP connection. This can be overriden by metrics.insecure or tracing.insecure.Defaults to `false`.
+\_bool_Whether to disable TLS for the exporter's HTTP connection. This can be overridden by metrics.insecure or tracing.insecure.Defaults to `false`.
 
 ### `observability.logLevel`
 
@@ -422,7 +462,7 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 
 ### `observability.sensitiveInformationRedaction`
 
-\_string_Redact sensitive information such as topic names, before adding to to metrics, traces and logs. Supports \[NONE, OPAQUE\]Defaults to `"NONE"`.
+\_string_Redact sensitive information such as topic names, before adding to metrics, traces and logs. Supports \[NONE, OPAQUE\]Defaults to `"NONE"`.
 
 ### `observability.tracing.address`
 
@@ -514,7 +554,7 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 
 ### `zone`
 
-\_string_The zone location of brokers, e.g., the datacenter/availability zone where the broker is running. If not given, bustream will try to infer this from node metadata. This is currently for bufstream internal functionality, and does not control cloud providers such as GCP directly.Defaults to `""`.
+\_string_The zone location of brokers, e.g., the datacenter/availability zone where the broker is running. If not given, bufstream will try to infer this from node metadata. This is currently for bufstream internal functionality, and does not control cloud providers such as GCP directly.Defaults to `""`.
 
 ## Annotated `values.yaml`
 
@@ -533,19 +573,19 @@ imagePullSecrets: []
 # -- The name of the cluster. Used by bufstream to identify itself.
 cluster: bufstream
 # -- The zone location of brokers, e.g., the datacenter/availability zone where the broker is running.
-# If not given, bustream will try to infer this from node metadata.
+# If not given, bufstream will try to infer this from node metadata.
 # This is currently for bufstream internal functionality, and does not control cloud providers such as GCP directly.
 zone: ""
-# -- When true it enables additional permissions so Bufstream can get the zone via the Kubernetes API server by reading the zone topology label of the node the bufstream pod is running on. Bufstream won't attempt to do the discovery if the zone option is false.
+# -- When true, it enables additional permissions so Bufstream can get the zone via the Kubernetes API server by reading the zone topology label of the node the bufstream pod is running on. Bufstream won't attempt to do the discovery if the zone option is false.
 discoverZoneFromNode: false
 # -- Configuration for data enforcement via schemas of records flowing in and out of the broker.
 dataEnforcement: {}
 kafka:
-  # -- The address the Kafka server should listen on. This defaults to 0.0.0.0 (any) and 9092 port.
+  # -- The address the Kafka server should listen on. This defaults to 0.0.0.0 (any) and port 9092.
   address:
     host: 0.0.0.0
     port: 9092
-  # -- The public address clients should use to connect to the Kafka server. This defaults to the K8S service DNS and 9092 port.
+  # -- The public address clients should use to connect to the Kafka server. This defaults to the K8S service DNS and port 9092.
   # @default -- `{host: "<service>.<namespace>.svc.cluster.local", port: 9092}`
   publicAddress: {}
   # -- Kubernetes secrets containing a `tls.crt` and `tls.key` (as the secret keys, see https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets) to present to the client. The first certificate compatible with the client's requirements is selected automatically.
@@ -563,11 +603,11 @@ kafka:
   fetchSync: true
   # -- If records from a producer to different topic/partitions may be sequenced concurrently instead of serially.
   produceConcurrent: true
-  # -- How to balance clients across zones, when client does not specify a zone. One of: ["BALANCE_STRATEGY_UNSPECIFIED", "BALANCE_STRATEGY_PARTITION", "BALANCE_STRATEGY_HOST", "BALANCE_STRATEGY_CLIENT_ID"]
+  # -- How to balance clients across zones, when the client does not specify a zone. One of: ["BALANCE_STRATEGY_UNSPECIFIED", "BALANCE_STRATEGY_PARTITION", "BALANCE_STRATEGY_HOST", "BALANCE_STRATEGY_CLIENT_ID"]
   zoneBalanceStrategy: BALANCE_STRATEGY_PARTITION
   # -- How to balance topic/partitions across bufstream nodes. One of: ["BALANCE_STRATEGY_UNSPECIFIED", "BALANCE_STRATEGY_PARTITION", "BALANCE_STRATEGY_HOST", "BALANCE_STRATEGY_CLIENT_ID"]
   partitionBalanceStrategy: BALANCE_STRATEGY_PARTITION
-  # -- The number of kafka request to unmarshal and buffer before processing.
+  # -- The number of kafka requests to unmarshal and buffer before processing.
   requestBufferSize: 5
   # -- How long a Kafka connection can be idle before being closed by the server. If set a value less than or equal to zero, the timeout will be disabled.
   idleTimeout: 0
@@ -611,13 +651,13 @@ kafka:
     #         # Kubernetes secret containing 'username', 'salt', 'salted-password' as secret keys.
     #         saltedSecret: ""
     #   oauthBearer:
-    #     # How to aquire the JWKS.
+    #     # How to acquire the JWKS.
     #     jwks:
     #       # If the JWKS is static, the configMap containing the JWKS at key 'jwks.json'.
     #       staticConfig:
-    #       # A hosted JWKS, that is accesible to the cluster.
+    #       # A hosted JWKS, that is accessible to the cluster.
     #       remote:
-    #         # Kubernetes configMap with key 'url' of JWKS's URL, which must be a HTTPS url.
+    #         # Kubernetes configMap with key 'url' of JWKS's URL, which must be an HTTPS url.
     #         urlConfig:
     #         # The keys are loaded once on startup and are refreshed every hour by default.
     #         # This controls the refresh interval.
@@ -697,6 +737,27 @@ metadata:
     instanceId: ""
     # -- Database name of the Spanner database. Defaults to `bufstream` if not specified.
     databaseName: ""
+  postgres:
+    # -- Postgres DSN.
+    dsn: ""
+    # -- Kubernetes secret with a `dsn` key containing a Postgres DSN.
+    secretName: ""
+    # -- Environment variable name containing a Postgres DSN. See `bufstream.deployment.extraEnv` for configuring environment variables.
+    env: ""
+    # -- Cloud SQL configuration.
+    cloudsql:
+      # -- Cloud SQL instance connection name to connect to, typically in the format "project-name:region:instance-name".
+      instance: ""
+      # -- Connect using CloudSQL IAM authentication.
+      iam: false
+      # -- Connect to the CloudSQL instance using a private IP.
+      privateIP: false
+    # -- Connection pool configuration.
+    pool:
+      # -- The maximum size of the connection pool. Defaults to 10.
+      maxConnections: 0
+      # -- The minimum size of the connection pool.
+      minConnections: 0
 storage:
   # -- Which object storage that bufstream is using.
   # Currently, `gcs` and `s3` are supported.
@@ -743,10 +804,10 @@ observability:
   exporter:
     # -- Open Telemetry base endpoint to push metrics and traces. The value has a host and an optional port.
     # It should not include the URL path, such as "/v1/traces" or the scheme.
-    # This can be overriden by metrics.address or tracing.address.
+    # This can be overridden by metrics.address or tracing.address.
     address: ""
     # -- Whether to disable TLS for the exporter's HTTP connection.
-    # This can be overriden by metrics.insecure or tracing.insecure.
+    # This can be overridden by metrics.insecure or tracing.insecure.
     insecure: false
   metrics:
     # -- Open Telemetry exporter. Supports [NONE, STDOUT, HTTP, HTTPS, PROMETHEUS].
@@ -786,7 +847,7 @@ observability:
       # Metrics that support this aggregation will report the 'kafka.topic.name' attribute as '_all_topics_'.
       # NOTE: This implies partitions aggregation, which omits metrics like 'bufstream.kafka.topic.partition.offset.high_water_mark'.
       topics: false
-      # Aggregate metrics across all parttions to avoid cardinality issues with clusters with a large number of partitions.
+      # Aggregate metrics across all partitions to avoid cardinality issues with clusters with a large number of partitions.
       # Metrics that support aggregation will report the 'kafka.partition.id' attribute as -1, while some metrics, such as
       # 'bufstream.kafka.topic.partition.offset.high_water_mark' will be omitted if partition level aggregation is enabled.
       partitions: false
@@ -815,7 +876,7 @@ observability:
     insecure: false
     # -- Trace sample ratio.
     traceRatio: 0.1
-  # -- Redact sensitive information such as topic names, before adding to to metrics, traces and logs.
+  # -- Redact sensitive information such as topic names, before adding to metrics, traces and logs.
   # Supports [NONE, OPAQUE]
   sensitiveInformationRedaction: "NONE"
 bufstream:
@@ -882,7 +943,7 @@ bufstream:
     extraVolumes: []
     # -- Bufstream Deployment Extra container ports for the bufstream container.
     extraContainerPorts: {}
-    # -- Bufstream Deployment additional containers to run besides the bufstream container.
+    # -- Bufstream Deployment additional containers to run alongside the bufstream container.
     extraContainers: []
     livenessProbe:
       # -- Bufstream Deployment Liveness Probe Maximum failure threshold.
@@ -925,7 +986,7 @@ bufstream:
     # -- Number of pods that are available after eviction as number or percentage (eg.: 50%).
     # @default -- `""` (defaults to 0 if not specified)
     minAvailable: ""
-    # -- Number of pods that are unavailable after eviction as number or percentage (eg.: 50%). Has higher precedence over `minAvailable`
+    # -- Number of pods that are unavailable after eviction as number or percentage (e.g.: 50%). Has higher precedence over `minAvailable`
     maxUnavailable: ""
   image:
     # -- Bufstream Deployment container image repository.

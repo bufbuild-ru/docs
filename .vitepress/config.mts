@@ -45,27 +45,16 @@ export default defineConfig({
         items: [
           { text: 'Home', link: '/docs/' },
           {
-            text: 'Concepts',
-            collapsed: true,
-            items: [
-              {
-                text: 'Modules and workspaces',
-                link: '/docs/concepts/modules-workspaces/',
-              },
-              { text: 'Repositories', link: '/docs/concepts/repositories/' },
-              {
-                text: 'Commits and labels',
-                link: '/docs/concepts/commits-labels/',
-              },
-            ],
-          },
-          {
             text: 'Buf CLI',
             collapsed: true,
             items: [
               { text: 'Overview', link: '/docs/cli/' },
               { text: 'Installation', link: '/docs/cli/installation/' },
               { text: 'Quickstart', link: '/docs/cli/quickstart/' },
+              {
+                text: 'Modules and workspaces',
+                link: '/docs/cli/modules-workspaces/',
+              },
               {
                 text: 'Generate code',
                 collapsed: true,
@@ -159,6 +148,8 @@ export default defineConfig({
             items: [
               { text: 'Overview', link: '/docs/bsr/' },
               { text: 'Quickstart', link: '/docs/bsr/quickstart/' },
+              { text: 'Repositories', link: '/docs/bsr/repositories/' },
+              { text: 'Commits and labels', link: '/docs/bsr/commits-labels/' },
               { text: 'Authentication', link: '/docs/bsr/authentication/' },
               {
                 text: 'Working with modules',
@@ -226,6 +217,10 @@ export default defineConfig({
                   {
                     text: 'Swift Package Manager/Xcode',
                     link: '/docs/bsr/generated-sdks/swift/',
+                  },
+                  {
+                    text: 'Using Artifactory',
+                    link: '/docs/bsr/generated-sdks/artifactory/',
                   },
                 ],
               },
@@ -469,21 +464,21 @@ export default defineConfig({
                   },
                   {
                     text: 'Subscriptions',
-                    link: '/docs/subscription/faq/',
                     collapsed: true,
                     items: [
                       {
-                        text: 'Manage subscription costs',
-                        link: '/docs/subscription/manage-costs/',
-                      },
-                      {
-                        text: 'Manage your subscription',
+                        text: 'Manage subscription',
                         link: '/docs/subscription/manage/',
                       },
                       {
-                        text: 'Migrate to your new registry',
+                        text: 'Manage costs',
+                        link: '/docs/subscription/manage-costs/',
+                      },
+                      {
+                        text: 'Migrate to private instance',
                         link: '/docs/subscription/migrate/',
                       },
+                      { text: 'FAQs', link: '/docs/subscription/faq/' },
                     ],
                   },
                 ],
@@ -507,8 +502,12 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                       {
-                        text: 'Deploy',
-                        link: '/docs/bufstream/deployment/aws/deploy/',
+                        text: 'Deploy with etcd',
+                        link: '/docs/bufstream/deployment/aws/deploy-etcd/',
+                      },
+                      {
+                        text: 'Deploy with Postgres',
+                        link: '/docs/bufstream/deployment/aws/deploy-postgres/',
                       },
                       {
                         text: 'Configure',
@@ -525,6 +524,10 @@ export default defineConfig({
                         link: '/docs/bufstream/deployment/gcp/deploy-etcd/',
                       },
                       {
+                        text: 'Deploy with Postgres',
+                        link: '/docs/bufstream/deployment/gcp/deploy-postgres/',
+                      },
+                      {
                         text: 'Deploy with Spanner',
                         link: '/docs/bufstream/deployment/gcp/deploy-spanner/',
                       },
@@ -539,8 +542,12 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                       {
-                        text: 'Deploy',
-                        link: '/docs/bufstream/deployment/azure/deploy/',
+                        text: 'Deploy with etcd',
+                        link: '/docs/bufstream/deployment/azure/deploy-etcd/',
+                      },
+                      {
+                        text: 'Deploy with Postgres',
+                        link: '/docs/bufstream/deployment/azure/deploy-postgres/',
                       },
                       {
                         text: 'Configure',
@@ -842,10 +849,6 @@ export default defineConfig({
                 link: '/docs/reference/protoc-plugins/',
               },
               { text: 'Code editors', link: '/docs/cli/editor-integration/' },
-              {
-                text: 'Artifactory',
-                link: '/docs/tool-integrations/artifactory/',
-              },
             ],
           },
           {
@@ -1461,6 +1464,10 @@ export default defineConfig({
                 link: '/docs/migration-guides/migrate-v2-config-files/',
               },
               {
+                text: 'Migrating from individual Buf GitHub Actions',
+                link: '/docs/migration-guides/migrate-to-buf-action/',
+              },
+              {
                 text: 'Migrate from remote generation alpha',
                 link: '/docs/migration-guides/migrate-remote-generation-alpha/',
               },
@@ -1509,6 +1516,46 @@ export default defineConfig({
             accurateTrackBounce:true
       });`,
     ],
-    ['link', { rel: 'icon', href: '/favicon.png', type: 'image/png' }],
+    [
+      'link',
+      {
+        rel: 'icon',
+        href: '/favicon.png',
+        type: 'image/png',
+      },
+    ],
+    [
+      'link',
+      {
+        rel: 'apple-touch-icon',
+        href: '/apple-touch-icon.png',
+        sizes: '180x180',
+      },
+    ],
+    [
+      'link',
+      {
+        rel: 'icon',
+        href: '/favicon-32x32.png',
+        type: 'image/png',
+        sizes: '32x32',
+      },
+    ],
+    [
+      'link',
+      {
+        rel: 'icon',
+        href: '/favicon-16x16.png',
+        type: 'image/png',
+        sizes: '16x16',
+      },
+    ],
+    [
+      'link',
+      {
+        rel: 'manifest',
+        href: '/site.webmanifest',
+      },
+    ],
   ],
 });

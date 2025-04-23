@@ -274,6 +274,8 @@ postgres:
   port: 5432
   database: postgres
   user: postgres
+  # Optional, max postgres connection per pool, defaults to 10 if unset/zero
+  # maxConnections: 20
 ```
 
 Then create a k8s secret containing the Postgres user password:

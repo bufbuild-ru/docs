@@ -213,4 +213,4 @@ In this quickstart, you've learned to configure Bufstream for Iceberg, manage a 
 ## Further reading
 
 - Explore true broker-side [schema enforcement](../../data-governance/schema-enforcement/) and [semantic data validation](../../data-governance/semantic-validation/) in the Bufstream [quickstart](../../quickstart/).
-- Learn about production Bufstream deployment with Kubernetes on [Amazon Web Services](../../deployment/aws/deploy/), [Google Cloud with etcd](../../deployment/gcp/deploy-etcd/), or [Google Cloud with Spanner](../../deployment/gcp/deploy-spanner/).
+- Learn about production Bufstream deployment with Kubernetes on [Amazon Web Services](../../deployment/aws/deploy-etcd/), [Google Cloud with etcd](../../deployment/gcp/deploy-etcd/), or [Google Cloud with Spanner](../../deployment/gcp/deploy-spanner/).

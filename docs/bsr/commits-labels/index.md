@@ -1,6 +1,6 @@
 # Commits and labels
 
-Like a version control system (VCS), the Buf Schema Registry (BSR) tracks the evolution of your schemas. Every time you push a change to the BSR, you create a _commit_, which is an immutable snapshot of a Buf [module](../modules-workspaces/) at a specific point in time that's stored in its [repository](../repositories/).The BSR allows you to apply _labels_ to commits (similar to GitHub's branches and tags), which are usually used to separate feature development from production code, mark specific releases, and so on. Because the BSR is meant to be used alongside your VCS, its requirements are simpler, so we've chosen to collapse the branch and tag concepts into a single marker, the label.This page explains the similarities and differences between the BSR and branch/tag-based systems, label interactions with Buf's governance features, and archiving and unarchiving labels.See the [Modules and workspaces](../modules-workspaces/#referencing-a-module) page to learn how to reference a module by a specific commit or label.
+Like a version control system (VCS), the Buf Schema Registry (BSR) tracks the evolution of your schemas. Every time you push a change to the BSR, you create a _commit_, which is an immutable snapshot of a Buf [module](../../cli/modules-workspaces/) at a specific point in time that's stored in its [repository](../repositories/).The BSR allows you to apply _labels_ to commits (similar to GitHub's branches and tags), which are usually used to separate feature development from production code, mark specific releases, and so on. Because the BSR is meant to be used alongside your VCS, its requirements are simpler, so we've chosen to collapse the branch and tag concepts into a single marker, the label.This page explains the similarities and differences between the BSR and branch/tag-based systems, label interactions with Buf's governance features, and archiving and unarchiving labels.See the [Modules and workspaces](../../cli/modules-workspaces/#referencing-a-module) page to learn how to reference a module by a specific commit or label.
 
 ## Commits
 
@@ -9,7 +9,7 @@ Every push of new content to a repository creates a commit that identifies a cha
 - Commits may not be deleted.
 - Commits always belong to at least one label (the [default label](../repositories/#default-label) if not specified)
 - Commit can be present in multiple labels
-- If [policy checks](../../bsr/policy-checks/breaking/overview/) are enabled, a commit can have different review states in different labels
+- If [policy checks](../policy-checks/breaking/overview/) are enabled, a commit can have different review states in different labels
 - All commits within a label are recorded and the history always moves forward—commits are appended only if they're newer than the latest (see [Interaction with governance features](#governance-interaction) below)
 - All commits can be resolved as dependencies (for example, in `buf.lock` files or generated SDKs).
 - Multiple BSR commits can have the same content but different VCS URLs, so that the backlinks provide context for the changes via the VCS commits and PR discussions. For example (assuming no other changes to the module):
@@ -27,7 +27,7 @@ A label is a mutable pointer to a specific commit. Each label has an append-only
 
 ### Interaction with governance features
 
-If the BSR's [policy checks](../../bsr/policy-checks/breaking/overview/) or [Confluent Schema Registry (CSR)](../../bsr/kafka/overview/) integration features are enabled, it enforces restrictions on when a label's pointer updates to a new commit. This protects consumers from broken builds or downstream data issues.When policy checks are enabled, the new commit is allowed, but the label pointer only moves if either the commit doesn't introduce breaking changes _or_ an admin approves the commit from the review flow. Commits exist with one of these statuses at any given moment:
+If the BSR's [policy checks](../policy-checks/breaking/overview/) or [Confluent Schema Registry (CSR)](../kafka/overview/) integration features are enabled, it enforces restrictions on when a label's pointer updates to a new commit. This protects consumers from broken builds or downstream data issues.When policy checks are enabled, the new commit is allowed, but the label pointer only moves if either the commit doesn't introduce breaking changes _or_ an admin approves the commit from the review flow. Commits exist with one of these statuses at any given moment:
 
 - **Passed:** The commit passes all checks (or checks aren't enabled).
 - **Pending:** The commit failed a check and is now in the review flow.
@@ -36,7 +36,7 @@ If the BSR's [policy checks](../../bsr/policy-checks/breaking/overview/) or [Con
 
 ### Deleting labels
 
-You can't delete labels. The BSR is a package registry due to [generated SDKs](../../bsr/generated-sdks/overview/), so deleting a label can have side effects that are much more impactful than branch deletion in Git. As a result, we don't allow it. However, you can [archive a label](../../bsr/module/publish/#archiving-and-unarchiving-labels).
+You can't delete labels. The BSR is a package registry due to [generated SDKs](../generated-sdks/overview/), so deleting a label can have side effects that are much more impactful than branch deletion in Git. As a result, we don't allow it. However, you can [archive a label](../module/publish/#archiving-and-unarchiving-labels).
 
 ### Archived labels
 
@@ -50,10 +50,10 @@ Labels can be archived and unarchived, and the BSR behaves as follows:
 - Archived labels are a valid resource reference and can be resolved as dependencies.
 - The [default label](../repositories/#default-label) may not be archived.
 
-For details about how to apply, archive, and unarchive labels, see [Pushing to the BSR](../../bsr/module/publish/#archiving-and-unarchiving-labels).
+For details about how to apply, archive, and unarchive labels, see [Pushing to the BSR](../module/publish/#archiving-and-unarchiving-labels).
 
 ## Related docs
 
-- Learn how to [push commits to the BSR](../../bsr/module/publish/)
+- Learn how to [push commits to the BSR](../module/publish/)
 - Browse the [`buf registry label`](../../reference/cli/buf/registry/module/label/) command reference
-- Read the [modules and workspaces](../modules-workspaces/) and [repository](../repositories/) concept docs
+- Read the [modules and workspaces](../../cli/modules-workspaces/) and [repository](../repositories/) concept docs

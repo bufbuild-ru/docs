@@ -10,15 +10,20 @@ Your Protobuf files likely have dependencies on third-party types, most commonly
 
 Because Buf doesn't charge for public types, one of the easiest methods to manage costs is to move types that don't need to be private into a public repository. This can also lead to better API discovery for your customers, and encourage an open source community to emerge around your services. This way, you can limit the paid types in your subscription to the much smaller number of business-sensitive types stored in your organization's private repositories.The BSR itself is a good example of this principle, as it exposes a large public API at [https://buf.build/bufbuild/buf](https://buf.build/bufbuild/buf), and also has a handful of private types.
 
-## Types usage dashboard
+## Track types usage
 
-Organization admins can view a dashboard that shows Average Types Usage by billable types per month.
+To help you track usage costs, the BSR provides a dashboard to organization admins on `buf.build` that shows monthly average type usage for the organization. Go to the organization's side menu, then **Account > Usage** to view it.![Example dashboard](../../images/bsr/types-usage-public.png)
 
-- For organizations on the public BSR, go to the organization's side menu, then **Account > Usage**.
-- For organizations on a private BSR, go to your profile menu, then **Admin panel > Types usage**.
+### Types usage by instance, owner, and repository
 
-As the name implies, usage is calculated based on the average number of types over the billing period.
+This feature is only available on the Enterprise plan.
 
-### Example dashboard
+The BSR provides more detailed reporting for private instances: current type usage and historical data for billable types. Instance admins have access to both dashboards, and they can be exported to CSV to easily share usage information with others. Both dashboards can also be filtered on specific organizations and repos in addition to viewing for the entire instance.
 
-![Example dashboard](../../images/bsr/public-types-usage.png)
+#### Current types usage
+
+Instance admins can view this dashboard at `https://buf.build/admin/current-usage`. It shows the current type usage at that moment, broken out by repository and each type.![Example dashboard](../../images/bsr/types-usage-private-current.png)You can sort the table by any column, and click through to view usage down to the repository level in addition to using the filter.
+
+#### Billable types history
+
+Instance admins can view this dashboard at `https://buf.build/admin/billable-history`. It shows the maximum types billed by month for up to a year of data, with each month further broken out by type.![Example dashboard](../../images/bsr/types-usage-private-history.png)You can change the data range as needed.

@@ -4,7 +4,7 @@
 
 :::
 
-If your [`buf.yaml`](../buf-yaml/) declares any `deps`, it should be accompanied by a `buf.lock` file that contains your [module](../../../concepts/modules-workspaces/)'s dependency manifest. This manifest represents a single, reproducible build of your module.You can create or update a `buf.lock` file for your module by running the `buf dep update` command. For example, given this directory layout and `buf.lock` content for the `buf.build/acme/petapis` module:
+If your [`buf.yaml`](../buf-yaml/) declares any `deps`, it should be accompanied by a `buf.lock` file that contains your [module](../../../cli/modules-workspaces/)'s dependency manifest. This manifest represents a single, reproducible build of your module.You can create or update a `buf.lock` file for your module by running the `buf dep update` command. For example, given this directory layout and `buf.lock` content for the `buf.build/acme/petapis` module:
 
 ```text
 .

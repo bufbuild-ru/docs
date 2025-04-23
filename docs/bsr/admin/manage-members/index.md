@@ -40,7 +40,7 @@ Every user that's part of an organization has an explicit role. Users are unable
 ### Writer
 
 - Can view the organization and its members.
-- Can add resources such as [repositories](../../../concepts/repositories/) and [plugins](../../remote-plugins/custom-plugins/).
+- Can add resources such as [repositories](../../repositories/) and [plugins](../../remote-plugins/custom-plugins/).
 - Inherits `Write` roles over existing organization resources, regardless of the organization's [base resource roles](#base-resource-roles).
 
 This role is especially useful with CI pipelines. For example, you could set the organization base roles to `Read` and configure a bot user to push to a BSR repository on merge.If you're on a Pro or Enterprise plan, see [Bot users](../instance/bot-users/) for specifics related to bot users on your private BSR instance.
@@ -48,13 +48,13 @@ This role is especially useful with CI pipelines. For example, you could set the
 ### Admin
 
 - Can modify organization settings, such as [base resource roles](#base-resource-roles).
-- Can add and delete resources such as [repositories](../../../concepts/repositories/) and [plugins](../../remote-plugins/custom-plugins/).
+- Can add and delete resources such as [repositories](../../repositories/) and [plugins](../../remote-plugins/custom-plugins/).
 - Can manage user roles, except owners.
 
 ### Owner
 
 - Users that require unrestricted access to the organization, its settings, and all resources owned by the organization.
-- Can add and delete resources such as [repositories](../../../concepts/repositories/) and [plugins](../../remote-plugins/custom-plugins/).
+- Can add and delete resources such as [repositories](../../repositories/) and [plugins](../../remote-plugins/custom-plugins/).
 - Can delete organization. You must delete all resources such as repositories and plugins before deleting the organization.
 
 You can also assign more granular member rights ("Read", "Limited Write", "Write", "Admin") on BSR repositories. For more information see the [repository documentation](../../repository/configure/).
@@ -72,10 +72,10 @@ Organization owners can modify the base resource roles depending on the requirem
 ### Base repository role
 
 - `Read`: Can read the repository and import it as a dependency.
-- `Limited Write`: Can write to [non-default labels](../../../concepts/repositories/#default-label). Can't write to the default label.
+- `Limited Write`: Can write to [non-default labels](../../repositories/#default-label). Can't write to the default label.
 - `Write`: Can create and write to repositories, such as by pushing new content or creating labels.
 - `Admin`: Can administer the repository, including managing access, updating settings like visibility status, and deleting the repository.
 
 ## Related docs
 
-- Learn about [commits and labels](../../../concepts/commits-labels/)
+- Learn about [commits and labels](../../commits-labels/)

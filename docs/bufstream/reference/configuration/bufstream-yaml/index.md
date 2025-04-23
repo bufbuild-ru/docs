@@ -24,6 +24,10 @@ The `bufstream.yaml` file defines configuration for a Bufstream broker. The Bufs
 
 \_[`EtcdConfig`](#buf.bufstream.config.v1alpha1.EtcdConfig)\_If specified, the broker will use etcd as the metadata storage of the cluster.
 
+### `postgres`
+
+\_[`PostgresConfig`](#buf.bufstream.config.v1alpha1.PostgresConfig)\_If specified, the broker will use Postgres as the metadata storage of the cluster.
+
 ### `spanner`
 
 \_[`SpannerConfig`](#buf.bufstream.config.v1alpha1.SpannerConfig)\_If specified, the broker will use Google Cloud Spanner as the metadata storage of the cluster.
@@ -190,6 +194,22 @@ Configuration options specific to etcd metadata storage.
 
 \_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig)\_TLS configuration options for connecting to etcd. The empty value of this message means connecting to etcd cluster without TLS.
 
+### `PostgresConfig`
+
+Configuration options specific to postgres metadata storage.
+
+#### `dsn`
+
+\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)\_DSN is the data source name or database URL used to configure connections to the database.
+
+#### `cloud_sql_proxy`
+
+\_[`CloudSQLProxy`](#buf.bufstream.config.v1alpha1.CloudSQLProxy)\_Configuration to connect to a Cloud SQL database. If set, the database will be dialed via the proxy.
+
+#### `pool`
+
+\_[`PostgresDBConnectionPool`](#buf.bufstream.config.v1alpha1.PostgresDBConnectionPool)\_Configuration settings for the database connection pool.
+
 ### `SpannerConfig`
 
 Configuration options specific to Spanner metadata storage.
@@ -228,6 +248,10 @@ Configuration options specific to data storage.
 
 \_string_The object storage bucket where data is stored.This field is required for `GCS` and `S3` providers.
 
+#### `directory_bucket`
+
+\_bool_If the bucket is a directory bucket.A directory bucket does not sort objects by path and only supports prefixes ending in `/`. See https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html
+
 #### `prefix`
 
 \_string_The path prefix of objects stored in the data storage.Defaults to `bufstream/`.This field is only used by the `GCS` and `S3` providers.
@@ -242,11 +266,11 @@ Configuration options specific to data storage.
 
 #### `access_key_id`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\_Specifies the AWS access key ID for authentication to the bucket.By default, authentication is performed using the metadata service off the broker's host. If set, `secret_access_key` must also be provided.
+\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\_Specifies the AWS access key ID for authentication to the bucket.By default, authentication is performed using the metadata service of the broker's host. If set, `secret_access_key` must also be provided.
 
 #### `secret_access_key`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\_Specifies the AWS secret access key for authentication to the bucket.By default, authentication is performed using the metadata service off the broker's host. If set, `access_key_id` must also be provided.
+\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\_Specifies the AWS secret access key for authentication to the bucket.By default, authentication is performed using the metadata service of the broker's host. If set, `access_key_id` must also be provided.
 
 #### `get_hedge_delay`
 
@@ -736,6 +760,34 @@ Configuration values sourced from various locations.
 #### `encoding`
 
 \_[`Encoding`](#buf.bufstream.config.v1alpha1.DataSource.Encoding)\_The encoding of the data source value. Defaults to PLAINTEXT.
+
+### `CloudSQLProxy`
+
+Configuration options specific to the Cloud SQL Proxy.
+
+#### `icn`
+
+\_string (required)\_ICN is the Cloud SQL instance's connection name, typically in the format "project-name:region:instance-name".
+
+#### `iam`
+
+\_bool_Use IAM auth to connect to the Cloud SQL database.
+
+#### `private_ip`
+
+\_bool_Use private IP to connect to the Cloud SQL database.
+
+### `PostgresDBConnectionPool`
+
+Configuration settings for the PostgreSQL connection pool.
+
+#### `max_connections`
+
+\_int32_The maximum size of the connection pool. Defaults to 10.
+
+#### `min_connections`
+
+\_int32_The minimum size of the connection pool. Defaults to 0.
 
 ### `AuthenticationConfig`
 

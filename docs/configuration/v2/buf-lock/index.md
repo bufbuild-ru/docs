@@ -1,6 +1,6 @@
 # buf.lock v2 config file
 
-If your [`buf.yaml`](../buf-yaml/) declares any dependencies in the `deps` field, you also need a `buf.lock` file that contains the dependency manifest for your [workspace](../../../concepts/modules-workspaces/). It represents a single, reproducible build of the workspace's external dependencies.You can create or update a `buf.lock` file by running the [`buf dep update`](../../../reference/cli/buf/dep/update/) command at the root of the workspace (where the `buf.yaml` file is):
+If your [`buf.yaml`](../buf-yaml/) declares any dependencies in the `deps` field, you also need a `buf.lock` file that contains the dependency manifest for your [workspace](../../../cli/modules-workspaces/). It represents a single, reproducible build of the workspace's external dependencies.You can create or update a `buf.lock` file by running the [`buf dep update`](../../../reference/cli/buf/dep/update/) command at the root of the workspace (where the `buf.yaml` file is):
 
 ```console
 $ buf dep update

@@ -56,7 +56,7 @@ head:
 **_Release date:_** 2025-03-05 | **_Database version:_** 332 | **_Minimum CLI version:_** v1.24.0
 
 - **[API reference documentation](../../../generated-sdks/tutorial/#api-reference):** The BSR can now generate API reference documentation for the plugin version and module commit specified by a Generated SDK.
-- **[Reviewing CSR breaking changes](../../../kafka/overview/#breaking-changes):** Any commits introducing breaking changes to a CSR subject’s schema are no longer blocked at push time. Those commits can now be [reviewed and approved](../../../policy-checks/breaking/review-commits/) by an admin by downgrading the compatibility mode of any affected subjects.
+- **[Reviewing CSR breaking changes](../../../csr/overview/#breaking-changes):** Any commits introducing breaking changes to a CSR subject’s schema are no longer blocked at push time. Those commits can now be [reviewed and approved](../../../policy-checks/breaking/review-commits/) by an admin by downgrading the compatibility mode of any affected subjects.
 - We’ve updated the BSR to return a clearer [error message](https://github.com/bufbuild/buf/issues/3650) when running `buf generate` if a given plugin exists but the requested version does not.
 - We've upgraded the [OCI Registry external dependency](../architecture/#external-dependencies) to [v3.0.0-rc.3](https://github.com/distribution/distribution/releases/tag/v3.0.0-rc.3). If you’ve customized your OCI Registry destination, consider updating your internal mirror also.
 

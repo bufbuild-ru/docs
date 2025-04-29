@@ -115,7 +115,7 @@ $ protoc -I . --include_imports --include_source_info -o /dev/stdout foo.proto
 
 ## Using protoc output as `buf` input
 
-Since `buf` speaks in terms of [Buf images](./) and [`FileDescriptorSet`](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/descriptor.proto)s are images, we can use `protoc` output as `buf` input. Here's an example for [`buf lint`](../../lint/tutorial/):
+Since `buf` speaks in terms of [Buf images](./) and [`FileDescriptorSet`](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/descriptor.proto)s are images, we can use `protoc` output as `buf` input. Here's an example for `buf lint`:
 
 ```console
 $ protoc -I . --include_source_info -o /dev/stdout foo.proto | buf lint -
@@ -123,7 +123,7 @@ $ protoc -I . --include_source_info -o /dev/stdout foo.proto | buf lint -
 
 ## `protoc` lint and breaking change detection plugins
 
-Since `buf` "understands" [`FileDescriptorSet`](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/descriptor.proto)s, we also provide [`protoc-gen-buf-lint`](../protoc-plugins/#lint) and [`protoc-gen-buf-breaking`](../protoc-plugins/#breaking) as standard Protobuf plugins.
+Since `buf` "understands" [`FileDescriptorSet`](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/descriptor.proto)s, we also provide [`protoc-gen-buf-lint`](../../cli/protoc-plugins/#lint) and [`protoc-gen-buf-breaking`](../../cli/protoc-plugins/#breaking) as standard Protobuf plugins.
 
 ## Related docs
 

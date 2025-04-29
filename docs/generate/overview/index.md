@@ -273,7 +273,7 @@ $ buf generate --include-imports --include-wkt
 
 ### Limit to specific files
 
-By default, the Buf CLI builds all files in the workspace. You can instead manually specify the file or directory paths to build. This is an advanced feature intended to be used for editor or [Bazel](../../build-systems/bazel/) integration. It's better to let the Buf CLI discover all files under management and handle this for you.If you only want to generate code for a subset of your input, you can do so via the `--path` flag:
+By default, the Buf CLI builds all files in the workspace. You can instead manually specify the file or directory paths to build. This is an advanced feature intended to be used for editor or [Bazel](../../cli/build-systems/bazel/) integration. It's better to let the Buf CLI discover all files under management and handle this for you.If you only want to generate code for a subset of your input, you can do so via the `--path` flag:
 
 ::: info Only generate for the files in the directories proto/foo and proto/bar
 

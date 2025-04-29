@@ -20,7 +20,7 @@ head:
 
 # Int64 rules
 
-Int64Rules describes the constraints applied to `int64` values. These rules may also be applied to the `google.protobuf.Int64Value` Well-Known-Type.
+Int64Rules describes the rules applied to `int64` values. These rules may also be applied to the `google.protobuf.Int64Value` Well-Known-Type.
 
 ## const
 
@@ -118,7 +118,7 @@ message MyInt64 {
 ```proto
 message MyInt64 {
   // value must be in list [1, 2, 3]
-  repeated int64 value = 1 (buf.validate.field).int64 = { in: [1, 2, 3] };
+  int64 value = 1 [(buf.validate.field).int64 = { in: [1, 2, 3] }];
 }
 ```
 
@@ -133,7 +133,7 @@ message MyInt64 {
 ```proto
 message MyInt64 {
   // value must not be in list [1, 2, 3]
-  repeated int64 value = 1 (buf.validate.field).int64 = { not_in: [1, 2, 3] };
+  int64 value = 1 [(buf.validate.field).int64 = { not_in: [1, 2, 3] }];
 }
 ```
 
@@ -141,7 +141,7 @@ message MyInt64 {
 
 ## example
 
-`example` specifies values that the field may have. These values SHOULD conform to other constraints. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
+`example` specifies values that the field may have. These values SHOULD conform to other rules. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
 
 ::: info int64.example example
 

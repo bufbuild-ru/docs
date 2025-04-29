@@ -46,7 +46,7 @@ When using Protobuf schemas to build Java and Kotlin clients with the Buf CLI, d
 - `bufFormatCheck`/`bufFormatApply`: Validates and enforces formatting of Protobuf files using [`buf format`](/docs/format/style/index.md).
 - `bufLint`: Runs lint checks using [`buf lint`](/docs/lint/overview/index.md).
 
-To learn more about the Gradle plugin and how to integrate it, check out our [documentation](/docs/build-systems/gradle/index.md).
+To learn more about the Gradle plugin and how to integrate it, check out our [documentation](/docs/cli/build-systems/gradle/index.md).
 
 ## Community collaboration
 

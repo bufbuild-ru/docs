@@ -27,7 +27,7 @@ This page provides an overview of Buf's breaking change detection. At every step
 Buf's breaking change detection evaluates your schemas' compatibility at three phases of development:
 
 - **During development:** You can spot-check in your local environment by running `buf breaking`.
-- **In code review:** You can [integrate with your CI/CD workflows](../../ci-cd/setup/) (like [GitHub Actions](https://github.com/bufbuild/buf-action)) to ensure that breaking changes get flagged directly in your review flow.
+- **In code review:** You can [integrate with your CI/CD workflows](../../bsr/ci-cd/setup/) (like [GitHub Actions](https://github.com/bufbuild/buf-action)) to ensure that breaking changes get flagged directly in your review flow.
 - **When shipping to the Buf Schema Registry (BSR):** This makes them available to other teams and downstream systems like Kafka. The BSR lets your organization enforce [policy checks](../../bsr/policy-checks/breaking/overview/) that prevent developers from committing unintended breaking changes to the BSR. Instead, they go to a [review flow](../../bsr/policy-checks/breaking/review-commits/) so that the repository owners can review the changes and approve or reject them before they enter your production environment.
 
 `buf breaking` runs a set of compatibility checks comparing the current version of your Protobuf schema to a past version. The past version can be any type of [input](../../reference/inputs/) that the Buf CLI accepts, such as a BSR module, a GitHub repo, or a Buf [image](../../reference/images/).The checker has a built-in set of rules and categories and can also accept rules and categories via [Buf plugins](../../cli/buf-plugins/overview/). You can use them alongside or in place of Buf's defaults.
@@ -105,7 +105,7 @@ You can get a list of all of your workspace's rules and categories (including th
 
 ## Integration with CI/CD workflows
 
-Because `buf breaking` is part of a CLI, you can easily integrate it into CI/CD workflows. For instructions, see the [General CI/CD setup](../../ci-cd/setup/) and [GitHub Action](../../ci-cd/github-actions/) pages.
+Because `buf breaking` is part of a CLI, you can easily integrate it into CI/CD workflows. For instructions, see the [General CI/CD setup](../../bsr/ci-cd/setup/) and [GitHub Action](../../bsr/ci-cd/github-actions/) pages.
 
 ## Usage examples
 
@@ -117,7 +117,7 @@ Breaking change detection doesn't work on changes to custom options like `google
 
 ### Git and GitHub
 
-::: tip NoteCheck out Buf's dedicated [GitHub Action](../../ci-cd/github-actions/) to seamlessly add breaking change detection into your CI/CD pipeline.
+::: tip NoteCheck out Buf's dedicated [GitHub Action](../../bsr/ci-cd/github-actions/) to seamlessly add breaking change detection into your CI/CD pipeline.
 
 :::
 
@@ -204,7 +204,7 @@ $ buf breaking --against '.git#branch=main' --error-format=json | jq .
 
 ### Limit to specific files
 
-By default, the Buf CLI builds all files under the `buf.yaml` configuration file. Instead, you can manually specify the file or directory paths to check. This is an advanced feature intended for editor or [Bazel](../../build-systems/bazel/) integration. In general, it's better to let the Buf CLI discover all files under management and handle this for you, especially when using the `FILE` category.The `--path` flag limits breaking change detection to the specified files if applied:
+By default, the Buf CLI builds all files under the `buf.yaml` configuration file. Instead, you can manually specify the file or directory paths to check. This is an advanced feature intended for editor or [Bazel](../../cli/build-systems/bazel/) integration. In general, it's better to let the Buf CLI discover all files under management and handle this for you, especially when using the `FILE` category.The `--path` flag limits breaking change detection to the specified files if applied:
 
 ```console
 $ buf breaking --against .git#branch=main --path path/to/foo.proto --path path/to/bar.proto
@@ -233,11 +233,3 @@ $ buf breaking \
 
 google/cloud/asset/v1/assets.proto:27:1:File option "cc_enable_arenas" changed from "false" to "true".
 ```
-
-## Related docs
-
-- Try out breaking change detection with the [tutorial](../tutorial/)
-- Get detailed explanations of the breaking change [rules and categories](../rules/)
-- Learn about the [breaking change policy check](../../bsr/policy-checks/breaking/overview/) and the [review flow](../../bsr/policy-checks/breaking/review-commits/)
-- Browse the [buf.yaml configuration file reference](../../configuration/v2/buf-yaml/#breaking) and [`buf breaking` command reference](../../reference/cli/buf/breaking/)
-- See more about the types of [inputs](../../reference/inputs/) that the Buf CLI accepts

@@ -43,7 +43,7 @@ The URL contains these elements:
 
 ## Access and ownership
 
-Repositories can be owned by either _users_ or _organizations_. Organizations often represent teams within a company that own the schemas contained in the repository and control access to them, both within the BSR and in their VCS. See [Manage members and roles](../admin/manage-members/#member) for more detail about access controls in the BSR.Repositories can be updated by two types of users: _admins_ and _contributors_. Contributors have write access and can push commits to the repository. Admins can additionally change the settings of the repository itself. See [Manage repositories](../repository/configure/) for more detail about these settings.
+Repositories can be owned by either _users_ or _organizations_. Organizations often represent teams within a company that own the schemas contained in the repository and control access to them, both within the BSR and in their VCS. See [Roles](../admin/roles/) for more detail about access controls in the BSR.Repositories can be updated by two types of users: _admins_ and _contributors_. Contributors have write access and can push commits to the repository. Admins can additionally change the settings of the repository itself. See [Manage repositories](../admin/manage-repositories/) for more detail about these settings.
 
 ## Visibility
 
@@ -70,7 +70,7 @@ Each BSR repository has a default label that's used by default in BSR web UI and
 - New commits pushed to the BSR are automatically assigned to the default label if no other label is provided. However, we recommend explicitly associating labels when pushing instead of relying on the default label.
 - A commit made to a label that's the default label at the time of push becomes the latest released commit for [generated SDKs](../generated-sdks/overview/).
 
-The initial default label for a repository is `main`.**We recommend [setting the default label name](../repository/configure/#change-default-label) to match the name of the branch in your VCS that you release from.** For companies doing continuous deployment, this is usually the default branch in your VCS. This is so that:
+The initial default label for a repository is `main`.**We recommend [setting the default label name](../admin/manage-repositories/#change-default-label) to match the name of the branch in your VCS that you release from.** For companies doing continuous deployment, this is usually the default branch in your VCS. This is so that:
 
 - Dependency references resolve by default to what's released.
 - Users browsing docs on the BSR see what's released.
@@ -82,10 +82,10 @@ There are some restrictions on changing the default label.
 
 - You can only change the default label to point to a label that exists and isn't [archived](../commits-labels/#archived-labels).
 - You can't change the default label if [policy checks](../policy-checks/breaking/overview/) are enabled.
-- If [Confluent Schema Registry (CSR)](../kafka/overview/) integration is enabled, you can't update the default label to another label if the latest commit on the other label doesn't pass CSR compatibility checks relative to the latest commit on the current default label.
+- If [Confluent Schema Registry (CSR)](../csr/overview/) integration is enabled, you can't update the default label to another label if the latest commit on the other label doesn't pass CSR compatibility checks relative to the latest commit on the current default label.
 
 ## Related docs
 
-- Learn how to [create and manage repositories](../repository/configure/).
+- Learn how to [create and manage repositories](../admin/manage-repositories/).
 - Find out how to [push modules to the BSR](../module/publish/).
 - Read about how the BSR handles [commits and labels](../commits-labels/).

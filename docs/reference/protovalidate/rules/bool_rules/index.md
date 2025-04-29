@@ -20,7 +20,7 @@ head:
 
 # Bool rules
 
-BoolRules describes the constraints applied to `bool` values. These rules may also be applied to the `google.protobuf.BoolValue` Well-Known-Type.
+BoolRules describes the rules applied to `bool` values. These rules may also be applied to the `google.protobuf.BoolValue` Well-Known-Type.
 
 ## const
 
@@ -39,7 +39,7 @@ message MyBool {
 
 ## example
 
-`example` specifies values that the field may have. These values SHOULD conform to other constraints. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
+`example` specifies values that the field may have. These values SHOULD conform to other rules. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
 
 ::: info bool.example example
 

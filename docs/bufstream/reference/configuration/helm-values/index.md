@@ -182,7 +182,7 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 
 ### `bufstream.image.repository`
 
-\_string_Bufstream Deployment container image repository.Defaults to `"us-docker.pkg.dev/buf-images-1/bufstream-public/images/bufstream"`.
+\_string_Bufstream Deployment container image repository.Defaults to `"bufbuild/bufstream"`.
 
 ### `bufstream.image.tag`
 
@@ -1010,7 +1010,7 @@ bufstream:
     maxUnavailable: ""
   image:
     # -- Bufstream Deployment container image repository.
-    repository: us-docker.pkg.dev/buf-images-1/bufstream-public/images/bufstream
+    repository: bufbuild/bufstream
     # -- Overrides the image tag whose default is the chart version.
     tag: "latest"
     # -- Bufstream Deployment container image pull policy.
@@ -1023,4 +1023,4 @@ configOverrides: {}
 
 ## Related documentation
 
-To configure Bufstream with recommended, cloud-specific settings, consult the [AWS](../../../deployment/aws/configure/) and [GCP](../../../deployment/gcp/configure/) documentation.
+To configure Bufstream with recommended cloud-specific settings, consult [Tuning and performance](../../../deployment/tuning-performance/).

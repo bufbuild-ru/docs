@@ -46,8 +46,8 @@ To use your Wasm plugin with Buf, update your `buf.yaml` file to point to the co
      - STANDARD
      - RPC_SUFFIX
  plugins:
--   - plugin: rpc-suffix
-+   - plugin: rpc-suffix.wasm
+-  - plugin: rpc-suffix
++  - plugin: rpc-suffix.wasm
 ```
 
 ## Related docs

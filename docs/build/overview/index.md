@@ -62,7 +62,7 @@ The `ImageFileExtension` field doesn't affect Protobuf plugins or any other oper
 
 ### Limit to specific files
 
-By default, `buf` builds all files under the `buf.yaml` configuration file. You can instead manually specify the file or directory paths to build. This is an advanced feature intended to be used for editor or [Bazel](../../build-systems/bazel/) integration—it's better to let `buf` discover all files under management and handle this for you.The compiled result is limited to the given files if the `--path` flag is specified, as in this command:
+By default, `buf` builds all files under the `buf.yaml` configuration file. You can instead manually specify the file or directory paths to build. This is an advanced feature intended to be used for editor or [Bazel](../../cli/build-systems/bazel/) integration—it's better to let `buf` discover all files under management and handle this for you.The compiled result is limited to the given files if the `--path` flag is specified, as in this command:
 
 ```console
 $ buf build --path path/to/foo.proto --path path/to/bar.proto

@@ -187,7 +187,7 @@ Note, `ref=HEAD~1` does not work well for [rebase and merge](https://docs.github
 
 Projects adopting `buf` will have different layouts and configurations. All of our GitHub Actions are meant to be configurable depending on your needs.
 
-If your directory structure doesn't match the examples above you may need to explicitly set an `input` field and a subdirectory via `subdir` in your GitHub actions, for more information see the [Inputs documentation](/docs/ci-cd/github-actions/index.md#inputs).
+If your directory structure doesn't match the examples above you may need to explicitly set an `input` field and a subdirectory via `subdir` in your GitHub actions, for more information see the [Inputs documentation](/docs/bsr/ci-cd/github-actions/index.md#inputs).
 
 ## Wrapping up
 

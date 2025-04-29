@@ -20,7 +20,7 @@ head:
 
 # SInt64 rules
 
-SInt64Rules describes the constraints applied to `sint64` values.
+SInt64Rules describes the rules applied to `sint64` values.
 
 ## const
 
@@ -118,7 +118,7 @@ message MySInt64 {
 ```proto
 message MySInt64 {
   // value must be in list [1, 2, 3]
-  repeated sint64 value = 1 (buf.validate.field).sint64 = { in: [1, 2, 3] };
+  sint64 value = 1 [(buf.validate.field).sint64 = { in: [1, 2, 3] }];
 }
 ```
 
@@ -133,7 +133,7 @@ message MySInt64 {
 ```proto
 message MySInt64 {
   // value must not be in list [1, 2, 3]
-  repeated sint64 value = 1 (buf.validate.field).sint64 = { not_in: [1, 2, 3] };
+  sint64 value = 1 [(buf.validate.field).sint64 = { not_in: [1, 2, 3] }];
 }
 ```
 
@@ -141,7 +141,7 @@ message MySInt64 {
 
 ## example
 
-`example` specifies values that the field may have. These values SHOULD conform to other constraints. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
+`example` specifies values that the field may have. These values SHOULD conform to other rules. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
 
 ::: info sint64.example example
 

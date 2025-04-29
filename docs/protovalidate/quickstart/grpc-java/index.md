@@ -163,7 +163,7 @@ It's time to add Protovalidate to your project. It may be useful to read the Pro
 
 Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../../bsr/) module, it's simple to add it to any Buf CLI project.
 
-1.  Open `build.gradle.kts` and verify that `build.buf:protovalidate` has already been added as a dependency. (In your own projects, you'd need to add it.)
+1.  Open `build.gradle.kts` and verify that `build.buf:protovalidate` has already been added as a dependency. In your own projects, you'd need to add [build.buf:protovalidate:0.6.0](https://central.sonatype.com/artifact/build.buf/protovalidate/0.6.0/overview) as a dependency.
 
     ::: info build.gradle
 
@@ -189,7 +189,7 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
     modules:
       - path: proto
     + deps:
-    +   - buf.build/bufbuild/protovalidate
+    +   - buf.build/bufbuild/protovalidate:v0.10.7
     lint:
       use:
         - STANDARD

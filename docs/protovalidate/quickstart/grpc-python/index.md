@@ -170,7 +170,7 @@ It's time to add Protovalidate to your project. It may be useful to read the Pro
 
 Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../../bsr/) module, it's simple to add it to any Buf CLI project.
 
-1.  In your virtual environment console, add Protovalidate to your Gradle project:
+1.  In your virtual environment console, add Protovalidate to your Python project. In your own projects, you'd need to add the [protocolbuffers/pyi](https://buf.build/bufbuild/protovalidate/sdks/v0.10.7:protocolbuffers/pyi) and [protocolbuffers/python](https://buf.build/bufbuild/protovalidate/sdks/v0.10.7:protocolbuffers/python) generated SDKs for Protovalidate.
 
     ```console
     (.venv) $ pip3 install protovalidate
@@ -186,7 +186,7 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
     modules:
       - path: proto
     + deps:
-    +   - buf.build/bufbuild/protovalidate
+    +   - buf.build/bufbuild/protovalidate:v0.10.7
     lint:
       use:
         - STANDARD

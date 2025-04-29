@@ -20,7 +20,7 @@ head:
 
 # Deploy Bufstream to AWS with etcd
 
-This page walks you through installing Bufstream into your AWS deployment, using etcd for metadata storage. See the [AWS configuration](../configure/) page for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
+This page walks you through installing Bufstream into your AWS deployment, using etcd for metadata storage. See [Tuning and performance](../../tuning-performance/) for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
 
 ## Prerequisites
 

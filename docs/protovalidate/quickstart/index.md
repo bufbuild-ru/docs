@@ -48,14 +48,19 @@ Each language's quickstart code contains Buf CLI configuration files (`buf.yaml`
 
 Published publicly on the [Buf Schema Registry](../../bsr/), the Protovalidate module provides the Protobuf extensions, options, and messages powering validation.Add it as a dependency in `buf.yaml`:
 
-::: info buf.yaml (All languages)
++++tabs key:70a55f19e07dd7ea6318bf95a4fe1060
+
+== Go
+
+::: info buf.yaml
 
 ```diff
 version: v2
 modules:
   - path: proto
+# v.10.7 is compatible with the current version of Protovalidate's Go implementation (0.9.3).
 + deps:
-+   - buf.build/bufbuild/protovalidate
++   - buf.build/bufbuild/protovalidate:v0.10.7
 lint:
   use:
     - STANDARD
@@ -65,6 +70,50 @@ breaking:
 ```
 
 :::
+
+== Java
+
+::: info buf.yaml
+
+```diff
+version: v2
+modules:
+  - path: proto
+# v.10.7 is compatible with the current version of Protovalidate's Java implementation (0.6.0).
++ deps:
++   - buf.build/bufbuild/protovalidate:v0.10.7
+lint:
+  use:
+    - STANDARD
+breaking:
+  use:
+    - FILE
+```
+
+:::
+
+== Python
+
+::: info buf.yaml
+
+```diff
+version: v2
+modules:
+  - path: proto
+# v.10.7 is compatible with the current version of Protovalidate's Python implementation (0.7.1).
++ deps:
++   - buf.build/bufbuild/protovalidate:v0.10.7
+lint:
+  use:
+    - STANDARD
+breaking:
+  use:
+    - FILE
+```
+
+:::
+
++++
 
 Next, update dependencies. You may see a warning that Protovalidate hasn't yet been used. That's fine.
 
@@ -239,10 +288,10 @@ All Protovalidate languages provide an idiomatic API for validating a Protobuf m
 == Go
 
 1.  Make sure you've navigated to `protovalidate/quickstart-go/start` within the `buf-examples` repository.
-2.  Install Protovalidate using `go get`:
+2.  Install Protovalidate using `go get`.
 
     ```console
-    $ go get github.com/bufbuild/protovalidate-go
+    $ go get github.com/bufbuild/protovalidate-go@v0.9.3
     ```
 
 3.  Run `weather/weather_test.go` with `go test`. It should fail—it expects invalid latitudes and longitudes to be rejected, but you haven't yet added any validation.
@@ -297,7 +346,7 @@ All Protovalidate languages provide an idiomatic API for validating a Protobuf m
 == Java
 
 1.  Make sure you've navigated to `protovalidate/quickstart-java/start` within the `buf-examples` repository.
-2.  Open `build.gradle.kts` and verify that `libs.protovalidate` has already been added as a dependency. (In your own projects, you'd need to add it.)
+2.  Open `build.gradle.kts` and verify that `libs.protovalidate` has already been added as a dependency. In your own projects, you'd need to add [build.buf:protovalidate:0.6.0](https://central.sonatype.com/artifact/build.buf/protovalidate/0.6.0/overview) as a dependency.
 
     ::: info build.gradle
 
@@ -358,7 +407,7 @@ All Protovalidate languages provide an idiomatic API for validating a Protobuf m
 == Python
 
 1.  Make sure you've navigated to `protovalidate/quickstart-python/start` within the `buf-examples` repository.
-2.  Using a virtual environment, install dependencies.
+2.  Using a virtual environment, install dependencies. In your own projects, you'd need to add the [protocolbuffers/pyi](https://buf.build/bufbuild/protovalidate/sdks/v0.10.7:protocolbuffers/pyi) and [protocolbuffers/python](https://buf.build/bufbuild/protovalidate/sdks/v0.10.7:protocolbuffers/python) generated SDKs for Protovalidate.
 
     ```console
     $ python3 -m venv venv
@@ -468,7 +517,7 @@ For a deep dive into using Protovalidate for RPC APIs with executable tutorials,
 
 ### Validating Kafka messages
 
-In traditional Kafka, brokers are simple data pipes—they have no understanding of what data traverses them. Though this simplicity helped Kafka gain ubiquity, most data sent through Kafka topics is structured and should follow a schema.Using [Bufstream](../../bufstream/)—the Kafka-compatible message queue built for the data lakehouse era—you can add Protovalidate rule enforcement to broker-side schema awareness. With a Bufstream broker already using the [Buf Schema Registry's Confluent Schema Registry support](../../bsr/kafka/overview/), enabling Protovalidate is a two-line configuration change within `data_enforcement`:
+In traditional Kafka, brokers are simple data pipes—they have no understanding of what data traverses them. Though this simplicity helped Kafka gain ubiquity, most data sent through Kafka topics is structured and should follow a schema.Using [Bufstream](../../bufstream/)—the Kafka-compatible message queue built for the data lakehouse era—you can add Protovalidate rule enforcement to broker-side schema awareness. With a Bufstream broker already using the [Buf Schema Registry's Confluent Schema Registry support](../../bsr/csr/overview/), enabling Protovalidate is a two-line configuration change within `data_enforcement`:
 
 ::: info Bufstream Configuration YAML
 

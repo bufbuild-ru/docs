@@ -119,7 +119,7 @@ This tutorial uses the example in `bufstream/start`. All filenames are relative 
 
 ### Makefile
 
-This project's `Makefile` provides targets for downloading and running the Bufstream broker and the included Go-based producer and consumer applications.One item to note is that producer and consumer targets both specify Kafka targets, groups, and [Buf Schema Registry (BSR)-based Confluent Schema Registry](../../../bsr/kafka/overview/) URLs. When using Protovalidate in your own Bufstream-based Kafka applications, they should be configured for your equivalents.
+This project's `Makefile` provides targets for downloading and running the Bufstream broker and the included Go-based producer and consumer applications.One item to note is that producer and consumer targets both specify Kafka targets, groups, and [Buf Schema Registry (BSR)-based Confluent Schema Registry](../../../bsr/csr/overview/) URLs. When using Protovalidate in your own Bufstream-based Kafka applications, they should be configured for your equivalents.
 
 ::: info Makefile producer target
 
@@ -182,7 +182,8 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 1.  Add Protovalidate to your Go project:
 
     ```console
-    $ go get buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate
+    $ go get github.com/bufbuild/protovalidate-go@v0.9.3
+    $ go mod tidy
     ```
 
 2.  Add Protovalidate as a dependency to `buf.yaml`.
@@ -201,7 +202,7 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
       # We import "buf/confluent/v1/extensions.proto" within our example files, which
       # comes from the demo.buf.dev/bufbuild/protovalidate module.
       - buf.build/bufbuild/confluent
-    + - buf.build/bufbuild/protovalidate
+    + - buf.build/bufbuild/protovalidate:v0.10.7
     ```
 
     :::

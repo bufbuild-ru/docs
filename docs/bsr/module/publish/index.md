@@ -20,7 +20,7 @@ head:
 
 # Publish modules to the BSR
 
-When you want to make a module available for other developers, you push it to the Buf Schema Registry (BSR). Once the module is in the BSR, its code, documentation, and generated SDKs can be accessed by anyone with the correct permissions for your repository. This page describes how to push locally, how to archive and unarchive labels, and how pushing works in CI/CD environments.Pushing to the BSR also interacts with the BSR's [policy checks](../../policy-checks/breaking/overview/) and [Confluent Schema Registry integration](../../kafka/overview/) features. See their documentation and [Commits and labels](../../commits-labels/#governance-interaction) for more details.
+When you want to make a module available for other developers, you push it to the Buf Schema Registry (BSR). Once the module is in the BSR, its code, documentation, and generated SDKs can be accessed by anyone with the correct permissions for your repository. This page describes how to push locally, how to archive and unarchive labels, and how pushing works in CI/CD environments.Pushing to the BSR also interacts with the BSR's [policy checks](../../policy-checks/breaking/overview/) and [Confluent Schema Registry integration](../../csr/overview/) features. See their documentation and [Commits and labels](../../commits-labels/#governance-interaction) for more details.
 
 ## Module and repository setup
 
@@ -39,7 +39,7 @@ modules:
 
 :::
 
-See [Manage repositories](../../repository/configure/#creating-a-repository) to learn how to create a repository.
+See [Manage repositories](../../admin/manage-repositories/#creating-a-repository) to learn how to create a repository.
 
 ## Pushing from a local workspace
 
@@ -106,7 +106,7 @@ You can also make a commit with the label applied and it automatically unarchive
 
 ## Pushing with CI/CD
 
-As mentioned above, generally you won't be pushing to the BSR directly from a local environment. Instead, most organizations use GitHub Actions or other automation to push to the BSR automatically from their VCS, so that there's a single source of truth and the BSR commit can link back to the context of the original code commit.For more information about CI/CD, see the [General CI/CD setup](../../../ci-cd/setup/) and [GitHub Action setup](../../../ci-cd/github-actions/) pages.
+As mentioned above, generally you won't be pushing to the BSR directly from a local environment. Instead, most organizations use GitHub Actions or other automation to push to the BSR automatically from their VCS, so that there's a single source of truth and the BSR commit can link back to the context of the original code commit.For more information about CI/CD, see the [General CI/CD setup](../../ci-cd/setup/) and [GitHub Action setup](../../ci-cd/github-actions/) pages.
 
 ## BSR commit squashing
 

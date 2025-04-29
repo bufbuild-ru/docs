@@ -1,6 +1,6 @@
 ---
 
-title: "Code editors - Buf Docs"
+title: "Editor integration - Buf Docs"
 
 head:
   - - link
@@ -8,17 +8,17 @@ head:
       href: "https://bufbuild.ru/docs/cli/editor-integration/"
   - - meta
     - property: "og:title"
-      content: "Code editors - Buf Docs"
+      content: "Editor integration - Buf Docs"
   - - meta
     - property: "og:url"
       content: "https://bufbuild.ru/docs/cli/editor-integration/"
   - - meta
     - property: "twitter:title"
-      content: "Code editors - Buf Docs"
+      content: "Editor integration - Buf Docs"
 
 ---
 
-# Code editors
+# Editor integration
 
 The Buf CLI produces structured machine readable error output for [build](../../build/overview/), [lint](../../lint/overview/), and [breaking change](../../breaking/overview/) errors which integrate with IDEs, scripts, and other tools.We currently provide integration with Vim, Visual Studio Code, and JetBrains IDEs, and we may support other editors in the future. [Contact us](../../contact/) if you're interested in any of these, or others not already listed here.
 
@@ -36,7 +36,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters_explicit = 1
 ```
 
-The extension runs `buf lint --path` on save and reveals errors on a per-file basis. To detect package-level problems, be sure to run a workspace-wide `buf lint` as part of your [CI](../../ci-cd/setup/) process.
+The extension runs `buf lint --path` on save and reveals errors on a per-file basis. To detect package-level problems, be sure to run a workspace-wide `buf lint` as part of your [CI](../../bsr/ci-cd/setup/) process.
 
 ## Visual Studio Code
 

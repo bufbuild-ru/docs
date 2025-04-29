@@ -37,7 +37,7 @@ If additional commits require review, you're taken through each one in the order
 
 ### Differences for Confluent Schema Registry
 
-When a commit enters the review flow because of a breaking change that affects a [CSR subject](../../../kafka/overview/#csr-policy-check), it's resolved differently than one that enters from the standard policy check. To resolve it, you first need to decide whether to approve or not, and then if you approve, you need to set a new backward compatibility mode for each affected subject.![Screenshot of CSR resolution options in review flow](../../../../images/bsr/policy-checks/review-flow-csr-options.png)See the [CSR integration overview](../../../kafka/overview/#compatibility) for more detailed information about the implications of these options.
+When a commit enters the review flow because of a breaking change that affects a [CSR subject](../../../csr/overview/#csr-policy-check), it's resolved differently than one that enters from the standard policy check. To resolve it, you first need to decide whether to approve or not, and then if you approve, you need to set a new backward compatibility mode for each affected subject.![Screenshot of CSR resolution options in review flow](../../../../images/bsr/policy-checks/review-flow-csr-options.png)See the [CSR integration overview](../../../csr/overview/#compatibility) for more detailed information about the implications of these options.
 
 ## Auto-resolved commits
 

@@ -165,7 +165,7 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 1.  Add Protovalidate to your Go project:
 
     ```console
-    $ go get buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate
+    $ go get github.com/bufbuild/protovalidate-go@v0.9.3
     ```
 
 2.  Add Protovalidate as a dependency to `buf.yaml`.
@@ -178,7 +178,7 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
     modules:
       - path: proto
     + deps:
-    +   - buf.build/bufbuild/protovalidate
+    +   - buf.build/bufbuild/protovalidate:v0.10.7
     lint:
       use:
         - STANDARD

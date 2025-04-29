@@ -20,7 +20,7 @@ head:
 
 # Bytes rules
 
-BytesRules describe the constraints applied to `bytes` values. These rules may also be applied to the `google.protobuf.BytesValue` Well-Known-Type.
+BytesRules describe the rules applied to `bytes` values. These rules may also be applied to the `google.protobuf.BytesValue` Well-Known-Type.
 
 ## const
 
@@ -162,7 +162,7 @@ message MyBytes {
 
 ## ip
 
-`ip` ensures that the field `value` is a valid IP address (v4 or v6) in byte format. If the field value doesn't meet this constraint, an error message is generated.
+`ip` ensures that the field `value` is a valid IP address (v4 or v6) in byte format. If the field value doesn't meet this rule, an error message is generated.
 
 ::: info bytes.ip example
 
@@ -177,7 +177,7 @@ message MyBytes {
 
 ## ipv4
 
-`ipv4` ensures that the field `value` is a valid IPv4 address in byte format. If the field value doesn't meet this constraint, an error message is generated.
+`ipv4` ensures that the field `value` is a valid IPv4 address in byte format. If the field value doesn't meet this rule, an error message is generated.
 
 ::: info bytes.ipv4 example
 
@@ -192,7 +192,7 @@ message MyBytes {
 
 ## ipv6
 
-`ipv6` ensures that the field `value` is a valid IPv6 address in byte format. If the field value doesn't meet this constraint, an error message is generated.
+`ipv6` ensures that the field `value` is a valid IPv6 address in byte format. If the field value doesn't meet this rule, an error message is generated.
 
 ::: info bytes.ipv6 example
 
@@ -207,7 +207,7 @@ message MyBytes {
 
 ## example
 
-`example` specifies values that the field may have. These values SHOULD conform to other constraints. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
+`example` specifies values that the field may have. These values SHOULD conform to other rules. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
 
 ::: info bytes.example example
 

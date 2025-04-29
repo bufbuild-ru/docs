@@ -20,7 +20,7 @@ head:
 
 # Deploy Bufstream to Google Cloud with Cloud SQL for PostgreSQL
 
-This page walks you through installing Bufstream into your Google Cloud Platform (GCP) deployment, using PostgreSQL for metadata storage. See the [GCP configuration](../configure/) page for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
+This page walks you through installing Bufstream into your Google Cloud Platform (GCP) deployment, using PostgreSQL for metadata storage. See [Tuning and performance](../../tuning-performance/) for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ Create a GKE standard cluster if you don't already have one. A GKE cluster invol
   - Toggle `Enable Workload Identity` in the console under the Security tab when creating the cluster; or
   - Include `--workload-pool=<gcp-project-name.svc.id.goog>` on the gcloud command.
   - [See the official documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity#enable_on_clusters_and_node_pools)
-- Bufstream brokers use 2 CPUs and 8 GiB of memory by default, so you'll need a node pool with machine types at least as big as `n2d-standard-4`. Learn more about configuring resources in [Resources and replicas](../configure/#resources-and-replicas).
+- Bufstream brokers use 2 CPUs and 8 GiB of memory by default, so you'll need a node pool with machine types at least as big as `n2d-standard-4`. Learn more about configuring resources in [Tuning and performance](../../tuning-performance/#resources-and-replicas).
 
 ## Create a GCS bucket
 
@@ -195,7 +195,7 @@ Bufstream is configured using Helm values that are passed to the `bufstream` Hel
 
 #### Configure object storage
 
-Bufstream requires GCS object storage. See [bucket permissions](../configure/#bucket-permissions) for a minimal set of permissions required.
+Bufstream requires GCS object storage. See [Tuning and performance](../../tuning-performance/#permissions) for a minimal set of permissions required.
 
 +++tabs key:7aa715642264784801820a6eecd2ac16
 

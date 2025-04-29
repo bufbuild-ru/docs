@@ -118,4 +118,4 @@ public class MyClient {
 
 +++
 
-To see how we configured our clients in Benchmark runs, check out the [benchmarks and cost documentation](../../cost/). For more information on configuring Bufstream, consult the configuration docs for [AWS](../../deployment/aws/configure/) and [GCP](../../deployment/gcp/configure/).
+To see how we configured our clients in Benchmark runs, check out the [benchmarks and cost documentation](../../cost/). For more information on configuring Bufstream, consult [Tuning and performance](../../deployment/tuning-performance/).

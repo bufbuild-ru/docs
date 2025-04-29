@@ -30,7 +30,7 @@ Preventing unintended breaking changes in production is crucial for API and data
 
 ## How it works
 
-Organizations can choose to enforce one of two policies for Protobuf files generally: [`FILE`](../../../../breaking/rules/#categories) (the default) or [`WIRE_JSON`](../../../../breaking/rules/#categories). In addition, if your BSR instance has the [Confluent Schema Registry integration](../../../kafka/overview/#breaking-changes) enabled, the BSR checks against a subset of breaking change rules related to compatibility for CSR subjects, even if the policy checks feature isn't enabled.Once configured, every BSR module automatically adheres to the chosen policy, and all attempts to push non-compliant schemas are either rejected by the BSR or sent into the review flow, depending on your organization's setup. These settings take precedence over any breaking change configuration specified in a given workspace's `buf.yaml` file, and work even if `buf.yaml` disables the breaking change configuration completely.
+Organizations can choose to enforce one of two policies for Protobuf files generally: [`FILE`](../../../../breaking/rules/#categories) (the default) or [`WIRE_JSON`](../../../../breaking/rules/#categories). In addition, if your BSR instance has the [Confluent Schema Registry integration](../../../csr/overview/#breaking-changes) enabled, the BSR checks against a subset of breaking change rules related to compatibility for CSR subjects, even if the policy checks feature isn't enabled.Once configured, every BSR module automatically adheres to the chosen policy, and all attempts to push non-compliant schemas are either rejected by the BSR or sent into the review flow, depending on your organization's setup. These settings take precedence over any breaking change configuration specified in a given workspace's `buf.yaml` file, and work even if `buf.yaml` disables the breaking change configuration completely.
 
 ### Ignoring in unstable packages
 
@@ -52,7 +52,7 @@ Any commits pushed after a commit that's pending are _also_ set to pending, whet
   - The "latest" version of a generated SDK is kept at the latest approved or non-reviewed commit on the default label
 - They're not available to use in [Buf Studio](../../../studio/)
 - They're excluded from the [Reflection API](../../../reflection/overview/)
-- They don't update schemas in the [Confluent Schema Registry](../../../kafka/overview/)
+- They don't update schemas in the [Confluent Schema Registry](../../../csr/overview/)
 
 ## Interaction with local breaking change configurations
 

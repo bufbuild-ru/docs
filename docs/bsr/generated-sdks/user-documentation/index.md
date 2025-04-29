@@ -20,7 +20,7 @@ head:
 
 # User documentation
 
-Generated SDKs provide setup and install documentation for themselves. They also generate their own [API reference documentation](../tutorial/#api-reference) for Go and TypeScript.In addition, the BSR allows anyone with the correct permissions to add a "Getting started" guide to an SDK page to help end users integrate further. The guide is an open-text Markdown editor and can be edited inline. Access to the editor is limited to BSR instance admins and anyone with the [`Owner` or `Admin` role](../../admin/manage-members/#member-roles) in the organization that owns the repository the SDK is generated from.
+Generated SDKs provide setup and install documentation for themselves. They also generate their own [API reference documentation](../tutorial/#api-reference) for Go and TypeScript.In addition, the BSR allows anyone with the correct permissions to add a "Getting started" guide to an SDK page to help end users integrate further. The guide is an open-text Markdown editor and can be edited inline. Access to the editor is limited to BSR instance admins and anyone with the [`Owner` or `Admin` role](../../admin/roles/#organization-roles) in the organization that owns the repository the SDK is generated from.
 
 ## Adding a guide
 

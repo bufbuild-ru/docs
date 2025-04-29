@@ -47,7 +47,7 @@ A label is a mutable pointer to a specific commit. Each label has an append-only
 
 ### Interaction with governance features
 
-If the BSR's [policy checks](../policy-checks/breaking/overview/) or [Confluent Schema Registry (CSR)](../kafka/overview/) integration features are enabled, it enforces restrictions on when a label's pointer updates to a new commit. This protects consumers from broken builds or downstream data issues.When policy checks are enabled, the new commit is allowed, but the label pointer only moves if either the commit doesn't introduce breaking changes _or_ an admin approves the commit from the review flow. Commits exist with one of these statuses at any given moment:
+If the BSR's [policy checks](../policy-checks/breaking/overview/) or [Confluent Schema Registry (CSR)](../csr/overview/) integration features are enabled, it enforces restrictions on when a label's pointer updates to a new commit. This protects consumers from broken builds or downstream data issues.When policy checks are enabled, the new commit is allowed, but the label pointer only moves if either the commit doesn't introduce breaking changes _or_ an admin approves the commit from the review flow. Commits exist with one of these statuses at any given moment:
 
 - **Passed:** The commit passes all checks (or checks aren't enabled).
 - **Pending:** The commit failed a check and is now in the review flow.

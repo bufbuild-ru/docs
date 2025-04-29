@@ -100,7 +100,7 @@ func main() {
 
 ### Manage subscriptions
 
-Webhooks are managed through the BSR API. The easiest way to interact with the API is to use the generated Connect client. Users with the [Admin role](../../manage-members/#base-resource-roles) in a repository can manage webhook subscriptions for that repository.Below is an example of managing webhooks using the BSR [Webhook service](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1#buf.alpha.registry.v1alpha1.WebhookService). First, fetch the generated go module from the connect-go [template](https://buf.build/bufbuild/buf/sdks/main) if you didn't in the previous step:
+Webhooks are managed through the BSR API. The easiest way to interact with the API is to use the generated Connect client. Users with the [Admin role](../../roles/#base-resource-roles) in a repository can manage webhook subscriptions for that repository.Below is an example of managing webhooks using the BSR [Webhook service](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1#buf.alpha.registry.v1alpha1.WebhookService). First, fetch the generated go module from the connect-go [template](https://buf.build/bufbuild/buf/sdks/main) if you didn't in the previous step:
 
 ```console
 $ go get buf.build/gen/go/bufbuild/buf/connectrpc/go

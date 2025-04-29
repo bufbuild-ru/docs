@@ -20,9 +20,25 @@ head:
 
 # Release notes
 
+## v0.3.22
+
+**_Release date:_** 2025-04-24 | **_Status:_** latest
+
+#### Bug fixes
+
+- Raise limit on inter-broker connections causing head-of-line blocking
+
+#### Features and improvements
+
+- Reduce operations made to PostgreSQL via batching
+- Optimize observability and error handling allocations
+- Improve startup resiliency when metadata store is unavailable
+- Point Helm chart and documentation at Docker Hub image
+- Additional performance improvements
+
 ## v0.3.21
 
-**_Release date:_** 2025-04-08 | **_Status:_** latest
+**_Release date:_** 2025-04-22
 
 ::: tip Note**Breaking changes:** This release removes all of the `--config.*` CLI flags.
 

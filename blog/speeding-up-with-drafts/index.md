@@ -80,7 +80,7 @@ jobs:
         draft: ${{ github.ref_name != 'main' }}
 ```
 
-The `draft` flag indicates whether the module should be pushed as a draft. In the above example, the module will be pushed to the BSR as a draft if the GitHub push did not occur on the `main` git branch. The name of the BSR draft will be the [short ref name](https://docs.github.com/en/actions/learn-github-actions/contexts#github-context) of the git branch or git tag that triggered the workflow run. For more details on `buf-push-action`, check out the [GitHub repository](https://github.com/bufbuild/buf-push-action) and the [Buf documentation](/docs/ci-cd/github-actions/index.md#buf-push).
+The `draft` flag indicates whether the module should be pushed as a draft. In the above example, the module will be pushed to the BSR as a draft if the GitHub push did not occur on the `main` git branch. The name of the BSR draft will be the [short ref name](https://docs.github.com/en/actions/learn-github-actions/contexts#github-context) of the git branch or git tag that triggered the workflow run. For more details on `buf-push-action`, check out the [GitHub repository](https://github.com/bufbuild/buf-push-action) and the [Buf documentation](/docs/bsr/ci-cd/github-actions/index.md#buf-push).
 
 # Using drafts with the Buf CLI
 

@@ -1,6 +1,6 @@
 ---
 
-title: "Blog Posts - Buf Docs"
+title: "Blog posts - Buf Docs"
 
 head:
   - - link
@@ -8,13 +8,13 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/blog-posts/"
   - - meta
     - property: "og:title"
-      content: "Blog Posts - Buf Docs"
+      content: "Blog posts - Buf Docs"
   - - meta
     - property: "og:url"
       content: "https://bufbuild.ru/docs/bufstream/blog-posts/"
   - - meta
     - property: "twitter:title"
-      content: "Blog Posts - Buf Docs"
+      content: "Blog posts - Buf Docs"
 
 ---
 

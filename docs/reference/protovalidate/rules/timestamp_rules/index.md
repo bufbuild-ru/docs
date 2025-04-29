@@ -20,7 +20,7 @@ head:
 
 # Timestamp rules
 
-TimestampRules describe the constraints applied exclusively to the `google.protobuf.Timestamp` well-known type.
+TimestampRules describe the rules applied exclusively to the `google.protobuf.Timestamp` well-known type.
 
 ## const
 

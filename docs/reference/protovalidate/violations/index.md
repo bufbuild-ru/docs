@@ -22,7 +22,7 @@ head:
 
 ## Violations Message
 
-`Violations` is a collection of `Violation` messages. This message type is returned by protovalidate when a proto message fails to meet the requirements set by the `Constraint` validation rules. Each individual violation is represented by a `Violation` message.
+`Violations` is a collection of `Violation` messages. This message type is returned by protovalidate when a proto message fails to meet the requirements set by the `Rule` validation rules. Each individual violation is represented by a `Violation` message.
 
 ### violations
 
@@ -30,12 +30,12 @@ head:
 
 ## Violation Message
 
-`Violation` represents a single instance where a validation rule, expressed as a `Constraint`, was not met. It provides information about the field that caused the violation, the specific constraint that wasn't fulfilled, and a human-readable error message.
+`Violation` represents a single instance where a validation rule, expressed as a `Rule`, was not met. It provides information about the field that caused the violation, the specific rule that wasn't fulfilled, and a human-readable error message.
 
 ```json
 {
   "fieldPath": "bar",
-  "constraintId": "foo.bar",
+  "ruleId": "foo.bar",
   "message": "bar must be greater than 0"
 }
 ```
@@ -61,13 +61,13 @@ violation {
 
 ### rule
 
-`rule` is a machine-readable path that points to the specific constraint rule that failed validation. This will be a nested field starting from the FieldConstraints of the field that failed validation. For custom constraints, this will provide the path of the constraint, e.g. `cel[0]`.For example, consider the following message:
+`rule` is a machine-readable path that points to the specific rule rule that failed validation. This will be a nested field starting from the FieldRules of the field that failed validation. For custom rules, this will provide the path of the rule, e.g. `cel[0]`.For example, consider the following message:
 
 ```proto
 message Message {
   bool a = 1 [(buf.validate.field).required = true];
   bool b = 2 [(buf.validate.field).cel = {
-    id: "custom_constraint",
+    id: "custom_rule",
     expression: "!this ? 'b must be true': ''"
   }]
 }
@@ -86,13 +86,13 @@ violation {
 }
 ```
 
-### constraint_id
+### rule_id
 
-`constraint_id` is the unique identifier of the `Constraint` that was not fulfilled. This is the same `id` that was specified in the `Constraint` message, allowing easy tracing of which rule was violated.
+`rule_id` is the unique identifier of the `Rule` that was not fulfilled. This is the same `id` that was specified in the `Rule` message, allowing easy tracing of which rule was violated.
 
 ### message
 
-`message` is a human-readable error message that describes the nature of the violation. This can be the default error message from the violated `Constraint`, or it can be a custom message that gives more context about the violation.
+`message` is a human-readable error message that describes the nature of the violation. This can be the default error message from the violated `Rule`, or it can be a custom message that gives more context about the violation.
 
 ### for_key
 

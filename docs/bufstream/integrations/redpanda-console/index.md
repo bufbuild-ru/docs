@@ -27,7 +27,7 @@ Redpanda Console™ is a web application that helps you manage, inspect, and deb
 ### Prerequisites
 
 - A live Bufstream cluster
-- An enterprise deployment of the Buf Schema Registry, with the [Confluent integration](../../../bsr/kafka/manage-instances/) enabled (optional)
+- An enterprise deployment of the Buf Schema Registry, with the [Confluent integration](../../../bsr/csr/manage-instances/) enabled (optional)
 - A Buf [bot user](../../../bsr/admin/instance/bot-users/) and token (optional)
 
 ### Basic configuration

@@ -77,7 +77,7 @@ proto_library(
 )
 ```
 
-You can read more about this in the [docs](/docs/build-systems/bazel/index.md#buf-dependencies).
+You can read more about this in the [docs](/docs/cli/build-systems/bazel/index.md#buf-dependencies).
 
 ## Lint and Breaking Checks
 
@@ -139,16 +139,16 @@ Executing tests from //foo/v1:foo_proto_lint
 --buf-plugin_out: foo/v1/foo.proto:1:1:Field name "Bar" should be lower_snake_case, such as "bar".
 ```
 
-For more on these rules check out the docs for [buf_lint_test](/docs/build-systems/bazel/index.md#buf-lint-test) and [buf_breaking_test](/docs/build-systems/bazel/index.md#buf-breaking-test)
+For more on these rules check out the docs for [buf_lint_test](/docs/cli/build-systems/bazel/index.md#buf-lint-test) and [buf_breaking_test](/docs/cli/build-systems/bazel/index.md#buf-breaking-test)
 
 ## Generate rules
 
 At Buf we are strong believers of automation and hence we couldn't resist developing a [Gazelle](https://github.com/bazelbuild/bazel-gazelle) extension. The extension can be used to generate all of above rules! It understands both `buf.work.yaml` and `buf.yaml` configuration files.
 
-Check out the [Gazelle section](/docs/build-systems/bazel/index.md#gazelle) of the docs for setup and usage instructions.
+Check out the [Gazelle section](/docs/cli/build-systems/bazel/index.md#gazelle) of the docs for setup and usage instructions.
 
 ## Next steps
 
-Get started by [setting up](/docs/build-systems/bazel/index.md) `rules_buf` or check out the [examples](https://github.com/bufbuild/rules_buf/tree/main/examples) illustrating various scenarios.
+Get started by [setting up](/docs/cli/build-systems/bazel/index.md) `rules_buf` or check out the [examples](https://github.com/bufbuild/rules_buf/tree/main/examples) illustrating various scenarios.
 
 ‍

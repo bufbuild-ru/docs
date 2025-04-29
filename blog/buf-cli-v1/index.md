@@ -47,7 +47,7 @@ We built the `buf` CLI to be a kind of "one-stop shop" for Protobuf development.
 
 ### Linting
 
-The `buf lint` command enables you to [lint](/docs/lint/tutorial/index.md) `.proto` files, which helps to ensure that your Protobuf sources comply with chosen best practices. It offers a built-in set of standardized [lint rules](/docs/lint/rules/index.md) rooted in ecosystem-wide best practices for structuring consistent, maintainable Protobuf schemas. You can configure which rules you want to apply to your Protobuf modules and also specify [exceptions](/docs/configuration/v1/buf-yaml/index.md).
+The `buf lint` command enables you to [lint](/docs/lint/quickstart/index.md) `.proto` files, which helps to ensure that your Protobuf sources comply with chosen best practices. It offers a built-in set of standardized [lint rules](/docs/lint/rules/index.md) rooted in ecosystem-wide best practices for structuring consistent, maintainable Protobuf schemas. You can configure which rules you want to apply to your Protobuf modules and also specify [exceptions](/docs/configuration/v1/buf-yaml/index.md).
 
 ### Breaking change detection
 

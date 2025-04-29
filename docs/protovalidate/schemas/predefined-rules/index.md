@@ -104,7 +104,7 @@ For each predefined rule you want to create, add a field to the extension that f
 
 - The field type should match the type of value for your rule. At runtime, its value is accessible within CEL expressions as a variable named `rule`.
 - The field number must not conflict with any other extension of the same message across all Protobuf files in the project. See the warning at the end of this section for more information.
-- The field must have an option of type `buf.validate.predefined`, which itself has a single `cel` field of type `Constraint`. Its value is a custom CEL rule.
+- The field must have an option of type `buf.validate.predefined`, which itself has a single `cel` field of type `Rule`. Its value is a custom CEL rule.
 
 Following these guidelines, you can declare predefined `required_medium` and `optional_medium` rules to fix the example:
 

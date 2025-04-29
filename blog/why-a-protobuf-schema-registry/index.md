@@ -63,7 +63,7 @@ Ideally, engineers should not need to worry about their local Protobuf environme
 
 Just as managing Protobuf development environments across an organization is challenging, so is enforcing standard API development practices and ensuring APIs evolve safely alongside the products they support. Teams must rely on code review and communication to avoid accidentally breaking production clients by introducing backward-incompatible schema changes, such as deleting a field, renaming it, or changing its type.
 
-The BSR provides tools to ensure best practices in CI (such as running linters, formatters, and ensuring documentation is present), and to eliminate the possibility of introducing breaking schema changes and subsequent outages. Engineers can ship code confidently by running [backward compatibility checks in CI](/docs/ci-cd/setup/index.md), and schema owners can audit, approve, and reject breaking changes before they’re deployed to production clients with the [BSR’s governance workflow](/docs/bsr/policy-checks/breaking/overview/index.md).
+The BSR provides tools to ensure best practices in CI (such as running linters, formatters, and ensuring documentation is present), and to eliminate the possibility of introducing breaking schema changes and subsequent outages. Engineers can ship code confidently by running [backward compatibility checks in CI](/docs/bsr/ci-cd/setup/index.md), and schema owners can audit, approve, and reject breaking changes before they’re deployed to production clients with the [BSR’s governance workflow](/docs/bsr/policy-checks/breaking/overview/index.md).
 
 ### Runtime extensibility
 
@@ -71,7 +71,7 @@ A schema registry’s holistic view of schemas across teams allows it to expose 
 
 ### Going beyond APIs with Kafka
 
-The BSR provides [first-class support for Protobuf in data pipelines](/docs/bsr/kafka/overview/index.md) and allows teams to attach schemas to Kafka topics, ensure backward compatible schema evolution, and eliminate runtime registration errors. It also implements the same API as the Confluent Schema Registry, so it works with most Kafka producers and consumers, downstream systems like kSQL and Kafka Connect, and management tools like AKHQ.
+The BSR provides [first-class support for Protobuf in data pipelines](/docs/bsr/csr/overview/index.md) and allows teams to attach schemas to Kafka topics, ensure backward compatible schema evolution, and eliminate runtime registration errors. It also implements the same API as the Confluent Schema Registry, so it works with most Kafka producers and consumers, downstream systems like kSQL and Kafka Connect, and management tools like AKHQ.
 
 ### Getting started
 

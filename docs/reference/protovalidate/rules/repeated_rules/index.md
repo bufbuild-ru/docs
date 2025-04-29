@@ -20,7 +20,7 @@ head:
 
 # Repeated rules
 
-RepeatedRules describe the constraints applied to `repeated` values.
+RepeatedRules describe the rules applied to `repeated` values.
 
 ## min_items
 
@@ -54,7 +54,7 @@ message MyRepeated {
 
 ## unique
 
-`unique` indicates that all elements in this field must be unique. This constraint is strictly applicable to scalar and enum types, with message types not being supported.
+`unique` indicates that all elements in this field must be unique. This rule is strictly applicable to scalar and enum types, with message types not being supported.
 
 ::: info repeated.unique example
 
@@ -69,13 +69,13 @@ message MyRepeated {
 
 ## items
 
-`items` details the constraints to be applied to each item in the field. Even for repeated message fields, validation is executed against each item unless skip is explicitly specified.
+`items` details the rules to be applied to each item in the field. Even for repeated message fields, validation is executed against each item unless skip is explicitly specified.
 
 ::: info repeated.items example
 
 ```proto
 message MyRepeated {
-  // The items in the field `value` must follow the specified constraints.
+  // The items in the field `value` must follow the specified rules.
   repeated string value = 1 [(buf.validate.field).repeated.items = {
     string: {
       min_len: 3

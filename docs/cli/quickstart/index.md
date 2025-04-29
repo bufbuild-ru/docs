@@ -31,27 +31,23 @@ The Buf CLI is the ultimate tool for modern, fast, and efficient Protobuf API ma
   ```
 
 - Have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [`go`](https://go.dev/dl/) installed and in your `$PATH`.
-- Clone the `buf-tour` repo:
+- Clone the `buf-examples` repo and go to this quickstart's directory:
 
   ```console
-  $ git clone git@github.com:bufbuild/buf-tour.git
+  $ git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/cli/quickstart/start/
   ```
 
-The repository contains a `start` directory and a `finish` directory. During this quickstart you'll work on files in the `start/getting-started-with-buf-cli` directory, and at the end they should match the files in the `finish/getting-started-with-buf-cli` directory.
+The quickstart contains a `start` directory, where you work on the example files, and a `finish` directory that you can use to compare against.
 
 ## Configure and build
 
 Start by configuring the Buf CLI and building the `.proto` files that define the pet store API, which specifies a way to create, get, and delete pets in the store.
 
-```console
-$ cd buf-tour/start/getting-started-with-buf-cli
-```
-
 ### Configure the workspace
 
 You configure a Buf CLI workspace with a [`buf.yaml`](../../configuration/v2/buf-yaml/) file, which defines the list of Protobuf file directories that you want to treat as logical units, or [modules](../modules-workspaces/). Create the file with this command:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli
+::: info cli/quickstart/start/
 
 ```console
 $ buf config init
@@ -64,6 +60,7 @@ After you run the command, there's a `buf.yaml` in the workspace directory with 
 ::: info Default buf.yaml
 
 ```yaml
+# For details on buf.yaml configuration, visit https://bufbuild.ru/docs/configuration/v2/buf-yaml
 version: v2
 lint:
   use:
@@ -75,11 +72,11 @@ breaking:
 
 :::
 
-The `buf.yaml` file sits at the root of your workspace, and the workspace it defines is the default [input](../../reference/inputs/) for all Buf operations.
+The `buf.yaml` file sits at the root of your workspace, and the workspace it defines is the default \[input\] for all Buf operations.
 
 ### Update directory path and build module
 
-The generated buf.yaml file behaves like a workspace with one module with its path set to the current directory. To explicitly define the modules within your workspace, provide the paths to the directories containing your `.proto` files. Add the `proto` directory to the `buf.yaml` file using the `modules` key:
+The generated `buf.yaml` file defaults to a workspace with one module, with the module path set to the current directory. To explicitly define the modules within your workspace, provide the paths to the directories containing your `.proto` files. Add the `proto` directory to the `buf.yaml` file using the `modules` key:
 
 ::: info Update path to proto subdirectory
 
@@ -99,7 +96,7 @@ breaking:
 
 Before you continue, verify that everything is set up properly and the module builds. If there are no errors, you know that you've set up the Buf module correctly:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli/
+::: info cli/quickstart/start/
 
 ```console
 $ buf build
@@ -111,13 +108,13 @@ $ echo $?
 
 ## Generate code
 
-The Buf CLI provides a user-friendly experience for generating code locally that's compatible with any reasonable existing usage of `protoc`, so next you'll generate some code.
+The Buf CLI provides a user-friendly experience for generating code locally that's compatible with `protoc`, so next you'll generate some code.
 
 ### Configure a `buf.gen.yaml` file
 
-Now that you've configured the module, the next step is creating a [`buf.gen.yaml`](../../configuration/v2/buf-gen-yaml/) file to configure local code generation. It controls how the `buf generate` command executes `protoc` plugins on a given module. You can use it to configure where each `protoc` plugin writes its results and specify options for each plugin.Create a `buf.gen.yaml` file in the current directory:
+Now that you've configured the module, the next step is to create a [`buf.gen.yaml`](../../configuration/v2/buf-gen-yaml/) file to configure local code generation. It controls how the `buf generate` command executes `protoc` plugins on a given module. You can use it to configure where each `protoc` plugin writes its results and specify options for each plugin.Create a `buf.gen.yaml` file in the current directory:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli
+::: info cli/quickstart/start/
 
 ```console
 $ touch buf.gen.yaml
@@ -135,7 +132,7 @@ managed:
   enabled: true
   override:
     - file_option: go_package_prefix
-      value: github.com/bufbuild/buf-tour/gen
+      value: github.com/bufbuild/buf-examples/gen
 plugins:
   - remote: buf.build/protocolbuffers/go
     out: gen
@@ -164,7 +161,7 @@ There are a few things to note in this configuration:
 
 Now that you have a `buf.gen.yaml` file configured, you can generate the Connect RPC and Go code associated with the `PetStoreService` API. Run this command:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli
+::: info cli/quickstart/start/
 
 ```console
 $ buf generate
@@ -175,9 +172,7 @@ $ buf generate
 If successful, you'll notice a few new files in the `gen` directory—they're your generated code stubs:
 
 ```text
-getting-started-with-buf-cli
-├── buf.gen.yaml
-├── buf.yaml
+.
 ├── gen
 │   ├── google
 │   │   └── type
@@ -187,22 +182,24 @@ getting-started-with-buf-cli
 │           ├── pet.pb.go
 │           └── petv1connect
 │               └── pet.connect.go
-└── proto
-    ├── google
-    │   └── type
-    │       └── datetime.proto
-    └── pet
-        └── v1
-            └── pet.proto
+├── proto
+├   ├── google
+├   │   └── type
+├   │       └── datetime.proto
+├   └── pet
+├       └── v1
+├           └── pet.proto
+├── buf.gen.yaml
+└── buf.yaml
 ```
 
 That's how easy it is to generate code using the Buf CLI. There's no need to build up a set of complicated `protoc` commands—your entire configuration is contained within the `buf.gen.yaml` file.
 
 ## Lint your API
 
-Though the Buf CLI is a great drop-in replacement for `protoc`, it's far more than a just a Protobuf compiler. It also provides linting functionality through the [`buf lint`](../../lint/overview/) command. When you run `buf lint`, it checks all of the modules listed in the `buf.yaml` file against the specified set of lint rules.Run this command to check all `.proto` files in the quickstart workspace for lint errors:
+Though the Buf CLI is a great drop-in replacement for `protoc`, it's far more than a just a Protobuf compiler. It also provides linting functionality through the [`buf lint`](../../lint/overview/) command. When you run `buf lint`, it checks all the modules listed in the `buf.yaml` file against the specified set of lint rules.Run this command to check all `.proto` files in the quickstart workspace for lint errors:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli
+::: info cli/quickstart/start/
 
 ```console
 $ buf lint
@@ -220,7 +217,7 @@ The current pet store API has a few lint failures across both of its files. Thes
 
 Start by fixing the lint failures for the `pet/v1/pet.proto` file, which stem from the [`FIELD_LOWER_SNAKE_CASE`](../../lint/rules/#field_lower_snake_case) and [`SERVICE_SUFFIX`](../../lint/rules/#service_suffix) rules. The results indicate exactly what you need to change to fix the errors, so update the `pet.proto` file:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli/proto/pet/v1/pet.proto
+::: info cli/quickstart/start/proto/pet/v1/pet.proto
 
 ```diff
 syntax = "proto3";
@@ -248,7 +245,7 @@ message DeletePetResponse {}
 
 Run `buf lint` again to verify that two of the failures are resolved:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli
+::: info cli/quickstart/start/
 
 ```console
 $ buf lint
@@ -260,7 +257,7 @@ google/type/datetime.proto:17:1:Package name "google.type" should be suffixed wi
 
 Because you changed the name of the `petID` field and the service, you need to regenerate the code stubs:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli
+::: info cli/quickstart/start/
 
 ```console
 $ buf generate
@@ -272,7 +269,7 @@ $ buf generate
 
 The `google/type/datetime.proto` isn't actually a file in your local project. Instead, it's one of your dependencies, provided by [googleapis](https://buf.build/googleapis/googleapis), so you can't change its `package` declaration to fix the lint failure. Instead, you can tell the Buf CLI to ignore the `google/type/datetime.proto` file with this configuration change:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli/buf.yaml
+::: info cli/quickstart/start/buf.yaml
 
 ```diff
 version: v2
@@ -290,7 +287,7 @@ breaking:
 
 :::
 
-Run `buf lint` one final time and there should be no more errors.For more info on lint rules and configuration, check out the [lint documentation](../../lint/overview/).
+Run `buf lint` one final time and there should be no more errors.
 
 ## Detect breaking changes
 
@@ -301,7 +298,7 @@ The Buf CLI also enables you to detect breaking changes between different versio
 - `WIRE_JSON`: Detects changes that break wire (binary) or JSON encoding. Because JSON is ubiquitous, we recommend this as the minimum level.
 - `WIRE`: Detects changes that break wire (binary) encoding.
 
-The default value is `FILE`, which we recommend to guarantee maximum compatibility across consumers of your APIs. We suggest choosing only one of these options rather than including/excluding specific breaking change rules, as you would when specifying a [linting](../../lint/overview/) configuration. Your `buf.yaml` file currently has the `FILE` option configured:
+The default value is `FILE`, which we recommend to guarantee maximum compatibility across consumers of your APIs. We suggest choosing only one of these options rather than including/excluding specific breaking change rules, as you would when specifying a \[linting\] configuration. Your `buf.yaml` file currently has the `FILE` option configured:
 
 ::: info buf.yaml
 
@@ -325,7 +322,7 @@ breaking: // [!code highlight]
 
 To see the feature in action, you'll need to introduce a breaking change. First, make a change that's breaking at the `WIRE` level. This is the most fundamental type of breaking change, as it changes how the Protobuf messages are encoded in transit ("on the wire"). This type of breaking change affects _all users in all languages_.Change the type of the `Pet.pet_type` field from `PetType` to `string`:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli/proto/pet/v1/pet.proto
+::: info cli/quickstart/start/proto/pet/v1/pet.proto
 
 ```diff
 message Pet {
@@ -342,11 +339,12 @@ message Pet {
 
 Now, verify that this is a breaking change by running `buf breaking` on your workspace, by choosing an [input](../../reference/inputs/) to compare it against. In this example, you'll compare against your local `main` Git branch:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli
+::: info cli/quickstart/start/
 
 ```console
-# Compare against the 'proto' subdirectory in the Git repo because 'proto' is defined as the module in buf.yaml
-$ buf breaking --against "../../.git#subdir=start/getting-started-with-buf-cli/proto"
+# Compare against the 'proto' subdirectory in the Git repo because 'proto' is defined
+# as the module in buf.yaml
+$ buf breaking --against "../../../.git#subdir=cli/quickstart/start/proto"
 
 proto/pet/v1/pet.proto:1:1:Previously present service "PetStore" was deleted from file.
 proto/pet/v1/pet.proto:18:3:Field "1" on message "Pet" changed type from "enum" to "string".
@@ -356,11 +354,13 @@ proto/pet/v1/pet.proto:42:10:Field "1" on message "DeletePetRequest" changed nam
 
 :::
 
+It's the second one listed. The other changes you made to fix lint errors are also breaking changes and would normally need to be addressed. However, for the purpose of this quickstart, assume they're OK and leave them in place.
+
 ### Revert changes
 
 Once you've determined that your change is breaking, revert it:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli/proto/pet/v1/pet.proto
+::: info cli/quickstart/start/proto/pet/v1/pet.proto
 
 ```diff
 message Pet {
@@ -373,8 +373,6 @@ message Pet {
 
 :::
 
-The other changes you made to fix lint errors are also breaking changes and would normally need to be addressed. However, for the purpose of this tutorial, assume they're approved and leave them in place.
-
 ## Implement an API
 
 In this section, you'll implement a `PetStoreService` client and server, both of which you can run on the command line.
@@ -383,10 +381,10 @@ In this section, you'll implement a `PetStoreService` client and server, both of
 
 Before you write Go code, initialize a `go.mod` file with the `go mod init` command:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli
+::: info cli/quickstart/start/
 
 ```console
-$ go mod init github.com/bufbuild/buf-tour
+$ go mod init github.com/bufbuild/buf-examples
 ```
 
 :::
@@ -397,7 +395,7 @@ Similar to the `buf.yaml` file, the `go.mod` file tracks your code's Go dependen
 
 Start implementing a server by creating a `server/main.go` file:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli
+::: info cli/quickstart/start/
 
 ```console
 $ mkdir server
@@ -411,6 +409,20 @@ Copy and paste this content into that file:
 ::: info server/main.go
 
 ```go
+// Copyright 2020-2025 Buf Technologies, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 package main
 
 import (
@@ -420,8 +432,8 @@ import (
     "net/http"
 
     connect "connectrpc.com/connect"
-    petv1 "github.com/bufbuild/buf-tour/gen/pet/v1"
-    "github.com/bufbuild/buf-tour/gen/pet/v1/petv1connect"
+    petv1 "github.com/bufbuild/buf-examples/gen/pet/v1"
+    "github.com/bufbuild/buf-examples/gen/pet/v1/petv1connect"
     "golang.org/x/net/http2"
     "golang.org/x/net/http2/h2c"
 )
@@ -463,7 +475,7 @@ func (s *petStoreServiceServer) PutPet(
 
 Now that you have code for a server, run this command to resolve the dependencies you need to build the code:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli
+::: info cli/quickstart/start/
 
 ```console
 $ go mod tidy
@@ -475,7 +487,7 @@ $ go mod tidy
 
 With the `server/main.go` implementation shown above, run the server and call the `PutPet` endpoint from the buf CLI.First, run the server:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli
+::: info cli/quickstart/start/
 
 ```console
 $ go run server/main.go
@@ -488,7 +500,7 @@ Listening on 127.0.0.1:8080
 
 In a separate terminal, in the workspace root, add a pet to the store by calling the API with `buf curl`:
 
-::: info ~/.../buf-tour/start/getting-started-with-buf-cli
+::: info cli/quickstart/start/
 
 ```console
 $ buf curl \
@@ -507,9 +519,4 @@ Go back to the server terminal window, and the request has been received:
 2024/04/23 14:23:35 Got a request to create a PET_TYPE_SNAKE named Ekans
 ```
 
-The Buf CLI is a powerful tool that streamlines the workflow for protocol buffer development. It provides a simple way to manage your `.proto` files, perform linting and breaking change detection, and generate code as a drop-in replacement for `protoc`. To see how you can more effectively work with Protobuf schemas in larger organizations, do the [Buf Schema Registry quicks](../../bsr/quickstart/) next.
-
-## Related docs
-
-- Learn about [modules and workspaces](../modules-workspaces/) in more detail.
-- Read the [`buf.yaml`](../../configuration/v2/buf-yaml/) and [`buf.gen.yaml`](../../configuration/v2/buf-gen-yaml/) configuration file reference pages.
+The Buf CLI is a powerful tool that streamlines the workflow for protocol buffer development. It provides a simple way to manage your `.proto` files, perform linting and breaking change detection, and generate code as a drop-in replacement for `protoc`. To see how you can more effectively work with Protobuf schemas in larger organizations, do the [Buf Schema Registry quickstart](../../bsr/quickstart/) next.

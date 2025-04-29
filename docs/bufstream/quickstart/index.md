@@ -285,6 +285,8 @@ data_enforcement:
         coerce: true
         # If a record cannot be parsed, reject all records in the batch.
         on_parse_error: REJECT_BATCH
+        # If a schema cannot be found, reject all records in the batch.
+        on_no_schema: REJECT_BATCH
 ```
 
 In your three terminals, kill your running Bufstream instance, producer and consumer, and let's put it all together: restart `bufstream` with this configuration file, the producer with no connection to the CSR, and the consumer continuing to connect to the CSR with expected enveloping:

@@ -251,7 +251,7 @@ Note that deprecating a field instead of deleting it has the same effect as rese
 - **repeated:** This is the cardinality of fields that use the `repeated` label.
 - **map:** This is the cardinality of map fields. Under the hood, this is similar to repeated cardinality, except that entries are de-duplicated using the map key.
 
-Though changing an optional field from implicit to explicit presence is typically backwards-compatible, in some runtimes it results in different, incompatible generated code.
+Though changing an optional field from implicit to explicit presence is typically backwards-compatible, in some runtimes it results in different, incompatible generated code.For files with `proto3` syntax, message fields already have explicit field presence. Because of this, adding the `optional` modifier doesn't change its cardinality and there's no difference in representation.
 
 ### `FIELD_SAME_CPP_STRING_TYPE`
 

@@ -20,7 +20,7 @@ head:
 
 # String rules
 
-StringRules describes the constraints applied to `string` values These rules may also be applied to the `google.protobuf.StringValue` Well-Known-Type.
+StringRules describes the rules applied to `string` values These rules may also be applied to the `google.protobuf.StringValue` Well-Known-Type.
 
 ## const
 
@@ -211,7 +211,7 @@ message MyString {
 ```proto
 message MyString {
   // value must be in list ["apple", "banana"]
-  repeated string value = 1 [(buf.validate.field).string.in = "apple", (buf.validate.field).string.in = "banana"];
+  string value = 1 [(buf.validate.field).string.in = "apple", (buf.validate.field).string.in = "banana"];
 }
 ```
 
@@ -226,7 +226,7 @@ message MyString {
 ```proto
 message MyString {
   // value must not be in list ["orange", "grape"]
-  repeated string value = 1 [(buf.validate.field).string.not_in = "orange", (buf.validate.field).string.not_in = "grape"];
+  string value = 1 [(buf.validate.field).string.not_in = "orange", (buf.validate.field).string.not_in = "grape"];
 }
 ```
 
@@ -234,7 +234,7 @@ message MyString {
 
 ## email
 
-`email` specifies that the field value must be a valid email address (addr-spec only) as defined by [RFC 5322](https://tools.ietf.org/html/rfc5322#section-3.4.1). If the field value isn't a valid email address, an error message will be generated.
+`email` specifies that the field value must be a valid email address, for example "foo@example.com".Conforms to the definition for a valid email address from the [HTML standard](https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address). Note that this standard willfully deviates from [RFC 5322](https://datatracker.ietf.org/doc/html/rfc5322), which allows many unexpected forms of email addresses and will easily match a typographical error.If the field value isn't a valid email address, an error message will be generated.
 
 ::: info string.email example
 
@@ -249,7 +249,16 @@ message MyString {
 
 ## hostname
 
-`hostname` specifies that the field value must be a valid hostname as defined by [RFC 1034](https://tools.ietf.org/html/rfc1034#section-3.5). This constraint doesn't support internationalized domain names (IDNs). If the field value isn't a valid hostname, an error message will be generated.
+`hostname` specifies that the field value must be a valid hostname, for example "foo.example.com".A valid hostname follows the rules below:
+
+- The name consists of one or more labels, separated by a dot (".").
+- Each label can be 1 to 63 alphanumeric characters.
+- A label can contain hyphens ("-"), but must not start or end with a hyphen.
+- The right-most label must not be digits only.
+- The name can have a trailing dot—for example, "foo.example.com.".
+- The name can be 253 characters at most, excluding the optional trailing dot.
+
+If the field value isn't a valid hostname, an error message will be generated.
 
 ::: info string.hostname example
 
@@ -264,7 +273,7 @@ message MyString {
 
 ## ip
 
-`ip` specifies that the field value must be a valid IP (v4 or v6) address, without surrounding square brackets for IPv6 addresses. If the field value isn't a valid IP address, an error message will be generated.
+`ip` specifies that the field value must be a valid IP (v4 or v6) address.IPv4 addresses are expected in the dotted decimal format—for example, "192.168.5.21". IPv6 addresses are expected in their text representation—for example, "::1", or "2001:0DB8:ABCD:0012::0".Both formats are well-defined in the internet standard [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986). Zone identifiers for IPv6 addresses (for example, "fe80::a%en1") are supported.If the field value isn't a valid IP address, an error message will be generated.
 
 ::: info string.ip example
 
@@ -279,7 +288,7 @@ message MyString {
 
 ## ipv4
 
-`ipv4` specifies that the field value must be a valid IPv4 address. If the field value isn't a valid IPv4 address, an error message will be generated.
+`ipv4` specifies that the field value must be a valid IPv4 address—for example "192.168.5.21". If the field value isn't a valid IPv4 address, an error message will be generated.
 
 ::: info string.ipv4 example
 
@@ -294,7 +303,7 @@ message MyString {
 
 ## ipv6
 
-`ipv6` specifies that the field value must be a valid IPv6 address, without surrounding square brackets. If the field value is not a valid IPv6 address, an error message will be generated.
+`ipv6` specifies that the field value must be a valid IPv6 address—for example "::1", or "d7a:115c:a1e0:ab12:4843:cd96:626b:430b". If the field value is not a valid IPv6 address, an error message will be generated.
 
 ::: info string.ipv6 example
 
@@ -309,7 +318,7 @@ message MyString {
 
 ## uri
 
-`uri` specifies that the field value must be a valid, absolute URI as defined by [RFC 3986](https://tools.ietf.org/html/rfc3986#section-3). If the field value isn't a valid, absolute URI, an error message will be generated.
+`uri` specifies that the field value must be a valid URI, for example "https://example.com/foo/bar?baz=quux#frag".URI is defined in the internet standard [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986). Zone Identifiers in IPv6 address literals are supported ([RFC 6874](https://datatracker.ietf.org/doc/html/rfc6874)).If the field value isn't a valid URI, an error message will be generated.
 
 ::: info string.uri example
 
@@ -324,13 +333,13 @@ message MyString {
 
 ## uri_ref
 
-`uri_ref` specifies that the field value must be a valid URI as defined by [RFC 3986](https://tools.ietf.org/html/rfc3986#section-3) and may be either relative or absolute. If the field value isn't a valid URI, an error message will be generated.
+`uri_ref` specifies that the field value must be a valid URI Reference—either a URI such as "https://example.com/foo/bar?baz=quux#frag", or a Relative Reference such as "./foo/bar?query".URI, URI Reference, and Relative Reference are defined in the internet standard [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986). Zone Identifiers in IPv6 address literals are supported ([RFC 6874](https://datatracker.ietf.org/doc/html/rfc6874)).If the field value isn't a valid URI Reference, an error message will be generated.
 
 ::: info string.uri_ref example
 
 ```proto
 message MyString {
-  // value must be a valid URI
+  // value must be a valid URI Reference
   string value = 1 [(buf.validate.field).string.uri_ref = true];
 }
 ```
@@ -339,7 +348,7 @@ message MyString {
 
 ## address
 
-`address` specifies that the field value must be either a valid hostname as defined by [RFC 1034](https://tools.ietf.org/html/rfc1034#section-3.5) (which doesn't support internationalized domain names or IDNs) or a valid IP (v4 or v6). If the field value isn't a valid hostname or IP, an error message will be generated.
+`address` specifies that the field value must be either a valid hostname (for example, "example.com"), or a valid IP (v4 or v6) address (for example, "192.168.0.1", or "::1"). If the field value isn't a valid hostname or IP, an error message will be generated.
 
 ::: info string.address example
 
@@ -354,7 +363,7 @@ message MyString {
 
 ## uuid
 
-`uuid` specifies that the field value must be a valid UUID as defined by [RFC 4122](https://tools.ietf.org/html/rfc4122#section-4.1.2). If the field value isn't a valid UUID, an error message will be generated.
+`uuid` specifies that the field value must be a valid UUID as defined by [RFC 4122](https://datatracker.ietf.org/doc/html/rfc4122#section-4.1.2). If the field value isn't a valid UUID, an error message will be generated.
 
 ::: info string.uuid example
 
@@ -369,7 +378,7 @@ message MyString {
 
 ## tuuid
 
-`tuuid` (trimmed UUID) specifies that the field value must be a valid UUID as defined by [RFC 4122](https://tools.ietf.org/html/rfc4122#section-4.1.2) with all dashes omitted. If the field value isn't a valid UUID without dashes, an error message will be generated.
+`tuuid` (trimmed UUID) specifies that the field value must be a valid UUID as defined by [RFC 4122](https://datatracker.ietf.org/doc/html/rfc4122#section-4.1.2) with all dashes omitted. If the field value isn't a valid UUID without dashes, an error message will be generated.
 
 ::: info string.tuuid example
 
@@ -384,7 +393,7 @@ message MyString {
 
 ## ip_with_prefixlen
 
-`ip_with_prefixlen` specifies that the field value must be a valid IP (v4 or v6) address with prefix length. If the field value isn't a valid IP with prefix length, an error message will be generated.
+`ip_with_prefixlen` specifies that the field value must be a valid IP (v4 or v6) address with prefix length—for example, "192.168.5.21/16" or "2001:0DB8:ABCD:0012::F1/64". If the field value isn't a valid IP with prefix length, an error message will be generated.
 
 ::: info string.ip_with_prefixlen example
 
@@ -399,7 +408,7 @@ message MyString {
 
 ## ipv4_with_prefixlen
 
-`ipv4_with_prefixlen` specifies that the field value must be a valid IPv4 address with prefix. If the field value isn't a valid IPv4 address with prefix length, an error message will be generated.
+`ipv4_with_prefixlen` specifies that the field value must be a valid IPv4 address with prefix length—for example, "192.168.5.21/16". If the field value isn't a valid IPv4 address with prefix length, an error message will be generated.
 
 ::: info string.ipv4_with_prefixlen example
 
@@ -414,7 +423,7 @@ message MyString {
 
 ## ipv6_with_prefixlen
 
-`ipv6_with_prefixlen` specifies that the field value must be a valid IPv6 address with prefix length. If the field value is not a valid IPv6 address with prefix length, an error message will be generated.
+`ipv6_with_prefixlen` specifies that the field value must be a valid IPv6 address with prefix length—for example, "2001:0DB8:ABCD:0012::F1/64". If the field value is not a valid IPv6 address with prefix length, an error message will be generated.
 
 ::: info string.ipv6_with_prefixlen example
 
@@ -429,7 +438,7 @@ message MyString {
 
 ## ip_prefix
 
-`ip_prefix` specifies that the field value must be a valid IP (v4 or v6) prefix. If the field value isn't a valid IP prefix, an error message will be generated. The prefix must have all zeros for the masked bits of the prefix (e.g., `127.0.0.0/16`, not `127.0.0.1/16`).
+`ip_prefix` specifies that the field value must be a valid IP (v4 or v6) prefix—for example, "192.168.0.0/16" or "2001:0DB8:ABCD:0012::0/64".The prefix must have all zeros for the unmasked bits. For example, "2001:0DB8:ABCD:0012::0/64" designates the left-most 64 bits for the prefix, and the remaining 64 bits must be zero.If the field value isn't a valid IP prefix, an error message will be generated.
 
 ::: info string.ip_prefix example
 
@@ -444,7 +453,7 @@ message MyString {
 
 ## ipv4_prefix
 
-`ipv4_prefix` specifies that the field value must be a valid IPv4 prefix. If the field value isn't a valid IPv4 prefix, an error message will be generated. The prefix must have all zeros for the masked bits of the prefix (e.g., `127.0.0.0/16`, not `127.0.0.1/16`).
+`ipv4_prefix` specifies that the field value must be a valid IPv4 prefix, for example "192.168.0.0/16".The prefix must have all zeros for the unmasked bits. For example, "192.168.0.0/16" designates the left-most 16 bits for the prefix, and the remaining 16 bits must be zero.If the field value isn't a valid IPv4 prefix, an error message will be generated.
 
 ::: info string.ipv4_prefix example
 
@@ -459,7 +468,7 @@ message MyString {
 
 ## ipv6_prefix
 
-`ipv6_prefix` specifies that the field value must be a valid IPv6 prefix. If the field value is not a valid IPv6 prefix, an error message will be generated. The prefix must have all zeros for the masked bits of the prefix (e.g., `2001:db8::/48`, not `2001:db8::1/48`).
+`ipv6_prefix` specifies that the field value must be a valid IPv6 prefix—for example, "2001:0DB8:ABCD:0012::0/64".The prefix must have all zeros for the unmasked bits. For example, "2001:0DB8:ABCD:0012::0/64" designates the left-most 64 bits for the prefix, and the remaining 64 bits must be zero.If the field value is not a valid IPv6 prefix, an error message will be generated.
 
 ::: info string.ipv6_prefix example
 
@@ -474,7 +483,13 @@ message MyString {
 
 ## host_and_port
 
-`host_and_port` specifies the field value must be a valid host and port pair. The host must be a valid hostname or IP address while the port must be in the range of 0-65535, inclusive. IPv6 addresses must be delimited with square brackets (e.g., `[::1]:1234`).@generated from field: bool host_and_port = 32;
+`host_and_port` specifies that the field value must be valid host/port pair—for example, "example.com:8080".The host can be one of:
+
+- An IPv4 address in dotted decimal format—for example, "192.168.5.21".
+- An IPv6 address enclosed in square brackets—for example, "\[2001:0DB8:ABCD:0012::F1\]".
+- A hostname—for example, "example.com".
+
+The port is separated by a colon. It must be non-empty, with a decimal number in the range of 0-65535, inclusive.@generated from field: bool host_and_port = 32;
 
 ## well_known_regex
 
@@ -493,7 +508,7 @@ message MyString {
 
 ## strict
 
-This applies to regexes `HTTP_HEADER_NAME` and `HTTP_HEADER_VALUE` to enable strict header validation. By default, this is true, and HTTP header validations are [RFC-compliant](https://tools.ietf.org/html/rfc7230#section-3). Setting to false will enable looser validations that only disallow `\r\n\0` characters, which can be used to bypass header matching rules.
+This applies to regexes `HTTP_HEADER_NAME` and `HTTP_HEADER_VALUE` to enable strict header validation. By default, this is true, and HTTP header validations are [RFC-compliant](https://datatracker.ietf.org/doc/html/rfc7230#section-3). Setting to false will enable looser validations that only disallow `\r\n\0` characters, which can be used to bypass header matching rules.
 
 ::: info string.strict example
 
@@ -508,7 +523,7 @@ message MyString {
 
 ## example
 
-`example` specifies values that the field may have. These values SHOULD conform to other constraints. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
+`example` specifies values that the field may have. These values SHOULD conform to other rules. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
 
 ::: info string.example example
 

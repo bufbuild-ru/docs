@@ -39,4 +39,4 @@ To create and manage bot users:
 2.  Click the **Create bot user** button, then input a username to create the bot user.
 3.  After the user is created, click on its name to go to the user details page and manage its tokens there.
 
-After the user and its tokens are set up, the bot user is ready for use. However, the bot user won't automatically be granted any roles in any organizations or repositories. You still need to manage its role in the preferred organizations or repositories so that it has the permission needed to perform actions. Refer to [Manage members](../../manage-members/) for details.
+After the user and its tokens are set up, the bot user is ready for use. However, the bot user won't automatically be granted any roles in any organizations or repositories. You still need to manage its role in the preferred organizations or repositories so that it has the permission needed to perform actions. Refer to [Roles](../../roles/) for details.

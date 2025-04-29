@@ -20,7 +20,7 @@ head:
 
 # Enum rules
 
-EnumRules describe the constraints applied to `enum` values.
+EnumRules describe the rules applied to `enum` values.
 
 ## const
 
@@ -108,7 +108,7 @@ message MyMessage {
 
 ## example
 
-`example` specifies values that the field may have. These values SHOULD conform to other constraints. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
+`example` specifies values that the field may have. These values SHOULD conform to other rules. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
 
 ::: info enum.example example
 

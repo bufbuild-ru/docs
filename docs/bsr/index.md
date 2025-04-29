@@ -60,7 +60,7 @@ Pro and Enterprise plans include the ability to upload custom plugins for logic 
 
 ### CI/CD integration
 
-In addition to the [buf-action](../ci-cd/github-actions/) integration for the BSR, Pro and Enterprise plans allow you to create [bot users](admin/instance/bot-users/) that can call the BSR from CI workflows without tying the actions to a specific person.
+In addition to the [buf-action](ci-cd/github-actions/) integration for the BSR, Pro and Enterprise plans allow you to create [bot users](admin/instance/bot-users/) that can call the BSR from CI workflows without tying the actions to a specific person.
 
 ### Audit logging
 

@@ -20,7 +20,7 @@ head:
 
 # Duration rules
 
-DurationRules describe the constraints applied exclusively to the `google.protobuf.Duration` well-known type.
+DurationRules describe the rules applied exclusively to the `google.protobuf.Duration` well-known type.
 
 ## const
 
@@ -141,7 +141,7 @@ message MyDuration {
 
 ## example
 
-`example` specifies values that the field may have. These values SHOULD conform to other constraints. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
+`example` specifies values that the field may have. These values SHOULD conform to other rules. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
 
 ::: info duration.example example
 

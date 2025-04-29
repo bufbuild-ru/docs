@@ -20,7 +20,7 @@ head:
 
 # Message rules
 
-MessageConstraints represents validation rules that are applied to the entire message. It includes disabling options and a list of Constraint messages representing Common Expression Language (CEL) validation rules.
+MessageRules represents validation rules that are applied to the entire message. It includes disabling options and a list of Rule messages representing Common Expression Language (CEL) validation rules.
 
 ## disabled
 
@@ -39,7 +39,7 @@ message MyMessage {
 
 ## cel
 
-`cel` is a repeated field of type Constraint. Each Constraint specifies a validation rule to be applied to this message. These constraints are written in Common Expression Language (CEL) syntax. For more information on CEL, [see our documentation](https://github.com/bufbuild/protovalidate/blob/main/docs/cel.md).
+`cel` is a repeated field of type Rule. Each Rule specifies a validation rule to be applied to this message. These rules are written in Common Expression Language (CEL) syntax. For more information on CEL, [see our documentation](https://github.com/bufbuild/protovalidate/blob/main/docs/cel.md).
 
 ::: info message.cel example
 

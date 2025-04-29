@@ -20,7 +20,7 @@ head:
 
 # Double rules
 
-DoubleRules describes the constraints applied to `double` values. These rules may also be applied to the `google.protobuf.DoubleValue` Well-Known-Type.
+DoubleRules describes the rules applied to `double` values. These rules may also be applied to the `google.protobuf.DoubleValue` Well-Known-Type.
 
 ## const
 
@@ -118,7 +118,7 @@ message MyDouble {
 ```proto
 message MyDouble {
   // value must be in list [1.0, 2.0, 3.0]
-  repeated double value = 1 (buf.validate.field).double = { in: [1.0, 2.0, 3.0] };
+  double value = 1 [(buf.validate.field).double = { in: [1.0, 2.0, 3.0] }];
 }
 ```
 
@@ -133,7 +133,7 @@ message MyDouble {
 ```proto
 message MyDouble {
   // value must not be in list [1.0, 2.0, 3.0]
-  repeated double value = 1 (buf.validate.field).double = { not_in: [1.0, 2.0, 3.0] };
+  double value = 1 [(buf.validate.field).double = { not_in: [1.0, 2.0, 3.0] }];
 }
 ```
 
@@ -145,7 +145,7 @@ message MyDouble {
 
 ## example
 
-`example` specifies values that the field may have. These values SHOULD conform to other constraints. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
+`example` specifies values that the field may have. These values SHOULD conform to other rules. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
 
 ::: info double.example example
 

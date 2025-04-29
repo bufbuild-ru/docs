@@ -20,7 +20,7 @@ head:
 
 # Deploy Bufstream to Azure with Azure Database for PostgreSQL
 
-This page walks you through installing Bufstream into your Azure deployment, using PostgreSQL for metadata storage. See the [Azure configuration](../configure/) page for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
+This page walks you through installing Bufstream into your Azure deployment, using PostgreSQL for metadata storage. See [Tuning and performance](../../tuning-performance/) for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
 
 ## Prerequisites
 

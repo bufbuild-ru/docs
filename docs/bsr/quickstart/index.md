@@ -106,7 +106,7 @@ message Invoice {
 
 :::
 
-The Protovalidate rule checks that the invoice includes at least one line item, and raises an error if it doesn't. You can learn more about the rule in the [Protovalidate module documentation](https://buf.build/bufbuild/protovalidate/docs/main:buf.validate#buf.validate.RepeatedRules).
+The Protovalidate rule checks that the invoice includes at least one line item, and raises an error if it doesn't. You can learn more about the rule in the [Protovalidate reference documentation](../../reference/protovalidate/rules/repeated_rules/#min_items).
 
 ### Generate code
 
@@ -162,7 +162,7 @@ $ go run cmd/main.go
 
 :::
 
-::: tip NoteThe server code in `cmd/main.go` is [preconfigured](https://github.com/bufbuild/buf-examples/blob/main/bsr/quickstart/start/server/cmd/main.go#L30-L34) with the Protovalidate interceptor. Normally you need to add that to your code also—see the [Protovalidate documentation](https://github.com/bufbuild/protovalidate) for specifics.
+::: tip NoteThe server code in `cmd/main.go` is [preconfigured](https://github.com/bufbuild/buf-examples/blob/main/bsr/quickstart/start/server/cmd/main.go#L35-L39) with the Protovalidate interceptor. Normally you need to add that to your code also—see the [Protovalidate documentation](https://github.com/bufbuild/protovalidate) for specifics.
 
 :::
 

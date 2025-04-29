@@ -20,7 +20,7 @@ head:
 
 # Fixed32 rules
 
-Fixed32Rules describes the constraints applied to `fixed32` values.
+Fixed32Rules describes the rules applied to `fixed32` values.
 
 ## const
 
@@ -118,7 +118,7 @@ message MyFixed32 {
 ```proto
 message MyFixed32 {
   // value must be in list [1, 2, 3]
-  repeated fixed32 value = 1 (buf.validate.field).fixed32 = { in: [1, 2, 3] };
+  fixed32 value = 1 [(buf.validate.field).fixed32 = { in: [1, 2, 3] }];
 }
 ```
 
@@ -133,7 +133,7 @@ message MyFixed32 {
 ```proto
 message MyFixed32 {
   // value must not be in list [1, 2, 3]
-  repeated fixed32 value = 1 (buf.validate.field).fixed32 = { not_in: [1, 2, 3] };
+  fixed32 value = 1 [(buf.validate.field).fixed32 = { not_in: [1, 2, 3] }];
 }
 ```
 
@@ -141,7 +141,7 @@ message MyFixed32 {
 
 ## example
 
-`example` specifies values that the field may have. These values SHOULD conform to other constraints. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
+`example` specifies values that the field may have. These values SHOULD conform to other rules. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
 
 ::: info fixed32.example example
 

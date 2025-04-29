@@ -73,7 +73,7 @@ After all checks are performed for each commit, the results are shown inline wit
 
 ## What’s next?
 
-If you're already using one of our existing GitHub actions ([buf-setup-action](https://github.com/marketplace/actions/buf-setup), [buf-breaking-action](https://github.com/marketplace/actions/buf-breaking), [buf-lint-action](https://github.com/marketplace/actions/buf-lint), [buf-push-action](https://github.com/marketplace/actions/buf-push)), we recommend [reading our buf-action migration guide](/docs/ci-cd/github-actions/index.md) to consolidate and simplify your configuration and workflow. You’ll likely see a nice speedup as well! We’ll soon mark these actions as deprecated and will provide more details on their support timeline in the coming weeks.
+If you're already using one of our existing GitHub actions ([buf-setup-action](https://github.com/marketplace/actions/buf-setup), [buf-breaking-action](https://github.com/marketplace/actions/buf-breaking), [buf-lint-action](https://github.com/marketplace/actions/buf-lint), [buf-push-action](https://github.com/marketplace/actions/buf-push)), we recommend [reading our buf-action migration guide](/docs/bsr/ci-cd/github-actions/index.md) to consolidate and simplify your configuration and workflow. You’ll likely see a nice speedup as well! We’ll soon mark these actions as deprecated and will provide more details on their support timeline in the coming weeks.
 
 If you have any feedback or need any additional help with our GitHub integrations, please reach out to [feedback@buf.build](mailto:feedback@buf.build) or [join us in Slack](https://buf.build/links/slack).
 

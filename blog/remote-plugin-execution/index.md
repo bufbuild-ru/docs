@@ -124,7 +124,7 @@ This diagram illustrates that process:
 
 ## Why it matters
 
-The Buf team has developed processes to automatically sync and publish all of [protoc](https://github.com/protocolbuffers/protobuf#protocol-compiler-installation)'s built-in plugins to the BSR under the [`buf.build/protocolbuffers`](https://buf.build/protocolbuffers/plugins) organization. This means that you can remove any and all plugin executables from your environment—local, [CI/CD](/docs/ci-cd/setup/index.md), whatever—and rely solely on remote plugins.
+The Buf team has developed processes to automatically sync and publish all of [protoc](https://github.com/protocolbuffers/protobuf#protocol-compiler-installation)'s built-in plugins to the BSR under the [`buf.build/protocolbuffers`](https://buf.build/protocolbuffers/plugins) organization. This means that you can remove any and all plugin executables from your environment—local, [CI/CD](/docs/bsr/ci-cd/setup/index.md), whatever—and rely solely on remote plugins.
 
 These protoc built-in plugins are hosted on the BSR:
 

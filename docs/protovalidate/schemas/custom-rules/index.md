@@ -56,7 +56,7 @@ With CEL available at the field and message levels, it's hard to think of valida
 
 ## Creating field rules
 
-Adding custom field rules is native Protobuf—custom rules are just field options. Their structure is defined by the [`Constraint`](https://buf.build/bufbuild/protovalidate/docs/main:buf.validate#buf.validate.Constraint) message's three fields:
+Adding custom field rules is native Protobuf—custom rules are just field options. Their structure is defined by the [`Rule`](https://buf.build/bufbuild/protovalidate/docs/main:buf.validate#buf.validate.Rule) message's three fields:
 
 - `id`: A unique (within the field) identifier for this rule.
 - `message`: An optional human-readable message to return when this rule fails.

@@ -37,8 +37,8 @@ head:
   - Cloning the head of a branch of a Git repository, either local or remote, and compiling on the fly.
   - Reading a tar or zip archive, either local or remote and optionally compressed, and compiling on the fly.
   - Reading a "lock file", represented as a [Buf image](../../reference/images/), from either a local location or a remote http/https location.
-- Both Protolock and `buf` run file discovery for your Protobuf files, however `buf` allows you to skip file discovery and specify your files [manually](../../build/overview/#limit-to-specific-files) for use cases that require this, such as [Bazel](../../build-systems/bazel/).
-- Since `buf` can process `FileDescriptorSet`s as input, `buf` provides a [protoc plugin](../../reference/protoc-plugins/#breaking) to allow you to use `buf`'s breaking change detection functionality with your current `protoc` setup.
+- Both Protolock and `buf` run file discovery for your Protobuf files, however `buf` allows you to skip file discovery and specify your files [manually](../../build/overview/#limit-to-specific-files) for use cases that require this, such as [Bazel](../../cli/build-systems/bazel/).
+- Since `buf` can process `FileDescriptorSet`s as input, `buf` provides a [protoc plugin](../../cli/protoc-plugins/#breaking) to allow you to use `buf`'s breaking change detection functionality with your current `protoc` setup.
 
 ## Configuration
 
@@ -98,7 +98,7 @@ The Protolock flag `--ignore` can be handled by the `breaking.ignore` and `break
 
 ## Equivalent commands
 
-There are multiple methods to compare versions in `buf`, see the [breaking usage](../../breaking/tutorial/) documentation for more details.This section assumes you are using stored [Buf image](../../reference/images/) files as your method of comparing versions of your Protobuf schema.
+There are multiple methods to compare versions in `buf`, see the [breaking usage](../../breaking/quickstart/) documentation for more details.This section assumes you are using stored [Buf image](../../reference/images/) files as your method of comparing versions of your Protobuf schema.
 
 ### `protolock init`
 

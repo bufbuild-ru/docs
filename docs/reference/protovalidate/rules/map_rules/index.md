@@ -20,7 +20,7 @@ head:
 
 # Map rules
 
-MapRules describe the constraints applied to `map` values.
+MapRules describe the rules applied to `map` values.
 
 ## min_pairs
 
@@ -54,13 +54,13 @@ message MyMap {
 
 ## keys
 
-Specifies the constraints to be applied to each key in the field.
+Specifies the rules to be applied to each key in the field.
 
 ::: info map.keys example
 
 ```proto
 message MyMap {
-  // The keys in the field `value` must follow the specified constraints.
+  // The keys in the field `value` must follow the specified rules.
   map<string, string> value = 1 [(buf.validate.field).map.keys = {
     string: {
       min_len: 3
@@ -74,13 +74,13 @@ message MyMap {
 
 ## values
 
-Specifies the constraints to be applied to the value of each key in the field. Message values will still have their validations evaluated unless skip is specified here.
+Specifies the rules to be applied to the value of each key in the field. Message values will still have their validations evaluated unless skip is specified here.
 
 ::: info map.values example
 
 ```proto
 message MyMap {
-  // The values in the field `value` must follow the specified constraints.
+  // The values in the field `value` must follow the specified rules.
   map<string, string> value = 1 [(buf.validate.field).map.values = {
     string: {
       min_len: 5

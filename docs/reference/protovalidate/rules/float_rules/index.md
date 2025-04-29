@@ -20,7 +20,7 @@ head:
 
 # Float rules
 
-FloatRules describes the constraints applied to `float` values. These rules may also be applied to the `google.protobuf.FloatValue` Well-Known-Type.
+FloatRules describes the rules applied to `float` values. These rules may also be applied to the `google.protobuf.FloatValue` Well-Known-Type.
 
 ## const
 
@@ -118,7 +118,7 @@ message MyFloat {
 ```proto
 message MyFloat {
   // value must be in list [1.0, 2.0, 3.0]
-  repeated float value = 1 (buf.validate.field).float = { in: [1.0, 2.0, 3.0] };
+  float value = 1 [(buf.validate.field).float = { in: [1.0, 2.0, 3.0] }];
 }
 ```
 
@@ -133,7 +133,7 @@ message MyFloat {
 ```proto
 message MyFloat {
   // value must not be in list [1.0, 2.0, 3.0]
-  repeated float value = 1 (buf.validate.field).float = { not_in: [1.0, 2.0, 3.0] };
+  float value = 1 [(buf.validate.field).float = { not_in: [1.0, 2.0, 3.0] }];
 }
 ```
 
@@ -145,7 +145,7 @@ message MyFloat {
 
 ## example
 
-`example` specifies values that the field may have. These values SHOULD conform to other constraints. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
+`example` specifies values that the field may have. These values SHOULD conform to other rules. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
 
 ::: info float.example example
 

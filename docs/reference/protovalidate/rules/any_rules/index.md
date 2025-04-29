@@ -20,7 +20,7 @@ head:
 
 # Any rules
 
-AnyRules describe constraints applied exclusively to the `google.protobuf.Any` well-known type.
+AnyRules describe rules applied exclusively to the `google.protobuf.Any` well-known type.
 
 ## in
 

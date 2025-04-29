@@ -27,7 +27,7 @@ Linting tools help to maintain the quality of code by enforcing a set of rules f
 The Buf CLI's linter can check your schemas at two phases of development:
 
 - **During development:** You can [integrate with your editor](../../cli/editor-integration/) for immediate feedback as you're iterating, and also spot-check by running `buf lint`.
-- **In code review:** You can [integrate with your CI/CD workflows](../../ci-cd/setup/) (like GitHub Actions) to ensure that linting errors get flagged directly in your review flow without the need for constant human vigilance.
+- **In code review:** You can [integrate with your CI/CD workflows](../../bsr/ci-cd/setup/) (like GitHub Actions) to ensure that linting errors get flagged directly in your review flow without the need for constant human vigilance.
 
 The linter has a built-in set of rules and categories and can also accept rules and categories via [Buf plugins](../../cli/buf-plugins/overview/). You can use them alongside or in place of Buf's defaults.
 
@@ -214,12 +214,4 @@ package A; // buf:lint:ignore PACKAGE_VERSION_SUFFIX // [!code highlight]
 
 ## Integration with CI/CD workflows
 
-Because `buf lint` is part of a CLI, you can easily integrate it into CI/CD workflows. For instructions, see the [General CI/CD setup](../../ci-cd/setup/) and [GitHub Actions](../../ci-cd/github-actions/) pages.
-
-## Related docs
-
-- Try out linting with the [tutorial](../tutorial/)
-- Get detailed explanations of the linting [rules and categories](../rules/)
-- Browse the [buf.yaml configuration file reference](../../configuration/v2/buf-yaml/#lint) and [`buf lint` command reference](../../reference/cli/buf/lint/)
-- See more about the types of [inputs](../../reference/inputs/) that the Buf CLI accepts
-- Learn about how to [create and package Buf plugins](../../cli/buf-plugins/overview/)
+Because `buf lint` is part of a CLI, you can easily integrate it into CI/CD workflows. For instructions, see the [General CI/CD setup](../../bsr/ci-cd/setup/) and [GitHub Actions](../../bsr/ci-cd/github-actions/) pages.

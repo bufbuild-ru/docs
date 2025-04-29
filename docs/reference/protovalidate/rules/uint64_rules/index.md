@@ -20,7 +20,7 @@ head:
 
 # UInt64 rules
 
-UInt64Rules describes the constraints applied to `uint64` values. These rules may also be applied to the `google.protobuf.UInt64Value` Well-Known-Type.
+UInt64Rules describes the rules applied to `uint64` values. These rules may also be applied to the `google.protobuf.UInt64Value` Well-Known-Type.
 
 ## const
 
@@ -118,7 +118,7 @@ message MyUInt64 {
 ```proto
 message MyUInt64 {
   // value must be in list [1, 2, 3]
-  repeated uint64 value = 1 (buf.validate.field).uint64 = { in: [1, 2, 3] };
+  uint64 value = 1 [(buf.validate.field).uint64 = { in: [1, 2, 3] }];
 }
 ```
 
@@ -133,7 +133,7 @@ message MyUInt64 {
 ```proto
 message MyUInt64 {
   // value must not be in list [1, 2, 3]
-  repeated uint64 value = 1 (buf.validate.field).uint64 = { not_in: [1, 2, 3] };
+  uint64 value = 1 [(buf.validate.field).uint64 = { not_in: [1, 2, 3] }];
 }
 ```
 
@@ -141,7 +141,7 @@ message MyUInt64 {
 
 ## example
 
-`example` specifies values that the field may have. These values SHOULD conform to other constraints. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
+`example` specifies values that the field may have. These values SHOULD conform to other rules. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
 
 ::: info uint64.example example
 

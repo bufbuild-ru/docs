@@ -20,7 +20,7 @@ head:
 
 # SFixed64 rules
 
-SFixed64Rules describes the constraints applied to `fixed64` values.
+SFixed64Rules describes the rules applied to `fixed64` values.
 
 ## const
 
@@ -118,7 +118,7 @@ message MySFixed64 {
 ```proto
 message MySFixed64 {
   // value must be in list [1, 2, 3]
-  repeated sfixed64 value = 1 (buf.validate.field).sfixed64 = { in: [1, 2, 3] };
+  sfixed64 value = 1 [(buf.validate.field).sfixed64 = { in: [1, 2, 3] }];
 }
 ```
 
@@ -133,7 +133,7 @@ message MySFixed64 {
 ```proto
 message MySFixed64 {
   // value must not be in list [1, 2, 3]
-  repeated sfixed64 value = 1 (buf.validate.field).sfixed64 = { not_in: [1, 2, 3] };
+  sfixed64 value = 1 [(buf.validate.field).sfixed64 = { not_in: [1, 2, 3] }];
 }
 ```
 
@@ -141,7 +141,7 @@ message MySFixed64 {
 
 ## example
 
-`example` specifies values that the field may have. These values SHOULD conform to other constraints. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
+`example` specifies values that the field may have. These values SHOULD conform to other rules. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
 
 ::: info sfixed64.example example
 

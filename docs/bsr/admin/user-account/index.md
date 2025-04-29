@@ -1,6 +1,6 @@
 ---
 
-title: "Manage your user account - Buf Docs"
+title: "Manage your Buf account - Buf Docs"
 
 head:
   - - link
@@ -8,13 +8,13 @@ head:
       href: "https://bufbuild.ru/docs/bsr/admin/user-account/"
   - - meta
     - property: "og:title"
-      content: "Manage your user account - Buf Docs"
+      content: "Manage your Buf account - Buf Docs"
   - - meta
     - property: "og:url"
       content: "https://bufbuild.ru/docs/bsr/admin/user-account/"
   - - meta
     - property: "twitter:title"
-      content: "Manage your user account - Buf Docs"
+      content: "Manage your Buf account - Buf Docs"
 
 ---
 

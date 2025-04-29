@@ -3,13 +3,28 @@
 layout: home
 
 hero:
-  name: buf
-  tagline: the best way of working with Protocol Buffers
+  text: Buf is building a better way to work with Protobuf
+  tagline: Create, maintain, and consume APIs with our modern Protobuf ecosystem
   actions:
     - theme: brand
-      text: Getting Started
+      text: Read the docs
       link: /docs/
+
+features:
+  - title: Create
+    details: Consistent APIs with centrally enforced linting and breaking change detection.
+  - title: Maintain
+    details: Centrally managed dependencies, with automatically enforced forwards and backwards compatibility to ensure clients never break.
+  - title: Consume
+    details: Generated libraries produced by a managed compiler. Buf will provide generated CLIs, documentation, validation, custom plugins, mock servers, stress-testing and more.
+
 ---
+
+<br />
+
+---
+
+<br />
 
 ::: info Postscript
 

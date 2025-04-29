@@ -3,7 +3,7 @@ import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'bufbuild.ru',
+  title: 'Buf',
 
   description: 'The best way of working with Protocol Buffers.',
 
@@ -26,8 +26,16 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       {
-        text: 'Home',
-        link: '/',
+        text: 'Bufstream',
+        link: '/product/bufstream/',
+      },
+      {
+        text: 'Schema Registry',
+        link: '/product/bsr/',
+      },
+      {
+        text: 'CLI',
+        link: '/cli/',
       },
       {
         text: 'Docs',

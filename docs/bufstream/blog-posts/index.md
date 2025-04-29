@@ -1,20 +1,45 @@
 ---
 
-title: "Blog posts - Buf Docs"
-
 head:
   - - link
     - rel: "canonical"
       href: "https://bufbuild.ru/docs/bufstream/blog-posts/"
+  - - link
+    - rel: "prev"
+      href: "https://bufbuild.ru/docs/bufstream/quickstart/"
+  - - link
+    - rel: "next"
+      href: "https://bufbuild.ru/docs/bufstream/cost/"
   - - meta
     - property: "og:title"
       content: "Blog posts - Buf Docs"
   - - meta
+    - property: "og:image"
+      content: "https://buf.build/docs/assets/images/social/bufstream/blog-posts.png"
+  - - meta
     - property: "og:url"
       content: "https://bufbuild.ru/docs/bufstream/blog-posts/"
   - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "og:image:type"
+      content: "image/png"
+  - - meta
+    - property: "og:image:width"
+      content: "1200"
+  - - meta
+    - property: "og:image:height"
+      content: "630"
+  - - meta
     - property: "twitter:title"
       content: "Blog posts - Buf Docs"
+  - - meta
+    - property: "twitter:image"
+      content: "https://buf.build/docs/assets/images/social/bufstream/blog-posts.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
 
 ---
 

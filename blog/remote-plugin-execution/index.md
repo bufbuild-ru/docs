@@ -5,15 +5,15 @@ title: "Remote plugin execution with the Buf Schema Registry"
 description: "Execute plugins on the BSR to enforce consistency and simplify code generation."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/remote-plugin-execution"
   - - meta
     - property: "og:title"
       content: "Remote plugin execution with the Buf Schema Registry"
   - - meta
     - property: "og:description"
       content: "Execute plugins on the BSR to enforce consistency and simplify code generation."
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "Execute plugins on the BSR to enforce consistency and simplify code generation."
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

@@ -1,20 +1,45 @@
 ---
 
-title: "CEL extensions - Buf Docs"
-
 head:
   - - link
     - rel: "canonical"
       href: "https://bufbuild.ru/docs/reference/protovalidate/cel_extensions/"
+  - - link
+    - rel: "prev"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/uint64_rules/"
+  - - link
+    - rel: "next"
+      href: "https://bufbuild.ru/docs/best-practices/style-guide/"
   - - meta
     - property: "og:title"
       content: "CEL extensions - Buf Docs"
   - - meta
+    - property: "og:image"
+      content: "https://buf.build/docs/assets/images/social/reference/protovalidate/cel_extensions.png"
+  - - meta
     - property: "og:url"
       content: "https://bufbuild.ru/docs/reference/protovalidate/cel_extensions/"
   - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "og:image:type"
+      content: "image/png"
+  - - meta
+    - property: "og:image:width"
+      content: "1200"
+  - - meta
+    - property: "og:image:height"
+      content: "630"
+  - - meta
     - property: "twitter:title"
       content: "CEL extensions - Buf Docs"
+  - - meta
+    - property: "twitter:image"
+      content: "https://buf.build/docs/assets/images/social/reference/protovalidate/cel_extensions.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
 
 ---
 

@@ -5,6 +5,9 @@ title: "Connect for Node.js is now available"
 description: "Connect is now full-stack TypeScript"
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/connect-node-beta"
   - - meta
     - property: "og:title"
       content: "Connect for Node.js is now available"

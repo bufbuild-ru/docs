@@ -5,6 +5,9 @@ title: "Buf generated SDKs now support Java - introducing the Buf Maven reposito
 description: "Launching the Buf Maven repository, supporting Java and Kotlin plugins (including connect-kotlin!)"
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/maven-repository"
   - - meta
     - property: "og:title"
       content: "Buf generated SDKs now support Java - introducing the Buf Maven repository"

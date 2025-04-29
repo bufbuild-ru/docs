@@ -5,6 +5,9 @@ title: "Introducing Cacheable RPCs in Connect"
 description: "We’ve expanded the Connect protocol to support the use of HTTP GET requests, enabling web browsers and CDNs to cache Connect requests with ease."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/introducing-connect-cacheable-rpcs"
   - - meta
     - property: "og:title"
       content: "Introducing Cacheable RPCs in Connect"

@@ -5,6 +5,9 @@ title: "Introducing custom lint and breaking change plugins for Buf"
 description: "Buf is introducing custom lint and breaking change plugins via the Bufplugin framework. Check it out to see how easy it is to author, test, and consume your own lint and breaking change rules."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/buf-custom-lint-breaking-change-plugins"
   - - meta
     - property: "og:title"
       content: "Introducing custom lint and breaking change plugins for Buf"

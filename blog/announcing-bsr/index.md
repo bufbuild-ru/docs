@@ -5,15 +5,15 @@ title: "Introducing the Buf Schema Registry 🎉"
 description: "The Buf Schema Registry: a platform for managing your Protocol Buffer APIs."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/announcing-bsr"
   - - meta
     - property: "og:title"
       content: "Introducing the Buf Schema Registry 🎉"
   - - meta
     - property: "og:description"
       content: "The Buf Schema Registry: a platform for managing your Protocol Buffer APIs."
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "The Buf Schema Registry: a platform for managing your Protocol Buffer APIs."
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

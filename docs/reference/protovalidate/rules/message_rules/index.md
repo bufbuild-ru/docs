@@ -1,20 +1,45 @@
 ---
 
-title: "Message - Buf Docs"
-
 head:
   - - link
     - rel: "canonical"
       href: "https://bufbuild.ru/docs/reference/protovalidate/rules/message_rules/"
+  - - link
+    - rel: "prev"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/map_rules/"
+  - - link
+    - rel: "next"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/oneof_rules/"
   - - meta
     - property: "og:title"
       content: "Message - Buf Docs"
   - - meta
+    - property: "og:image"
+      content: "https://buf.build/docs/assets/images/social/reference/protovalidate/rules/message_rules.png"
+  - - meta
     - property: "og:url"
       content: "https://bufbuild.ru/docs/reference/protovalidate/rules/message_rules/"
   - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "og:image:type"
+      content: "image/png"
+  - - meta
+    - property: "og:image:width"
+      content: "1200"
+  - - meta
+    - property: "og:image:height"
+      content: "630"
+  - - meta
     - property: "twitter:title"
       content: "Message - Buf Docs"
+  - - meta
+    - property: "twitter:image"
+      content: "https://buf.build/docs/assets/images/social/reference/protovalidate/rules/message_rules.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
 
 ---
 

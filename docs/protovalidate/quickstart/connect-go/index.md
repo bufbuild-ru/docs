@@ -1,20 +1,45 @@
 ---
 
-title: "Connect and Go - Buf Docs"
-
 head:
   - - link
     - rel: "canonical"
       href: "https://bufbuild.ru/docs/protovalidate/quickstart/connect-go/"
+  - - link
+    - rel: "prev"
+      href: "https://bufbuild.ru/docs/protovalidate/schemas/predefined-rules/"
+  - - link
+    - rel: "next"
+      href: "https://bufbuild.ru/docs/protovalidate/quickstart/grpc-go/"
   - - meta
     - property: "og:title"
       content: "Connect and Go - Buf Docs"
   - - meta
+    - property: "og:image"
+      content: "https://buf.build/docs/assets/images/social/protovalidate/quickstart/connect-go.png"
+  - - meta
     - property: "og:url"
       content: "https://bufbuild.ru/docs/protovalidate/quickstart/connect-go/"
   - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "og:image:type"
+      content: "image/png"
+  - - meta
+    - property: "og:image:width"
+      content: "1200"
+  - - meta
+    - property: "og:image:height"
+      content: "630"
+  - - meta
     - property: "twitter:title"
       content: "Connect and Go - Buf Docs"
+  - - meta
+    - property: "twitter:image"
+      content: "https://buf.build/docs/assets/images/social/protovalidate/quickstart/connect-go.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
 
 ---
 

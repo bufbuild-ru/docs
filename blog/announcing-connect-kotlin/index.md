@@ -5,6 +5,9 @@ title: "Announcing Connect-Kotlin: Connect is now fully supported on mobile!"
 description: "Connect is now available across mobile for both Android and iOS!"
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/announcing-connect-kotlin"
   - - meta
     - property: "og:title"
       content: "Announcing Connect-Kotlin: Connect is now fully supported on mobile!"

@@ -1,20 +1,45 @@
 ---
 
-title: "buf.work.yaml - Buf Docs"
-
 head:
   - - link
     - rel: "canonical"
       href: "https://bufbuild.ru/docs/configuration/v1/buf-work-yaml/"
+  - - link
+    - rel: "prev"
+      href: "https://bufbuild.ru/docs/configuration/v1/buf-lock/"
+  - - link
+    - rel: "next"
+      href: "https://bufbuild.ru/docs/reference/workspaces/"
   - - meta
     - property: "og:title"
       content: "buf.work.yaml - Buf Docs"
   - - meta
+    - property: "og:image"
+      content: "https://buf.build/docs/assets/images/social/configuration/v1/buf-work-yaml.png"
+  - - meta
     - property: "og:url"
       content: "https://bufbuild.ru/docs/configuration/v1/buf-work-yaml/"
   - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "og:image:type"
+      content: "image/png"
+  - - meta
+    - property: "og:image:width"
+      content: "1200"
+  - - meta
+    - property: "og:image:height"
+      content: "630"
+  - - meta
     - property: "twitter:title"
       content: "buf.work.yaml - Buf Docs"
+  - - meta
+    - property: "twitter:image"
+      content: "https://buf.build/docs/assets/images/social/configuration/v1/buf-work-yaml.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
 
 ---
 

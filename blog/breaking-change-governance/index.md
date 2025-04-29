@@ -5,6 +5,9 @@ title: "Governance & breaking change policy enforcement for enterprises"
 description: "The BSR can now enforce breaking change prevention policies across all modules."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/breaking-change-governance"
   - - meta
     - property: "og:title"
       content: "Governance & breaking change policy enforcement for enterprises"

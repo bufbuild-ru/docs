@@ -5,6 +5,9 @@ title: "Protobuf Editions are here: don’t panic"
 description: "Most Protobuf users should ignore Editions and continue using proto3. If you become an early adopter, we’ve been working closely with Google to ensure that Buf will support editions as soon as they’re generally available."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/protobuf-editions-are-here"
   - - meta
     - property: "og:title"
       content: "Protobuf Editions are here: don’t panic"

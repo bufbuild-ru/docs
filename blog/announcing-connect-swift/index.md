@@ -5,6 +5,9 @@ title: "Announcing Connect-Swift: You’ll actually want to use Protobuf on iOS"
 description: "Eliminate handwritten Codable models by generating idiomatic HTTP APIs with Protobuf and Connect-Swift."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/announcing-connect-swift"
   - - meta
     - property: "og:title"
       content: "Announcing Connect-Swift: You’ll actually want to use Protobuf on iOS"

@@ -5,6 +5,9 @@ title: "Generated Python SDKs are now available in the BSR"
 description: "Python engineers can now download pre-packaged generated code for their Protobuf schemas from the BSR using package management tools like pip, Poetry, and Conda."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/python-generated-sdks"
   - - meta
     - property: "og:title"
       content: "Generated Python SDKs are now available in the BSR"

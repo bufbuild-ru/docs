@@ -5,6 +5,9 @@ title: "Swift generated SDKs are now available for Xcode and SPM"
 description: "Swift engineers can now download pre-packaged generated code for their Protobuf schemas from the BSR using Xcode and Swift Package Manager."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/swift-packages"
   - - meta
     - property: "og:title"
       content: "Swift generated SDKs are now available for Xcode and SPM"

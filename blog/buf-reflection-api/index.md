@@ -5,6 +5,9 @@ title: "Introducing the Buf Reflection API & Prototransform"
 description: "A new API and Go library to unlock the power of Protobuf in your data processing."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/buf-reflection-api"
   - - meta
     - property: "og:title"
       content: "Introducing the Buf Reflection API & Prototransform"

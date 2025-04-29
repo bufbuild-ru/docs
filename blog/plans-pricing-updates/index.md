@@ -5,6 +5,9 @@ title: "The Buf Schema Registry is out of beta! Announcing new Buf Schema Regist
 description: "The Buf Schema Registry (BSR) is officially out of beta, and we're launching new pricing plans"
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/plans-pricing-updates"
   - - meta
     - property: "og:title"
       content: "The Buf Schema Registry is out of beta! Announcing new Buf Schema Registry plans and pricing updates"

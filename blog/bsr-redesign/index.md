@@ -5,15 +5,15 @@ title: "BSR redesign"
 description: "Welcome to the new BSR"
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/bsr-redesign"
   - - meta
     - property: "og:title"
       content: "BSR redesign"
   - - meta
     - property: "og:description"
       content: "Welcome to the new BSR"
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "Welcome to the new BSR"
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

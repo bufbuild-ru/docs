@@ -5,6 +5,9 @@ title: "Building a modern gRPC-powered microservice using Node.js, Typescript, a
 description: "Tutorial that covers creating a service, adding a client, testing, adding a database, and writing tests."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/grpc-microservice-with-connect"
   - - meta
     - property: "og:title"
       content: "Building a modern gRPC-powered microservice using Node.js, Typescript, and Connect"

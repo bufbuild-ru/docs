@@ -1,20 +1,45 @@
 ---
 
-title: "Overview - Buf Docs"
-
 head:
   - - link
     - rel: "canonical"
       href: "https://bufbuild.ru/docs/bsr/generated-sdks/overview/"
+  - - link
+    - rel: "prev"
+      href: "https://bufbuild.ru/docs/bsr/remote-plugins/custom-plugins/"
+  - - link
+    - rel: "next"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/tutorial/"
   - - meta
     - property: "og:title"
       content: "Overview - Buf Docs"
   - - meta
+    - property: "og:image"
+      content: "https://buf.build/docs/assets/images/social/bsr/generated-sdks/overview.png"
+  - - meta
     - property: "og:url"
       content: "https://bufbuild.ru/docs/bsr/generated-sdks/overview/"
   - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "og:image:type"
+      content: "image/png"
+  - - meta
+    - property: "og:image:width"
+      content: "1200"
+  - - meta
+    - property: "og:image:height"
+      content: "630"
+  - - meta
     - property: "twitter:title"
       content: "Overview - Buf Docs"
+  - - meta
+    - property: "twitter:image"
+      content: "https://buf.build/docs/assets/images/social/bsr/generated-sdks/overview.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
 
 ---
 

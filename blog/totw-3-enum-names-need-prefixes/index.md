@@ -5,6 +5,9 @@ title: "Tip of the week #3:  Enum names need prefixes"
 description: "Enums inherit some unfortunate behaviors from C++. Avoid this problem by using the Buf lint rules ENUM_VALUE_PREFIX and ENUM_ZERO_VALUE_SUFFIX."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/totw-3-enum-names-need-prefixes"
   - - meta
     - property: "og:title"
       content: "Tip of the week #3:  Enum names need prefixes"

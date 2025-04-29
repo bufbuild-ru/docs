@@ -5,15 +5,15 @@ title: "The Buf CLI has reached version v1.0"
 description: "A new foundational tool for the Protobuf ecosystem."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/buf-cli-v1"
   - - meta
     - property: "og:title"
       content: "The Buf CLI has reached version v1.0"
   - - meta
     - property: "og:description"
       content: "A new foundational tool for the Protobuf ecosystem."
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "A new foundational tool for the Protobuf ecosystem."
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

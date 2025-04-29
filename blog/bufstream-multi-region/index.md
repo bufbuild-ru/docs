@@ -5,6 +5,9 @@ title: "Multi-region, active-active Bufstream at 100 GiB/s"
 description: "Bufstream — Buf’s drop-in replacement for Apache Kafka® — now supports business-critical workloads with multi-region, active-active clusters on GCP."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/bufstream-multi-region"
   - - meta
     - property: "og:title"
       content: "Multi-region, active-active Bufstream at 100 GiB/s"

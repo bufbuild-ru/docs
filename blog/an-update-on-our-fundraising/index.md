@@ -5,15 +5,15 @@ title: "An update on our fundraising"
 description: "We've raised $93M across four rounds to fix Protobuf once and for all."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/an-update-on-our-fundraising"
   - - meta
     - property: "og:title"
       content: "An update on our fundraising"
   - - meta
     - property: "og:description"
       content: "We've raised $93M across four rounds to fix Protobuf once and for all."
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "We've raised $93M across four rounds to fix Protobuf once and for all."
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

@@ -5,6 +5,9 @@ title: "The real reason to use Protobuf is not performance"
 description: "Fast serialization and small payloads are nice, but schema-driven development is why you’ll adopt Protobuf."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/the-real-reason-to-use-protobuf"
   - - meta
     - property: "og:title"
       content: "The real reason to use Protobuf is not performance"

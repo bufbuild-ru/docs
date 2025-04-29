@@ -5,6 +5,9 @@ title: "Connect RPC for JavaScript: Connect-ES 2.0 is now generally available"
 description: "Today, we’re announcing the 2.0 release of the Connect-ES project, the TypeScript implementation of Connect for Web browsers and Node.js. This release introduces improved support for major frameworks and simplified code generation. Connect-ES 2.0 now uses Protobuf-ES 2.0 APIs to leverage reflection, extension registries, and Protobuf custom options. The 2.0 release is a major version bump and comes with breaking changes. Read on to learn what’s changed and how to migrate to the 2.0 release."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/connect-es-v2"
   - - meta
     - property: "og:title"
       content: "Connect RPC for JavaScript: Connect-ES 2.0 is now generally available"

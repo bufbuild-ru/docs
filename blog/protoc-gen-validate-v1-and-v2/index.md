@@ -5,6 +5,9 @@ title: "Announcing protoc-gen-validate v1.0 and our plans for v2.0"
 description: "A look to the future of Protobuf validation"
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/protoc-gen-validate-v1-and-v2"
   - - meta
     - property: "og:title"
       content: "Announcing protoc-gen-validate v1.0 and our plans for v2.0"

@@ -1,20 +1,45 @@
 ---
 
-title: "Manage Confluent Schema Registry instances - Buf Docs"
-
 head:
   - - link
     - rel: "canonical"
       href: "https://bufbuild.ru/docs/bsr/csr/manage-instances/"
+  - - link
+    - rel: "prev"
+      href: "https://bufbuild.ru/docs/bsr/csr/overview/"
+  - - link
+    - rel: "next"
+      href: "https://bufbuild.ru/docs/bsr/csr/manage-schemas/"
   - - meta
     - property: "og:title"
       content: "Manage Confluent Schema Registry instances - Buf Docs"
   - - meta
+    - property: "og:image"
+      content: "https://buf.build/docs/assets/images/social/bsr/csr/manage-instances.png"
+  - - meta
     - property: "og:url"
       content: "https://bufbuild.ru/docs/bsr/csr/manage-instances/"
   - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "og:image:type"
+      content: "image/png"
+  - - meta
+    - property: "og:image:width"
+      content: "1200"
+  - - meta
+    - property: "og:image:height"
+      content: "630"
+  - - meta
     - property: "twitter:title"
       content: "Manage Confluent Schema Registry instances - Buf Docs"
+  - - meta
+    - property: "twitter:image"
+      content: "https://buf.build/docs/assets/images/social/bsr/csr/manage-instances.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
 
 ---
 

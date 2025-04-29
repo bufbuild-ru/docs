@@ -5,6 +5,9 @@ title: "Connect RPC vs. Google gRPC: Conformance Deep Dive"
 description: "We’ve open sourced Connect RPC’s protocol conformance suite. Connect is a multi-protocol RPC project that includes support for the gRPC and gRPC-Web protocols. Anyone can now use it to validate the correctness of a gRPC implementation. This article explores how the test suite operates and details our findings for a selection of Connect RPC and Google’s gRPC runtimes."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/grpc-conformance-deep-dive"
   - - meta
     - property: "og:title"
       content: "Connect RPC vs. Google gRPC: Conformance Deep Dive"

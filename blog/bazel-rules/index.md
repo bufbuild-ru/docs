@@ -5,15 +5,15 @@ title: "Bazel rules"
 description: "Use buf with Bazel."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/bazel-rules"
   - - meta
     - property: "og:title"
       content: "Bazel rules"
   - - meta
     - property: "og:description"
       content: "Use buf with Bazel."
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "Use buf with Bazel."
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

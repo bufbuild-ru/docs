@@ -5,15 +5,15 @@ title: "Buf's New Compiler"
 description: "Buf has a new Protobuf compiler that is faster and more memory-efficient."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/bufs-new-compiler"
   - - meta
     - property: "og:title"
       content: "Buf's New Compiler"
   - - meta
     - property: "og:description"
       content: "Buf has a new Protobuf compiler that is faster and more memory-efficient."
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "Buf has a new Protobuf compiler that is faster and more memory-efficient."
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

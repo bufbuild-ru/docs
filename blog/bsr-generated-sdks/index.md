@@ -5,6 +5,9 @@ title: "Give clients pre-built native libraries for your APIs with zero effort"
 description: "Produce pre-built client libraries in Go, Java, JS, TS, Swift, Kotlin, and Python out of the box for all of your Protobuf APIs with Buf’s generated SDKs. You’ll never have to explain how to use protoc ever again."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/bsr-generated-sdks"
   - - meta
     - property: "og:title"
       content: "Give clients pre-built native libraries for your APIs with zero effort"

@@ -5,15 +5,15 @@ title: "Connect: A better gRPC"
 description: "Use Connect to build simple, stable, browser and gRPC-compatible APIs."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/connect-a-better-grpc"
   - - meta
     - property: "og:title"
       content: "Connect: A better gRPC"
   - - meta
     - property: "og:description"
       content: "Use Connect to build simple, stable, browser and gRPC-compatible APIs."
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "Use Connect to build simple, stable, browser and gRPC-compatible APIs."
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

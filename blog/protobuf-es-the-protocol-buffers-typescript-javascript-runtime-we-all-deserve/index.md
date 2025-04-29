@@ -5,15 +5,15 @@ title: "Protobuf-ES: The Protocol Buffers TypeScript/JavaScript runtime we all d
 description: "An idiomatic Protocol Buffers library for TypeScript and JavaScript is now available."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/protobuf-es-the-protocol-buffers-typescript-javascript-runtime-we-all-deserve"
   - - meta
     - property: "og:title"
       content: "Protobuf-ES: The Protocol Buffers TypeScript/JavaScript runtime we all deserve"
   - - meta
     - property: "og:description"
       content: "An idiomatic Protocol Buffers library for TypeScript and JavaScript is now available."
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "An idiomatic Protocol Buffers library for TypeScript and JavaScript is now available."
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

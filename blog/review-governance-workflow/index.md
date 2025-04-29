@@ -5,6 +5,9 @@ title: "Audit breaking changes with the Buf Schema Registry's governance workflo
 description: "Enterprise customers can now use the BSR to audit, approve, and reject commits that introduce breaking changes."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/review-governance-workflow"
   - - meta
     - property: "og:title"
       content: "Audit breaking changes with the Buf Schema Registry's governance workflow"

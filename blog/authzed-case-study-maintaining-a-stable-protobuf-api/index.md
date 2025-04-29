@@ -5,15 +5,15 @@ title: "Authzed Case Study: Maintaining a Stable Protocol Buffers API"
 description: "Our friends at Authzed recently adopted Buf and have given us the honor of writing about their experience."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/authzed-case-study-maintaining-a-stable-protobuf-api"
   - - meta
     - property: "og:title"
       content: "Authzed Case Study: Maintaining a Stable Protocol Buffers API"
   - - meta
     - property: "og:description"
       content: "Our friends at Authzed recently adopted Buf and have given us the honor of writing about their experience."
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "Our friends at Authzed recently adopted Buf and have given us the honor of writing about their experience."
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

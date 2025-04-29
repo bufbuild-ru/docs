@@ -5,6 +5,9 @@ title: "Protobuf-ES is the only fully-compliant Protobuf library for JavaScript"
 description: "The results are in: Protobuf-ES passes 99.95% of conformance tests"
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/protobuf-conformance"
   - - meta
     - property: "og:title"
       content: "Protobuf-ES is the only fully-compliant Protobuf library for JavaScript"

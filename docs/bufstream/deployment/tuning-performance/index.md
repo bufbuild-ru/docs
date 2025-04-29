@@ -1,20 +1,45 @@
 ---
 
-title: "Tuning and performance - Buf Docs"
-
 head:
   - - link
     - rel: "canonical"
       href: "https://bufbuild.ru/docs/bufstream/deployment/tuning-performance/"
+  - - link
+    - rel: "prev"
+      href: "https://bufbuild.ru/docs/bufstream/cost/"
+  - - link
+    - rel: "next"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/aws/deploy-etcd/"
   - - meta
     - property: "og:title"
       content: "Tuning and performance - Buf Docs"
   - - meta
+    - property: "og:image"
+      content: "https://buf.build/docs/assets/images/social/bufstream/deployment/tuning-performance.png"
+  - - meta
     - property: "og:url"
       content: "https://bufbuild.ru/docs/bufstream/deployment/tuning-performance/"
   - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "og:image:type"
+      content: "image/png"
+  - - meta
+    - property: "og:image:width"
+      content: "1200"
+  - - meta
+    - property: "og:image:height"
+      content: "630"
+  - - meta
     - property: "twitter:title"
       content: "Tuning and performance - Buf Docs"
+  - - meta
+    - property: "twitter:image"
+      content: "https://buf.build/docs/assets/images/social/bufstream/deployment/tuning-performance.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
 
 ---
 

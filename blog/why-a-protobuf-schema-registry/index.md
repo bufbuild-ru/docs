@@ -5,6 +5,9 @@ title: "Why a Protobuf schema registry?"
 description: "Learn why teams across industries and sizes have chosen the Buf Schema Registry as the home for their Protobuf schemas."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/why-a-protobuf-schema-registry"
   - - meta
     - property: "og:title"
       content: "Why a Protobuf schema registry?"

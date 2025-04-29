@@ -5,6 +5,9 @@ title: "Tip of the week #1: Field names are forever"
 description: "Don’t rename fields. Even though there are a slim number of cases you can get away with it, it’s rarely worth doing, and is a potential source of bugs."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/totw-1-field-names"
   - - meta
     - property: "og:title"
       content: "Tip of the week #1: Field names are forever"

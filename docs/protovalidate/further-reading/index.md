@@ -1,20 +1,45 @@
 ---
 
-title: "Further reading - Buf Docs"
-
 head:
   - - link
     - rel: "canonical"
       href: "https://bufbuild.ru/docs/protovalidate/further-reading/"
+  - - link
+    - rel: "prev"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc-gen-validate/"
+  - - link
+    - rel: "next"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/"
   - - meta
     - property: "og:title"
       content: "Further reading - Buf Docs"
   - - meta
+    - property: "og:image"
+      content: "https://buf.build/docs/assets/images/social/protovalidate/further-reading.png"
+  - - meta
     - property: "og:url"
       content: "https://bufbuild.ru/docs/protovalidate/further-reading/"
   - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "og:image:type"
+      content: "image/png"
+  - - meta
+    - property: "og:image:width"
+      content: "1200"
+  - - meta
+    - property: "og:image:height"
+      content: "630"
+  - - meta
     - property: "twitter:title"
       content: "Further reading - Buf Docs"
+  - - meta
+    - property: "twitter:image"
+      content: "https://buf.build/docs/assets/images/social/protovalidate/further-reading.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
 
 ---
 

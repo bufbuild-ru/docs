@@ -5,15 +5,15 @@ title: "Introducing buf format"
 description: "Rewrite Protobuf files in-place with 'buf format'."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/introducing-buf-format"
   - - meta
     - property: "og:title"
       content: "Introducing buf format"
   - - meta
     - property: "og:description"
       content: "Rewrite Protobuf files in-place with 'buf format'."
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "Rewrite Protobuf files in-place with 'buf format'."
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

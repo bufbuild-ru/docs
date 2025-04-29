@@ -5,6 +5,9 @@ title: "Generated SDKs for Rust now available on the Buf Schema Registry"
 description: "We’re excited to announce that the Buf Schema Registry now supports generated SDKs for Rust. Our Rust SDK crates are available natively to the Rust ecosystem using a custom crate registry that’s powered by our zero-dependency remote plugins platform."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/bsr-generated-sdks-for-rust"
   - - meta
     - property: "og:title"
       content: "Generated SDKs for Rust now available on the Buf Schema Registry"

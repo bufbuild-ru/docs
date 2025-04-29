@@ -6,6 +6,9 @@ title: "Blog"
 description: "Keep up with the latest at Buf."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/"
   - - meta
     - property: "og:title"
       content: "Blog"

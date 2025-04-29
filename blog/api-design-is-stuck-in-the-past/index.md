@@ -5,15 +5,15 @@ title: "API design is stuck in the past"
 description: "The industry has embraced statically typed languages, but API design remains twenty years in the past. Schema driven development presents an opportunity to pull API design into the present."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/api-design-is-stuck-in-the-past"
   - - meta
     - property: "og:title"
       content: "API design is stuck in the past"
   - - meta
     - property: "og:description"
       content: "The industry has embraced statically typed languages, but API design remains twenty years in the past. Schema driven development presents an opportunity to pull API design into the present."
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "The industry has embraced statically typed languages, but API design remains twenty years in the past. Schema driven development presents an opportunity to pull API design into the present."
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

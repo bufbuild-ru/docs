@@ -5,6 +5,9 @@ title: "The BSR now provides a SCIM service for Pro and Enterprise plans"
 description: "Admins can now configure SCIM in their BSR to manage organization enrollments based on IdP security groups."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/introducing-bsr-scim"
   - - meta
     - property: "og:title"
       content: "The BSR now provides a SCIM service for Pro and Enterprise plans"

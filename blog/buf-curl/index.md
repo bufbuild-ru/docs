@@ -5,6 +5,9 @@ title: "Introducing buf curl - Call your gRPC endpoints with the simplicity of b
 description: "A new tool to call gRPC, gRPC-Web, and Connect endpoints."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/buf-curl"
   - - meta
     - property: "og:title"
       content: "Introducing buf curl - Call your gRPC endpoints with the simplicity of buf"

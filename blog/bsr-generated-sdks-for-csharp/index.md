@@ -5,6 +5,9 @@ title: "Generated SDKs for C# are now available on the Buf Schema Registry"
 description: "We’re excited to announce that in addition to C++, Go, JavaScript/TypeScript, Java/Kotlin, Python, Swift, and Rust, the Buf Schema Registry now provides generated SDKs for C# via NuGet."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/bsr-generated-sdks-for-csharp"
   - - meta
     - property: "og:title"
       content: "Generated SDKs for C# are now available on the Buf Schema Registry"

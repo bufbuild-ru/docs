@@ -5,6 +5,9 @@ title: "OpenTelemetry for connect-go: Observability out of the box"
 description: "Add observability to your connect-go applications in just a few lines of code"
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/connect-opentelemetry-go"
   - - meta
     - property: "og:title"
       content: "OpenTelemetry for connect-go: Observability out of the box"

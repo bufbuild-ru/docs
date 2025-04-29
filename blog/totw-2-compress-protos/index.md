@@ -5,6 +5,9 @@ title: "Tip of the week #2: Compress your Protos!"
 description: "Compression is everywhere:. This pervasiveness means that wire size tradeoffs matter less than they used to twenty years ago, when Protobuf was designed."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/totw-2-compress-protos"
   - - meta
     - property: "og:title"
       content: "Tip of the week #2: Compress your Protos!"

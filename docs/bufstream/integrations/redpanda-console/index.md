@@ -1,20 +1,45 @@
 ---
 
-title: "Redpanda Console - Buf Docs"
-
 head:
   - - link
     - rel: "canonical"
       href: "https://bufbuild.ru/docs/bufstream/integrations/redpanda-console/"
+  - - link
+    - rel: "prev"
+      href: "https://bufbuild.ru/docs/bufstream/integrations/akhq/"
+  - - link
+    - rel: "next"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/"
   - - meta
     - property: "og:title"
       content: "Redpanda Console - Buf Docs"
   - - meta
+    - property: "og:image"
+      content: "https://buf.build/docs/assets/images/social/bufstream/integrations/redpanda-console.png"
+  - - meta
     - property: "og:url"
       content: "https://bufbuild.ru/docs/bufstream/integrations/redpanda-console/"
   - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "og:image:type"
+      content: "image/png"
+  - - meta
+    - property: "og:image:width"
+      content: "1200"
+  - - meta
+    - property: "og:image:height"
+      content: "630"
+  - - meta
     - property: "twitter:title"
       content: "Redpanda Console - Buf Docs"
+  - - meta
+    - property: "twitter:image"
+      content: "https://buf.build/docs/assets/images/social/bufstream/integrations/redpanda-console.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
 
 ---
 

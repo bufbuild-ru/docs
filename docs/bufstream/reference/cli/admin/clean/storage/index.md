@@ -1,20 +1,45 @@
 ---
 
-title: "bufstream admin clean storage - Buf Docs"
-
 head:
   - - link
     - rel: "canonical"
       href: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/clean/storage/"
+  - - link
+    - rel: "prev"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/clean/intake/"
+  - - link
+    - rel: "next"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/clean/topics/"
   - - meta
     - property: "og:title"
       content: "bufstream admin clean storage - Buf Docs"
   - - meta
+    - property: "og:image"
+      content: "https://buf.build/docs/assets/images/social/bufstream/reference/cli/admin/clean/storage.png"
+  - - meta
     - property: "og:url"
       content: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/clean/storage/"
   - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "og:image:type"
+      content: "image/png"
+  - - meta
+    - property: "og:image:width"
+      content: "1200"
+  - - meta
+    - property: "og:image:height"
+      content: "630"
+  - - meta
     - property: "twitter:title"
       content: "bufstream admin clean storage - Buf Docs"
+  - - meta
+    - property: "twitter:image"
+      content: "https://buf.build/docs/assets/images/social/bufstream/reference/cli/admin/clean/storage.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
 
 ---
 

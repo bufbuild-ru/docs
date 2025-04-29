@@ -1,20 +1,45 @@
 ---
 
-title: "Reference - Buf Docs"
-
 head:
   - - link
     - rel: "canonical"
       href: "https://bufbuild.ru/docs/bufstream/iceberg/reference/"
+  - - link
+    - rel: "prev"
+      href: "https://bufbuild.ru/docs/bufstream/iceberg/configuration/"
+  - - link
+    - rel: "next"
+      href: "https://bufbuild.ru/docs/bufstream/kafka-compatibility/configure-clients/"
   - - meta
     - property: "og:title"
       content: "Reference - Buf Docs"
   - - meta
+    - property: "og:image"
+      content: "https://buf.build/docs/assets/images/social/bufstream/iceberg/reference.png"
+  - - meta
     - property: "og:url"
       content: "https://bufbuild.ru/docs/bufstream/iceberg/reference/"
   - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "og:image:type"
+      content: "image/png"
+  - - meta
+    - property: "og:image:width"
+      content: "1200"
+  - - meta
+    - property: "og:image:height"
+      content: "630"
+  - - meta
     - property: "twitter:title"
       content: "Reference - Buf Docs"
+  - - meta
+    - property: "twitter:image"
+      content: "https://buf.build/docs/assets/images/social/bufstream/iceberg/reference.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
 
 ---
 

@@ -5,15 +5,15 @@ title: "BSR Generated Documentation now supports Protobuf options"
 description: "We are excited to share an update to the Generated Documentation feature within the BSR, which now includes support for most built-in Protobuf options. 🎉"
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/generated-documentation-protobuf-options"
   - - meta
     - property: "og:title"
       content: "BSR Generated Documentation now supports Protobuf options"
   - - meta
     - property: "og:description"
       content: "We are excited to share an update to the Generated Documentation feature within the BSR, which now includes support for most built-in Protobuf options. 🎉"
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "We are excited to share an update to the Generated Documentation feature within the BSR, which now includes support for most built-in Protobuf options. 🎉"
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

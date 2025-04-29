@@ -5,6 +5,9 @@ title: "Bufstream: Kafka at 8x lower cost"
 description: "We're excited to announce the public beta of Bufstream, a drop-in replacement for Apache Kafka deployed entirely in your own VPC that's 8x less expensive to operate."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/bufstream-kafka-lower-cost"
   - - meta
     - property: "og:title"
       content: "Bufstream: Kafka at 8x lower cost"

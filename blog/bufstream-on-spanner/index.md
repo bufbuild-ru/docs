@@ -5,15 +5,15 @@ title: "Bufstream on Spanner: 100 GiB/s with zero operational overhead"
 description: "At less than $1M/month for 100 GiB/s of writes and 300 GiB/s of reads, Bufstream using Spanner is 25x cheaper than Confluent Cloud, 1.5x cheaper than WarpStream, and 3x cheaper than self-hosted Apache Kafka®."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/bufstream-on-spanner"
   - - meta
     - property: "og:title"
       content: "Bufstream on Spanner: 100 GiB/s with zero operational overhead"
   - - meta
     - property: "og:description"
       content: "At less than $1M/month for 100 GiB/s of writes and 300 GiB/s of reads, Bufstream using Spanner is 25x cheaper than Confluent Cloud, 1.5x cheaper than WarpStream, and 3x cheaper than self-hosted Apache Kafka®."
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "At less than $1M/month for 100 GiB/s of writes and 300 GiB/s of reads, Bufstream using Spanner is 25x cheaper than Confluent Cloud, 1.5x cheaper than WarpStream, and 3x cheaper than self-hosted Apache Kafka®."
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

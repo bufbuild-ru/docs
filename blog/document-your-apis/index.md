@@ -5,15 +5,15 @@ title: "Document Your APIs and Increase Your Developer Productivity"
 description: "Documentation is a fantastic developer productivity tool that can be applied by all levels of software engineers during the development process."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/document-your-apis"
   - - meta
     - property: "og:title"
       content: "Document Your APIs and Increase Your Developer Productivity"
   - - meta
     - property: "og:description"
       content: "Documentation is a fantastic developer productivity tool that can be applied by all levels of software engineers during the development process."
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "Documentation is a fantastic developer productivity tool that can be applied by all levels of software engineers during the development process."
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

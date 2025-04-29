@@ -5,6 +5,9 @@ title: "Seamless Gradle integration with the Buf CLI"
 description: "The Buf CLI can now integrate seamlessly with your Gradle builds."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/seamless-gradle-integration-with-the-buf-cli"
   - - meta
     - property: "og:title"
       content: "Seamless Gradle integration with the Buf CLI"

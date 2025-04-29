@@ -5,6 +5,9 @@ title: "Introducing Connect-Query: Integrate Protobuf with TanStack Query more e
 description: "A TanStack Query extension to seamlessly integrate Protobuf"
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/introducing-connect-query"
   - - meta
     - property: "og:title"
       content: "Introducing Connect-Query: Integrate Protobuf with TanStack Query more effectively"

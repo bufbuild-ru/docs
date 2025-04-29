@@ -5,6 +5,9 @@ title: "Type & path uniqueness policy enforcement for enterprises"
 description: "The BSR can now enforce type and path uniqueness across all modules."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/type-path-uniqueness"
   - - meta
     - property: "og:title"
       content: "Type & path uniqueness policy enforcement for enterprises"

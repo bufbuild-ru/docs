@@ -5,6 +5,9 @@ title: "Introducing the newly improved BSR UI and buf push experience"
 description: "We've made it easier to onboard and use the BSR with improved support for monorepos, tighter integration with source control providers, and a new BSR UI that is more polished and has improved accessibility."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/enhanced-buf-push-bsr-ui"
   - - meta
     - property: "og:title"
       content: "Introducing the newly improved BSR UI and buf push experience"

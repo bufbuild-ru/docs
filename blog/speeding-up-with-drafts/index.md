@@ -5,6 +5,9 @@ title: "Speeding up development with BSR drafts"
 description: "To enable engineers to begin iterating quickly using generated code without the need to merge Protobuf schemas to main, we support BSR drafts."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/speeding-up-with-drafts"
   - - meta
     - property: "og:title"
       content: "Speeding up development with BSR drafts"

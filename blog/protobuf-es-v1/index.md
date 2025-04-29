@@ -5,6 +5,9 @@ title: "Protobuf-ES has reached version 1.0"
 description: "A stable, idiomatic Protocol Buffers library for TypeScript and JavaScript."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/protobuf-es-v1"
   - - meta
     - property: "og:title"
       content: "Protobuf-ES has reached version 1.0"

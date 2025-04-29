@@ -5,6 +5,9 @@ title: "The BSR now integrates with Kong Insomnia, making gRPC even easier to us
 description: "Kong Insomnia’s 9.0 release includes integrated support for the Buf Schema Registry. Organizations adopting gRPC can now provide developers first-class GUI tools while keeping schema access simple and secure."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/kong-insomnia-grpc-bsr-support"
   - - meta
     - property: "og:title"
       content: "The BSR now integrates with Kong Insomnia, making gRPC even easier to use"

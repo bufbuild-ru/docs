@@ -5,15 +5,15 @@ title: "Introducing the Buf Language Server"
 description: "Jump to definition with 'bufls'."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/introducing-the-buf-language-server"
   - - meta
     - property: "og:title"
       content: "Introducing the Buf Language Server"
   - - meta
     - property: "og:description"
       content: "Jump to definition with 'bufls'."
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "Jump to definition with 'bufls'."
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

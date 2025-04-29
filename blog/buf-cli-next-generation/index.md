@@ -5,6 +5,9 @@ title: "Introducing the next generation of the Buf CLI: still v1 and backwards-c
 description: "The Buf CLI and its associated configuration have been completely overhauled to support monorepos as first-class citizens. Everything we've changed is 100% backwards compatible."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/buf-cli-next-generation"
   - - meta
     - property: "og:title"
       content: "Introducing the next generation of the Buf CLI: still v1 and backwards-compatible"

@@ -5,15 +5,15 @@ title: "The Protobuf Language Specification"
 description: "A comprehensive definition of the language, to empower a vibrant Protobuf ecosystem."
 
 head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/blog/protobuf-language-specification"
   - - meta
     - property: "og:title"
       content: "The Protobuf Language Specification"
   - - meta
     - property: "og:description"
       content: "A comprehensive definition of the language, to empower a vibrant Protobuf ecosystem."
-  - - meta
-    - property: "og:image"
-      content: ""
   - - meta
     - property: "og:type"
       content: "website"
@@ -23,9 +23,6 @@ head:
   - - meta
     - property: "twitter:description"
       content: "A comprehensive definition of the language, to empower a vibrant Protobuf ecosystem."
-  - - meta
-    - property: "twitter:image"
-      content: ""
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"

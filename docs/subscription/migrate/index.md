@@ -1,3 +1,23 @@
+---
+
+title: "Migrate to private instance - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/subscription/migrate/"
+  - - meta
+    - property: "og:title"
+      content: "Migrate to private instance - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/subscription/migrate/"
+  - - meta
+    - property: "twitter:title"
+      content: "Migrate to private instance - Buf Docs"
+
+---
+
 # Migrate to your new registry
 
 **Buf Pro** gives organizations complete control over their development environment through a private Buf Schema Registry instance with a dedicated subdomain, providing an integrated and dependable developer experience. This reduces the amount of time spent on tedious and repetitive tasks, freeing up more time for developers to create value for their clients.Our Pro tier gives organizations a private instance of the BSR with dedicated subdomain instead of the public instance at [buf.build](https://buf.build/). When moving to your private instance, you'll need to complete a few basic tasks.

@@ -1,3 +1,23 @@
+---
+
+title: "buf export - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/export/"
+  - - meta
+    - property: "og:title"
+      content: "buf export - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/export/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf export - Buf Docs"
+
+---
+
 # buf export
 
 Export proto files from one location to another

@@ -1,3 +1,23 @@
+---
+
+title: "Manage organizations - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/manage-organizations/"
+  - - meta
+    - property: "og:title"
+      content: "Manage organizations - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/manage-organizations/"
+  - - meta
+    - property: "twitter:title"
+      content: "Manage organizations - Buf Docs"
+
+---
+
 # Manage organizations
 
 An organization allows you to collaborate with others on a shared set of Protobuf files. Once you've set up the organization, you can add other Buf users as members and assign roles to them. Depending on the role, they may have specific permissions to change the organization itself and the underlying resources. See [Manage members and roles](../manage-members/) for more information about roles and how to assign them.

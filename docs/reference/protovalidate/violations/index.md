@@ -1,3 +1,23 @@
+---
+
+title: "Violations - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/violations/"
+  - - meta
+    - property: "og:title"
+      content: "Violations - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/violations/"
+  - - meta
+    - property: "twitter:title"
+      content: "Violations - Buf Docs"
+
+---
+
 # Violations messages
 
 ## Violations Message

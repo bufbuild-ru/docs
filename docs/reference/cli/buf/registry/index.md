@@ -1,3 +1,23 @@
+---
+
+title: "Registry - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/"
+  - - meta
+    - property: "og:title"
+      content: "Registry - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/"
+  - - meta
+    - property: "twitter:title"
+      content: "Registry - Buf Docs"
+
+---
+
 # buf registry
 
 Manage assets on the Buf Schema Registry

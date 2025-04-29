@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Tip of the week #1: Field names are forever"
+description: "Don’t rename fields. Even though there are a slim number of cases you can get away with it, it’s rarely worth doing, and is a potential source of bugs."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Tip of the week #1: Field names are forever"
+  - - meta
+    - property: "og:description"
+      content: "Don’t rename fields. Even though there are a slim number of cases you can get away with it, it’s rarely worth doing, and is a potential source of bugs."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/67eeda5d61965bb4f869608a_totw1%20Field%20names.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Tip of the week #1: Field names are forever"
+  - - meta
+    - property: "twitter:description"
+      content: "Don’t rename fields. Even though there are a slim number of cases you can get away with it, it’s rarely worth doing, and is a potential source of bugs."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/67eeda5d61965bb4f869608a_totw1%20Field%20names.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Tip of the week #1: Field names are forever"
   tagline: "April 8, 2025"

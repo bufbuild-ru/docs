@@ -1,3 +1,23 @@
+---
+
+title: "buf plugin push - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/plugin/push/"
+  - - meta
+    - property: "og:title"
+      content: "buf plugin push - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/plugin/push/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf plugin push - Buf Docs"
+
+---
+
 # buf plugin push
 
 Push a check plugin to a registry

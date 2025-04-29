@@ -1,3 +1,23 @@
+---
+
+title: "Tutorial - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/build/tutorial/"
+  - - meta
+    - property: "og:title"
+      content: "Tutorial - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/build/tutorial/"
+  - - meta
+    - property: "twitter:title"
+      content: "Tutorial - Buf Docs"
+
+---
+
 # Build Buf images – Tutorial
 
 This tutorial takes you through building a Buf [image](../../reference/images/) from your Protobuf files and introspecting the contents of an image.

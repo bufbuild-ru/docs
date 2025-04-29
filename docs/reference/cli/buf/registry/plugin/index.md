@@ -1,3 +1,23 @@
+---
+
+title: "Plugin - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/plugin/"
+  - - meta
+    - property: "og:title"
+      content: "Plugin - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/plugin/"
+  - - meta
+    - property: "twitter:title"
+      content: "Plugin - Buf Docs"
+
+---
+
 # buf registry plugin
 
 Manage BSR plugins

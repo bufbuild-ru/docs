@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Generated Python SDKs are now available in the BSR"
+description: "Python engineers can now download pre-packaged generated code for their Protobuf schemas from the BSR using package management tools like pip, Poetry, and Conda."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Generated Python SDKs are now available in the BSR"
+  - - meta
+    - property: "og:description"
+      content: "Python engineers can now download pre-packaged generated code for their Protobuf schemas from the BSR using package management tools like pip, Poetry, and Conda."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc5516b6a75a26efd5590_Python%20SDKs.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Generated Python SDKs are now available in the BSR"
+  - - meta
+    - property: "twitter:description"
+      content: "Python engineers can now download pre-packaged generated code for their Protobuf schemas from the BSR using package management tools like pip, Poetry, and Conda."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc5516b6a75a26efd5590_Python%20SDKs.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Generated Python SDKs are now available in the BSR"
   tagline: "November 29, 2023"

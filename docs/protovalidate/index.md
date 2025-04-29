@@ -1,3 +1,23 @@
+---
+
+title: "Overview - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/protovalidate/"
+  - - meta
+    - property: "og:title"
+      content: "Overview - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/protovalidate/"
+  - - meta
+    - property: "twitter:title"
+      content: "Overview - Buf Docs"
+
+---
+
 # Protovalidate overview
 
 Protovalidate provides standard annotations to validate common rules on messages and fields, as well as the ability to use [CEL](https://cel.dev) to write custom rules. It's the next generation of [protoc-gen-validate](https://github.com/bufbuild/protoc-gen-validate), the only widely used validation library for Protobuf.Replacing hand-written code, [JavaScript's Yup](https://github.com/jquense/yup), [Go Validator](https://github.com/go-playground/validator), [Java Bean validation](https://beanvalidation.org/), Python's [Pydantic](https://docs.pydantic.dev/), and countless others, Protovalidate ensures consistent validation across languages and systems.

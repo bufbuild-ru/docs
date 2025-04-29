@@ -1,3 +1,23 @@
+---
+
+title: "NuGet - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/nuget/"
+  - - meta
+    - property: "og:title"
+      content: "NuGet - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/generated-sdks/nuget/"
+  - - meta
+    - property: "twitter:title"
+      content: "NuGet - Buf Docs"
+
+---
+
 # NuGet
 
 The Buf Schema Repository (BSR) provides generated SDKs for C# in the form of a NuGet repository. You can consume generated SDKs from modules and plugins using `dotnet` or IDEs like Visual Studio and Rider. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.

@@ -1,3 +1,23 @@
+---
+
+title: "Dep - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/dep/"
+  - - meta
+    - property: "og:title"
+      content: "Dep - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/dep/"
+  - - meta
+    - property: "twitter:title"
+      content: "Dep - Buf Docs"
+
+---
+
 # buf dep
 
 Work with dependencies

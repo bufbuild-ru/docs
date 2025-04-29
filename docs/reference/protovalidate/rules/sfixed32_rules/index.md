@@ -1,3 +1,23 @@
+---
+
+title: "Sfixed32 - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/sfixed32_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Sfixed32 - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/sfixed32_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Sfixed32 - Buf Docs"
+
+---
+
 # SFixed32 rules
 
 SFixed32Rules describes the constraints applied to `fixed32` values.

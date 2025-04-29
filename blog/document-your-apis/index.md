@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Document Your APIs and Increase Your Developer Productivity"
+description: "Documentation is a fantastic developer productivity tool that can be applied by all levels of software engineers during the development process."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Document Your APIs and Increase Your Developer Productivity"
+  - - meta
+    - property: "og:description"
+      content: "Documentation is a fantastic developer productivity tool that can be applied by all levels of software engineers during the development process."
+  - - meta
+    - property: "og:image"
+      content: ""
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Document Your APIs and Increase Your Developer Productivity"
+  - - meta
+    - property: "twitter:description"
+      content: "Documentation is a fantastic developer productivity tool that can be applied by all levels of software engineers during the development process."
+  - - meta
+    - property: "twitter:image"
+      content: ""
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Document Your APIs and Increase Your Developer Productivity"
   tagline: "August 19, 2021"

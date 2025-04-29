@@ -1,3 +1,23 @@
+---
+
+title: "buf registry module commit info - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/module/commit/info/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry module commit info - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/module/commit/info/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry module commit info - Buf Docs"
+
+---
+
 # buf registry module commit info
 
 Get commit information

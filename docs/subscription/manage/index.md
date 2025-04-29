@@ -1,3 +1,23 @@
+---
+
+title: "Manage subscription - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/subscription/manage/"
+  - - meta
+    - property: "og:title"
+      content: "Manage subscription - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/subscription/manage/"
+  - - meta
+    - property: "twitter:title"
+      content: "Manage subscription - Buf Docs"
+
+---
+
 # Manage your subscription
 
 This page contains information on how to purchase a Buf paid subscription, upgrade an existing subscription, and update your billing information.You can upgrade from Buf Community to a Teams or Pro plan. When you upgrade to a paid subscription, you can immediately use all the features and entitlements offered in your new subscription. For detailed information on features available in each subscription, see [Buf Pricing](https://buf.build/pricing).

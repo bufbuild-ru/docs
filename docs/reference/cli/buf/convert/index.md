@@ -1,3 +1,23 @@
+---
+
+title: "buf convert - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/convert/"
+  - - meta
+    - property: "og:title"
+      content: "buf convert - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/convert/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf convert - Buf Docs"
+
+---
+
 # buf convert
 
 Convert a message between binary, text, or JSON

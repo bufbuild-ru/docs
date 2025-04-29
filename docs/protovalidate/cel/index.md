@@ -1,3 +1,23 @@
+---
+
+title: "Advanced CEL topics - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/protovalidate/cel/"
+  - - meta
+    - property: "og:title"
+      content: "Advanced CEL topics - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/protovalidate/cel/"
+  - - meta
+    - property: "twitter:title"
+      content: "Advanced CEL topics - Buf Docs"
+
+---
+
 # Advanced CEL topics
 
 Understanding how a tool works can be just as important as understanding how to use it. In this page, you'll learn more about [Common Expression Language (CEL)](https://cel.dev), an open source technology at the core of Protovalidate. It explores what CEL and its "expressions" are, who uses CEL, and how Protovalidate uses CEL.When you're finished, you should have a better understanding of CEL, be able to explain how Protovalidate works, and maybe even have ideas about using CEL in other projects.

@@ -1,3 +1,23 @@
+---
+
+title: "Plugin - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/beta/registry/plugin/"
+  - - meta
+    - property: "og:title"
+      content: "Plugin - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/beta/registry/plugin/"
+  - - meta
+    - property: "twitter:title"
+      content: "Plugin - Buf Docs"
+
+---
+
 # buf beta registry plugin
 
 Manage plugins on the Buf Schema Registry

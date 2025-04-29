@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Protobuf Editions are here: don’t panic"
+description: "Most Protobuf users should ignore Editions and continue using proto3. If you become an early adopter, we’ve been working closely with Google to ensure that Buf will support editions as soon as they’re generally available."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Protobuf Editions are here: don’t panic"
+  - - meta
+    - property: "og:description"
+      content: "Most Protobuf users should ignore Editions and continue using proto3. If you become an early adopter, we’ve been working closely with Google to ensure that Buf will support editions as soon as they’re generally available."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc5192ea8a7e01f88e583_Protobuf%20editions.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Protobuf Editions are here: don’t panic"
+  - - meta
+    - property: "twitter:description"
+      content: "Most Protobuf users should ignore Editions and continue using proto3. If you become an early adopter, we’ve been working closely with Google to ensure that Buf will support editions as soon as they’re generally available."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc5192ea8a7e01f88e583_Protobuf%20editions.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Protobuf Editions are here: don’t panic"
   tagline: "May 9, 2024"

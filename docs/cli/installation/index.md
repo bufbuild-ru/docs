@@ -1,3 +1,23 @@
+---
+
+title: "Installation - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/cli/installation/"
+  - - meta
+    - property: "og:title"
+      content: "Installation - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/cli/installation/"
+  - - meta
+    - property: "twitter:title"
+      content: "Installation - Buf Docs"
+
+---
+
 # Install the Buf CLI
 
 The Buf CLI is a developer tool that enables building and management of Protobuf APIs through the command line. It's easy to install, compatible with macOS, Windows, and Linux, and designed to improve the developer experience of working with Protobuf files. You can use the Buf CLI to:

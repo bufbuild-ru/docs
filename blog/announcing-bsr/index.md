@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Introducing the Buf Schema Registry 🎉"
+description: "The Buf Schema Registry: a platform for managing your Protocol Buffer APIs."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Introducing the Buf Schema Registry 🎉"
+  - - meta
+    - property: "og:description"
+      content: "The Buf Schema Registry: a platform for managing your Protocol Buffer APIs."
+  - - meta
+    - property: "og:image"
+      content: ""
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Introducing the Buf Schema Registry 🎉"
+  - - meta
+    - property: "twitter:description"
+      content: "The Buf Schema Registry: a platform for managing your Protocol Buffer APIs."
+  - - meta
+    - property: "twitter:image"
+      content: ""
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Introducing the Buf Schema Registry 🎉"
   tagline: "February 2, 2022"

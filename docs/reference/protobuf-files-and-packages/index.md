@@ -1,3 +1,23 @@
+---
+
+title: "Files and packages - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protobuf-files-and-packages/"
+  - - meta
+    - property: "og:title"
+      content: "Files and packages - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protobuf-files-and-packages/"
+  - - meta
+    - property: "twitter:title"
+      content: "Files and packages - Buf Docs"
+
+---
+
 # Files and packages
 
 ::: tip TL;DRAdhere to the following best practices to avoid issues in your generated code related to file collisions:

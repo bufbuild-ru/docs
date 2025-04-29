@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Introducing Cacheable RPCs in Connect"
+description: "We’ve expanded the Connect protocol to support the use of HTTP GET requests, enabling web browsers and CDNs to cache Connect requests with ease."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Introducing Cacheable RPCs in Connect"
+  - - meta
+    - property: "og:description"
+      content: "We’ve expanded the Connect protocol to support the use of HTTP GET requests, enabling web browsers and CDNs to cache Connect requests with ease."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc63468564195baa47e0_Cacheable%20RPCs.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Introducing Cacheable RPCs in Connect"
+  - - meta
+    - property: "twitter:description"
+      content: "We’ve expanded the Connect protocol to support the use of HTTP GET requests, enabling web browsers and CDNs to cache Connect requests with ease."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc63468564195baa47e0_Cacheable%20RPCs.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Introducing Cacheable RPCs in Connect"
   tagline: "May 3, 2023"

@@ -1,3 +1,23 @@
+---
+
+title: "buf dep update - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/dep/update/"
+  - - meta
+    - property: "og:title"
+      content: "buf dep update - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/dep/update/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf dep update - Buf Docs"
+
+---
+
 # buf dep update
 
 Update pinned module dependencies in a buf.lock

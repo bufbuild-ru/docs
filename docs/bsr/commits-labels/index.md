@@ -1,3 +1,23 @@
+---
+
+title: "Commits and labels - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/commits-labels/"
+  - - meta
+    - property: "og:title"
+      content: "Commits and labels - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/commits-labels/"
+  - - meta
+    - property: "twitter:title"
+      content: "Commits and labels - Buf Docs"
+
+---
+
 # Commits and labels
 
 Like a version control system (VCS), the Buf Schema Registry (BSR) tracks the evolution of your schemas. Every time you push a change to the BSR, you create a _commit_, which is an immutable snapshot of a Buf [module](../../cli/modules-workspaces/) at a specific point in time that's stored in its [repository](../repositories/).The BSR allows you to apply _labels_ to commits (similar to GitHub's branches and tags), which are usually used to separate feature development from production code, mark specific releases, and so on. Because the BSR is meant to be used alongside your VCS, its requirements are simpler, so we've chosen to collapse the branch and tag concepts into a single marker, the label.This page explains the similarities and differences between the BSR and branch/tag-based systems, label interactions with Buf's governance features, and archiving and unarchiving labels.See the [Modules and workspaces](../../cli/modules-workspaces/#referencing-a-module) page to learn how to reference a module by a specific commit or label.

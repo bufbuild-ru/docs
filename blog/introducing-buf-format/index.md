@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Introducing buf format"
+description: "Rewrite Protobuf files in-place with 'buf format'."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Introducing buf format"
+  - - meta
+    - property: "og:description"
+      content: "Rewrite Protobuf files in-place with 'buf format'."
+  - - meta
+    - property: "og:image"
+      content: ""
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Introducing buf format"
+  - - meta
+    - property: "twitter:description"
+      content: "Rewrite Protobuf files in-place with 'buf format'."
+  - - meta
+    - property: "twitter:image"
+      content: ""
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Introducing buf format"
   tagline: "April 4, 2022"

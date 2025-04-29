@@ -1,3 +1,23 @@
+---
+
+title: "Reviewing commits - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/review-commits/"
+  - - meta
+    - property: "og:title"
+      content: "Reviewing commits - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/review-commits/"
+  - - meta
+    - property: "twitter:title"
+      content: "Reviewing commits - Buf Docs"
+
+---
+
 # Reviewing commits
 
 This feature is only available on the Enterprise plan.

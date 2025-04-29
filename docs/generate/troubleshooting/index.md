@@ -1,3 +1,23 @@
+---
+
+title: "Troubleshooting code generation - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/generate/troubleshooting/"
+  - - meta
+    - property: "og:title"
+      content: "Troubleshooting code generation - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/generate/troubleshooting/"
+  - - meta
+    - property: "twitter:title"
+      content: "Troubleshooting code generation - Buf Docs"
+
+---
+
 # Troubleshooting code generation
 
 ## How to check if generated code is up-to-date

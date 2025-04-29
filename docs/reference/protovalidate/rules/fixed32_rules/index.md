@@ -1,3 +1,23 @@
+---
+
+title: "Fixed32 - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/fixed32_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Fixed32 - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/fixed32_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Fixed32 - Buf Docs"
+
+---
+
 # Fixed32 rules
 
 Fixed32Rules describes the constraints applied to `fixed32` values.

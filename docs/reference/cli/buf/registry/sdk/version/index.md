@@ -1,3 +1,23 @@
+---
+
+title: "buf registry sdk version - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/sdk/version/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry sdk version - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/sdk/version/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry sdk version - Buf Docs"
+
+---
+
 # buf registry sdk version
 
 Resolve module and plugin reference to a specific Generated SDK version

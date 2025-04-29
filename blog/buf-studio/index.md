@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Buf Studio: Interact with gRPC and Protobuf APIs directly from your browser"
+description: "Buf studio is an interactive web UI that lets you easily call your gRPC and Protobuf services from a browser."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Buf Studio: Interact with gRPC and Protobuf APIs directly from your browser"
+  - - meta
+    - property: "og:description"
+      content: "Buf studio is an interactive web UI that lets you easily call your gRPC and Protobuf services from a browser."
+  - - meta
+    - property: "og:image"
+      content: ""
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Buf Studio: Interact with gRPC and Protobuf APIs directly from your browser"
+  - - meta
+    - property: "twitter:description"
+      content: "Buf studio is an interactive web UI that lets you easily call your gRPC and Protobuf services from a browser."
+  - - meta
+    - property: "twitter:image"
+      content: ""
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Buf Studio: Interact with gRPC and Protobuf APIs directly from your browser"
   tagline: "July 28, 2022"

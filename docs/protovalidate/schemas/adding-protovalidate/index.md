@@ -1,3 +1,23 @@
+---
+
+title: "Adding Protovalidate - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/protovalidate/schemas/adding-protovalidate/"
+  - - meta
+    - property: "og:title"
+      content: "Adding Protovalidate - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/protovalidate/schemas/adding-protovalidate/"
+  - - meta
+    - property: "twitter:title"
+      content: "Adding Protovalidate - Buf Docs"
+
+---
+
 # Adding Protovalidate to Protobuf projects
 
 This page describes how to add Protovalidate as a dependency and then compile Protovalidate-enabled files with the [Buf CLI](../../../cli/) or [protoc](https://grpc.io/docs/protoc-installation/).

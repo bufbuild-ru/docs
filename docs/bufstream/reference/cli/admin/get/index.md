@@ -1,3 +1,23 @@
+---
+
+title: "bufstream admin get - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/get/"
+  - - meta
+    - property: "og:title"
+      content: "bufstream admin get - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/get/"
+  - - meta
+    - property: "twitter:title"
+      content: "bufstream admin get - Buf Docs"
+
+---
+
 # bufstream admin get
 
 gets the current configuration

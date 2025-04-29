@@ -2,6 +2,35 @@
 
 layout: home
 
+title: "Blog"
+description: "Keep up with the latest at Buf."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Blog"
+  - - meta
+    - property: "og:description"
+      content: "Keep up with the latest at Buf."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/67202403476bad65d88793e7/674f7b1337c8dac79f6fc9e2_Blog.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Blog"
+  - - meta
+    - property: "twitter:description"
+      content: "Keep up with the latest at Buf."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/67202403476bad65d88793e7/674f7b1337c8dac79f6fc9e2_Blog.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Blog"
 ---

@@ -1,3 +1,23 @@
+---
+
+title: "Overview - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/"
+  - - meta
+    - property: "og:title"
+      content: "Overview - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/"
+  - - meta
+    - property: "twitter:title"
+      content: "Overview - Buf Docs"
+
+---
+
 # Bufstream
 
 Bufstream is the Kafka-compatible message queue built for the data lakehouse era. It's a drop-in replacement for Apache Kafka®, but instead of requiring expensive machines with large attached disks, Bufstream builds on top of off-the-shelf technologies such as S3 and Postgres to provide a Kafka implementation that is built for 2025.

@@ -1,3 +1,23 @@
+---
+
+title: "Commit - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/module/commit/"
+  - - meta
+    - property: "og:title"
+      content: "Commit - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/module/commit/"
+  - - meta
+    - property: "twitter:title"
+      content: "Commit - Buf Docs"
+
+---
+
 # buf registry module commit
 
 Manage a module's commits

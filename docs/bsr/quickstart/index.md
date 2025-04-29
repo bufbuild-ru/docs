@@ -1,3 +1,23 @@
+---
+
+title: "Quickstart - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/quickstart/"
+  - - meta
+    - property: "og:title"
+      content: "Quickstart - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/quickstart/"
+  - - meta
+    - property: "twitter:title"
+      content: "Quickstart - Buf Docs"
+
+---
+
 # Buf Schema Registry quickstart
 
 The Buf Schema Registry (BSR) is the missing package manager for Protobuf, allowing you to manage schemas, dependencies, and governance at scale. In this quickstart, you'll learn to:

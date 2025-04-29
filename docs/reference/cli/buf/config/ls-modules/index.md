@@ -1,3 +1,23 @@
+---
+
+title: "buf config ls-modules - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/config/ls-modules/"
+  - - meta
+    - property: "og:title"
+      content: "buf config ls-modules - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/config/ls-modules/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf config ls-modules - Buf Docs"
+
+---
+
 # buf config ls-modules
 
 List configured modules

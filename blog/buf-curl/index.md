@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Introducing buf curl - Call your gRPC endpoints with the simplicity of buf"
+description: "A new tool to call gRPC, gRPC-Web, and Connect endpoints."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Introducing buf curl - Call your gRPC endpoints with the simplicity of buf"
+  - - meta
+    - property: "og:description"
+      content: "A new tool to call gRPC, gRPC-Web, and Connect endpoints."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cf6441b184ade4e4520c_Introducing%20buf%20curl.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Introducing buf curl - Call your gRPC endpoints with the simplicity of buf"
+  - - meta
+    - property: "twitter:description"
+      content: "A new tool to call gRPC, gRPC-Web, and Connect endpoints."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cf6441b184ade4e4520c_Introducing%20buf%20curl.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Introducing buf curl - Call your gRPC endpoints with the simplicity of buf"
   tagline: "January 12, 2023"

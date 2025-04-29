@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Introducing the Buf Reflection API & Prototransform"
+description: "A new API and Go library to unlock the power of Protobuf in your data processing."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Introducing the Buf Reflection API & Prototransform"
+  - - meta
+    - property: "og:description"
+      content: "A new API and Go library to unlock the power of Protobuf in your data processing."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750ce77fc941e56e3733a9e_Buf%20Reflection%20API.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Introducing the Buf Reflection API & Prototransform"
+  - - meta
+    - property: "twitter:description"
+      content: "A new API and Go library to unlock the power of Protobuf in your data processing."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750ce77fc941e56e3733a9e_Buf%20Reflection%20API.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Introducing the Buf Reflection API & Prototransform"
   tagline: "February 2, 2023"

@@ -1,3 +1,23 @@
+---
+
+title: "Setup - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/setup/"
+  - - meta
+    - property: "og:title"
+      content: "Setup - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/setup/"
+  - - meta
+    - property: "twitter:title"
+      content: "Setup - Buf Docs"
+
+---
+
 # Breaking change policy check – Setup
 
 This feature is only available on the Enterprise plan.

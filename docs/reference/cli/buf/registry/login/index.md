@@ -1,3 +1,23 @@
+---
+
+title: "buf registry login - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/login/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry login - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/login/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry login - Buf Docs"
+
+---
+
 # buf registry login
 
 Log in to the Buf Schema Registry

@@ -1,3 +1,23 @@
+---
+
+title: "bufstream admin clean topics - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/clean/topics/"
+  - - meta
+    - property: "og:title"
+      content: "bufstream admin clean topics - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/clean/topics/"
+  - - meta
+    - property: "twitter:title"
+      content: "bufstream admin clean topics - Buf Docs"
+
+---
+
 # bufstream admin clean topics
 
 cleans topics/partitions

@@ -1,3 +1,23 @@
+---
+
+title: "buf breaking - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/breaking/"
+  - - meta
+    - property: "og:title"
+      content: "buf breaking - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/breaking/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf breaking - Buf Docs"
+
+---
+
 # buf breaking
 
 Verify no breaking changes have been made

@@ -1,3 +1,23 @@
+---
+
+title: "Deploy with Postgres - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/aws/deploy-postgres/"
+  - - meta
+    - property: "og:title"
+      content: "Deploy with Postgres - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/deployment/aws/deploy-postgres/"
+  - - meta
+    - property: "twitter:title"
+      content: "Deploy with Postgres - Buf Docs"
+
+---
+
 # Deploy Bufstream to AWS with RDS for PostgreSQL
 
 This page walks you through installing Bufstream into your AWS deployment, using PostgreSQL for metadata storage. See the [AWS configuration](../configure/) page for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.

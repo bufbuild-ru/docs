@@ -1,3 +1,23 @@
+---
+
+title: "AKHQ - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/integrations/akhq/"
+  - - meta
+    - property: "og:title"
+      content: "AKHQ - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/integrations/akhq/"
+  - - meta
+    - property: "twitter:title"
+      content: "AKHQ - Buf Docs"
+
+---
+
 # AKHQ
 
 [AKHQ](https://akhq.io/) is an open source web application that helps you manage, inspect, and debug Kafka-compatible workloads.

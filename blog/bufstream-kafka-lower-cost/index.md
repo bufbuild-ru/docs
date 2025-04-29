@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Bufstream: Kafka at 8x lower cost"
+description: "We're excited to announce the public beta of Bufstream, a drop-in replacement for Apache Kafka deployed entirely in your own VPC that's 8x less expensive to operate."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Bufstream: Kafka at 8x lower cost"
+  - - meta
+    - property: "og:description"
+      content: "We're excited to announce the public beta of Bufstream, a drop-in replacement for Apache Kafka deployed entirely in your own VPC that's 8x less expensive to operate."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fa986d37305da4f71b8e0_Bufstream-kafka%20lower%20cost.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Bufstream: Kafka at 8x lower cost"
+  - - meta
+    - property: "twitter:description"
+      content: "We're excited to announce the public beta of Bufstream, a drop-in replacement for Apache Kafka deployed entirely in your own VPC that's 8x less expensive to operate."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fa986d37305da4f71b8e0_Bufstream-kafka%20lower%20cost.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Bufstream: Kafka at 8x lower cost"
   tagline: "July 9, 2024"

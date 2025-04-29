@@ -1,3 +1,23 @@
+---
+
+title: "Int64 - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/int64_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Int64 - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/int64_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Int64 - Buf Docs"
+
+---
+
 # Int64 rules
 
 Int64Rules describes the constraints applied to `int64` values. These rules may also be applied to the `google.protobuf.Int64Value` Well-Known-Type.

@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Building a modern gRPC-powered microservice using Node.js, Typescript, and Connect"
+description: "Tutorial that covers creating a service, adding a client, testing, adding a database, and writing tests."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Building a modern gRPC-powered microservice using Node.js, Typescript, and Connect"
+  - - meta
+    - property: "og:description"
+      content: "Tutorial that covers creating a service, adding a client, testing, adding a database, and writing tests."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc75e3f9c080ac94d16c_Building%20a%20modern%20gRPC-powered.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Building a modern gRPC-powered microservice using Node.js, Typescript, and Connect"
+  - - meta
+    - property: "twitter:description"
+      content: "Tutorial that covers creating a service, adding a client, testing, adding a database, and writing tests."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc75e3f9c080ac94d16c_Building%20a%20modern%20gRPC-powered.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Building a modern gRPC-powered microservice using Node.js, Typescript, and Connect"
   tagline: "April 27, 2023"

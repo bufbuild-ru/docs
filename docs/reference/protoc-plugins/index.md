@@ -1,3 +1,23 @@
+---
+
+title: "protoc plugins - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protoc-plugins/"
+  - - meta
+    - property: "og:title"
+      content: "protoc plugins - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protoc-plugins/"
+  - - meta
+    - property: "twitter:title"
+      content: "protoc plugins - Buf Docs"
+
+---
+
 # `protoc` plugins
 
 Buf ships with two binaries that you can use as [`protoc`](https://protobuf.dev/) plugins:

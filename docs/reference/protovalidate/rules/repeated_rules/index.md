@@ -1,3 +1,23 @@
+---
+
+title: "Repeated - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/repeated_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Repeated - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/repeated_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Repeated - Buf Docs"
+
+---
+
 # Repeated rules
 
 RepeatedRules describe the constraints applied to `repeated` values.

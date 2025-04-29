@@ -1,3 +1,23 @@
+---
+
+title: "Client - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/client/"
+  - - meta
+    - property: "og:title"
+      content: "Client - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/cli/client/"
+  - - meta
+    - property: "twitter:title"
+      content: "Client - Buf Docs"
+
+---
+
 # bufstream client
 
 client commands

@@ -1,3 +1,23 @@
+---
+
+title: "Explore your APIs in Buf Studio - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/studio/"
+  - - meta
+    - property: "og:title"
+      content: "Explore your APIs in Buf Studio - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/studio/"
+  - - meta
+    - property: "twitter:title"
+      content: "Explore your APIs in Buf Studio - Buf Docs"
+
+---
+
 # Explore your APIs in Buf Studio
 
 [Buf Studio](https://buf.build/studio) is an interactive web UI for all your gRPC and Protobuf services stored on the Buf Schema Registry. With Buf Studio you can:

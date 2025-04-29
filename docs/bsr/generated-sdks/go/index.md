@@ -1,3 +1,23 @@
+---
+
+title: "Go packages - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/go/"
+  - - meta
+    - property: "og:title"
+      content: "Go packages - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/generated-sdks/go/"
+  - - meta
+    - property: "twitter:title"
+      content: "Go packages - Buf Docs"
+
+---
+
 # Go packages
 
 The Buf Schema Registry provides generated SDKs for Go from modules and plugins using `go get`, just like any other Go library. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.See the [tutorial](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.The BSR Go module proxy implements the [GOPROXY protocol](https://golang.org/ref/mod#goproxy-protocol) for [Buf modules](../../../cli/modules-workspaces/) by generating SDKs on the fly—Go code stubs aren't generated until you request them using `go get`. Once generated, they're cached, and the cached SDKs are returned from subsequent requests.

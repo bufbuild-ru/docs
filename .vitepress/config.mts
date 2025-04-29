@@ -4,6 +4,7 @@ import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'Buf',
+  titleTemplate: ':title',
 
   description: 'The best way of working with Protocol Buffers.',
 

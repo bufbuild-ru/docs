@@ -1,3 +1,23 @@
+---
+
+title: "Predefined rules - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/protovalidate/schemas/predefined-rules/"
+  - - meta
+    - property: "og:title"
+      content: "Predefined rules - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/protovalidate/schemas/predefined-rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Predefined rules - Buf Docs"
+
+---
+
 # Predefined rules
 
 When your Protovalidate projects grow, you might find that the same custom rules or groups of standard rules start to be repeated. Just like you'd refactor repeated code into a function, predefined rules allow you to write these patterns once and reuse them across your project.

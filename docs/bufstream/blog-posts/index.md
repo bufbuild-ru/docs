@@ -1,3 +1,23 @@
+---
+
+title: "Blog Posts - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/blog-posts/"
+  - - meta
+    - property: "og:title"
+      content: "Blog Posts - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/blog-posts/"
+  - - meta
+    - property: "twitter:title"
+      content: "Blog Posts - Buf Docs"
+
+---
+
 # Blog Posts
 
 ---

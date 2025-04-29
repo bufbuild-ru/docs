@@ -1,3 +1,23 @@
+---
+
+title: "buf beta studio-agent - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/beta/studio-agent/"
+  - - meta
+    - property: "og:title"
+      content: "buf beta studio-agent - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/beta/studio-agent/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf beta studio-agent - Buf Docs"
+
+---
+
 # buf beta studio-agent
 
 Run an HTTP(S) server as the Studio agent

@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Audit breaking changes with the Buf Schema Registry's governance workflow"
+description: "Enterprise customers can now use the BSR to audit, approve, and reject commits that introduce breaking changes."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Audit breaking changes with the Buf Schema Registry's governance workflow"
+  - - meta
+    - property: "og:description"
+      content: "Enterprise customers can now use the BSR to audit, approve, and reject commits that introduce breaking changes."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc02fc941e56e37122ec_Audit%20breaking%20changes.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Audit breaking changes with the Buf Schema Registry's governance workflow"
+  - - meta
+    - property: "twitter:description"
+      content: "Enterprise customers can now use the BSR to audit, approve, and reject commits that introduce breaking changes."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc02fc941e56e37122ec_Audit%20breaking%20changes.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Audit breaking changes with the Buf Schema Registry's governance workflow"
   tagline: "November 6, 2023"

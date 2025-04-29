@@ -1,3 +1,23 @@
+---
+
+title: "buf registry whoami - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/whoami/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry whoami - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/whoami/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry whoami - Buf Docs"
+
+---
+
 # buf registry whoami
 
 Check if you are logged in to the Buf Schema Registry

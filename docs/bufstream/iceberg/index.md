@@ -1,3 +1,23 @@
+---
+
+title: "Overview - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/iceberg/"
+  - - meta
+    - property: "og:title"
+      content: "Overview - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/iceberg/"
+  - - meta
+    - property: "twitter:title"
+      content: "Overview - Buf Docs"
+
+---
+
 # Bufstream Apache Iceberg integration
 
 Bufstream streams data directly to Apache Iceberg™ from any topic, eliminating the need for an additional, expensive ETL pipeline and transforming data to as it passes through the broker. Once data is transformed and at rest in object storage, Bufstream layers Iceberg metadata on top of the Parquet. Transformed data is queryable and discoverable by tools like Apache Spark, Amazon Athena, Dremio, Trino, and Starburst without having to copy data into a separate lakehouse table and duplicate storage. Bufstream can also optionally update your existing Iceberg catalog and exposes configuration options to do so, reducing the time it takes to gain insight from your data.Bufstream supports updates to the following catalogs today:

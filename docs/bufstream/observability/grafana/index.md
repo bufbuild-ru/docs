@@ -1,3 +1,23 @@
+---
+
+title: "Grafana - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/observability/grafana/"
+  - - meta
+    - property: "og:title"
+      content: "Grafana - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/observability/grafana/"
+  - - meta
+    - property: "twitter:title"
+      content: "Grafana - Buf Docs"
+
+---
+
 # Grafana
 
 ## Downloads

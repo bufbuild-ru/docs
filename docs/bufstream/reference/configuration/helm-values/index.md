@@ -1,3 +1,23 @@
+---
+
+title: "Helm chart - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/configuration/helm-values/"
+  - - meta
+    - property: "og:title"
+      content: "Helm chart - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/configuration/helm-values/"
+  - - meta
+    - property: "twitter:title"
+      content: "Helm chart - Buf Docs"
+
+---
+
 # Bufstream Helm values
 
 The Bufstream Helm chart is used to deploy Bufstream on Kubernetes. The Bufstream Helm `values.yaml` file defines the configuration for the Bufstream Kubernetes cluster. The configuration parameters and defaults documented below are the common and recommended settings for deploying a Bufstream cluster.

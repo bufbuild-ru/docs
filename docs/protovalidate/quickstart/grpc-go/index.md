@@ -1,3 +1,23 @@
+---
+
+title: "gRPC and Go - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/protovalidate/quickstart/grpc-go/"
+  - - meta
+    - property: "og:title"
+      content: "gRPC and Go - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/protovalidate/quickstart/grpc-go/"
+  - - meta
+    - property: "twitter:title"
+      content: "gRPC and Go - Buf Docs"
+
+---
+
 # Protovalidate in gRPC and Go
 
 This tutorial shows how to add Protovalidate to a Go RPC powered by [gRPC](https://grpc.io/docs/languages/go/quickstart/):

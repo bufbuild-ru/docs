@@ -1,3 +1,23 @@
+---
+
+title: "buf registry organization update - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/organization/update/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry organization update - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/organization/update/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry organization update - Buf Docs"
+
+---
+
 # buf registry organization update
 
 Update a BSR organization

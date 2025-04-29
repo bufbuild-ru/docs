@@ -1,3 +1,23 @@
+---
+
+title: "Webhook - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/beta/registry/webhook/"
+  - - meta
+    - property: "og:title"
+      content: "Webhook - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/beta/registry/webhook/"
+  - - meta
+    - property: "twitter:title"
+      content: "Webhook - Buf Docs"
+
+---
+
 # buf beta registry webhook
 
 Manage webhooks for a repository on the Buf Schema Registry

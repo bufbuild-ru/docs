@@ -1,3 +1,23 @@
+---
+
+title: "Fixed64 - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/fixed64_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Fixed64 - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/fixed64_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Fixed64 - Buf Docs"
+
+---
+
 # Fixed64 rules
 
 Fixed64Rules describes the constraints applied to `fixed64` values.

@@ -1,3 +1,23 @@
+---
+
+title: "Uint64 - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/uint64_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Uint64 - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/uint64_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Uint64 - Buf Docs"
+
+---
+
 # UInt64 rules
 
 UInt64Rules describes the constraints applied to `uint64` values. These rules may also be applied to the `google.protobuf.UInt64Value` Well-Known-Type.

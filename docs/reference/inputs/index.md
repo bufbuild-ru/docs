@@ -1,3 +1,23 @@
+---
+
+title: "Buf CLI inputs - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/inputs/"
+  - - meta
+    - property: "og:title"
+      content: "Buf CLI inputs - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/inputs/"
+  - - meta
+    - property: "twitter:title"
+      content: "Buf CLI inputs - Buf Docs"
+
+---
+
 # Buf CLI inputs
 
 The various I/O options for the Buf CLI may seem a bit daunting—this reference aims to sort out both what these options do, and why they're necessary.In general, a Buf input is a collection of Protobuf files acted on by many of the Buf CLI commands. In most cases, the input is a [module](../../cli/modules-workspaces/), but a variety of other formats are supported and explained below.

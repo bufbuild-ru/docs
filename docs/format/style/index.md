@@ -1,3 +1,23 @@
+---
+
+title: "Overview - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/format/style/"
+  - - meta
+    - property: "og:title"
+      content: "Overview - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/format/style/"
+  - - meta
+    - property: "twitter:title"
+      content: "Overview - Buf Docs"
+
+---
+
 # Code formatting – Overview
 
 One of Buf's primary goals is to enforce consistency across all of Protobuf. The [linter](../../lint/overview/) ensures that the APIs themselves conform to a strong set of standards, but those have nothing to do with the structure of the `.proto` source file itself. That's where `buf format` comes in. It reformats your Protobuf files according to the following best practices for file layout and style, so you can focus on more business-critical problems.

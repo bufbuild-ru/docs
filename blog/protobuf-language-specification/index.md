@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "The Protobuf Language Specification"
+description: "A comprehensive definition of the language, to empower a vibrant Protobuf ecosystem."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "The Protobuf Language Specification"
+  - - meta
+    - property: "og:description"
+      content: "A comprehensive definition of the language, to empower a vibrant Protobuf ecosystem."
+  - - meta
+    - property: "og:image"
+      content: ""
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "The Protobuf Language Specification"
+  - - meta
+    - property: "twitter:description"
+      content: "A comprehensive definition of the language, to empower a vibrant Protobuf ecosystem."
+  - - meta
+    - property: "twitter:image"
+      content: ""
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "The Protobuf Language Specification"
   tagline: "September 12, 2022"

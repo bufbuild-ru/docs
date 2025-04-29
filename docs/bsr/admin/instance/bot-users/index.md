@@ -1,3 +1,23 @@
+---
+
+title: "Bot users - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/bot-users/"
+  - - meta
+    - property: "og:title"
+      content: "Bot users - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/instance/bot-users/"
+  - - meta
+    - property: "twitter:title"
+      content: "Bot users - Buf Docs"
+
+---
+
 # Bot users
 
 This feature is only available on the Pro and Enterprise plans.

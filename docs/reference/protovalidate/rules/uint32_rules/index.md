@@ -1,3 +1,23 @@
+---
+
+title: "Uint32 - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/uint32_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Uint32 - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/uint32_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Uint32 - Buf Docs"
+
+---
+
 # UInt32 rules
 
 UInt32Rules describes the constraints applied to `uint32` values. These rules may also be applied to the `google.protobuf.UInt32Value` Well-Known-Type.

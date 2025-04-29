@@ -1,3 +1,23 @@
+---
+
+title: "Rate limits - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/rate-limits/"
+  - - meta
+    - property: "og:title"
+      content: "Rate limits - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/rate-limits/"
+  - - meta
+    - property: "twitter:title"
+      content: "Rate limits - Buf Docs"
+
+---
+
 # Rate limits
 
 The BSR limits the number of API requests you can make within a specified amount of time. These limits prevent abuse and ensures that the BSR remains available for all users.

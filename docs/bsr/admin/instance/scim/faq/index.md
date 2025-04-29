@@ -1,3 +1,23 @@
+---
+
+title: "FAQ - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/scim/faq/"
+  - - meta
+    - property: "og:title"
+      content: "FAQ - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/instance/scim/faq/"
+  - - meta
+    - property: "twitter:title"
+      content: "FAQ - Buf Docs"
+
+---
+
 # FAQ
 
 This feature is only available on the Pro and Enterprise plans.

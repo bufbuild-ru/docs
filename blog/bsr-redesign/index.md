@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "BSR redesign"
+description: "Welcome to the new BSR"
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "BSR redesign"
+  - - meta
+    - property: "og:description"
+      content: "Welcome to the new BSR"
+  - - meta
+    - property: "og:image"
+      content: ""
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "BSR redesign"
+  - - meta
+    - property: "twitter:description"
+      content: "Welcome to the new BSR"
+  - - meta
+    - property: "twitter:image"
+      content: ""
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "BSR redesign"
   tagline: "August 25, 2022"

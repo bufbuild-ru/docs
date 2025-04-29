@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "The BSR now integrates with Kong Insomnia, making gRPC even easier to use"
+description: "Kong Insomnia’s 9.0 release includes integrated support for the Buf Schema Registry. Organizations adopting gRPC can now provide developers first-class GUI tools while keeping schema access simple and secure."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "The BSR now integrates with Kong Insomnia, making gRPC even easier to use"
+  - - meta
+    - property: "og:description"
+      content: "Kong Insomnia’s 9.0 release includes integrated support for the Buf Schema Registry. Organizations adopting gRPC can now provide developers first-class GUI tools while keeping schema access simple and secure."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc52840c2f53e62cc99cb_Kong%20insomnia.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "The BSR now integrates with Kong Insomnia, making gRPC even easier to use"
+  - - meta
+    - property: "twitter:description"
+      content: "Kong Insomnia’s 9.0 release includes integrated support for the Buf Schema Registry. Organizations adopting gRPC can now provide developers first-class GUI tools while keeping schema access simple and secure."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc52840c2f53e62cc99cb_Kong%20insomnia.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "The BSR now integrates with Kong Insomnia, making gRPC even easier to use"
   tagline: "May 3, 2024"

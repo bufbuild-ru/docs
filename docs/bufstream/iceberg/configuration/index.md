@@ -1,3 +1,23 @@
+---
+
+title: "Configuration - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/iceberg/configuration/"
+  - - meta
+    - property: "og:title"
+      content: "Configuration - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/iceberg/configuration/"
+  - - meta
+    - property: "twitter:title"
+      content: "Configuration - Buf Docs"
+
+---
+
 # Configuration
 
 For Bufstream to store data as Iceberg tables, you must update the top-level Bufstream configuration as well topic-level configuration to instruct Bufstream to update a corresponding Iceberg catalog. Once you have set these options, Bufstream will begin storing data as Parquet file archives for long term storage. Each archive will only contain data for a single topic partition and is then further partitioned by date, ensuring that Iceberg tables contain only committed messages.

@@ -1,3 +1,23 @@
+---
+
+title: "Deploy with etcd - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/gcp/deploy-etcd/"
+  - - meta
+    - property: "og:title"
+      content: "Deploy with etcd - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/deployment/gcp/deploy-etcd/"
+  - - meta
+    - property: "twitter:title"
+      content: "Deploy with etcd - Buf Docs"
+
+---
+
 # Deploy Bufstream to Google Cloud with etcd
 
 This page walks you through installing Bufstream into your Google Cloud Platform (GCP) deployment, using etcd for metadata storage. See the [GCP configuration](../configure/) page for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.

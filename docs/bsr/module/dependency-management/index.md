@@ -1,3 +1,23 @@
+---
+
+title: "Dependency management - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/module/dependency-management/"
+  - - meta
+    - property: "og:title"
+      content: "Dependency management - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/module/dependency-management/"
+  - - meta
+    - property: "twitter:title"
+      content: "Dependency management - Buf Docs"
+
+---
+
 # Dependency management
 
 Buf modules can depend on other modules that share a [workspace](../../../cli/modules-workspaces/), or on remote modules hosted on the Buf Schema Registry (BSR) that are explicitly configured as workspace dependencies. Remote modules can be community modules such as [`googleapis`](https://buf.build/googleapis/googleapis) or modules owned by your organization that aren't part of the workspace.

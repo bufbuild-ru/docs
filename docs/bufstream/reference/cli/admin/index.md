@@ -1,3 +1,23 @@
+---
+
+title: "Admin - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/"
+  - - meta
+    - property: "og:title"
+      content: "Admin - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/"
+  - - meta
+    - property: "twitter:title"
+      content: "Admin - Buf Docs"
+
+---
+
 # bufstream admin
 
 Perform Bufstream administrative tasks

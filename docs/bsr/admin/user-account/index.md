@@ -1,3 +1,23 @@
+---
+
+title: "Manage your user account - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/user-account/"
+  - - meta
+    - property: "og:title"
+      content: "Manage your user account - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/user-account/"
+  - - meta
+    - property: "twitter:title"
+      content: "Manage your user account - Buf Docs"
+
+---
+
 # Manage your user account
 
 A Buf account grants you access to Buf Schema Registry repositories and allows you to explore the available modules. You'll also need a Buf account to share modules on the Buf Schema Registry.If you haven't already, [sign up](https://buf.build/signup). You'll see several login options, including Google, GitHub, and traditional email and password. Next, you'll receive a verification email and need to verify your email address by clicking the link inside.After you've successfully verified, select a username and complete your registration. If successful, you'll see that you're logged in and that your username displays in the upper right-hand corner.

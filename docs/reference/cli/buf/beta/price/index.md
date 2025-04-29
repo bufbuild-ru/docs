@@ -1,3 +1,23 @@
+---
+
+title: "buf beta price - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/beta/price/"
+  - - meta
+    - property: "og:title"
+      content: "buf beta price - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/beta/price/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf beta price - Buf Docs"
+
+---
+
 # buf beta price
 
 Get the price for BSR paid plans for a given source or module

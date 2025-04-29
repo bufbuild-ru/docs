@@ -1,3 +1,23 @@
+---
+
+title: "Configure - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/gcp/configure/"
+  - - meta
+    - property: "og:title"
+      content: "Configure - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/deployment/gcp/configure/"
+  - - meta
+    - property: "twitter:title"
+      content: "Configure - Buf Docs"
+
+---
+
 # Configure Bufstream for Google Cloud
 
 This page describes Bufstream's defaults and provides specific recommendations for configuring your Bufstream cluster in Google Cloud Platform (GCP) to get the best combination of price and performance.

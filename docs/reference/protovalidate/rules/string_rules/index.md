@@ -1,3 +1,23 @@
+---
+
+title: "String - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/string_rules/"
+  - - meta
+    - property: "og:title"
+      content: "String - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/string_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "String - Buf Docs"
+
+---
+
 # String rules
 
 StringRules describes the constraints applied to `string` values These rules may also be applied to the `google.protobuf.StringValue` Well-Known-Type.

@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Introducing custom lint and breaking change plugins for Buf"
+description: "Buf is introducing custom lint and breaking change plugins via the Bufplugin framework. Check it out to see how easy it is to author, test, and consume your own lint and breaking change rules."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Introducing custom lint and breaking change plugins for Buf"
+  - - meta
+    - property: "og:description"
+      content: "Buf is introducing custom lint and breaking change plugins via the Bufplugin framework. Check it out to see how easy it is to author, test, and consume your own lint and breaking change rules."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fa928d1564442b97e2c24_Custom%20lint.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Introducing custom lint and breaking change plugins for Buf"
+  - - meta
+    - property: "twitter:description"
+      content: "Buf is introducing custom lint and breaking change plugins via the Bufplugin framework. Check it out to see how easy it is to author, test, and consume your own lint and breaking change rules."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fa928d1564442b97e2c24_Custom%20lint.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Introducing custom lint and breaking change plugins for Buf"
   tagline: "September 18, 2024"

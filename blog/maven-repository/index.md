@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Buf generated SDKs now support Java - introducing the Buf Maven repository"
+description: "Launching the Buf Maven repository, supporting Java and Kotlin plugins (including connect-kotlin!)"
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Buf generated SDKs now support Java - introducing the Buf Maven repository"
+  - - meta
+    - property: "og:description"
+      content: "Launching the Buf Maven repository, supporting Java and Kotlin plugins (including connect-kotlin!)"
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc578059dfb1166dac4f_Maven.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Buf generated SDKs now support Java - introducing the Buf Maven repository"
+  - - meta
+    - property: "twitter:description"
+      content: "Launching the Buf Maven repository, supporting Java and Kotlin plugins (including connect-kotlin!)"
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc578059dfb1166dac4f_Maven.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Buf generated SDKs now support Java - introducing the Buf Maven repository"
   tagline: "May 8, 2023"

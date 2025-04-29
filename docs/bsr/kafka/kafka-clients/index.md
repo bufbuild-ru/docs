@@ -1,3 +1,23 @@
+---
+
+title: "Integrating with Kafka clients - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/kafka/kafka-clients/"
+  - - meta
+    - property: "og:title"
+      content: "Integrating with Kafka clients - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/kafka/kafka-clients/"
+  - - meta
+    - property: "twitter:title"
+      content: "Integrating with Kafka clients - Buf Docs"
+
+---
+
 # Integrating with Kafka clients
 
 This feature is only available on the Enterprise plan.

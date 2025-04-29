@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Remote packages and remote plugins are approaching v1!"
+description: "We've learned a lot from the alpha, and are excited to introduce a new and improved code generation experience."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Remote packages and remote plugins are approaching v1!"
+  - - meta
+    - property: "og:description"
+      content: "We've learned a lot from the alpha, and are excited to introduce a new and improved code generation experience."
+  - - meta
+    - property: "og:image"
+      content: ""
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Remote packages and remote plugins are approaching v1!"
+  - - meta
+    - property: "twitter:description"
+      content: "We've learned a lot from the alpha, and are excited to introduce a new and improved code generation experience."
+  - - meta
+    - property: "twitter:image"
+      content: ""
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Remote packages and remote plugins are approaching v1!"
   tagline: "December 1, 2022"

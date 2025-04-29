@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Why a Protobuf schema registry?"
+description: "Learn why teams across industries and sizes have chosen the Buf Schema Registry as the home for their Protobuf schemas."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Why a Protobuf schema registry?"
+  - - meta
+    - property: "og:description"
+      content: "Learn why teams across industries and sizes have chosen the Buf Schema Registry as the home for their Protobuf schemas."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc56323b2bfd93482c3cd_Why%20BSR.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Why a Protobuf schema registry?"
+  - - meta
+    - property: "twitter:description"
+      content: "Learn why teams across industries and sizes have chosen the Buf Schema Registry as the home for their Protobuf schemas."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc56323b2bfd93482c3cd_Why%20BSR.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Why a Protobuf schema registry?"
   tagline: "November 20, 2023"

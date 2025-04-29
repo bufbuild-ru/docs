@@ -1,3 +1,23 @@
+---
+
+title: "Migrate from protoc-gen-validate - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc-gen-validate/"
+  - - meta
+    - property: "og:title"
+      content: "Migrate from protoc-gen-validate - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc-gen-validate/"
+  - - meta
+    - property: "twitter:title"
+      content: "Migrate from protoc-gen-validate - Buf Docs"
+
+---
+
 # Migrate from protoc-gen-validate
 
 Migrating from `protoc-gen-validate` to Protovalidate should be safe, incremental, and relatively painless. We recommend migrating to Protovalidate using the migration tool, but there may be cases where manual migration is required or preferred. Each workflow is outlined below.

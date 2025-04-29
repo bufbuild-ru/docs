@@ -1,3 +1,23 @@
+---
+
+title: "Managed modules - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/managed-modules/"
+  - - meta
+    - property: "og:title"
+      content: "Managed modules - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/instance/managed-modules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Managed modules - Buf Docs"
+
+---
+
 # Managed modules
 
 This feature is only available on the Pro and Enterprise plans.

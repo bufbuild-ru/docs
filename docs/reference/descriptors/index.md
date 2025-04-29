@@ -1,3 +1,23 @@
+---
+
+title: "Descriptors - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/descriptors/"
+  - - meta
+    - property: "og:title"
+      content: "Descriptors - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/descriptors/"
+  - - meta
+    - property: "twitter:title"
+      content: "Descriptors - Buf Docs"
+
+---
+
 # Descriptors
 
 Descriptors describe Protobuf definitions. Their representation in Protobuf is in [`google/protobuf/descriptor.proto`](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto) (included with Protobuf compilers). They're a fundamental part of the Protobuf ecosystem and the foundation of Protobuf’s plugin system, as well as all reflection-based tasks. If you want to understand how Protobuf works and use Protobuf in more advanced ways, you need to understand how descriptors work.

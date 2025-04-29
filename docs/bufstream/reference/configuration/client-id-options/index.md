@@ -1,3 +1,23 @@
+---
+
+title: "Bufstream client ID options - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/configuration/client-id-options/"
+  - - meta
+    - property: "og:title"
+      content: "Bufstream client ID options - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/configuration/client-id-options/"
+  - - meta
+    - property: "twitter:title"
+      content: "Bufstream client ID options - Buf Docs"
+
+---
+
 # Client ID options
 
 Kafka clients include an optional ID in each request that helps with logging, monitoring, and debugging. Bufstream leverages this ID to manipulate features of the cluster via options.

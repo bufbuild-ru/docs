@@ -1,3 +1,23 @@
+---
+
+title: "Using Artifactory - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/artifactory/"
+  - - meta
+    - property: "og:title"
+      content: "Using Artifactory - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/generated-sdks/artifactory/"
+  - - meta
+    - property: "twitter:title"
+      content: "Using Artifactory - Buf Docs"
+
+---
+
 # Using Artifactory
 
 This feature is only available on the Pro and Enterprise plans.

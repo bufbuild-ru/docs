@@ -1,3 +1,23 @@
+---
+
+title: "Webhooks - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/webhooks/"
+  - - meta
+    - property: "og:title"
+      content: "Webhooks - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/instance/webhooks/"
+  - - meta
+    - property: "twitter:title"
+      content: "Webhooks - Buf Docs"
+
+---
+
 # Webhooks
 
 This feature is only available on the Pro and Enterprise plans.

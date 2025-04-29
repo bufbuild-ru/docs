@@ -1,3 +1,23 @@
+---
+
+title: "Tutorial - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/breaking/tutorial/"
+  - - meta
+    - property: "og:title"
+      content: "Tutorial - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/breaking/tutorial/"
+  - - meta
+    - property: "twitter:title"
+      content: "Tutorial - Buf Docs"
+
+---
+
 # Breaking change detection – Tutorial
 
 As you evolve your Protobuf schemas, you might introduce breaking changes—either by breaking your generated code, or by breaking your ability to read existing data. Protobuf has many ways to evolve schemas without breaking existing code, but sometimes it's a better choice to make a breaking change rather than go to the extra effort of backwards compatibility. If you have few clients and can easily update and deploy them, it may be perfectly okay to break your schemas. Buf's breaking change detection reliably and mechanically identifies breaking changes so you and your team can focus on the important human decision of whether to allow them or not.This tutorial takes you through running breaking change detection locally using common use cases. Read the [overview](../overview/#key-concepts) to learn about editor integration, policy checks, and the review flow.

@@ -1,3 +1,23 @@
+---
+
+title: "Publish modules to the BSR - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/module/publish/"
+  - - meta
+    - property: "og:title"
+      content: "Publish modules to the BSR - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/module/publish/"
+  - - meta
+    - property: "twitter:title"
+      content: "Publish modules to the BSR - Buf Docs"
+
+---
+
 # Publish modules to the BSR
 
 When you want to make a module available for other developers, you push it to the Buf Schema Registry (BSR). Once the module is in the BSR, its code, documentation, and generated SDKs can be accessed by anyone with the correct permissions for your repository. This page describes how to push locally, how to archive and unarchive labels, and how pushing works in CI/CD environments.Pushing to the BSR also interacts with the BSR's [policy checks](../../policy-checks/breaking/overview/) and [Confluent Schema Registry integration](../../kafka/overview/) features. See their documentation and [Commits and labels](../../commits-labels/#governance-interaction) for more details.

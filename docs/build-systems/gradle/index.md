@@ -1,3 +1,23 @@
+---
+
+title: "Gradle - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/build-systems/gradle/"
+  - - meta
+    - property: "og:title"
+      content: "Gradle - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/build-systems/gradle/"
+  - - meta
+    - property: "twitter:title"
+      content: "Gradle - Buf Docs"
+
+---
+
 # Gradle
 
 Buf provides official support for the [Gradle](http://gradle.org/) build tool with the [Buf Gradle Plugin](https://github.com/bufbuild/buf-gradle-plugin), which enables you to:

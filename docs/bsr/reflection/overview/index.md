@@ -1,3 +1,23 @@
+---
+
+title: "Reflection API – Overview - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/reflection/overview/"
+  - - meta
+    - property: "og:title"
+      content: "Reflection API – Overview - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/reflection/overview/"
+  - - meta
+    - property: "twitter:title"
+      content: "Reflection API – Overview - Buf Docs"
+
+---
+
 # Reflection API – Overview
 
 The Protobuf binary format is compact and efficient, and it has clever features that allow for a wide variety of schema changes to be both backward- and forward-compatible.However, it isn't possible to make meaningful sense of the data without a schema. Not only is it not human-friendly, since all fields are identified by an integer instead of a semantic name, but it also uses a simple wire format which re-uses various value encoding strategies for different value types. This means it isn't even possible to usefully interpret encoded values without a schema—for example, one can't know (with certainty) if a value is a text string, a binary blob, or a nested message structure.However, there exists a category of systems and use cases where it's necessary or useful to decode the data at runtime, by a process or user agent that doesn't have prior (compile-time) knowledge of the schemas:

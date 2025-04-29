@@ -1,3 +1,23 @@
+---
+
+title: "buf registry plugin label list - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/plugin/label/list/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry plugin label list - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/plugin/label/list/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry plugin label list - Buf Docs"
+
+---
+
 # buf registry plugin label list
 
 List plugin labels

@@ -1,3 +1,23 @@
+---
+
+title: "Buf images - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/images/"
+  - - meta
+    - property: "og:title"
+      content: "Buf images - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/images/"
+  - - meta
+    - property: "twitter:title"
+      content: "Buf images - Buf Docs"
+
+---
+
 # Buf images
 
 Buf images are a powerful tool for distributing and sharing compiled Protocol Buffer (Protobuf) schemas across your organization. They provide a compact and efficient representation of a Protobuf schema, allowing you to easily manage the evolution of your schema and ensure compatibility across multiple systems.A Buf image is a binary representation of a compiled Protobuf schema, optimized for distribution and use in multiple systems. It captures the complete state of a Protobuf schema, including all messages, enums, and services and their relationships to each other.Buf images are designed to be forwards- and backwards-compatible, allowing you to manage the evolution of your schema over time without breaking compatibility with existing systems. They also include a rich set of metadata, such as source code locations and comments, that can be used to provide additional context and understanding of your schema.Linting and breaking change detection internally operate on Buf images that the Buf CLI either produces on the fly or reads from an external location. They represent a stable, widely used method to represent a compiled Protobuf schema. For the breaking change detector, images are the storage format used if you want to manually store the state of your Protobuf schema. See the [input documentation](../inputs/) for more details.

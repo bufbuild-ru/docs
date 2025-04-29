@@ -1,3 +1,23 @@
+---
+
+title: "Double - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/double_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Double - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/double_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Double - Buf Docs"
+
+---
+
 # Double rules
 
 DoubleRules describes the constraints applied to `double` values. These rules may also be applied to the `google.protobuf.DoubleValue` Well-Known-Type.

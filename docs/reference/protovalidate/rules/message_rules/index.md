@@ -1,3 +1,23 @@
+---
+
+title: "Message - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/message_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Message - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/message_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Message - Buf Docs"
+
+---
+
 # Message rules
 
 MessageConstraints represents validation rules that are applied to the entire message. It includes disabling options and a list of Constraint messages representing Common Expression Language (CEL) validation rules.

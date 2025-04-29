@@ -1,3 +1,23 @@
+---
+
+title: "Benchmarks and cost - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/cost/"
+  - - meta
+    - property: "og:title"
+      content: "Benchmarks and cost - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/cost/"
+  - - meta
+    - property: "twitter:title"
+      content: "Benchmarks and cost - Buf Docs"
+
+---
+
 # Benchmarks and cost
 
 Bufstream is a Kafka-compatible message queue with built-in support for data governance and quality enforcement. But Bufstream isn't just adding features to Apache Kafka—by building from the ground up on cloud object storage, Bufstream is dramatically more cost-efficient to operate. As measured by the [OpenMessaging Benchmark Framework](https://openmessaging.cloud/docs/benchmarks/kafka), **Bufstream is 8x less expensive than Apache Kafka** while remaining fully compatible with existing Kafka clients, tools, and applications.

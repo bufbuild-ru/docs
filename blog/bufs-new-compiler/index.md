@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Buf's New Compiler"
+description: "Buf has a new Protobuf compiler that is faster and more memory-efficient."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Buf's New Compiler"
+  - - meta
+    - property: "og:description"
+      content: "Buf has a new Protobuf compiler that is faster and more memory-efficient."
+  - - meta
+    - property: "og:image"
+      content: ""
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Buf's New Compiler"
+  - - meta
+    - property: "twitter:description"
+      content: "Buf has a new Protobuf compiler that is faster and more memory-efficient."
+  - - meta
+    - property: "twitter:image"
+      content: ""
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Buf's New Compiler"
   tagline: "October 19, 2022"

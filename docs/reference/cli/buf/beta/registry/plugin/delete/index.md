@@ -1,3 +1,23 @@
+---
+
+title: "buf beta registry plugin delete - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/beta/registry/plugin/delete/"
+  - - meta
+    - property: "og:title"
+      content: "buf beta registry plugin delete - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/beta/registry/plugin/delete/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf beta registry plugin delete - Buf Docs"
+
+---
+
 # buf beta registry plugin delete
 
 Delete a plugin from the registry

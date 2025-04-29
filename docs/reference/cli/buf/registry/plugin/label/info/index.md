@@ -1,3 +1,23 @@
+---
+
+title: "buf registry plugin label info - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/plugin/label/info/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry plugin label info - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/plugin/label/info/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry plugin label info - Buf Docs"
+
+---
+
 # buf registry plugin label info
 
 Show label information

@@ -1,3 +1,23 @@
+---
+
+title: "Overview - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/scim/overview/"
+  - - meta
+    - property: "og:title"
+      content: "Overview - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/instance/scim/overview/"
+  - - meta
+    - property: "twitter:title"
+      content: "Overview - Buf Docs"
+
+---
+
 # Overview
 
 This feature is only available on the Pro and Enterprise plans.

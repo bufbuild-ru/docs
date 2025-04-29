@@ -1,3 +1,23 @@
+---
+
+title: "Timestamp - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/timestamp_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Timestamp - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/timestamp_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Timestamp - Buf Docs"
+
+---
+
 # Timestamp rules
 
 TimestampRules describe the constraints applied exclusively to the `google.protobuf.Timestamp` well-known type.

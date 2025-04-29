@@ -1,3 +1,23 @@
+---
+
+title: "bufstream admin set - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/set/"
+  - - meta
+    - property: "og:title"
+      content: "bufstream admin set - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/set/"
+  - - meta
+    - property: "twitter:title"
+      content: "bufstream admin set - Buf Docs"
+
+---
+
 # bufstream admin set
 
 updates a configuration parameter

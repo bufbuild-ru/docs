@@ -1,3 +1,23 @@
+---
+
+title: "GitHub - OAuth2 - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/sso/github-oauth2/"
+  - - meta
+    - property: "og:title"
+      content: "GitHub - OAuth2 - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/instance/sso/github-oauth2/"
+  - - meta
+    - property: "twitter:title"
+      content: "GitHub - OAuth2 - Buf Docs"
+
+---
+
 # GitHub - OAuth2
 
 This feature is only available on the Pro and Enterprise plans.

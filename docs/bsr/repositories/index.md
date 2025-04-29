@@ -1,3 +1,23 @@
+---
+
+title: "Repositories - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/repositories/"
+  - - meta
+    - property: "og:title"
+      content: "Repositories - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/repositories/"
+  - - meta
+    - property: "twitter:title"
+      content: "Repositories - Buf Docs"
+
+---
+
 # Repositories
 
 Buf Schema Registry (BSR) _repositories_ allow you to share your Protobuf schemas with your team, customers, or the wider Buf community, and are the basis of all of the BSR's features and shareable artifacts. This page describes the relationship between repositories, [modules](../../cli/modules-workspaces/), and [labels](../commits-labels/), and how repositories interact with the BSR's governance features.A BSR repository is a remote location representing a module's commits, labels, and label histories. Repositories are similar to a version control system (VCS) in that you can see the commits, labels, and diffs for your modules, but they only exist in the BSR. You can't clone or fork them, and they're meant to be used alongside your VCS. Each repository has a 1:1 relationship with a Buf module, represented by the module's `name` key. The `name` shows the module's BSR location and ownership:

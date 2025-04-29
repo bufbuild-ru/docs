@@ -1,3 +1,23 @@
+---
+
+title: "Overview - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/build/overview/"
+  - - meta
+    - property: "og:title"
+      content: "Overview - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/build/overview/"
+  - - meta
+    - property: "twitter:title"
+      content: "Overview - Buf Docs"
+
+---
+
 # Build Buf images – Overview
 
 Buf CLI operations are based on Protobuf files that have been successfully compiled, or built. Building an [image](../../reference/images/) from the `.proto` files that define the schema is the first step `buf` executes when running commands like `buf lint` and `buf breaking`. The tooling compiles the `.proto` files into a single binary file that can be easily shared and stored. Generating an image with `buf build`, in its simplest form, is a way to verify that the [input](../../reference/inputs/) successfully compiles.Generally you won't need to generate images directly, but if needed, you can build an image with `buf build`, where `-o` tells it to output to the provided file (and its implied format):

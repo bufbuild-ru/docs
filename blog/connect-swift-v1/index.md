@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Connect-Swift 1.0 is now generally available"
+description: "We’re excited to share that Connect-Swift has officially reached v1.0—its first stable release! With this milestone, the library’s battle-tested APIs will remain stable until its next major release. Projects can rely on Connect-Swift without worrying that future releases will cause breakages or require migrations."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Connect-Swift 1.0 is now generally available"
+  - - meta
+    - property: "og:description"
+      content: "We’re excited to share that Connect-Swift has officially reached v1.0—its first stable release! With this milestone, the library’s battle-tested APIs will remain stable until its next major release. Projects can rely on Connect-Swift without worrying that future releases will cause breakages or require migrations."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fa9195d0adfaf99192773_Connect-swift%201.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Connect-Swift 1.0 is now generally available"
+  - - meta
+    - property: "twitter:description"
+      content: "We’re excited to share that Connect-Swift has officially reached v1.0—its first stable release! With this milestone, the library’s battle-tested APIs will remain stable until its next major release. Projects can rely on Connect-Swift without worrying that future releases will cause breakages or require migrations."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fa9195d0adfaf99192773_Connect-swift%201.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Connect-Swift 1.0 is now generally available"
   tagline: "November 11, 2024"

@@ -1,3 +1,23 @@
+---
+
+title: "Reference - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/iceberg/reference/"
+  - - meta
+    - property: "og:title"
+      content: "Reference - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/iceberg/reference/"
+  - - meta
+    - property: "twitter:title"
+      content: "Reference - Buf Docs"
+
+---
+
 # Reference
 
 ## Intake and archive

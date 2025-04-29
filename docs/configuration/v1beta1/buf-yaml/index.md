@@ -1,3 +1,23 @@
+---
+
+title: "buf.yaml - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/configuration/v1beta1/buf-yaml/"
+  - - meta
+    - property: "og:title"
+      content: "buf.yaml - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/configuration/v1beta1/buf-yaml/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf.yaml - Buf Docs"
+
+---
+
 # buf.yaml v1beta1 configuration
 
 ::: tip NoteThe `v1beta1` configuration file described in this page is deprecated and we recommend upgrading to a [`v2`](../../v2/buf-yaml/) configuration. For instructions and context, see the [migration guide](../../../migration-guides/migrate-v2-config-files/).

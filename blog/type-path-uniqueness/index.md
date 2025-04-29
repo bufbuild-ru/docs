@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Type & path uniqueness policy enforcement for enterprises"
+description: "The BSR can now enforce type and path uniqueness across all modules."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Type & path uniqueness policy enforcement for enterprises"
+  - - meta
+    - property: "og:description"
+      content: "The BSR can now enforce type and path uniqueness across all modules."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc13e943deed07af59b8_Type%20and%20path%20uniqueness.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Type & path uniqueness policy enforcement for enterprises"
+  - - meta
+    - property: "twitter:description"
+      content: "The BSR can now enforce type and path uniqueness across all modules."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc13e943deed07af59b8_Type%20and%20path%20uniqueness.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Type & path uniqueness policy enforcement for enterprises"
   tagline: "September 5, 2023"

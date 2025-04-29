@@ -1,3 +1,23 @@
+---
+
+title: "buf beta lsp - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/beta/lsp/"
+  - - meta
+    - property: "og:title"
+      content: "buf beta lsp - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/beta/lsp/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf beta lsp - Buf Docs"
+
+---
+
 # buf beta lsp
 
 Start the language server

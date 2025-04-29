@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Introducing the Buf Language Server"
+description: "Jump to definition with 'bufls'."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Introducing the Buf Language Server"
+  - - meta
+    - property: "og:description"
+      content: "Jump to definition with 'bufls'."
+  - - meta
+    - property: "og:image"
+      content: ""
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Introducing the Buf Language Server"
+  - - meta
+    - property: "twitter:description"
+      content: "Jump to definition with 'bufls'."
+  - - meta
+    - property: "twitter:image"
+      content: ""
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Introducing the Buf Language Server"
   tagline: "August 19, 2022"

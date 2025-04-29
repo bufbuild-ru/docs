@@ -1,3 +1,23 @@
+---
+
+title: "Bool - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/bool_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Bool - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/bool_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Bool - Buf Docs"
+
+---
+
 # Bool rules
 
 BoolRules describes the constraints applied to `bool` values. These rules may also be applied to the `google.protobuf.BoolValue` Well-Known-Type.

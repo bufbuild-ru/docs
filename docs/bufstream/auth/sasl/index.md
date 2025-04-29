@@ -1,3 +1,23 @@
+---
+
+title: "SASL - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/auth/sasl/"
+  - - meta
+    - property: "og:title"
+      content: "SASL - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/auth/sasl/"
+  - - meta
+    - property: "twitter:title"
+      content: "SASL - Buf Docs"
+
+---
+
 # SASL
 
 Bufstream supports several [SASL](https://datatracker.ietf.org/doc/html/rfc4422) authentication mechanisms for Kafka clients:

@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Connect RPC vs. Google gRPC: Conformance Deep Dive"
+description: "We’ve open sourced Connect RPC’s protocol conformance suite. Connect is a multi-protocol RPC project that includes support for the gRPC and gRPC-Web protocols. Anyone can now use it to validate the correctness of a gRPC implementation. This article explores how the test suite operates and details our findings for a selection of Connect RPC and Google’s gRPC runtimes."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Connect RPC vs. Google gRPC: Conformance Deep Dive"
+  - - meta
+    - property: "og:description"
+      content: "We’ve open sourced Connect RPC’s protocol conformance suite. Connect is a multi-protocol RPC project that includes support for the gRPC and gRPC-Web protocols. Anyone can now use it to validate the correctness of a gRPC implementation. This article explores how the test suite operates and details our findings for a selection of Connect RPC and Google’s gRPC runtimes."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc4e8a04815b7906e0f1a_Conformance%20deep%20dive.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Connect RPC vs. Google gRPC: Conformance Deep Dive"
+  - - meta
+    - property: "twitter:description"
+      content: "We’ve open sourced Connect RPC’s protocol conformance suite. Connect is a multi-protocol RPC project that includes support for the gRPC and gRPC-Web protocols. Anyone can now use it to validate the correctness of a gRPC implementation. This article explores how the test suite operates and details our findings for a selection of Connect RPC and Google’s gRPC runtimes."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc4e8a04815b7906e0f1a_Conformance%20deep%20dive.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Connect RPC vs. Google gRPC: Conformance Deep Dive"
   tagline: "May 30, 2024"

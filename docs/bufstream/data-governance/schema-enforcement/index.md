@@ -1,3 +1,23 @@
+---
+
+title: "Schema enforcement - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/data-governance/schema-enforcement/"
+  - - meta
+    - property: "og:title"
+      content: "Schema enforcement - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/data-governance/schema-enforcement/"
+  - - meta
+    - property: "twitter:title"
+      content: "Schema enforcement - Buf Docs"
+
+---
+
 # Schema enforcement
 
 ## Data quality enforcement

@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "The real reason to use Protobuf is not performance"
+description: "Fast serialization and small payloads are nice, but schema-driven development is why you’ll adopt Protobuf."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "The real reason to use Protobuf is not performance"
+  - - meta
+    - property: "og:description"
+      content: "Fast serialization and small payloads are nice, but schema-driven development is why you’ll adopt Protobuf."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cbef6c7f401803f208c5_Real%20reason.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "The real reason to use Protobuf is not performance"
+  - - meta
+    - property: "twitter:description"
+      content: "Fast serialization and small payloads are nice, but schema-driven development is why you’ll adopt Protobuf."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cbef6c7f401803f208c5_Real%20reason.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "The real reason to use Protobuf is not performance"
   tagline: "November 15, 2023"

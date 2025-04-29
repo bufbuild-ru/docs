@@ -1,3 +1,23 @@
+---
+
+title: "buf beta registry webhook list - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/beta/registry/webhook/list/"
+  - - meta
+    - property: "og:title"
+      content: "buf beta registry webhook list - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/beta/registry/webhook/list/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf beta registry webhook list - Buf Docs"
+
+---
+
 # buf beta registry webhook list
 
 List repository webhooks

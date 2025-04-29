@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "The Buf Schema Registry is now on the AWS and Google Cloud Marketplaces"
+description: "The BSR is the source of truth for your Protobuf APIs, and is the best way to share schemas across repositories, generate consistent code, and integrate Protobuf with Kafka. This launch helps Enterprise customers simplify how they purchase the Buf Schema Registry."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "The Buf Schema Registry is now on the AWS and Google Cloud Marketplaces"
+  - - meta
+    - property: "og:description"
+      content: "The BSR is the source of truth for your Protobuf APIs, and is the best way to share schemas across repositories, generate consistent code, and integrate Protobuf with Kafka. This launch helps Enterprise customers simplify how they purchase the Buf Schema Registry."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc534a1364a81f7a0b135_Marketplaces.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "The Buf Schema Registry is now on the AWS and Google Cloud Marketplaces"
+  - - meta
+    - property: "twitter:description"
+      content: "The BSR is the source of truth for your Protobuf APIs, and is the best way to share schemas across repositories, generate consistent code, and integrate Protobuf with Kafka. This launch helps Enterprise customers simplify how they purchase the Buf Schema Registry."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc534a1364a81f7a0b135_Marketplaces.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "The Buf Schema Registry is now on the AWS and Google Cloud Marketplaces"
   tagline: "December 12, 2023"

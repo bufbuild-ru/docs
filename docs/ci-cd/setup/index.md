@@ -1,3 +1,23 @@
+---
+
+title: "General setup - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/ci-cd/setup/"
+  - - meta
+    - property: "og:title"
+      content: "General setup - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/ci-cd/setup/"
+  - - meta
+    - property: "twitter:title"
+      content: "General setup - Buf Docs"
+
+---
+
 # General CI/CD setup
 
 ::: tip Using GitHub Actions?If you're using [GitHub Actions](https://github.com/features/actions), you can skip this guide and refer to the [GitHub Action guide](../github-actions/) instead.

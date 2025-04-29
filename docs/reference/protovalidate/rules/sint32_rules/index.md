@@ -1,3 +1,23 @@
+---
+
+title: "Sint32 - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/sint32_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Sint32 - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/sint32_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Sint32 - Buf Docs"
+
+---
+
 # SInt32 rules
 
 SInt32Rules describes the constraints applied to `sint32` values.

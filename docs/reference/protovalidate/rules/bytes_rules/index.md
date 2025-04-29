@@ -1,3 +1,23 @@
+---
+
+title: "Bytes - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/bytes_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Bytes - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/bytes_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Bytes - Buf Docs"
+
+---
+
 # Bytes rules
 
 BytesRules describe the constraints applied to `bytes` values. These rules may also be applied to the `google.protobuf.BytesValue` Well-Known-Type.

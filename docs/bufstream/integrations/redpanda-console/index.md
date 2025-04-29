@@ -1,3 +1,23 @@
+---
+
+title: "Redpanda Console - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/integrations/redpanda-console/"
+  - - meta
+    - property: "og:title"
+      content: "Redpanda Console - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/integrations/redpanda-console/"
+  - - meta
+    - property: "twitter:title"
+      content: "Redpanda Console - Buf Docs"
+
+---
+
 # Redpanda Console
 
 Redpanda Console™ is a web application that helps you manage, inspect, and debug Kafka-compatible workloads.

@@ -1,3 +1,23 @@
+---
+
+title: "buf curl - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/curl/"
+  - - meta
+    - property: "og:title"
+      content: "buf curl - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/curl/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf curl - Buf Docs"
+
+---
+
 # buf curl
 
 Invoke an RPC endpoint, a la 'cURL'

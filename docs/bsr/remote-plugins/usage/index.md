@@ -1,3 +1,23 @@
+---
+
+title: "Tutorial - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/remote-plugins/usage/"
+  - - meta
+    - property: "og:title"
+      content: "Tutorial - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/remote-plugins/usage/"
+  - - meta
+    - property: "twitter:title"
+      content: "Tutorial - Buf Docs"
+
+---
+
 # Generating code with remote plugins
 
 > We recommend completing the [Buf CLI quickstart](../../../cli/quickstart/#generate-code) to get an overview of `buf generate` with remote plugins.

@@ -1,3 +1,23 @@
+---
+
+title: "buf registry logout - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/logout/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry logout - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/logout/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry logout - Buf Docs"
+
+---
+
 # buf registry logout
 
 Log out of the Buf Schema Registry

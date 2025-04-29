@@ -1,3 +1,23 @@
+---
+
+title: "Int32 - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/int32_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Int32 - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/int32_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Int32 - Buf Docs"
+
+---
+
 # Int32 rules
 
 Int32Rules describes the constraints applied to `int32` values. These rules may also be applied to the `google.protobuf.Int32Value` Well-Known-Type.

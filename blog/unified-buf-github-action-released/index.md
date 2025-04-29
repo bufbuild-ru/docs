@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Introducing the new Buf GitHub Action"
+description: "Today, we’re launching the 1.0 release of our new unified GitHub Action, powered by the Buf CLI. This integration streamlines the processes of building, formatting, linting, and checking for breaking changes in your Protobuf schemas. It seamlessly integrates with GitHub's pull request workflow and automatically publishes Protobuf schema changes to the Buf Schema Registry when pull requests are merged."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Introducing the new Buf GitHub Action"
+  - - meta
+    - property: "og:description"
+      content: "Today, we’re launching the 1.0 release of our new unified GitHub Action, powered by the Buf CLI. This integration streamlines the processes of building, formatting, linting, and checking for breaking changes in your Protobuf schemas. It seamlessly integrates with GitHub's pull request workflow and automatically publishes Protobuf schema changes to the Buf Schema Registry when pull requests are merged."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fa976adb419dff6e6d3ea_Github%20action.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Introducing the new Buf GitHub Action"
+  - - meta
+    - property: "twitter:description"
+      content: "Today, we’re launching the 1.0 release of our new unified GitHub Action, powered by the Buf CLI. This integration streamlines the processes of building, formatting, linting, and checking for breaking changes in your Protobuf schemas. It seamlessly integrates with GitHub's pull request workflow and automatically publishes Protobuf schema changes to the Buf Schema Registry when pull requests are merged."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fa976adb419dff6e6d3ea_Github%20action.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Introducing the new Buf GitHub Action"
   tagline: "August 13, 2024"

@@ -1,3 +1,23 @@
+---
+
+title: "Float - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/float_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Float - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/float_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Float - Buf Docs"
+
+---
+
 # Float rules
 
 FloatRules describes the constraints applied to `float` values. These rules may also be applied to the `google.protobuf.FloatValue` Well-Known-Type.

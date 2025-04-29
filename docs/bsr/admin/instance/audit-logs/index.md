@@ -1,3 +1,23 @@
+---
+
+title: "Audit logs - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/audit-logs/"
+  - - meta
+    - property: "og:title"
+      content: "Audit logs - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/instance/audit-logs/"
+  - - meta
+    - property: "twitter:title"
+      content: "Audit logs - Buf Docs"
+
+---
+
 # Audit logs
 
 This feature is only available on the Pro and Enterprise plans.

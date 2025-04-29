@@ -1,3 +1,23 @@
+---
+
+title: "Standard rules - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/protovalidate/schemas/standard-rules/"
+  - - meta
+    - property: "og:title"
+      content: "Standard rules - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/protovalidate/schemas/standard-rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Standard rules - Buf Docs"
+
+---
+
 # Using Protovalidate standard rules
 
 Once you've [added Protovalidate to your project](../adding-protovalidate/), you're ready to begin adding validation rules to your Protobuf files. On this page, you'll learn how rules are defined and explore the standard rules for scalar types, `oneofs`, `maps`, `enums`, and even entire messages.

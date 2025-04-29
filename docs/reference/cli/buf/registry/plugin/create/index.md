@@ -1,3 +1,23 @@
+---
+
+title: "buf registry plugin create - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/plugin/create/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry plugin create - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/plugin/create/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry plugin create - Buf Docs"
+
+---
+
 # buf registry plugin create
 
 Create a BSR plugin

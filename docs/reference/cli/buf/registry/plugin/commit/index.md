@@ -1,3 +1,23 @@
+---
+
+title: "Commit - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/plugin/commit/"
+  - - meta
+    - property: "og:title"
+      content: "Commit - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/plugin/commit/"
+  - - meta
+    - property: "twitter:title"
+      content: "Commit - Buf Docs"
+
+---
+
 # buf registry plugin commit
 
 Manage a plugin's commits

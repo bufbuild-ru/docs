@@ -1,3 +1,23 @@
+---
+
+title: "Quickstart - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/cli/quickstart/"
+  - - meta
+    - property: "og:title"
+      content: "Quickstart - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/cli/quickstart/"
+  - - meta
+    - property: "twitter:title"
+      content: "Quickstart - Buf Docs"
+
+---
+
 # Buf CLI quickstart
 
 The Buf CLI is the ultimate tool for modern, fast, and efficient Protobuf API management. With features like formatting, linting, breaking change detection, and code generation, Buf offers a comprehensive solution for Protobuf development and maintenance. Buf integrates seamlessly with your existing workflow, so you can focus on what matters most: writing great APIs. Whether you are working with a small, focused project or a massive, complex system, Buf is the perfect choice. In the next 10 minutes, you'll learn how to use the Buf CLI to easily build, lint, format and generate code for your project.

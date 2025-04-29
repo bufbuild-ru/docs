@@ -1,3 +1,23 @@
+---
+
+title: "Beta - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/beta/"
+  - - meta
+    - property: "og:title"
+      content: "Beta - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/beta/"
+  - - meta
+    - property: "twitter:title"
+      content: "Beta - Buf Docs"
+
+---
+
 # buf beta
 
 Beta commands. Unstable and likely to change

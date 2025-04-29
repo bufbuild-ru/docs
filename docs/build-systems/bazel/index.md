@@ -1,3 +1,23 @@
+---
+
+title: "Bazel - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/build-systems/bazel/"
+  - - meta
+    - property: "og:title"
+      content: "Bazel - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/build-systems/bazel/"
+  - - meta
+    - property: "twitter:title"
+      content: "Bazel - Buf Docs"
+
+---
+
 # Bazel
 
 Buf provides official support for the [Bazel](https://bazel.build) build tool with [`rules_buf`](https://github.com/bufbuild/rules_buf), which enables you to:

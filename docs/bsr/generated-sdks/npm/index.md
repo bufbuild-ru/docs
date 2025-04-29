@@ -1,3 +1,23 @@
+---
+
+title: "NPM - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/npm/"
+  - - meta
+    - property: "og:title"
+      content: "NPM - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/generated-sdks/npm/"
+  - - meta
+    - property: "twitter:title"
+      content: "NPM - Buf Docs"
+
+---
+
 # NPM
 
 The Buf Schema Registry provides generated SDKs for JavaScript-based languages in the form of an NPM registry, just like any other JavaScript library. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.The BSR's NPM registry is hosted at buf.build/gen/npm/v1. See the [tutorial](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.

@@ -1,3 +1,23 @@
+---
+
+title: "Migrating from individual Buf GitHub Actions - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-to-buf-action/"
+  - - meta
+    - property: "og:title"
+      content: "Migrating from individual Buf GitHub Actions - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/migration-guides/migrate-to-buf-action/"
+  - - meta
+    - property: "twitter:title"
+      content: "Migrating from individual Buf GitHub Actions - Buf Docs"
+
+---
+
 # Migrating from individual Buf GitHub Actions
 
 If you're currently using any of our individual GitHub Actions (\[buf-setup-action\]\[buf-setup\], \[buf-breaking-action\]\[buf-breaking\], \[buf-lint-action\]\[buf-lint\], or \[buf-push-action\]\[buf-push\]), we recommend migrating to the unified Action. We'll be deprecating the individual Actions soon and the unified Action significantly simplifies using the Buf CLI and BSR in your CI workflows.The unified Action is a superset of the individual actions that combines all of your Buf CI configuration into a single `buf-ci.yaml` file. It also includes some additional capabilities:

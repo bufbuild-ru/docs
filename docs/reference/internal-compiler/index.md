@@ -1,3 +1,23 @@
+---
+
+title: "Internal compiler - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/internal-compiler/"
+  - - meta
+    - property: "og:title"
+      content: "Internal compiler - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/internal-compiler/"
+  - - meta
+    - property: "twitter:title"
+      content: "Internal compiler - Buf Docs"
+
+---
+
 # Internal compiler
 
 Protobuf is the most stable and widely adopted interface description language available today - it's why Buf is concentrating its initial efforts on Protobuf. But Protobuf has never had an officially published Protobuf grammar - [there are proto2 and proto3 specs published](https://protobuf.dev/reference/protobuf/proto3-spec/), but neither actually cover all edge cases, of which there are many (especially around options).In effect, the official Protobuf "grammar" is the `protoc` implementation - this has been the only codified representation of what Protobuf is, and the only way to properly parse Protobuf messages and produce [`FileDescriptorSet`](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/descriptor.proto)s suitable for stub generation.Additionally, there are many situations outside of stub generation that rely on proper Protobuf parsing, such as [linting](../../lint/overview/) and [breaking change detection](../../breaking/overview/). All existing Protobuf tooling has gone one of two routes:

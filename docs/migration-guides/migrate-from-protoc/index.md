@@ -1,3 +1,23 @@
+---
+
+title: "Migrate from protoc - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc/"
+  - - meta
+    - property: "og:title"
+      content: "Migrate from protoc - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc/"
+  - - meta
+    - property: "twitter:title"
+      content: "Migrate from protoc - Buf Docs"
+
+---
+
 # Migrate from protoc
 
 The Buf CLI acts as a build system for all your `.proto` compilation and code generation needs. This guide describes how to migrate your existing `protoc` setup and migrate to using `buf`.This guide assumes that you've [installed `buf`](../../cli/installation/) and generate code by calling`protoc` manually from scripts or a tool like `make`. Other guides are available for users currently using [Protolock](../migrate-from-protolock/) or [Prototool](../migrate-from-prototool/).We'll cover these common use cases:

@@ -1,3 +1,23 @@
+---
+
+title: "Label - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/module/label/"
+  - - meta
+    - property: "og:title"
+      content: "Label - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/module/label/"
+  - - meta
+    - property: "twitter:title"
+      content: "Label - Buf Docs"
+
+---
+
 # buf registry module label
 
 Manage a module's labels

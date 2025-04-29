@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Connect-Web: It's time for Protobuf and gRPC to be your first choice in the browser"
+description: "Use connect-web to generate compact, idiomatic TypeScript clients for your Protobuf APIs."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Connect-Web: It's time for Protobuf and gRPC to be your first choice in the browser"
+  - - meta
+    - property: "og:description"
+      content: "Use connect-web to generate compact, idiomatic TypeScript clients for your Protobuf APIs."
+  - - meta
+    - property: "og:image"
+      content: ""
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Connect-Web: It's time for Protobuf and gRPC to be your first choice in the browser"
+  - - meta
+    - property: "twitter:description"
+      content: "Use connect-web to generate compact, idiomatic TypeScript clients for your Protobuf APIs."
+  - - meta
+    - property: "twitter:image"
+      content: ""
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Connect-Web: It's time for Protobuf and gRPC to be your first choice in the browser"
   tagline: "August 4, 2022"

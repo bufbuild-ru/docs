@@ -1,3 +1,23 @@
+---
+
+title: "buf push - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/push/"
+  - - meta
+    - property: "og:title"
+      content: "buf push - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/push/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf push - Buf Docs"
+
+---
+
 # buf push
 
 Push to a registry

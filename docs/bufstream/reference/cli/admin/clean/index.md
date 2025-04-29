@@ -1,3 +1,23 @@
+---
+
+title: "Clean - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/clean/"
+  - - meta
+    - property: "og:title"
+      content: "Clean - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/clean/"
+  - - meta
+    - property: "twitter:title"
+      content: "Clean - Buf Docs"
+
+---
+
 # bufstream admin clean
 
 Perform Bufstream cleaning tasks

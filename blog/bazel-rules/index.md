@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Bazel rules"
+description: "Use buf with Bazel."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Bazel rules"
+  - - meta
+    - property: "og:description"
+      content: "Use buf with Bazel."
+  - - meta
+    - property: "og:image"
+      content: ""
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Bazel rules"
+  - - meta
+    - property: "twitter:description"
+      content: "Use buf with Bazel."
+  - - meta
+    - property: "twitter:image"
+      content: ""
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Bazel rules"
   tagline: "June 20, 2022"

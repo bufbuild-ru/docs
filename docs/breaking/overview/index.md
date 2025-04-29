@@ -1,3 +1,23 @@
+---
+
+title: "Overview - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/breaking/overview/"
+  - - meta
+    - property: "og:title"
+      content: "Overview - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/breaking/overview/"
+  - - meta
+    - property: "twitter:title"
+      content: "Overview - Buf Docs"
+
+---
+
 # Breaking change detection – Overview
 
 This page provides an overview of Buf's breaking change detection. At every step of the development process, starting with developer IDEs and culminating in the Buf Schema Registry's instance-wide enforcement, breaking change detection ensures that your organization can evolve Protobuf schemas quickly and safely.Protobuf has many ways to evolve schemas without breaking existing code. Many of Buf's [breaking change rules](../../lint/rules/) maximize your evolution options to do exactly that. However, sometimes it's a better choice to make a breaking change rather than go to the extra effort of backwards compatibility. If you have few clients and can easily update and deploy them, it may be perfectly okay to break your schemas. And if you have a public API or too many clients to easily update, you should probably avoid breaking them.Whichever path you choose, Buf's breaking change detection allows you to make informed decisions, while removing the need for constant vigilance during code review. It reliably and mechanically identifies breaking changes so you and your team can focus on making an informed decision about whether to allow them or not.

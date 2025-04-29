@@ -1,3 +1,23 @@
+---
+
+title: "Manage Confluent Schema Registry instances - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/kafka/manage-instances/"
+  - - meta
+    - property: "og:title"
+      content: "Manage Confluent Schema Registry instances - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/kafka/manage-instances/"
+  - - meta
+    - property: "twitter:title"
+      content: "Manage Confluent Schema Registry instances - Buf Docs"
+
+---
+
 # Manage Confluent Schema Registry instances
 
 This feature is only available on the Enterprise plan.

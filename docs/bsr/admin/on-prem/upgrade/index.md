@@ -1,3 +1,23 @@
+---
+
+title: "Upgrade/Downgrade - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/on-prem/upgrade/"
+  - - meta
+    - property: "og:title"
+      content: "Upgrade/Downgrade - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/on-prem/upgrade/"
+  - - meta
+    - property: "twitter:title"
+      content: "Upgrade/Downgrade - Buf Docs"
+
+---
+
 # Upgrade/Downgrade
 
 ## Upgrade

@@ -1,3 +1,23 @@
+---
+
+title: "Any - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/any_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Any - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/any_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Any - Buf Docs"
+
+---
+
 # Any rules
 
 AnyRules describe constraints applied exclusively to the `google.protobuf.Any` well-known type.

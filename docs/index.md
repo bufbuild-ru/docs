@@ -1,3 +1,23 @@
+---
+
+title: "Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/"
+  - - meta
+    - property: "og:title"
+      content: "Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/"
+  - - meta
+    - property: "twitter:title"
+      content: "Buf Docs"
+
+---
+
 # Buf Docs
 
 Buf provides enterprise-grade Kafka and gRPC services for the modern age. Use Buf to bring schema-driven development to every part of your stack. Explore some of Buf's key products and services within our docs, and [reach out](contact/) if you have any issues!

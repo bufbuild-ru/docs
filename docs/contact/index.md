@@ -1,3 +1,23 @@
+---
+
+title: "Contact us - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/contact/"
+  - - meta
+    - property: "og:title"
+      content: "Contact us - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/contact/"
+  - - meta
+    - property: "twitter:title"
+      content: "Contact us - Buf Docs"
+
+---
+
 # Contact us
 
 Here are a few ways to get in touch:

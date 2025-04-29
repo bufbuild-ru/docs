@@ -1,3 +1,23 @@
+---
+
+title: "Tutorial - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/lint/tutorial/"
+  - - meta
+    - property: "og:title"
+      content: "Tutorial - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/lint/tutorial/"
+  - - meta
+    - property: "twitter:title"
+      content: "Tutorial - Buf Docs"
+
+---
+
 # Linting – Tutorial
 
 Buf offers linting for Protobuf files via the `buf lint` command in the Buf CLI. In this tutorial, we'll explore how to use linting to maintain code quality and consistency in your projects. Read the [overview](../overview/#key-concepts) to learn about editor integration and see usage examples.

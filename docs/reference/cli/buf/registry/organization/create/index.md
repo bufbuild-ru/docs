@@ -1,3 +1,23 @@
+---
+
+title: "buf registry organization create - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/organization/create/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry organization create - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/organization/create/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry organization create - Buf Docs"
+
+---
+
 # buf registry organization create
 
 Create a new BSR organization

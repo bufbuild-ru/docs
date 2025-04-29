@@ -1,3 +1,23 @@
+---
+
+title: "Bufstream CLI commands - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/"
+  - - meta
+    - property: "og:title"
+      content: "Bufstream CLI commands - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/cli/"
+  - - meta
+    - property: "twitter:title"
+      content: "Bufstream CLI commands - Buf Docs"
+
+---
+
 # bufstream
 
 The Bufstream process.

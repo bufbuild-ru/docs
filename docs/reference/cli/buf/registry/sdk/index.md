@@ -1,3 +1,23 @@
+---
+
+title: "Sdk - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/sdk/"
+  - - meta
+    - property: "og:title"
+      content: "Sdk - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/sdk/"
+  - - meta
+    - property: "twitter:title"
+      content: "Sdk - Buf Docs"
+
+---
+
 # buf registry sdk
 
 Manage Generated SDKs

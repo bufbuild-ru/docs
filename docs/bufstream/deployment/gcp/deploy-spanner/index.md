@@ -1,3 +1,23 @@
+---
+
+title: "Deploy with Spanner - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/gcp/deploy-spanner/"
+  - - meta
+    - property: "og:title"
+      content: "Deploy with Spanner - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/deployment/gcp/deploy-spanner/"
+  - - meta
+    - property: "twitter:title"
+      content: "Deploy with Spanner - Buf Docs"
+
+---
+
 # Deploy Bufstream to Google Cloud with Spanner
 
 This page walks you through installing Bufstream into your Google Cloud Platform (GCP) deployment, using Spanner for metadata stores. See the [GCP configuration](../configure/) page for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.

@@ -1,3 +1,23 @@
+---
+
+title: "Map - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/map_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Map - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/map_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Map - Buf Docs"
+
+---
+
 # Map rules
 
 MapRules describe the constraints applied to `map` values.

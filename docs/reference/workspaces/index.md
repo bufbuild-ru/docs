@@ -1,3 +1,23 @@
+---
+
+title: "v1 workspace configuration - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/workspaces/"
+  - - meta
+    - property: "og:title"
+      content: "v1 workspace configuration - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/workspaces/"
+  - - meta
+    - property: "twitter:title"
+      content: "v1 workspace configuration - Buf Docs"
+
+---
+
 # v1 workspace configuration
 
 WarningThis document describes the way workspaces are configured using `v1` configuration files. We recommend migrating to `v2` configuration files for a more intuitive way of working with multiple modules and sharing dependencies. See the [blog post](/blog/buf-cli-next-generation/index.md) and [migration guide](../../migration-guides/migrate-v2-config-files/) for information and instructions.

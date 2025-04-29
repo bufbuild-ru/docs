@@ -1,3 +1,23 @@
+---
+
+title: "Module - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/module/"
+  - - meta
+    - property: "og:title"
+      content: "Module - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/module/"
+  - - meta
+    - property: "twitter:title"
+      content: "Module - Buf Docs"
+
+---
+
 # buf registry module
 
 Manage BSR modules

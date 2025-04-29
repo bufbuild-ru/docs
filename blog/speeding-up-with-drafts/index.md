@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Speeding up development with BSR drafts"
+description: "To enable engineers to begin iterating quickly using generated code without the need to merge Protobuf schemas to main, we support BSR drafts."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Speeding up development with BSR drafts"
+  - - meta
+    - property: "og:description"
+      content: "To enable engineers to begin iterating quickly using generated code without the need to merge Protobuf schemas to main, we support BSR drafts."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cea118efbc3de15663c8_Python%20SDKs.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Speeding up development with BSR drafts"
+  - - meta
+    - property: "twitter:description"
+      content: "To enable engineers to begin iterating quickly using generated code without the need to merge Protobuf schemas to main, we support BSR drafts."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cea118efbc3de15663c8_Python%20SDKs.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Speeding up development with BSR drafts"
   tagline: "January 25, 2023"

@@ -1,3 +1,23 @@
+---
+
+title: "Style guide - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/best-practices/style-guide/"
+  - - meta
+    - property: "og:title"
+      content: "Style guide - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/best-practices/style-guide/"
+  - - meta
+    - property: "twitter:title"
+      content: "Style guide - Buf Docs"
+
+---
+
 # Style guide
 
 This is Buf's style guide for Protobuf. It's a purposefully concise reference for developers to refer to when writing Protobuf schemas. The Buf Schema Registry doesn't enforce these recommendations.The requirements follow the [`STANDARD`](../../lint/rules/#standard) lint category in the Buf CLI. For details on each rule and its rationale, see that documentation. Within this style guide, each check provides a **(Why?)** link where relevant.The style guide helps provide consistency and maintainability across a Protobuf schema of any size and purpose, without restricting organizations from making the design decisions they need to make for their individual APIs.

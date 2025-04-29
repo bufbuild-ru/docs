@@ -1,3 +1,23 @@
+---
+
+title: "Overview - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/remote-plugins/overview/"
+  - - meta
+    - property: "og:title"
+      content: "Overview - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/remote-plugins/overview/"
+  - - meta
+    - property: "twitter:title"
+      content: "Overview - Buf Docs"
+
+---
+
 # Remote plugins – Overview
 
 Buf's remote plugins remove a key obstacle to generating code from Protobuf files—`protoc` plugins are developed across many languages, and manual installation is inconsistent as a result. Managing and maintaining a stable environment on a single machine is hard enough, and the problem is compounded as you scale out code generation across many developers.Instead of maintaining plugins locally, remote plugins enable you to reference `protoc` plugins hosted in the Buf Schema Registry (BSR) in your `buf.gen.yaml` files. Buf verifies and maintains these copies of the plugins commonly used across the Protobuf ecosystem.Remote plugins can't be used offline because they're run in Docker containers on our servers. When you run `buf generate`, we copy your `.proto` files to the BSR, then run a Docker container to execute the plugin and send back generated code. This means that remote plugins require you to be connected to the BSR.

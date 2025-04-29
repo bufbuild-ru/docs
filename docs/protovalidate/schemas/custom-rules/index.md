@@ -1,3 +1,23 @@
+---
+
+title: "Custom rules - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/protovalidate/schemas/custom-rules/"
+  - - meta
+    - property: "og:title"
+      content: "Custom rules - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/protovalidate/schemas/custom-rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Custom rules - Buf Docs"
+
+---
+
 # Custom CEL rules
 
 When validation logic can't be expressed with [standard rules](../standard-rules/), Protovalidate allows you to write custom rules in [Common Expression Language (CEL)](http://cel.dev). With CEL rules, you can integrate complex domain knowledge into your schema.

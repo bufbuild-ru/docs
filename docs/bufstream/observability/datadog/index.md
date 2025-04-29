@@ -1,3 +1,23 @@
+---
+
+title: "Datadog - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/observability/datadog/"
+  - - meta
+    - property: "og:title"
+      content: "Datadog - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/observability/datadog/"
+  - - meta
+    - property: "twitter:title"
+      content: "Datadog - Buf Docs"
+
+---
+
 # Datadog configuration
 
 ## Downloads

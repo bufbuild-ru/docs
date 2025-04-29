@@ -1,3 +1,23 @@
+---
+
+title: "Recommended SDKs - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/recommended-sdks/"
+  - - meta
+    - property: "og:title"
+      content: "Recommended SDKs - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/instance/recommended-sdks/"
+  - - meta
+    - property: "twitter:title"
+      content: "Recommended SDKs - Buf Docs"
+
+---
+
 # Recommended SDKs
 
 This feature is only available on the Pro and Enterprise plans.

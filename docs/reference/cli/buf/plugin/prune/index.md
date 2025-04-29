@@ -1,3 +1,23 @@
+---
+
+title: "buf plugin prune - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/plugin/prune/"
+  - - meta
+    - property: "og:title"
+      content: "buf plugin prune - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/plugin/prune/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf plugin prune - Buf Docs"
+
+---
+
 # buf plugin prune
 
 Prune unused plugins from buf.lock

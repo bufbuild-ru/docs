@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Seamless Gradle integration with the Buf CLI"
+description: "The Buf CLI can now integrate seamlessly with your Gradle builds."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Seamless Gradle integration with the Buf CLI"
+  - - meta
+    - property: "og:description"
+      content: "The Buf CLI can now integrate seamlessly with your Gradle builds."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc227e76493329a37d52_Gradle%20integration.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Seamless Gradle integration with the Buf CLI"
+  - - meta
+    - property: "twitter:description"
+      content: "The Buf CLI can now integrate seamlessly with your Gradle builds."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc227e76493329a37d52_Gradle%20integration.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Seamless Gradle integration with the Buf CLI"
   tagline: "August 9, 2023"

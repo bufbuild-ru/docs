@@ -1,3 +1,23 @@
+---
+
+title: "Client configuration - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/kafka-compatibility/configure-clients/"
+  - - meta
+    - property: "og:title"
+      content: "Client configuration - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/kafka-compatibility/configure-clients/"
+  - - meta
+    - property: "twitter:title"
+      content: "Client configuration - Buf Docs"
+
+---
+
 # Client configuration for Bufstream
 
 Bufstream is API-compatible with Apache Kafka and therefore works out of the box with any client. The examples below use [franz-go](https://github.com/twmb/franz-go/tree/master) and the [Apache Kafka Java Client](https://github.com/apache/kafka/tree/trunk/clients/src/main/java/org/apache/kafka/clients) to illustrate the recommended settings.

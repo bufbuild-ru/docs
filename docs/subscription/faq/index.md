@@ -1,3 +1,23 @@
+---
+
+title: "FAQs - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/subscription/faq/"
+  - - meta
+    - property: "og:title"
+      content: "FAQs - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/subscription/faq/"
+  - - meta
+    - property: "twitter:title"
+      content: "FAQs - Buf Docs"
+
+---
+
 # Billing and subscription FAQ
 
 ## Billing and payments

@@ -1,3 +1,23 @@
+---
+
+title: "User lifecycle - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/user-lifecycle/"
+  - - meta
+    - property: "og:title"
+      content: "User lifecycle - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/instance/user-lifecycle/"
+  - - meta
+    - property: "twitter:title"
+      content: "User lifecycle - Buf Docs"
+
+---
+
 # User lifecycle
 
 This feature is only available on the Pro and Enterprise plans.

@@ -1,3 +1,23 @@
+---
+
+title: "gRPC and Java - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/protovalidate/quickstart/grpc-java/"
+  - - meta
+    - property: "og:title"
+      content: "gRPC and Java - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/protovalidate/quickstart/grpc-java/"
+  - - meta
+    - property: "twitter:title"
+      content: "gRPC and Java - Buf Docs"
+
+---
+
 # Protovalidate in gRPC and Java
 
 This tutorial shows how to add Protovalidate to a Java RPC powered by [gRPC](https://grpc.io/docs/languages/java/quickstart/):

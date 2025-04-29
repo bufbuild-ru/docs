@@ -1,3 +1,23 @@
+---
+
+title: "buf registry module commit add-label - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/module/commit/add-label/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry module commit add-label - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/module/commit/add-label/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry module commit add-label - Buf Docs"
+
+---
+
 # buf registry module commit add-label
 
 Add labels to a commit

@@ -1,3 +1,23 @@
+---
+
+title: "Installation - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/on-prem/installation/"
+  - - meta
+    - property: "og:title"
+      content: "Installation - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/on-prem/installation/"
+  - - meta
+    - property: "twitter:title"
+      content: "Installation - Buf Docs"
+
+---
+
 # Installation
 
 The BSR is designed to run on Kubernetes, and is distributed as a Helm Chart and accompanying Docker images through an OCI registry. The Helm Chart and Docker images are versioned, and are expected to be used together. The default values in the Chart use Docker images with the same version as the Chart itself.Review the list of [BSR dependencies](../architecture/#dependencies) before getting started.

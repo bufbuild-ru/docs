@@ -1,3 +1,23 @@
+---
+
+title: "Federation - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/federation/"
+  - - meta
+    - property: "og:title"
+      content: "Federation - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/instance/federation/"
+  - - meta
+    - property: "twitter:title"
+      content: "Federation - Buf Docs"
+
+---
+
 # Federation
 
 DEPRECATEDWe recommend using the default [managed modules](../managed-modules/) feature, which synchronizes the community modules hosted in the public BSR to your private BSR instance.

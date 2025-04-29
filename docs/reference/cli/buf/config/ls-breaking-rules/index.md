@@ -1,3 +1,23 @@
+---
+
+title: "buf config ls-breaking-rules - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/config/ls-breaking-rules/"
+  - - meta
+    - property: "og:title"
+      content: "buf config ls-breaking-rules - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/config/ls-breaking-rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf config ls-breaking-rules - Buf Docs"
+
+---
+
 # buf config ls-breaking-rules
 
 List breaking rules

@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Multi-region, active-active Bufstream at 100 GiB/s"
+description: "Bufstream — Buf’s drop-in replacement for Apache Kafka® — now supports business-critical workloads with multi-region, active-active clusters on GCP."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Multi-region, active-active Bufstream at 100 GiB/s"
+  - - meta
+    - property: "og:description"
+      content: "Bufstream — Buf’s drop-in replacement for Apache Kafka® — now supports business-critical workloads with multi-region, active-active clusters on GCP."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/67cb5e9cc6750282a712c0a0_multi-region.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Multi-region, active-active Bufstream at 100 GiB/s"
+  - - meta
+    - property: "twitter:description"
+      content: "Bufstream — Buf’s drop-in replacement for Apache Kafka® — now supports business-critical workloads with multi-region, active-active clusters on GCP."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/67cb5e9cc6750282a712c0a0_multi-region.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Multi-region, active-active Bufstream at 100 GiB/s"
   tagline: "March 7, 2025"

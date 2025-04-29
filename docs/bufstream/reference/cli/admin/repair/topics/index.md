@@ -1,3 +1,23 @@
+---
+
+title: "bufstream admin repair topics - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/repair/topics/"
+  - - meta
+    - property: "og:title"
+      content: "bufstream admin repair topics - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/repair/topics/"
+  - - meta
+    - property: "twitter:title"
+      content: "bufstream admin repair topics - Buf Docs"
+
+---
+
 # bufstream admin repair topics
 
 repairs issues with topics

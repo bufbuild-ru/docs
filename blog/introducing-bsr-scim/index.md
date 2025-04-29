@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "The BSR now provides a SCIM service for Pro and Enterprise plans"
+description: "Admins can now configure SCIM in their BSR to manage organization enrollments based on IdP security groups."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "The BSR now provides a SCIM service for Pro and Enterprise plans"
+  - - meta
+    - property: "og:description"
+      content: "Admins can now configure SCIM in their BSR to manage organization enrollments based on IdP security groups."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750ccd4aed8c384d4eee094_SCIM%20service.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "The BSR now provides a SCIM service for Pro and Enterprise plans"
+  - - meta
+    - property: "twitter:description"
+      content: "Admins can now configure SCIM in their BSR to manage organization enrollments based on IdP security groups."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750ccd4aed8c384d4eee094_SCIM%20service.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "The BSR now provides a SCIM service for Pro and Enterprise plans"
   tagline: "March 16, 2023"

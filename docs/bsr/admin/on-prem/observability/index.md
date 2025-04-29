@@ -1,3 +1,23 @@
+---
+
+title: "Observability - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/on-prem/observability/"
+  - - meta
+    - property: "og:title"
+      content: "Observability - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/on-prem/observability/"
+  - - meta
+    - property: "twitter:title"
+      content: "Observability - Buf Docs"
+
+---
+
 # Observability
 
 Observability is the ability to measure the internal states of a system by examining its outputs. Monitoring incoming calls, error scenarios, and traces is critical to ensure a robust system is running properly.The rules and dashboards can be downloaded as a single zip file from the [Release notes](#release-notes) section below.

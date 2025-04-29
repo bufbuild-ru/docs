@@ -1,3 +1,23 @@
+---
+
+title: "Swift Package Manager/Xcode - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/swift/"
+  - - meta
+    - property: "og:title"
+      content: "Swift Package Manager/Xcode - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/generated-sdks/swift/"
+  - - meta
+    - property: "twitter:title"
+      content: "Swift Package Manager/Xcode - Buf Docs"
+
+---
+
 # Swift Package Manager/Xcode
 
 The Buf Schema Registry provides generated SDKs for Swift in the form of a Swift Package Manager repository, just like any other Swift library. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.See the [tutorial](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.

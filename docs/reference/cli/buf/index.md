@@ -1,3 +1,23 @@
+---
+
+title: "Buf CLI commands - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/"
+  - - meta
+    - property: "og:title"
+      content: "Buf CLI commands - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/"
+  - - meta
+    - property: "twitter:title"
+      content: "Buf CLI commands - Buf Docs"
+
+---
+
 # buf
 
 The Buf CLI

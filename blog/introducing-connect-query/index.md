@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Introducing Connect-Query: Integrate Protobuf with TanStack Query more effectively"
+description: "A TanStack Query extension to seamlessly integrate Protobuf"
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Introducing Connect-Query: Integrate Protobuf with TanStack Query more effectively"
+  - - meta
+    - property: "og:description"
+      content: "A TanStack Query extension to seamlessly integrate Protobuf"
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750ce68c75105f82a0e2829_Introducing%20Connect-Query.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Introducing Connect-Query: Integrate Protobuf with TanStack Query more effectively"
+  - - meta
+    - property: "twitter:description"
+      content: "A TanStack Query extension to seamlessly integrate Protobuf"
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750ce68c75105f82a0e2829_Introducing%20Connect-Query.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Introducing Connect-Query: Integrate Protobuf with TanStack Query more effectively"
   tagline: "February 6, 2023"

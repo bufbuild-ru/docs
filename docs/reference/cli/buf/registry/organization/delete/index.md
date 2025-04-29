@@ -1,3 +1,23 @@
+---
+
+title: "buf registry organization delete - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/organization/delete/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry organization delete - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/organization/delete/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry organization delete - Buf Docs"
+
+---
+
 # buf registry organization delete
 
 Delete a BSR organization

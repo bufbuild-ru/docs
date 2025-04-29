@@ -1,3 +1,23 @@
+---
+
+title: "Status endpoint - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/observability/status-endpoint/"
+  - - meta
+    - property: "og:title"
+      content: "Status endpoint - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/observability/status-endpoint/"
+  - - meta
+    - property: "twitter:title"
+      content: "Status endpoint - Buf Docs"
+
+---
+
 # Status endpoint
 
 ## Status endpoint

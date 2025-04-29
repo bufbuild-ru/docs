@@ -1,3 +1,23 @@
+---
+
+title: "buf lint - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/lint/"
+  - - meta
+    - property: "og:title"
+      content: "buf lint - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/lint/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf lint - Buf Docs"
+
+---
+
 # buf lint
 
 Run linting on Protobuf files

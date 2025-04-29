@@ -1,3 +1,23 @@
+---
+
+title: "buf generate - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/generate/"
+  - - meta
+    - property: "og:title"
+      content: "buf generate - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/generate/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf generate - Buf Docs"
+
+---
+
 # buf generate
 
 Generate code with protoc plugins

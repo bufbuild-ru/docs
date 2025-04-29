@@ -1,3 +1,23 @@
+---
+
+title: "bufstream admin status - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/status/"
+  - - meta
+    - property: "og:title"
+      content: "bufstream admin status - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/status/"
+  - - meta
+    - property: "twitter:title"
+      content: "bufstream admin status - Buf Docs"
+
+---
+
 # bufstream admin status
 
 checks Bufstream status

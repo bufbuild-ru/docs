@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Connect for Node.js is now available"
+description: "Connect is now full-stack TypeScript"
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Connect for Node.js is now available"
+  - - meta
+    - property: "og:description"
+      content: "Connect is now full-stack TypeScript"
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750ce1c774a5b2a43d3649e_Connect%20for%20Node%20js.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Connect for Node.js is now available"
+  - - meta
+    - property: "twitter:description"
+      content: "Connect is now full-stack TypeScript"
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750ce1c774a5b2a43d3649e_Connect%20for%20Node%20js.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Connect for Node.js is now available"
   tagline: "February 28, 2023"

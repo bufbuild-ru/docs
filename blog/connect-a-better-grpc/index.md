@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Connect: A better gRPC"
+description: "Use Connect to build simple, stable, browser and gRPC-compatible APIs."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Connect: A better gRPC"
+  - - meta
+    - property: "og:description"
+      content: "Use Connect to build simple, stable, browser and gRPC-compatible APIs."
+  - - meta
+    - property: "og:image"
+      content: ""
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Connect: A better gRPC"
+  - - meta
+    - property: "twitter:description"
+      content: "Use Connect to build simple, stable, browser and gRPC-compatible APIs."
+  - - meta
+    - property: "twitter:image"
+      content: ""
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Connect: A better gRPC"
   tagline: "June 1, 2022"

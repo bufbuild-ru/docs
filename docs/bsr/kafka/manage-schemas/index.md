@@ -1,3 +1,23 @@
+---
+
+title: "Manage schemas - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/kafka/manage-schemas/"
+  - - meta
+    - property: "og:title"
+      content: "Manage schemas - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/kafka/manage-schemas/"
+  - - meta
+    - property: "twitter:title"
+      content: "Manage schemas - Buf Docs"
+
+---
+
 # Manage schemas
 
 This feature is only available on the Enterprise plan.

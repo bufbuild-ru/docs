@@ -1,3 +1,23 @@
+---
+
+title: "Prototransform - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/reflection/prototransform/"
+  - - meta
+    - property: "og:title"
+      content: "Prototransform - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/reflection/prototransform/"
+  - - meta
+    - property: "twitter:title"
+      content: "Prototransform - Buf Docs"
+
+---
+
 # Prototransform
 
 Like any Connect API, you can use the Buf Reflection API using a client [generated](../../../generate/tutorial/) via the Buf CLI (for example `buf generate buf.build/bufbuild/reflect`) or by downloading a [generated SDK](../../generated-sdks/overview/). This API client allows you to download `FileDescriptorProtos`.A richer client library, that makes use of dynamic messages (provided by various Protobuf runtimes), is needed to fully unlock some powerful use cases enabled by the API.We've created a Go client library in a package named [`prototransform`](https://pkg.go.dev/github.com/bufbuild/prototransform) which is exactly that. It combines a generated Connect client for the Buf Reflection API with the dynamic message support provided by the Go runtime for Protocol Buffers.This library allows you to dynamically process message data. The current key use case is for converting message data from one format to another, but it also allows you to hook in your own filters which can transform the message. One such transformation, for which additional helpers are provided, is to redact fields (such as stripping message data before it's shipped to a data warehouse). The interface is general and allows for arbitrary manipulation of the message before output is produced.

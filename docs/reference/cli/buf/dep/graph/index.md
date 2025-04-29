@@ -1,3 +1,23 @@
+---
+
+title: "buf dep graph - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/dep/graph/"
+  - - meta
+    - property: "og:title"
+      content: "buf dep graph - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/dep/graph/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf dep graph - Buf Docs"
+
+---
+
 # buf dep graph
 
 Print the dependency graph

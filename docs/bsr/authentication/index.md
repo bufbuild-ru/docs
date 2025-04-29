@@ -1,3 +1,23 @@
+---
+
+title: "Authentication - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/authentication/"
+  - - meta
+    - property: "og:title"
+      content: "Authentication - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/authentication/"
+  - - meta
+    - property: "twitter:title"
+      content: "Authentication - Buf Docs"
+
+---
+
 # Authentication
 
 Authentication is required for the majority of the Buf CLI commands that interact with the Buf Schema Registry (BSR). There are two main ways to authenticate:

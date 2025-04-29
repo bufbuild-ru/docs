@@ -1,3 +1,23 @@
+---
+
+title: "buf build - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/build/"
+  - - meta
+    - property: "og:title"
+      content: "buf build - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/build/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf build - Buf Docs"
+
+---
+
 # buf build
 
 Build Protobuf files into a Buf image

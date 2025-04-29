@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Swift generated SDKs are now available for Xcode and SPM"
+description: "Swift engineers can now download pre-packaged generated code for their Protobuf schemas from the BSR using Xcode and Swift Package Manager."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Swift generated SDKs are now available for Xcode and SPM"
+  - - meta
+    - property: "og:description"
+      content: "Swift engineers can now download pre-packaged generated code for their Protobuf schemas from the BSR using Xcode and Swift Package Manager."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc3014882ab5f207ce89_Swift%20SDKs.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Swift generated SDKs are now available for Xcode and SPM"
+  - - meta
+    - property: "twitter:description"
+      content: "Swift engineers can now download pre-packaged generated code for their Protobuf schemas from the BSR using Xcode and Swift Package Manager."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc3014882ab5f207ce89_Swift%20SDKs.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Swift generated SDKs are now available for Xcode and SPM"
   tagline: "July 12, 2023"

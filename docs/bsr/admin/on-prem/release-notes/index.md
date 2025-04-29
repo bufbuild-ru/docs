@@ -1,3 +1,23 @@
+---
+
+title: "Release notes - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/on-prem/release-notes/"
+  - - meta
+    - property: "og:title"
+      content: "Release notes - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/on-prem/release-notes/"
+  - - meta
+    - property: "twitter:title"
+      content: "Release notes - Buf Docs"
+
+---
+
 # Release notes
 
 ## v1.21.0

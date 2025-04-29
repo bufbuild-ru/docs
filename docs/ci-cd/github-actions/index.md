@@ -1,3 +1,23 @@
+---
+
+title: "GitHub Action - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/ci-cd/github-actions/"
+  - - meta
+    - property: "og:title"
+      content: "GitHub Action - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/ci-cd/github-actions/"
+  - - meta
+    - property: "twitter:title"
+      content: "GitHub Action - Buf Docs"
+
+---
+
 # GitHub Action
 
 The [buf-action](https://github.com/bufbuild/buf-action) GitHub Action makes it easy to run the [Buf CLI](https://buf.build) within a workflow to check for [build](../../reference/cli/buf/build/), [lint](../../lint/overview/), [format](../../format/style/), and [breaking change](../../breaking/overview/) errors, and automatically [publish schema changes](../../bsr/module/publish/) to the [Buf Schema Registry (BSR)](https://buf.build/product/bsr).![Annotations example for lint and breaking changes](../../images/integrations/gh-annotations-example.png "Annotations example")

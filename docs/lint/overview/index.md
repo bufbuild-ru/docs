@@ -1,3 +1,23 @@
+---
+
+title: "Overview - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/lint/overview/"
+  - - meta
+    - property: "og:title"
+      content: "Overview - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/lint/overview/"
+  - - meta
+    - property: "twitter:title"
+      content: "Overview - Buf Docs"
+
+---
+
 # Linting – Overview
 
 Linting tools help to maintain the quality of code by enforcing a set of rules for style, syntax, and best practices. They can catch errors early, make the code easier to understand, and reduce the amount of manual code review required. The Buf CLI lints Protobuf files using a set of rules designed to encourage common conventions and maximize forward compatibility without restricting your organization's ability to adopt an in-house style guide.This document provides an overview of Buf's Protobuf linting features.

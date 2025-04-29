@@ -1,3 +1,23 @@
+---
+
+title: "Export modules from the BSR - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/module/export/"
+  - - meta
+    - property: "og:title"
+      content: "Export modules from the BSR - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/module/export/"
+  - - meta
+    - property: "twitter:title"
+      content: "Export modules from the BSR - Buf Docs"
+
+---
+
 # Export modules from the BSR
 
 Within the Buf ecosystem, moving `.proto` files around is unnecessary. You can manage dependencies in your modules and vendor commonly used modules like `googleapis/googleapis` from the Buf Schema Registry (BSR) community modules. However, tools other than the Buf CLI may require all `.proto` files to be present locally.To export `.proto` files from the BSR, you can either:

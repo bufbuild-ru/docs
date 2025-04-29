@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Connect RPC joins CNCF: gRPC you can bet your business on"
+description: "Connect RPC, Buf’s family of fully protocol-conformant and battle-tested alternatives to Google’s gRPC project, has joined the Cloud Native Computing Foundation. We joined the CNCF to demonstrate our deep commitment to sustainably and responsibly growing Connect as a well-governed and community-led open source project. Today, Connect integrates seamlessly with gRPC systems in production at companies of all sizes, such as CrowdStrike, PlanetScale, RedPanda, Chick-fil-A, BlueSky, and Dropbox."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Connect RPC joins CNCF: gRPC you can bet your business on"
+  - - meta
+    - property: "og:description"
+      content: "Connect RPC, Buf’s family of fully protocol-conformant and battle-tested alternatives to Google’s gRPC project, has joined the Cloud Native Computing Foundation. We joined the CNCF to demonstrate our deep commitment to sustainably and responsibly growing Connect as a well-governed and community-led open source project. Today, Connect integrates seamlessly with gRPC systems in production at companies of all sizes, such as CrowdStrike, PlanetScale, RedPanda, Chick-fil-A, BlueSky, and Dropbox."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc4d69f25227affd44203_Connect%20RPC%20joins%20CNCF.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Connect RPC joins CNCF: gRPC you can bet your business on"
+  - - meta
+    - property: "twitter:description"
+      content: "Connect RPC, Buf’s family of fully protocol-conformant and battle-tested alternatives to Google’s gRPC project, has joined the Cloud Native Computing Foundation. We joined the CNCF to demonstrate our deep commitment to sustainably and responsibly growing Connect as a well-governed and community-led open source project. Today, Connect integrates seamlessly with gRPC systems in production at companies of all sizes, such as CrowdStrike, PlanetScale, RedPanda, Chick-fil-A, BlueSky, and Dropbox."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc4d69f25227affd44203_Connect%20RPC%20joins%20CNCF.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Connect RPC joins CNCF: gRPC you can bet your business on"
   tagline: "June 4, 2024"

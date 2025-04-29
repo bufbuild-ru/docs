@@ -1,3 +1,23 @@
+---
+
+title: "buf registry module delete - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/module/delete/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry module delete - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/module/delete/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry module delete - Buf Docs"
+
+---
+
 # buf registry module delete
 
 Delete a BSR module

@@ -1,3 +1,23 @@
+---
+
+title: "Tutorial - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/format/tutorial/"
+  - - meta
+    - property: "og:title"
+      content: "Tutorial - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/format/tutorial/"
+  - - meta
+    - property: "twitter:title"
+      content: "Tutorial - Buf Docs"
+
+---
+
 # Format Protobuf files – Tutorial
 
 > We recommend completing the [Buf CLI quickstart](../../cli/quickstart/) for an introduction to the `buf format` command.

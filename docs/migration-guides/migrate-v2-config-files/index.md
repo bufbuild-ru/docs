@@ -1,3 +1,23 @@
+---
+
+title: "Migrate to v2 config files - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-v2-config-files/"
+  - - meta
+    - property: "og:title"
+      content: "Migrate to v2 config files - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/migration-guides/migrate-v2-config-files/"
+  - - meta
+    - property: "twitter:title"
+      content: "Migrate to v2 config files - Buf Docs"
+
+---
+
 # Migrate to v2 configuration files
 
 The migration from v1 to v2 configuration files encompasses a lot of changes under the hood of the Buf CLI (see our [blog post](/blog/buf-cli-next-generation/index.md) for the "Why?"), but the migration itself is straightforward and simple in most cases, and we've provided a tool that does almost all of the work for you. This page describes the changes and shows you how to migrate your configuration to v2.**Your v1 configuration files still work.** Buf is enterprise-grade software, and we want you to be minimally impacted, so you can upgrade at your leisure. However, upgrading is simple and we recommend it.

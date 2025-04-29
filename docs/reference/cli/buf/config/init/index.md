@@ -1,3 +1,23 @@
+---
+
+title: "buf config init - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/config/init/"
+  - - meta
+    - property: "og:title"
+      content: "buf config init - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/config/init/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf config init - Buf Docs"
+
+---
+
 # buf config init
 
 Initialize buf configuration files for your local development

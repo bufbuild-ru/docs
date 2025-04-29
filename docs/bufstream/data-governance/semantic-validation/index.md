@@ -1,3 +1,23 @@
+---
+
+title: "Semantic validation - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/data-governance/semantic-validation/"
+  - - meta
+    - property: "og:title"
+      content: "Semantic validation - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/data-governance/semantic-validation/"
+  - - meta
+    - property: "twitter:title"
+      content: "Semantic validation - Buf Docs"
+
+---
+
 # Semantic validation
 
 ## What is semantic validation?

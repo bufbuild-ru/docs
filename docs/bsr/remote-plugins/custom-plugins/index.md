@@ -1,3 +1,23 @@
+---
+
+title: "Custom plugins - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/remote-plugins/custom-plugins/"
+  - - meta
+    - property: "og:title"
+      content: "Custom plugins - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/remote-plugins/custom-plugins/"
+  - - meta
+    - property: "twitter:title"
+      content: "Custom plugins - Buf Docs"
+
+---
+
 # Custom plugins
 
 This feature is only available on the Pro and Enterprise plans.

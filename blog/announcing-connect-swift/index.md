@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Announcing Connect-Swift: You’ll actually want to use Protobuf on iOS"
+description: "Eliminate handwritten Codable models by generating idiomatic HTTP APIs with Protobuf and Connect-Swift."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Announcing Connect-Swift: You’ll actually want to use Protobuf on iOS"
+  - - meta
+    - property: "og:description"
+      content: "Eliminate handwritten Codable models by generating idiomatic HTTP APIs with Protobuf and Connect-Swift."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750ceb866712429b4e2ac4d_Announcing%20Connect-Swift.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Announcing Connect-Swift: You’ll actually want to use Protobuf on iOS"
+  - - meta
+    - property: "twitter:description"
+      content: "Eliminate handwritten Codable models by generating idiomatic HTTP APIs with Protobuf and Connect-Swift."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750ceb866712429b4e2ac4d_Announcing%20Connect-Swift.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Announcing Connect-Swift: You’ll actually want to use Protobuf on iOS"
   tagline: "January 18, 2023"

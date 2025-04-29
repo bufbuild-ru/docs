@@ -1,3 +1,23 @@
+---
+
+title: "Enterprise setup - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/setup-enterprise/"
+  - - meta
+    - property: "og:title"
+      content: "Enterprise setup - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/instance/setup-enterprise/"
+  - - meta
+    - property: "twitter:title"
+      content: "Enterprise setup - Buf Docs"
+
+---
+
 # Enterprise setup
 
 This feature is only available on the Enterprise plan.

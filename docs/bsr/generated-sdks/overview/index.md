@@ -1,3 +1,23 @@
+---
+
+title: "Overview - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/overview/"
+  - - meta
+    - property: "og:title"
+      content: "Overview - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/generated-sdks/overview/"
+  - - meta
+    - property: "twitter:title"
+      content: "Overview - Buf Docs"
+
+---
+
 # Generated SDKs – Overview
 
 When API producer teams push schemas to the Buf Schema Registry (BSR), it automatically generates SDKs for multiple languages that package up code generated from the Protobuf files and the BSR's [remote plugins](../../remote-plugins/overview/). Client teams can consume these SDKs using the language and package manager of their choice, just like any other dependency. This greatly simplifies workflows for your teams:

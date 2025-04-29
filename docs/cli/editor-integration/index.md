@@ -1,3 +1,23 @@
+---
+
+title: "Code editors - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/cli/editor-integration/"
+  - - meta
+    - property: "og:title"
+      content: "Code editors - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/cli/editor-integration/"
+  - - meta
+    - property: "twitter:title"
+      content: "Code editors - Buf Docs"
+
+---
+
 # Code editors
 
 The Buf CLI produces structured machine readable error output for [build](../../build/overview/), [lint](../../lint/overview/), and [breaking change](../../breaking/overview/) errors which integrate with IDEs, scripts, and other tools.We currently provide integration with Vim, Visual Studio Code, and JetBrains IDEs, and we may support other editors in the future. [Contact us](../../contact/) if you're interested in any of these, or others not already listed here.

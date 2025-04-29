@@ -1,3 +1,23 @@
+---
+
+title: "Migrate from remote generation alpha - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-remote-generation-alpha/"
+  - - meta
+    - property: "og:title"
+      content: "Migrate from remote generation alpha - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/migration-guides/migrate-remote-generation-alpha/"
+  - - meta
+    - property: "twitter:title"
+      content: "Migrate from remote generation alpha - Buf Docs"
+
+---
+
 # Migrate from remote generation alpha
 
 ::: tip NoteThe remote generation alpha was deprecated as of April 30, 2023. Please migrate to [remote plugins](../../bsr/remote-plugins/overview/) or [generated SDKs](../../bsr/generated-sdks/overview/).

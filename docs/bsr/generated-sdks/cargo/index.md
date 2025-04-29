@@ -1,3 +1,23 @@
+---
+
+title: "Cargo - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/cargo/"
+  - - meta
+    - property: "og:title"
+      content: "Cargo - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/generated-sdks/cargo/"
+  - - meta
+    - property: "twitter:title"
+      content: "Cargo - Buf Docs"
+
+---
+
 # Cargo
 
 The Buf Schema Repository (BSR) provides generated SDKs for Rust in the form of a Crate registry. You can consume generated SDKs from modules and plugins using `cargo`. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.

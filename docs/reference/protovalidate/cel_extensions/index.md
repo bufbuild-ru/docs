@@ -1,3 +1,23 @@
+---
+
+title: "CEL extensions - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/cel_extensions/"
+  - - meta
+    - property: "og:title"
+      content: "CEL extensions - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/cel_extensions/"
+  - - meta
+    - property: "twitter:title"
+      content: "CEL extensions - Buf Docs"
+
+---
+
 # CEL extensions
 
 This page documents the variables, custom functions, and overloads that Protovalidate adds to [Common Expression Language (CEL)](https://cel.dev). All [standard rules](../../../protovalidate/schemas/standard-rules/) are defined in CEL expressions and often leverage these Protovalidate-specific CEL extensions.They are all available in any [custom](../../../protovalidate/schemas/custom-rules/) or [predefined](../../../protovalidate/schemas/predefined-rules/) rule's CEL expression unless otherwise noted.

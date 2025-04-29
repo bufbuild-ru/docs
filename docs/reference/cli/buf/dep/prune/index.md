@@ -1,3 +1,23 @@
+---
+
+title: "buf dep prune - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/dep/prune/"
+  - - meta
+    - property: "og:title"
+      content: "buf dep prune - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/dep/prune/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf dep prune - Buf Docs"
+
+---
+
 # buf dep prune
 
 Prune unused dependencies from a buf.lock

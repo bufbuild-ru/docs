@@ -1,3 +1,23 @@
+---
+
+title: "buf registry organization info - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/organization/info/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry organization info - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/organization/info/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry organization info - Buf Docs"
+
+---
+
 # buf registry organization info
 
 Show information about a BSR organization

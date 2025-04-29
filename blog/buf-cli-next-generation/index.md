@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Introducing the next generation of the Buf CLI: still v1 and backwards-compatible"
+description: "The Buf CLI and its associated configuration have been completely overhauled to support monorepos as first-class citizens. Everything we've changed is 100% backwards compatible."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Introducing the next generation of the Buf CLI: still v1 and backwards-compatible"
+  - - meta
+    - property: "og:description"
+      content: "The Buf CLI and its associated configuration have been completely overhauled to support monorepos as first-class citizens. Everything we've changed is 100% backwards compatible."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc4f6caf79fd32f1fb5b0_Next%20gen%20CLI.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Introducing the next generation of the Buf CLI: still v1 and backwards-compatible"
+  - - meta
+    - property: "twitter:description"
+      content: "The Buf CLI and its associated configuration have been completely overhauled to support monorepos as first-class citizens. Everything we've changed is 100% backwards compatible."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc4f6caf79fd32f1fb5b0_Next%20gen%20CLI.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Introducing the next generation of the Buf CLI: still v1 and backwards-compatible"
   tagline: "May 17, 2024"

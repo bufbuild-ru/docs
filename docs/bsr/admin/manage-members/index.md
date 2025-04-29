@@ -1,3 +1,23 @@
+---
+
+title: "Manage members and roles - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/manage-members/"
+  - - meta
+    - property: "og:title"
+      content: "Manage members and roles - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/manage-members/"
+  - - meta
+    - property: "twitter:title"
+      content: "Manage members and roles - Buf Docs"
+
+---
+
 # Manage members and roles
 
 An organization member is a BSR user who can access your BSR organization's resources. Once designated, they can push modules to any of the organization's repositories and import them as a dependency.

@@ -1,3 +1,23 @@
+---
+
+title: "Duration - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/duration_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Duration - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/duration_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Duration - Buf Docs"
+
+---
+
 # Duration rules
 
 DurationRules describe the constraints applied exclusively to the `google.protobuf.Duration` well-known type.

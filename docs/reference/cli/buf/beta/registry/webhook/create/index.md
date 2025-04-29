@@ -1,3 +1,23 @@
+---
+
+title: "buf beta registry webhook create - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/beta/registry/webhook/create/"
+  - - meta
+    - property: "og:title"
+      content: "buf beta registry webhook create - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/beta/registry/webhook/create/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf beta registry webhook create - Buf Docs"
+
+---
+
 # buf beta registry webhook create
 
 Create a repository webhook

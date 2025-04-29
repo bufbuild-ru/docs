@@ -1,3 +1,23 @@
+---
+
+title: "bufstream client metadata - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/client/metadata/"
+  - - meta
+    - property: "og:title"
+      content: "bufstream client metadata - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/cli/client/metadata/"
+  - - meta
+    - property: "twitter:title"
+      content: "bufstream client metadata - Buf Docs"
+
+---
+
 # bufstream client metadata
 
 client metadata command

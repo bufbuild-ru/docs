@@ -1,3 +1,23 @@
+---
+
+title: "Manage repositories - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/repository/configure/"
+  - - meta
+    - property: "og:title"
+      content: "Manage repositories - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/repository/configure/"
+  - - meta
+    - property: "twitter:title"
+      content: "Manage repositories - Buf Docs"
+
+---
+
 # Manage repositories
 
 A Buf Schema Registry (BSR) repository represents a module’s commits, labels, and label histories. This page shows how to create and manage your repositories and their properties. All instructions assume that you have a [Buf account](../../admin/user-account/) and are logged in to the BSR.

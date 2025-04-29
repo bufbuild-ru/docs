@@ -1,3 +1,23 @@
+---
+
+title: "buf format - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/format/"
+  - - meta
+    - property: "og:title"
+      content: "buf format - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/format/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf format - Buf Docs"
+
+---
+
 # buf format
 
 Format Protobuf files

@@ -1,3 +1,23 @@
+---
+
+title: "Optional configuration - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/on-prem/configuration/"
+  - - meta
+    - property: "og:title"
+      content: "Optional configuration - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/on-prem/configuration/"
+  - - meta
+    - property: "twitter:title"
+      content: "Optional configuration - Buf Docs"
+
+---
+
 # Optional configuration
 
 ## Maintenance mode

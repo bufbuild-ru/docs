@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Introducing the newly improved BSR UI and buf push experience"
+description: "We've made it easier to onboard and use the BSR with improved support for monorepos, tighter integration with source control providers, and a new BSR UI that is more polished and has improved accessibility."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Introducing the newly improved BSR UI and buf push experience"
+  - - meta
+    - property: "og:description"
+      content: "We've made it easier to onboard and use the BSR with improved support for monorepos, tighter integration with source control providers, and a new BSR UI that is more polished and has improved accessibility."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc504386e9849d661dfc8_New%20BSR%20UI.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Introducing the newly improved BSR UI and buf push experience"
+  - - meta
+    - property: "twitter:description"
+      content: "We've made it easier to onboard and use the BSR with improved support for monorepos, tighter integration with source control providers, and a new BSR UI that is more polished and has improved accessibility."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc504386e9849d661dfc8_New%20BSR%20UI.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Introducing the newly improved BSR UI and buf push experience"
   tagline: "May 17, 2024"

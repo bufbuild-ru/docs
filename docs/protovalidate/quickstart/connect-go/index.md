@@ -1,3 +1,23 @@
+---
+
+title: "Connect and Go - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/protovalidate/quickstart/connect-go/"
+  - - meta
+    - property: "og:title"
+      content: "Connect and Go - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/protovalidate/quickstart/connect-go/"
+  - - meta
+    - property: "twitter:title"
+      content: "Connect and Go - Buf Docs"
+
+---
+
 # Protovalidate in Connect and Go
 
 This tutorial shows how to add Protovalidate to a Go RPC powered by [Connect](https://connectrpc.com/docs/go/getting-started/):

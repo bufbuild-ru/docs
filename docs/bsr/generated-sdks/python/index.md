@@ -1,3 +1,23 @@
+---
+
+title: "Python - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/python/"
+  - - meta
+    - property: "og:title"
+      content: "Python - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/generated-sdks/python/"
+  - - meta
+    - property: "twitter:title"
+      content: "Python - Buf Docs"
+
+---
+
 # Python
 
 The Buf Schema Repository (BSR) provides generated SDKs for Python in the form of a [PEP 503](https://peps.python.org/pep-0503/)\-compatible repository. You can consume generated SDKs from modules and plugins using dependency management tools like [`pip`](https://pip.pypa.io/en/stable/). It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.

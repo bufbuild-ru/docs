@@ -1,3 +1,23 @@
+---
+
+title: "Settings - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/module/settings/"
+  - - meta
+    - property: "og:title"
+      content: "Settings - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/module/settings/"
+  - - meta
+    - property: "twitter:title"
+      content: "Settings - Buf Docs"
+
+---
+
 # buf registry module settings
 
 Manage a module's settings

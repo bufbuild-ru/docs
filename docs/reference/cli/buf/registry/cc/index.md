@@ -1,3 +1,23 @@
+---
+
+title: "buf registry cc - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/cc/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry cc - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/cc/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry cc - Buf Docs"
+
+---
+
 # buf registry cc
 
 Clear the registry cache

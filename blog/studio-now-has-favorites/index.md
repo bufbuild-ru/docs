@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Buf Studio Now Has Favorites!"
+description: "As of today, Buf Studio supports saving requests to your BSR profile."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Buf Studio Now Has Favorites!"
+  - - meta
+    - property: "og:description"
+      content: "As of today, Buf Studio supports saving requests to your BSR profile."
+  - - meta
+    - property: "og:image"
+      content: ""
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Buf Studio Now Has Favorites!"
+  - - meta
+    - property: "twitter:description"
+      content: "As of today, Buf Studio supports saving requests to your BSR profile."
+  - - meta
+    - property: "twitter:image"
+      content: ""
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Buf Studio Now Has Favorites!"
   tagline: "December 16, 2022"

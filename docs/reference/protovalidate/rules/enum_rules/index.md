@@ -1,3 +1,23 @@
+---
+
+title: "Enum - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/enum_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Enum - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/enum_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Enum - Buf Docs"
+
+---
+
 # Enum rules
 
 EnumRules describe the constraints applied to `enum` values.

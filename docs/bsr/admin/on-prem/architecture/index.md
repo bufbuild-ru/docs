@@ -1,3 +1,23 @@
+---
+
+title: "Architecture - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/on-prem/architecture/"
+  - - meta
+    - property: "og:title"
+      content: "Architecture - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/on-prem/architecture/"
+  - - meta
+    - property: "twitter:title"
+      content: "Architecture - Buf Docs"
+
+---
+
 # Architecture
 
 On-prem deployments of the BSR are effectively air-gapped from Buf. No sharing of data or analytics occurs without manual action by the customer.Here is a simplified architecture diagram for the Buf Schema Registry (BSR):![BSR architecture diagram](../../../../images/bsr/architecture.png)

@@ -1,3 +1,23 @@
+---
+
+title: "bufstream admin resolve - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/resolve/"
+  - - meta
+    - property: "og:title"
+      content: "bufstream admin resolve - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/resolve/"
+  - - meta
+    - property: "twitter:title"
+      content: "bufstream admin resolve - Buf Docs"
+
+---
+
 # bufstream admin resolve
 
 Resolve various identifiers

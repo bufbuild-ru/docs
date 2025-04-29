@@ -1,3 +1,23 @@
+---
+
+title: "buf beta buf-plugin-v1 - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/beta/buf-plugin-v1/"
+  - - meta
+    - property: "og:title"
+      content: "buf beta buf-plugin-v1 - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/beta/buf-plugin-v1/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf beta buf-plugin-v1 - Buf Docs"
+
+---
+
 # buf beta buf-plugin-v1
 
 Run buf as a check plugin.

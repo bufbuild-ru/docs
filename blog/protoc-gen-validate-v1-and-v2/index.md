@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Announcing protoc-gen-validate v1.0 and our plans for v2.0"
+description: "A look to the future of Protobuf validation"
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Announcing protoc-gen-validate v1.0 and our plans for v2.0"
+  - - meta
+    - property: "og:description"
+      content: "A look to the future of Protobuf validation"
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc9c214b0f9818ffefc7_protoc-gen-validate%20v1.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Announcing protoc-gen-validate v1.0 and our plans for v2.0"
+  - - meta
+    - property: "twitter:description"
+      content: "A look to the future of Protobuf validation"
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc9c214b0f9818ffefc7_protoc-gen-validate%20v1.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Announcing protoc-gen-validate v1.0 and our plans for v2.0"
   tagline: "April 24, 2023"

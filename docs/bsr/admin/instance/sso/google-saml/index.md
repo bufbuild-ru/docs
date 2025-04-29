@@ -1,3 +1,23 @@
+---
+
+title: "Google - SAML - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/sso/google-saml/"
+  - - meta
+    - property: "og:title"
+      content: "Google - SAML - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/instance/sso/google-saml/"
+  - - meta
+    - property: "twitter:title"
+      content: "Google - SAML - Buf Docs"
+
+---
+
 # Google - SAML
 
 This feature is only available on the Pro and Enterprise plans.

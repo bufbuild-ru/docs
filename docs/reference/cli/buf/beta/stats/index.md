@@ -1,3 +1,23 @@
+---
+
+title: "buf beta stats - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/beta/stats/"
+  - - meta
+    - property: "og:title"
+      content: "buf beta stats - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/beta/stats/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf beta stats - Buf Docs"
+
+---
+
 # buf beta stats
 
 Get statistics for a given source or module

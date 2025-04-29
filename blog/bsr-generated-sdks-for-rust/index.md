@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Generated SDKs for Rust now available on the Buf Schema Registry"
+description: "We’re excited to announce that the Buf Schema Registry now supports generated SDKs for Rust. Our Rust SDK crates are available natively to the Rust ecosystem using a custom crate registry that’s powered by our zero-dependency remote plugins platform."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Generated SDKs for Rust now available on the Buf Schema Registry"
+  - - meta
+    - property: "og:description"
+      content: "We’re excited to announce that the Buf Schema Registry now supports generated SDKs for Rust. Our Rust SDK crates are available natively to the Rust ecosystem using a custom crate registry that’s powered by our zero-dependency remote plugins platform."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fa998a569ef00d761d24f_Rust%20SDKs.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Generated SDKs for Rust now available on the Buf Schema Registry"
+  - - meta
+    - property: "twitter:description"
+      content: "We’re excited to announce that the Buf Schema Registry now supports generated SDKs for Rust. Our Rust SDK crates are available natively to the Rust ecosystem using a custom crate registry that’s powered by our zero-dependency remote plugins platform."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fa998a569ef00d761d24f_Rust%20SDKs.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Generated SDKs for Rust now available on the Buf Schema Registry"
   tagline: "June 13, 2024"

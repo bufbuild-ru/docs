@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Governance & breaking change policy enforcement for enterprises"
+description: "The BSR can now enforce breaking change prevention policies across all modules."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Governance & breaking change policy enforcement for enterprises"
+  - - meta
+    - property: "og:description"
+      content: "The BSR can now enforce breaking change prevention policies across all modules."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc3fee8391dc84fb708d_Governance%20%26%20breaking.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Governance & breaking change policy enforcement for enterprises"
+  - - meta
+    - property: "twitter:description"
+      content: "The BSR can now enforce breaking change prevention policies across all modules."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cc3fee8391dc84fb708d_Governance%20%26%20breaking.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Governance & breaking change policy enforcement for enterprises"
   tagline: "July 10, 2023"

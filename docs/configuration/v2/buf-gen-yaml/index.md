@@ -1,3 +1,23 @@
+---
+
+title: "buf.gen.yaml - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/configuration/v2/buf-gen-yaml/"
+  - - meta
+    - property: "og:title"
+      content: "buf.gen.yaml - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/configuration/v2/buf-gen-yaml/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf.gen.yaml - Buf Docs"
+
+---
+
 # buf.gen.yaml v2 config file
 
 ::: tip NoteThis file has changed significantly between `v1` and `v2` configurations. See the [v1 to v2 migration guide](../../../migration-guides/migrate-v2-config-files/) for migration instructions or the [v1 reference](../../v1/buf-gen-yaml/) if you're still using `v1` configuration files.

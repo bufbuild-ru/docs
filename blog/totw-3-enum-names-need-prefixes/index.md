@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Tip of the week #3:  Enum names need prefixes"
+description: "Enums inherit some unfortunate behaviors from C++. Avoid this problem by using the Buf lint rules ENUM_VALUE_PREFIX and ENUM_ZERO_VALUE_SUFFIX."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Tip of the week #3:  Enum names need prefixes"
+  - - meta
+    - property: "og:description"
+      content: "Enums inherit some unfortunate behaviors from C++. Avoid this problem by using the Buf lint rules ENUM_VALUE_PREFIX and ENUM_ZERO_VALUE_SUFFIX."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/68014504eb8ca891ff0184bc_totw%203.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Tip of the week #3:  Enum names need prefixes"
+  - - meta
+    - property: "twitter:description"
+      content: "Enums inherit some unfortunate behaviors from C++. Avoid this problem by using the Buf lint rules ENUM_VALUE_PREFIX and ENUM_ZERO_VALUE_SUFFIX."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/68014504eb8ca891ff0184bc_totw%203.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Tip of the week #3:  Enum names need prefixes"
   tagline: "April 22, 2025"

@@ -1,3 +1,23 @@
+---
+
+title: "Quickstart - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/quickstart/"
+  - - meta
+    - property: "og:title"
+      content: "Quickstart - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/quickstart/"
+  - - meta
+    - property: "twitter:title"
+      content: "Quickstart - Buf Docs"
+
+---
+
 # Bufstream quickstart
 
 ## What is Bufstream?

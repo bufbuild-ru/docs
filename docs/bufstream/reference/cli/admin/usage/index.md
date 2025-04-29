@@ -1,3 +1,23 @@
+---
+
+title: "bufstream admin usage - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/usage/"
+  - - meta
+    - property: "og:title"
+      content: "bufstream admin usage - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/usage/"
+  - - meta
+    - property: "twitter:title"
+      content: "bufstream admin usage - Buf Docs"
+
+---
+
 # bufstream admin usage
 
 Report usage statistics

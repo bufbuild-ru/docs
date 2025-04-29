@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Protobuf-ES has reached version 1.0"
+description: "A stable, idiomatic Protocol Buffers library for TypeScript and JavaScript."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Protobuf-ES has reached version 1.0"
+  - - meta
+    - property: "og:description"
+      content: "A stable, idiomatic Protocol Buffers library for TypeScript and JavaScript."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cf7264828da173d4c8b3_Protobuf-ES%20v1.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Protobuf-ES has reached version 1.0"
+  - - meta
+    - property: "twitter:description"
+      content: "A stable, idiomatic Protocol Buffers library for TypeScript and JavaScript."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750cf7264828da173d4c8b3_Protobuf-ES%20v1.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Protobuf-ES has reached version 1.0"
   tagline: "January 4, 2023"

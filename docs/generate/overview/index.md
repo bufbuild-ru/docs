@@ -1,3 +1,23 @@
+---
+
+title: "Overview - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/generate/overview/"
+  - - meta
+    - property: "og:title"
+      content: "Overview - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/generate/overview/"
+  - - meta
+    - property: "twitter:title"
+      content: "Overview - Buf Docs"
+
+---
+
 # Code generation – Overview
 
 This overview provides information about generating code from your Protobuf files using the Buf CLI, ranging from local generation to generated SDKs hosted in the Buf Schema Registry (BSR).One of the challenges with Protobuf code generation is the complexity of working with `protoc` and plugins. Managing and maintaining a stable environment locally on a single machine is hard enough given the complex web of different compiler and plugin versions. The problem is compounded as you scale out code generation across many developers, and often results in a series of ugly bash scripts shared between team members.Buf's code generation streamlines all of that and is designed to work with whatever your Protobuf setup might be. It has the following advantages over `protoc`:

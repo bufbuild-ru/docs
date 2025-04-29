@@ -1,3 +1,23 @@
+---
+
+title: "buf registry plugin settings update - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/plugin/settings/update/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry plugin settings update - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/plugin/settings/update/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry plugin settings update - Buf Docs"
+
+---
+
 # buf registry plugin settings update
 
 Update BSR plugin settings

@@ -1,3 +1,23 @@
+---
+
+title: "buf.work.yaml - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/configuration/v1/buf-work-yaml/"
+  - - meta
+    - property: "og:title"
+      content: "buf.work.yaml - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/configuration/v1/buf-work-yaml/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf.work.yaml - Buf Docs"
+
+---
+
 # buf.work.yaml v1 config file
 
 ::: tip NoteBuf now has a `v2` configuration available, where this file is no longer used. See the [v2 `buf.yaml` reference](../../v2/buf-yaml/) and the [v1 to v2 migration guide](../../../migration-guides/migrate-v2-config-files/) for details about the new configuration and migration instructions.

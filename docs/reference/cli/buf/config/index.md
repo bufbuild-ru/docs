@@ -1,3 +1,23 @@
+---
+
+title: "Config - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/config/"
+  - - meta
+    - property: "og:title"
+      content: "Config - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/config/"
+  - - meta
+    - property: "twitter:title"
+      content: "Config - Buf Docs"
+
+---
+
 # buf config
 
 Work with configuration files

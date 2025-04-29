@@ -1,3 +1,23 @@
+---
+
+title: "Sint64 - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/sint64_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Sint64 - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/sint64_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Sint64 - Buf Docs"
+
+---
+
 # SInt64 rules
 
 SInt64Rules describes the constraints applied to `sint64` values.

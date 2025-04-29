@@ -1,3 +1,23 @@
+---
+
+title: "bufstream admin clean storage - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/clean/storage/"
+  - - meta
+    - property: "og:title"
+      content: "bufstream admin clean storage - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/clean/storage/"
+  - - meta
+    - property: "twitter:title"
+      content: "bufstream admin clean storage - Buf Docs"
+
+---
+
 # bufstream admin clean storage
 
 Delete the underlying local storage for the bufstream cluster

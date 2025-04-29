@@ -1,3 +1,23 @@
+---
+
+title: "Pro setup - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/setup-pro/"
+  - - meta
+    - property: "og:title"
+      content: "Pro setup - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/instance/setup-pro/"
+  - - meta
+    - property: "twitter:title"
+      content: "Pro setup - Buf Docs"
+
+---
+
 # Pro setup
 
 This feature is only available on the Pro plan.

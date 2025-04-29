@@ -1,3 +1,23 @@
+---
+
+title: "Migrate from Protolock - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protolock/"
+  - - meta
+    - property: "og:title"
+      content: "Migrate from Protolock - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/migration-guides/migrate-from-protolock/"
+  - - meta
+    - property: "twitter:title"
+      content: "Migrate from Protolock - Buf Docs"
+
+---
+
 # Migrate from Protolock
 
 [Protolock](https://github.com/nilslice/protolock) is a widely used Protobuf tool that primarily concentrates on breaking change detection. It deserves a lot of praise—in the OSS world, it largely pioneered the breaking change detection effort, and has been well maintained. We can't heap enough praise on this effort, it's helped the Protobuf ecosystem move forward in a big way.In this document, we'll discuss the pros and cons of Protolock vs. `buf`'s [breaking change detector](../../breaking/overview/), as well as `buf`\-equivalent commands and migration.

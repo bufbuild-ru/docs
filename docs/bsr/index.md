@@ -1,3 +1,23 @@
+---
+
+title: "Overview - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/"
+  - - meta
+    - property: "og:title"
+      content: "Overview - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/"
+  - - meta
+    - property: "twitter:title"
+      content: "Overview - Buf Docs"
+
+---
+
 # Buf Schema Registry (BSR)
 
 Welcome to the **Buf Schema Registry (BSR)**! This overview covers what the BSR is and the challenges it aims to solve within the Protobuf ecosystem. If you just want to see the BSR in action with code examples, check out the [BSR quickstart](quickstart/).

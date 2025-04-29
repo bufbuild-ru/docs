@@ -1,3 +1,23 @@
+---
+
+title: "Overview - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/curl/usage/"
+  - - meta
+    - property: "og:title"
+      content: "Overview - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/curl/usage/"
+  - - meta
+    - property: "twitter:title"
+      content: "Overview - Buf Docs"
+
+---
+
 # buf curl overview
 
 The `buf curl` command lets you invoke RPCs on a Connect, gRPC, or gRPC-Web server. This improves usability over the standard [curl](https://curl.se/) utility since `buf curl` handles aspects of the relevant protocol for you, without you having to define the right headers and craft message envelopes. It also allows you to provide request data and view response data in JSON format, even while the on-the-wire format is binary.

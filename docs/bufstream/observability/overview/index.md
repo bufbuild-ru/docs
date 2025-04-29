@@ -1,3 +1,23 @@
+---
+
+title: "Overview - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/observability/overview/"
+  - - meta
+    - property: "og:title"
+      content: "Overview - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/observability/overview/"
+  - - meta
+    - property: "twitter:title"
+      content: "Overview - Buf Docs"
+
+---
+
 # Observability – Overview
 
 Bufstream is instrumented for monitoring cluster health, performance, and errors. Metrics are instrumented using [OpenTelemetry](https://opentelemetry.io/), with support for standard exporters like OTLP and Prometheus. Specific configuration recommendations including dashboards and monitors/alerts for [Datadog](../datadog/) and [Grafana](../grafana/) are available.

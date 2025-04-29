@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Generated SDKs for C# are now available on the Buf Schema Registry"
+description: "We’re excited to announce that in addition to C++, Go, JavaScript/TypeScript, Java/Kotlin, Python, Swift, and Rust, the Buf Schema Registry now provides generated SDKs for C# via NuGet."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Generated SDKs for C# are now available on the Buf Schema Registry"
+  - - meta
+    - property: "og:description"
+      content: "We’re excited to announce that in addition to C++, Go, JavaScript/TypeScript, Java/Kotlin, Python, Swift, and Rust, the Buf Schema Registry now provides generated SDKs for C# via NuGet."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fa93515a983e9cf347d5c_C%23%20SDKs.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Generated SDKs for C# are now available on the Buf Schema Registry"
+  - - meta
+    - property: "twitter:description"
+      content: "We’re excited to announce that in addition to C++, Go, JavaScript/TypeScript, Java/Kotlin, Python, Swift, and Rust, the Buf Schema Registry now provides generated SDKs for C# via NuGet."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fa93515a983e9cf347d5c_C%23%20SDKs.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Generated SDKs for C# are now available on the Buf Schema Registry"
   tagline: "August 28, 2024"

@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Announcing Connect-Kotlin: Connect is now fully supported on mobile!"
+description: "Connect is now available across mobile for both Android and iOS!"
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Announcing Connect-Kotlin: Connect is now fully supported on mobile!"
+  - - meta
+    - property: "og:description"
+      content: "Connect is now available across mobile for both Android and iOS!"
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750ce26be9f371ed7436792_Connect-Kotlin.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Announcing Connect-Kotlin: Connect is now fully supported on mobile!"
+  - - meta
+    - property: "twitter:description"
+      content: "Connect is now available across mobile for both Android and iOS!"
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750ce26be9f371ed7436792_Connect-Kotlin.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Announcing Connect-Kotlin: Connect is now fully supported on mobile!"
   tagline: "February 22, 2023"

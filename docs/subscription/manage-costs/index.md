@@ -1,3 +1,23 @@
+---
+
+title: "Manage costs - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/subscription/manage-costs/"
+  - - meta
+    - property: "og:title"
+      content: "Manage costs - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/subscription/manage-costs/"
+  - - meta
+    - property: "twitter:title"
+      content: "Manage costs - Buf Docs"
+
+---
+
 # Manage subscription costs
 
 Under the Community plan, your organization may have 1 private repository with up to 100 types. On the Teams plan you are charged for the number of types (messages, rpcs, and enums) that you push into private repositories. The Pro plan also charges by number of types, but since your Pro BSR instance is private to your organization, the visibility of repositories isn't relevant to pricing.This page describes some best practices for managing the cost of your subscription by right-sizing the number of private types in your organization.For more information on pricing, read our [pricing FAQ](../faq/).

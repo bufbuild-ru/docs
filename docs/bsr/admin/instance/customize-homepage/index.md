@@ -1,3 +1,23 @@
+---
+
+title: "Customize homepage - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/customize-homepage/"
+  - - meta
+    - property: "og:title"
+      content: "Customize homepage - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/instance/customize-homepage/"
+  - - meta
+    - property: "twitter:title"
+      content: "Customize homepage - Buf Docs"
+
+---
+
 # Customize the BSR homepage
 
 This feature is only available on the Pro and Enterprise plans.

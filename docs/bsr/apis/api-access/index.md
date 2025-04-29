@@ -1,3 +1,23 @@
+---
+
+title: "Invoking the BSR APIs - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/apis/api-access/"
+  - - meta
+    - property: "og:title"
+      content: "Invoking the BSR APIs - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/apis/api-access/"
+  - - meta
+    - property: "twitter:title"
+      content: "Invoking the BSR APIs - Buf Docs"
+
+---
+
 # Invoking the BSR APIs
 
 Buf Schema Registries provide a web UI at their domain. For example, the web UI for the public BSR is at [buf.build](https://buf.build/). This is also Buf's main website—if you login, you see the BSR interface.BSRs also provide an API server, for programmatic access of BSR functions. For now the set of APIs is narrow, but it's likely to expand over time to include more of the BSR's capabilities.

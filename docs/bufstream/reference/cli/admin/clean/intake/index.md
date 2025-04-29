@@ -1,3 +1,23 @@
+---
+
+title: "bufstream admin clean intake - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/clean/intake/"
+  - - meta
+    - property: "og:title"
+      content: "bufstream admin clean intake - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/clean/intake/"
+  - - meta
+    - property: "twitter:title"
+      content: "bufstream admin clean intake - Buf Docs"
+
+---
+
 # bufstream admin clean intake
 
 cleans intake files

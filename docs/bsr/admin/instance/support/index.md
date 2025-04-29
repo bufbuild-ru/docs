@@ -1,3 +1,23 @@
+---
+
+title: "Support - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/support/"
+  - - meta
+    - property: "og:title"
+      content: "Support - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/admin/instance/support/"
+  - - meta
+    - property: "twitter:title"
+      content: "Support - Buf Docs"
+
+---
+
 # Pro and Enterprise support
 
 We're here to help you with any questions you may have about your private BSR instance. We offer the following support options:

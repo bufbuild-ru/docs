@@ -1,3 +1,23 @@
+---
+
+title: "buf registry module label archive - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/module/label/archive/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry module label archive - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/module/label/archive/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry module label archive - Buf Docs"
+
+---
+
 # buf registry module label archive
 
 Archive a module label

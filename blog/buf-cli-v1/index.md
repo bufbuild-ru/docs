@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "The Buf CLI has reached version v1.0"
+description: "A new foundational tool for the Protobuf ecosystem."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "The Buf CLI has reached version v1.0"
+  - - meta
+    - property: "og:description"
+      content: "A new foundational tool for the Protobuf ecosystem."
+  - - meta
+    - property: "og:image"
+      content: ""
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "The Buf CLI has reached version v1.0"
+  - - meta
+    - property: "twitter:description"
+      content: "A new foundational tool for the Protobuf ecosystem."
+  - - meta
+    - property: "twitter:image"
+      content: ""
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "The Buf CLI has reached version v1.0"
   tagline: "February 23, 2022"

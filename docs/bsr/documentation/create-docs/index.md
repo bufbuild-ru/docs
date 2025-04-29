@@ -1,3 +1,23 @@
+---
+
+title: "Adding documentation - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/documentation/create-docs/"
+  - - meta
+    - property: "og:title"
+      content: "Adding documentation - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/documentation/create-docs/"
+  - - meta
+    - property: "twitter:title"
+      content: "Adding documentation - Buf Docs"
+
+---
+
 # Adding documentation
 
 When you're sharing schemas across teams, consumers need access to documentation so they can understand and use APIs effectively. The BSR automatically generates documentation from your Protobuf comments with every push to the BSR, and makes it searchable and easy to navigate. This page documents how to add module-level documentation, which Protobuf options the documentation includes, and formatting syntax options.

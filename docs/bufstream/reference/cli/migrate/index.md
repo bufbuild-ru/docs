@@ -1,3 +1,23 @@
+---
+
+title: "bufstream migrate - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/migrate/"
+  - - meta
+    - property: "og:title"
+      content: "bufstream migrate - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/cli/migrate/"
+  - - meta
+    - property: "twitter:title"
+      content: "bufstream migrate - Buf Docs"
+
+---
+
 # bufstream migrate
 
 Migrate Bufstream cluster storage

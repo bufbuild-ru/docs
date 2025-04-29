@@ -1,3 +1,23 @@
+---
+
+title: "Kafka quickstart - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/protovalidate/quickstart/bufstream/"
+  - - meta
+    - property: "og:title"
+      content: "Kafka quickstart - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/protovalidate/quickstart/bufstream/"
+  - - meta
+    - property: "twitter:title"
+      content: "Kafka quickstart - Buf Docs"
+
+---
+
 # Using Protovalidate in Kafka with Bufstream
 
 This tutorial shows how to add Protovalidate to a Go streaming application powered by [Bufstream](../../../bufstream/):

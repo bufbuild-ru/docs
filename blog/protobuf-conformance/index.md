@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Protobuf-ES is the only fully-compliant Protobuf library for JavaScript"
+description: "The results are in: Protobuf-ES passes 99.95% of conformance tests"
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Protobuf-ES is the only fully-compliant Protobuf library for JavaScript"
+  - - meta
+    - property: "og:description"
+      content: "The results are in: Protobuf-ES passes 99.95% of conformance tests"
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750ccbe37cd1cd9f929a104_Protobuf-ES.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Protobuf-ES is the only fully-compliant Protobuf library for JavaScript"
+  - - meta
+    - property: "twitter:description"
+      content: "The results are in: Protobuf-ES passes 99.95% of conformance tests"
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750ccbe37cd1cd9f929a104_Protobuf-ES.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Protobuf-ES is the only fully-compliant Protobuf library for JavaScript"
   tagline: "March 21, 2023"

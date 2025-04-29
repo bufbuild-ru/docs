@@ -1,3 +1,23 @@
+---
+
+title: "buf plugin update - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/plugin/update/"
+  - - meta
+    - property: "og:title"
+      content: "buf plugin update - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/plugin/update/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf plugin update - Buf Docs"
+
+---
+
 # buf plugin update
 
 Update pinned remote plugins in a buf.lock

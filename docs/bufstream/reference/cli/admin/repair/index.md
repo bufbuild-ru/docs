@@ -1,3 +1,23 @@
+---
+
+title: "Repair - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/repair/"
+  - - meta
+    - property: "og:title"
+      content: "Repair - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/cli/admin/repair/"
+  - - meta
+    - property: "twitter:title"
+      content: "Repair - Buf Docs"
+
+---
+
 # bufstream admin repair
 
 Perform Bufstream repair tasks

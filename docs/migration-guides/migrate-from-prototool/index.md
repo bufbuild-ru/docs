@@ -1,3 +1,23 @@
+---
+
+title: "Migrate from Prototool - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-prototool/"
+  - - meta
+    - property: "og:title"
+      content: "Migrate from Prototool - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/migration-guides/migrate-from-prototool/"
+  - - meta
+    - property: "twitter:title"
+      content: "Migrate from Prototool - Buf Docs"
+
+---
+
 # Migrate from Prototool
 
 [Prototool](https://github.com/uber/prototool) is a widely used Protobuf tool that has a builder, linter, formatter, breaking change detector, gRPC CLI, and configurable plugin executor.In this page, we'll discuss the pros and cons of Prototool vs `buf`'s build, lint, and breaking change detection functionality, as well as `buf`\-equivalent commands and migration.

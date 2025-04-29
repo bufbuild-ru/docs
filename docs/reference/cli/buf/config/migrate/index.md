@@ -1,3 +1,23 @@
+---
+
+title: "buf config migrate - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/config/migrate/"
+  - - meta
+    - property: "og:title"
+      content: "buf config migrate - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/config/migrate/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf config migrate - Buf Docs"
+
+---
+
 # buf config migrate
 
 Migrate all buf.yaml, buf.work.yaml, buf.gen.yaml, and buf.lock files at the specified directories or paths to v2

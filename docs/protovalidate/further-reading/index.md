@@ -1,3 +1,23 @@
+---
+
+title: "Further reading - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/protovalidate/further-reading/"
+  - - meta
+    - property: "og:title"
+      content: "Further reading - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/protovalidate/further-reading/"
+  - - meta
+    - property: "twitter:title"
+      content: "Further reading - Buf Docs"
+
+---
+
 # Further reading
 
 To learn about contributing to Protovalidate, its technical foundations, and interesting uses of Protovalidate, we encourage you to explore the following.

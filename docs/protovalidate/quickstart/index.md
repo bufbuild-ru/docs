@@ -1,3 +1,23 @@
+---
+
+title: "Quickstart - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/protovalidate/quickstart/"
+  - - meta
+    - property: "og:title"
+      content: "Quickstart - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/protovalidate/quickstart/"
+  - - meta
+    - property: "twitter:title"
+      content: "Quickstart - Buf Docs"
+
+---
+
 # Quickstart
 
 This quickstart steps through adding Protovalidate to existing Protobuf projects using the [Buf CLI](../../cli/):

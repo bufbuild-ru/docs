@@ -1,3 +1,23 @@
+---
+
+title: "Sfixed64 - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/sfixed64_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Sfixed64 - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/sfixed64_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Sfixed64 - Buf Docs"
+
+---
+
 # SFixed64 rules
 
 SFixed64Rules describes the constraints applied to `fixed64` values.

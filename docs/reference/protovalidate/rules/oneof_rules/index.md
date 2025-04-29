@@ -1,3 +1,23 @@
+---
+
+title: "Oneof - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/oneof_rules/"
+  - - meta
+    - property: "og:title"
+      content: "Oneof - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/protovalidate/rules/oneof_rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Oneof - Buf Docs"
+
+---
+
 # Oneof rules
 
 The `OneofConstraints` message type enables you to manage constraints for oneof fields in your protobuf messages.

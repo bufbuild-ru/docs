@@ -1,3 +1,23 @@
+---
+
+title: "buf.lock - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/configuration/v1beta1/buf-lock/"
+  - - meta
+    - property: "og:title"
+      content: "buf.lock - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/configuration/v1beta1/buf-lock/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf.lock - Buf Docs"
+
+---
+
 # buf.lock v1beta1 configuration
 
 The `buf.lock` file structure is unchanged between `v1beta1` and `v1`, so refer to the `v1` [`buf.lock`](../../v1/buf-lock/) documentation.

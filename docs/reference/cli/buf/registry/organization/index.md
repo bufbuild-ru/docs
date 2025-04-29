@@ -1,3 +1,23 @@
+---
+
+title: "Organization - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/organization/"
+  - - meta
+    - property: "og:title"
+      content: "Organization - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/organization/"
+  - - meta
+    - property: "twitter:title"
+      content: "Organization - Buf Docs"
+
+---
+
 # buf registry organization
 
 Manage organizations

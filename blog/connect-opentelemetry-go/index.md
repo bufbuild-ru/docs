@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "OpenTelemetry for connect-go: Observability out of the box"
+description: "Add observability to your connect-go applications in just a few lines of code"
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "OpenTelemetry for connect-go: Observability out of the box"
+  - - meta
+    - property: "og:description"
+      content: "Add observability to your connect-go applications in just a few lines of code"
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750ce0fbe9f371ed74353b2_OpenTelemetry.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "OpenTelemetry for connect-go: Observability out of the box"
+  - - meta
+    - property: "twitter:description"
+      content: "Add observability to your connect-go applications in just a few lines of code"
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6750ce0fbe9f371ed74353b2_OpenTelemetry.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "OpenTelemetry for connect-go: Observability out of the box"
   tagline: "March 6, 2023"

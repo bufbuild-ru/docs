@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Give clients pre-built native libraries for your APIs with zero effort"
+description: "Produce pre-built client libraries in Go, Java, JS, TS, Swift, Kotlin, and Python out of the box for all of your Protobuf APIs with Buf’s generated SDKs. You’ll never have to explain how to use protoc ever again."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Give clients pre-built native libraries for your APIs with zero effort"
+  - - meta
+    - property: "og:description"
+      content: "Produce pre-built client libraries in Go, Java, JS, TS, Swift, Kotlin, and Python out of the box for all of your Protobuf APIs with Buf’s generated SDKs. You’ll never have to explain how to use protoc ever again."
+  - - meta
+    - property: "og:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc544e96249102a03fe4c_Native%20libraries.png"
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Give clients pre-built native libraries for your APIs with zero effort"
+  - - meta
+    - property: "twitter:description"
+      content: "Produce pre-built client libraries in Go, Java, JS, TS, Swift, Kotlin, and Python out of the box for all of your Protobuf APIs with Buf’s generated SDKs. You’ll never have to explain how to use protoc ever again."
+  - - meta
+    - property: "twitter:image"
+      content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/674fc544e96249102a03fe4c_Native%20libraries.png"
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Give clients pre-built native libraries for your APIs with zero effort"
   tagline: "December 4, 2023"

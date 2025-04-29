@@ -1,3 +1,23 @@
+---
+
+title: "CMake - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/cmake/"
+  - - meta
+    - property: "og:title"
+      content: "CMake - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/generated-sdks/cmake/"
+  - - meta
+    - property: "twitter:title"
+      content: "CMake - Buf Docs"
+
+---
+
 # CMake
 
 The Buf Schema Repository (BSR) provides generated SDKs for C++ in the form of a CMake library. You can consume generated SDKs from modules and plugins by using the [FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html) command in the CMake scripts of your project. C++ SDKs are generated when requested by your project, which eliminates the need to manage a Protobuf toolchain or generate code locally.

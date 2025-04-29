@@ -1,3 +1,23 @@
+---
+
+title: "Get module's FileDescriptorSet from the BSR - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bsr/module/descriptor/"
+  - - meta
+    - property: "og:title"
+      content: "Get module's FileDescriptorSet from the BSR - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bsr/module/descriptor/"
+  - - meta
+    - property: "twitter:title"
+      content: "Get module's FileDescriptorSet from the BSR - Buf Docs"
+
+---
+
 # Get module's FileDescriptorSet from the BSR
 
 You can use [`buf build`](../../../reference/cli/buf/build/) to build the FileDescriptorSet or a [Buf image](../../../build/overview/) that's wire compatible with FileDescriptorSet. However, there are certain scenarios or environments where it may be difficult to access the Buf CLI.The BSR API allows you to access the FileDescriptorSet of a module hosted on the BSR directly. Using `curl`, the basic download command requires a BSR module as the source:

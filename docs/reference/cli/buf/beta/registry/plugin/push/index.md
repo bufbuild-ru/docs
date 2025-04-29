@@ -1,3 +1,23 @@
+---
+
+title: "buf beta registry plugin push - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/beta/registry/plugin/push/"
+  - - meta
+    - property: "og:title"
+      content: "buf beta registry plugin push - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/beta/registry/plugin/push/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf beta registry plugin push - Buf Docs"
+
+---
+
 # buf beta registry plugin push
 
 Push a plugin to a registry

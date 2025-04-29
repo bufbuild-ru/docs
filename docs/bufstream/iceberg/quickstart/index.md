@@ -1,3 +1,23 @@
+---
+
+title: "Quickstart - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/iceberg/quickstart/"
+  - - meta
+    - property: "og:title"
+      content: "Quickstart - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/iceberg/quickstart/"
+  - - meta
+    - property: "twitter:title"
+      content: "Quickstart - Buf Docs"
+
+---
+
 # Iceberg quickstart
 
 Bufstream's Iceberg integration lets you skip data pipelines and use modern analytics tools like Spark, Clickhouse, Trino, BigQuery, and Athena to query your streaming data. In-process, it writes Kafka messages to Parquet files and maintains Iceberg metadata. There's no data duplication and zero ETL.All of this, plus schema and data quality enforcement, happens within the broker itself. There's no additional infrastructure, hidden Flink job, availability restrictions, or cost—just high-quality data, ready for analysis.In this quickstart, you'll learn to create a local Bufstream and Iceberg environment:

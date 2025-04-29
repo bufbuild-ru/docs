@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "Protobuf-ES: The Protocol Buffers TypeScript/JavaScript runtime we all deserve"
+description: "An idiomatic Protocol Buffers library for TypeScript and JavaScript is now available."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "Protobuf-ES: The Protocol Buffers TypeScript/JavaScript runtime we all deserve"
+  - - meta
+    - property: "og:description"
+      content: "An idiomatic Protocol Buffers library for TypeScript and JavaScript is now available."
+  - - meta
+    - property: "og:image"
+      content: ""
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "Protobuf-ES: The Protocol Buffers TypeScript/JavaScript runtime we all deserve"
+  - - meta
+    - property: "twitter:description"
+      content: "An idiomatic Protocol Buffers library for TypeScript and JavaScript is now available."
+  - - meta
+    - property: "twitter:image"
+      content: ""
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "Protobuf-ES: The Protocol Buffers TypeScript/JavaScript runtime we all deserve"
   tagline: "October 28, 2022"

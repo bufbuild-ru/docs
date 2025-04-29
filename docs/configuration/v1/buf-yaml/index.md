@@ -1,3 +1,23 @@
+---
+
+title: "buf.yaml - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/configuration/v1/buf-yaml/"
+  - - meta
+    - property: "og:title"
+      content: "buf.yaml - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/configuration/v1/buf-yaml/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf.yaml - Buf Docs"
+
+---
+
 # buf.yaml v1 config file
 
 ::: tip NoteThis file now has a `v2` configuration available. See the [v2 `buf.yaml` reference](../../v2/buf-yaml/) and the [migration guide](../../../migration-guides/migrate-v2-config-files/) for details about the new configuration and migration instructions.

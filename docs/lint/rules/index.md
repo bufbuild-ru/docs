@@ -1,3 +1,23 @@
+---
+
+title: "Rules and categories - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/lint/rules/"
+  - - meta
+    - property: "og:title"
+      content: "Rules and categories - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/lint/rules/"
+  - - meta
+    - property: "twitter:title"
+      content: "Rules and categories - Buf Docs"
+
+---
+
 # Rules and categories
 
 ::: tip NoteThe rules and categories described here belong to the [`v1`](../../configuration/v1/buf-yaml/) and [`v2`](../../configuration/v2/buf-yaml/) configurations. If you're still using `v1beta1` configuration files and haven't [migrated](../../migration-guides/migrate-v2-config-files/) yet, refer to the previous [reference](../../configuration/v1beta1/lint-rules/).

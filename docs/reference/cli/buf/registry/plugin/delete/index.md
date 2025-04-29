@@ -1,3 +1,23 @@
+---
+
+title: "buf registry plugin delete - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/registry/plugin/delete/"
+  - - meta
+    - property: "og:title"
+      content: "buf registry plugin delete - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/reference/cli/buf/registry/plugin/delete/"
+  - - meta
+    - property: "twitter:title"
+      content: "buf registry plugin delete - Buf Docs"
+
+---
+
 # buf registry plugin delete
 
 Delete a BSR plugin

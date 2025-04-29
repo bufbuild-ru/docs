@@ -1,3 +1,23 @@
+---
+
+title: "Bufstream configuration files - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/reference/configuration/bufstream-yaml/"
+  - - meta
+    - property: "og:title"
+      content: "Bufstream configuration files - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/reference/configuration/bufstream-yaml/"
+  - - meta
+    - property: "twitter:title"
+      content: "Bufstream configuration files - Buf Docs"
+
+---
+
 # bufstream.yaml
 
 The `bufstream.yaml` file defines configuration for a Bufstream broker. The Bufstream CLI can be instructed to use the configuration file with the `-c` flag.

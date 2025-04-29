@@ -1,3 +1,23 @@
+---
+
+title: "Supported APIs - Buf Docs"
+
+head:
+  - - link
+    - rel: "canonical"
+      href: "https://bufbuild.ru/docs/bufstream/kafka-compatibility/conformance/"
+  - - meta
+    - property: "og:title"
+      content: "Supported APIs - Buf Docs"
+  - - meta
+    - property: "og:url"
+      content: "https://bufbuild.ru/docs/bufstream/kafka-compatibility/conformance/"
+  - - meta
+    - property: "twitter:title"
+      content: "Supported APIs - Buf Docs"
+
+---
+
 # Supported APIs in Bufstream
 
 Bufstream is built to work with any Kafka client software, such as the Apache Kafka reference clients, `librdkakfa`, or `franz-go`. It was built to support the latest version of each Kafka API (as of Kafka 3.7.1), while making a best effort to support all previous endpoint versions. Our formal conformance tests run on Kafka clients going back to version 3.2.0, but older client versions haven't been tested extensively. Future releases of Bufstream may establish a minimum supported API version for some or all endpoints.Bufstream supports all of these modern Kafka features:

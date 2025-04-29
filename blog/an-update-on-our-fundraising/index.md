@@ -1,6 +1,35 @@
 ---
 layout: home
 
+title: "An update on our fundraising"
+description: "We've raised $93M across four rounds to fix Protobuf once and for all."
+
+head:
+  - - meta
+    - property: "og:title"
+      content: "An update on our fundraising"
+  - - meta
+    - property: "og:description"
+      content: "We've raised $93M across four rounds to fix Protobuf once and for all."
+  - - meta
+    - property: "og:image"
+      content: ""
+  - - meta
+    - property: "og:type"
+      content: "website"
+  - - meta
+    - property: "twitter:title"
+      content: "An update on our fundraising"
+  - - meta
+    - property: "twitter:description"
+      content: "We've raised $93M across four rounds to fix Protobuf once and for all."
+  - - meta
+    - property: "twitter:image"
+      content: ""
+  - - meta
+    - name: "twitter:card"
+      content: "summary_large_image"
+
 hero:
   name: "An update on our fundraising"
   tagline: "December 8, 2021"

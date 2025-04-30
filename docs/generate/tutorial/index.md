@@ -102,11 +102,13 @@ Next, add the `module` paths for the Protobuf file directories within the worksp
 
 ::: info buf.yaml
 
-```diff
+```yaml
 # For details on buf.yaml configuration, visit https://bufbuild.ru/docs/configuration/v2/buf-yaml
 version: v2
-+modules:
-+  - path: proto
+// [!code ++]
+modules:
+  // [!code ++]
+  - path: proto
 lint:
   use:
     - STANDARD
@@ -253,11 +255,13 @@ Then modify your `buf.gen.yaml` file to point the `plugins` keys to the remote p
 
 ::: info buf.gen.yaml
 
-```diff
+```yaml
 version: v2
 plugins:
-- - local: protoc-gen-go
-+ - remote: buf.build/protocolbuffers/go:v1.31.0
+  // [!code --]
+  - local: protoc-gen-go
+  // [!code ++]
+  - remote: buf.build/protocolbuffers/go:v1.31.0
     out: gen/go
     opt: paths=source_relative
 ```

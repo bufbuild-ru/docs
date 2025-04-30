@@ -208,13 +208,15 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
     ::: info buf.yaml
 
-    ```diff
+    ```yaml
     # For details on buf.yaml configuration, visit https://bufbuild.ru/docs/configuration/v2/buf-yaml
     version: v2
     modules:
       - path: proto
-    + deps:
-    +   - buf.build/bufbuild/protovalidate:v0.10.7
+    // [!code ++]
+    deps:
+      // [!code ++]
+      - buf.build/bufbuild/protovalidate:v0.10.7
     lint:
       use:
         - STANDARD
@@ -240,7 +242,7 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
     ::: info buf.gen.yaml
 
-    ```diff
+    ```yaml
     version: v2
     inputs:
       - directory: src/main/proto
@@ -256,9 +258,12 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
           value: gen
         - file_option: java_package_prefix
           value: ""
-    + disable:
-    +   - file_option: java_package
-    +     module: buf.build/bufbuild/protovalidate
+    // [!code ++]
+    disable:
+      // [!code ++]
+      - file_option: java_package
+        // [!code ++]
+        module: buf.build/bufbuild/protovalidate
     ```
 
     :::

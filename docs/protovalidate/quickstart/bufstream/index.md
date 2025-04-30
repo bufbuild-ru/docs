@@ -215,7 +215,7 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
     ::: info buf.yaml
 
-    ```diff
+    ```yaml
     # buf.yaml files define how to build the .proto files within your local directory
     #
     # See https://bufbuild.ru/docs/tutorials/getting-started-with-buf-cli for more details.
@@ -227,7 +227,8 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
       # We import "buf/confluent/v1/extensions.proto" within our example files, which
       # comes from the demo.buf.dev/bufbuild/protovalidate module.
       - buf.build/bufbuild/confluent
-    + - buf.build/bufbuild/protovalidate:v0.10.7
+      // [!code ++]
+      - buf.build/bufbuild/protovalidate:v0.10.7
     ```
 
     :::
@@ -247,7 +248,7 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
     ::: info buf.gen.yaml
 
-    ```diff
+    ```yaml
     # buf.gen.yaml files define how to generate stubs using the buf generate command.
     #
     # See https://bufbuild.ru/docs/generate/tutorial for more details.
@@ -260,9 +261,12 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
         - file_option: go_package_prefix
           module: buf.build/bufbuild/confluent
           value: buf.build/gen/go/bufbuild/confluent/protocolbuffers/go
-    + disable:
-    +   - file_option: go_package
-    +     module: buf.build/bufbuild/protovalidate
+    // [!code ++]
+    disable:
+      // [!code ++]
+      - file_option: go_package
+        // [!code ++]
+        module: buf.build/bufbuild/protovalidate
     plugins:
       - remote: buf.build/protocolbuffers/go
         out: gen
@@ -426,7 +430,7 @@ Enforcing Protovalidate logic in a Bufstream broker is a simple configuration ch
 
     ::: info config/bufstream.yaml
 
-    ```diff
+    ```yaml
     data_enforcement:
       schema_registries:
         - name: csr
@@ -438,8 +442,10 @@ Enforcing Protovalidate logic in a Bufstream broker is a simple configuration ch
           schema_registry: csr
           values:
             on_parse_error: REJECT_BATCH
-    +       validation:
-    +         on_error: REJECT_BATCH
+            // [!code ++]
+            validation:
+            // [!code ++]
+              on_error: REJECT_BATCH
     ```
 
     :::

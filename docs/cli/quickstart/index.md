@@ -296,15 +296,17 @@ The `google/type/datetime.proto` isn't actually a file in your local project. In
 
 ::: info cli/quickstart/start/buf.yaml
 
-```diff
+```yaml
 version: v2
 modules:
   - path: proto
 lint:
   use:
     - STANDARD
-+  ignore:
-+    - proto/google/type/datetime.proto
+  // [!code ++]
+  ignore:
+    // [!code ++]
+    - proto/google/type/datetime.proto
 breaking:
   use:
     - FILE

@@ -197,13 +197,15 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
     ::: info buf.yaml
 
-    ```diff
+    ```yaml
     # For details on buf.yaml configuration, visit https://bufbuild.ru/docs/configuration/v2/buf-yaml
     version: v2
     modules:
       - path: proto
-    + deps:
-    +   - buf.build/bufbuild/protovalidate:v0.10.7
+    // [!code ++]
+    deps:
+      // [!code ++]
+      - buf.build/bufbuild/protovalidate:v0.10.7
     lint:
       use:
         - STANDARD
@@ -229,7 +231,7 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
     ::: info buf.gen.yaml
 
-    ```diff
+    ```yaml
     version: v2
     inputs:
       - directory: proto
@@ -245,9 +247,12 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
       override:
         - file_option: go_package_prefix
           value: github.com/bufbuild/buf-examples/protovalidate/grpc-go/start/gen
-    +  disable:
-    +    - file_option: go_package
-    +      module: buf.build/bufbuild/protovalidate
+      // [!code ++]
+      disable:
+        // [!code ++]
+        - file_option: go_package
+          // [!code ++]
+          module: buf.build/bufbuild/protovalidate
     ```
 
     :::
@@ -442,13 +447,13 @@ Thanks to the gRPC Ecosystem project's prebuilt [Protovalidate interceptor](http
 
     ::: info cmd/server.go
 
-    ```diff
+    ```go
     import (
         "context"
         "errors"
         "fmt"
         "github.com/bufbuild/protovalidate-go"
-    +   protovalidate_middleware "github.com/grpc-ecosystem/go-grpc-middleware/v2/interceptors/protovalidate"
+        protovalidate_middleware "github.com/grpc-ecosystem/go-grpc-middleware/v2/interceptors/protovalidate" // [!code ++]
         "log/slog"
         "net"
         "os"
@@ -468,17 +473,17 @@ Thanks to the gRPC Ecosystem project's prebuilt [Protovalidate interceptor](http
 
     ::: info cmd/server.go
 
-    ```diff
+    ```go
     func run(ctx context.Context) error {
-    +   validator, err := protovalidate.New()
-    +   if err != nil {
-    +       return errors.New("failed to create protovalidate validator")
-    +   }
-    +
-    -   grpcServer := grpc.NewServer()
-    +   grpcServer := grpc.NewServer(
-    +       grpc.UnaryInterceptor(protovalidate_middleware.UnaryServerInterceptor(validator)),
-    +   )
+        validator, err := protovalidate.New() // [!code ++]
+        if err != nil { // [!code ++]
+            return errors.New("failed to create protovalidate validator") // [!code ++]
+        } // [!code ++]
+
+        grpcServer := grpc.NewServer() // [!code --]
+        grpcServer := grpc.NewServer( // [!code ++]
+            grpc.UnaryInterceptor(protovalidate_middleware.UnaryServerInterceptor(validator)), // [!code ++]
+        ) // [!code ++]
         reflection.Register(grpcServer)
 
         invoicev1.RegisterInvoiceServiceServer(grpcServer, invoice.NewService())

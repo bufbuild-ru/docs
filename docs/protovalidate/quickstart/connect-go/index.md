@@ -197,13 +197,15 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
     ::: info buf.yaml
 
-    ```diff
+    ```yaml
     # For details on buf.yaml configuration, visit https://bufbuild.ru/docs/configuration/v2/buf-yaml
     version: v2
     modules:
       - path: proto
-    + deps:
-    +   - buf.build/bufbuild/protovalidate:v0.10.7
+    // [!code ++]
+    deps:
+      // [!code ++]
+      - buf.build/bufbuild/protovalidate:v0.10.7
     lint:
       use:
         - STANDARD
@@ -229,7 +231,7 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
     ::: info buf.gen.yaml
 
-    ```diff
+    ```yaml
     version: v2
     inputs:
       - directory: proto
@@ -245,9 +247,12 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
       override:
         - file_option: go_package_prefix
           value: github.com/bufbuild/buf-examples/protovalidate/connect-go/start/gen
-    +  disable:
-    +    - file_option: go_package
-    +      module: buf.build/bufbuild/protovalidate
+      // [!code ++]
+      disable:
+        // [!code ++]
+        - file_option: go_package
+          // [!code ++]
+          module: buf.build/bufbuild/protovalidate
     ```
 
     :::
@@ -442,15 +447,15 @@ Thanks to Connect RPC's prebuilt [Protovalidate interceptor](https://github.com/
 
     ::: info cmd/server.go
 
-    ```diff
+    ```go
     import (
         "log/slog"
         "net/http"
         "os"
         "time"
 
-    +   "connectrpc.com/connect"
-    +   "connectrpc.com/validate"
+        "connectrpc.com/connect" // [!code ++]
+        "connectrpc.com/validate" // [!code ++]
         "github.com/bufbuild/buf-examples/protovalidate/connect-go/finish/gen/invoice/v1/invoicev1connect"
         "github.com/bufbuild/buf-examples/protovalidate/connect-go/finish/internal/invoice"
         "golang.org/x/net/http2"
@@ -464,23 +469,23 @@ Thanks to Connect RPC's prebuilt [Protovalidate interceptor](https://github.com/
 
     ::: info cmd/server.go
 
-    ```diff
+    ```go
     func main() {
         // Code omitted for brevity
 
-    +   // Create the validation interceptor provided by connectrpc.com/validate.
-    +   validateInterceptor, err := validate.NewInterceptor()
-    +   if err != nil {
-    +       slog.Error("error creating interceptor",
-    +           slog.String("error", err.Error()),
-    +       )
-    +       os.Exit(1)
-    +   }
-    +
+        // Create the validation interceptor provided by connectrpc.com/validate. // [!code ++]
+        validateInterceptor, err := validate.NewInterceptor() // [!code ++]
+        if err != nil { // [!code ++]
+            slog.Error("error creating interceptor", // [!code ++]
+                slog.String("error", err.Error()), // [!code ++]
+            ) // [!code ++]
+            os.Exit(1) // [!code ++]
+        } // [!code ++]
+
         // Include the interceptor when adding handlers.
         mux.Handle(invoicev1connect.NewInvoiceServiceHandler(
             invoiceServer,
-    +       connect.WithInterceptors(validateInterceptor),
+            connect.WithInterceptors(validateInterceptor), // [!code ++]
         )
 
         // Code omitted for brevity

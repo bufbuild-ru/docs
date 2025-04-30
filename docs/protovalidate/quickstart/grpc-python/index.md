@@ -205,13 +205,15 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
     ::: info buf.yaml
 
-    ```diff
+    ```yaml
     # For details on buf.yaml configuration, visit https://bufbuild.ru/docs/configuration/v2/buf-yaml
     version: v2
     modules:
       - path: proto
-    + deps:
-    +   - buf.build/bufbuild/protovalidate:v0.10.7
+    // [!code ++]
+    deps:
+      // [!code ++]
+      - buf.build/bufbuild/protovalidate:v0.10.7
     lint:
       use:
         - STANDARD

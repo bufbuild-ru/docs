@@ -79,13 +79,15 @@ Published publicly on the [Buf Schema Registry](../../bsr/), the Protovalidate m
 
 ::: info buf.yaml
 
-```diff
+```yaml
 version: v2
 modules:
   - path: proto
 # v.10.7 is compatible with the current version of Protovalidate's Go implementation (0.9.3).
-+ deps:
-+   - buf.build/bufbuild/protovalidate:v0.10.7
+// [!code ++]
+deps:
+  // [!code ++]
+  - buf.build/bufbuild/protovalidate:v0.10.7
 lint:
   use:
     - STANDARD
@@ -100,13 +102,15 @@ breaking:
 
 ::: info buf.yaml
 
-```diff
+```yaml
 version: v2
 modules:
   - path: proto
 # v.10.7 is compatible with the current version of Protovalidate's Java implementation (0.6.0).
-+ deps:
-+   - buf.build/bufbuild/protovalidate:v0.10.7
+// [!code ++]
+deps:
+  // [!code ++]
+  - buf.build/bufbuild/protovalidate:v0.10.7
 lint:
   use:
     - STANDARD
@@ -121,13 +125,15 @@ breaking:
 
 ::: info buf.yaml
 
-```diff
+```yaml
 version: v2
 modules:
   - path: proto
 # v.10.7 is compatible with the current version of Protovalidate's Python implementation (0.7.1).
-+ deps:
-+   - buf.build/bufbuild/protovalidate:v0.10.7
+// [!code ++]
+deps:
+  // [!code ++]
+  - buf.build/bufbuild/protovalidate:v0.10.7
 lint:
   use:
     - STANDARD
@@ -155,7 +161,7 @@ If you're using Go or Java, update [managed mode](../../generate/managed-mode/) 
 
 ::: info buf.gen.yaml
 
-```diff
+```yaml
 version: v2
 inputs:
   - directory: proto
@@ -169,11 +175,16 @@ managed:
   override:
     - file_option: go_package_prefix
       value: github.com/bufbuild/buf-examples/protovalidate/quickstart-go/start/gen
-+ # Don't modify any file option or field option for protovalidate. Without
-+ # this, generated Go will fail to compile.
-+ disable:
-+   - file_option: go_package
-+     module: buf.build/bufbuild/protovalidate
+// [!code ++]
+# Don't modify any file option or field option for protovalidate. Without
+// [!code ++]
+# this, generated Go will fail to compile.
+// [!code ++]
+disable:
+  // [!code ++]
+  - file_option: go_package
+    // [!code ++]
+    module: buf.build/bufbuild/protovalidate
 ```
 
 :::
@@ -182,7 +193,7 @@ managed:
 
 ::: info buf.gen.yaml
 
-```diff
+```yaml
 version: v2
 inputs:
   - directory: src/main/proto
@@ -191,9 +202,12 @@ plugins:
   out: src/main/java
 managed:
   enabled: true
-+ disable:
-+   - file_option: java_package
-+     module: buf.build/bufbuild/protovalidate
+// [!code ++]
+disable:
+  // [!code ++]
+  - file_option: java_package
+    // [!code ++]
+    module: buf.build/bufbuild/protovalidate
 ```
 
 :::
@@ -343,21 +357,21 @@ All Protovalidate languages provide an idiomatic API for validating a Protobuf m
 
     ::: info weather/weather.go
 
-    ```diff
+    ```go
     package weather
 
     import (
         weatherv1 "github.com/bufbuild/buf-examples/protovalidate/quickstart-go/start/gen/bufbuild/weather/v1"
-    +   "github.com/bufbuild/protovalidate-go"
+        "github.com/bufbuild/protovalidate-go" // [!code ++]
     )
 
-    - func validateWeather(_ *weatherv1.GetWeatherRequest) error {
-    -     // TODO: validate the request
-    -     return nil
-    - }
-    + func validateWeather(req *weatherv1.GetWeatherRequest) error {
-    +     return protovalidate.Validate(req)
-    + }
+    func validateWeather(_ *weatherv1.GetWeatherRequest) error { // [!code --]
+          // TODO: validate the request // [!code --]
+          return nil // [!code --]
+    } // [!code --]
+    func validateWeather(req *weatherv1.GetWeatherRequest) error { // [!code ++]
+          return protovalidate.Validate(req) // [!code ++]
+    } // [!code ++]
     ```
 
     :::

@@ -255,7 +255,7 @@ Let's assume that moving an enum within the same package isn't considered a brea
 
 ::: info cli/breaking-change-detection/start/proto/buf.yaml
 
-```diff
+```yaml
 version: v2
 modules:
   - path: proto
@@ -265,8 +265,10 @@ lint:
     - STANDARD
 breaking:
   use:
-+   - PACKAGE
--   - FILE
+  // [!code ++]
+  - PACKAGE
+  // [!code --]
+  - FILE
 ```
 
 :::

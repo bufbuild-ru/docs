@@ -76,12 +76,14 @@ The `buf.yaml` file in the `server` folder configures your module and local work
 
 ::: info bsr/start/server/buf.yaml
 
-```diff
+```yaml
 version: v2
 modules:
   - path: proto
-+deps:
-+  - buf.build/bufbuild/protovalidate
+// [!code ++]
+deps:
+  // [!code ++]
+  - buf.build/bufbuild/protovalidate
 lint:
   use:
     - STANDARD
@@ -151,7 +153,7 @@ To fix this, disable the `go_package` file option for the dependency in the [man
 
 ::: info bsr/start/server/buf.gen.yaml
 
-```diff
+```yaml
 // Code omitted for brevity
 
 managed:
@@ -159,9 +161,12 @@ managed:
   override:
     - file_option: go_package_prefix
       value: github.com/bufbuild/buf-examples/bsr/quickstart/server/gen
-+ disable:
-+   - file_option: go_package
-+     module: buf.build/bufbuild/protovalidate
+// [!code ++]
+disable:
+  // [!code ++]
+  - file_option: go_package
+    // [!code ++]
+    module: buf.build/bufbuild/protovalidate
 ```
 
 :::
@@ -290,11 +295,14 @@ Set up the module to match the repository you just created:
 
 ::: info bsr/start/common/buf.yaml
 
-```diff{2,3,4}
+```yaml{2,3,4}
 version: v2
-+modules:
-+  - path: proto
-+    name: buf.build/USERNAME/common
+// [!code ++]
+modules:
+  // [!code ++]
+  - path: proto
+    // [!code ++]
+    name: buf.build/USERNAME/common
 lint:
   use:
     - STANDARD
@@ -356,13 +364,14 @@ Go back to the `server` directory and update `buf.yaml` to depend on your new `c
 
 ::: info bsr/start/server/buf.yaml
 
-```diff
+```yaml
 version: v2
 modules:
   - path: proto
 deps:
   - buf.build/bufbuild/protovalidate
-+ - buf.build/USERNAME/common
+  // [!code ++]
+  - buf.build/USERNAME/common
 lint:
   use:
     - STANDARD
@@ -445,11 +454,12 @@ All that's required from your end is to publish your API like any other BSR modu
 
     ::: info bsr/start/server/buf.yaml
 
-    ```diff{4}
+    ```yaml{4}
     version: v2
     modules:
       - path: proto
-    +   name: buf.build/USERNAME/invoice
+        // [!code ++]
+        name: buf.build/USERNAME/invoice
     deps:
       - buf.build/bufbuild/protovalidate
       - buf.build/USERNAME/common

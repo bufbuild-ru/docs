@@ -61,6 +61,10 @@ export default defineConfig({
               { text: 'Installation', link: '/docs/cli/installation/' },
               { text: 'Quickstart', link: '/docs/cli/quickstart/' },
               {
+                text: 'Editor integration',
+                link: '/docs/cli/editor-integration/',
+              },
+              {
                 text: 'Modules and workspaces',
                 link: '/docs/cli/modules-workspaces/',
               },
@@ -89,7 +93,7 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: 'Overview', link: '/docs/breaking/overview/' },
-                  { text: 'Tutorial', link: '/docs/breaking/tutorial/' },
+                  { text: 'Tutorial', link: '/docs/breaking/quickstart/' },
                   {
                     text: 'Rules and categories',
                     link: '/docs/breaking/rules/',
@@ -105,7 +109,7 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: 'Overview', link: '/docs/lint/overview/' },
-                  { text: 'Tutorial', link: '/docs/lint/tutorial/' },
+                  { text: 'Tutorial', link: '/docs/lint/quickstart/' },
                   { text: 'Rules and categories', link: '/docs/lint/rules/' },
                   {
                     text: 'buf.yaml',
@@ -147,6 +151,19 @@ export default defineConfig({
                     text: 'Compiling to WebAssembly',
                     link: '/docs/cli/buf-plugins/webassembly/',
                   },
+                  {
+                    text: 'Publish plugins to the BSR',
+                    link: '/docs/cli/buf-plugins/publish/',
+                  },
+                ],
+              },
+              { text: 'protoc plugins', link: '/docs/cli/protoc-plugins/' },
+              {
+                text: 'Build systems',
+                collapsed: true,
+                items: [
+                  { text: 'Bazel', link: '/docs/cli/build-systems/bazel/' },
+                  { text: 'Gradle', link: '/docs/cli/build-systems/gradle/' },
                 ],
               },
             ],
@@ -179,6 +196,17 @@ export default defineConfig({
                   {
                     text: "Get module's FileDescriptorSet from the BSR",
                     link: '/docs/bsr/module/descriptor/',
+                  },
+                ],
+              },
+              {
+                text: 'CI/CD',
+                collapsed: true,
+                items: [
+                  { text: 'General setup', link: '/docs/bsr/ci-cd/setup/' },
+                  {
+                    text: 'GitHub Action',
+                    link: '/docs/bsr/ci-cd/github-actions/',
                   },
                 ],
               },
@@ -265,18 +293,18 @@ export default defineConfig({
                 text: 'Confluent Schema Registry integration',
                 collapsed: true,
                 items: [
-                  { text: 'Overview', link: '/docs/bsr/kafka/overview/' },
+                  { text: 'Overview', link: '/docs/bsr/csr/overview/' },
                   {
                     text: 'Manage Confluent Schema Registry instances',
-                    link: '/docs/bsr/kafka/manage-instances/',
+                    link: '/docs/bsr/csr/manage-instances/',
                   },
                   {
                     text: 'Manage schemas',
-                    link: '/docs/bsr/kafka/manage-schemas/',
+                    link: '/docs/bsr/csr/manage-schemas/',
                   },
                   {
-                    text: 'Integrating with Kafka clients',
-                    link: '/docs/bsr/kafka/kafka-clients/',
+                    text: 'Integrate with Kafka clients',
+                    link: '/docs/bsr/csr/kafka-clients/',
                   },
                 ],
               },
@@ -318,31 +346,22 @@ export default defineConfig({
                 ],
               },
               {
-                text: 'Admin manual',
+                text: 'Admin guides',
                 collapsed: true,
                 items: [
                   {
-                    text: 'Users, orgs, repositories',
-                    collapsed: true,
-                    items: [
-                      {
-                        text: 'Manage your user account',
-                        link: '/docs/bsr/admin/user-account/',
-                      },
-                      {
-                        text: 'Manage organizations',
-                        link: '/docs/bsr/admin/manage-organizations/',
-                      },
-                      {
-                        text: 'Manage members and roles',
-                        link: '/docs/bsr/admin/manage-members/',
-                      },
-                      {
-                        text: 'Manage repositories',
-                        link: '/docs/bsr/repository/configure/',
-                      },
-                    ],
+                    text: 'Manage your Buf account',
+                    link: '/docs/bsr/admin/user-account/',
                   },
+                  {
+                    text: 'Manage organizations',
+                    link: '/docs/bsr/admin/manage-organizations/',
+                  },
+                  {
+                    text: 'Manage repositories',
+                    link: '/docs/bsr/admin/manage-repositories/',
+                  },
+                  { text: 'Roles', link: '/docs/bsr/admin/roles/' },
                   {
                     text: 'Private instance',
                     collapsed: true,
@@ -500,12 +519,16 @@ export default defineConfig({
             items: [
               { text: 'Overview', link: '/docs/bufstream/' },
               { text: 'Quickstart', link: '/docs/bufstream/quickstart/' },
-              { text: 'Blog Posts', link: '/docs/bufstream/blog-posts/' },
+              { text: 'Blog posts', link: '/docs/bufstream/blog-posts/' },
               { text: 'Benchmarks and cost', link: '/docs/bufstream/cost/' },
               {
                 text: 'Deployment',
                 collapsed: true,
                 items: [
+                  {
+                    text: 'Tuning and performance',
+                    link: '/docs/bufstream/deployment/tuning-performance/',
+                  },
                   {
                     text: 'AWS',
                     collapsed: true,
@@ -517,10 +540,6 @@ export default defineConfig({
                       {
                         text: 'Deploy with Postgres',
                         link: '/docs/bufstream/deployment/aws/deploy-postgres/',
-                      },
-                      {
-                        text: 'Configure',
-                        link: '/docs/bufstream/deployment/aws/configure/',
                       },
                     ],
                   },
@@ -540,10 +559,6 @@ export default defineConfig({
                         text: 'Deploy with Spanner',
                         link: '/docs/bufstream/deployment/gcp/deploy-spanner/',
                       },
-                      {
-                        text: 'Configure',
-                        link: '/docs/bufstream/deployment/gcp/configure/',
-                      },
                     ],
                   },
                   {
@@ -557,10 +572,6 @@ export default defineConfig({
                       {
                         text: 'Deploy with Postgres',
                         link: '/docs/bufstream/deployment/azure/deploy-postgres/',
-                      },
-                      {
-                        text: 'Configure',
-                        link: '/docs/bufstream/deployment/azure/configure/',
                       },
                     ],
                   },
@@ -828,36 +839,6 @@ export default defineConfig({
                 text: 'Further reading',
                 link: '/docs/protovalidate/further-reading/',
               },
-            ],
-          },
-          {
-            text: 'Integrations',
-            collapsed: true,
-            items: [
-              {
-                text: 'Build systems',
-                collapsed: true,
-                items: [
-                  { text: 'Bazel', link: '/docs/build-systems/bazel/' },
-                  { text: 'Gradle', link: '/docs/build-systems/gradle/' },
-                ],
-              },
-              {
-                text: 'CI/CD',
-                collapsed: true,
-                items: [
-                  { text: 'General setup', link: '/docs/ci-cd/setup/' },
-                  {
-                    text: 'GitHub Action',
-                    link: '/docs/ci-cd/github-actions/',
-                  },
-                ],
-              },
-              {
-                text: 'protoc plugins',
-                link: '/docs/reference/protoc-plugins/',
-              },
-              { text: 'Code editors', link: '/docs/cli/editor-integration/' },
             ],
           },
           {

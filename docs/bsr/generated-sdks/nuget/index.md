@@ -51,7 +51,7 @@ The Buf Schema Repository (BSR) provides generated SDKs for C# in the form of a 
 
 To use Buf's NuGet repository, you must configure it in your `NuGet.config` file.You need to configure a token for the registry. Create a token (see the [Authentication](../../authentication/#create-a-token) page for instructions), and then include it in the `ClearTextPassword` field:
 
-```xml
+```xml{10}
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
     <packageSources>
@@ -61,7 +61,7 @@ To use Buf's NuGet repository, you must configure it in your `NuGet.config` file
     <packageSourceCredentials>
         <BSR>
             <add key="Username" value="{bsr-username}" />
-            <add key="ClearTextPassword" value="{token}" /> // [!code highlight]
+            <add key="ClearTextPassword" value="{token}" />
             <add key="ValidAuthenticationTypes" value="Basic" />
         </BSR>
     </packageSourceCredentials>

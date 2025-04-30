@@ -404,7 +404,7 @@ The response may be a surprise: the server still considers the request valid and
 
 The RPC is still successful because gRPC hasn't been told to validate inbound requests.
 
-::: tip NoteNo Connect or gRPC implementations automatically enforce Protovalidate rules. To enforce your validation rules, you'll need to add an interceptor.
+::: tip No Connect or gRPC implementations automatically enforce Protovalidate rules. To enforce your validation rules, you'll need to add an interceptor.
 
 :::
 
@@ -547,7 +547,7 @@ Examine the highlighted lines in `invoice_server_test.py`, noting that the tests
 
 ::: info invoice_server_test.py
 
-```python
+```python{13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40}
 class InvoiceServerTest(unittest.TestCase):
     // Code omitted for brevity
 
@@ -560,34 +560,34 @@ class InvoiceServerTest(unittest.TestCase):
         assert hasattr(response, "version")
         assert response.version == 1
 
-    def test_invoice_id_must_be_a_uuid(self): // [!code highlight]
-        invoice = valid_invoice() // [!code highlight]
-        invoice.invoice_id = "" // [!code highlight]
-        self.check_violations( // [!code highlight]
-            invoice, // [!code highlight]
-            [ // [!code highlight]
-                ViolationSpec( // [!code highlight]
-                    "string.uuid_empty", // [!code highlight]
-                    "invoice.invoice_id", // [!code highlight]
-                    "value is empty, which is not a valid UUID", // [!code highlight]
-                ), // [!code highlight]
-            ], // [!code highlight]
-        ) // [!code highlight]
- // [!code highlight]
-    def test_two_line_items_cannot_have_the_same_product_id_and_unit_price(self): // [!code highlight]
-        invoice = valid_invoice() // [!code highlight]
-        invoice.line_items[0].product_id = invoice.line_items[1].product_id // [!code highlight]
-        invoice.line_items[0].unit_price = invoice.line_items[1].unit_price // [!code highlight]
-        self.check_violations( // [!code highlight]
-            invoice, // [!code highlight]
-            [ // [!code highlight]
-                ViolationSpec( // [!code highlight]
-                    "line_items.logically_unique", // [!code highlight]
-                    "invoice.line_items", // [!code highlight]
-                    "line items must be unique combinations of product_id and unit_price", // [!code highlight]
-                ), // [!code highlight]
-            ], // [!code highlight]
-        ) // [!code highlight]
+    def test_invoice_id_must_be_a_uuid(self):
+        invoice = valid_invoice()
+        invoice.invoice_id = ""
+        self.check_violations(
+            invoice,
+            [
+                ViolationSpec(
+                    "string.uuid_empty",
+                    "invoice.invoice_id",
+                    "value is empty, which is not a valid UUID",
+                ),
+            ],
+        )
+
+    def test_two_line_items_cannot_have_the_same_product_id_and_unit_price(self):
+        invoice = valid_invoice()
+        invoice.line_items[0].product_id = invoice.line_items[1].product_id
+        invoice.line_items[0].unit_price = invoice.line_items[1].unit_price
+        self.check_violations(
+            invoice,
+            [
+                ViolationSpec(
+                    "line_items.logically_unique",
+                    "invoice.line_items",
+                    "line items must be unique combinations of product_id and unit_price",
+                ),
+            ],
+        )
 
     // Code omitted for brevity
 }

@@ -142,7 +142,7 @@ Breaking change detection doesn't work on changes to custom options like `google
 
 ### Git and GitHub
 
-::: tip NoteCheck out Buf's dedicated [GitHub Action](../../bsr/ci-cd/github-actions/) to seamlessly add breaking change detection into your CI/CD pipeline.
+::: tip Check out Buf's dedicated [GitHub Action](../../bsr/ci-cd/github-actions/) to seamlessly add breaking change detection into your CI/CD pipeline.
 
 :::
 
@@ -250,9 +250,9 @@ google/cloud/asset/v1/assets.proto:27:1:File option "cc_enable_arenas" changed f
 
 To explicitly target a branch, you can adapt the command to include `branch=<branch_name>` in the `git` input:
 
-```console
+```console{2}
 $ buf breaking \
-  "https://github.com/googleapis/googleapis.git#branch=main" \ // [!code highlight]
+  "https://github.com/googleapis/googleapis.git#branch=main" \
   --against "https://github.com/googleapis/googleapis/archive/b89f7fa5e7cc64e9e38a59c97654616ad7b5932d.tar.gz#strip_components=1" \
   --config '{"version":"v2","breaking":{"use":["PACKAGE"]}}'
 

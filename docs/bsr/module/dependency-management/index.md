@@ -53,14 +53,14 @@ Buf uses two files to manage dependencies: `buf.yaml` and `buf.lock`.The `buf.ya
 
 ::: info Example with internal and external dependencies
 
-```yaml
+```yaml{5,6,7}
 version: v2
 modules:
   - path: proto
     name: buf.build/acme/petapis
-  - path: vendor # Path to .proto files for the payment system // [!code highlight]
-deps: // [!code highlight]
-  - buf.build/googleapis/googleapis // [!code highlight]
+  - path: vendor # Path to .proto files for the payment system
+deps:
+  - buf.build/googleapis/googleapis
 ```
 
 :::
@@ -225,7 +225,7 @@ Our tamper resistance technique is a typical solution to this problem: use a cry
 
 Every time a module is pushed to a BSR repository, the CLI sends the source files to the BSR as separated blobs with their calculated hash, along with a module's manifest that includes a canonical list of all of the files and the digest that are being pushed. The BSR receives these separated blobs and manifest and stores them as [CAS (Content-Addressable-Storage)](https://en.wikipedia.org/wiki/Content-addressable_storage), making sure that the generated commit points to the manifest, and this manifest links to all of the files that were pushed in the original request.
 
-::: tip NoteFiles that are pushed on a `buf push` run:
+::: tip Files that are pushed on a `buf push` run:
 
 - [Configuration file](../../../configuration/v2/buf-yaml/): `buf.yaml`
 - [Dependencies lock file](../../../configuration/v1/buf-lock/): `buf.lock`

@@ -45,7 +45,7 @@ head:
 
 # Migrate from remote generation alpha
 
-::: tip NoteThe remote generation alpha was deprecated as of April 30, 2023. Please migrate to [remote plugins](../../bsr/remote-plugins/overview/) or [generated SDKs](../../bsr/generated-sdks/overview/).
+::: tip The remote generation alpha was deprecated as of April 30, 2023. Please migrate to [remote plugins](../../bsr/remote-plugins/overview/) or [generated SDKs](../../bsr/generated-sdks/overview/).
 
 :::
 

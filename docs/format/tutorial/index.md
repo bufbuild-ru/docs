@@ -163,7 +163,7 @@ message Object {
 }
 ```
 
-::: tip NoteMost people will want to use `buf format -w`.
+::: tip Most people will want to use `buf format -w`.
 
 :::
 

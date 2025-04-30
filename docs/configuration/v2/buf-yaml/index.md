@@ -45,7 +45,7 @@ head:
 
 # buf.yaml v2 config file
 
-::: tip NoteThis file has changed between `v1` and `v2` configurations.
+::: tip This file has changed between `v1` and `v2` configurations.
 
 :::
 
@@ -205,7 +205,7 @@ Warning**We don't recommend using this option**, but in some situations it's una
 
 **Optional.** Declares one or more modules that your workspace depends on. Dependencies are shared between all modules in the workspace. Buf tooling already accounts for dependencies between the modules that are part of the set, so they shouldn't be declared here.The value must be a valid path to a BSR module (either the public BSR at `buf.build` or a private BSR instance). It can't be a local Git reference to a `buf.yaml` file or a URL path to a Git repo. This means that if you have a module you want to use as a dependency, it must also be pushed to the BSR.The path can also include a specific reference, which is either a [commit or a label](../../../bsr/commits-labels/).
 
-::: tip NoteDepending on specific module references is an advanced feature—you should depend on the latest commit whenever possible. Your `deps` don't need to include the `:<reference>` suffix in most cases.
+::: tip Depending on specific module references is an advanced feature—you should depend on the latest commit whenever possible. Your `deps` don't need to include the `:<reference>` suffix in most cases.
 
 :::
 
@@ -301,12 +301,12 @@ lint:
 
 **Optional.** Default is `false` if unset, meaning that you can ignore lint rules for specific components in your Protobuf files by adding a comment to them:
 
-```protobuf
+```protobuf{3,4,5}
 syntax = "proto3";
 
-// Skip these rules for this package name. Changing name creates a breaking change. // [!code highlight]
-// buf:lint:ignore PACKAGE_LOWER_SNAKE_CASE // [!code highlight]
-package A; // buf:lint:ignore PACKAGE_VERSION_SUFFIX // [!code highlight]
+// Skip these rules for this package name. Changing name creates a breaking change.
+// buf:lint:ignore PACKAGE_LOWER_SNAKE_CASE
+package A; // buf:lint:ignore PACKAGE_VERSION_SUFFIX
 ```
 
 If this option is unset, the linter ignores the specified rule for any comment that starts with `// buf:lint:ignore RULE_ID`.If this option is set to `true`, any such comments are ignored. See the [lint overview](../../../lint/overview/#comment-ignores) to learn how and when to use comment ignores.In `v1` configurations, this key was called `allow_comment_ignores` and defaulted to `false`. The default behavior in `v2` configurations is to allow comment ignores.

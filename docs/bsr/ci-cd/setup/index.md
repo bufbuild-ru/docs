@@ -51,7 +51,7 @@ head:
 
 [Continuous Integration/Continuous Deployment (CI/CD)](https://en.wikipedia.org/wiki/CI/CD) is a software development practice that automates building, testing, and deploying software. If you are working with Protobuf, then the Buf CLI should be part of all three of these development stages.This guide illustrates how to integrate the Buf CLI into general CI/CD solutions, such as [CircleCI](https://circleci.com) and [TravisCI](https://travis-ci.org).
 
-::: tip NoteWe don't have an SDK for the Buf CLI. If you want to use the Buf CLI as part of some automation, you should shell out to it.
+::: tip We don't have an SDK for the Buf CLI. If you want to use the Buf CLI as part of some automation, you should shell out to it.
 
 :::
 

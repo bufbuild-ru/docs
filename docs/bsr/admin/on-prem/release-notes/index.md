@@ -118,7 +118,7 @@ head:
 
 **_Release date:_** 2025-01-21 | **_Database version:_** 322 | **_Minimum CLI version:_** v1.24.0
 
-::: tip NoteA license is now required to operate the BSR—more details on setup can be found in the [installation guide](../installation/#4-configure-the-bsrs-helm-values).
+::: tip A license is now required to operate the BSR—more details on setup can be found in the [installation guide](../installation/#4-configure-the-bsrs-helm-values).
 
 :::
 

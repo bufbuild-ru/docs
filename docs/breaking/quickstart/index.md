@@ -83,7 +83,7 @@ The example `buf.yaml` file contains all of its required fields. The `breaking` 
 
 ::: info cli/breaking-change-detection/start/buf.yaml
 
-```yaml
+```yaml{8,9,10}
 version: v2
 modules:
   - path: proto
@@ -91,9 +91,9 @@ modules:
 lint:
   use:
     - STANDARD
-breaking: // [!code highlight]
-  use: // [!code highlight]
-    - FILE // [!code highlight]
+breaking:
+  use:
+    - FILE
 ```
 
 :::
@@ -130,7 +130,7 @@ $ buf breaking --against '../../../.git#subdir=cli/breaking-change-detection/sta
 
 :::
 
-::: tip NoteNote that in the `--against` target, you need to point to the root of your Git repository, then traverse back down to the directory you're comparing against using the `subdir` option.
+::: tip Note that in the `--against` target, you need to point to the root of your Git repository, then traverse back down to the directory you're comparing against using the `subdir` option.
 
 :::
 
@@ -140,11 +140,11 @@ For organizations that use the BSR, comparing against the version of the module 
 
 ::: info cli/breaking-change-detection/start/proto/buf.yaml
 
-```yaml
+```yaml{4}
 version: v2
 modules:
   - path: proto
-    name: buf.build/tutorials/breaking // [!code highlight]
+    name: buf.build/tutorials/breaking
 lint:
   use:
     - STANDARD

@@ -65,7 +65,7 @@ head:
 
 **_Release date:_** 2025-04-22
 
-::: tip Note**Breaking changes:** This release removes all of the `--config.*` CLI flags.
+::: tip **Breaking changes:** This release removes all of the `--config.*` CLI flags.
 
 :::
 
@@ -97,7 +97,7 @@ head:
 
 **_Release date:_** 2025-04-15 | **_Status:_** archived*This release has been archived due to a permanent start-up bug when using PostgreSQL (other metadata stores are not impacted). All production workloads should upgrade to use version [0.3.20](#v0320).*
 
-::: tip Note**Breaking changes:** This release removes the following `serve` CLI command flags:
+::: tip **Breaking changes:** This release removes the following `serve` CLI command flags:
 
 - `--available-memory`: Should be configured instead with `BUFSTREAM_AVAILABLE_MEMORY` or the Go runtime's `GOMEMLIMIT` environment variable
 - `--etcd.address`: Only impacted the embedded etcd implementation
@@ -280,7 +280,7 @@ head:
 
 **_Release date:_** 2025-02-11
 
-::: tip NoteBufstream instances will now be referred to as "brokers" instead of "agents" in release notes, documentation, and logs.
+::: tip Bufstream instances will now be referred to as "brokers" instead of "agents" in release notes, documentation, and logs.
 
 :::
 
@@ -307,7 +307,7 @@ head:
 
 **_Release date:_** 2025-01-28
 
-::: tip NoteClusters on v0.1.x must first upgrade to a v0.2.x release before upgrading to this or any later release.
+::: tip Clusters on v0.1.x must first upgrade to a v0.2.x release before upgrading to this or any later release.
 
 :::
 

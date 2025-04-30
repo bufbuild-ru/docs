@@ -45,7 +45,7 @@ head:
 
 # Managed mode
 
-::: tip NoteThis feature has changed significantly between `v1` and `v2` configurations. See the [v1 to v2 migration guide](../../migration-guides/migrate-v2-config-files/) for migration instructions or the [v1 `buf.gen.yaml` reference](../../configuration/v1/buf-gen-yaml/) if you're still using `v1` configuration files.
+::: tip This feature has changed significantly between `v1` and `v2` configurations. See the [v1 to v2 migration guide](../../migration-guides/migrate-v2-config-files/) for migration instructions or the [v1 `buf.gen.yaml` reference](../../configuration/v1/buf-gen-yaml/) if you're still using `v1` configuration files.
 
 :::
 
@@ -122,7 +122,7 @@ There is one special case: when the last rules that modify `java_package` are `j
 
 You may need to override an option to make your generated code conform to your company's source control directory structure or API endpoints. To override an option, you create a rule with its name and the new value in the `override` section of your `buf.gen.yaml` file. If no input is specified in the rule, the value is modified for all inputs, but each rule can specify inputs down to the field level of a single `.proto` file if you need to be that granular.
 
-::: tip NoteSee the [Defaults and override behavior](#default-behavior) section below for default behavior and specific `override` examples for each language.
+::: tip See the [Defaults and override behavior](#default-behavior) section below for default behavior and specific `override` examples for each language.
 
 :::
 
@@ -463,7 +463,7 @@ namespace data.Acme.Weather.V1
 
 Go has two options: `go_package` and `go_package_prefix`. It requires you to [specify a Go import path](https://protobuf.dev/reference/go/go-generated/#package) using `go_package`, but managed mode doesn't set a default, so you must set a value for one of these options in the `override` section. If `go_package_prefix` is set, managed mode defaults to building out directories for each part of the package name. The examples below show the output of these two options, and assume that the Go plugin's `opt` value is the default of `paths=import`.
 
-::: tip NoteBecause both options modify the package name, only one should be set for any given input. If both options are set, the last one specified wins.
+::: tip Because both options modify the package name, only one should be set for any given input. If both options are set, the last one specified wins.
 
 :::
 
@@ -1074,13 +1074,13 @@ This can happen if you're using managed mode to set the default for the `go_pack
 
 ::: info buf.gen.yaml
 
-```yaml
+```yaml{4,5,6}
 version: v2
 managed:
   enabled: true
-  disable: // [!code highlight]
-    - file_option: go_package_prefix // [!code highlight]
-      module: buf.build/googleapis/googleapis // [!code highlight]
+  disable:
+    - file_option: go_package_prefix
+      module: buf.build/googleapis/googleapis
 ```
 
 :::

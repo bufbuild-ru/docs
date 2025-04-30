@@ -45,7 +45,7 @@ head:
 
 # buf.yaml v1 config file
 
-::: tip NoteThis file now has a `v2` configuration available. See the [v2 `buf.yaml` reference](../../v2/buf-yaml/) and the [migration guide](../../../migration-guides/migrate-v2-config-files/) for details about the new configuration and migration instructions.
+::: tip This file now has a `v2` configuration available. See the [v2 `buf.yaml` reference](../../v2/buf-yaml/) and the [migration guide](../../../migration-guides/migrate-v2-config-files/) for details about the new configuration and migration instructions.
 
 :::
 
@@ -113,7 +113,7 @@ deps:
 
 :::
 
-::: tip NoteDepending on specific references is an advanced feature—you should depend on the latest commit whenever possible. In other words, your `deps` don't need to include the `:<reference>` suffix in most cases.
+::: tip Depending on specific references is an advanced feature—you should depend on the latest commit whenever possible. In other words, your `deps` don't need to include the `:<reference>` suffix in most cases.
 
 :::
 
@@ -229,12 +229,12 @@ lint:
 
 If this option is set to `true`, the linter ignores the specified rule for any comment that starts with `// buf:lint:ignore RULE_ID`. For example:
 
-```protobuf
+```protobuf{3,4,5}
 syntax = "proto3";
 
-// Skip these rules for this package name. Changing name creates a breaking change. // [!code highlight]
-// buf:lint:ignore PACKAGE_LOWER_SNAKE_CASE // [!code highlight]
-package A; // buf:lint:ignore PACKAGE_VERSION_SUFFIX // [!code highlight]
+// Skip these rules for this package name. Changing name creates a breaking change.
+// buf:lint:ignore PACKAGE_LOWER_SNAKE_CASE
+package A; // buf:lint:ignore PACKAGE_VERSION_SUFFIX
 ```
 
 If this option is unset or `false`, any such comments are ignored. See the [lint overview](../../../lint/overview/#comment-ignores) to learn how and when to use comment ignores.

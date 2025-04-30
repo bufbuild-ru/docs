@@ -55,11 +55,11 @@ Before you can push to a BSR repository, you need to create the repository and t
 
 ::: info buf.yaml
 
-```yaml
+```yaml{4}
 version: v2
 modules:
   - path: path/to/local/directory
-    name: buf.build/exampleco/payments // [!code highlight]
+    name: buf.build/exampleco/payments
 ```
 
 :::

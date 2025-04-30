@@ -192,11 +192,11 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
     ::: info build.gradle
 
-    ```groovy
+    ```groovy{4}
     dependencies {
         implementation(libs.annotation.api)
         implementation(libs.protobuf.java)
-        implementation(libs.protovalidate) // [!code highlight]
+        implementation(libs.protovalidate)
 
         // Code omitted for brevity
     }
@@ -434,7 +434,7 @@ The response may be a surprise: the server still considers the request valid and
 
 The RPC is still successful because gRPC hasn't been told to validate inbound requests.
 
-::: tip NoteNo Connect or gRPC implementations automatically enforce Protovalidate rules. To enforce your validation rules, you'll need to add an interceptor.
+::: tip No Connect or gRPC implementations automatically enforce Protovalidate rules. To enforce your validation rules, you'll need to add an interceptor.
 
 :::
 
@@ -580,7 +580,7 @@ Examine the highlighted lines in `InvoiceServerTest`, noting that the tests chec
 
 ::: info InvoiceServerTest.java
 
-```java
+```java{12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45}
 public class InvoiceServerTest {
     // Code omitted for brevity
 
@@ -592,40 +592,40 @@ public class InvoiceServerTest {
         assertDoesNotThrow(() -> invoiceClient.createInvoice(req));
     }
 
-    @Test // [!code highlight]
-    @DisplayName("InvoiceId is required") // [!code highlight]
-    public void testInvoiceIdIsRequired() { // [!code highlight]
-        Invoice invoice = Invoice.newBuilder().mergeFrom(newValidInvoice()) // [!code highlight]
-                .setInvoiceId("") // [!code highlight]
-                .build(); // [!code highlight]
-        CreateInvoiceRequest req = CreateInvoiceRequest.newBuilder().setInvoice(invoice).build(); // [!code highlight]
- // [!code highlight]
-        StatusRuntimeException exception = assertThrows(StatusRuntimeException.class, () -> invoiceClient.createInvoice(req)); // [!code highlight]
-        checkStatusRuntimeException(exception, List.of( // [!code highlight]
-                new ViolationSpec("string.uuid_empty", "invoice.invoice_id", "value is empty, which is not a valid UUID") // [!code highlight]
-        )); // [!code highlight]
-    } // [!code highlight]
- // [!code highlight]
-    @Test // [!code highlight]
-    @DisplayName("Two line items cannot have the same product_id and unit price") // [!code highlight]
-    public void testTwoLineItemsCannotHaveTheSameProductIdAndUnitPrice() { // [!code highlight]
-        Invoice template = newValidInvoice(); // [!code highlight]
-        Invoice invoice = Invoice.newBuilder().mergeFrom(template) // [!code highlight]
-                .setLineItems(1, // [!code highlight]
-                        LineItem.newBuilder() // [!code highlight]
-                                .mergeFrom(template.getLineItems(1)) // [!code highlight]
-                                .setLineItemId(template.getLineItems(0).getLineItemId()) // [!code highlight]
-                                .setUnitPrice(template.getLineItems(0).getUnitPrice()) // [!code highlight]
-                ) // [!code highlight]
-                .build(); // [!code highlight]
- // [!code highlight]
-        CreateInvoiceRequest req = CreateInvoiceRequest.newBuilder().setInvoice(invoice).build(); // [!code highlight]
- // [!code highlight]
-        StatusRuntimeException exception = assertThrows(StatusRuntimeException.class, () -> invoiceClient.createInvoice(req)); // [!code highlight]
-        checkStatusRuntimeException(exception, List.of( // [!code highlight]
-                new ViolationSpec("line_items.logically_unique", "invoice.line_items", "line items must be unique combinations of product_id and unit_price") // [!code highlight]
-        )); // [!code highlight]
-    } // [!code highlight]
+    @Test
+    @DisplayName("InvoiceId is required")
+    public void testInvoiceIdIsRequired() {
+        Invoice invoice = Invoice.newBuilder().mergeFrom(newValidInvoice())
+                .setInvoiceId("")
+                .build();
+        CreateInvoiceRequest req = CreateInvoiceRequest.newBuilder().setInvoice(invoice).build();
+
+        StatusRuntimeException exception = assertThrows(StatusRuntimeException.class, () -> invoiceClient.createInvoice(req));
+        checkStatusRuntimeException(exception, List.of(
+                new ViolationSpec("string.uuid_empty", "invoice.invoice_id", "value is empty, which is not a valid UUID")
+        ));
+    }
+
+    @Test
+    @DisplayName("Two line items cannot have the same product_id and unit price")
+    public void testTwoLineItemsCannotHaveTheSameProductIdAndUnitPrice() {
+        Invoice template = newValidInvoice();
+        Invoice invoice = Invoice.newBuilder().mergeFrom(template)
+                .setLineItems(1,
+                        LineItem.newBuilder()
+                                .mergeFrom(template.getLineItems(1))
+                                .setLineItemId(template.getLineItems(0).getLineItemId())
+                                .setUnitPrice(template.getLineItems(0).getUnitPrice())
+                )
+                .build();
+
+        CreateInvoiceRequest req = CreateInvoiceRequest.newBuilder().setInvoice(invoice).build();
+
+        StatusRuntimeException exception = assertThrows(StatusRuntimeException.class, () -> invoiceClient.createInvoice(req));
+        checkStatusRuntimeException(exception, List.of(
+                new ViolationSpec("line_items.logically_unique", "invoice.line_items", "line items must be unique combinations of product_id and unit_price")
+        ));
+    }
 
     // Code omitted for brevity
 }

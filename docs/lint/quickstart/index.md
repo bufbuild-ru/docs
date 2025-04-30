@@ -76,14 +76,14 @@ The example `buf.yaml` file contains all of its required fields. The `lint` fiel
 
 ::: info proto/buf.yaml
 
-```yaml
+```yaml{5,6,7}
 version: v2
 modules:
   - path: proto
     name: buf.build/tutorials/lint
-lint: // [!code highlight]
-  use: // [!code highlight]
-    - STANDARD // [!code highlight]
+lint:
+  use:
+    - STANDARD
 breaking:
   use:
     - FILE
@@ -129,7 +129,7 @@ syntax = "proto3";
 
 If you run `buf lint` again, the first two errors about the package no longer appear. You can work through the rest of the errors in a similar way—the messages provide specific suggestions to help you fix them.
 
-::: tip NoteThe changes the linter recommends are breaking changes for this package, which illustrates why it's best (if possible) to start linting when you first create your Protobuf files. It's not always possible, so we also provide a way to temporarily ignore rules when you first bring your `.proto` files into Buf—[see below](#step5).
+::: tip The changes the linter recommends are breaking changes for this package, which illustrates why it's best (if possible) to start linting when you first create your Protobuf files. It's not always possible, so we also provide a way to temporarily ignore rules when you first bring your `.proto` files into Buf—[see below](#step5).
 
 :::
 
@@ -139,13 +139,13 @@ We recommend that you use the `STANDARD` category for linting—it represents wh
 
 ::: info cli/linting/start/buf.yaml
 
-```yaml
+```yaml{5,6}
 version: v2
 lint:
   use:
     - STANDARD
-  except: // [!code highlight]
-    - SERVICE_SUFFIX // [!code highlight]
+  except:
+    - SERVICE_SUFFIX
 ```
 
 :::
@@ -154,12 +154,12 @@ You can also add individual rules to the more minimal categories if they better 
 
 ::: info cli/linting/start/buf.yaml
 
-```yaml
+```yaml{3,4,5}
 version: v2
 lint:
-  use: // [!code highlight]
-    - BASIC // [!code highlight]
-    - SERVICE_SUFFIX // [!code highlight]
+  use:
+    - BASIC
+    - SERVICE_SUFFIX
 ```
 
 :::
@@ -190,16 +190,16 @@ Copy and paste the `ignore_only` section into `buf.yaml`, prefixing each file so
 
 ::: info buf.yaml
 
-```yaml
+```yaml{5,7,9}
 version: v2
 lint:
   ignore_only:
     ENUM_VALUE_PREFIX:
-      - proto/acme/weather/v1/weather.proto // [!code highlight]
+      - proto/acme/weather/v1/weather.proto
     ENUM_ZERO_VALUE_SUFFIX:
-      - proto/acme/weather/v1/weather.proto // [!code highlight]
+      - proto/acme/weather/v1/weather.proto
     RPC_REQUEST_STANDARD_NAME:
-      - proto/acme/weather/v1/weather.proto // [!code highlight]
+      - proto/acme/weather/v1/weather.proto
 ```
 
 :::

@@ -87,7 +87,7 @@ Buf configuration version. Valid values are `v2`, `v1`, and `v1beta1`.
 
 Each entry in the `deps` key is a module pin, which uniquely represents a specific snapshot of the given module (`buf.build/googleapis/googleapis:7a6bc1e3207144b38e9066861e1de0ff` in this case). It's protected with a cryptographic digest of all of the files in it (see how we [protect dependencies against tampering](../../../bsr/module/dependency-management/#tamper-proofing)). With this, the local snapshot of the workspace and all of its dependencies are uniquely represented, reproducible, and protected against tampering.
 
-::: tip NoteOlder versions of the Buf CLI included include `branch`, `commit`, and `create_time` as a part of the dependencies. Your `buf.lock` shouldn't include these fields if you've run `buf dep update` with a current version.
+::: tip Older versions of the Buf CLI included include `branch`, `commit`, and `create_time` as a part of the dependencies. Your `buf.lock` shouldn't include these fields if you've run `buf dep update` with a current version.
 
 :::
 

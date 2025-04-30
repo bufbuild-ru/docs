@@ -132,13 +132,13 @@ Using a separate request and response message for each RPC gives you maximum fle
 
 ::: info buf.yaml with flags set to allow Empty
 
-```yaml
+```yaml{5,6}
 version: v2
 lint:
   use:
     - STANDARD
-  rpc_allow_google_protobuf_empty_requests: true // [!code highlight]
-  rpc_allow_google_protobuf_empty_responses: true // [!code highlight]
+  rpc_allow_google_protobuf_empty_requests: true
+  rpc_allow_google_protobuf_empty_responses: true
 ```
 
 :::

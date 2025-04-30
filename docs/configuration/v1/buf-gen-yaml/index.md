@@ -45,7 +45,7 @@ head:
 
 # buf.gen.yaml v1 config file
 
-::: tip NoteThis file now has a `v2` configuration available. See the [v2 `buf.gen.yaml` reference](../../v2/buf-gen-yaml/) and the [v1 to v2 migration guide](../../../migration-guides/migrate-v2-config-files/) for details about the new configuration and migration instructions.
+::: tip This file now has a `v2` configuration available. See the [v2 `buf.gen.yaml` reference](../../v2/buf-gen-yaml/) and the [v1 to v2 migration guide](../../../migration-guides/migrate-v2-config-files/) for details about the new configuration and migration instructions.
 
 :::
 
@@ -85,7 +85,7 @@ head:
     - The plugin version is specified by the upstream project.
     - The revision is a sequence number that Buf increments when rebuilding or repackaging the plugin.
 
-    ::: tip Note
+    ::: tip
 
     ```text
       If you don't specify a plugin version, the latest version is pulled in. To avoid unexpected updates
@@ -302,7 +302,7 @@ If the Protobuf file's package declaration conforms to the [`PACKAGE_VERSION_SUF
 
 ### `java_outer_classname`
 
-::: tip NoteThis option can't be specified. It can only be overridden using the [per-file override](#per-file-override).
+::: tip This option can't be specified. It can only be overridden using the [per-file override](#per-file-override).
 
 :::
 
@@ -369,7 +369,7 @@ managed:
 
 ### `php_metadata_namespace`
 
-::: tip Note
+::: tip
 
 :::
 
@@ -390,7 +390,7 @@ managed:
 
 ### `php_namespace`
 
-::: tip NoteThis option can't be specified. It can only be overridden using the [per-file override](#per-file-override).
+::: tip This option can't be specified. It can only be overridden using the [per-file override](#per-file-override).
 
 :::
 

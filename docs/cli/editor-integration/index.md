@@ -67,7 +67,7 @@ The extension runs `buf lint --path` on save and reveals errors on a per-file ba
 
 The Visual Studio Code extension can be downloaded from the in-editor extension browser under the name "Buf" or manually via the [extension page](https://marketplace.visualstudio.com/items?itemName=bufbuild.vscode-buf). You need to have `buf` [installed](../installation/) to use it.Our Buf extension currently supports [linting](../../lint/overview/) your `.proto` files. It runs `buf lint --path` on save and reveals errors on a per-file basis. To detect package-level problems, be sure to run a workspace-wide `buf lint` as part of your CI process.The Buf CLI is executed in the root of your workspace, which means it's configured by the [`buf.yaml`](../../configuration/v2/buf-yaml/) there.
 
-::: tip NoteThe `vscode-buf` extension doesn't work in conjunction with the `vscode-proto` extension. More generally, if you run into issues you may need to disable other extensions that register the `.proto` file suffix.
+::: tip The `vscode-buf` extension doesn't work in conjunction with the `vscode-proto` extension. More generally, if you run into issues you may need to disable other extensions that register the `.proto` file suffix.
 
 :::
 

@@ -62,7 +62,7 @@ The steps below must be carried out by a GitHub administrator for your organizat
 
 ## Create an SSO GitHub App
 
-::: tip NoteThis GitHub App is only used for SSO and is separate from the Buf GitHub App used for CI/CD integration.
+::: tip This GitHub App is only used for SSO and is separate from the Buf GitHub App used for CI/CD integration.
 
 :::
 

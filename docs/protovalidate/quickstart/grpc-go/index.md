@@ -423,7 +423,7 @@ The response may be a surprise: the server still considers the request valid and
 
 The RPC is still successful because gRPC hasn't been told to validate inbound requests.
 
-::: tip NoteNo Connect or gRPC implementations automatically enforce Protovalidate rules. To enforce your validation rules, you'll need to add an interceptor.
+::: tip No Connect or gRPC implementations automatically enforce Protovalidate rules. To enforce your validation rules, you'll need to add an interceptor.
 
 :::
 
@@ -599,7 +599,7 @@ Examine the highlighted lines in `invoice_test.go`, noting that the tests check 
 
 ::: info internal/invoice/invoice_test.go
 
-```go
+```go{13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39}
 func TestCreateInvoice(t *testing.T) {
     // Code omitted for brevity...
 
@@ -612,33 +612,33 @@ func TestCreateInvoice(t *testing.T) {
                 return invoice
             },
         },
-        "InvoiceId is required": { // [!code highlight]
-            producer: func(invoice *invoicev1.Invoice) *invoicev1.Invoice { // [!code highlight]
-                invoice.InvoiceId = "" // [!code highlight]
-                return invoice // [!code highlight]
-            }, // [!code highlight]
-            violations: []violationSpec{ // [!code highlight]
-                { // [!code highlight]
-                    constraintID: "string.uuid_empty", // [!code highlight]
-                    fieldPath:    "invoice.invoice_id", // [!code highlight]
-                    message:      "value is empty, which is not a valid UUID", // [!code highlight]
-                }, // [!code highlight]
-            }, // [!code highlight]
-        }, // [!code highlight]
-        "Two line items cannot have the same product_id and unit price": { // [!code highlight]
-            producer: func(invoice *invoicev1.Invoice) *invoicev1.Invoice { // [!code highlight]
-                invoice.GetLineItems()[0].ProductId = invoice.GetLineItems()[1].GetProductId() // [!code highlight]
-                invoice.GetLineItems()[0].UnitPrice = invoice.GetLineItems()[1].GetUnitPrice() // [!code highlight]
-                return invoice // [!code highlight]
-            }, // [!code highlight]
-            violations: []violationSpec{ // [!code highlight]
-                { // [!code highlight]
-                    constraintID: "line_items.logically_unique", // [!code highlight]
-                    fieldPath:    "invoice.line_items", // [!code highlight]
-                    message:      "line items must be unique combinations of product_id and unit_price", // [!code highlight]
-                }, // [!code highlight]
-            }, // [!code highlight]
-        }, // [!code highlight]
+        "InvoiceId is required": {
+            producer: func(invoice *invoicev1.Invoice) *invoicev1.Invoice {
+                invoice.InvoiceId = ""
+                return invoice
+            },
+            violations: []violationSpec{
+                {
+                    constraintID: "string.uuid_empty",
+                    fieldPath:    "invoice.invoice_id",
+                    message:      "value is empty, which is not a valid UUID",
+                },
+            },
+        },
+        "Two line items cannot have the same product_id and unit price": {
+            producer: func(invoice *invoicev1.Invoice) *invoicev1.Invoice {
+                invoice.GetLineItems()[0].ProductId = invoice.GetLineItems()[1].GetProductId()
+                invoice.GetLineItems()[0].UnitPrice = invoice.GetLineItems()[1].GetUnitPrice()
+                return invoice
+            },
+            violations: []violationSpec{
+                {
+                    constraintID: "line_items.logically_unique",
+                    fieldPath:    "invoice.line_items",
+                    message:      "line items must be unique combinations of product_id and unit_price",
+                },
+            },
+        },
     }
     // Code omitted for brevity
 }

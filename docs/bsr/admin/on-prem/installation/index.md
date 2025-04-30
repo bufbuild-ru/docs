@@ -88,7 +88,7 @@ $ kubectl create secret --namespace bsr docker-registry bufpullsecret \
 
 The BSR is configured using Helm values through the `bsr` Helm Chart.Create a file named `bsr.yaml` to store the Helm values, which is required by the `helm install` step below.
 
-::: tip NoteThis file can be in any location, but we recommend creating it in the same directory where the helm commands are run.
+::: tip This file can be in any location, but we recommend creating it in the same directory where the helm commands are run.
 
 :::
 

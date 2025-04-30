@@ -51,7 +51,7 @@ When you're sharing schemas across teams, consumers need access to documentation
 
 Most documentation comes directly from Protobuf comments, but you should also describe your modules so others can understand their functionality.To create module documentation, add a `README.md` file and push it to the BSR along with your Protobuf files. If you already have a `README.md` and want to have a different documentation file for the BSR than your source control, name the file `buf.md` instead. When both files are present, the BSR displays `buf.md` instead of `README.md`.Because documentation is part of your module, any updates to either `README.md` or `buf.md` create new commits in the BSR. You can put the documentation at either the module level or the workspace root. Modules within the workspace without their own documentation fall back to the workspace `README.md` file.In this example, the module at `proto/acme/weatherapi/v1` displays its own `README.md` file, and the module at `proto/acme/units/v1` displays the workspace `README.md` file.
 
-```text
+```text{9,14}
 workspace_root
 ├─ buf.yaml
 ├─ proto
@@ -60,12 +60,12 @@ workspace_root
 │     │  └─ v1
 │     │     ├─ api.proto
 │     │     ├─ calculate.proto
-│     │     └─ README.md  # Module-level documentation // [!code highlight]
+│     │     └─ README.md  # Module-level documentation
 │     └─ units
 │        └─ v1
 │           ├─ imperial.proto
 │           └─ metric.proto
-└─ README.md  # Workspace-level documentation // [!code highlight]
+└─ README.md  # Workspace-level documentation
 ```
 
 ## Package documentation
@@ -85,7 +85,7 @@ package pet.v1;
 
 ![Package docs](../../../images/bsr/docs-package.png)
 
-::: tip NoteComments on the package directive aren't merged across files. Files are parsed alphabetically, and only the first file with a non-empty comment is displayed in the generated documentation.
+::: tip Comments on the package directive aren't merged across files. Files are parsed alphabetically, and only the first file with a non-empty comment is displayed in the generated documentation.
 
 :::
 

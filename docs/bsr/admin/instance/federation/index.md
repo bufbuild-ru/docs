@@ -49,7 +49,7 @@ DEPRECATEDWe recommend using the default [managed modules](../managed-modules/) 
 
 Federation allows Buf modules to depend on modules hosted on different BSR instances. For example, a module on `buf.example.com` may depend on a public BSR module like `buf.build/googleapis/googleapis`. Although hosted on a different remote, federated dependencies work the same as regular dependencies.
 
-::: tip NoteUse of Federation creates a dependency between your single-tenant instance and `buf.build`. For this reason federation is turned **off** by default for new customers. If you wish to use this feature, please reach out to a Buf representative.
+::: tip Use of Federation creates a dependency between your single-tenant instance and `buf.build`. For this reason federation is turned **off** by default for new customers. If you wish to use this feature, please reach out to a Buf representative.
 
 :::
 

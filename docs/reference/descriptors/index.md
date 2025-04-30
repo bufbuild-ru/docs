@@ -140,43 +140,37 @@ message Foo {
 
 And here’s the corresponding `FileDescriptorProto` (shown using the JSON format; some inconsequential fields omitted for brevity):
 
-```json
+```json{4,5,6,11,19,26}
 {
-  "syntax": "proto3",
-  "package": "foo.bar",
-  "options": {
-    // [!code highlight]
-    "go_package": "github.com/foo/bar", // [!code highlight]
-    "java_package": "com.foo.bar" // [!code highlight]
-  },
-  "message": [
-    {
-      "name": "Foo",
-      "options": { "deprecated": true }, // [!code highlight]
-      "field": [
+    "syntax": "proto3",
+    "package": "foo.bar",
+    "options": {
+        "go_package": "github.com/foo/bar",
+        "java_package": "com.foo.bar"
+    },
+    "message": [
         {
-          "name": "name",
-          "number": 1,
-          "type": "TYPE_STRING",
-          "label": "LABEL_OPTIONAL"
-        },
-        {
-          "name": "class_ids",
-          "number": 2,
-          "type": "TYPE_STRING",
-          "label": "LABEL_REPEATED",
-          "options": { "packed": true } // [!code highlight]
-        },
-        {
-          "name": "ssn",
-          "number": 3,
-          "type": "TYPE_STRING",
-          "label": "LABEL_OPTIONAL",
-          "options": { "debug_redact": true } // [!code highlight]
+            "name": "Foo",
+            "options": { "deprecated": true },
+            "field": [
+                { "name": "name", "number": 1, "type": "TYPE_STRING", "label": "LABEL_OPTIONAL" },
+                {
+                    "name": "class_ids",
+                    "number": 2,
+                    "type": "TYPE_STRING",
+                    "label": "LABEL_REPEATED",
+                    "options": { "packed": true }
+                },
+                {
+                    "name": "ssn",
+                    "number": 3,
+                    "type": "TYPE_STRING",
+                    "label": "LABEL_OPTIONAL",
+                    "options": { "debug_redact": true }
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
 ```
 
@@ -356,7 +350,7 @@ message Location {
 
 So we can iterate through the locations to find one that has a matching path. You can read more about how a compiler populates source code info in the [Protobuf Guide](https://protobuf.com/docs/descriptors#source-code-info).
 
-::: tip NoteDescriptor information that is embedded in generated code _will not_ include source code info. This is to reduce the size of the resulting packages and/or compiled binaries. Descriptors provided to code generation plugins, on the other hand, _should always_ include source code info. That way a code generator can propagate comments in the Protobuf source to comments in generated code.
+::: tip Descriptor information that is embedded in generated code _will not_ include source code info. This is to reduce the size of the resulting packages and/or compiled binaries. Descriptors provided to code generation plugins, on the other hand, _should always_ include source code info. That way a code generator can propagate comments in the Protobuf source to comments in generated code.
 
 :::
 
@@ -471,7 +465,7 @@ In C#, the runtime library doesn't provide the ability to create new descriptors
 
 ### TypeScript / JavaScript
 
-::: tip Note[Protobuf-ES](https://github.com/bufbuild/protobuf-es) is the ECMAScript implementation of Protobuf, created by Buf.
+::: tip [Protobuf-ES](https://github.com/bufbuild/protobuf-es) is the ECMAScript implementation of Protobuf, created by Buf.
 
 :::
 
@@ -493,7 +487,7 @@ The most common reason to use descriptors is for reflection. Reflection allows r
 
 Generated message classes in C++ are sub-classes of [`Message`](https://protobuf.dev/reference/cpp/api-docs/google.protobuf.message#Message) and thus have a method named `GetDescriptor`. They also have a method named `GetReflection`, which allows for reflective access to the message’s fields (both for reading and writing field values).
 
-::: tip NoteNote that if a file uses an option like [`option optimize_for = LITE_RUNTIME;`](https://github.com/protocolbuffers/protobuf/blob/v22.0/src/google/protobuf/descriptor.proto#L377-L384) then the generated messages are instead sub-classes of [`MessageLite`](https://protobuf.dev/reference/cpp/api-docs/google.protobuf.message_lite#MessageLite) and thus _don't include support for descriptors or reflection_.
+::: tip Note that if a file uses an option like [`option optimize_for = LITE_RUNTIME;`](https://github.com/protocolbuffers/protobuf/blob/v22.0/src/google/protobuf/descriptor.proto#L377-L384) then the generated messages are instead sub-classes of [`MessageLite`](https://protobuf.dev/reference/cpp/api-docs/google.protobuf.message_lite#MessageLite) and thus _don't include support for descriptors or reflection_.
 
 :::
 
@@ -501,7 +495,7 @@ Generated message classes in C++ are sub-classes of [`Message`](https://protobuf
 
 Generated message classes in Java implement the [`Message`](https://protobuf.dev/reference/java/api-docs/com/google/protobuf/Message.html) interface, which provides descriptor access via the [`getDescriptorForType`](https://protobuf.dev/reference/java/api-docs/com/google/protobuf/MessageOrBuilder.html#getDescriptorForType--) method. Reflection is done via methods like [`getField`](https://protobuf.dev/reference/java/api-docs/com/google/protobuf/MessageOrBuilder.html#getField-com.google.protobuf.Descriptors.FieldDescriptor-) and [`getRepeatedField`](https://protobuf.dev/reference/java/api-docs/com/google/protobuf/MessageOrBuilder.html#getRepeatedField-com.google.protobuf.Descriptors.FieldDescriptor-int-). Messages are immutable in Java. To modify a message via reflection, one must first call the [`toBuilder`](https://protobuf.dev/reference/java/api-docs/com/google/protobuf/Message.html#toBuilder--) method to convert it to a [`Message.Builder`](https://protobuf.dev/reference/java/api-docs/com/google/protobuf/Message.Builder.html) and then use methods like [`clearField`](https://protobuf.dev/reference/java/api-docs/com/google/protobuf/Message.Builder.html#clearField-com.google.protobuf.Descriptors.FieldDescriptor-), [`setField`](https://protobuf.dev/reference/java/api-docs/com/google/protobuf/Message.Builder.html#setField-com.google.protobuf.Descriptors.FieldDescriptor-java.lang.Object-), and [`setRepeatedField`](https://protobuf.dev/reference/java/api-docs/com/google/protobuf/Message.Builder.html#setRepeatedField-com.google.protobuf.Descriptors.FieldDescriptor-int-java.lang.Object-).
 
-::: tip NoteNote that if a file uses an option like [`option optimize_for = LITE_RUNTIME;`](https://github.com/protocolbuffers/protobuf/blob/v22.0/src/google/protobuf/descriptor.proto#L377-L384) then the generated messages instead implement [`MessageLite`](https://protobuf.dev/reference/java/api-docs/com/google/protobuf/MessageLite.html) and thus _don't include support for descriptors or Protobuf reflection_.
+::: tip Note that if a file uses an option like [`option optimize_for = LITE_RUNTIME;`](https://github.com/protocolbuffers/protobuf/blob/v22.0/src/google/protobuf/descriptor.proto#L377-L384) then the generated messages instead implement [`MessageLite`](https://protobuf.dev/reference/java/api-docs/com/google/protobuf/MessageLite.html) and thus _don't include support for descriptors or Protobuf reflection_.
 
 :::
 
@@ -682,7 +676,7 @@ int main(int argc, char* argv[[]]) {
 
 Your generator is provided the `FileDescriptor*` for which code should be generated.The [`GeneratorContext*`](https://protobuf.dev/reference/cpp/api-docs/google.protobuf.compiler.code_generator#GeneratorContext) passed to your generator has methods you can use to create the output files into which you write the generated code contents. It offers both `Open`, for creating generated files, and `OpenForInsert`, for generating content to insert into another generated file.
 
-::: tip NoteYou must use these methods—creating files directly on the file system isn't allowed.
+::: tip You must use these methods—creating files directly on the file system isn't allowed.
 
 :::
 
@@ -702,13 +696,13 @@ func main() {
 
 The `*protogen.Plugin` passed to your function indicates the source files for which code should be generated. These are in the form of [`protogen.File`](https://pkg.go.dev/google.golang.org/protobuf/compiler/protogen#File) values. This type is a wrapper around a `protoreflect.FileDescriptor`. It provides a parallel structure, for accessing other wrapped descriptors (such as [`protogen.Message`](https://pkg.go.dev/google.golang.org/protobuf/compiler/protogen#Message) and [`protogen.Service`](https://pkg.go.dev/google.golang.org/protobuf/compiler/protogen#Service)). These provide additional metadata about each element to aid with generating Go code.The `*protogen.Plugin` also provides a [`NewGeneratedFile`](https://pkg.go.dev/google.golang.org/protobuf/compiler/protogen#Plugin.NewGeneratedFile) method for creating output files. The [`*GeneratedFile`](https://pkg.go.dev/google.golang.org/protobuf/compiler/protogen#GeneratedFile) type implements `io.Writer`, for writing generated code contents, but also has several other functions to aid in the generation of Go code.
 
-::: tip NoteThe Go runtime library _doesn't support insertion points._ Also note that you must use this method to create output—creating files directly on the file system isn't allowed.
+::: tip The Go runtime library _doesn't support insertion points._ Also note that you must use this method to create output—creating files directly on the file system isn't allowed.
 
 :::
 
 #### TypeScript / JavaScript
 
-::: tip Note[Protobuf-ES](https://github.com/bufbuild/protobuf-es) is the ECMAScript implementation of Protobuf, created by Buf.
+::: tip [Protobuf-ES](https://github.com/bufbuild/protobuf-es) is the ECMAScript implementation of Protobuf, created by Buf.
 
 :::
 

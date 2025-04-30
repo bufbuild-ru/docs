@@ -143,7 +143,7 @@ The rules in a Buf plugin can also have options that modify their behavior (simi
 
 ::: info buf.yaml
 
-```yaml
+```yaml{8,9}
 version: v2
 lint:
   use:
@@ -151,8 +151,8 @@ lint:
     - CATEGORY_FROM_PLUGIN
 plugins:
   - plugin: buf-plugin-foo
-    options: // [!code highlight]
-      timestamp_suffix: _time // [!code highlight]
+    options:
+      timestamp_suffix: _time
 ```
 
 :::
@@ -225,15 +225,15 @@ This feature allows you to turn off lint warnings for a specific line of a Proto
 
 To ignore a lint rule, add the comment ignore directly above the line it should apply to, using the `// buf:lint:ignore RULE_ID` syntax. You can use comment ignores for any lint rules—both Buf's [built-in rules](../rules/) and custom rules from configured [Buf plugins](../../cli/buf-plugins/overview/). Adding a comment for context is also helpful, and it must be above the comment ignore:
 
-```protobuf
+```protobuf{3,4,5}
 syntax = "proto3";
 
-// Skip these rules for this package name. Changing name creates a breaking change. // [!code highlight]
-// buf:lint:ignore PACKAGE_LOWER_SNAKE_CASE // [!code highlight]
-package A; // buf:lint:ignore PACKAGE_VERSION_SUFFIX // [!code highlight]
+// Skip these rules for this package name. Changing name creates a breaking change.
+// buf:lint:ignore PACKAGE_LOWER_SNAKE_CASE
+package A; // buf:lint:ignore PACKAGE_VERSION_SUFFIX
 ```
 
-::: tip NoteAlthough it's possible to ignore lint rules at this granular level, generally it should be an exception. As an alternative to comment ignores, you could move the offending components to a separate `.proto` file and use an authors or owners file to control access to it, limiting approval to a small group of reviewers.You could then set the corresponding `ignore` or `ignore_only` values in `buf.yaml` to point to that file. This allows `buf.yaml` to have its own access group and stay focused on the organization's defaults rather than the exceptions.
+::: tip Although it's possible to ignore lint rules at this granular level, generally it should be an exception. As an alternative to comment ignores, you could move the offending components to a separate `.proto` file and use an authors or owners file to control access to it, limiting approval to a small group of reviewers.You could then set the corresponding `ignore` or `ignore_only` values in `buf.yaml` to point to that file. This allows `buf.yaml` to have its own access group and stay focused on the organization's defaults rather than the exceptions.
 
 :::
 

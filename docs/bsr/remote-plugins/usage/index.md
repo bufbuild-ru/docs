@@ -319,15 +319,15 @@ workspace_root
 
 ::: info buf.gen.yaml
 
-```yaml
+```yaml{4,8}
 version: v2
 plugins:
   # The protoc-gen-go stubs are required for grpc-go
-  - remote: buf.build/protocolbuffers/go // [!code highlight]
+  - remote: buf.build/protocolbuffers/go
     out: gen/go
     # You almost always want to set this option with protoc-gen-go
     opt: paths=source_relative
-  - remote: buf.build/connectrpc/go // [!code highlight]
+  - remote: buf.build/connectrpc/go
     # Unlike grpc-go, connect stubs don't need to be generated to the
     # same directory, however you are free to do so
     out: gen/go
@@ -343,10 +343,10 @@ plugins:
 
 ::: info buf.gen.yaml
 
-```yaml
+```yaml{3}
 version: v2
 plugins:
-  - remote: buf.build/bufbuild/es // [!code highlight]
+  - remote: buf.build/bufbuild/es
     out: gen/es
 ```
 
@@ -358,13 +358,13 @@ plugins:
 
 ::: info buf.gen.yaml
 
-```yaml
+```yaml{3,6}
 version: v2
 plugins:
-  - remote: buf.build/apple/swift // [!code highlight]
+  - remote: buf.build/apple/swift
     opt: Visibility=Public
     out: gen/swift
-  - remote: buf.build/connectrpc/swift // [!code highlight]
+  - remote: buf.build/connectrpc/swift
     opt: Visibility=Public
     out: gen/swift
 ```
@@ -377,10 +377,10 @@ plugins:
 
 ::: info buf.gen.yaml
 
-```yaml
+```yaml{3}
 version: v2
 plugins:
-  - remote: buf.build/protocolbuffers/go // [!code highlight]
+  - remote: buf.build/protocolbuffers/go
     out: gen/go
     # You almost always want to set this option with protoc-gen-go
     opt: paths=source_relative
@@ -394,15 +394,15 @@ plugins:
 
 ::: info buf.gen.yaml
 
-```yaml
+```yaml{4,8}
 version: v2
 plugins:
   # The protoc-gen-go stubs are required for grpc-go
-  - remote: buf.build/protocolbuffers/go // [!code highlight]
+  - remote: buf.build/protocolbuffers/go
     out: gen/go
     # You almost always want to set this option with protoc-gen-go
     opt: paths=source_relative
-  - remote: buf.build/grpc/go // [!code highlight]
+  - remote: buf.build/grpc/go
     # Make sure to generate your grpc-go code to the same
     # directory as protoc-gen-go
     out: gen/go

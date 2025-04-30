@@ -73,7 +73,7 @@ message Event {
 }
 ```
 
-::: tip NoteSee the [audit API docs](https://buf.build/bufbuild/buf/docs/e32e91a7a3a14c9db9f7f25989f6d1c8:buf.alpha.audit.v1alpha1#buf.alpha.audit.v1alpha1.Event) for details about the supported payloads.
+::: tip See the [audit API docs](https://buf.build/bufbuild/buf/docs/e32e91a7a3a14c9db9f7f25989f6d1c8:buf.alpha.audit.v1alpha1#buf.alpha.audit.v1alpha1.Event) for details about the supported payloads.
 
 :::
 

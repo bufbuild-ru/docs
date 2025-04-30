@@ -45,7 +45,7 @@ head:
 
 # Rules and categories
 
-::: tip NoteThe rules and categories described here belong to the [`v1`](../../configuration/v1/buf-yaml/) and [`v2`](../../configuration/v2/buf-yaml/) configurations. If you're still using `v1beta1` configuration files and haven't [migrated](../../migration-guides/migrate-v2-config-files/) yet, refer to the previous [reference](../../configuration/v1beta1/lint-rules/).
+::: tip The rules and categories described here belong to the [`v1`](../../configuration/v1/buf-yaml/) and [`v2`](../../configuration/v2/buf-yaml/) configurations. If you're still using `v1beta1` configuration files and haven't [migrated](../../migration-guides/migrate-v2-config-files/) yet, refer to the previous [reference](../../configuration/v1beta1/lint-rules/).
 
 :::
 
@@ -247,26 +247,26 @@ enum Foo {
 
 Protobuf enums use C++ scoping rules, which makes it impossible to have two enums in the same package with the same enum value name (an exception is when enums are nested, in which case this rule applies within the given message). Though you might assume that a given enum value name is always unique across a package, schemas can develop over years, and there are countless examples of developers having to compromise on their enum names due to backwards compatibility issues. For example, you might have this enum:
 
-```protobuf
+```protobuf{6}
 enum Scheme {
   // Right off the bat, you can't use "UNSPECIFIED" in multiple enums
   // in the same package, so you always would have to prefix this anyway.
   SCHEME_UNSPECIFIED = 0;
   HTTP = 1;
-  HTTPS = 2; // [!code highlight]
+  HTTPS = 2;
   ...
 }
 ```
 
 Two years later, you have an enum in the same package you want to add, but can't:
 
-```protobuf
+```protobuf{6}
 // This is a made up example, bear with us.
 enum SecureProtocol {
   SECURE_PROTOCOL_UNSPECIFIED = 0;
   // If this enum is in the same package as Scheme, this produces
   // a protoc compile-time error!
-  HTTPS = 1; // [!code highlight]
+  HTTPS = 1;
   ...
 }
 ```
@@ -306,7 +306,7 @@ message Uri {
 
 **Categories:** `BASIC`, `STANDARD`This rule checks that field isn't configured as required. This means that using the "required" label in proto2 sources isn't allowed and using the feature `field_presence = LEGACY_REQUIRED` isn't allowed in Editions sources.
 
-::: tip NoteThis is a new rule that can only be used with `v2` configuration files.
+::: tip This is a new rule that can only be used with `v2` configuration files.
 
 :::
 

@@ -53,19 +53,19 @@ In the Confluent ecosystem, schemas are associated with data via [_subjects_](ht
 
 You create subjects within the BSR's Confluent Schema Registry by annotating messages with a custom option that identifies the instance and subject name.The subject is claimed by the module that contains the annotated message, preventing use of that subject by other modules. It's an error to annotate multiple messages in a module with the same instance and subject name.
 
-::: tip NoteAll references to buf.example.com below should be replaced with the hostname for your private BSR instance.
+::: tip All references to buf.example.com below should be replaced with the hostname for your private BSR instance.
 
 :::
 
 1.  Add a dependency on the [bufbuild/confluent](https://buf.build/bufbuild/confluent) managed module to your Buf workspace's [`buf.yaml`](../../../configuration/v2/buf-yaml/#deps) file.
 
-    ```yaml
+    ```yaml{6}
     version: v2
     modules:
       path: /path/to/local/directory
       name: buf.example.com/demo/analytics
     deps:
-      - buf.example.com/bufbuild/confluent // [!code highlight]
+      - buf.example.com/bufbuild/confluent
     ```
 
 2.  Run [`buf dep update`](../../../reference/cli/buf/dep/update/) to verify and lock the dependency.
@@ -76,7 +76,7 @@ You create subjects within the BSR's Confluent Schema Registry by annotating mes
 
 3.  Add one or more [`buf.confluent.v1.subject`](https://buf.build/bufbuild/confluent/docs/main:buf.confluent.v1) options to a new or existing Protobuf message, including your Confluent Schema Registry [instance name](../manage-instances/#create-an-instance) and the subject's name.
 
-    ```protobuf
+    ```protobuf{15,16,17,18}
     syntax = "proto3";
 
     package demo.analytics;
@@ -91,10 +91,10 @@ You create subjects within the BSR's Confluent Schema Registry by annotating mes
       string new_email = 4;
       bool new_email_verified = 5;
 
-      option (buf.confluent.v1.subject) = { // [!code highlight]
-        instance_name: "CSR_INSTANCE_NAME", // [!code highlight]
-        name: "email-updated-value", // [!code highlight]
-      }; // [!code highlight]
+      option (buf.confluent.v1.subject) = {
+        instance_name: "CSR_INSTANCE_NAME",
+        name: "email-updated-value",
+      };
     }
     ```
 

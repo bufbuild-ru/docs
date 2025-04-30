@@ -81,11 +81,11 @@ enum Arena {
 
 This change is perfectly wire compatible, but all code that referred to `ARENA_FOO` then fails to compiles:
 
-```go
+```go{4}
 resp, err := service.Visit(
     ctx,
     connect.NewRequest(&visitv1.VisitRequest{
-        Arena: visitv1.Arena_ARENA_FOO, // !!! // [!code highlight]
+        Arena: visitv1.Arena_ARENA_FOO, // !!!
     }),
 )
 ```
@@ -213,7 +213,7 @@ extend Foo {
 }
 ```
 
-::: tip NoteThis is a new rule that can only be used with `v2` configuration files.
+::: tip This is a new rule that can only be used with `v2` configuration files.
 
 :::
 
@@ -227,7 +227,7 @@ message Bar {
 }
 ```
 
-::: tip NoteUnlike other field checks, this rule _doesn't_ apply to extensions.
+::: tip Unlike other field checks, this rule _doesn't_ apply to extensions.
 
 :::
 
@@ -245,7 +245,7 @@ message Bar {
 
 Note that it's usually better to deprecate message fields than to reserve them in advance.
 
-::: tip NoteUnlike other field checks, this rule _doesn't_ apply to extensions.
+::: tip Unlike other field checks, this rule _doesn't_ apply to extensions.
 
 :::
 
@@ -262,7 +262,7 @@ message Bar {
 
 Note that deprecating a field instead of deleting it has the same effect as reserving the field (as well as reserving the name for JSON).
 
-::: tip NoteUnlike other field checks, this rule _doesn't_ apply to extensions.
+::: tip Unlike other field checks, this rule _doesn't_ apply to extensions.
 
 :::
 
@@ -296,7 +296,7 @@ It has been replaced with the [`FIELD_SAME_CPP_STRING_TYPE`](#field_same_cpp_str
 
 **Categories:** `FILE`, `PACKAGE`, `WIRE_JSON`, `WIRE`This checks that the default value for a field doesn't change. In `proto3` files, the default value is always the zero value for the type, but in `proto2` and in Editions, non-repeated, non-message fields can configure an alternate default value. Changing the default value isn't backwards-compatible since it means that producers and consumers of the schema interpret serialized data differently.
 
-::: tip NoteThis is a new rule that can only be used with `v2` configuration files.
+::: tip This is a new rule that can only be used with `v2` configuration files.
 
 :::
 
@@ -512,7 +512,7 @@ message Bar {
 
 **Category:** `PACKAGE`This has the same effect as `EXTENSION_NO_DELETE`, except that it verifies that types aren't deleted from a given package, while letting them move between files in the same package.
 
-::: tip NoteThis is a new rule that can only be used with `v2` configuration files.
+::: tip This is a new rule that can only be used with `v2` configuration files.
 
 :::
 

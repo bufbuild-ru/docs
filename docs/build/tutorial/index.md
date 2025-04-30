@@ -80,10 +80,10 @@ Add a declaration for each directory you want to treat as a [module](../../cli/m
 
 ::: info Adding a module
 
-```yaml
+```yaml{2,3}
 version: v2
-modules: // [!code highlight]
-  - path: foo // [!code highlight]
+modules:
+  - path: foo
 breaking:
   use:
     - FILE

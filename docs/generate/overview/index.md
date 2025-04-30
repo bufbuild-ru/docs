@@ -59,7 +59,7 @@ In addition, Buf offers several features that ease many of the frustrations of g
 
 The sections below discuss key concepts, local generation (with and without remote plugins), managed mode, and specific invocations of the `buf generate` command.
 
-::: tip NoteSee the [tutorial](../tutorial/) for a step-by-step walkthrough of setting up code generation, basic usage, and using remote plugins and managed mode.
+::: tip See the [tutorial](../tutorial/) for a step-by-step walkthrough of setting up code generation, basic usage, and using remote plugins and managed mode.
 
 :::
 
@@ -81,7 +81,7 @@ Plugins are external programs that implement a specific Protobuf interface. They
 
 This is the Buf config file specifically related to code generation. It's usually placed at the root of your workspace and specifies the plugin to be used for each output, the output path, and set of options that enables you to customize the generated code further.
 
-::: tip NoteTo see all of the available configuration options, go to the [`buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/).
+::: tip To see all of the available configuration options, go to the [`buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/).
 
 :::
 
@@ -138,14 +138,14 @@ Another issue with code generation is the need define output options that aren't
 
 ::: info Protobuf file without managed mode
 
-```protobuf
+```protobuf{5,6,7}
 syntax = "proto3";
 
 package acme.weather.v1;
 
-option java_multiple_files = true; // [!code highlight]
-option java_outer_classname = "WeatherProto"; // [!code highlight]
-option java_package = “com.acme.weather.v1”; // [!code highlight]
+option java_multiple_files = true;
+option java_outer_classname = "WeatherProto";
+option java_package = “com.acme.weather.v1”;
 ```
 
 :::
@@ -173,10 +173,10 @@ plugins:
 
 ::: info buf.gen.yaml with managed mode set
 
-```yaml
+```yaml{2,3}
 version: v2
-managed: // [!code highlight]
-  enabled: true // [!code highlight]
+managed:
+  enabled: true
 plugins:
   - remote: buf.build/protocolbuffers/java
     out: gen/proto/java
@@ -184,7 +184,7 @@ plugins:
 
 :::
 
-::: tip NoteFor more information, see the [Managed mode](../managed-mode/) and [`buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/) pages.
+::: tip For more information, see the [Managed mode](../managed-mode/) and [`buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/) pages.
 
 :::
 
@@ -338,14 +338,14 @@ These flags can be combined to include and exclude files as needed.This is equiv
 
 ::: info buf.gen.yaml
 
-```yaml
+```yaml{4,5,6,7}
 version: v2
 inputs:
   - directory: .
-    path: // [!code highlight]
-      - proto/foo/ // [!code highlight]
-    exclude_path: // [!code highlight]
-      - proto/foo/baz.proto // [!code highlight]
+    path:
+      - proto/foo/
+    exclude_path:
+      - proto/foo/baz.proto
 plugins:
   - local: protoc-gen-go
     out: gen/go

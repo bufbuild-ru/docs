@@ -45,7 +45,7 @@ head:
 
 # v1beta1 Lint rules and categories
 
-::: tip NoteLint rules and categories have been simplified between `v1beta1` and `v1` configurations. The old `v1beta1` documentation is included here for posterity, but we strongly recommend migrating to a `v2` configuration. See the [migration guide](../../../migration-guides/migrate-v2-config-files/) to get started. You can find the `v1` lint rules [here](../../../lint/rules/) (they're unchanged for `v2` configurations).
+::: tip Lint rules and categories have been simplified between `v1beta1` and `v1` configurations. The old `v1beta1` documentation is included here for posterity, but we strongly recommend migrating to a `v2` configuration. See the [migration guide](../../../migration-guides/migrate-v2-config-files/) to get started. You can find the `v1` lint rules [here](../../../lint/rules/) (they're unchanged for `v2` configurations).
 
 :::
 

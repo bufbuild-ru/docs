@@ -47,7 +47,7 @@ head:
 
 The migration from v1 to v2 configuration files encompasses a lot of changes under the hood of the Buf CLI (see our [blog post](/blog/buf-cli-next-generation/index.md) for the "Why?"), but the migration itself is straightforward and simple in most cases, and we've provided a tool that does almost all of the work for you. This page describes the changes and shows you how to migrate your configuration to v2.**Your v1 configuration files still work.** Buf is enterprise-grade software, and we want you to be minimally impacted, so you can upgrade at your leisure. However, upgrading is simple and we recommend it.
 
-::: tip NoteBecause `v1beta` and v1 configurations are similar, this migration path will also work for `v1beta` configurations. If you still have a `v1beta` configuration, we strongly encourage you to migrate, so you can take advantage of the features below.
+::: tip Because `v1beta` and v1 configurations are similar, this migration path will also work for `v1beta` configurations. If you still have a `v1beta` configuration, we strongly encourage you to migrate, so you can take advantage of the features below.
 
 :::
 
@@ -100,13 +100,13 @@ $ buf config migrate --workspace </paths/to/workspaces>
 
 After migration, run `buf build` and `buf lint` in the root of your repository to make sure everything works.In v2 configurations, we've added the `PACKAGE_NO_IMPORT_CYCLE` rule to the `STANDARD` lint category. The tool ignores this rule during migration by disabling it in the generated `buf.yaml` file, but you should test whether your workspace passes the rule by removing the declaration and rerunning `buf lint`:
 
-```yaml
+```yaml{5,6}
 version: v2
 lint:
   use:
     - STANDARD
-   except: // [!code highlight]
-     - PACKAGE_NO_IMPORT_CYCLE // [!code highlight]
+   except:
+     - PACKAGE_NO_IMPORT_CYCLE
 ```
 
 - If it passes, leave the declaration out.
@@ -212,30 +212,30 @@ Unlike v1 configuration files, v2 files support multi-module push. In multi-modu
 
 ::: info buf.yaml – Module-level overrides of workspace lint rules
 
-```yaml
+```yaml{5,6,7,8,15,16,17,18}
 version: v2
 breaking:
-  use: // [!code highlight]
+  use:
     - FILE
-# By default, all modules in the workspace use the STANDARD lint rules. // [!code highlight]
-lint: // [!code highlight]
-  use: // [!code highlight]
-    - STANDARD // [!code highlight]
+# By default, all modules in the workspace use the STANDARD lint rules.
+lint:
+  use:
+    - STANDARD
 modules:
   - path: proto
   - path: vendor
     breaking:
-      use: // [!code highlight]
+      use:
         - WIRE_JSON
-    # However, the module under vendor/ uses the MINIMAL lint rules. // [!code highlight]
-    lint: // [!code highlight]
-      use: // [!code highlight]
-        - MINIMAL // [!code highlight]
+    # However, the module under vendor/ uses the MINIMAL lint rules.
+    lint:
+      use:
+        - MINIMAL
 ```
 
 :::
 
-::: tip NoteSee [Modules and workspaces](../../cli/modules-workspaces/) and the [v2 buf.yaml reference](../../configuration/v2/buf-yaml/) for more details about file layout and configuration settings.
+::: tip See [Modules and workspaces](../../cli/modules-workspaces/) and the [v2 buf.yaml reference](../../configuration/v2/buf-yaml/) for more details about file layout and configuration settings.
 
 :::
 
@@ -245,36 +245,36 @@ Code generation configuration has changed substantially in v2 configurations to 
 
 ::: info buf.gen.yaml – v1 plugins: key examples
 
-```yaml
+```yaml{4,7,10}
 version: v1
 plugins:
-  # Remote plugin on the BSR
-  - plugin: buf.build/protocolbuffers/java // [!code highlight]
-    out: gen/proto
-  # Local binary plugin in ${PATH}
-  - plugin: validate // [!code highlight]
-    out: gen/proto
-  # protoc built-in plugin for C++ (note lack of "protoc-gen-" prefix)
-  - plugin: cpp // [!code highlight]
-    out: gen/proto
+    # Remote plugin on the BSR
+    - plugin: buf.build/protocolbuffers/java
+      out: gen/proto
+    # Local binary plugin in ${PATH}
+    - plugin: validate
+      out: gen/proto
+    # protoc built-in plugin for C++ (note lack of "protoc-gen-" prefix)
+    - plugin: cpp
+      out: gen/proto
 ```
 
 :::
 
 ::: info buf.gen.yaml – v2 plugins: key examples
 
-```yaml
+```yaml{4,7,10}
 version: v2
 plugins:
-  # Remote plugin on the BSR
-  - remote: buf.build/protocolbuffers/java // [!code highlight]
-    out: gen/proto
-  # Local binary plugin in ${PATH}
-  - local: protoc-gen-validate // [!code highlight]
-    out: gen/proto
-  # protoc built-in plugin for C++ (note lack of "protoc-gen-" prefix)
-  - protoc_builtin: cpp // [!code highlight]
-    out: gen/proto
+    # Remote plugin on the BSR
+    - remote: buf.build/protocolbuffers/java
+      out: gen/proto
+    # Local binary plugin in ${PATH}
+    - local: protoc-gen-validate
+      out: gen/proto
+    # protoc built-in plugin for C++ (note lack of "protoc-gen-" prefix)
+    - protoc_builtin: cpp
+      out: gen/proto
 ```
 
 :::
@@ -380,7 +380,7 @@ version: v2
 
 :::
 
-::: tip NoteSee the [code generation overview](../../generate/overview/), [managed mode](../../generate/managed-mode/), and [v2 `buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/) pages for more details about configuration and usage.
+::: tip See the [code generation overview](../../generate/overview/), [managed mode](../../generate/managed-mode/), and [v2 `buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/) pages for more details about configuration and usage.
 
 :::
 

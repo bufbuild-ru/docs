@@ -119,7 +119,7 @@ breaking:
 
 This new module is your input for the `buf generate` commands in the rest of the tutorial.
 
-::: tip NoteFor more information about the specific fields, see the [`buf.yaml`](../../configuration/v2/buf-yaml/) reference.
+::: tip For more information about the specific fields, see the [`buf.yaml`](../../configuration/v2/buf-yaml/) reference.
 
 :::
 
@@ -202,7 +202,7 @@ inputs:
 
 The file defines which plugins to use to generate code, where to output it, what the inputs are. It uses `clean` to state that we'd like to delete all previously generated code each time we run `buf generate`. For more information about the available fields, see the [`buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/).
 
-::: tip Note`buf generate` can take many types of input beyond a local directory. See the [inputs reference](../../reference/inputs/) for details about how to specify other types of input to Buf CLI commands.
+::: tip `buf generate` can take many types of input beyond a local directory. See the [inputs reference](../../reference/inputs/) for details about how to specify other types of input to Buf CLI commands.
 
 :::
 
@@ -276,7 +276,7 @@ $ buf generate
 
 The `gen` directory reappears with the same structure and files as before. You've now removed the necessity for locally installed `protoc` plugins for this set of `.proto` files.
 
-::: tip NoteSee the [remote plugins overview](../../bsr/remote-plugins/overview/) for more information about the advantages of remote plugins and where to find them.
+::: tip See the [remote plugins overview](../../bsr/remote-plugins/overview/) for more information about the advantages of remote plugins and where to find them.
 
 :::
 
@@ -349,7 +349,7 @@ buf-codegen-tutorial
                 └── weather.proto
 ```
 
-::: tip NoteFor more information about managed mode's defaults, usage, and fields, see [Managed mode](../managed-mode/) and the [buf.gen.yaml reference](../../configuration/v2/buf-gen-yaml/).
+::: tip For more information about managed mode's defaults, usage, and fields, see [Managed mode](../managed-mode/) and the [buf.gen.yaml reference](../../configuration/v2/buf-gen-yaml/).
 
 :::
 

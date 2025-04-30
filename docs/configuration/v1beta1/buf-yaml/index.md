@@ -45,7 +45,7 @@ head:
 
 # buf.yaml v1beta1 configuration
 
-::: tip NoteThe `v1beta1` configuration file described in this page is deprecated and we recommend upgrading to a [`v2`](../../v2/buf-yaml/) configuration. For instructions and context, see the [migration guide](../../../migration-guides/migrate-v2-config-files/).
+::: tip The `v1beta1` configuration file described in this page is deprecated and we recommend upgrading to a [`v2`](../../v2/buf-yaml/) configuration. For instructions and context, see the [migration guide](../../../migration-guides/migrate-v2-config-files/).
 
 :::
 

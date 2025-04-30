@@ -79,7 +79,7 @@ Repositories are either public or private with respect to your BSR instance (eit
 | Public     | All users with access to buf.build can view and import this repository; only repo owners and contributors can edit. | All users with access to the private server can view and import this repository; only repo owners and contributors can edit. |
 | Private    | Only repo owners and contributors can view, import, and/or edit.                                                    | Only repo owners and contributors can view, import, and/or edit.                                                             |
 
-::: tip NoteIf you want to share modules with the wider Buf community, push them to the public BSR with public visibility.
+::: tip If you want to share modules with the wider Buf community, push them to the public BSR with public visibility.
 
 :::
 

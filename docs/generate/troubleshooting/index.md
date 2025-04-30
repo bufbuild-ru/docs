@@ -53,14 +53,14 @@ Run `buf generate` and check for a diff in your VCS (either locally or as part o
 
 C# plugins require you to set a `base_namespace` option in `buf.gen.yaml` to tell the plugin to generate files in a directory hierarchy matching the class namespace. A configuration similar to this should fix the issue:
 
-```yaml
+```yaml{7}
 version: v1
 managed:
   enabled: true
 plugins:
   - plugin: buf.build/protocolbuffers/csharp
     out: gen/proto/csharp
-    opt: base_namespace=NAMESPACE // [!code highlight]
+    opt: base_namespace=NAMESPACE
 ```
 
 ## Python error: `ModuleNotFoundError: No module named 'buf…'`

@@ -327,7 +327,7 @@ The default value is `FILE`, which we recommend to guarantee maximum compatibili
 
 ::: info buf.yaml
 
-```yaml
+```yaml{9,10,11}
 version: v2
 modules:
   - path: proto
@@ -336,9 +336,9 @@ lint:
     - STANDARD
   ignore:
     - proto/google/type/datetime.proto
-breaking: // [!code highlight]
-  use: // [!code highlight]
-    - FILE // [!code highlight]
+breaking:
+  use:
+    - FILE
 ```
 
 :::

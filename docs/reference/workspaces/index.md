@@ -83,16 +83,16 @@ directories:
 
 ::: info petapis/buf.yaml
 
-```yaml
+```yaml{3,4}
 version: v1
 name: buf.build/acme/petapis
-deps: // [!code highlight]
-  - buf.build/acme/paymentapis // [!code highlight]
+deps:
+  - buf.build/acme/paymentapis
 ```
 
 :::
 
-::: tip NoteYou don't need to add modules to the `deps` field to use them locally within a workspace, but you will need to do so when you're ready to [push your modules](#pushing-modules) to the BSR.
+::: tip You don't need to add modules to the `deps` field to use them locally within a workspace, but you will need to do so when you're ready to [push your modules](#pushing-modules) to the BSR.
 
 :::
 
@@ -154,8 +154,8 @@ In a workspace, **imports are resolved relative to each module's root**, or the 
 
 ::: info petapis/acme/pet/v1/pet.proto
 
-```protobuf
-import "acme/payment/v2/payment.proto"; // [!code highlight]
+```protobuf{1}
+import "acme/payment/v2/payment.proto";
 
 message PurchasePetRequest {
   string pet_id = 1;
@@ -182,7 +182,7 @@ paymentapis/acme/payment/v2/payment.proto:29:10:Field name "recipientID" should 
 petapis/acme/pet/v1/pet.proto:51:27:Field name "orderV2" should be lower_snake_case, such as "order_v2".
 ```
 
-::: tip NoteWhen using `buf breaking` in workspace mode, the two [inputs](../inputs/) you're comparing must contain the same number of modules. Otherwise, the Buf CLI can't reliably verify compatibility between the workspaces.
+::: tip When using `buf breaking` in workspace mode, the two [inputs](../inputs/) you're comparing must contain the same number of modules. Otherwise, the Buf CLI can't reliably verify compatibility between the workspaces.
 
 :::
 
@@ -190,7 +190,7 @@ petapis/acme/pet/v1/pet.proto:51:27:Field name "orderV2" should be lower_snake_c
 
 As mentioned above, workspaces enable you to work on multiple modules in parallel, such as introducing a new Protobuf message in one module and depending on it in another.Without a workspace, the Buf CLI relies on the module's [`buf.lock`](../../configuration/v1/buf-lock/) manifest to read its dependencies from the local [module cache](../../cli/modules-workspaces/#module-cache). This requires that you push changes that create new dependencies to the BSR and run `buf dep update` in the module that requires them before they can be used.With a workspace, the module cache is only used for dependencies **not defined in the workspace**. For all directories listed in the `buf.work.yaml` file, the workspace overrides the module cache and allows you to use the new changes without pushing and updating.
 
-::: tip NoteModules that are dependencies **must be named** (have a value for the `name` field in their buf.yaml file) for the workspace to override the module cache. If the `name` either doesn't match the importing module's dependency or doesn't exist, the Buf CLI uses the module cache instead.
+::: tip Modules that are dependencies **must be named** (have a value for the `name` field in their buf.yaml file) for the workspace to override the module cache. If the `name` either doesn't match the importing module's dependency or doesn't exist, the Buf CLI uses the module cache instead.
 
 :::
 
@@ -200,11 +200,11 @@ It's important to note that **workspaces only apply to local operations**. Thoug
 
 ::: info petapis/buf.yaml
 
-```yaml
+```yaml{3,4}
 version: v1
 name: buf.build/acme/petapis
-deps: // [!code highlight]
-  - buf.build/acme/paymentapis // [!code highlight]
+deps:
+  - buf.build/acme/paymentapis
 ```
 
 :::

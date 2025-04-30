@@ -75,7 +75,7 @@ Validity is often a function of multiple fields. In these scenarios, CEL express
 
 With CEL available at the field and message levels, it's hard to think of validation rules that can't be expressed within Protobuf files.
 
-::: tip NoteLearn how to create complex CEL expressions in [advanced CEL rules](../../cel/).
+::: tip Learn how to create complex CEL expressions in [advanced CEL rules](../../cel/).
 
 :::
 

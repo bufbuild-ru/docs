@@ -51,7 +51,7 @@ Bufstream stores topic data in archive files in object storage. Before data is a
 
 ### Data transformations
 
-::: tip NoteTransformations are only available for Protobuf encoded data.
+::: tip Transformations are only available for Protobuf encoded data.
 
 :::
 

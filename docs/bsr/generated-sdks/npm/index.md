@@ -145,7 +145,7 @@ The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencin
 $ npm install @buf/connectrpc_eliza.bufbuild_es@label-demo
 ```
 
-::: tip NoteLabels with names that contain `/` aren't compatible with the NPM registry versioning scheme.
+::: tip Labels with names that contain `/` aren't compatible with the NPM registry versioning scheme.
 
 :::
 

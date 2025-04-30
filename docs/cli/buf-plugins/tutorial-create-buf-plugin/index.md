@@ -81,9 +81,9 @@ For the sake of this tutorial, `pet.proto` includes an undesirable naming style:
 
 ::: info ~/.../buf-tour/start/tutorial-create-buf-plugin/proto/pet/v1/pet.proto
 
-```protobuf
+```protobuf{2}
 service PetStoreService {
-  rpc GetPetMethod(GetPetRequest) returns (GetPetResponse) {} // [!code highlight]
+  rpc GetPetMethod(GetPetRequest) returns (GetPetResponse) {}
 }
 ```
 
@@ -361,11 +361,11 @@ Buf plugins can support breaking change rules in addition to lint rules. Adding 
 
 For example, this rule checks that a field option stays set to `True` in both versions of a file:
 
-```go
+```go{3,4,12}
 fieldOptionSafeForMLStaysTrueRuleSpec = &check.RuleSpec{
     ...
-    Type:    check.RuleTypeBreaking, // [!code highlight]
-    Handler: checkutil.NewFieldPairRuleHandler(checkFieldOptionSafeForMLStaysTrue, checkutil.WithoutImports()), // [!code highlight]
+    Type:    check.RuleTypeBreaking,
+    Handler: checkutil.NewFieldPairRuleHandler(checkFieldOptionSafeForMLStaysTrue, checkutil.WithoutImports()),
 }
 
 func checkFieldOptionSafeForMLStaysTrue(
@@ -373,7 +373,7 @@ func checkFieldOptionSafeForMLStaysTrue(
     responseWriter check.ResponseWriter,
     _ check.Request,
     fieldDescriptor protoreflect.FieldDescriptor,
-    againstFieldDescriptor protoreflect.FieldDescriptor, // [!code highlight]
+    againstFieldDescriptor protoreflect.FieldDescriptor,
 ) error {
 ```
 
@@ -381,9 +381,9 @@ func checkFieldOptionSafeForMLStaysTrue(
 
 Each rule can set a `Default` boolean property that controls whether the rule is called by default if no rules are specified in `buf.yaml`. For example, adding it to the preceding example ensures that the field option is always checked when the plugin is present:
 
-```go
+```go{2}
 fieldOptionSafeForMLStaysTrueRuleSpec = &check.RuleSpec{
-    Default: True, // [!code highlight]
+    Default: True,
     Type:    check.RuleTypeBreaking,
     Handler: checkutil.NewFieldPairRuleHandler(checkFieldOptionSafeForMLStaysTrue, checkutil.WithoutImports()),
 }

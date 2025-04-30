@@ -90,7 +90,7 @@ When you create a repository, it has a default label of `main`, for parity with 
 2.  Start typing in the **Select new label** box—it provides type-ahead results to help you filter all of the available labels.
 3.  Select the label you want to use and press **Enter**. If none of the restrictions apply, the default label changes.
 
-::: tip NoteIf the label you want to switch to is archived, you must first unarchive it by pushing again with that label.
+::: tip If the label you want to switch to is archived, you must first unarchive it by pushing again with that label.
 
 :::
 

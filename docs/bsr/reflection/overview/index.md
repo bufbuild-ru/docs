@@ -61,7 +61,7 @@ In addition to querying for the schema by module name and version, this API also
 
 The Buf Reflection API can be found in the public BSR: [buf.build/bufbuild/reflect](https://buf.build/bufbuild/reflect) (sources are in [GitHub](https://github.com/bufbuild/reflect-api)). You can see the available generated SDKs for it [here](https://buf.build/bufbuild/reflect/sdks/main).It contains a single RPC service: `buf.reflect.v1beta1.FileDescriptorSetService`. This service contains a single endpoint named `GetFileDescriptorSet`, which is for downloading the schema for a particular module (optionally, at a specific version). The response is in the form of a [`FileDescriptorSet`](https://github.com/protocolbuffers/protobuf/blob/v21.0/src/google/protobuf/descriptor.proto#L55-L59). You can find reference documentation for all the request and response fields [in the BSR](https://buf.build/bufbuild/reflect/docs/main:buf.reflect.v1beta1#buf.reflect.v1beta1.FileDescriptorSetService).
 
-::: tip NoteFor the general mechanics of how to use APIs exposed by the BSR, see [Invoking the BSR APIs](../../apis/api-access/).
+::: tip For the general mechanics of how to use APIs exposed by the BSR, see [Invoking the BSR APIs](../../apis/api-access/).
 
 :::
 
@@ -77,7 +77,7 @@ $ curl \
 
 Assuming a valid BSR token is used in the `Authorization` header, this returns a `FileDescriptorSet` that describes the files in the requested module, which describe the Eliza RPC service and all related message types.The above request doesn't contain a `version` field in the request, which means it returns the latest version. This is the same as asking for `"version": "main"`, which also returns the latest version. The version can also refer to a [commit](https://buf.build/connectrpc/eliza/commits/main), either via the commit name or an associated label.
 
-::: tip NoteThese are the same ways one can pin a particular version in the `deps` section of a `buf.yaml` file.
+::: tip These are the same ways one can pin a particular version in the `deps` section of a `buf.yaml` file.
 
 :::
 

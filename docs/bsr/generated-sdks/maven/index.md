@@ -79,7 +79,7 @@ Update your `pom.xml` file to include the Buf Maven repository as a `<repository
 
 :::
 
-::: tip NoteThe `<id>` value is important for using private generated SDKs because it must match the `<id>` in the `<server>` section of the `~/.m2/settings.xml` file (see the [private generated SDKs](#private) section for more details).
+::: tip The `<id>` value is important for using private generated SDKs because it must match the `<id>` in the `<server>` section of the `~/.m2/settings.xml` file (see the [private generated SDKs](#private) section for more details).
 
 :::
 
@@ -230,7 +230,7 @@ repositories {
 
 :::
 
-::: tip NoteThe `name` value is important for using private generated SDKs because it must be prefixed to each Gradle property that makes up the header credentials.
+::: tip The `name` value is important for using private generated SDKs because it must be prefixed to each Gradle property that makes up the header credentials.
 
 :::
 
@@ -267,7 +267,7 @@ repositories {
 
 :::
 
-::: tip NoteThe `name` value is important for using private generated SDKs because it must be prefixed to each Gradle property that makes up the header credentials.
+::: tip The `name` value is important for using private generated SDKs because it must be prefixed to each Gradle property that makes up the header credentials.
 
 :::
 

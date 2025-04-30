@@ -69,7 +69,7 @@ Below, we'll walk through how to purchase a Buf Pro subscription and enable the 
 
 ## Registry settings page
 
-::: tip NoteYou must be the owner of the organization to manage its registry.
+::: tip You must be the owner of the organization to manage its registry.
 
 :::
 

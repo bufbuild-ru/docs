@@ -53,14 +53,14 @@ Bufstream's [schema enforcement](../schema-enforcement/) ensures that messages m
 
 [`protovalidate`](https://buf.build/bufbuild/protovalidate) supports a wide variety of predefined rules, from requiring that numbers fall within a predefined range to requiring that strings match a regular expression. Using custom expressions written in Google's [Common Expression Language](https://cel.dev/), validation rules can also compare multiple fields. Critically, `protovalidate` doesn't require code generation—so Bufstream can easily check for semantic validity on the fly.As an example, the schema below validates that the user's email is actually an email address:
 
-```protobuf
+```protobuf{7}
 syntax = "proto3";
 
 import "buf/validate/validate.proto";
 
 message User {
   // The user's email address.
-  string email = 1 [(buf.validate.field).string.email = true]; // [!code highlight]
+  string email = 1 [(buf.validate.field).string.email = true];
 }
 ```
 

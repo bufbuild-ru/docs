@@ -49,7 +49,7 @@ This feature is only available on the Enterprise plan.
 
 BSR administrators can configure their instances to require that all Protobuf file paths and type names remain unique across modules. Enabling this feature causes the BSR to reject any pushes that introduce violations to this rule.
 
-::: tip NoteWhen checking for unique file paths and type names, the BSR ignores the [Buf-managed modules](../../admin/instance/managed-modules/), given that their sources aren't managed by Buf nor by the BSR administrators or users.This allows BSR users to maintain their own copies of any of those modules, and/or reuse some of those file paths.The BSR does report collisions across 2 or more user-managed modules, even if those file paths or type names are also present in the Buf-managed modules.
+::: tip When checking for unique file paths and type names, the BSR ignores the [Buf-managed modules](../../admin/instance/managed-modules/), given that their sources aren't managed by Buf nor by the BSR administrators or users.This allows BSR users to maintain their own copies of any of those modules, and/or reuse some of those file paths.The BSR does report collisions across 2 or more user-managed modules, even if those file paths or type names are also present in the Buf-managed modules.
 
 :::
 

@@ -375,10 +375,10 @@ All Protovalidate languages provide an idiomatic API for validating a Protobuf m
 
     ::: info build.gradle
 
-    ```groovy
+    ```groovy{3}
     dependencies {
         implementation(libs.protobuf.java)
-        implementation(libs.protovalidate) // [!code highlight]
+        implementation(libs.protovalidate)
 
         testImplementation platform('org.junit:junit-bom:5.10.0')
         testImplementation 'org.junit.jupiter:junit-jupiter'

@@ -139,9 +139,9 @@ Before you publish your fix, you should generate code from your Protobuf files a
 
 ::: info Incorrect Protovalidate import
 
-```go
+```go{2}
 import (
-    _ "github.com/bufbuild/buf-examples/bsr/quickstart/start/server/gen/buf/validate" // [!code highlight]
+    _ "github.com/bufbuild/buf-examples/bsr/quickstart/start/server/gen/buf/validate"
 )
 ```
 
@@ -187,7 +187,7 @@ $ go run cmd/main.go
 
 :::
 
-::: tip NoteThe server code in `cmd/main.go` is [preconfigured](https://github.com/bufbuild/buf-examples/blob/main/bsr/quickstart/start/server/cmd/main.go#L35-L39) with the Protovalidate interceptor. Normally you need to add that to your code also—see the [Protovalidate documentation](https://github.com/bufbuild/protovalidate) for specifics.
+::: tip The server code in `cmd/main.go` is [preconfigured](https://github.com/bufbuild/buf-examples/blob/main/bsr/quickstart/start/server/cmd/main.go#L35-L39) with the Protovalidate interceptor. Normally you need to add that to your code also—see the [Protovalidate documentation](https://github.com/bufbuild/protovalidate) for specifics.
 
 :::
 
@@ -244,7 +244,7 @@ Stop the server with `Ctrl-c`.Your `CreateInvoiceRequest` accepts an array of ta
 
 To share just the tags functionality, you need to move the `tag.proto` file into a new module.
 
-::: tip NoteThe BSR doesn't dictate any particular strategies with regard to monorepo, multi-repo, or "many repos with a 'common' repo." The use of the `common` BSR repo here is for illustrative purposes, and you should conform to your organization's norms instead.
+::: tip The BSR doesn't dictate any particular strategies with regard to monorepo, multi-repo, or "many repos with a 'common' repo." The use of the `common` BSR repo here is for illustrative purposes, and you should conform to your organization's norms instead.
 
 :::
 
@@ -290,11 +290,11 @@ Set up the module to match the repository you just created:
 
 ::: info bsr/start/common/buf.yaml
 
-```diff
+```diff{2,3,4}
 version: v2
-+modules: // [!code highlight]
-+  - path: proto // [!code highlight]
-+    name: buf.build/USERNAME/common // [!code highlight]
++modules:
++  - path: proto
++    name: buf.build/USERNAME/common
 lint:
   use:
     - STANDARD
@@ -445,11 +445,11 @@ All that's required from your end is to publish your API like any other BSR modu
 
     ::: info bsr/start/server/buf.yaml
 
-    ```diff
+    ```diff{4}
     version: v2
     modules:
       - path: proto
-    +   name: buf.build/USERNAME/invoice // [!code highlight]
+    +   name: buf.build/USERNAME/invoice
     deps:
       - buf.build/bufbuild/protovalidate
       - buf.build/USERNAME/common
@@ -501,13 +501,13 @@ Replace the code in `client/cmd/main.go` with the following boilerplate—you ca
 
 ::: info bsr/start/client/cmd/main.go
 
-```go
+```go{4,5,6}
 // Copyright 2020-2025 Buf Technologies, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License. // [!code highlight]
-// You may obtain a copy of the License at // [!code highlight]
-// // [!code highlight]
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
 //      http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software

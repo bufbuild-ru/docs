@@ -61,12 +61,12 @@ Taking advantage of Buf's CSR implementation has three overall steps:
 1.  Go to the BSR and [create your CSR instance](../manage-instances/).
 2.  Associate your schemas with Confluent subjects by integrating the [bufbuild/confluent](https://buf.build/bufbuild/confluent) managed module and annotating your Protobuf messages (see [Manage schemas](../manage-schemas/) for detailed steps):
 
-    ```protobuf
+    ```protobuf{5,15,16,17,18}
     syntax = "proto3"
 
     package demo.analytics;
 
-    import "buf/confluent/v1/extensions.proto"; // [!code highlight]
+    import "buf/confluent/v1/extensions.proto";
     import "google/protobuf/timestamp.proto";
 
     message EmailUpdated {
@@ -76,10 +76,10 @@ Taking advantage of Buf's CSR implementation has three overall steps:
       string new_email = 4;
       bool new_email_verified = 5;
 
-      option (buf.confluent.v1.subject) = { // [!code highlight]
-        instance_name: "default", // [!code highlight]
-        name: "email-updated-value", // [!code highlight]
-      }; // [!code highlight]
+      option (buf.confluent.v1.subject) = {
+        instance_name: "default",
+        name: "email-updated-value",
+      };
     }
     ```
 

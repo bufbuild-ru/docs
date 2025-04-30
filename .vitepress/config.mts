@@ -1553,5 +1553,9 @@ export default defineConfig({
 
   rewrites: {
     '/docs/tutorials/getting-started-with-buf-cli/': '/docs/cli/quickstart/',
+    '/docs/bsr/introduction/': '/docs/bsr/',
+    '/docs/bsr/kafka/overview/': '/docs/bsr/csr/overview/',
+    '/docs/bsr/kafka/overview/index.md': '/docs/bsr/csr/overview/',
+    '/docs/bsr/kafka/overview/:page': '/docs/bsr/csr/overview/',
   },
 });

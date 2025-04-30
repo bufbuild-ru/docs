@@ -64,13 +64,13 @@ You need to be logged into the BSR from the command line to consume the C++ SDKs
 
 The first step is to create a CMake script that uses the `FetchContent` command to grab the CMake library from the BSR. For this example, we'll use the [googleapis](https://buf.build/googleapis/googleapis) module on the BSR. Your `FetchContent` snippet would look something like this:
 
-```cmake
-FetchContent_Declare(googleapis_googleapis_protocolbuffers_cpp // [!code highlight]
+```cmake{1,6}
+FetchContent_Declare(googleapis_googleapis_protocolbuffers_cpp
     URL https://buf.build/gen/cmake/googleapis/googleapis/protocolbuffers/cpp/v26.1-8bc2c51e08c4.1
     NETRC REQUIRED
     EXCLUDE_FROM_ALL
 )
-FetchContent_MakeAvailable(googleapis_googleapis_protocolbuffers_cpp) // [!code highlight]
+FetchContent_MakeAvailable(googleapis_googleapis_protocolbuffers_cpp)
 ```
 
 The `FetchContent_Declare` command accepts a name for the content as its first parameter, which is then passed to `FetchContent_MakeAvailable`. The BSR chooses a name for you based on the module and plugin in use according to the following scheme:
@@ -109,7 +109,7 @@ target_link_libraries(
 )
 ```
 
-::: tip NoteThis library name must be what the BSR specifies, _not_ the name of the CMake file from step 1 or the name used with `FetchContent`. This is because it's named this way in the downloaded content from the BSR.
+::: tip This library name must be what the BSR specifies, _not_ the name of the CMake file from step 1 or the name used with `FetchContent`. This is because it's named this way in the downloaded content from the BSR.
 
 :::
 

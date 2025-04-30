@@ -45,7 +45,7 @@ head:
 
 # buf.lock v1 config file
 
-::: tip NoteThis file now has a `v2` configuration available. See the [v2 `buf.lock` reference](../../v2/buf-lock/) and the [v1 to v2 migration guide](../../../migration-guides/migrate-v2-config-files/) for details about the new configuration and migration instructions.
+::: tip This file now has a `v2` configuration available. See the [v2 `buf.lock` reference](../../v2/buf-lock/) and the [v1 to v2 migration guide](../../../migration-guides/migrate-v2-config-files/) for details about the new configuration and migration instructions.
 
 :::
 

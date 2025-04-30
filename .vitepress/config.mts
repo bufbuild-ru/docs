@@ -8,6 +8,8 @@ export default defineConfig({
 
   description: 'The best way of working with Protocol Buffers.',
 
+  cleanUrls: true,
+
   sitemap: {
     hostname: 'https://bufbuild.ru',
   },
@@ -1548,4 +1550,8 @@ export default defineConfig({
       },
     ],
   ],
+
+  rewrites: {
+    '/docs/tutorials/getting-started-with-buf-cli/': '/docs/cli/quickstart/',
+  },
 });

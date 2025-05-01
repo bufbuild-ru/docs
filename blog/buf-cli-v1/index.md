@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "The Buf CLI has reached version v1.0"
 description: "A new foundational tool for the Protobuf ecosystem."
@@ -26,11 +28,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "The Buf CLI has reached version v1.0"
-  tagline: "February 23, 2022"
 ---
+
+# The Buf CLI has reached version v1.0
 
 Our mission at [Buf](https://buf.build/) is to replace the reigning REST/JSON paradigm of API development with **schema-driven development**. To that end, we aim to build a new ecosystem with [Protocol Buffers](https://developers.google.com/protocol-buffers) as its foundation. We've chosen Protobuf because it's by far the most widely used and trusted [interface description language](https://en.wikipedia.org/wiki/Interface_description_language) (IDL) for APIs. But one thing that we felt has been missing is a single, unified tool that can serve as the basis for a dramatically upgraded experience of working with Protobuf. To put the ecosystem on a better path, we created the [Buf CLI](https://github.com/bufbuild/buf), or just `buf`.
 

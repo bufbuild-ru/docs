@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "GitHub Actions for Buf now available"
 description: "Buf's officially supported GitHub Actions make it easier than ever to instrument your CI/CD Protocol Buffers workflows with `buf`."
@@ -26,11 +28,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "GitHub Actions for Buf now available"
-  tagline: "April 20, 2021"
 ---
+
+# GitHub Actions for Buf now available
 
 _Note. This post was originally published in April 2021 and has been updated for accuracy based on recent improvements._
 

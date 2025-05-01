@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Protobuf Editions are here: don’t panic"
 description: "Most Protobuf users should ignore Editions and continue using proto3. If you become an early adopter, we’ve been working closely with Google to ensure that Buf will support editions as soon as they’re generally available."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Protobuf Editions are here: don’t panic"
-  tagline: "May 9, 2024"
 ---
+
+# Protobuf Editions are here: don’t panic
 
 Most Protobuf users should ignore Editions and continue using proto3. If you become an early adopter, we’ve been working closely with Google to ensure that Buf will support editions as soon as they’re generally available.
 

@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Speeding up development with BSR drafts"
 description: "To enable engineers to begin iterating quickly using generated code without the need to merge Protobuf schemas to main, we support BSR drafts."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Speeding up development with BSR drafts"
-  tagline: "January 25, 2023"
 ---
+
+# Speeding up development with BSR drafts
 
 > Drafts have been superceded by branches. For more information please see the [module documentation](/docs/bsr/module/publish/index.md#pushing-with-labels).
 

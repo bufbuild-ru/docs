@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Announcing protoc-gen-validate v1.0 and our plans for v2.0"
 description: "A look to the future of Protobuf validation"
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Announcing protoc-gen-validate v1.0 and our plans for v2.0"
-  tagline: "April 24, 2023"
 ---
+
+# Announcing protoc-gen-validate v1.0 and our plans for v2.0
 
 **We’re excited to announce that after half a decade of** [**`protoc-gen-validate`**](https://github.com/bufbuild/protoc-gen-validate) **(“PGV”) wallowing with an “alpha” label, we’re promoting PGV to v1.0, ensuring all current workflows with PGV will be stable into the future.**
 

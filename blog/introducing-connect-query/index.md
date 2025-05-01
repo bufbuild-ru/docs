@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Introducing Connect-Query: Integrate Protobuf with TanStack Query more effectively"
 description: "A TanStack Query extension to seamlessly integrate Protobuf"
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Introducing Connect-Query: Integrate Protobuf with TanStack Query more effectively"
-  tagline: "February 6, 2023"
 ---
+
+# Introducing Connect-Query: Integrate Protobuf with TanStack Query more effectively
 
 Engineers who are familiar with React know that synchronizing data across the application and preventing duplicate fetches is not a problem that comes solved out-of-the-box. Until a few months ago, we experienced the same state management challenges within the Buf Schema Registry's React front-end. We eventually paired our [Connect-Web](https://connectrpc.com/docs/web/getting-started) clients with [TanStack Query](https://react-query.tanstack.com/) which simplified our state management and allowed us to take advantage of the static types provided by our Protobuf schemas.
 

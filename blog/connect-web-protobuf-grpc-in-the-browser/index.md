@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Connect-Web: It's time for Protobuf and gRPC to be your first choice in the browser"
 description: "Use connect-web to generate compact, idiomatic TypeScript clients for your Protobuf APIs."
@@ -26,11 +28,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Connect-Web: It's time for Protobuf and gRPC to be your first choice in the browser"
-  tagline: "August 4, 2022"
 ---
+
+# Connect-Web: It's time for Protobuf and gRPC to be your first choice in the browser
 
 Today we're releasing [`connect-web`](https://github.com/connectrpc/connect-es), an idiomatic TypeScript library for calling RPC servers from web browsers. If you've been unimpressed by gRPC and Protobuf on the web before, now's the time to take another look: `connect-web` generates modern TypeScript that's just as ergonomic as a hand-written REST client. Clients work seamlessly with the gRPC ecosystem, and they also support Connect's more browser-friendly protocol. [**`connect-web`**](https://github.com/connectrpc/connect-es) **is available now under an Apache 2 open source license, and both documentation and a sample app are available on** [**connectrpc.com**](https://connectrpc.com/)**.** One layer at a time, we're making Protobuf the best choice for API development throughout your stack — from browsers and phones all the way into your backend services.
 

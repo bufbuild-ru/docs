@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "The Buf Schema Registry is now on the AWS and Google Cloud Marketplaces"
 description: "The BSR is the source of truth for your Protobuf APIs, and is the best way to share schemas across repositories, generate consistent code, and integrate Protobuf with Kafka. This launch helps Enterprise customers simplify how they purchase the Buf Schema Registry."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "The Buf Schema Registry is now on the AWS and Google Cloud Marketplaces"
-  tagline: "December 12, 2023"
 ---
+
+# The Buf Schema Registry is now on the AWS and Google Cloud Marketplaces
 
 We're excited to announce that the [Buf Schema Registry](https://buf.build/product/bsr) (BSR) is now available on the [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-4novs4ul4h3hg) and [Google Cloud Marketplace](https://console.cloud.google.com/marketplace/product/bufbuild-public/buf-schema-registry). Enterprise customers can purchase through the cloud marketplaces and accelerate their deployment of the BSR.
 

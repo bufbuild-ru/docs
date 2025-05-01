@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Bazel rules"
 description: "Use buf with Bazel."
@@ -26,11 +28,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Bazel rules"
-  tagline: "June 20, 2022"
 ---
+
+# Bazel rules
 
 Today we're excited to release Bazel rules for `buf`, [rules_buf](https://github.com/bufbuild/rules_buf).
 

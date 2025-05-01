@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Give clients pre-built native libraries for your APIs with zero effort"
 description: "Produce pre-built client libraries in Go, Java, JS, TS, Swift, Kotlin, and Python out of the box for all of your Protobuf APIs with Buf’s generated SDKs. You’ll never have to explain how to use protoc ever again."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Give clients pre-built native libraries for your APIs with zero effort"
-  tagline: "December 4, 2023"
 ---
+
+# Give clients pre-built native libraries for your APIs with zero effort
 
 Deploying Protobuf APIs across platforms can be challenging since many clients are unfamiliar with `protoc`, its plugins, and the configuration they require. Backend engineers often have to spend valuable time explaining to clients across the company how they should generate their client stubs to invoke the underlying APIs. At the end of the day, both backend teams and their clients end up frustrated.
 

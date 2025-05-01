@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Introducing the next generation of the Buf CLI: still v1 and backwards-compatible"
 description: "The Buf CLI and its associated configuration have been completely overhauled to support monorepos as first-class citizens. Everything we've changed is 100% backwards compatible."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Introducing the next generation of the Buf CLI: still v1 and backwards-compatible"
-  tagline: "May 17, 2024"
 ---
+
+# Introducing the next generation of the Buf CLI: still v1 and backwards-compatible
 
 The Buf CLI and its associated configuration have been completely overhauled to support monorepos as first-class citizens. We'd call it a v2 of `buf`, but it's not. Buf is enterprise-grade software, and we want you to be minimally impacted. The `v1.32.0` release of `buf` introduces v2 config formats for both `buf.yaml` and `buf.gen.yaml`. All your current commands and configuration continue to work, so you can upgrade to v2 configuration when appropriate.
 

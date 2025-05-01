@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Connect for Node.js is now available"
 description: "Connect is now full-stack TypeScript"
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Connect for Node.js is now available"
-  tagline: "February 28, 2023"
 ---
+
+# Connect for Node.js is now available
 
 When we [announced Connect-Web](/blog/connect-web-protobuf-grpc-in-the-browser/index.md) a few months ago, we were thrilled to finally bring Connect to JavaScript and, more specifically, to the browser. Since then, we’ve seen usage continue to grow and have received valuable feedback from the community. When Connect-Web was released, however, we promised that we’d soon provide a solution to extend the benefits of Connect from the frontend to the backend.
 

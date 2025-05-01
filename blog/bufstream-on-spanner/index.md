@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Bufstream on Spanner: 100 GiB/s with zero operational overhead"
 description: "At less than $1M/month for 100 GiB/s of writes and 300 GiB/s of reads, Bufstream using Spanner is 25x cheaper than Confluent Cloud, 1.5x cheaper than WarpStream, and 3x cheaper than self-hosted Apache Kafka®."
@@ -26,11 +28,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Bufstream on Spanner: 100 GiB/s with zero operational overhead"
-  tagline: "March 5, 2025"
 ---
+
+# Bufstream on Spanner: 100 GiB/s with zero operational overhead
 
 Bufstream — Buf’s drop-in replacement for Apache Kafka® — now supports cluster metadata management with [Google Cloud Spanner](https://cloud.google.com/spanner). The combination of object storage and Spanner allows Bufstream to handle the world’s largest streaming data workloads, while still offloading all operational overhead to fully-managed cloud services. And at less than $1M/month for 100 GiB/s of writes and 300 GiB/s of reads, Bufstream is 25x cheaper than Confluent Cloud, 1.5x cheaper than WarpStream, and 3x cheaper than self-hosted Apache Kafka. Bufstream continues to be available on AWS, GCP, and Azure.
 

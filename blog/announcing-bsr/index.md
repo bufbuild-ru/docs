@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Introducing the Buf Schema Registry 🎉"
 description: "The Buf Schema Registry: a platform for managing your Protocol Buffer APIs."
@@ -26,11 +28,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Introducing the Buf Schema Registry 🎉"
-  tagline: "February 2, 2022"
 ---
+
+# Introducing the Buf Schema Registry 🎉
 
 Buf's mission is to dramatically improve the experience of developing APIs using [Protocol Buffers](https://github.com/protocolbuffers/protobuf), or **Protobuf** for short. Our first major contribution to the Protobuf ecosystem was the [`buf`](/docs/cli/quickstart/index.md) tool, which enables you to replace complex [`protoc`](https://github.com/protocolbuffers/protobuf) invocations and shell scripts with an intuitive CLI and [YAML](https://yaml.org/)\-based configuration for common actions like [generating code stubs](/docs/generate/tutorial/index.md), detecting [breaking changes](/docs/breaking/overview/index.md), and [linting](/docs/lint/overview/index.md) Protobuf files. Now, we're extremely excited to announce our next major contribution: the **Buf Schema Registry**, or the [BSR](/docs/bsr/index.md), which is officially in **beta**.
 

@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Authzed Case Study: Maintaining a Stable Protocol Buffers API"
 description: "Our friends at Authzed recently adopted Buf and have given us the honor of writing about their experience."
@@ -26,11 +28,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Authzed Case Study: Maintaining a Stable Protocol Buffers API"
-  tagline: "June 15, 2021"
 ---
+
+# Authzed Case Study: Maintaining a Stable Protocol Buffers API
 
 **Our friends at** [**Authzed**](https://authzed.com/) **recently adopted Buf and have given us the honor of writing about their experience.**
 

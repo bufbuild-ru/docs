@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Buf Studio Now Has Favorites!"
 description: "As of today, Buf Studio supports saving requests to your BSR profile."
@@ -26,11 +28,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Buf Studio Now Has Favorites!"
-  tagline: "December 16, 2022"
 ---
+
+# Buf Studio Now Has Favorites!
 
 ## What is Buf Studio?
 

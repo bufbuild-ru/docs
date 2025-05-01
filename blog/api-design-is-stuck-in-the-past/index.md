@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "API design is stuck in the past"
 description: "The industry has embraced statically typed languages, but API design remains twenty years in the past. Schema driven development presents an opportunity to pull API design into the present."
@@ -26,11 +28,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "API design is stuck in the past"
-  tagline: "November 12, 2020"
 ---
+
+# API design is stuck in the past
 
 The industry has embraced statically typed languages, but API design remains twenty years in the past. Schema driven development presents an opportunity to pull API design into the present.
 

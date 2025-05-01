@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Tip of the week #2: Compress your Protos!"
 description: "Compression is everywhere:. This pervasiveness means that wire size tradeoffs matter less than they used to twenty years ago, when Protobuf was designed."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Tip of the week #2: Compress your Protos!"
-  tagline: "April 15, 2025"
 ---
+
+# Tip of the week #2: Compress your Protos!
 
 > _As a matter of fact, when compression technology came along, we thought the future in 1996 was about voice. We got it wrong. It is about voice, video, and data, and that is what we have today on these cell phones. — Steve Buyer_
 

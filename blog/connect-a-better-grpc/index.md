@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Connect: A better gRPC"
 description: "Use Connect to build simple, stable, browser and gRPC-compatible APIs."
@@ -26,11 +28,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Connect: A better gRPC"
-  tagline: "June 1, 2022"
 ---
+
+# Connect: A better gRPC
 
 Today we're releasing Connect, a slim framework for building browser and gRPC-compatible HTTP APIs. Connect is production-ready — focused, simple, and debuggable — and it's fully compatible with gRPC clients and servers. If you're frustrated by the complexity and instability of today's gRPC libraries, we think you'll find Connect a breath of fresh air. [**connect-go**](https://github.com/connectrpc/connect-go) **is available now under an Apache 2 open source license, and documentation is available on** [**connectrpc.com**](https://connectrpc.com/)**.** We'll release Connect for TypeScript soon, with more languages to follow.
 

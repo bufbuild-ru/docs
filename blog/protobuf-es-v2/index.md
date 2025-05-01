@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Protobuf for Javascript: Protobuf-ES 2.0 is now generally available"
 description: "Today we’re announcing the 2.0 release of the Protobuf-ES project, our fully compliant Protobuf implementation for JavaScript and TypeScript. This release introduces full support for Protobuf Editions, new APIs for field presence & default values, TypeScript typing for Protobuf’s JSON Format, a full reflection API, support for Protobuf custom options, and more convenient APIs for managing extension registries. The 2.0 release is a major version bump, and comes with breaking changes. Read on to learn what’s changed and how to migrate to the 2.0 release."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Protobuf for Javascript: Protobuf-ES 2.0 is now generally available"
-  tagline: "August 14, 2024"
 ---
+
+# Protobuf for Javascript: Protobuf-ES 2.0 is now generally available
 
 _Today we’re announcing the 2.0 release of the_ [_Protobuf-ES_](https://github.com/bufbuild/protobuf-es) _project, our fully compliant Protobuf implementation for JavaScript and TypeScript. This release introduces full support for_ [_Protobuf Editions_](/blog/protobuf-editions-are-here/index.md)_, new APIs for field presence and default values, TypeScript typing for Protobuf’s JSON Format, a full reflection API, support for Protobuf custom options, and more convenient APIs for managing extension registries. The 2.0 release is a major version bump and comes with breaking changes. Read on to learn what’s changed and how to migrate to the 2.0 release._
 

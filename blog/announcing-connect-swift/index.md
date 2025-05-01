@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Announcing Connect-Swift: You’ll actually want to use Protobuf on iOS"
 description: "Eliminate handwritten Codable models by generating idiomatic HTTP APIs with Protobuf and Connect-Swift."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Announcing Connect-Swift: You’ll actually want to use Protobuf on iOS"
-  tagline: "January 18, 2023"
 ---
+
+# Announcing Connect-Swift: You’ll actually want to use Protobuf on iOS
 
 If you’re an iOS engineer, you’ve likely heard about [Protobuf](https://developers.google.com/protocol-buffers) or [gRPC](/blog/connect-a-better-grpc/index.md) at some point in the past 5 years, only to roll your eyes while your Go counterpart described how great Protobuf was. _Why would I use a cumbersome command-line tool to generate code that requires me to add several third-party libraries, replace my networking stack, and bloat my app’s binary by several megabytes, only to use clunky APIs?_ As iOS engineers, all we want to do is focus on shipping features that customers will actually use.
 

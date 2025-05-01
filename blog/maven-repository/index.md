@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Buf generated SDKs now support Java - introducing the Buf Maven repository"
 description: "Launching the Buf Maven repository, supporting Java and Kotlin plugins (including connect-kotlin!)"
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Buf generated SDKs now support Java - introducing the Buf Maven repository"
-  tagline: "May 8, 2023"
 ---
+
+# Buf generated SDKs now support Java - introducing the Buf Maven repository
 
 The Buf Schema Registry’s [generated SDKs](/docs/bsr/generated-sdks/overview/index.md) make it easy for developers to download generated code just like any other package, without needing a local Protobuf toolchain. The BSR already has support for Go modules via its [Go module proxy](/docs/bsr/generated-sdks/go/index.md), and JavaScript and TypeScript packages with its [NPM registry](/docs/bsr/generated-sdks/npm/index.md). **Today we’re adding to that lineup, by launching the** [**Buf Maven repository**](/docs/bsr/generated-sdks/maven/index.md)**, supporting Java and Kotlin plugins (including** [**connect-kotlin**](https://buf.build/connectrpc/kotlin)**!).**
 

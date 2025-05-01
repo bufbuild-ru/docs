@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Seamless Gradle integration with the Buf CLI"
 description: "The Buf CLI can now integrate seamlessly with your Gradle builds."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Seamless Gradle integration with the Buf CLI"
-  tagline: "August 9, 2023"
 ---
+
+# Seamless Gradle integration with the Buf CLI
 
 We built the [Buf CLI](https://buf.build/product/cli) to be a one-stop shop for Protobuf development. In addition to code generation, the CLI offers features such as linting, formatting, and backward compatibility validation. **This unified tool serves as the basis for a dramatically upgraded experience of working with Protobuf, and we’re excited to bring this experience to Gradle projects!**
 

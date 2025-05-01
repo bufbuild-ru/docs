@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Bufstream is the only cloud-native Kafka implementation validated by Jepsen"
 description: "Jepsen's Bufstream report bolsters enterprise use of Buf’s elastic Kafka-compatible streaming platform to enable data quality, enforce governance policies, and cut costs 8x"
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Bufstream is the only cloud-native Kafka implementation validated by Jepsen"
-  tagline: "November 12, 2024"
 ---
+
+# Bufstream is the only cloud-native Kafka implementation validated by Jepsen
 
 > 🎯 If you'd rather go straight to the source, [click here for the full Jepsen report](https://jepsen.io/analyses/bufstream-0.1.0).
 

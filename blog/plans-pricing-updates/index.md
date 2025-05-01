@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "The Buf Schema Registry is out of beta! Announcing new Buf Schema Registry plans and pricing updates"
 description: "The Buf Schema Registry (BSR) is officially out of beta, and we're launching new pricing plans"
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "The Buf Schema Registry is out of beta! Announcing new Buf Schema Registry plans and pricing updates"
-  tagline: "April 12, 2023"
 ---
+
+# The Buf Schema Registry is out of beta! Announcing new Buf Schema Registry plans and pricing updates
 
 We are excited to announce that the Buf Schema Registry (BSR) is officially out of beta!
 

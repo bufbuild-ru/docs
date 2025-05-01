@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Why a Protobuf schema registry?"
 description: "Learn why teams across industries and sizes have chosen the Buf Schema Registry as the home for their Protobuf schemas."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Why a Protobuf schema registry?"
-  tagline: "November 20, 2023"
 ---
+
+# Why a Protobuf schema registry?
 
 In a [previous post](/blog/the-real-reason-to-use-protobuf/index.md), we discussed why Protobuf should be considered a cornerstone of API development in engineering organizations that are striving for productivity and reliability. However, Protobuf has some of its own shortcomings when it comes to managing and deploying schemas at scale, and many of our engineers have seen (and solved) these challenges firsthand in roles at previous companies.
 

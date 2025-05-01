@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Introducing the newly improved BSR UI and buf push experience"
 description: "We've made it easier to onboard and use the BSR with improved support for monorepos, tighter integration with source control providers, and a new BSR UI that is more polished and has improved accessibility."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Introducing the newly improved BSR UI and buf push experience"
-  tagline: "May 17, 2024"
 ---
+
+# Introducing the newly improved BSR UI and buf push experience
 
 Alongside the [next generation of the Buf CLI](/blog/buf-cli-next-generation/index.md), we’re excited to introduce an enhanced `buf push` and unveil an updated Buf Schema Registry (BSR) UI. We’ve made significant changes to both `push` and the UI to eliminate friction when onboarding new teams and codebases to the BSR:
 

@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Introducing buf curl - Call your gRPC endpoints with the simplicity of buf"
 description: "A new tool to call gRPC, gRPC-Web, and Connect endpoints."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Introducing buf curl - Call your gRPC endpoints with the simplicity of buf"
-  tagline: "January 12, 2023"
 ---
+
+# Introducing buf curl - Call your gRPC endpoints with the simplicity of buf
 
 Today, we’re introducing a new tool for Protobuf APIs: [`buf curl`](/docs/curl/usage/index.md).
 

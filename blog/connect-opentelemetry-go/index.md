@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "OpenTelemetry for connect-go: Observability out of the box"
 description: "Add observability to your connect-go applications in just a few lines of code"
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "OpenTelemetry for connect-go: Observability out of the box"
-  tagline: "March 6, 2023"
 ---
+
+# OpenTelemetry for connect-go: Observability out of the box
 
 Observability is a critical element for any robust system and monitoring incoming calls, error scenarios, and traces is a foundational component of it. As part of building a better RPC protocol, it’s important to provide a level of observability that customers need to successfully run their services. **Today, we’re launching** [**connect-opentelemetry-go**](https://github.com/connectrpc/otelconnect-go) **to provide out-of-the-box support for** [**OpenTelemetry**](https://opentelemetry.io/) **instrumentation with** [**connect-go**](https://github.com/connectrpc/connect-go)**.**
 

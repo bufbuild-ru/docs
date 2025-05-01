@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "BSR Generated Documentation now supports Protobuf options"
 description: "We are excited to share an update to the Generated Documentation feature within the BSR, which now includes support for most built-in Protobuf options. 🎉"
@@ -26,11 +28,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "BSR Generated Documentation now supports Protobuf options"
-  tagline: "December 21, 2022"
 ---
+
+# BSR Generated Documentation now supports Protobuf options
 
 We are excited to share an update to the Generated Documentation feature within the BSR, which now includes support for most built-in Protobuf options. 🎉
 

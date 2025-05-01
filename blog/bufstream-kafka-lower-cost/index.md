@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Bufstream: Kafka at 8x lower cost"
 description: "We're excited to announce the public beta of Bufstream, a drop-in replacement for Apache Kafka deployed entirely in your own VPC that's 8x less expensive to operate."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Bufstream: Kafka at 8x lower cost"
-  tagline: "July 9, 2024"
 ---
+
+# Bufstream: Kafka at 8x lower cost
 
 We're excited to announce the public beta of [Bufstream](https://buf.build/product/bufstream), a drop-in replacement for Apache Kafka deployed entirely in your own VPC that's 8x less expensive to operate.
 

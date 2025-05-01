@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Introducing Cacheable RPCs in Connect"
 description: "We’ve expanded the Connect protocol to support the use of HTTP GET requests, enabling web browsers and CDNs to cache Connect requests with ease."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Introducing Cacheable RPCs in Connect"
-  tagline: "May 3, 2023"
 ---
+
+# Introducing Cacheable RPCs in Connect
 
 Resource caching is an effective strategy to improve performance and reduce load when running a service. Unfortunately, because gRPC requests use `POST` requests, implementing caching for gRPC services the way one would with RESTful services is often cumbersome or impossible.
 

@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Governance & breaking change policy enforcement for enterprises"
 description: "The BSR can now enforce breaking change prevention policies across all modules."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Governance & breaking change policy enforcement for enterprises"
-  tagline: "July 10, 2023"
 ---
+
+# Governance & breaking change policy enforcement for enterprises
 
 **Today we’re introducing the ability to** [**configure breaking change policy enforcement in the BSR UI**](/docs/bsr/policy-checks/breaking/overview/index.md) **for customers on our Enterprise plan, which provides a guarantee that breaking schema changes cannot be mistakenly deployed through the BSR and cause downstream outages or data loss.**
 

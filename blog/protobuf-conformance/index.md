@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Protobuf-ES is the only fully-compliant Protobuf library for JavaScript"
 description: "The results are in: Protobuf-ES passes 99.95% of conformance tests"
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Protobuf-ES is the only fully-compliant Protobuf library for JavaScript"
-  tagline: "March 21, 2023"
 ---
+
+# Protobuf-ES is the only fully-compliant Protobuf library for JavaScript
 
 One of the promises of Protobuf is a schema-based API that works seamlessly across implementations and languages. The ability to send and receive data over application boundaries in a predictable and reliable way offers developers a confidence that they cannot achieve by using REST.
 

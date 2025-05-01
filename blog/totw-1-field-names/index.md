@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Tip of the week #1: Field names are forever"
 description: "Don’t rename fields. Even though there are a slim number of cases you can get away with it, it’s rarely worth doing, and is a potential source of bugs."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Tip of the week #1: Field names are forever"
-  tagline: "April 8, 2025"
 ---
+
+# Tip of the week #1: Field names are forever
 
 > _I wake up every morning and grab the morning paper. Then I look at the obituary page. If my name is not on it, I get up. — Ben Franklin_
 

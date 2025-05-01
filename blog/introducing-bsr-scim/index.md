@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "The BSR now provides a SCIM service for Pro and Enterprise plans"
 description: "Admins can now configure SCIM in their BSR to manage organization enrollments based on IdP security groups."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "The BSR now provides a SCIM service for Pro and Enterprise plans"
-  tagline: "March 16, 2023"
 ---
+
+# The BSR now provides a SCIM service for Pro and Enterprise plans
 
 **As of today, the Buf Schema Registry implements the** [**SCIM**](http://www.simplecloud.info/) **standard! BSR admins on our** [**Pro or Enterprise plans**](https://buf.build/pricing/) **no longer need to manually create user accounts and enroll them in BSR organizations — they can now configure SCIM to manage organization enrollments based on their Identity Provider (IdP)’s security groups, and their users’ BSR access will be automatically updated when they are added or removed from the IdP.** This automation of user management saves time and reduces the risk of errors that can occur when manual updates are performed, and provides the ability to:
 

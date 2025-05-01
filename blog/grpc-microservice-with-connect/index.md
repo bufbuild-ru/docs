@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Building a modern gRPC-powered microservice using Node.js, Typescript, and Connect"
 description: "Tutorial that covers creating a service, adding a client, testing, adding a database, and writing tests."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Building a modern gRPC-powered microservice using Node.js, Typescript, and Connect"
-  tagline: "April 27, 2023"
 ---
+
+# Building a modern gRPC-powered microservice using Node.js, Typescript, and Connect
 
 _Authored by Joe McKenney, CEO of_ [_Dopt_](https://dopt.com/)
 

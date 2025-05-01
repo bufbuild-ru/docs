@@ -1,5 +1,7 @@
 ---
-layout: home
+sidebar: false
+prev: false
+next: false
 
 title: "Tip of the week #3:  Enum names need prefixes"
 description: "Enums inherit some unfortunate behaviors from C++. Avoid this problem by using the Buf lint rules ENUM_VALUE_PREFIX and ENUM_ZERO_VALUE_SUFFIX."
@@ -32,11 +34,9 @@ head:
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
-
-hero:
-  name: "Tip of the week #3:  Enum names need prefixes"
-  tagline: "April 22, 2025"
 ---
+
+# Tip of the week #3: Enum names need prefixes
 
 > _Smart people learn from their mistakes. But the real sharp ones learn from the mistakes of others. — Brandon Mull_
 

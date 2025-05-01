@@ -71,7 +71,7 @@ Unlike the public BSR at `buf.build`, private BSR users can't delete themselves.
 
 ### Using the admin panel
 
-User deactivation is a manual process using the admin panel—if your BSR instance is `https://buf.example.com` then it's available at `https://buf.example.com/admin/users`.
+User deactivation is a manual process using the admin panel — if your BSR instance is `https://buf.example.com` then it's available at `https://buf.example.com/admin/users`.
 
 ### Using the BSR API
 
@@ -177,4 +177,4 @@ $ curl \
     "https://${PRIVATE_BSR_HOSTNAME}/buf.alpha.registry.v1alpha1.OrganizationService/RemoveOrganizationGroup"
 ```
 
-Members don't need to logout or login when a group is removed—they're removed from the organization immediately.
+Members don't need to logout or login when a group is removed — they're removed from the organization immediately.

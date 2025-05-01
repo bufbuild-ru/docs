@@ -116,7 +116,7 @@ lint:
 
 ### `buf.yaml`, modules, and workspaces
 
-Workspaces are now the primary unit for working with your Protobuf files locally. They function the same way whether they contain one or multiple modules, and the configuration for both the workspace and its modules is now in the `buf.yaml` file—`buf.work.yaml` files aren't used in v2 configurations. Instead, each module within the workspace is defined by its directory path in reference to the workspace root:
+Workspaces are now the primary unit for working with your Protobuf files locally. They function the same way whether they contain one or multiple modules, and the configuration for both the workspace and its modules is now in the `buf.yaml` file — `buf.work.yaml` files aren't used in v2 configurations. Instead, each module within the workspace is defined by its directory path in reference to the workspace root:
 
 #### v1 configuration
 
@@ -198,7 +198,7 @@ deps:
 
 :::
 
-For simple modules where there is no `buf.work.yaml` and the `buf.yaml` file is in the same directory as the Protobuf files, the only change you need to make is to the `version` key—if no `modules` key is set, the Buf CLI behaves as if there is a single module with the current directory as the path:
+For simple modules where there is no `buf.work.yaml` and the `buf.yaml` file is in the same directory as the Protobuf files, the only change you need to make is to the `version` key — if no `modules` key is set, the Buf CLI behaves as if there is a single module with the current directory as the path:
 
 ```yaml
 version: v2
@@ -300,7 +300,7 @@ workspace_root
 
 In v1 configs, the command must be run twice to capture both directories because the input is provided in the command line:
 
-::: info v1—must run command twice
+::: info v1 — must run command twice
 
 ```console
 $ buf generate proto
@@ -322,7 +322,7 @@ inputs:
 
 :::
 
-::: info v2—generates code for all inputs specified in buf.yaml
+::: info v2 — generates code for all inputs specified in buf.yaml
 
 ```console
 $ buf generate

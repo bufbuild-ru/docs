@@ -74,7 +74,7 @@ head:
 
 ### `plugin`
 
-**Required.** The name of the plugin to use—can be local or remote.
+**Required.** The name of the plugin to use — can be local or remote.
 
 - **Local plugins:** If using a `protoc` plugin, the `protoc-gen-` prefix is assumed and you should omit it (for example, `go` instead of `protoc-gen-go`). By default, the Buf CLI expects a `protoc-gen-<name>` program to be on your `PATH` so that it can be discovered and executed. This can be overridden with the `path` field below.
 - **Remote plugins:** Specify the path to the plugin on the Buf Schema Registry (BSR).
@@ -178,7 +178,7 @@ protoc_path:
 
 The `managed` key is used to configure managed mode, an advanced feature for Protobuf options (see [Managed mode](../../../generate/managed-mode/) for more details).
 
-::: info Managed mode example—buf.gen.yaml
+::: info Managed mode example — buf.gen.yaml
 
 ```yaml
 version: v1
@@ -266,7 +266,7 @@ service WeatherVisionService {
 
 #### `default`
 
-**Required** if the `go_package_prefix` key is set. The `default` value is used as a prefix for the `go_package` value set in each of the files. It **must** be a relative file path that **must not** jump context from the current directory—it must be subdirectories relative to the current working directory. As an example, `../external` is invalid. In the [configuration example](#managed), the `github.com/acme/weather/gen/proto/go` prefix is _joined_ with the given Protobuf file's relative path from the module root. The `acme/weather/v1/weather.proto` file then has this `go_package` set:
+**Required** if the `go_package_prefix` key is set. The `default` value is used as a prefix for the `go_package` value set in each of the files. It **must** be a relative file path that **must not** jump context from the current directory — it must be subdirectories relative to the current working directory. As an example, `../external` is invalid. In the [configuration example](#managed), the `github.com/acme/weather/gen/proto/go` prefix is _joined_ with the given Protobuf file's relative path from the module root. The `acme/weather/v1/weather.proto` file then has this `go_package` set:
 
 ::: info acme/weather/v1/weather.proto
 

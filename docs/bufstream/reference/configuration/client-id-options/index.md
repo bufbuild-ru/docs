@@ -57,7 +57,7 @@ my-client-id;host_override=local.dev;broker_count=1
 label.foo=bar,label.fizz=buzz
 ```
 
-Whitespace is significant—don't add it around the delimiter or equal sign. Only use one type of delimiter within a client ID. Bufstream ignores malformed or unrecognized pairs.
+Whitespace is significant — don't add it around the delimiter or equal sign. Only use one type of delimiter within a client ID. Bufstream ignores malformed or unrecognized pairs.
 
 ## Supported options
 

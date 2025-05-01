@@ -47,7 +47,7 @@ head:
 
 This feature is only available on the Pro and Enterprise plans.
 
-All public plugins on the BSR are maintained by Buf for security purposes—we want to make sure that the code generators everyone uses are verified by us. However, organizations often write custom Protobuf plugins to generate logic specific to their business. Custom plugins are available on our Pro and Enterprise plans—[reach out](mailto:support@buf.build) if you're interested in adding this feature.You can upload unlimited custom plugins, which can be public or private within your private BSR instance:
+All public plugins on the BSR are maintained by Buf for security purposes — we want to make sure that the code generators everyone uses are verified by us. However, organizations often write custom Protobuf plugins to generate logic specific to their business. Custom plugins are available on our Pro and Enterprise plans — [reach out](mailto:support@buf.build) if you're interested in adding this feature.You can upload unlimited custom plugins, which can be public or private within your private BSR instance:
 
 - Public: All user accounts with access to the instance have access to the plugin
 - Private: Only user accounts who are members of the organization that owns a plugin have access to the plugin
@@ -128,7 +128,7 @@ plugin_version: v1.1.0
 :::
 
 - The `version` key is the YAML configuration version, always set to `v1`.
-- The `plugin_version` key has the format `v{semver}`—the **v** prefix is required and the version must be valid [semantic versioning](https://semver.org/).
+- The `plugin_version` key has the format `v{semver}` — the **v** prefix is required and the version must be valid [semantic versioning](https://semver.org/).
 - The `name` key format is `BSR_INSTANCE/ORG_NAME/PLUGIN_NAME`
 
 There is additional metadata that may be captured by the `buf.plugin.yaml` configuration file, such as the plugin source URL, the output language, description, dependencies, etc. See the [`buf.plugin.yaml` file](https://github.com/bufbuild/plugins/blob/main/CONTRIBUTING.md#bufpluginyaml-file) documentation.
@@ -163,7 +163,7 @@ Keeping the custom plugins together makes maintenance simpler, but it's not requ
 The BSR's plugins are publicly accessible, so you can start from the existing plugin code and make modifications to suit your needs. You can find general best practices and a list of the `buf.plugin.yaml` fields in the [plugin repo documentation](https://github.com/bufbuild/plugins/blob/main/CONTRIBUTING.md).
 
 1.  Clone the following repository: [`https://github.com/bufbuild/plugins`](https://github.com/bufbuild/plugins).
-2.  Go to the directory of the version you want to use—we'll use the current version, `v1.6.0`:
+2.  Go to the directory of the version you want to use — we'll use the current version, `v1.6.0`:
 
     ```console
     $ cd plugins/bufbuild/es/v1.6.0

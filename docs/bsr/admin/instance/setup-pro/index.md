@@ -55,7 +55,7 @@ No additional DNS setup is required. Your BSR instance is hosted at a custom dom
 
 ## Assign administrative users
 
-Your private BSR instance provides special privileges for administrator accounts to configure and manage various aspects of the instance. At least one user needs to be promoted to registry admin—see [Provisioning admin users](../user-lifecycle/#admin-users) for instructions.
+Your private BSR instance provides special privileges for administrator accounts to configure and manage various aspects of the instance. At least one user needs to be promoted to registry admin — see [Provisioning admin users](../user-lifecycle/#admin-users) for instructions.
 
 ## Identity provider (IdP) setup
 

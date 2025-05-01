@@ -54,7 +54,7 @@ This guide describes each role and how the types of roles interact.
 
 ## Organization roles
 
-Every user that's a member of an organization has an explicit organization role, which inherits a base resource role for each type of organization resource. Members can't change their own role—it must be done by an `Owner` or `Admin`.
+Every user that's a member of an organization has an explicit organization role, which inherits a base resource role for each type of organization resource. Members can't change their own role — it must be done by an `Owner` or `Admin`.
 
 ### Member
 

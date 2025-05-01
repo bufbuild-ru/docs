@@ -47,7 +47,7 @@ head:
 
 ## Upgrade
 
-We currently support (and test) zero downtime sequential upgrades from one minor version to the next minor version. For example, if you’re on version `1.0.0` then you can safely upgrade to `1.0.X` or `1.1.X` without any downtime.To upgrade, deploy the new version of the helm chart. The exact steps vary depending on how you use helm—directly, with [helmfile](https://github.com/helmfile/helmfile), or through CI. If using helm directly, upgrade the Helm chart on the cluster using the `bsr.yaml` Helm values file you created [during installation](../installation/):
+We currently support (and test) zero downtime sequential upgrades from one minor version to the next minor version. For example, if you’re on version `1.0.0` then you can safely upgrade to `1.0.X` or `1.1.X` without any downtime.To upgrade, deploy the new version of the helm chart. The exact steps vary depending on how you use helm — directly, with [helmfile](https://github.com/helmfile/helmfile), or through CI. If using helm directly, upgrade the Helm chart on the cluster using the `bsr.yaml` Helm values file you created [during installation](../installation/):
 
 ```console
 $ helm upgrade bsr oci://us-docker.pkg.dev/buf-images-1/bsr/charts/bsr \

@@ -543,7 +543,7 @@ workspace_root
 
 ### Java
 
-Java has several options—managed mode sets the following default values:
+Java has several options — managed mode sets the following default values:
 
 | Option                   | Default                                                                                 |
 | ------------------------ | --------------------------------------------------------------------------------------- |

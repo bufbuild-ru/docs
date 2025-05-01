@@ -543,7 +543,7 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 
 ### `storage.azure.endpoint`
 
-\_string_Azure storage account endpoint to use—for example, https://.blob.core.windows.netDefaults to `""`.
+\_string_Azure storage account endpoint to use — for example, https://.blob.core.windows.netDefaults to `""`.
 
 ### `storage.azure.prefix`
 
@@ -575,7 +575,7 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 
 ### `storage.s3.endpoint`
 
-\_string_S3 endpoint to use instead of the default—for example, https://example.comDefaults to `""`.
+\_string_S3 endpoint to use instead of the default — for example, https://example.comDefaults to `""`.
 
 ### `storage.s3.forcePathStyle`
 
@@ -819,7 +819,7 @@ storage:
     bucket: ""
     # -- S3 bucket region.
     region: ""
-    # -- S3 endpoint to use instead of the default—for example, https://example.com
+    # -- S3 endpoint to use instead of the default — for example, https://example.com
     endpoint: ""
     # -- S3 prefix to use for all stored files.
     prefix: ""
@@ -832,7 +832,7 @@ storage:
   azure:
     # -- Azure storage account container name.
     bucket: ""
-    # -- Azure storage account endpoint to use—for example, https://<storage account>.blob.core.windows.net
+    # -- Azure storage account endpoint to use — for example, https://<storage account>.blob.core.windows.net
     endpoint: ""
     # -- Azure prefix to use for all stored files.
     prefix: ""

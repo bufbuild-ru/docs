@@ -223,7 +223,7 @@ This feature allows you to turn off lint warnings for a specific line of a Proto
 - In `v2` configurations, comment ignores are enabled by default, but won't work if your `buf.yaml` file has `disallow_comment_ignores` set to `true`.
 - In `v1` configurations, comment ignores are disabled by default, so you need to set `allow_comment_igrnoes` to `true` to enable them.
 
-To ignore a lint rule, add the comment ignore directly above the line it should apply to, using the `// buf:lint:ignore RULE_ID` syntax. You can use comment ignores for any lint rules—both Buf's [built-in rules](../rules/) and custom rules from configured [Buf plugins](../../cli/buf-plugins/overview/). Adding a comment for context is also helpful, and it must be above the comment ignore:
+To ignore a lint rule, add the comment ignore directly above the line it should apply to, using the `// buf:lint:ignore RULE_ID` syntax. You can use comment ignores for any lint rules — both Buf's [built-in rules](../rules/) and custom rules from configured [Buf plugins](../../cli/buf-plugins/overview/). Adding a comment for context is also helpful, and it must be above the comment ignore:
 
 ```protobuf{3,4,5}
 syntax = "proto3";

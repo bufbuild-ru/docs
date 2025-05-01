@@ -97,7 +97,7 @@ This panel shows the aggregate (based on filters) error budget burn down for the
 
 ### Other dashboard components
 
-Most of the other dashboard panels have titles that explain exactly what they're displaying and should be self-explanatory—others are clarified below.
+Most of the other dashboard panels have titles that explain exactly what they're displaying and should be self-explanatory — others are clarified below.
 
 #### Firing alerts
 

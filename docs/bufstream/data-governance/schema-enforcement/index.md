@@ -184,7 +184,7 @@ produce:
 
 ### Using multiple registries
 
-There may be cases where you have more than one registry in place—for example, a development and production registry. Bufstream allows you to configure each registry independently and choose which registry to use with each policy. As an example, this Helm values snippet configures two registries and uses each in one policy:
+There may be cases where you have more than one registry in place — for example, a development and production registry. Bufstream allows you to configure each registry independently and choose which registry to use with each policy. As an example, this Helm values snippet configures two registries and uses each in one policy:
 
 ```yaml
 produce:

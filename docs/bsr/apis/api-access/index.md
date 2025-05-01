@@ -45,7 +45,7 @@ head:
 
 # Invoking the BSR APIs
 
-Buf Schema Registries provide a web UI at their domain. For example, the web UI for the public BSR is at [buf.build](https://buf.build/). This is also Buf's main website—if you login, you see the BSR interface.BSRs also provide an API server, for programmatic access of BSR functions. For now the set of APIs is narrow, but it's likely to expand over time to include more of the BSR's capabilities.
+Buf Schema Registries provide a web UI at their domain. For example, the web UI for the public BSR is at [buf.build](https://buf.build/). This is also Buf's main website — if you login, you see the BSR interface.BSRs also provide an API server, for programmatic access of BSR functions. For now the set of APIs is narrow, but it's likely to expand over time to include more of the BSR's capabilities.
 
 WarningOnly the Reflection API endpoint is exposed currently and it's in beta. It should be considered unstable and possibly impermanent.
 
@@ -120,7 +120,7 @@ func Example() {
 }
 ```
 
-As can be seen above, we use these packages to create an API client, build a request, and handle the response—just like any other function call.
+As can be seen above, we use these packages to create an API client, build a request, and handle the response — just like any other function call.
 
 ## Exposed APIs
 

@@ -201,7 +201,7 @@ storage:
   azure:
     # Azure storage account container name.
     bucket: <container name>
-    # Azure storage account endpoint to use—for example, https://<account-name>.blob.core.windows.net
+    # Azure storage account endpoint to use — for example, https://<account-name>.blob.core.windows.net
     endpoint: <endpoint>
 bufstream:
   deployment:
@@ -243,7 +243,7 @@ Alternatively, you can use a shared key pair.
       azure:
         # Azure storage account container name.
         bucket: <container name>
-        # Azure storage account endpoint to use—for example, https://<account-name>.blob.core.windows.net
+        # Azure storage account endpoint to use — for example, https://<account-name>.blob.core.windows.net
         endpoint: <endpoint>
         # Azure storage account name to use for auth instead of the metadata server.
         accessKeyId: <account-name>

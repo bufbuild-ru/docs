@@ -51,7 +51,7 @@ If you're currently using any of our individual GitHub Actions (\[buf-setup-acti
 - Adds a summary comment to pull requests
 - Can specify permissions for reading and writing to the Git repository
 - Automatically archives BSR labels when their corresponding GitHub branches or tags are deleted
-- Enables more complex workflows—change the order of steps, add checks to additional steps, and disable steps as needed
+- Enables more complex workflows — change the order of steps, add checks to additional steps, and disable steps as needed
 
 Some of the previous Actions' parameter names have changed. The table below maps the old values to the new ones:
 

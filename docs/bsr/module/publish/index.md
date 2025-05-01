@@ -93,7 +93,7 @@ When you push from your workspace, the Buf CLI automatically resolves the intern
 
 ## Pushing with labels
 
-Labels allow you to add a commit to the history of a specific stream of development like a release or a feature, similar to branches and tags in a VCS. If no other label is applied, the commit is added to the history of the [default label](../../repositories/#default-label), which is similar to the default branch in a VCS (for example `main` in Git).As a best practice, we recommend always explicitly specifying the labels you want to push to rather than relying on the current default label in the BSR. See [Commits and labels](../../commits-labels/) for more details about label properties and behavior.To apply a label to a commit, add the `--label` flag—you can add multiple labels in the same push command by adding multiple flags:
+Labels allow you to add a commit to the history of a specific stream of development like a release or a feature, similar to branches and tags in a VCS. If no other label is applied, the commit is added to the history of the [default label](../../repositories/#default-label), which is similar to the default branch in a VCS (for example `main` in Git).As a best practice, we recommend always explicitly specifying the labels you want to push to rather than relying on the current default label in the BSR. See [Commits and labels](../../commits-labels/) for more details about label properties and behavior.To apply a label to a commit, add the `--label` flag — you can add multiple labels in the same push command by adding multiple flags:
 
 ::: info Apply the 'v1.0.1' and 'releases' labels to the commit
 
@@ -151,13 +151,13 @@ This may seem backwards, but allows the BSR to properly squash if policy checks 
 The BSR evaluates the incoming commit against all existing module labels, with the following results:
 
 - When all target labels are new:
-  - Can't squash—nothing to squash into
+  - Can't squash — nothing to squash into
   - Creates a single commit and appends it to each label
 - When all target labels already exist:
-  - Checks if all the labels share the same commit as `HEAD`—if so it compares it against the incoming content
+  - Checks if all the labels share the same commit as `HEAD` — if so it compares it against the incoming content
   - If the common `HEAD` matches with the incoming content, the commit is squashed _for those labels_
 - When there is a mix of new and existing target labels:
-  - Checks if all existing labels share the same commit as `HEAD`—if so it compares it against the incoming content
+  - Checks if all existing labels share the same commit as `HEAD` — if so it compares it against the incoming content
   - If the common `HEAD` matches with the incoming content, the commit is squashed _for the existing labels_
   - The commit is appended to the _new labels_
 

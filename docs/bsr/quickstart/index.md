@@ -68,7 +68,7 @@ The quickstart contains a `start` directory, where you work on the example files
 
 ## Add a dependency
 
-The quickstart's `InvoiceService` has a critical bug—it allows clients to create empty invoices. To fix the bug, you decide to use [Protovalidate](https://github.com/bufbuild/protovalidate) to validate invoice requests. It's available in the BSR, so you can add it as a dependency.
+The quickstart's `InvoiceService` has a critical bug — it allows clients to create empty invoices. To fix the bug, you decide to use [Protovalidate](https://github.com/bufbuild/protovalidate) to validate invoice requests. It's available in the BSR, so you can add it as a dependency.
 
 ### Update buf.yaml
 
@@ -171,7 +171,7 @@ disable:
 
 :::
 
-You're all set—time to generate code for your Protobuf changes:
+You're all set — time to generate code for your Protobuf changes:
 
 ::: info bsr/start/server/
 
@@ -192,7 +192,7 @@ $ go run cmd/main.go
 
 :::
 
-::: tip The server code in `cmd/main.go` is [preconfigured](https://github.com/bufbuild/buf-examples/blob/main/bsr/quickstart/start/server/cmd/main.go#L35-L39) with the Protovalidate interceptor. Normally you need to add that to your code also—see the [Protovalidate documentation](https://github.com/bufbuild/protovalidate) for specifics.
+::: tip The server code in `cmd/main.go` is [preconfigured](https://github.com/bufbuild/buf-examples/blob/main/bsr/quickstart/start/server/cmd/main.go#L35-L39) with the Protovalidate interceptor. Normally you need to add that to your code also — see the [Protovalidate documentation](https://github.com/bufbuild/protovalidate) for specifics.
 
 :::
 
@@ -231,7 +231,7 @@ $ buf curl \
 
 :::
 
-Go back to the terminal where the server is running—you should see the output from the request:
+Go back to the terminal where the server is running — you should see the output from the request:
 
 ::: info bsr/start/server/
 
@@ -356,7 +356,7 @@ $ echo -e "# Tags\n\nThis module allows you to add custom tags for tracking or a
 
 :::
 
-Run `buf push` again. You can view your new documentation in the BSR by going to the web app: `https://buf.build/USERNAME/common`.Congrats—you've made a dependency that other teams can integrate into their code. Now you need to refactor your own code to use it too.
+Run `buf push` again. You can view your new documentation in the BSR by going to the web app: `https://buf.build/USERNAME/common`.Congrats — you've made a dependency that other teams can integrate into their code. Now you need to refactor your own code to use it too.
 
 ### Update the API
 
@@ -429,7 +429,7 @@ $ buf curl \
 {}
 ```
 
-All's well—you've made a common module that other teams can use, and refactored your code to use it too. Next, you'll walk through how it can be integrated using generated SDKs.
+All's well — you've made a common module that other teams can use, and refactored your code to use it too. Next, you'll walk through how it can be integrated using generated SDKs.
 
 ## Use generated SDKs
 
@@ -507,7 +507,7 @@ They're lazily generated, so it takes a moment or two.
 
 ### Call APIs with client SDKs
 
-Replace the code in `client/cmd/main.go` with the following boilerplate—you can see that it imports the SDKs you just installed:
+Replace the code in `client/cmd/main.go` with the following boilerplate — you can see that it imports the SDKs you just installed:
 
 ::: info bsr/start/client/cmd/main.go
 

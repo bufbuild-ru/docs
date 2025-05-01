@@ -67,7 +67,7 @@ The sections below discuss key concepts, local generation (with and without remo
 
 `protoc`
 
-`protoc` is the compiler included with [Protocol Buffers](https://protobuf.dev/)—it invokes a set of plugins to generate code or perform other custom tasks.
+`protoc` is the compiler included with [Protocol Buffers](https://protobuf.dev/) — it invokes a set of plugins to generate code or perform other custom tasks.
 
 input
 

@@ -56,7 +56,7 @@ The links below go to detailed usage guides. See the [Buf CLI reference](../refe
 - [`breaking`](../breaking/overview/): Verify no breaking changes have been made, to guard against compatibility issues
 - [`lint`](../lint/overview/) and [`format`](../format/style/): Lint and format your Protobuf files according to best practice and your org rules
 - [`curl`](../curl/usage/): Test your APIs by invoking an RPC endpoint, similar to using `curl`
-- `convert`: Convert a message from binary to JSON or vice versa—useful when debugging or testing
+- `convert`: Convert a message from binary to JSON or vice versa — useful when debugging or testing
 - `config`, `registry`, `push`, and [`export`](../bsr/module/export/): Manage your repositories in the Buf Schema Registry
 
 ## Configuration files

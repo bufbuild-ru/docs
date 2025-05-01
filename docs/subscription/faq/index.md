@@ -89,7 +89,7 @@ Organizations are billed on a monthly basis, based on the pricing plan you have 
 
 ### Can I pay annually?
 
-At this time we only offer annual billing on the Enterprise plan, but let us know if you’d like an annual option for Teams or Pro—we appreciate the feedback.
+At this time we only offer annual billing on the Enterprise plan, but let us know if you’d like an annual option for Teams or Pro — we appreciate the feedback.
 
 ### Will I receive an invoice for my Buf Schema Registry subscription?
 
@@ -171,7 +171,7 @@ Yes, your subscription will automatically renew each month unless you cancel you
 
 ### Are there any paid plans for individual users?
 
-Not yet—it’s something we’d like to add in the future. For now, if you want to utilize the features of our paid plans, create an organization and subscribe to a Teams or Pro plan.
+Not yet — it’s something we’d like to add in the future. For now, if you want to utilize the features of our paid plans, create an organization and subscribe to a Teams or Pro plan.
 
 ## Access control
 

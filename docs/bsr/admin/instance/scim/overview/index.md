@@ -82,7 +82,7 @@ $ curl \
     "https://buf.example.com/buf.alpha.registry.v1alpha1.SCIMTokenService/CreateSCIMToken"
 ```
 
-The response includes the token's value in the `token` field. Save this token somewhere safe—you need it to enable SCIM in your IdP.You can also use Buf Studio via `https://buf.example.com/studio` to invoke this endpoint.
+The response includes the token's value in the `token` field. Save this token somewhere safe — you need it to enable SCIM in your IdP.You can also use Buf Studio via `https://buf.example.com/studio` to invoke this endpoint.
 
 ### Readiness check
 

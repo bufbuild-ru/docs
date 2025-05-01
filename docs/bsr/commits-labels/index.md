@@ -49,13 +49,13 @@ Like a version control system (VCS), the Buf Schema Registry (BSR) tracks the ev
 
 ## Commits
 
-Every push of new content to a repository creates a commit that identifies a change in the schema. Commits include the schema files, Markdown docs, dependency manifest, Buf configuration files, and an optional VCS commit URL. They don't include any other VCS information, labels, or explicit parentage. Each commit also generates a digest of the contents. Commits also have no explicit parentage within the BSR—they can be diffed with any other commits in a label's history, but otherwise have no connection to each other.One key difference between VCS commits and BSR commits is that unlike a VCS commit, a BSR commit only exists on the BSR repository and not locally. In addition to those listed above, BSR commits have the following properties:
+Every push of new content to a repository creates a commit that identifies a change in the schema. Commits include the schema files, Markdown docs, dependency manifest, Buf configuration files, and an optional VCS commit URL. They don't include any other VCS information, labels, or explicit parentage. Each commit also generates a digest of the contents. Commits also have no explicit parentage within the BSR — they can be diffed with any other commits in a label's history, but otherwise have no connection to each other.One key difference between VCS commits and BSR commits is that unlike a VCS commit, a BSR commit only exists on the BSR repository and not locally. In addition to those listed above, BSR commits have the following properties:
 
 - Commits may not be deleted.
 - Commits always belong to at least one label (the [default label](../repositories/#default-label) if not specified)
 - Commit can be present in multiple labels
 - If [policy checks](../policy-checks/breaking/overview/) are enabled, a commit can have different review states in different labels
-- All commits within a label are recorded and the history always moves forward—commits are appended only if they're newer than the latest (see [Interaction with governance features](#governance-interaction) below)
+- All commits within a label are recorded and the history always moves forward — commits are appended only if they're newer than the latest (see [Interaction with governance features](#governance-interaction) below)
 - All commits can be resolved as dependencies (for example, in `buf.lock` files or generated SDKs).
 - Multiple BSR commits can have the same content but different VCS URLs, so that the backlinks provide context for the changes via the VCS commits and PR discussions. For example (assuming no other changes to the module):
   - BSR module contains content A.

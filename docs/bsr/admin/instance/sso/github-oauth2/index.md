@@ -74,7 +74,7 @@ The steps below must be carried out by a GitHub administrator for your organizat
 Only configure what's listed here.
 
 - Set the **GitHub App name** to something like "Buf Schema Registry" or "Buf". This should be something meaningful to your users.
-- Set the **Homepage URL** to `https://buf.example.com`—this varies depending on your installation.
+- Set the **Homepage URL** to `https://buf.example.com` — this varies depending on your installation.
 - Ensure that **Expire user authorization tokens** is selected.
 - Under **Identifying and authorizing users**, set the **Callback URL** to `https://buf.example.com/oauth2/callback`
   - Sign-in redirect URIs should be `https://buf.example.com/oauth2/callback`

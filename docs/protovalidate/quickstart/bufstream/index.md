@@ -136,7 +136,7 @@ time=2025-02-18T19:48:10.251-05:00 level=INFO msg="consumed message with new ema
 
 :::
 
-Note that there's something fishy in the last log message—the new email isn't a valid address. You're about to combine Protovalidate with Bufstream's Kafka capabilities to make sure invalid messages are rejected by the broker.It's okay to use `Ctrl-C` to stop the broker, producer, and consumer before continuing.
+Note that there's something fishy in the last log message — the new email isn't a valid address. You're about to combine Protovalidate with Bufstream's Kafka capabilities to make sure invalid messages are rejected by the broker.It's okay to use `Ctrl-C` to stop the broker, producer, and consumer before continuing.
 
 ## Explore tutorial code
 

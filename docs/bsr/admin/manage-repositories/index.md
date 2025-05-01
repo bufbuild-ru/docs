@@ -87,7 +87,7 @@ To add metadata:
 When you create a repository, it has a default label of `main`, for parity with most version control systems. Subject to certain [restrictions](../../repositories/#name-change-restrictions), you can change the default to point to a different label.To change the default label pointer:
 
 1.  In the BSR, navigate to your repository, select **Settings**, then go to the **Change default label** section.
-2.  Start typing in the **Select new label** box—it provides type-ahead results to help you filter all of the available labels.
+2.  Start typing in the **Select new label** box — it provides type-ahead results to help you filter all of the available labels.
 3.  Select the label you want to use and press **Enter**. If none of the restrictions apply, the default label changes.
 
 ::: tip If the label you want to switch to is archived, you must first unarchive it by pushing again with that label.

@@ -87,7 +87,7 @@ The steps below must be carried out by a Google Workspace administrator for your
     - **Name ID format**: `EMAIL`
     - **Name ID**: `Basic Information > Primary email`
 
-    Buf provisions users Just-in-Time based on the email address—**make sure you've configured the Name ID correctly**.![Google - Service Provider details](../../../../../images/bsr/sso/google-sp.png)
+    Buf provisions users Just-in-Time based on the email address — **make sure you've configured the Name ID correctly**.![Google - Service Provider details](../../../../../images/bsr/sso/google-sp.png)
 
 2.  Click **Continue**.
 3.  On the **Attribute mapping** screen, leave the attributes section empty and click **Finish**.

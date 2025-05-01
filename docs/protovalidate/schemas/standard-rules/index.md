@@ -88,7 +88,7 @@ message User {
 
 ### Scalar (simple) rules
 
-Scalar fields—`bool`, `string`, `bytes`, and numeric types—are the simplest to validate. Protovalidate's standard rules handle most common validation requirements, including regular expression matching.
+Scalar fields — `bool`, `string`, `bytes`, and numeric types — are the simplest to validate. Protovalidate's standard rules handle most common validation requirements, including regular expression matching.
 
 ::: info Scalar rule examples
 

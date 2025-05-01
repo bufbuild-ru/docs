@@ -120,7 +120,7 @@ The BSR renders annotated Protobuf options in source code style. For the `deprec
 
 ### Custom options
 
-Custom options are also supported and rendered in the generated documentation. The official [Protobuf docs](https://protobuf.dev/programming-guides/proto3/#customoptions) show how to create and apply custom options in your `.proto` file—the sample below shows the `.proto` file and the resulting documentation:
+Custom options are also supported and rendered in the generated documentation. The official [Protobuf docs](https://protobuf.dev/programming-guides/proto3/#customoptions) show how to create and apply custom options in your `.proto` file — the sample below shows the `.proto` file and the resulting documentation:
 
 ::: info main/options/v1/options.proto
 

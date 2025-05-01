@@ -53,7 +53,7 @@ Bot users are headless users created and managed by BSR administrators.They're u
 
 The tokens created for bot users can perform most actions that are accessible to normal users, but there are also some limitations, namely:
 
-- Bot users have no ability to access the BSR web interface—the API token created for them can't be used to resolve a cookie through the browser.
+- Bot users have no ability to access the BSR web interface — the API token created for them can't be used to resolve a cookie through the browser.
 - Bot users can't manage their own tokens (their tokens must be managed by server administrators).
 
 ## Setup

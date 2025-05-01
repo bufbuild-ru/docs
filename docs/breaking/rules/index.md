@@ -49,14 +49,14 @@ Buf's breaking change detection is configurable for a wide range of scenarios, o
 
 ## Categories
 
-Buf's breaking rules fit under four categories—from strictest to most lenient:
+Buf's breaking rules fit under four categories — from strictest to most lenient:
 
-- `FILE`: **Default.** Detects changes that move generated code between files, breaking generated source code on a per-file basis. This breaks generated stubs in some languages—for example, it's safe to move code between files in Go but not in Python.
+- `FILE`: **Default.** Detects changes that move generated code between files, breaking generated source code on a per-file basis. This breaks generated stubs in some languages — for example, it's safe to move code between files in Go but not in Python.
 - `PACKAGE`: Detects changes that break generated source code changes on a per-package basis. It detects changes that break the generated stubs, but only accounting for package-level changes.
 - `WIRE_JSON`: Detects changes that break wire (binary) or JSON encoding. Because JSON is ubiquitous, this is the recommended minimum level.
 - `WIRE`: Detects changes that break wire (binary) encoding.
 
-Unlike lint rules, you shouldn't mix and exclude specific breaking change rules, although the checker allows it. Instead it's best to choose one of the four categories—if there's any doubt, choose `FILE`. `buf breaking` is feedback that your changes may break your program or others' programs. You always have the option of being less strict later.See the [rules](#rules) section below for details about individual rules and what categories they're in.
+Unlike lint rules, you shouldn't mix and exclude specific breaking change rules, although the checker allows it. Instead it's best to choose one of the four categories — if there's any doubt, choose `FILE`. `buf breaking` is feedback that your changes may break your program or others' programs. You always have the option of being less strict later.See the [rules](#rules) section below for details about individual rules and what categories they're in.
 
 ### `FILE` and `PACKAGE`
 
@@ -148,7 +148,7 @@ enum Foo {
 
 ### `ENUM_VALUE_NO_DELETE_UNLESS_NAME_RESERVED`
 
-**Category:** `WIRE_JSON`This checks that no enum value is deleted without reserving the name. This is the JSON equivalent of reserving the number—JSON uses field names instead of numbers (optional for enum fields, but allowed). Reserving both the number and the name is preferable in most cases. Here's an example:
+**Category:** `WIRE_JSON`This checks that no enum value is deleted without reserving the name. This is the JSON equivalent of reserving the number — JSON uses field names instead of numbers (optional for enum fields, but allowed). Reserving both the number and the name is preferable in most cases. Here's an example:
 
 ```protobuf
 enum Foo {
@@ -233,7 +233,7 @@ message Bar {
 
 ### `FIELD_NO_DELETE_UNLESS_NAME_RESERVED`
 
-**Category:** `WIRE_JSON`This checks that no message field is deleted without reserving the name. This is the JSON equivalent of reserving the number—JSON uses field names instead of numbers. Reserving both the number and the name is preferable in most cases:
+**Category:** `WIRE_JSON`This checks that no message field is deleted without reserving the name. This is the JSON equivalent of reserving the number — JSON uses field names instead of numbers. Reserving both the number and the name is preferable in most cases:
 
 ```protobuf
 message Bar {
@@ -538,7 +538,7 @@ message Bar {
 
 ### `RPC_NO_DELETE`
 
-**Categories:** `FILE`, `PACKAGE`This checks that no RPC is deleted from a service. Doing so isn't a wire-breaking change (although client calls fail if a server doesn't implement a given RPC)—however, existing source code may reference a given RPC. Instead of deleting an RPC, deprecate it.
+**Categories:** `FILE`, `PACKAGE`This checks that no RPC is deleted from a service. Doing so isn't a wire-breaking change (although client calls fail if a server doesn't implement a given RPC) — however, existing source code may reference a given RPC. Instead of deleting an RPC, deprecate it.
 
 ```protobuf
 service BazService {

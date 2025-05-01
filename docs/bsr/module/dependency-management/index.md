@@ -203,7 +203,7 @@ The Buf CLI and the BSR are equipped to keep your workflows secure from tamperin
 
 ### What does a tampering attack look like?
 
-Tampering means someone has made unauthorized changes in your dependencies—more exactly, in Protobuf schemas you depend upon. Imagine that your application depends on a BSR module that defines messages for moving money between two accounts. A nefarious actor could swap the values of which account is being debited and which is being credited. Making a payment becomes getting paid. And it's visually difficult to detect:
+Tampering means someone has made unauthorized changes in your dependencies — more exactly, in Protobuf schemas you depend upon. Imagine that your application depends on a BSR module that defines messages for moving money between two accounts. A nefarious actor could swap the values of which account is being debited and which is being credited. Making a payment becomes getting paid. And it's visually difficult to detect:
 
 ::: info money.proto
 

@@ -95,7 +95,7 @@ For more information about specific fields, see the [`buf.yaml`](../../configura
 
 ## Run lint
 
-Run `buf lint` on your workspace—it lints the `proto` directory since that's defined as the module path:
+Run `buf lint` on your workspace — it lints the `proto` directory since that's defined as the module path:
 
 ::: info cli/linting/start/
 
@@ -114,7 +114,7 @@ proto/acme/weather/v1/weather.proto:35:19:RPC request type "Location" should be 
 
 ## Fix lint errors
 
-Now that you know what needs to be fixed, you can go through your `.proto` file and fix them. Let's start with the package name—it should match the directory structure under which the schema lives (relative to the module root), so change the package declaration:
+Now that you know what needs to be fixed, you can go through your `.proto` file and fix them. Let's start with the package name — it should match the directory structure under which the schema lives (relative to the module root), so change the package declaration:
 
 ::: info cli/linting/start/proto/acme/weather/v1/weather.proto
 
@@ -127,15 +127,15 @@ syntax = "proto3";
 
 :::
 
-If you run `buf lint` again, the first two errors about the package no longer appear. You can work through the rest of the errors in a similar way—the messages provide specific suggestions to help you fix them.
+If you run `buf lint` again, the first two errors about the package no longer appear. You can work through the rest of the errors in a similar way — the messages provide specific suggestions to help you fix them.
 
-::: tip The changes the linter recommends are breaking changes for this package, which illustrates why it's best (if possible) to start linting when you first create your Protobuf files. It's not always possible, so we also provide a way to temporarily ignore rules when you first bring your `.proto` files into Buf—[see below](#step5).
+::: tip The changes the linter recommends are breaking changes for this package, which illustrates why it's best (if possible) to start linting when you first create your Protobuf files. It's not always possible, so we also provide a way to temporarily ignore rules when you first bring your `.proto` files into Buf — [see below](#step5).
 
 :::
 
 ## Customize lint configuration
 
-We recommend that you use the `STANDARD` category for linting—it represents what we consider to be best practice for Protobuf development. However, if your organization's style has other requirements, you can choose a different category or add and remove individual rules from your configuration.For example, if your org agrees with `STANDARD` rules but doesn't want to check for a suffix on service names, you can selectively ignore that rule in the configuration like this:
+We recommend that you use the `STANDARD` category for linting — it represents what we consider to be best practice for Protobuf development. However, if your organization's style has other requirements, you can choose a different category or add and remove individual rules from your configuration.For example, if your org agrees with `STANDARD` rules but doesn't want to check for a suffix on service names, you can selectively ignore that rule in the configuration like this:
 
 ::: info cli/linting/start/buf.yaml
 

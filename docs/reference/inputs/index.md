@@ -45,7 +45,7 @@ head:
 
 # Buf CLI inputs
 
-The various I/O options for the Buf CLI may seem a bit daunting—this reference aims to sort out both what these options do, and why they're necessary.In general, a Buf input is a collection of Protobuf files acted on by many of the Buf CLI commands. In most cases, the input is a [module](../../cli/modules-workspaces/), but a variety of other formats are supported and explained below.
+The various I/O options for the Buf CLI may seem a bit daunting — this reference aims to sort out both what these options do, and why they're necessary.In general, a Buf input is a collection of Protobuf files acted on by many of the Buf CLI commands. In most cases, the input is a [module](../../cli/modules-workspaces/), but a variety of other formats are supported and explained below.
 
 ::: tip By default, the Buf CLI uses the current directory as its input for all commands.
 
@@ -74,7 +74,7 @@ $ buf lint buf.build/acme/petapis
 
 ### Breaking change detection
 
-The biggest current use case is for [breaking change detection](../../breaking/overview/). When you are comparing your current Protobuf schema to an old version of your schema, you have to decide—where's your old version stored? The Buf CLI provides multiple options for this, including the ability to directly compile and compare against a Git branch or Git tag.It's sometimes preferable, however, to store a representation of your old version in a file. [Buf images](../images/) provide this functionality, allowing you to store your golden state, and then compare your current Protobuf schema against it. This includes support for partial comparisons, as well as storing the golden state in a remote location.For example:
+The biggest current use case is for [breaking change detection](../../breaking/overview/). When you are comparing your current Protobuf schema to an old version of your schema, you have to decide — where's your old version stored? The Buf CLI provides multiple options for this, including the ability to directly compile and compare against a Git branch or Git tag.It's sometimes preferable, however, to store a representation of your old version in a file. [Buf images](../images/) provide this functionality, allowing you to store your golden state, and then compare your current Protobuf schema against it. This includes support for partial comparisons, as well as storing the golden state in a remote location.For example:
 
 ```console
 $ buf build -o image.binpb

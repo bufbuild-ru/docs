@@ -247,7 +247,7 @@ When pushing to the BSR, the workspace is the unit being pushed, as long as all 
 
 ### Dependency management
 
-When resolving imports, Buf looks within the workspace first—if it finds the dependency locally, it resolves it there. Otherwise, it attempts to find it in the BSR based on the declarations in the `deps` field. This makes it easier to iterate on related modules at the same time before pushing to the BSR.In the workspace, imports are resolved relative to the root of the module being imported (the value of its `path` field), which is an assumed prefix for the import value. For example, using the same directory structure as above, assume that `proto/acme/weatherapi/v1/api.proto` imports both of the Protobuf files in the `vendor` module and `calculate.proto` from its own module. Its import statements would look like this:
+When resolving imports, Buf looks within the workspace first — if it finds the dependency locally, it resolves it there. Otherwise, it attempts to find it in the BSR based on the declarations in the `deps` field. This makes it easier to iterate on related modules at the same time before pushing to the BSR.In the workspace, imports are resolved relative to the root of the module being imported (the value of its `path` field), which is an assumed prefix for the import value. For example, using the same directory structure as above, assume that `proto/acme/weatherapi/v1/api.proto` imports both of the Protobuf files in the `vendor` module and `calculate.proto` from its own module. Its import statements would look like this:
 
 ::: info proto/acme/weatherapi/v1/api.proto
 

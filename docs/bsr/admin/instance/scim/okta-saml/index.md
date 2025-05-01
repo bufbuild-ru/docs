@@ -82,7 +82,7 @@ The steps below must be carried out by users with administrative privileges in y
       - Import Groups
     - **Authentication Mode**: `HTTP Header`
     - **Authorization**: enter the SCIM token you created earlier
-3.  Click **Test Connector Configuration**. You should see the following screen (an **X** shows for those you haven't checked—this is expected):![Okta SCIM connector success](../../../../../images/bsr/scim/test-connector-configuration-success.png)
+3.  Click **Test Connector Configuration**. You should see the following screen (an **X** shows for those you haven't checked — this is expected):![Okta SCIM connector success](../../../../../images/bsr/scim/test-connector-configuration-success.png)
 4.  Click **Save**.
 5.  Click the **To App** side tab.
 6.  Click **Edit** and enable the following options:

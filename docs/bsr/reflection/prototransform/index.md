@@ -97,7 +97,7 @@ converter := &prototransform.Converter{
 }
 ```
 
-To use the converter, you need the expected message type's fully qualified name. This can be data-driven—for example, producers of messages in a queue could add metadata to the queued item that contains the message type's name.Provide the message name and message contents in the configured input format (as `[]byte`), and the converter returns data in the configured output format:
+To use the converter, you need the expected message type's fully qualified name. This can be data-driven — for example, producers of messages in a queue could add metadata to the queued item that contains the message type's name.Provide the message name and message contents in the configured input format (as `[]byte`), and the converter returns data in the configured output format:
 
 ```go
 convertedData, err := converter.ConvertMessage(messageName, messageData)
@@ -105,7 +105,7 @@ convertedData, err := converter.ConvertMessage(messageName, messageData)
 
 ## Filters
 
-In addition to converting data formats, the converter can also be configured to apply custom mutations/transformations to the message.Let's say there's a custom option that's used to mark fields as sensitive (such as fields that contain secrets or PII—personally identifiable information):
+In addition to converting data formats, the converter can also be configured to apply custom mutations/transformations to the message.Let's say there's a custom option that's used to mark fields as sensitive (such as fields that contain secrets or PII — personally identifiable information):
 
 ```protobuf
 syntax = "proto3";

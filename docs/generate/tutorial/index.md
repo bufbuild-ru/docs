@@ -45,7 +45,7 @@ head:
 
 # Code generation quickstart
 
-The Buf CLI's `buf generate` command generates code from your Protobuf files. It uses a `buf.gen.yaml` configuration file to configure input, plugin, and output options, and is a direct replacement for code generation in `protoc`. It can accept many [input types](../../reference/inputs/)—for this tutorial, you'll use a single-module [workspace](../../cli/modules-workspaces/).The tutorial takes you through various ways to set up your generation, from fully local to managed mode.
+The Buf CLI's `buf generate` command generates code from your Protobuf files. It uses a `buf.gen.yaml` configuration file to configure input, plugin, and output options, and is a direct replacement for code generation in `protoc`. It can accept many [input types](../../reference/inputs/) — for this tutorial, you'll use a single-module [workspace](../../cli/modules-workspaces/).The tutorial takes you through various ways to set up your generation, from fully local to managed mode.
 
 ## Prerequisites
 

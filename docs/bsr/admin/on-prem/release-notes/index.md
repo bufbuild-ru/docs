@@ -118,7 +118,7 @@ head:
 
 **_Release date:_** 2025-01-21 | **_Database version:_** 322 | **_Minimum CLI version:_** v1.24.0
 
-::: tip A license is now required to operate the BSR—more details on setup can be found in the [installation guide](../installation/#4-configure-the-bsrs-helm-values).
+::: tip A license is now required to operate the BSR — more details on setup can be found in the [installation guide](../installation/#4-configure-the-bsrs-helm-values).
 
 :::
 
@@ -318,7 +318,7 @@ Expand to see previous releases
 
 **_Release date:_** 2023-12-05 | **_Database version:_** 241 | **_Minimum CLI version:_** v1.23.0
 
-- **Python support for [generated SDKs](../../../generated-sdks/python/):** Python engineers no longer need to manage a Protobuf toolchain or generate code locally—they can now download pre-packaged generated code for their Protobuf schemas from the BSR using package management tools like pip, Poetry, Conda, and others that support [PEP 503 - Simple Repository API](https://peps.python.org/pep-0503/).
+- **Python support for [generated SDKs](../../../generated-sdks/python/):** Python engineers no longer need to manage a Protobuf toolchain or generate code locally — they can now download pre-packaged generated code for their Protobuf schemas from the BSR using package management tools like pip, Poetry, Conda, and others that support [PEP 503 - Simple Repository API](https://peps.python.org/pep-0503/).
 - **[Governance workflow](/blog/review-governance-workflow/index.md):** The BSR now provides the ability to configure a customer SMTP server to send email messages for the governance workflow.
 - **Account Merging:** When a new SSO provider is configured, existing BSR users will automatically be migrated to the new provider based on email matching the next time they log in.
 - **SLO Dashboards:** The SLO alerting threshold for slow requests has been decreased from 250s to 75s, in an effort to be more responsive to slow requests. Additionally, the histogram buckets for HTTP metrics have been adjusted so they're now in parity with RPC metrics. Please upgrade by [importing the new files](../observability/#grafana-dashboards).

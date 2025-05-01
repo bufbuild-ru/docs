@@ -161,7 +161,7 @@ The login API was introduced in Swift 5.8. Please ensure your Swift toolchain ve
 
 ## Names and versions
 
-For SDK and product names, as well as available versions for a generated SDK, browse the BSR module's **SDKs** tab, which you can find at `https://{host}/{org}/{module}/sdks`. The BSR has special syntax for generated SDK names and product names—it's slightly different depending on which SDK you use.
+For SDK and product names, as well as available versions for a generated SDK, browse the BSR module's **SDKs** tab, which you can find at `https://{host}/{org}/{module}/sdks`. The BSR has special syntax for generated SDK names and product names — it's slightly different depending on which SDK you use.
 
 - _MODULE-OWNER_ is the owner of the module.
 - _MODULE-NAME_ is the name of the module.

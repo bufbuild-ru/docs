@@ -87,7 +87,7 @@ To add a member:
 
 ### Remove a member
 
-You may need to manually remove a member from a BSR organization—for example, if a user's credentials are compromised or they leave the company and you're not managing members via SAML or SSO. The organization must always have at least one `Owner`.To remove a member:
+You may need to manually remove a member from a BSR organization — for example, if a user's credentials are compromised or they leave the company and you're not managing members via SAML or SSO. The organization must always have at least one `Owner`.To remove a member:
 
 1.  Go to the organization's **Members** page at `https://buf.build/ORGANIZATION/members`
 2.  Click on the settings icon for the user and choose **Remove user**.

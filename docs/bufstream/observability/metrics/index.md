@@ -45,7 +45,7 @@ head:
 
 # Metrics
 
-Bufstream exposes metrics to monitor Kafka producers, consumers, topics, and the status of the Bufstream broker. It reports all metrics with a `cluster.name` attribute set by the Helm chart [cluster](../../reference/configuration/helm-values/#helm.values.cluster) attribute or the [cluster](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.BufstreamConfig.cluster) setting in the `bufstream.yaml` config file. We recommend setting this name to a unique value for each cluster—for example, `staging` for a pre-production cluster and `prod` for a production cluster.
+Bufstream exposes metrics to monitor Kafka producers, consumers, topics, and the status of the Bufstream broker. It reports all metrics with a `cluster.name` attribute set by the Helm chart [cluster](../../reference/configuration/helm-values/#helm.values.cluster) attribute or the [cluster](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.BufstreamConfig.cluster) setting in the `bufstream.yaml` config file. We recommend setting this name to a unique value for each cluster — for example, `staging` for a pre-production cluster and `prod` for a production cluster.
 
 ## Available metrics
 

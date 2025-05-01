@@ -55,7 +55,7 @@ The remote generation alpha included two features: remote plugin execution (now 
 
 ### Public plugins are now solely maintained by the Buf team
 
-In the alpha, public plugins could be uploaded by individual users with no verification. This caused a subpar experience for users who discovered plugins on their own, and also caused a security headache for some of our customers. All public remote plugins are now maintained and verified by the Buf team directly.To see all publicly available plugins, go to [buf.build/plugins](https://buf.build/plugins). We think we've covered the vast majority of use cases—however, if you find a useful plugin that should be added, please [file an issue](https://github.com/bufbuild/plugins/issues/new/choose)!
+In the alpha, public plugins could be uploaded by individual users with no verification. This caused a subpar experience for users who discovered plugins on their own, and also caused a security headache for some of our customers. All public remote plugins are now maintained and verified by the Buf team directly.To see all publicly available plugins, go to [buf.build/plugins](https://buf.build/plugins). We think we've covered the vast majority of use cases — however, if you find a useful plugin that should be added, please [file an issue](https://github.com/bufbuild/plugins/issues/new/choose)!
 
 ### Custom plugins available for Pro and Enterprise customers
 
@@ -85,7 +85,7 @@ The documentation for [generated SDKs](../../bsr/generated-sdks/overview/) (the 
 
 ### Templates removed
 
-Templates were a complex concept for users to understand when interacting with the BSR, so we removed them. Instead, you reference plugins directly by name (and plugins can depend on the output of other plugins). A list of publicly-available plugins can be found at [buf.build/plugins](https://buf.build/plugins). Note that not all plugins can be used with generated SDKs—check the individual plugin for more details.
+Templates were a complex concept for users to understand when interacting with the BSR, so we removed them. Instead, you reference plugins directly by name (and plugins can depend on the output of other plugins). A list of publicly-available plugins can be found at [buf.build/plugins](https://buf.build/plugins). Note that not all plugins can be used with generated SDKs — check the individual plugin for more details.
 
 ### Versioning
 

@@ -256,7 +256,7 @@ message GetWeatherRequest {
 
 ## Generating code
 
-Protovalidate doesn't introduce any new code generation plugins because its rules are compiled as part of your service and message descriptors—`buf generate` works without any changes.Run it to include your new rules in the `GetWeatherRequest` descriptor:
+Protovalidate doesn't introduce any new code generation plugins because its rules are compiled as part of your service and message descriptors — `buf generate` works without any changes.Run it to include your new rules in the `GetWeatherRequest` descriptor:
 
 ```console
 $ buf generate
@@ -333,7 +333,7 @@ All Protovalidate languages provide an idiomatic API for validating a Protobuf m
     $ go get github.com/bufbuild/protovalidate-go@v0.9.3
     ```
 
-3.  Run `weather/weather_test.go` with `go test`. It should fail—it expects invalid latitudes and longitudes to be rejected, but you haven't yet added any validation.
+3.  Run `weather/weather_test.go` with `go test`. It should fail — it expects invalid latitudes and longitudes to be rejected, but you haven't yet added any validation.
 
     ```console
     $ go test ./weather
@@ -401,7 +401,7 @@ All Protovalidate languages provide an idiomatic API for validating a Protobuf m
 
     :::
 
-3.  Run `WeatherTest` with `./gradlew test`. It should fail—it expects invalid latitudes and longitudes to be rejected, but you haven't yet added any validation.
+3.  Run `WeatherTest` with `./gradlew test`. It should fail — it expects invalid latitudes and longitudes to be rejected, but you haven't yet added any validation.
 
     ```text
     $ ./gradlew test
@@ -454,7 +454,7 @@ All Protovalidate languages provide an idiomatic API for validating a Protobuf m
     (venv) $ pip install -r requirements.txt --extra-index-url https://buf.build/gen/python
     ```
 
-3.  Run `weather_test.py`. It should fail—it expects invalid latitudes and longitudes to be rejected, but you haven't yet added any validation.
+3.  Run `weather_test.py`. It should fail — it expects invalid latitudes and longitudes to be rejected, but you haven't yet added any validation.
 
     ```console
     $ python3 -m unittest -v weather_test.py
@@ -556,7 +556,7 @@ For a deep dive into using Protovalidate for RPC APIs with executable tutorials,
 
 ### Validating Kafka messages
 
-In traditional Kafka, brokers are simple data pipes—they have no understanding of what data traverses them. Though this simplicity helped Kafka gain ubiquity, most data sent through Kafka topics is structured and should follow a schema.Using [Bufstream](../../bufstream/)—the Kafka-compatible message queue built for the data lakehouse era—you can add Protovalidate rule enforcement to broker-side schema awareness. With a Bufstream broker already using the [Buf Schema Registry's Confluent Schema Registry support](../../bsr/csr/overview/), enabling Protovalidate is a two-line configuration change within `data_enforcement`:
+In traditional Kafka, brokers are simple data pipes — they have no understanding of what data traverses them. Though this simplicity helped Kafka gain ubiquity, most data sent through Kafka topics is structured and should follow a schema.Using [Bufstream](../../bufstream/) — the Kafka-compatible message queue built for the data lakehouse era — you can add Protovalidate rule enforcement to broker-side schema awareness. With a Bufstream broker already using the [Buf Schema Registry's Confluent Schema Registry support](../../bsr/csr/overview/), enabling Protovalidate is a two-line configuration change within `data_enforcement`:
 
 ::: info Bufstream Configuration YAML
 

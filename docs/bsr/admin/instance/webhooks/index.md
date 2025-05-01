@@ -47,7 +47,7 @@ head:
 
 This feature is only available on the Pro and Enterprise plans.
 
-Private BSR instances offer webhooks to notify your backend services when a specific event of interest happens. This allows you to build integrations triggering further actions—for example:
+Private BSR instances offer webhooks to notify your backend services when a specific event of interest happens. This allows you to build integrations triggering further actions — for example:
 
 - Run a CI/CD pipeline to run appropriate downstream builds, tests, deployments
 - Notify interested parties to inform them of any changes to `.proto` files or versions
@@ -205,7 +205,7 @@ func main() {
 
 ## Webhooks without Connect
 
-Connect isn't required for communicating with the webhooks service—because the BSR is also written with Connect handlers, you can make the same calls using curl with JSON.
+Connect isn't required for communicating with the webhooks service — because the BSR is also written with Connect handlers, you can make the same calls using curl with JSON.
 
 ### Prepare to receive webhooks
 

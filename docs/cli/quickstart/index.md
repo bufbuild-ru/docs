@@ -194,7 +194,7 @@ $ buf generate
 
 :::
 
-If successful, you'll notice a few new files in the `gen` directory—they're your generated code stubs:
+If successful, you'll notice a few new files in the `gen` directory — they're your generated code stubs:
 
 ```text
 .
@@ -218,7 +218,7 @@ If successful, you'll notice a few new files in the `gen` directory—they're yo
 └── buf.yaml
 ```
 
-That's how easy it is to generate code using the Buf CLI. There's no need to build up a set of complicated `protoc` commands—your entire configuration is contained within the `buf.gen.yaml` file.
+That's how easy it is to generate code using the Buf CLI. There's no need to build up a set of complicated `protoc` commands — your entire configuration is contained within the `buf.gen.yaml` file.
 
 ## Lint your API
 

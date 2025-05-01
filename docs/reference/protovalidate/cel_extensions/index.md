@@ -95,7 +95,7 @@ Protovalidate adds the following extensions functions to [CEL's `string`](https:
 
 ### isHostAndPort
 
-`string.isHostAndPort(bool) -> bool`Test whether the string is a valid host/port pair. The single `bool` argument is required, and if it's true, the port is also required—otherwise, the port is optional.
+`string.isHostAndPort(bool) -> bool`Test whether the string is a valid host/port pair. The single `bool` argument is required, and if it's true, the port is also required — otherwise, the port is optional.
 
 ### isHostname
 

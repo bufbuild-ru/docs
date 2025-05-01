@@ -57,7 +57,7 @@ The BSR allows 10 unauthenticated code generation requests per hour, with a burs
 
 ## How to authenticate
 
-If you don't have a BSR account, you can [sign up](https://buf.build/signup)—it's free. Remote plugins are free as well. If you already have an account, do the following:
+If you don't have a BSR account, you can [sign up](https://buf.build/signup) — it's free. Remote plugins are free as well. If you already have an account, do the following:
 
 - **Locally:** Run `buf registry login` and follow the instructions.
 - **In CI:** Create a [BSR token](https://buf.build/settings/user) and set it as a secret environment variable named `BUF_TOKEN`.

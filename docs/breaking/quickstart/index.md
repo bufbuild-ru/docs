@@ -45,7 +45,7 @@ head:
 
 # Breaking change detection quickstart
 
-As you evolve your Protobuf schemas, you might introduce breaking changes—either by breaking your generated code, or by breaking your ability to read existing data. Protobuf has many ways to evolve schemas without breaking existing code, but sometimes it's a better choice to make a breaking change rather than go to the extra effort of backwards compatibility. If you have few clients and can easily update and deploy them, it may be perfectly okay to break your schemas. Buf's breaking change detection reliably and mechanically identifies breaking changes so you and your team can focus on the important human decision of whether to allow them or not.This quickstart takes you through running breaking change detection locally using common use cases. Read the [overview](../overview/#key-concepts) to learn about editor integration, policy checks, and the review flow.
+As you evolve your Protobuf schemas, you might introduce breaking changes — either by breaking your generated code, or by breaking your ability to read existing data. Protobuf has many ways to evolve schemas without breaking existing code, but sometimes it's a better choice to make a breaking change rather than go to the extra effort of backwards compatibility. If you have few clients and can easily update and deploy them, it may be perfectly okay to break your schemas. Buf's breaking change detection reliably and mechanically identifies breaking changes so you and your team can focus on the important human decision of whether to allow them or not.This quickstart takes you through running breaking change detection locally using common use cases. Read the [overview](../overview/#key-concepts) to learn about editor integration, policy checks, and the review flow.
 
 ## Prerequisites
 
@@ -190,7 +190,7 @@ Revert the change.
 
 ## Compare against a remote Git repository
 
-If your `.proto` files aren't in the BSR yet, usually you'd compare against your remote Git repository instead, since that represents the latest version of your code. That's a straightforward change to the `--against` target, so we'll also explore what happens when you change the configuration to a different [rule set](../rules/)—from `FILE` to `PACKAGE`. `PACKAGE` allows elements to move within a package, unlike `FILE`, which is stricter.First, move the `PetType` enum to a new `pet_type.proto` file.
+If your `.proto` files aren't in the BSR yet, usually you'd compare against your remote Git repository instead, since that represents the latest version of your code. That's a straightforward change to the `--against` target, so we'll also explore what happens when you change the configuration to a different [rule set](../rules/) — from `FILE` to `PACKAGE`. `PACKAGE` allows elements to move within a package, unlike `FILE`, which is stricter.First, move the `PetType` enum to a new `pet_type.proto` file.
 
 ::: info cli/breaking-change-detection/start/
 

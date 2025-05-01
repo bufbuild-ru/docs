@@ -47,10 +47,10 @@ head:
 
 This feature is only available on the Enterprise plan.
 
-The Buf Schema Registry (BSR) includes a Protobuf-first implementation of the Confluent Schema Registry ([CSR](https://docs.confluent.io/platform/current/schema-registry/index.html)) APIs. It's designed to strengthen your streaming data quality where it helps the most—at build time, and at the source of truth for your schemas. Because the BSR implements the entirety of the CSR API, you can take advantage of the Confluent ecosystem, including stream processing systems like kSQL and Kafka Connect, without the risk of runtime errors.
+The Buf Schema Registry (BSR) includes a Protobuf-first implementation of the Confluent Schema Registry ([CSR](https://docs.confluent.io/platform/current/schema-registry/index.html)) APIs. It's designed to strengthen your streaming data quality where it helps the most — at build time, and at the source of truth for your schemas. Because the BSR implements the entirety of the CSR API, you can take advantage of the Confluent ecosystem, including stream processing systems like kSQL and Kafka Connect, without the risk of runtime errors.
 
 - Creating a CSR instance is a 1-step process, and instances can be easily managed by your BSR admins.
-- The BSR maps Confluent subjects to messages in your schema with straightforward annotations—no migration or conversion to other schema formats required. It brings the breadth and power of the Confluent ecosystem into your existing BSR workflow.
+- The BSR maps Confluent subjects to messages in your schema with straightforward annotations — no migration or conversion to other schema formats required. It brings the breadth and power of the Confluent ecosystem into your existing BSR workflow.
 - In addition to other breaking change checks, the BSR checks schemas for [backwards compatibility](#compatibility) with CSR subjects when publishing to the BSR, ensuring that only safe and approved changes flow downstream.
 - The CSR integration works with any Confluent-compatible Kafka client, downstream systems like kSQL and Kafka Connect, and management tools like AKHQ, making all the capabilities of the Confluent ecosystem available to your organization.
 
@@ -149,7 +149,7 @@ All Confluent subjects start with the compatibility mode of the [CSR instance](.
 - If the reviewer rejects the commit, the BSR blocks the breaking change and the subject's compatibility mode remains `BACKWARD_TRANSITIVE`. The commit must be reverted or fixed for any new schema change to be available to the CSR or other downstream systems.
 - If the reviewer approves the commit, they must choose a new compatibility mode for each affected CSR subject to deal with the breaking change:
   - `BACKWARD`: **Default and recommended.** Enforces the schema's backwards compatibility against the latest BSR version on the default label. This _may_ break both existing producers using old versions of that subject's schemas, and existing consumers in general.
-  - `NONE`: No compatibility checks are performed on the schema. This won't break producers, but _may_ break consumers as bad data can enter the pipeline. This setting is only useful if you're actively developing a schema, expect a lot of breaking changes, and don't want this check to block them—ideally you have no consumers yet at that point.
+  - `NONE`: No compatibility checks are performed on the schema. This won't break producers, but _may_ break consumers as bad data can enter the pipeline. This setting is only useful if you're actively developing a schema, expect a lot of breaking changes, and don't want this check to block them — ideally you have no consumers yet at that point.
 
 Once approved, the BSR publishes a one-time update for the affected subjects without doing compatibility checks and sets their mode to the reviewer's selection. Future pushes to the subjects apply compatibility checks based on their new mode. A CSR subject that has had a breaking change approved can never return to the `BACKWARD_TRANSITIVE` mode.
 

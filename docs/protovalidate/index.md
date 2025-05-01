@@ -142,7 +142,7 @@ if (results.violations_size() > 0) {
 
 ## Motivations
 
-Even in a traditional monolith—a simple API with a browser-based frontend—validation logic is commonly repeated on the client and server. As monoliths are decomposed into microservices, publishers, consumers, and data pipelines, each passing messages to and from one another, it's increasingly difficult to ensure validation logic remains consistent.For example, a request to rebook a hypothetical canceled flight reservation may:
+Even in a traditional monolith — a simple API with a browser-based frontend — validation logic is commonly repeated on the client and server. As monoliths are decomposed into microservices, publishers, consumers, and data pipelines, each passing messages to and from one another, it's increasingly difficult to ensure validation logic remains consistent.For example, a request to rebook a hypothetical canceled flight reservation may:
 
 1.  Originate from a mobile application.
 2.  Be received by a monolithic API.
@@ -152,7 +152,7 @@ Even in a traditional monolith—a simple API with a browser-based frontend—va
 Traditionally, developers validate input at each step in this process: is the passenger locator for the flight a five-character alphanumeric string? Is the departure time within a given time window?Inevitably, validation inconsistencies cause hard-to-trace errors:
 
 - One language's validation framework may consider a space character an empty string; another might not.
-- Inclusion inconsistencies—"less than" vs. "less than or equals"—create hard-to-recreate, intermittent errors.
+- Inclusion inconsistencies — "less than" vs. "less than or equals" — create hard-to-recreate, intermittent errors.
 - Different teams may interpret requirements as slightly inconsistent regular expressions.
 
 Protovalidate addresses these problems through schema-first development, lifting validation logic out of languages and into Protobuf schemas.

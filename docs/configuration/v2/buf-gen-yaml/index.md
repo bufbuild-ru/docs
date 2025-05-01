@@ -259,9 +259,9 @@ inputs:
   - tarball: a/b/x.tar.gz
   # Tarball with 'compression', 'strip_components', and 'subdir' keys set explicitly.
   # - 'strip_components=<int>' reads at the relative path and strips some number of
-  #    components—in this example, 2.
+  #    components — in this example, 2.
   # - 'subdir=<string>' reads at the relative path and uses the subdirectory specified
-  #    within the archive as the base directory—in this case, 'proto'.
+  #    within the archive as the base directory — in this case, 'proto'.
   - tarball: c/d/x.tar.zst
     compression: zstd
     strip_components: 2
@@ -414,11 +414,11 @@ plugins:
 
 ### `include_imports`
 
-**Optional.** Generates all imports except for Well-Known Types. This setting works the same as the `--include-imports` flag on `buf generate`—if they conflict with each other, the flag gets precedence.
+**Optional.** Generates all imports except for Well-Known Types. This setting works the same as the `--include-imports` flag on `buf generate` — if they conflict with each other, the flag gets precedence.
 
 ### `include_wkt`
 
-**Optional.** Generates Well-Known Types. Can't be set without `--include-imports`. This setting works the same as the `--include-wkt` flag on `buf generate`—if they conflict with each other, the flag gets precedence.
+**Optional.** Generates Well-Known Types. Can't be set without `--include-imports`. This setting works the same as the `--include-wkt` flag on `buf generate` — if they conflict with each other, the flag gets precedence.
 
 ### `types`
 

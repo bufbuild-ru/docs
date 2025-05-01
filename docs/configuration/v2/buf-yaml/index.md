@@ -49,7 +49,7 @@ head:
 
 :::
 
-See the [v1 to v2 migration guide](../../../migration-guides/migrate-v2-config-files/) for migration instructions or the [v1 reference](../../v1/buf-yaml/) if you're still using `v1` configuration files.The `buf.yaml` file defines a [workspace](../../../cli/modules-workspaces/), which represents a directory or directories of Protobuf files that you want to treat as a unit. The set consists of one or more packages—see [Files and packages](../../../reference/protobuf-files-and-packages/) for more details about these relationships and how to structure your files.The `buf.yaml` config file and field definitions below explain usage for each field. See the [lint](../../../lint/overview/#defaults-and-configuration) and [breaking change detection](../../../breaking/overview/#defaults-and-configuration) overviews for default configurations for those features.The annotated `buf.yaml` file below assumes a directory structure like this:
+See the [v1 to v2 migration guide](../../../migration-guides/migrate-v2-config-files/) for migration instructions or the [v1 reference](../../v1/buf-yaml/) if you're still using `v1` configuration files.The `buf.yaml` file defines a [workspace](../../../cli/modules-workspaces/), which represents a directory or directories of Protobuf files that you want to treat as a unit. The set consists of one or more packages — see [Files and packages](../../../reference/protobuf-files-and-packages/) for more details about these relationships and how to structure your files.The `buf.yaml` config file and field definitions below explain usage for each field. See the [lint](../../../lint/overview/#defaults-and-configuration) and [breaking change detection](../../../breaking/overview/#defaults-and-configuration) overviews for default configurations for those features.The annotated `buf.yaml` file below assumes a directory structure like this:
 
 ```text
 workspace_root
@@ -205,7 +205,7 @@ Warning**We don't recommend using this option**, but in some situations it's una
 
 **Optional.** Declares one or more modules that your workspace depends on. Dependencies are shared between all modules in the workspace. Buf tooling already accounts for dependencies between the modules that are part of the set, so they shouldn't be declared here.The value must be a valid path to a BSR module (either the public BSR at `buf.build` or a private BSR instance). It can't be a local Git reference to a `buf.yaml` file or a URL path to a Git repo. This means that if you have a module you want to use as a dependency, it must also be pushed to the BSR.The path can also include a specific reference, which is either a [commit or a label](../../../bsr/commits-labels/).
 
-::: tip Depending on specific module references is an advanced feature—you should depend on the latest commit whenever possible. Your `deps` don't need to include the `:<reference>` suffix in most cases.
+::: tip Depending on specific module references is an advanced feature — you should depend on the latest commit whenever possible. Your `deps` don't need to include the `:<reference>` suffix in most cases.
 
 :::
 
@@ -313,7 +313,7 @@ If this option is unset, the linter ignores the specified rule for any comment t
 
 ### `enum_zero_value_suffix`
 
-**Optional.** Controls the behavior of the `ENUM_ZERO_VALUE_SUFFIX` lint rule. By default, this rule verifies that the zero value of all enums ends in `_UNSPECIFIED`, as recommended by the [Google Protobuf Style Guide](https://protobuf.dev/programming-guides/style/#enums). However, organizations can choose a different preferred suffix—for example, `_NONE`. To set it, provide the desired value:
+**Optional.** Controls the behavior of the `ENUM_ZERO_VALUE_SUFFIX` lint rule. By default, this rule verifies that the zero value of all enums ends in `_UNSPECIFIED`, as recommended by the [Google Protobuf Style Guide](https://protobuf.dev/programming-guides/style/#enums). However, organizations can choose a different preferred suffix — for example, `_NONE`. To set it, provide the desired value:
 
 ::: info buf.yaml – Change default suffix
 
@@ -347,7 +347,7 @@ enum Foo {
 
 ### `service_suffix`
 
-**Optional.** Controls the behavior of the `SERVICE_SUFFIX` lint rule. By default, this rule verifies that all service names are suffixed with `Service`. However, organizations can choose a different preferred suffix—for example, `API`. To set that:
+**Optional.** Controls the behavior of the `SERVICE_SUFFIX` lint rule. By default, this rule verifies that all service names are suffixed with `Service`. However, organizations can choose a different preferred suffix — for example, `API`. To set that:
 
 ::: info buf.yaml – Change suffix to 'API'
 

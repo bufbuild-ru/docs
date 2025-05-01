@@ -73,7 +73,7 @@ The steps below must be carried out by an Okta administrator for your organizati
 2.  Set **Audience URI (SP Entity ID)** to `https://buf.example.com`.
 3.  For **Name ID format** and **Application username**, select `EmailAddress` and `Email`, respectively.
 
-Buf provisions users Just-in-Time based on the email address—**make sure you've configured the Name ID correctly**.![ Okta SAML configuration](../../../../../images/bsr/sso/okta-saml.png)We recommend keeping the Okta defaults under **Advanced Settings**. However, if your organization has additional requirements, such as Single Logout (SLO) or adding Assertion Encryption, contact [Support](https://support.buf.build) or your Buf representative.
+Buf provisions users Just-in-Time based on the email address — **make sure you've configured the Name ID correctly**.![ Okta SAML configuration](../../../../../images/bsr/sso/okta-saml.png)We recommend keeping the Okta defaults under **Advanced Settings**. However, if your organization has additional requirements, such as Single Logout (SLO) or adding Assertion Encryption, contact [Support](https://support.buf.build) or your Buf representative.
 
 ### Get metadata URL
 

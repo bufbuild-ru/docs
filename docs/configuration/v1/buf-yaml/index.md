@@ -113,7 +113,7 @@ deps:
 
 :::
 
-::: tip Depending on specific references is an advanced feature—you should depend on the latest commit whenever possible. In other words, your `deps` don't need to include the `:<reference>` suffix in most cases.
+::: tip Depending on specific references is an advanced feature — you should depend on the latest commit whenever possible. In other words, your `deps` don't need to include the `:<reference>` suffix in most cases.
 
 :::
 
@@ -241,7 +241,7 @@ If this option is unset or `false`, any such comments are ignored. See the [lint
 
 #### `enum_zero_value_suffix`
 
-**Optional.** Controls the behavior of the `ENUM_ZERO_VALUE_SUFFIX` lint rule. By default, this rule verifies that the zero value of all enums ends in `_UNSPECIFIED`, as recommended by the [Google Protobuf Style Guide](https://protobuf.dev/programming-guides/style/#enums). However, organizations can choose a different preferred suffix—for example, `_NONE`. To set that:
+**Optional.** Controls the behavior of the `ENUM_ZERO_VALUE_SUFFIX` lint rule. By default, this rule verifies that the zero value of all enums ends in `_UNSPECIFIED`, as recommended by the [Google Protobuf Style Guide](https://protobuf.dev/programming-guides/style/#enums). However, organizations can choose a different preferred suffix — for example, `_NONE`. To set that:
 
 ::: info buf.yaml
 
@@ -275,7 +275,7 @@ enum Foo {
 
 #### `service_suffix`
 
-**Optional.** Controls the behavior of the `SERVICE_SUFFIX` lint rule. By default, this rule verifies that all service names are suffixed with `Service`. However, organizations can choose a different preferred suffix—for example, `API`. To set that:
+**Optional.** Controls the behavior of the `SERVICE_SUFFIX` lint rule. By default, this rule verifies that all service names are suffixed with `Service`. However, organizations can choose a different preferred suffix — for example, `API`. To set that:
 
 ::: info buf.yaml
 

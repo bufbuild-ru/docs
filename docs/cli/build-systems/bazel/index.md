@@ -357,7 +357,7 @@ Now run Gazelle:
 $ bazel run //:gazelle
 ```
 
-This takes care of updating your Protobuf build files—just run `//:gazelle` whenever Protobuf files are added/removed.
+This takes care of updating your Protobuf build files — just run `//:gazelle` whenever Protobuf files are added/removed.
 
 ### Dependencies
 

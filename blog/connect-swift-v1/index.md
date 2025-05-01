@@ -38,7 +38,7 @@ hero:
   tagline: "November 11, 2024"
 ---
 
-We’re excited to share that [Connect-Swift](https://github.com/connectrpc/connect-swift) has officially reached v1.0—its first stable release! With this milestone, the library’s battle-tested APIs will remain stable until its next major release. Projects can rely on Connect-Swift without worrying that future releases will cause breakages or require migrations.
+We’re excited to share that [Connect-Swift](https://github.com/connectrpc/connect-swift) has officially reached v1.0 — its first stable release! With this milestone, the library’s battle-tested APIs will remain stable until its next major release. Projects can rely on Connect-Swift without worrying that future releases will cause breakages or require migrations.
 
 ## Changes on the path to 1.0
 
@@ -58,7 +58,7 @@ It’s important to choose the right tools when designing and building APIs, as 
 - **Flexibility.** Connect-Swift uses `URLSession` by default. The library provides the option to swap this out with `SwiftNIO`, as well as the ability to register custom options, compression algorithms, and interceptors.
 - **Multi-protocol support.** The library’s runtime supports the gRPC, gRPC-Web, and Connect RPC protocols, and switching between them is a simple one-line configuration change.
 - **Binary Size.** The Connect-Swift library is small (less than 200KB) and doesn't require any third-party networking dependencies.
-- **Governance.** Connect is part of the Cloud Native Computing Foundation, so its direction is determined by the community—not by a single corporate entity.
+- **Governance.** Connect is part of the Cloud Native Computing Foundation, so its direction is determined by the community — not by a single corporate entity.
 
 ## Thank you to our contributors and users
 

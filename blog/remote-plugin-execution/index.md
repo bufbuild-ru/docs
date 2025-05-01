@@ -46,7 +46,7 @@ First, let's go over some of the basics of [Protobuf plugins](/docs/migration-gu
 
 ### Using plugins
 
-Protobuf's original [protoc](https://github.com/protocolbuffers/protobuf#protocol-compiler-installation) compiler provides some built-in plugins but you need to install any other plugins you need as executables in your environment. So if you needed to generate C++, Java, Python, Go, and Rust code from a Protobuf source, for example, three of those plugins are built into the compiler—C++, Java, and Python—but you'd need to install Go and Rust plugins on your own ([`protoc-gen-go`](https://pkg.go.dev/github.com/golang/protobuf/protoc-gen-go) and [`protoc-gen-rust`](https://crates.io/crates/protobuf-codegen) are widely used options).
+Protobuf's original [protoc](https://github.com/protocolbuffers/protobuf#protocol-compiler-installation) compiler provides some built-in plugins but you need to install any other plugins you need as executables in your environment. So if you needed to generate C++, Java, Python, Go, and Rust code from a Protobuf source, for example, three of those plugins are built into the compiler — C++, Java, and Python — but you'd need to install Go and Rust plugins on your own ([`protoc-gen-go`](https://pkg.go.dev/github.com/golang/protobuf/protoc-gen-go) and [`protoc-gen-rust`](https://crates.io/crates/protobuf-codegen) are widely used options).
 
 With the Go and Rust plugins installed, you could generate code stubs using a command like this:
 
@@ -92,11 +92,11 @@ As you can see, the `buf` CLI is a major improvement over protoc, which you no l
 
 One half-solution is to either manage those executables yourself or rely on custom tooling, which frequently leads to those classic "works on my machine" reproducibility problems where you need to hunt down subtle differences in plugin versions used in different environments.
 
-The difficulty of managing this complex web of compiler and plugin versions—just to make code stub generation work—has been a major barrier to Protobuf adoption. At Buf, we decided to fix this once and for all by removing the need for local plugins entirely.
+The difficulty of managing this complex web of compiler and plugin versions — just to make code stub generation work — has been a major barrier to Protobuf adoption. At Buf, we decided to fix this once and for all by removing the need for local plugins entirely.
 
 ## Remote plugin execution
 
-With remote plugin execution, you can publish Protobuf plugins to the BSR and then execute those plugins on a trusted server—the BSR itself—rather than on your local machine.
+With remote plugin execution, you can publish Protobuf plugins to the BSR and then execute those plugins on a trusted server — the BSR itself — rather than on your local machine.
 
 [Authoring](/docs/migration-guides/migrate-remote-generation-alpha/index.md) a plugin involves two steps: building the plugin as a Docker image and pushing the image to `plugins.buf.build`. Once your plugin has been pushed, you need to make one change to your [`buf.gen.yaml`](/docs/configuration/v1/buf-gen-yaml/index.md) configuration file to use it:
 
@@ -121,7 +121,7 @@ This diagram illustrates that process:
 
 ## Why it matters
 
-The Buf team has developed processes to automatically sync and publish all of [protoc](https://github.com/protocolbuffers/protobuf#protocol-compiler-installation)'s built-in plugins to the BSR under the [`buf.build/protocolbuffers`](https://buf.build/protocolbuffers/plugins) organization. This means that you can remove any and all plugin executables from your environment—local, [CI/CD](/docs/bsr/ci-cd/setup/index.md), whatever—and rely solely on remote plugins.
+The Buf team has developed processes to automatically sync and publish all of [protoc](https://github.com/protocolbuffers/protobuf#protocol-compiler-installation)'s built-in plugins to the BSR under the [`buf.build/protocolbuffers`](https://buf.build/protocolbuffers/plugins) organization. This means that you can remove any and all plugin executables from your environment — local, [CI/CD](/docs/bsr/ci-cd/setup/index.md), whatever — and rely solely on remote plugins.
 
 These protoc built-in plugins are hosted on the BSR:
 

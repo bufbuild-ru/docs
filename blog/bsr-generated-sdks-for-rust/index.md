@@ -48,9 +48,9 @@ To date, [our other integrations](/docs/bsr/generated-sdks/overview/index.md) ha
 
 A challenge we encountered with Rust is that Cargo’s index pages [require a checksum](https://doc.rust-lang.org/cargo/reference/registry-index.html#json-schema) to exist for all crate versions, meaning that to populate an index version, we’d need to have already created the `.crate` file and hashed it. We wanted to be able to generate an SDK for any combination of module commit and plugin version, but we wanted to avoid needing to pre-generate all possible combinations (which is what we would need to do to precompute all the necessary checksums) because most combinations would never be used.
 
-To balance Cargo’s requirement for a checksum with our desire to not generate everything up front, the Buf Schema Registry only pre-generates SDKs for module commit and plugin version combinations that we have evidence a consumer is interested in. On the initial request of a crate index page (typically triggered by a `cargo add`, which you can find on the SDKs tab of your repository), we register interest in that repository, causing new pushes to the default label to automatically enqueue for generation. (And generation is fast—you’ll never notice a significant lag between a push and the version available in the index.)
+To balance Cargo’s requirement for a checksum with our desire to not generate everything up front, the Buf Schema Registry only pre-generates SDKs for module commit and plugin version combinations that we have evidence a consumer is interested in. On the initial request of a crate index page (typically triggered by a `cargo add`, which you can find on the SDKs tab of your repository), we register interest in that repository, causing new pushes to the default label to automatically enqueue for generation. (And generation is fast — you’ll never notice a significant lag between a push and the version available in the index.)
 
-Additionally, by navigating to labels and commits in your repository, generation is queued for those commits and labels (and future commits to the same labels), ensuring your selected version is available in the crate index. All of this is explained in [our Cargo docs](/docs/bsr/generated-sdks/cargo/index.md)—let us know if anything isn’t clear.
+Additionally, by navigating to labels and commits in your repository, generation is queued for those commits and labels (and future commits to the same labels), ensuring your selected version is available in the crate index. All of this is explained in [our Cargo docs](/docs/bsr/generated-sdks/cargo/index.md) — let us know if anything isn’t clear.
 
 ## Example usage
 
@@ -130,6 +130,6 @@ $ date -r 1622148241
 Thu May 27 16:44:01 EDT 2021
 ```
 
-This is our initial foray into the Rust world—we welcome your feedback, so get in touch on our [Slack channel](https://buf.build/b/slack) or shoot us an email at [feedback@buf.build](mailto:feedback@buf.build) with questions and suggestions!
+This is our initial foray into the Rust world — we welcome your feedback, so get in touch on our [Slack channel](https://buf.build/b/slack) or shoot us an email at [feedback@buf.build](mailto:feedback@buf.build) with questions and suggestions!
 
 ‍

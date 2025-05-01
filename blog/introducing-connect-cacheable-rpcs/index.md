@@ -58,7 +58,7 @@ service PetStore {
 }
 ```
 
-With this annotation, when `buf generate` is invoked with connect-go 1.7 or newer, Connect servers will automatically support HTTP `GET` requests—no other code modifications are needed.
+With this annotation, when `buf generate` is invoked with connect-go 1.7 or newer, Connect servers will automatically support HTTP `GET` requests — no other code modifications are needed.
 
 On the client side, we need to instruct the Connect client to use `GET` requests. In connect-go, this is done by specifying the `WithHTTPGet()` option when creating a client:
 
@@ -87,7 +87,7 @@ Now that we’ve discussed _how_ to use `GET` requests, let’s discuss _why_ on
 
 ## Better gRPC interoperability with Envoy
 
-Connect clients generally support communicating with vanilla gRPC and gRPC-web servers, but doing so prevents one from taking advantage of features unique to the Connect protocol. Users of the Envoy proxy will be pleased to know that Envoy 1.26 now ships with a [Connect-gRPC bridge](https://www.envoyproxy.io/docs/envoy/v1.26.0/configuration/http/http_filters/connect_grpc_bridge_filter#config-http-filters-connect-grpc-bridge) that allows clients to speak the Connect protocol (including `GET` requests) to existing gRPC servers. This filter can be used without modifying any existing code. In addition, it doesn’t require configuration, gRPC reflection, or access to the underlying schema. That means it doesn’t need to be re-deployed when the underlying service changes, either—just set it and forget it!
+Connect clients generally support communicating with vanilla gRPC and gRPC-web servers, but doing so prevents one from taking advantage of features unique to the Connect protocol. Users of the Envoy proxy will be pleased to know that Envoy 1.26 now ships with a [Connect-gRPC bridge](https://www.envoyproxy.io/docs/envoy/v1.26.0/configuration/http/http_filters/connect_grpc_bridge_filter#config-http-filters-connect-grpc-bridge) that allows clients to speak the Connect protocol (including `GET` requests) to existing gRPC servers. This filter can be used without modifying any existing code. In addition, it doesn’t require configuration, gRPC reflection, or access to the underlying schema. That means it doesn’t need to be re-deployed when the underlying service changes, either — just set it and forget it!
 
 To showcase this new capability, [we created a demo](https://github.com/connectrpc/envoy-demo) showing how to use gRPC-Go with Envoy 1.26 to make `GET` requests directly to a vanilla gRPC service.
 

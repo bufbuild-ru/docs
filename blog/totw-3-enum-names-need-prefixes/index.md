@@ -38,7 +38,7 @@ hero:
   tagline: "April 22, 2025"
 ---
 
-> _Smart people learn from their mistakes. But the real sharp ones learn from the mistakes of others. —Brandon Mull_
+> _Smart people learn from their mistakes. But the real sharp ones learn from the mistakes of others. — Brandon Mull_
 
 TL;DR: `enum`s inherit some unfortunate behaviors from C++. Use the Buf lint rules [`ENUM_VALUE_PREFIX`](/docs/lint/rules/index.md#enum_value_prefix) and [`ENUM_ZERO_VALUE_SUFFIX`](/docs/lint/rules/index.md#enum_zero_value_suffix)  to avoid this problem (they’re part of the `DEFAULT` category).
 
@@ -151,7 +151,7 @@ Buf provides a lint rule to enforce this convention: [`ENUM_VALUE_PREFIX`](/docs
 
 ## Zero values
 
-`proto3` relies heavily on the concept of “zero values”—all non-message fields that are neither `repeated` nor `optional` are implicitly zero if they are not present. Thus, `proto3` requires that enums specify a value equal to zero.
+`proto3` relies heavily on the concept of “zero values” — all non-message fields that are neither `repeated` nor `optional` are implicitly zero if they are not present. Thus, `proto3` requires that enums specify a value equal to zero.
 
 By convention, this value shouldn’t be a specific value of the enum, but rather a value representing that no value is specified. [`ENUM_ZERO_VALUE_SUFFIX`](/docs/lint/rules/index.md#enum_zero_value_suffix) enforces this, with a default of `_UNSPECIFIED`. Of course, there are situations where this might not make sense for you, and a suffix like `_ZERO` or `_UNKNOWN` might make more sense.
 

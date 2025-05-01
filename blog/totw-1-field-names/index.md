@@ -38,7 +38,7 @@ hero:
   tagline: "April 8, 2025"
 ---
 
-> _I wake up every morning and grab the morning paper. Then I look at the obituary page. If my name is not on it, I get up. —Ben Franklin_
+> _I wake up every morning and grab the morning paper. Then I look at the obituary page. If my name is not on it, I get up. — Ben Franklin_
 
 TL;DR: Don’t rename fields. Even though there are a slim number of cases where you can get away with it, it’s rarely worth doing, and is a potential source of bugs.
 
@@ -70,11 +70,11 @@ Wire format serialization doesn’t look at names, but JSON does! This means tha
 
 This can be partially mitigated by using the `[json_name = "..."]` option on a field. However, this doesn’t actually work, because many Protobuf runtimes’ JSON codecs will accept both the name set in `json_name`, _and_ the specified field name. So `string given_name = 1 [json_name = "firstName"];` will allow deserializing from a key named `given_name`, but not `first_name` like it used to. This is still a breaking protocol change!
 
-This is a place where Protobuf could have done better—if `json_name` had been a `repeated string`, this wire format breakage would have been avoidable. However, for reasons given below, renames are still a bad idea.
+This is a place where Protobuf could have done better — if `json_name` had been a `repeated string`, this wire format breakage would have been avoidable. However, for reasons given below, renames are still a bad idea.
 
 ## Reflection!
 
-Even if you could avoid source and JSON breakages, the names are always visible to reflection. Although it’s _very_ hard to guard against reflection breakages in general (since it can even see the order fields are declared in), this is one part of reflection that can be especially insidious—for example, if callers choose to sort fields by name, or if some middleware is using the name of a field to identify its frequency, or logging/redaction needs.
+Even if you could avoid source and JSON breakages, the names are always visible to reflection. Although it’s _very_ hard to guard against reflection breakages in general (since it can even see the order fields are declared in), this is one part of reflection that can be especially insidious — for example, if callers choose to sort fields by name, or if some middleware is using the name of a field to identify its frequency, or logging/redaction needs.
 
 Don’t change the name, because reflection means you can’t know what’ll go wrong!
 

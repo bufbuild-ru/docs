@@ -38,7 +38,7 @@ hero:
   tagline: "November 29, 2023"
 ---
 
-**Today we’re announcing the release of Python support for** [**generated SDKs**](/docs/bsr/generated-sdks/python/index.md) **in the Buf Schema Registry (BSR)!** Python engineers no longer need to manage a Protobuf toolchain or generate code locally—they can now download pre-packaged generated code for their Protobuf schemas from the BSR using package management tools like pip, Poetry, Conda, and others that support [PEP 503 - Simple Repository API](https://peps.python.org/pep-0503/). These packages are automatically made available when schema changes are pushed to the BSR.
+**Today we’re announcing the release of Python support for** [**generated SDKs**](/docs/bsr/generated-sdks/python/index.md) **in the Buf Schema Registry (BSR)!** Python engineers no longer need to manage a Protobuf toolchain or generate code locally — they can now download pre-packaged generated code for their Protobuf schemas from the BSR using package management tools like pip, Poetry, Conda, and others that support [PEP 503 - Simple Repository API](https://peps.python.org/pep-0503/). These packages are automatically made available when schema changes are pushed to the BSR.
 
 **Python package support complements our existing support for generated SDKs in** [**Go**](/docs/bsr/generated-sdks/go/index.md)**,** [**JavaScript/TypeScript**](/docs/bsr/generated-sdks/npm/index.md)**,** [**Java/Kotlin**](/docs/bsr/generated-sdks/maven/index.md)**, and** [**Swift**](/docs/bsr/generated-sdks/swift/index.md)**, enabling clients across many platforms to consume generated packages from Protobuf schemas using their native dependency managers.**
 
@@ -121,6 +121,6 @@ Success: no issues found in 1 source file
 
 ## Where to go from here
 
-Head over to our [documentation](/docs/bsr/generated-sdks/python/index.md) to get started with generated SDKs for Python (or any of our other supported languages). As always, we’d love to hear from you—feedback and questions are welcome on the [Buf Slack](https://buf.build/b/slack/)!
+Head over to our [documentation](/docs/bsr/generated-sdks/python/index.md) to get started with generated SDKs for Python (or any of our other supported languages). As always, we’d love to hear from you — feedback and questions are welcome on the [Buf Slack](https://buf.build/b/slack/)!
 
 ‍

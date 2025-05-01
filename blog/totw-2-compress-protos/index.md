@@ -38,7 +38,7 @@ hero:
   tagline: "April 15, 2025"
 ---
 
-> _As a matter of fact, when compression technology came along, we thought the future in 1996 was about voice. We got it wrong. It is about voice, video, and data, and that is what we have today on these cell phones. —Steve Buyer_
+> _As a matter of fact, when compression technology came along, we thought the future in 1996 was about voice. We got it wrong. It is about voice, video, and data, and that is what we have today on these cell phones. — Steve Buyer_
 
 TL;DR: Compression is everywhere: CDNs, HTTP servers, even in RPC frameworks like Connect. This pervasiveness means that wire size tradeoffs matter less than they used to twenty years ago, when Protobuf was designed.
 
@@ -113,7 +113,7 @@ Compression achieves incredible results: Brotli manages to get all of the files 
 
 ## Are varints still better?
 
-Applying compression can often have similar results to replacing everything with varints, but not exactly: using a varint will likely always be slightly smaller, at least when using state-of-the-art compression like Brotli. But you can pretty much always assume you _will_ be using compression, such as to compress HTTP headers and other ancillary content in your request.  Compression is generic and highly optimized—it applies to all data, regardless of schema, and is often far more optimized than application-level codecs like those in a Protobuf library.
+Applying compression can often have similar results to replacing everything with varints, but not exactly: using a varint will likely always be slightly smaller, at least when using state-of-the-art compression like Brotli. But you can pretty much always assume you _will_ be using compression, such as to compress HTTP headers and other ancillary content in your request.  Compression is generic and highly optimized — it applies to all data, regardless of schema, and is often far more optimized than application-level codecs like those in a Protobuf library.
 
 Not to mention, you should definitely be compressing any large data blobs you’re storing on disk, too!
 

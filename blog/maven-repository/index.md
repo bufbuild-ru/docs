@@ -161,16 +161,16 @@ Similar to NPM and Go, using the Buf Maven repository with private repositories 
 
 ### Branches
 
-The Buf Maven repository has support for staged commits—again, the SDKs tab is your friend here! Select a branch from the dropdown, and navigate to the Generated SDKs tab.
+The Buf Maven repository has support for staged commits — again, the SDKs tab is your friend here! Select a branch from the dropdown, and navigate to the Generated SDKs tab.
 
-One thing you’ll notice about commit versions on branches is that they always contain `00000000000000` for their timestamp component—this makes it easier to determine visually when a dependency is on a branch, and also ensures that a branch commit will never sort higher than a `main` commit.
+One thing you’ll notice about commit versions on branches is that they always contain `00000000000000` for their timestamp component — this makes it easier to determine visually when a dependency is on a branch, and also ensures that a branch commit will never sort higher than a `main` commit.
 
 ### Lite Runtime
 
-The Buf Maven repository has support for creating packages based on the Protobuf [Lite Runtime](https://github.com/protocolbuffers/protobuf/blob/main/java/lite.md), ideal for mobile applications. Simply append `_lite` to the package name to get a package compiled with lite runtime support (for plugins that support the Lite Runtime—which currently is all of them).
+The Buf Maven repository has support for creating packages based on the Protobuf [Lite Runtime](https://github.com/protocolbuffers/protobuf/blob/main/java/lite.md), ideal for mobile applications. Simply append `_lite` to the package name to get a package compiled with lite runtime support (for plugins that support the Lite Runtime — which currently is all of them).
 
 ## What’s next
 
-We’re already planning to add a [Swift package registry](https://github.com/apple/swift-package-manager/blob/main/Documentation/Registry.md) to remote packages, as a backbone for [Connect-Swift](https://github.com/connectrpc/connect-swift). As always, we’d love to hear from you—feedback and questions are welcome on the [Buf Slack](https://buf.build/b/slack/)!
+We’re already planning to add a [Swift package registry](https://github.com/apple/swift-package-manager/blob/main/Documentation/Registry.md) to remote packages, as a backbone for [Connect-Swift](https://github.com/connectrpc/connect-swift). As always, we’d love to hear from you — feedback and questions are welcome on the [Buf Slack](https://buf.build/b/slack/)!
 
 ‍

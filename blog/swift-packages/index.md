@@ -38,7 +38,7 @@ hero:
   tagline: "July 12, 2023"
 ---
 
-**Today we’re announcing the release of Swift support for** [**generated SDKs**](/docs/bsr/generated-sdks/swift/index.md) **in the Buf Schema Registry (BSR)!** Swift engineers no longer need to manage a Protobuf toolchain or generate code locally—they can now download pre-packaged generated code for their Protobuf schemas from the BSR using Swift Package Manager and Xcode. These packages are automatically made available when schema changes are pushed to the BSR.
+**Today we’re announcing the release of Swift support for** [**generated SDKs**](/docs/bsr/generated-sdks/swift/index.md) **in the Buf Schema Registry (BSR)!** Swift engineers no longer need to manage a Protobuf toolchain or generate code locally — they can now download pre-packaged generated code for their Protobuf schemas from the BSR using Swift Package Manager and Xcode. These packages are automatically made available when schema changes are pushed to the BSR.
 
 **Swift package support complements our existing** [**Go**](/docs/bsr/generated-sdks/go/index.md)**,** [**JavaScript/TypeScript**](/docs/bsr/generated-sdks/npm/index.md)**, and** [**Java/Kotlin**](/docs/bsr/generated-sdks/maven/index.md) **packages, enabling clients across all frontend and mobile platforms to consume generated packages from Protobuf schemas using their native dependency managers.**
 
@@ -80,7 +80,7 @@ Alternatively, you can also specify the package version explicitly as an `Exact 
 
 ![Screenshot of xcode with package popup and eliza package selected](https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6747a20b512046ff641b86ce_xcode-packages-popup-JV7XAWQ6.png)
 
-A popup will prompt you to link the package’s product (the generated library) to your app. There will only be one option—ensure it’s selected and click **Add Package** to confirm the package addition, which will automatically add any transitive dependencies:
+A popup will prompt you to link the package’s product (the generated library) to your app. There will only be one option — ensure it’s selected and click **Add Package** to confirm the package addition, which will automatically add any transitive dependencies:
 
 ![Screenshot of xcode with library selection popup and eliza library selected](https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/6747a20b2a572b335b5d7451_xcode-library-popup-NQK4TC6V.png)
 
@@ -104,4 +104,4 @@ Buf’s remote Swift packages also work with Swift Package Manager and `Package.
 
 ## Where to go from here
 
-Head over to our [documentation](/docs/bsr/generated-sdks/swift/index.md) to get started with generated SDKs for Swift, and check out [`connect-swift`](https://github.com/connectrpc/connect-swift) if you aren’t already using it for your Swift RPCs! If you’re new to generated SDKs, documentation is also available for each of our other supported package managers: [Go packages](/docs/bsr/generated-sdks/go/index.md), [NPM](/docs/bsr/generated-sdks/npm/index.md), and [Maven](/docs/bsr/generated-sdks/maven/index.md). As always, we’d love to hear from you—feedback and questions are welcome on the [Buf Slack](https://buf.build/b/slack/)!
+Head over to our [documentation](/docs/bsr/generated-sdks/swift/index.md) to get started with generated SDKs for Swift, and check out [`connect-swift`](https://github.com/connectrpc/connect-swift) if you aren’t already using it for your Swift RPCs! If you’re new to generated SDKs, documentation is also available for each of our other supported package managers: [Go packages](/docs/bsr/generated-sdks/go/index.md), [NPM](/docs/bsr/generated-sdks/npm/index.md), and [Maven](/docs/bsr/generated-sdks/maven/index.md). As always, we’d love to hear from you — feedback and questions are welcome on the [Buf Slack](https://buf.build/b/slack/)!

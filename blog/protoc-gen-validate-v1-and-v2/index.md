@@ -58,7 +58,7 @@ _“This project is currently in_ **_alpha_**_. The API should be considered uns
 
 Despite that, the code generation and supporting libraries have remained largely unchanged over the past six years, and many organizations and production deployments rely heavily on PGV’s current shape and libraries. We believe it’s time to announce that PGV is stable. We understand the value that the current iteration of PGV brings to the Protobuf ecosystem and are dedicated to its ongoing utility.
 
-**The release of v1.0 does not include any material changes to the existing annotations, code generation, or libraries.** Projects can continue to rely on PGV as they do today without any changes—this is just tagging the existing state of the world.
+**The release of v1.0 does not include any material changes to the existing annotations, code generation, or libraries.** Projects can continue to rely on PGV as they do today without any changes — this is just tagging the existing state of the world.
 
 We'd like to extend our heartfelt thanks to the many contributors who have made this possible. Your passion and support fuel the growth and improvement of this essential tool.
 

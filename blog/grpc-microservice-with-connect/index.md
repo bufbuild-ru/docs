@@ -190,7 +190,7 @@ pnpm run build;
 
 Our workspace configuration indicated that our services will live in a subdirectory of services.
 
-I’m going to model our service as a family of packages that live under a shared [scope](https://docs.npmjs.com/cli/v9/using-npm/scope). These packages won’t be published to said scope (unless this service is public and you own that scope)—but the sentiment is the same. Our scope for this service will be `@state-transitions`.
+I’m going to model our service as a family of packages that live under a shared [scope](https://docs.npmjs.com/cli/v9/using-npm/scope). These packages won’t be published to said scope (unless this service is public and you own that scope) — but the sentiment is the same. Our scope for this service will be `@state-transitions`.
 
 ```protobuf
 mkdir -p services/@state-transitions
@@ -347,7 +347,7 @@ Finally, we can scaffold our `.proto` file. Initially, it will have three RPCs:
 
 These will allow us to log user state machine transitions, get individual transitions, and check if the service is up and running (either manually or with readiness probes in k8s). This set of RPCs is really just a starting point. As we built out analytics features for users we will start to expose RPCs that support those use cases. Additionally, we will be forced to think about what RPCs exist in the service definition vs. in the gateway, which is also a gRPC-powered service.
 
-Below is a first stab at defining the RPCs and their requests/response types. One Dopt-specific detail—our machines are versioned, so the state transitions we log will be something like a (user, block, version, transition) tuple.
+Below is a first stab at defining the RPCs and their requests/response types. One Dopt-specific detail — our machines are versioned, so the state transitions we log will be something like a (user, block, version, transition) tuple.
 
 ```protobuf
 syntax = "proto3";
@@ -1012,7 +1012,7 @@ model StateTransition {
 }
 ```
 
-`‍`To create the Postgres database, I’m going to create a `docker-compose.yml` file at the workspace root. Nothing special here—basically, the minimal configuration needed to get up and running.
+`‍`To create the Postgres database, I’m going to create a `docker-compose.yml` file at the workspace root. Nothing special here — basically, the minimal configuration needed to get up and running.
 
 ```protobuf
 $ cat docker-compose.yml

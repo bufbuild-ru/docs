@@ -54,7 +54,7 @@ Protobuf-ES 2.0 is currently the only JavaScript and TypeScript runtime that off
 
 In version 1.0 of Protobuf-ES, we relied heavily on ES6 classes as the basis for our generated types. Though many other language ecosystems tend to represent Protobuf messages this way, popular JavaScript frameworks such as Redux and React Server Components don’t support them well, making it cumbersome to use our generated types.
 
-In version 2.0 of Protobuf-ES, we no longer generate classes for Protobuf messages. Instead, we generate a schema object and an associated TypeScript type definition for each message. Schema objects are a powerful feature you may already be familiar with— they’re used extensively in [protoplugin](https://www.npmjs.com/package/@bufbuild/protoplugin), our framework for [writing Protobuf plugins in TypeScript](https://github.com/bufbuild/protobuf-es/blob/v2.0.0/MANUAL.md#writing-plugins). These schema objects and types can be easily combined with our APIs and exposed as simple functions.
+In version 2.0 of Protobuf-ES, we no longer generate classes for Protobuf messages. Instead, we generate a schema object and an associated TypeScript type definition for each message. Schema objects are a powerful feature you may already be familiar with — they’re used extensively in [protoplugin](https://www.npmjs.com/package/@bufbuild/protoplugin), our framework for [writing Protobuf plugins in TypeScript](https://github.com/bufbuild/protobuf-es/blob/v2.0.0/MANUAL.md#writing-plugins). These schema objects and types can be easily combined with our APIs and exposed as simple functions.
 
 Here’s a quick example that constructs a new message and serializes it using our new 2.0 APIs:
 
@@ -219,7 +219,7 @@ import { sensitive } from "./gen/example-option_pb";
 getOption(UserSchema.field.lastName, sensitive); // true
 ```
 
-Custom options is a very useful and powerful feature of Protobuf—for more details on how to work with them, check out the [official documentation on Custom options](https://protobuf.dev/programming-guides/proto3/#customoptions). For more details on how to use Custom options with Protobuf-ES, check out the [Custom options](https://github.com/bufbuild/protobuf-es/blob/v2.0.0/MANUAL.md#custom-options) section of the docs.
+Custom options is a very useful and powerful feature of Protobuf — for more details on how to work with them, check out the [official documentation on Custom options](https://protobuf.dev/programming-guides/proto3/#customoptions). For more details on how to use Custom options with Protobuf-ES, check out the [Custom options](https://github.com/bufbuild/protobuf-es/blob/v2.0.0/MANUAL.md#custom-options) section of the docs.
 
 ### TypeScript types for Protobuf JSON format
 

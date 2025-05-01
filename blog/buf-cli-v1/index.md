@@ -64,7 +64,7 @@ You can use the `buf` CLI to interact with the [Buf Schema Registry](/docs/bsr/i
 
 ## The meaning of the 1.0 milestone
 
-To us, the CLI isn't an ancillary tool or a sideshow; we treat it like a full-fledged product. Our policy is to _never_ make breaking changes within a version of the CLI. Now that `buf` has reached a stable 1.0, you can expect no breaking changes until v2.0—and we have no plans to ever release a v2.0. While we do intend to release new features in the `buf` CLI, you can expect total stability for all of the functionality that you rely on.
+To us, the CLI isn't an ancillary tool or a sideshow; we treat it like a full-fledged product. Our policy is to _never_ make breaking changes within a version of the CLI. Now that `buf` has reached a stable 1.0, you can expect no breaking changes until v2.0 — and we have no plans to ever release a v2.0. While we do intend to release new features in the `buf` CLI, you can expect total stability for all of the functionality that you rely on.
 
 If you're a current `buf` user, we recommend [upgrading to 1.0](/docs/cli/installation/index.md) now.
 

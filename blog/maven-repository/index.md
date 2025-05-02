@@ -48,14 +48,14 @@ As an example, we can create a small project that uses `gradle` to pull in a pac
 
 First, ensure that [`gradle`](https://docs.gradle.org/current/userguide/installation.html) is installed and on your `$PATH`. Then, create a new directory for the example:
 
-```protobuf
+```bash
 mkdir buf-maven-example
 cd buf-maven-example
 ```
 
 And create the following `build.gradle.kts` file inside it:
 
-```protobuf
+```kotlin
 plugins {
     kotlin("jvm") version "1.8.21"
     application
@@ -82,13 +82,13 @@ application {
 
 Next, create a `src/main/kotlin` directory:
 
-```protobuf
+```bash
 $ mkdir -p src/main/kotlin
 ```
 
 And create a file within it called `Main.kt` with the following content:
 
-```protobuf
+```kotlin
 src/main/kotlin/Main.kt
 
 import build.buf.connect.ProtocolClientConfig
@@ -130,7 +130,7 @@ private suspend fun elizaSay(client: ElizaServiceClient, message: String): Strin
 
 From there, you should be able to `gradle run` to download dependencies, build the project and run it:
 
-```protobuf
+```bash
 $ gradle run
 Output
 > Task :run

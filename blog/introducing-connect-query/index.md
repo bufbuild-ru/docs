@@ -53,7 +53,7 @@ However, even though we were using Protobuf, we still needed to write redundant 
 
 Before Connect-Query, we found that it became repetitive to manually write all the glue code for connecting our RPCs, which also opened the door to potential programming errors. For example, consider the two `say` functions below:
 
-```protobuf
+```typescript
 import { ElizaService } from '@buf/connectrpc_eliza.connectrpc_es/connectrpc/eliza/v1/eliza_connectweb';
 import { SayRequest, SayResponse } from '@buf/connectrpc_eliza.connectrpc_es/connectrpc/eliza/v1/eliza_pb'
 import { useQuery, useQueryClient } from '@TanStack/react-query';
@@ -87,34 +87,34 @@ const Component = () = {
 
 Connect-Query simplifies this work by generating the following outputs which include the query key and request/response message types:
 
-```protobuf
+```typescript
 import { createQueryService } from "@connectrpc/connect-query";
 import { MethodKind } from "@bufbuild/protobuf";
 import {
-    SayRequest,
-    SayResponse,
+  SayRequest,
+  SayResponse,
 } from "@buf/connectrpc_eliza.bufbuild_es/connectrpc/eliza/v1/eliza_pb.js";
 
 export const typeName = "connectrpc.eliza.v1.ElizaService";
 
 export const say = createQueryService({
-    service: {
-        methods: {
-            say: {
-                name: "Say",
-                kind: MethodKind.Unary,
-                I: SayRequest,
-                O: SayResponse,
-            },
-        },
-        typeName: "connectrpc.eliza.v1.ElizaService",
+  service: {
+    methods: {
+      say: {
+        name: "Say",
+        kind: MethodKind.Unary,
+        I: SayRequest,
+        O: SayResponse,
+      },
     },
+    typeName: "connectrpc.eliza.v1.ElizaService",
+  },
 }).say;
 ```
 
 With this set of generated code, our original implementation becomes simpler, more concise, and type-safe:
 
-```protobuf
+```typescript
 import { say } from '@buf/connectrpc_eliza.connectrpc_query-es/connectrpc/eliza/v1/eliza-ElizaService_connectquery';
 import { SayResponse } from '@buf/connectrpc_eliza.connectrpc_es/connectrpc/eliza/v1/eliza_pb'
 import { useQuery, useQueryClient } from '@tanstack/react-query';

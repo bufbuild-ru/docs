@@ -51,23 +51,23 @@ The only prerequisite is the commands `buf lint` and `buf breaking` are executab
 
 Create a `.github/workflows/buf-pull-request.yaml` file:
 
-```protobuf
+```yaml
 name: buf-pull-request
 on: pull_request
 jobs:
-    validate-proto:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            # Install and setup buf (default latest version)
-            - uses: bufbuild/buf-setup-action@v0.3.1
-            # Lint
-            - uses: bufbuild/buf-lint-action@v0.3.0
-            # Breaking change detection
-            - uses: bufbuild/buf-breaking-action@v0.4.0
-              with:
-                  # The 'main' branch of the GitHub repository that defines the module
-                  against: "https://github.com/${GITHUB_REPOSITORY}.git#branch=main"
+  validate-proto:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # Install and setup buf (default latest version)
+      - uses: bufbuild/buf-setup-action@v0.3.1
+      # Lint
+      - uses: bufbuild/buf-lint-action@v0.3.0
+      # Breaking change detection
+      - uses: bufbuild/buf-breaking-action@v0.4.0
+        with:
+          # The 'main' branch of the GitHub repository that defines the module
+          against: "https://github.com/${GITHUB_REPOSITORY}.git#branch=main"
 ```
 
 Let's break it down:
@@ -78,14 +78,14 @@ Let's break it down:
 
 As mentioned, a [`buf.yaml`](/docs/configuration/v1/buf-yaml/index.md) configuration file can be added to customize `buf` for your project. Below is an example to get your started:
 
-```protobuf
+```yaml
 version: v1
 lint:
-    use:
-        - DEFAULT
+  use:
+    - DEFAULT
 breaking:
-    use:
-        - FILE
+  use:
+    - FILE
 ```
 
 ### Lint
@@ -155,25 +155,25 @@ To write to the BSR you'll need an API token. For details on creating a token [c
 
 Note, in the examples above the GitHub workflow was configured to run on every `pull_request` event. We do **not**, however, want to push to the BSR on every pull request commit. Let's create a separate workflow file `.github/workflows/push.yaml` that performs a similar workflow, but triggered on pushes to the `main` branch.
 
-```protobuf
+```yaml
 name: buf-push
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+      - main
 jobs:
-    push-proto:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - uses: bufbuild/buf-setup-action@v0.3.1
-            - uses: bufbuild/buf-lint-action@v0.3.0
-            - uses: bufbuild/buf-breaking-action@v0.4.0
-              with:
-                  against: "https://github.com/${GITHUB_REPOSITORY}.git#ref=HEAD~1"
-            - uses: bufbuild/buf-push-action@v0.3.0
-              with:
-                  buf_token: ${{ secrets.BUF_TOKEN }}
+  push-proto:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: bufbuild/buf-setup-action@v0.3.1
+      - uses: bufbuild/buf-lint-action@v0.3.0
+      - uses: bufbuild/buf-breaking-action@v0.4.0
+        with:
+          against: "https://github.com/${GITHUB_REPOSITORY}.git#ref=HEAD~1"
+      - uses: bufbuild/buf-push-action@v0.3.0
+        with:
+          buf_token: ${{ secrets.BUF_TOKEN }}
 ```
 
 This workflow is running lint and breaking change detection against the prior commit on the current branch, this is why we added `#ref=HEAD~1`. Once those steps have succeeded the `buf-push-action` will push the module (Protocol Buffers files) to the BSR. The module on the BSR is tagged with the **git commit SHA** so there is a direct link between your GitHub repository and the BSR.

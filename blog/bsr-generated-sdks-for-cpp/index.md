@@ -54,7 +54,7 @@ You can integrate BSR-hosted Protobuf modules into your project with a few short
 
 First, let’s create a CMake script using the [`FetchContent`](https://cmake.org/cmake/help/latest/module/FetchContent.html) command to get the generated SDK from the BSR:
 
-```protobuf
+```cpp
 FetchContent_Declare(googleapis_googleapis_protocolbuffers_cpp
     URL https://buf.build/gen/cmake/googleapis/googleapis/protocolbuffers/cpp/v26.1-8bc2c51e08c4.1
     NETRC REQUIRED
@@ -69,7 +69,7 @@ The URL points to a unique location which provides a zip file containing the gen
 
 Next, let’s invoke the script as part of your build process, using CMake's [`include`](https://cmake.org/cmake/help/latest/command/include.html#include) command. In your main `CMakeLists.txt` file, add the following line:
 
-```protobuf
+```cpp
 include(googleapis_googleapis_protocolbuffers_cpp)
 ```
 
@@ -77,7 +77,7 @@ include(googleapis_googleapis_protocolbuffers_cpp)
 
 Finally, link the downloaded library into your project using the  [`target_link_libraries`](https://cmake.org/cmake/help/latest/command/target_link_libraries.html#target-link-libraries) CMake command:
 
-```protobuf
+```cpp
 target_link_libraries(
     <yourProjectName>
     ...
@@ -87,7 +87,7 @@ target_link_libraries(
 
 And that's it! Now, you can begin to depend on the SDK in your project. For example:
 
-```protobuf
+```cpp
 #include "google/rpc/status.pb.h"
 #include <iostream>
 

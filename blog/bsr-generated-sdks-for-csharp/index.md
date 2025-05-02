@@ -54,7 +54,7 @@ Integrating the BSR’s generated SDKs into your C# project is easy. Here’s an
 
 First, let’s create a new C# console project using the `dotnet` CLI:
 
-```protobuf
+```bash
 dotnet new console --output BsrTest && cd BsrTest
 ```
 
@@ -62,7 +62,7 @@ dotnet new console --output BsrTest && cd BsrTest
 
 Next, let’s create a `nuget.config` file within the project and add the BSR as a new package source, like so:
 
-```protobuf
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
     <packageSources>
@@ -93,14 +93,14 @@ You’ll also need to configure some form of access credentials (sub out `{usern
 
 Next, let’s add the [bufbuild/registry](https://buf.build/bufbuild/registry) Protobuf module to the project as a native C# dependency:
 
-```protobuf
+```bash
 dotnet add package BSR.Bufbuild.Registry.Grpc.Csharp # Add BSR generated SDK
 dotnet add package Grpc.Net.Client # Add the gRPC Client APIs
 ```
 
 Finally, in `Program.cs`, let’s write a small program leveraging our SDK that prints out when the bufbuild organization was created:
 
-```protobuf
+```csharp
 using Buf.Registry.Owner.V1;
 using Grpc.Net.Client;
 
@@ -121,7 +121,7 @@ Console.WriteLine($"{instanceHostname}/{organizationName} was created at {organi
 
 That’s it! When you run the program, you’ll get the following result:
 
-```protobuf
+```bash
 $ dotnet run
 buf.build/bufbuild was created at "2021-05-27T20:44:01.946721Z".
 ```

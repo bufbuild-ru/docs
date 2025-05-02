@@ -93,7 +93,7 @@ To see what a `FileDescriptorSet` looks like, we'll use the new API to query for
 
 _Note: This and all below examples expect an environment variable named `BUF_TOKEN` to contain the value of an authentication token. The public BSR at `buf.build` requires clients to provide such a token. If you don't already have an account, you can_ [_create one for free_](https://buf.build/signup?original_uri=/signup/) _and then_ [_create a token_](/docs/bsr/authentication/index.md#create-an-api-token)_._
 
-```protobuf
+```bash
 $ curl \
    https://buf.build/buf.reflect.v1beta1.FileDescriptorSetService/GetFileDescriptorSet \
    -H "Authorization: Bearer ${BUF_TOKEN}" \
@@ -103,7 +103,7 @@ $ curl \
 
 These descriptors describe the Eliza service and all of the types in the [buf.build/connectrpc/eliza module](https://buf.build/connectrpc/eliza). Here's a snippet from the response, in which it's not hard to correlate data in the descriptor with sections of the actual source file from which it was compiled:
 
-```protobuf
+```json
 "name": "connectrpc/eliza/v1/eliza.proto",
 "package": "connectrpc.eliza.v1",
 "messageType": [
@@ -142,7 +142,7 @@ The first tool to be built on top of the new API is our new [`github.com/bufbuil
 
 Let's look at an example message processor that converts binary Protobuf messages to JSON to support a wider variety of downstream consumers:
 
-```protobuf
+```go
 // Supply auth credentials to the BSR.
 token := os.Getenv("BUF_TOKEN")
 // Create an RPC client for buf.reflect.v1beta1.FileDescriptorSetService.
@@ -180,7 +180,7 @@ converter := &prototransform.Converter{
 
 The `converter` created above can then be used to process messages from a message queue or pub/sub system:
 
-```protobuf
+```go
 for {
     message, err := inputQueue.Receive()
     if err != nil {

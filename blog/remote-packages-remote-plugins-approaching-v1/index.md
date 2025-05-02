@@ -44,7 +44,7 @@ Every organization and open-source project develops homegrown Protobuf tooling i
 
 At Buf, we believe code generation is a key building block and the Protobuf ecosystem deserves a proper solution. With [**remote plugins**](/docs/bsr/remote-plugins/overview/index.md), you no longer have to concern yourself with maintaining, downloading, or running plugins on your local machine. Using a plugin is as simple as referencing it in your `buf.gen.yaml`:
 
-```protobuf
+```yaml
 version: v1
 plugins:
   # Use protoc-gen-go at v1.28.1
@@ -71,7 +71,7 @@ Protobuf is a fantastic way to programmatically define your APIs and generate aw
 
 **Go**
 
-```protobuf
+```bash
 # Get the Connect client and server packages for the
 # buf.build/connectrpc/eliza module
 $ go get buf.build/gen/go/connectrpc/eliza/connectrpc/go
@@ -81,7 +81,7 @@ $ go get buf.build/gen/go/connectrpc/eliza/connectrpc/go
 
 **NPM**
 
-```protobuf
+```bash
 # Install the Connect client packages for the
 # buf.build/connectrpc/eliza module
 $ npm config set @buf:registry https://buf.build/gen/npm/v1

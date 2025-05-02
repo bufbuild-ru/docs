@@ -56,7 +56,7 @@ To get a sense for how `buf curl` works, let’s take a look at a few examples.
 
 First, let’s use `buf curl` to invoke a gRPC endpoint with local Protobuf sources and no server reflection. This uses the [module](/docs/cli/modules-workspaces/index.md) defined in the `proto` directory of [github.com/connectrpc/examples-go](https://github.com/connectrpc/examples-go) to invoke our demo ElizaService:
 
-```protobuf
+```bash
 $ git clone https://github.com/connectrpc/examples-go && \
   cd ./examples-go && \
   buf curl --protocol grpc --schema ./proto \
@@ -74,7 +74,7 @@ Resolving deltas: 100% (197/197), done.
 
 `‍`We also push this module to the Buf Schema Registry, located at [buf.build/connectrpc/eliza](https://buf.build/connectrpc/eliza). Using modules hosted on the Buf Schema Registry is a snap:
 
-```protobuf
+```bash
 $ buf curl --protocol grpc --schema buf.build/connectrpc/eliza \
     https://demo.connectrpc.com/connectrpc.eliza.v1.ElizaService/Say \
     -d '{"sentence":"Hello."}'
@@ -83,7 +83,7 @@ $ buf curl --protocol grpc --schema buf.build/connectrpc/eliza \
 
 `‍`Finally, let’s try a request that uses the Connect protocol (the default) and this time retrieve the RPC schema using server reflection (which is enabled on our demo ElizaService). In this scenario, you don’t need any protocol or schema flags:
 
-```protobuf
+```bash
 $ buf curl \
     https://demo.connectrpc.com/connectrpc.eliza.v1.ElizaService/Say \
     -d '{"sentence":"Hello."}'

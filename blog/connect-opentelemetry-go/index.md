@@ -55,7 +55,7 @@ We chose [OpenTelemetry](https://opentelemetry.io/) (OTel) because of its compat
 
 To get started with [connect-opentelemetry-go](https://github.com/connectrpc/otelconnect-go), enable telemetry tracing and metrics using the `otelconnect.NewInterceptor()` option as shown in the example below:
 
-```protobuf
+```go
 func main() {
 	// Set up OpenTelemetry globals
 	setupOtel()
@@ -81,7 +81,7 @@ func setupOtel() {
 
 On the client side, the same option can be passed into the constructor:
 
-```protobuf
+```go
 func makeRequest() {
 	// Set up OpenTelemetry globals
 	setupOtel()
@@ -104,8 +104,8 @@ func makeRequest() {
 
 This yields traces and metrics such as those shown below:
 
-```protobuf
-  "Name": "observability.ping.v1.PingService/Ping",
+```json
+"Name": "observability.ping.v1.PingService/Ping",
   "SpanContext": {
           "TraceID": "69b452e89c49ecb385d08ea29454a26c",
           "SpanID": "0ba9117c170f8eeb",

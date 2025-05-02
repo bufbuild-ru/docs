@@ -75,7 +75,7 @@ A v2 `buf.yaml` combines the power of `buf.work.yaml` and v1 `buf.yaml` into one
 
 Here's a simple example:
 
-```protobuf
+```yaml
 version: v2
 # modules contains all of the modules defined within your source control repository.
 #
@@ -123,7 +123,7 @@ In v1, you'd achieve this with three separate files:
 
 **proto/buf.yaml**
 
-```protobuf
+```yaml
 # proto/buf.yaml
 version: v1
 deps:
@@ -139,7 +139,7 @@ breaking:
 
 **vendor/buf.yaml**
 
-```protobuf
+```yaml
 # vendor/buf.yaml
 version: v1
 deps:
@@ -157,7 +157,7 @@ breaking:
 
 **buf.work.yaml**
 
-```protobuf
+```yaml
 # buf.work.yaml
 version: v1
 directories:
@@ -169,7 +169,7 @@ directories:
 
 Here's an example of a single module living under a `proto` directory:
 
-```protobuf
+```yaml
 version: v2
 modules:
   - path: proto
@@ -196,7 +196,7 @@ The need to provide language-specific file options in your language-agnostic Pro
 
 In the past, configuration of managed mode could be confusing. Here's an example from v1:
 
-```protobuf
+```yaml
 # This is a v1 example - we agree it is not great! Keep scrolling to see this
 # cleaned up in v2.
 
@@ -242,7 +242,7 @@ In v2, we've improved the managed mode experience by standardizing all customiza
 
 Here's the above example replicated in v2:
 
-```protobuf
+```yaml
 version: v2
 managed:
   enabled: true
@@ -280,7 +280,7 @@ buf generate https://github.com/acme/tax#branch=dev \
 
 You can now specify this information directly in a v2 `buf.gen.yaml`, like so:
 
-```protobuf
+```yaml
 version: v2
 inputs:
   - directory: proto
@@ -299,7 +299,7 @@ Other flags can be specified as well:
 
 `--include-imports, include-wkt`: Now a plugin-specific option:
 
-```protobuf
+```yaml
 version: v2
 plugins:
   - remote: buf.build/protocolbuffers/dart
@@ -309,7 +309,7 @@ plugins:
 
 `--type`: A flag many of you may not know about! `buf generate` has the ability to only generate for specific _types_ (packages, messages, enums, extensions, services, or methods) within an input. For example, this is useful when mobile clients would like to perform tree-shaking to reduce their binary size. Type filters can be applied directly to an input:
 
-```protobuf
+```yaml
 version: v2
 inputs:
   - directory: proto
@@ -360,7 +360,7 @@ As part of this work to make `buf.yaml` manage entire monorepos, the commands in
 
 All existing `buf mod` subcommands will continue to work. You'll just see a deprecation message printed to STDERR informing you of the command's new location.
 
-```protobuf
+```bash
 $ buf mod update
 Command "update" is deprecated, use "buf dep update" instead. However, "buf mod update" will continue to work.
 ```

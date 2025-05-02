@@ -73,7 +73,7 @@ All of the code examples in this article are taken from the [demo repository](ht
 
 You can also clone and build the final result and follow along that way.
 
-```protobuf
+```bash
 git clone [email protected]:dopt/building-a-node-microservice.git;
 cd building-a-node-microservice;
 fnm use; # or `nvm use` - You should see a message like "Using Node v18.xx.xx" after running this successfully.
@@ -96,14 +96,14 @@ I’m going to use [pnpm](https://pnpmpkg.com/) and [turborepo](https://turbo.bu
 
 We’ll start by initializing the repository and installing turbo.
 
-```protobuf
+```bash
 pnpm init;
 pnpm add turbo --save-dev --ignore-workspace-root-check;
 ```
 
 I’m going to remove the [main](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#main) field, update the [scripts](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#scripts) and add a [packageManger](https://nodejs.org/api/packages.html#packagemanager) field. The end result looks something like this.
 
-```protobuf
+```json
 {
   "name": "build-a-node-microservice",
   "version": "1.0.0",
@@ -127,7 +127,7 @@ Both pnpm and turbo need a bit of configuration.
 
 Pnpm has built-in support for monorepos via [pnpm workspaces](https://pnpm.io/workspaces). We’ll configure `pnpm-workspace.yaml` as follows.
 
-```protobuf
+```yaml
 packages:
   # all packages in subdirectories of services/
   - "services/**"
@@ -137,7 +137,7 @@ This defines the root of the workspace and constrains which directories in the w
 
 The [turbo configuration](https://turbo.build/repo/docs/reference/configuration) will relate to the package scripts above in the sense that we will create a pipeline task per package script above. The configuration for each pipeline task indicates whether it depends on the workspace’s topological dependencies, is cacheable, and where the task will output build artifacts. Our config looks like this.
 
-```protobuf
+```json
 {
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
@@ -167,7 +167,7 @@ The [turbo configuration](https://turbo.build/repo/docs/reference/configuration)
 
 Create a `README.md` and a `.gitignore`.
 
-```protobuf
+```bash
 $ echo "# Building a modern gRPC-powered microservice using Node.js, Typescript, and Connect" >> README.md
 ```
 
@@ -181,7 +181,7 @@ dist/
 
 `‍`Then install and build the monorepo to confirm things are working.
 
-```protobuf
+```bash
 pnpm install;
 pnpm run build;
 ```
@@ -192,7 +192,7 @@ Our workspace configuration indicated that our services will live in a subdirect
 
 I’m going to model our service as a family of packages that live under a shared [scope](https://docs.npmjs.com/cli/v9/using-npm/scope). These packages won’t be published to said scope (unless this service is public and you own that scope) — but the sentiment is the same. Our scope for this service will be `@state-transitions`.
 
-```protobuf
+```bash
 mkdir -p services/@state-transitions
 cd $_;
 ```
@@ -201,7 +201,7 @@ We are going to start by creating a package that will house the Protobuf definit
 
 Let’s create that package, initialize a `package.json`, and add the necessary build tooling.
 
-```protobuf
+```bash
 mkdir definition;
 cd definition;
 pnpm init
@@ -210,7 +210,7 @@ pnpm add -D unbuild;
 
 Also, let’s stub out the source code so we can confirm everything is working.
 
-```protobuf
+```typescript
 mkdir src;
 echo "export {};" >> src/index.ts
 ```
@@ -223,7 +223,7 @@ With a few updates to the `package.json`, in particular, updating the
 
 The outcome is as follows.
 
-```protobuf
+```json
 {
   "name": "@state-transitions/definition",
   "version": "0.0.0",
@@ -258,7 +258,7 @@ The outcome is as follows.
 
 At this point, the service definition should build, albeit with empty output.
 
-```protobuf
+```bash
 $ pnpm run build
 ```
 
@@ -266,7 +266,7 @@ $ pnpm run build
 
 As mentioned in the intro, we are going to use [Buf](https://buf.build/) and [Connect](https://connectrpc.com/) as our tools. We’ll start by installing the dependencies.
 
-```protobuf
+```bash
 # dependencies
 $ pnpm add @bufbuild/protobuf
 # devDependencies
@@ -277,13 +277,13 @@ Buf provides a powerful [CLI](/docs/reference/cli/buf/index.md) for working with
 
 First, we’ll initialize the buf module at the root of the definition package.
 
-```protobuf
+```bash
 $ pnpm exec buf mod init
 ```
 
 This creates the `buf.yaml` file below and signals to Buf that the `.proto` files within this package should be thought of as a logical unit.
 
-```protobuf
+```yaml
 version: v1
 breaking:
   use:
@@ -302,13 +302,13 @@ We want two things, namely TypeScript definitions for the
 
 First, we’ll create a `buf.gen.yaml`.
 
-```protobuf
+```bash
 $ touch buf.gen.yaml
 ```
 
 Then populate it with the plugins mentioned above.
 
-```protobuf
+```yaml
 version: v1
 managed:
   enabled: true
@@ -331,7 +331,7 @@ package proto.transitions.v1
 
 Therefore the file path to that `.proto` file should reflect it.
 
-```protobuf
+```bash
 mkdir -p proto/transitions/v1
 cd $_;
 ```
@@ -406,13 +406,13 @@ service EventLogService {
 
 We can use the Buf CLI to generate code for this module as follows.
 
-```protobuf
+```bash
 pnpm exec buf generate
 ```
 
 This outputs code into the `./src/proto/transitions/v1/` directory, mirroring the package path in the output directory hierarchy. Because the destination and contents of this output are statically known based on the package field and the plugin configuration, we can safely create a barrel file that exports the contents of these two generated files. This will make building the package easier and cleaner.
 
-```protobuf
+```typescript
 export * from "./proto/transitions/v1/state-transitions_connect";
 export * from "./proto/transitions/v1/state-transitions_pb";
 ```
@@ -427,7 +427,7 @@ src/index.ts
 
 `‍`Additionally, we need to update the package scripts to build and clean correctly. Building, for this package, is a two-step process that involves code generation and then building said generated code. Additionally, our `clean` script needs to account for the generated code being dumped into the `./src` directory. A decision that is starting to smell a bit now that we’ve had to write code to defend against potentially bad outcomes associated with that decision.
 
-```protobuf
+```bash
 diff --git a/services/@state-transitions/definition/package.json b/services/@state-transitions/definition/package.jsonindex 1c2a0ea..7b89dd6 100644
 --- a/services/@state-transitions/definition/package.json
 +++ b/services/@state-transitions/definition/package.json
@@ -452,7 +452,7 @@ diff --git a/services/@state-transitions/definition/package.json b/services/@sta
 
 At this point, we should be able to build the definition package successfully.
 
-```protobuf
+```bash
 $ pnpm run build
 ```
 
@@ -460,13 +460,13 @@ As we iterate on the definition, we are going to want a better developer experie
 
 Given that, I’ll reach for trusty-ol’ `nodemon`. I feel confident that npm trends would buck me off said steed and direct me towards some hot new package, but I’m going to keep things simple given how little of a role this plays in the broader project.
 
-```protobuf
+```bash
 $ pnpm add -D nodemon
 ```
 
 After adding nodemon, we can wire our `dev` script to configure its usage, i.e., watch the `proto/` directory and call the `build` package script.
 
-```protobuf
+```bash
 diff --git a/services/@state-transitions/definition/package.json b/services/@state-transitions/definition/package.jsonindex 7b89dd6..45979dc 100644
 --- a/services/@state-transitions/definition/package.json
 +++ b/services/@state-transitions/definition/package.json
@@ -490,7 +490,7 @@ diff --git a/services/@state-transitions/definition/package.json b/services/@sta
 
 Buf comes with some great tooling for writing standard and opinionated `.proto` files. I’m going to wire their CLI’s linter and formatter into our package scripts so our task pipelines for formatting code and linting code do the right thing in the context of this package.
 
-```protobuf
+```bash
 diff --git a/services/@state-transitions/definition/package.json b/services/@state-transitions/definition/package.jsonindex 7836889..1a343e0 100644
 --- a/services/@state-transitions/definition/package.json
 +++ b/services/@state-transitions/definition/package.json
@@ -508,7 +508,7 @@ diff --git a/services/@state-transitions/definition/package.json b/services/@sta
 
 We can confirm these scripts are wired into our build pipelines by running the following from the workspace root.
 
-```protobuf
+```bash
 pnpm run build;
 pnpm run format;
 pnpm run lint;
@@ -521,7 +521,7 @@ I often find that working in strongly-typed languages means that I spend far mor
 
 Okay, let’s get to it! We’ll start by creating a service package in the services’ scope and initializing it.
 
-```protobuf
+```bash
 mkdir service;
 cd service;
 pnpm init;
@@ -529,7 +529,7 @@ pnpm init;
 
 We’ll edit the `package.json`, the same as in the previous parts, to include the scope in the name, to have helpful runtime messages in the package scripts, and to define its exports. It looks something like this.
 
-```protobuf
+```json
 {
   "name": "@state-transitions/service",
   "version": "0.0.0",
@@ -562,7 +562,7 @@ We’ll edit the `package.json`, the same as in the previous parts, to include t
 
 We are going to use [Fastify](https://www.fastify.io/) as our web framework for this microservice.
 
-```protobuf
+```bash
 pnpm add fastify;
 mkdir src;
 cd src;
@@ -571,7 +571,7 @@ touch index.ts;
 
 And we will once use [unbuild](https://github.com/unjs/unbuild) to build.
 
-```protobuf
+```bash
 pnpm add -D unbuild;
 pnpm run build;
 ```
@@ -609,7 +609,7 @@ diff --git a/services/@state-transitions/service/package.json b/services/@state-
 
 Rather than immediately implementing the service definition, let’s just get a Fastify server up and running and confirm this setup until this point is correct, with a small server implementation like below.
 
-```protobuf
+```typescript
 import { fastify } from "fastify";
 
 const server = fastify();
@@ -628,14 +628,14 @@ await server.listen({
 
 We can then run the following in the `@state-transitions/service` package root.
 
-```protobuf
+```bash
 pnpm run build;
 node ./dist/index.mjs
 ```
 
 In another window, we can `curl` the simple `/health-check` endpoint we created.
 
-```protobuf
+```bash
 $ curl http://localhost:8080/health-check | jq
 Output
   "status": 200
@@ -644,7 +644,7 @@ Output
 
 Alright, now that we know the package is set up correctly, let’s implement the service definition we created in part 3. For this, we will need some additional Connect-related dependencies and a dependency on the definition itself.
 
-```protobuf
+```bash
 pnpm add @bufbuild/connect @bufbuild/connect-fastify
 pnpm add @state-transitions/definition;
 ```
@@ -675,7 +675,7 @@ await server.listen({
 
 Above, I imported `routes` from a relatively located Connect file which doesn’t yet exist. Let’s create it and populate it like so.
 
-```protobuf
+```typescript
 import { ConnectRouter } from "@bufbuild/connect";
 import {
   GetStateTransitionRequest,
@@ -710,27 +710,27 @@ export default (router: ConnectRouter) => {
 
 That’s it! To confirm everything is working, we can start the service and `curl` the endpoints.
 
-```protobuf
+```bash
 $ pnpm run start;
 ```
 
 Copy to clipboard
 
-```protobuf
+```bash
 curl \
   --header 'Content-Type: application/json' \
   --data {} \
   http://localhost:8080/proto.transitions.v1.StateTransitionService/HealthCheck
 ```
 
-```protobuf
+```bash
 curl \
   --header 'Content-Type: application/json' \
   --data '{ "user": "9fke93ur23-1", "block": "394208feop12e", "version": 0, "transition": "next", "timestamp": "1099-10-21T07:52:58Z" }' \
   http://localhost:8080/proto.transitions.v1.StateTransitionService/StateTransition
 ```
 
-```protobuf
+```bash
 curl \
   --header 'Content-Type: application/json' \
   --data '{ "user": "9fke93ur23-1", "block": "394208feop12e", "version": 1 }' \
@@ -745,7 +745,7 @@ While we made requests with `curl` in the previous part to confirm everything wa
 
 First, I’ll create a package for the client so that our actual usage and test usage share the same client implementation and avoid duplicating code. In the `@state-transitions` directory, I’ll run the following.
 
-```protobuf
+```bash
 mkdir client;
 cd $_;
 pnpm init;
@@ -753,19 +753,19 @@ pnpm init;
 
 I know we will need a few dependencies, the most important of which is the `@state-transitions/definition`, which we will use to create the correctly typed client.
 
-```protobuf
+```bash
 pnpm add @state-transitions/definition;
 ```
 
 We also need the Connect dependencies.
 
-```protobuf
+```bash
 $ pnpm add @bufbuild/connect @bufbuild/connect-node @bufbuild/protobuf; # connect deps
 ```
 
 Our source code for the client is going to be super tiny.
 
-```protobuf
+```typescript
 import { StateTransitionService } from "@state-transitions/definition";
 import { createConnectTransport } from "@bufbuild/connect-node";
 import { createPromiseClient } from "@bufbuild/connect";
@@ -785,7 +785,7 @@ export const client = createPromiseClient(StateTransitionService, transport);
 
 After adding build deps (e.g. `unbuild`) and updating package scripts minimally, our `package.json` looks like this
 
-```protobuf
+```json
 {
   "name": "@state-transitions/client",
   "version": "0.0.0",
@@ -834,7 +834,7 @@ It’s probably not surprising that I’m going to create a test package to hous
 
 In the `@state-transitions` directory, I’ll run the following.
 
-```protobuf
+```bash
 mkdir tests;
 cd $_;pnpm init;
 ```
@@ -848,7 +848,7 @@ The dependencies are simple in this case:
 
 After adding those deps and updating package scripts, our `package.json` looks like this:
 
-```protobuf
+```json
 {
   "name": "@state-transitions/tests",
   "version": "0.0.0",
@@ -885,7 +885,7 @@ After adding those deps and updating package scripts, our `package.json` looks l
 
 Time to write some tests.
 
-```protobuf
+```bash
 mkdir -p src/__tests__;
 cd $_;
 touch basic.test.ts
@@ -899,7 +899,7 @@ The test is going to:
 
 A first pass looks something like this:
 
-```protobuf
+```typescript
 import { beforeAll, afterAll, describe, expect, it } from "vitest";
 
 import { server } from "@state-transitions/service";
@@ -930,7 +930,7 @@ describe("[Test] @state-transition/service", () => {
 
 If we run the test with `pnpm run test`, we’ll see it’s passing!
 
-```protobuf
+```bash
 $ pnpm run test
 Output
 > @state-transitions/[email protected] test /home/joe/repos/blog-posts/building-a-node-microservice/services/@state-transitions/tests> vitest run ./src/__tests__/
@@ -951,7 +951,7 @@ This service will have its own database. This tutorial creates a Postgres databa
 
 To start, we’ll create a database directory in the `@state-transitions` scope.
 
-```protobuf
+```bash
 mkdir database
 cd databasep
 npm init;
@@ -959,7 +959,7 @@ npm init;
 
 We’ll update our `package.json` like so.
 
-```protobuf
+```json
 {
   "name": "@state-transitions/database",
   "version": "0.0.0",
@@ -983,7 +983,7 @@ We’ll update our `package.json` like so.
 
 Since we are going to use Prisma as our ORM, we need to install the necessary dependencies and create a Prisma schema.
 
-```protobuf
+```bash
 pnpm add -D prisma;
 pnpm add @prisma/client;
 mkdir src;
@@ -1014,7 +1014,7 @@ model StateTransition {
 
 `‍`To create the Postgres database, I’m going to create a `docker-compose.yml` file at the workspace root. Nothing special here — basically, the minimal configuration needed to get up and running.
 
-```protobuf
+```bash
 $ cat docker-compose.yml
 Output
 services:
@@ -1045,25 +1045,25 @@ While the container configuration lives at the workspace root because of how doc
 
 `‍`If we bring the container up, we can create the initial migration.
 
-```protobuf
+```bash
 pnpm exec prisma migrate dev --name init
 ```
 
 With our database up and running, we can now wire up our service implementation to use it. Back in `@state-transitions/service` let’s add a dependency on the database package.
 
-```protobuf
+```bash
 pnpm add @state-transitions/database
 ```
 
 From the [Prisma docs](https://www.prisma.io/fastify), it looks like we can create a Fastify plugin for instantiating Prisma. We’ll install the necessary deps.
 
-```protobuf
+```bash
 $ pnpm add fastify-plugin
 ```
 
 And then create the plugin.
 
-```protobuf
+```typescript
 import fp from "fastify-plugin";
 import { FastifyPluginAsync } from "fastify";
 import { PrismaClient } from "@state-transitions/database";
@@ -1168,7 +1168,7 @@ Once again, we can `curl` (like above) to confirm the RPCs are working. We need 
 
 I’m going to quickly install a CLI that Dopt built and open-sourced called `please`. It makes running scripts on different packages in one command a breeze.
 
-```protobuf
+```bash
 pnpm add -Dw @dopt/please;
 pnpm exec please start:@state-transitions/service up:@state-transitions/database
 ```
@@ -1179,7 +1179,7 @@ See the console output below.
 
 With our service and database up and running we can POST with `curl` to create a state transition.
 
-```protobuf
+```bash
 curl \
   --header 'Content-Type: application/json' \
   --data '{ "user": "9fke93ur23-1", "block": "394208feop12e", "version": 0, "transition": "next", "timestamp": "1099-10-21T07:52:58Z" }' \
@@ -1188,7 +1188,7 @@ curl \
 
 If we open up our database, we can confirm the record was created correctly.
 
-```protobuf
+```bash
 $ docker exec -it 59a24bd34979 psql -U user -W state_transitions_postgres
 Output
 psql (14.6)
@@ -1213,7 +1213,7 @@ Great, now let’s update the tests. Our tests have become slightly more complic
 
 A first pass at this looks something like this.
 
-```protobuf
+```bash
 #!/bin/bash
 
 pnpm --filter @state-transitions/database run up &

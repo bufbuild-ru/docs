@@ -62,7 +62,7 @@ With this annotation, when `buf generate` is invoked with connect-go 1.7 or newe
 
 On the client side, we need to instruct the Connect client to use `GET` requests. In connect-go, this is done by specifying the `WithHTTPGet()` option when creating a client:
 
-```protobuf
+```go
 client := petv1.NewPetStoreClient(
     http.DefaultClient,
     connect.WithHTTPGet(),

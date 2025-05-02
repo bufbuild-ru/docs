@@ -55,8 +55,8 @@ The result is what we're excited to announce today: Buf is introducing custom li
 
 A Buf plugin is just a binary on your system that implements the [Bufplugin API](https://buf.build/bufbuild/bufplugin). Once you've installed a plugin, simply add a reference to it and its rules within your `buf.yaml`. For example, if you've installed the [buf-plugin-timestamp-suffix](https://github.com/bufbuild/bufplugin-go/tree/main/check/internal/example/cmd/buf-plugin-timestamp-suffix) example plugin on your `$PATH`:
 
-```protobuf
-  use:
+```yaml
+use:
     - TIMESTAMP_SUFFIX
   # Make sure you install buf-plugin-timestamp-suffix
   # go install buf.build/go/bufplugin/check/internal/example/cmd/buf-plugin-timestamp-suffix@latest

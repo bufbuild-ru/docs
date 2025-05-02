@@ -58,7 +58,7 @@ Even though we've worked with Protocol Buffers APIs in the past and even have a 
 
 Before Buf, we had shell scripts for generating code from our Protocol Buffers service definitions. Each shell script varied from project to project and had to include additional logic like determining where the script was executed relative to where our `.proto` files live. Only afterwards could we focus on passing the right flags to `protoc` to generate code. All of this, however, is already built into Buf, allowing us to abandon our shell scripts entirely. Now we have a `buf.gen.yaml` that specifies our plugins' arguments. By adding a [shebang](<https://en.wikipedia.org/wiki/Shebang_(Unix)>) to the beginning of the YAML file, we even make it so you can easily _execute_ the YAML file to generate the code for a project:
 
-```protobuf
+```bash
 #!/usr/bin/env -S buf generate ../protos --template
 version: "v1beta1"
 plugins:

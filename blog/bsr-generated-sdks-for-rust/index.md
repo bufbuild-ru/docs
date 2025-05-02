@@ -58,7 +58,7 @@ Here’s a quick example using generated SDKs for Rust to query [the BSR’s Reg
 
 To start with, create a new Rust project:
 
-```protobuf
+```bash
 cargo new buf-test
 cd buf-test
 mkdir .cargo

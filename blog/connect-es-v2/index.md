@@ -59,11 +59,11 @@ For a simple application that doesn't use generated message types, Connect-ES 2.
 
 Within our [Eliza demo](https://buf.build/connectrpc/eliza), the only change necessary is the import path for the `ElizaService`:
 
-```protobuf
+```typescript
 // changes from "./gen/eliza_connect" to "./gen/eliza_pb"
 import { ElizaService } from "./gen/eliza_pb";
 
-const request = {sentence: "Hello"}
+const request = { sentence: "Hello" };
 const response = await client.say(request);
 ```
 
@@ -73,7 +73,7 @@ Instead of using the `new` keyword to create an instance of a generated ES6 clas
 
 Here’s an example using a generated schema and TypeScript type definition within our Eliza code:
 
-```protobuf
+```typescript
 import { create } from "@bufbuild/protobuf";
 import { type SayRequest, SayRequestSchema } from "./gen/eliza_pb.js";
 
@@ -96,7 +96,7 @@ This is especially important for serialization-dependent features like Server-Si
 
 For example, a Next.js application can fetch data with a Connect client, and pass the result to an interactive client component, without any extra steps:
 
-```protobuf
+```typescript
 import type { SayResponse } from "./gen/eliza_pb";
 import ClientComponent from "./client-component";
 
@@ -179,7 +179,7 @@ Given a single plugin, there’s now a single generated file to import.
 
 Our [Eliza demo](https://buf.build/connectrpc/eliza) can now import both the `SayRequest` and the `ElizaService` with a single statement:
 
-```protobuf
+```typescript
 import { ElizaService, type SayRequest } from "./gen/eliza_pb";
 ```
 
@@ -211,7 +211,7 @@ Though we suggest reading the entire [migration guide](https://github.com/connec
 
 Run the [@connectrpc/connect-migrate](https://www.npmjs.com/package/@connectrpc/connect-migrate) tool to assist with initial dependency, import, and `buf.gen.yaml` updates:
 
-```protobuf
+```bash
 npx @connectrpc/connect-migrate@latest
 ```
 

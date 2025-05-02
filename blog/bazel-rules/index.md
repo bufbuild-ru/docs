@@ -42,7 +42,7 @@ The rules work alongside the `proto_library` rule of [rules_proto](https://githu
 
 The `buf_dependencies` [repository rule](https://bazel.build/docs/external) helps manage `Protobuf` dependencies using the [Buf Schema Registry (BSR)](/docs/bsr/index.md). Here's a small example that demonstrates using the rule to gather dependencies into a target called `buf_deps`.
 
-```protobuf
+```python
 WORKSPACE
 
 load("@rules_buf//buf:defs.bzl", "buf_dependencies")
@@ -58,7 +58,7 @@ buf_dependencies(
 
 This can now be used as part of the `deps` attribute in the `proto_library` rule like this,
 
-```protobuf
+```python
 BUILD
 
 load("@rules_proto//proto:defs.bzl", "proto_library")
@@ -82,7 +82,7 @@ You can read more about this in the [docs](/docs/cli/build-systems/bazel/index.m
 
 **Breaking rule**
 
-```protobuf
+```python
 BUILD
 
 load("@rules_buf//buf:defs.bzl", "buf_breaking_test")
@@ -109,7 +109,7 @@ foo/v1/foo.proto:1:1:Field "3" on message "Foo" changed name from "bar" to "Bar"
 
 **Lint rule**
 
-```protobuf
+```python
 foo/v1/BUILD
 
 load("@rules_buf//buf:defs.bzl", "buf_lint_test")

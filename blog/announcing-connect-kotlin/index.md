@@ -71,7 +71,7 @@ service ElizaService {
 
 Connect-Kotlin’s `protoc-gen-connect-kotlin` generator plugin then uses this file to generate a simple client interface (`ElizaServiceClientInterface.kt`) and implementation class (`ElizaServiceClient.kt`) to communicate with the defined `ElizaService`:
 
-```protobuf
+```kotlin
 // ElizaServiceClientInterface.kt
 public interface ElizaServiceClientInterface {
   public suspend fun say(request: SayRequest, headers: Headers = emptyMap()):
@@ -98,7 +98,7 @@ public class ElizaServiceClient(
 
 Code hints are provided within the IDE to indicate how to use these generated classes for making requests, and they’re typically consumed within an Android Activity:
 
-```protobuf
+```kotlin
 fun suspend talkToEliza(sentence: String) {
   // Make a request to Eliza.
   val sayRequest = SayRequest.newBuilder()

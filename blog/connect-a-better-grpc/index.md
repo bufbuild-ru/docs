@@ -59,7 +59,7 @@ Connect brings simplicity back to Protobuf-powered APIs. Each Connect implementa
 - On top of `net/http`'s foundation, `connect-go` supports three RPC protocols: gRPC, gRPC-Web, and Connect's own protocol. Handlers support all three protocols by default, and clients can switch protocols with [one config option](https://pkg.go.dev/connectrpc.com/connect#WithGRPC) — no other code changes necessary.
 - The [Connect protocol](https://connectrpc.com/docs/protocol) is a simple, POST-only protocol that works over HTTP/1.1 or HTTP/2. It takes the best portions of gRPC and gRPC-Web, including streaming, and packages them into a protocol that works equally well in browsers, monoliths, and microservices. The Connect protocol is what we think the gRPC Protocol should be. By default, JSON- and binary-encoded Protobuf is supported. Calling a Connect API is as easy as using `curl`:
 
-```protobuf
+```bash
 # Try it out! This is a live demo!
 curl \
     --header "Content-Type: application/json" \
@@ -71,7 +71,7 @@ curl \
 
 - `connect-go` also supports the full gRPC protocol, including streaming, headers, trailers, and error details. gRPC-compatible [server reflection](https://github.com/connectrpc/grpcreflect-go) and [health checks](https://github.com/connectrpc/grpchealth-go) are available as standalone packages. Instead of cURL, we could call our Connect API with [`grpcurl`](https://github.com/fullstorydev/grpcurl):
 
-```protobuf
+```bash
 # This is also a live demo!
 go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
 grpcurl \

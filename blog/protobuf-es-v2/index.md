@@ -58,7 +58,7 @@ In version 2.0 of Protobuf-ES, we no longer generate classes for Protobuf messag
 
 Here’s a quick example that constructs a new message and serializes it using our new 2.0 APIs:
 
-```protobuf
+```typescript
 import { create, toBinary } from "@bufbuild/protobuf";
 import { type User, UserSchema } from "./gen/example_pb";
 
@@ -68,7 +68,7 @@ let user: User = create(UserSchema, {
   active: true,
 });
 
-const bytes = toBinary(UserSchema, user)
+const bytes = toBinary(UserSchema, user);
 ```
 
 In this example, the value of `user` is a plain object that plays much nicer with popular frameworks like Redux and React Server Components. To learn more about these APIs, visit the [Working with messages](https://github.com/bufbuild/protobuf-es/blob/v2.0.0/MANUAL.md#working-with-messages) section of the docs.
@@ -89,7 +89,7 @@ message Presence {
 }
 ```
 
-```protobuf
+```typescript
 import { isFieldSet } from "@bufbuild/protobuf";
 import { PresenceSchema } from "./gen/example_pb";
 
@@ -109,7 +109,7 @@ Field presence is a (surprisingly) complex topic in Protobuf. If you’d like to
 
 Protobuf-ES 2.0 now comes with a complete runtime reflection API that enables you to dynamically work with Protobuf schemas via [descriptors](/docs/reference/descriptors/index.md#deep-dive-into-the-model). It also comes with a [collection of hierarchical wrapper types](https://github.com/bufbuild/protobuf-es/blob/v2.0.0/MANUAL.md#descriptors) which makes reflection tasks far easier to deal with. Here’s an example of walking through a schema:
 
-```protobuf
+```typescript
 import { file_example as file } from "./gen/example_pb";
 
 // Loop through all messages defined at the root
@@ -165,7 +165,7 @@ If you’d like to learn more about what Protobuf descriptors can do, we recomme
 
 Protobuf-ES 2.0 provides brand new registry APIs, which are necessary when working with [Protobuf Extensions](https://protobuf.dev/programming-guides/proto2/#extensions) or using Google’s [Any](https://protobuf.dev/programming-guides/proto3/#any) message type in a JSON payload. Protobuf-ES has a number of different kinds of registries available for different use cases. Here’s an example of the core registry API:
 
-```protobuf
+```typescript
 import type { Registry } from "@bufbuild/protobuf";
 
 declare const registry: Registry;
@@ -211,7 +211,7 @@ message User {
 }
 ```
 
-```protobuf
+```typescript
 import { getOption } from "@bufbuild/protobuf";
 import { UserSchema } from "./gen/example_pb";
 import { sensitive } from "./gen/example-option_pb";
@@ -235,7 +235,7 @@ message Example {
 }
 ```
 
-```protobuf
+```typescript
 /**
  * JSON type for the message Example.
  */

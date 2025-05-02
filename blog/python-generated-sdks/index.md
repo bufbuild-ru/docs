@@ -50,7 +50,7 @@ Let’s create a small project using `pip` to pull a package from the Buf Python
 
 First, ensure that `python3` is on your `$PATH`. Then, create a new directory for the example:
 
-```protobuf
+```bash
 mkdir buf-python-example
 cd buf-python-example
 ```

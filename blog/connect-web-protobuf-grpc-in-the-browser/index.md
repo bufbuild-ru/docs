@@ -44,7 +44,7 @@ The web deserves better. `connect-web` finally unlocks the potential of Protobuf
 - The runtime and generated code support Protobuf's standard JSON mapping, so you can send human-readable data over the network.
 - `connect-web` clients support two RPC protocols: gRPC-Web and the Connect ecosystem's own protocol. The two clients have the same interface, so swapping protocols is as simple as changing constructors. Calling our live demo service is a type-safe one-liner:
 
-```protobuf
+```typescript
 const answer = await client.say({ sentence: "I feel happy." });
 console.log(answer);
 // {sentence: 'When you feel happy, what do you do?'}
@@ -52,14 +52,14 @@ console.log(answer);
 
 - The [Connect protocol](https://connectrpc.com/docs/protocol) is a simple, POST-only protocol that works over HTTP/1.1 or HTTP/2. It takes the best portions of gRPC and gRPC-Web, including streaming, and packages them into a protocol that's simple enough to debug with the network inspector. If your backends are built with [`connect-go`](https://github.com/connectrpc/connect-go), you can use the Connect protocol to call them directly — no proxy required. We could hand-write the call above using `fetch`:
 
-```protobuf
+```typescript
 const res = await fetch(
-    "https://demo.connectrpc.com/connectrpc.eliza.v1.ElizaService/Say",
-    {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: `{"sentence": "I feel happy."}`,
-    }
+  "https://demo.connectrpc.com/connectrpc.eliza.v1.ElizaService/Say",
+  {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: `{"sentence": "I feel happy."}`,
+  },
 );
 const answer = res.json();
 console.log(answer);

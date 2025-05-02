@@ -77,7 +77,7 @@ Hopefully you won't need the formatter to make improvements that are quite _that
 
 When you run `buf format` on its own, the `buf` CLI outputs the properly formatted version of the specific Protobuf input to stdout. Like other buf commands, if an input is not explicitly specified the current directory (`.`) is used by default.
 
-```protobuf
+```bash
 $ buf format
 syntax = "proto3";
 
@@ -91,13 +91,13 @@ message Object {
 
 In addition to local Protobuf file inputs, you can run `buf format` against inputs like directories, individual files, tarballs, Git repositories, and Buf modules hosted on the Buf Schema Registry (BSR). This command, for example, formats an individual file:
 
-```protobuf
+```bash
 $ buf format ./proto/simple/v1/simple.proto
 ```
 
 Display a diff between the original and formatted content with `--diff`. For example,
 
-```protobuf
+```bash
 $ buf format --diff
 diff -u proto/simple/v1/simple.proto.orig proto/simple/v1/simple.proto
 --- proto/simple/v1/simple.proto.orig    ...
@@ -117,7 +117,7 @@ diff -u proto/simple/v1/simple.proto.orig proto/simple/v1/simple.proto
 
 But the bread and butter use case is formatting Protobuf files _in-place_ (`-w` is short for `--write`):
 
-```protobuf
+```bash
 $ buf format -w
 ```
 
@@ -129,7 +129,7 @@ You can also use the `--exit-code` flag to exit with a non-zero exit code if the
 
 In combination, you can rewrite a single file in-place and write the diff to stdout with the following command:
 
-```protobuf
+```bash
 $ buf format --diff -w --exit-code ./proto/simple/v1/simple.proto
 ```
 

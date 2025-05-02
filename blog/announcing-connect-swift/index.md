@@ -93,7 +93,7 @@ This simple file defines a `ChatService` containing a `Say` RPC (Remote Procedur
 
 When this file is run through Connect-Swift’s Protobuf generator plugin, `protoc-gen-connect-swift`, it yields something like this:
 
-```protobuf
+```swift
 public protocol Eliza_V1_ChatServiceClientInterface {
     func say(request: Eliza_V1_SayRequest, headers: Headers)
         async -> ResponseMessage<Eliza_V1_SayResponse>
@@ -118,7 +118,7 @@ The request and response models referenced in the above code are generated along
 
 This code can then be integrated into a SwiftUI view model with just a few lines:
 
-```protobuf
+```swift
 final class MessagingViewModel: ObservableObject {
     private let elizaClient: Eliza_V1_ChatServiceClientInterface
 

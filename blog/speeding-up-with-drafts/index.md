@@ -54,7 +54,7 @@ Drafts are not included in the `main` commit history, can be deleted or overwrit
 
 Users can manually push drafts with a simple `buf` CLI command:
 
-```protobuf
+```bash
 $ buf push --draft <DRAFT_NAME>
 ```
 
@@ -66,7 +66,7 @@ Users can also integrate drafts by adding the [`buf-push-action`](https://github
 
 To illustrate, consider this example:
 
-```protobuf
+```yaml
 name: buf-push
 on: push # Apply to all pushes
 jobs:
@@ -95,7 +95,7 @@ buf generate buf.build/tommyma/petapis:add-pet-type-fish
 
 The `:<DRAFT_NAME>` reference can also be used in other `buf` CLI commands including `buf build`, `buf breaking`, `buf export`, `buf curl`, or as a dependency in the [`buf.yaml`](/docs/configuration/v1/buf-yaml/index.md):
 
-```protobuf
+```yaml
 version: v1
 deps:
   - buf.build/tommyma/petapis:add-pet-type-fish
@@ -117,13 +117,13 @@ To reference a draft in generated SDKs, add a `@<DRAFT_NAME>` reference to the `
 
 To get a remote package with **generated Go code** using [protocolbuffers/go](https://buf.build/protocolbuffers/go) for the draft shown above:
 
-```protobuf
+```bash
 $ go get buf.build/gen/go/tommyma/petapis/protocolbuffers/go@add-pet-type-fish
 ```
 
 To get a remote package that includes **generated TypeScript code** with [protobuf-es](https://buf.build/bufbuild/es):
 
-```protobuf
+```bash
 $ npm install @buf/tommyma_petapis.bufbuild_es@add-pet-type-fish
 ```
 

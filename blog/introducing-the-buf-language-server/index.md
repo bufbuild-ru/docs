@@ -44,7 +44,7 @@ The LSP was designed to standardize IDE functionality behind a common protocol. 
 
 You can install the `bufls` command (short for _Buf Language Server_) with the following command:
 
-```protobuf
+```bash
 $ go install github.com/bufbuild/buf-language-server/cmd/bufls@latest
 ```
 

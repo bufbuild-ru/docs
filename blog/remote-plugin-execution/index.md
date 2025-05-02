@@ -63,24 +63,24 @@ protoc \
 
 The [`buf` CLI](https://github.com/bufbuild/buf) streamlines this by [replacing](/docs/migration-guides/migrate-from-protoc/index.md) protoc in your workflows. So instead of that complex command invocation, you could use this [`buf.gen.yaml`](/docs/configuration/v1/buf-gen-yaml/index.md) configuration file...
 
-```protobuf
+```yaml
 version: v1
 plugins:
-    - name: cpp
-      out: gen/proto/cpp
-    - name: java
-      out: gen/proto/java
-    - name: python
-      out: gen/proto/python
-    - name: go
-      out: gen/proto/go
-    - name: rust
-      out: gen/proto/rust
+  - name: cpp
+    out: gen/proto/cpp
+  - name: java
+    out: gen/proto/java
+  - name: python
+    out: gen/proto/python
+  - name: go
+    out: gen/proto/go
+  - name: rust
+    out: gen/proto/rust
 ```
 
 ...and [generate](/docs/generate/overview/index.md) your code stubs with a single command:
 
-```protobuf
+```bash
 $ buf generate <input>
 ```
 
@@ -100,16 +100,16 @@ With remote plugin execution, you can publish Protobuf plugins to the BSR and th
 
 [Authoring](/docs/migration-guides/migrate-remote-generation-alpha/index.md) a plugin involves two steps: building the plugin as a Docker image and pushing the image to `plugins.buf.build`. Once your plugin has been pushed, you need to make one change to your [`buf.gen.yaml`](/docs/configuration/v1/buf-gen-yaml/index.md) configuration file to use it:
 
-```protobuf
+```yaml
 version: v1
 plugins:
-    - remote: buf.build/my-buf-org/plugins/my-proto-plugin:v1.2.3
-      out: gen/proto/my-language
+  - remote: buf.build/my-buf-org/plugins/my-proto-plugin:v1.2.3
+    out: gen/proto/my-language
 ```
 
 Note the usage of the `remote` key rather than `name`. With this configuration, the `buf generate` command now makes a remote procedure call (RPC) to the BSR to execute the `remote` plugin on your behalf. Here's an example generation command:
 
-```protobuf
+```bash
 $ buf generate buf.build/acme/petapis
 ```
 

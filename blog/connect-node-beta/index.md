@@ -102,7 +102,7 @@ Creating handlers that service requests to the API can then be implemented with 
 
 Below is an example of integrating Connect with the Fastify framework. Using `ConnectRouter` and the [@connectrpc/connect-fastify](https://www.npmjs.com/package/@connectrpc/connect-fastify) plugin, implementing endpoints can be done in no time:
 
-```protobuf
+```typescript
 import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_connect";
 import { ConnectRouter } from "@connectrpc/connect";
 import { fastifyConnectPlugin } from "@connectrpc/connect-fastify";
@@ -112,40 +112,39 @@ const routes = (router: ConnectRouter) =>
   router.service(ElizaService, {
     async say(req) {
       return {
-        sentence: `you said "${req.sentence}"`
-      }
-    }
+        sentence: `you said "${req.sentence}"`,
+      };
+    },
   });
 
 fastify({ http2: true })
   .register(fastifyConnectPlugin, { routes })
-  .listen({port: 3000});
+  .listen({ port: 3000 });
 ```
 
 The `routes` variable above is a function that registers a service on the `ConnectRouter`. This function is then passed as an option to the `fastifyConnectPlugin`.
 
 And that’s it! With just a few lines of code, we were able to stand up a fully functional Fastify application using Connect for Node.js. To use vanilla Node.js and the `http2` package instead of Fastify, replace the `fastifyConnectPlugin` with the `connectNodeAdapter` from [@connectrpc/connect-node](https://www.npmjs.com/package/@connectrpc/connect-node) and start the server:
 
-```protobuf
+```typescript
 import http2 from "http2";
 import { connectNodeAdapter } from "@connectrpc/connect-node";
 
-http2.createServer(connectNodeAdapter({ routes }))
-  .listen(3000);
+http2.createServer(connectNodeAdapter({ routes })).listen(3000);
 ```
 
 # Shared clients
 
 The same clients utilized by web browsers with Connect-Web can be used with Connect for Node.js by simply switching the underlying transport. Consider the client for the endpoint above:
 
-```protobuf
+```typescript
 const client = createPromiseClient(ElizaService, transport);
 const res = await client.say({ sentence: "I feel happy." });
 ```
 
 This client can use a transport designed for the web/browser:
 
-```protobuf
+```typescript
 import { createConnectTransport } from "@connectrpc/connect-web";
 const transport = createConnectTransport({
   baseUrl: "http://localhost:3000",
@@ -154,7 +153,7 @@ const transport = createConnectTransport({
 
 Or a transport tailored to Node.js:
 
-```protobuf
+```typescript
 import { createConnectTransport } from "@connectrpc/connect-node";
 const transport = createConnectTransport({
   httpVersion: "2",

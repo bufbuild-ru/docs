@@ -66,7 +66,7 @@ mkdir .cargo
 
 Next, edit the `.cargo/config.toml` file in your project to add Buf as a new Cargo registry. (You can find all of these steps easily by visiting the SDKs page for your repository and selecting Rust.) Your .cargo/config.toml file should look like this:
 
-```protobuf
+```toml
 # .cargo/config.toml
 [registries.buf]
 index = "sparse+https://buf.build/gen/cargo/"
@@ -75,13 +75,13 @@ credential-provider = "cargo:token"
 
 Next, create an authentication token to securely authenticate with the BSR, substituting your `<token>`:
 
-```protobuf
+```bash
 cargo login --registry buf "Bearer <token>"
 ```
 
 From there, you need to add a few dependencies:
 
-```protobuf
+```bash
 # Add our generated SDKs!
 cargo add --registry buf bufbuild_registry_community_neoeinstein-prost
 cargo add --registry buf bufbuild_registry_community_neoeinstein-tonic
@@ -91,7 +91,7 @@ cargo add tokio --features macros,rt-multi-thread # Async runtime
 
 Next, you need some client code to interact with the API. In `src/main.rs`, add the following code:
 
-```protobuf
+```rust
 use bufbuild_registry_community_neoeinstein_prost::buf::registry::owner::v1::{
     organization_ref::Value, GetOrganizationsRequest, OrganizationRef,
 };
@@ -121,7 +121,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 Finally, you can run the client, getting information about the bufbuild organization from buf.build:
 
-```protobuf
+```bash
 $ cargo run
 # ... more output ...
 Output

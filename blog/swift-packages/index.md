@@ -50,13 +50,13 @@ As an example, let's take an existing Swift project that makes use of locally-ge
 
 To get started, clone the [`connect-swift`](https://github.com/connectrpc/connect-swift) repository:
 
-```protobuf
+```bash
 git clone git@github.com:connectrpc/connect-swift.git
 ```
 
 Then, open the example app’s Xcode project:
 
-```protobuf
+```bash
 open Examples/ElizaSwiftPackageApp/ElizaSwiftPackageApp.xcodeproj
 ```
 

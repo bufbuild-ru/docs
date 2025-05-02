@@ -85,7 +85,7 @@ message Foo {
 
 The following error will be returned from `buf lint`:
 
-```protobuf
+```bash
 foo.proto:8:3:Fields of type google.protobuf.Timestamp must end in "_time" but field name was "start". (buf-plugin-timestamp-suffix)
 ```
 

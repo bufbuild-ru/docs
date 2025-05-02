@@ -73,7 +73,7 @@ plugins:
       opt: "paths=source_relative,lang=go"
 ```
 
-```protobuf
+```bash
 ./buf.gen.yaml
 ```
 

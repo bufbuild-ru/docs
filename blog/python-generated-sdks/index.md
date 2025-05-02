@@ -57,20 +57,20 @@ cd buf-python-example
 
 Next, create and activate a virtual environment to install your dependencies in:
 
-```protobuf
+```bash
 python3 -m venv venv
 source ./venv/bin/activate
 ```
 
 After that, install the dependency while specifying the Buf Python Repository as an extra index:
 
-```protobuf
+```bash
 python3 -m pip install connectrpc-eliza-grpc-python --extra-index-url https://buf.build/gen/python
 ```
 
 Then, paste the following code into a file called `main.py`:
 
-```protobuf
+```python
 import grpc
 
 from connectrpc.eliza.v1.eliza_pb2_grpc import ElizaServiceStub
@@ -90,7 +90,7 @@ if __name__ == "__main__":
 
 From here, we can execute `main.py` to interact with the Connect Demo API:
 
-```protobuf
+```bash
 $ python3 -m main
 Hello...I'm glad you could drop by today.
 ```
@@ -101,19 +101,19 @@ The above example installs just the basics we need to run a Python script, but w
 
 Let’s install `mypy` first:
 
-```protobuf
+```bash
 $ python3 -m pip install mypy
 ```
 
 Next, we’ll install our type-stub package:
 
-```javascript
+```bash
 $ python3 -m pip install connectrpc-eliza-protocolbuffers-pyi --extra-index-url https://buf.build/gen/python
 ```
 
 Now we can type check our script with `mypy`:
 
-```protobuf
+```bash
 $ python3 -m mypy main.py
 Output
 Success: no issues found in 1 source file

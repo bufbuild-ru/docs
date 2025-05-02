@@ -269,7 +269,7 @@ managed:
 
 A common issue with `buf generate` was that while you could configure your plugins and managed mode options within your `buf.gen.yaml`, you couldn't configure the inputs that you would then be generating against — inputs had to be specified on the command-line. v2 `buf.gen.yaml` solves this; instead of having to invoke:
 
-```protobuf
+```bash
 buf generate proto \
   --path proto/acme \
   --exclude-path proto/acme/billing
@@ -326,7 +326,7 @@ Don't panic! You can still specify inputs on the command-line and all other `buf
 
 Migrating to the v2 `buf.yaml` and `buf.gen.yaml` file is easy! In your source control repository, just call:
 
-```protobuf
+```bash
 buf config migrate
 ```
 
@@ -339,7 +339,7 @@ In a few cases, you may not want to migrate all your files, or you may have file
 
 In this case, you can bypass `buf config migrate`'s file search, and manually specify exactly what you'd like to migrate:
 
-```protobuf
+```bash
 buf config migrate --buf-gen-yaml templates/buf.client.gen.yaml
 buf config migrate --workspace proto
 buf config migrate --module proto/module1 --module proto/module2

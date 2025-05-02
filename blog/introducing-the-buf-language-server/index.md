@@ -50,7 +50,7 @@ $ go install github.com/bufbuild/buf-language-server/cmd/bufls@latest
 
 Now, all you need to do is wire up the language server with your LSP-compatible tool, such as Vim. If you use [vim-lsp](https://github.com/prabirshrestha/vim-lsp), you only need to configure the following:
 
-```protobuf
+```vim
 Plug 'prabirshrestha/vim-lsp'
 
 augroup LspBuf

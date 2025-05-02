@@ -50,7 +50,7 @@ Protobuf's original [protoc](https://github.com/protocolbuffers/protobuf#protoco
 
 With the Go and Rust plugins installed, you could generate code stubs using a command like this:
 
-```protobuf
+```bash
 protoc \
   -I proto \
   --cpp_out=gen/proto/cpp \

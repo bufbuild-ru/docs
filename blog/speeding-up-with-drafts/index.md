@@ -89,7 +89,7 @@ The `draft` flag indicates whether the module should be pushed as a draft. In th
 
 To consume a draft with the `buf` CLI, use the name of the draft as a module reference. For example, assuming a [`buf.gen.yaml`](/docs/configuration/v1/buf-gen-yaml/index.md) file exists in the current directory, code can be generated for a draft with the name `add-pet-type-fish` using:
 
-```protobuf
+```bash
 buf generate buf.build/tommyma/petapis:add-pet-type-fish
 ```
 

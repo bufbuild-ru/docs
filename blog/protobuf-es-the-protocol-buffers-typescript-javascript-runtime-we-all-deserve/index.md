@@ -116,7 +116,7 @@ message Example {
 
 you can use direct property access:
 
-```protobuf
+```typescript
 msg.foo = "Hello";
 msg.bar = true;
 msg.baz.foo = "World";
@@ -124,30 +124,30 @@ msg.baz.foo = "World";
 
 and you won't get confusing methods like `getNamesList`, `setNamesList`, `getStatusMap`, and `clearStatusMap`. You won't have to access nested messages by doing things like `msg.getBaz().getNamesList()`. You will work with the same familiar syntax:
 
-```protobuf
+```typescript
 msg.names = [];
 
 const names = foo.names;
 
 msg.statuses = {
-    bar: "created",
+  bar: "created",
 };
 ```
 
 and you can initialize your objects conveniently using the `new` operator or passing an initializer object to constructors:
 
-```protobuf
+```typescript
 // Using new
 const message = new Example();
 
 // Using an object in the constructor
 new Example({
-    foo: "Hello",
-    bar: true,
-    baz: {
-        // you can simply pass an initializer object for this message field
-        foo: "world",
-    },
+  foo: "Hello",
+  bar: true,
+  baz: {
+    // you can simply pass an initializer object for this message field
+    foo: "world",
+  },
 });
 ```
 

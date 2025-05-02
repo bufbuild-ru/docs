@@ -149,7 +149,7 @@ Writing Swift unit tests for APIs can be very tedious, as it requires manually i
 
 Connect-Swift breaks these existing testing paradigms. With both a production client implementation _and a protocol interface for it to conform to_, we’re able to generate mock implementations that can be swapped out for testing:
 
-```protobuf
+```swift
 open class Eliza_V1_ChatServiceClientMock: Eliza_V1_ChatServiceClientInterface {
     public var mockAsyncSay = { (_: Eliza_V1_SayRequest) -> ResponseMessage<Eliza_V1_Response> in .init(message: .init()) }
 
@@ -163,7 +163,7 @@ open class Eliza_V1_ChatServiceClientMock: Eliza_V1_ChatServiceClientInterface {
 
 Suddenly, testing becomes much easier:
 
-```protobuf
+```swift
 func testMessagingViewModel() async {
     let client = Eliza_V1_ChatServiceClientMock()
     client.mockAsyncSay = { request in

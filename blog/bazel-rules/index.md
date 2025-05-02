@@ -99,7 +99,7 @@ buf_breaking_test(
 
 Running `bazel test --test_output=errors //:foo_proto_breaking` will print the errors,
 
-```protobuf
+```bash
 ...
 Executing tests from //:foo_proto_breaking
 -----------------------------------------------------------------------------
@@ -129,7 +129,7 @@ buf_lint_test(
 
 Running `bazel test --test_output=errors //foo/v1:foo_proto_lint` will print the errors,
 
-```protobuf
+```bash
 ...
 Executing tests from //foo/v1:foo_proto_lint
 -----------------------------------------------------------------------------

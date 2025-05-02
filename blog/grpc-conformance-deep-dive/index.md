@@ -64,14 +64,14 @@ Once you’ve written a conformance client or server and a configuration file de
 
 ### Testing a client
 
-```protobuf
+```bash
 connectconformance --mode client --config <path/to/config/file> \
    -- <path/to/your/executable/client>
 ```
 
 ### Testing a server
 
-```protobuf
+```bash
 connectconformance --mode server --config <path/to/config/file> \
    -- <path/to/your/executable/server>
 ```

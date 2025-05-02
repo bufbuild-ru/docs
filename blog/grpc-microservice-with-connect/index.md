@@ -171,7 +171,7 @@ Create a `README.md` and a `.gitignore`.
 $ echo "# Building a modern gRPC-powered microservice using Node.js, Typescript, and Connect" >> README.md
 ```
 
-```protobuf
+```bash
 node_modules
 # where we will output build artifacts
 dist/
@@ -210,7 +210,7 @@ pnpm add -D unbuild;
 
 Also, let’s stub out the source code so we can confirm everything is working.
 
-```typescript
+```bash
 mkdir src;
 echo "export {};" >> src/index.ts
 ```
@@ -419,7 +419,7 @@ export * from "./proto/transitions/v1/state-transitions_pb";
 
 Because our `./src` directory contains generated code, we will need to create a slightly unusual looking `.gitignore` for this package.
 
-```protobuf
+```bash
 dist/
 src/*!
 src/index.ts
@@ -578,7 +578,7 @@ pnpm run build;
 
 Below are the updates to the `package.json`.
 
-```protobuf
+```bash
 diff --git a/services/@state-transitions/service/package.json b/services/@state-transitions/service/package.jsonindex 317277e..9354855 100644
 --- a/services/@state-transitions/service/package.json
 +++ b/services/@state-transitions/service/package.json
@@ -651,7 +651,7 @@ pnpm add @state-transitions/definition;
 
 We’ll start by updating the server’s index file to register the [@bufbuild/connect-fastify](https://www.npmjs.com/package/@bufbuild/connect-fastify) plugin.
 
-```protobuf
+```bash
 diff --git a/services/@state-transitions/service/src/index.ts b/services/@state-transitions/service/src/index.tsindex 666f1dd..55d9d56 100644
 --- a/services/@state-transitions/service/src/index.ts
 +++ b/services/@state-transitions/service/src/index.ts@@ -1,11 +1,12 @@
@@ -992,7 +992,7 @@ touch src/schema.prisma
 
 Our Prisma schema is going to be quite simple. A single table of state transitions. Roughly equivalent to log lines. We configure our database connection in the schema, as well as how and where we generate the Prisma client.
 
-```protobuf
+```prisma
 datasource db {
   provider = "postgresql"
   url      = "postgres://user:[email protected]:5436/state_transitions_postgres"}
@@ -1038,7 +1038,7 @@ networks:
 
 While the container configuration lives at the workspace root because of how docker-compose works, we can still have the package scripts encapsulate logic for how to bring the database up, down, etc. We can start with simple `up` and `down` package scripts that look like this.
 
-```protobuf
+```json
 "up": "docker-compose up state_transitions_postgres",
 "down": "docker stop -t 15 state_transitions_postgres"
 ```
@@ -1093,7 +1093,7 @@ export default prismaPlugin;
 
 Additionally, we need to register the plugin in the server’s initialization.
 
-```protobuf
+```bash
 diff --git a/services/@state-transitions/service/src/index.ts b/services/@state-transitions/service/src/index.tsindex 9d54a16..df32dde 100644
 --- a/services/@state-transitions/service/src/index.ts
 +++ b/services/@state-transitions/service/src/index.ts
@@ -1114,7 +1114,7 @@ diff --git a/services/@state-transitions/service/src/index.ts b/services/@state-
 
 Now we can use Prisma to map our RPCs to database requests.
 
-```protobuf
+```bash
 diff --git a/services/@state-transitions/service/src/connect.ts b/services/@state-transitions/service/src/connect.tsindex a39e1c5..aaa343f 100644
 --- a/services/@state-transitions/service/src/connect.ts
 +++ b/services/@state-transitions/service/src/connect.ts
@@ -1235,7 +1235,7 @@ exit $TEST_EXIT_STATUS;
 
 We can wire the `test` package script to use the runner and put the original test innovation in a separate script.
 
-```protobuf
+```json
 "test": "./bin/runner.sh",
 "test:e2e": "vitest run ./src/__tests__/"
 ```

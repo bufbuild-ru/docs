@@ -63,7 +63,7 @@ Protobuf runtimes require that type declarations be universally unique, and havi
 
 If a third team wants to aggregate information from both of the other teams' APIs and subsequently includes both of these types in their Go server, this would result in a runtime panic:
 
-```protobuf
+```bash
 panic: proto: file "profiles/v1/profile.proto" has a name conflict over company.profiles.UserProfile
 previously from: "company.buf.team/gen/go/team1/profileinfo/protocolbuffers/go/profiles/v1"
 currently from:  "company.buf.team/gen/go/team2/profiledetails/protocolbuffers/go/profiles/v1"

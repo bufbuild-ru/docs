@@ -149,9 +149,3 @@ $ protoc -I . --include_source_info -o /dev/stdout foo.proto | buf lint -
 ## `protoc` lint and breaking change detection plugins
 
 Since `buf` "understands" [`FileDescriptorSet`](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/descriptor.proto)s, we also provide [`protoc-gen-buf-lint`](../../cli/protoc-plugins/#lint) and [`protoc-gen-buf-breaking`](../../cli/protoc-plugins/#breaking) as standard Protobuf plugins.
-
-## Related docs
-
-- Read the [Build images overview](../../build/overview/)
-- Learn how to [build an image](../../build/tutorial/) from your Protobuf files
-- Browse the [`buf build` command reference](../cli/buf/build/)

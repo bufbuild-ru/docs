@@ -62,7 +62,3 @@ Recommended SDKs exist at each admin level independently and don't interact with
 - When you recommend a plugin at the repository level, it's only recommended for that repository.
 - If the same plugin is recommended at a higher level, it's recommended for all repositories under that level.
 - If the plugin is then removed from recommended at the higher level, the repository level recommendation still exists.
-
-## Related docs
-
-- [Generated SDKs overview](../../../generated-sdks/overview/)

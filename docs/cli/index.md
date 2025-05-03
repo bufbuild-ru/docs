@@ -45,7 +45,7 @@ head:
 
 # Buf CLI
 
-The Buf CLI is a helpful tool for managing Protobuf schemas. It offers various features, including code generation, breaking change detection, linting, and formatting, to assist with Protobuf development and maintenance. It works with your choice of plugins and languages and gives you access to a vast library of certified plugins in the Buf Schema Registry.
+The Buf CLI is the ultimate tool for modern, fast, and efficient Protobuf API management. It makes crucial tasks like code generation, breaking change detection, and linting easy to configure, and integrates seamlessly with your existing workflows, so you can focus on what matters most: writing great APIs.
 
 ## Commands
 

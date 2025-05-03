@@ -9,7 +9,7 @@ head:
       href: "https://bufbuild.ru/docs/reference/internal-compiler/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/any_rules/"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/field_rules/"
   - - meta
     - property: "og:title"
       content: "Violations - Buf Docs"

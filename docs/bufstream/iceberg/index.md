@@ -45,7 +45,7 @@ head:
 
 # Bufstream Apache Iceberg integration
 
-Bufstream streams data directly to Apache Iceberg™ from any topic, eliminating the need for an additional, expensive ETL pipeline and transforming data to as it passes through the broker. Once data is transformed and at rest in object storage, Bufstream layers Iceberg metadata on top of the Parquet. Transformed data is queryable and discoverable by tools like Apache Spark, Amazon Athena, Dremio, Trino, and Starburst without having to copy data into a separate lakehouse table and duplicate storage. Bufstream can also optionally update your existing Iceberg catalog and exposes configuration options to do so, reducing the time it takes to gain insight from your data.Bufstream supports updates to the following catalogs today:
+Bufstream streams data directly to Apache Iceberg™ from any topic, eliminating the need for an additional, expensive ETL pipeline and transforming data to as it passes through the broker. Once data is transformed and at rest in object storage, Bufstream layers Iceberg metadata on top of the Parquet files. Transformed data is queryable and discoverable by tools like Apache Spark, Amazon Athena, Dremio, Trino, and Starburst without having to copy data into a separate lakehouse table and duplicate storage. Bufstream also optionally updates your existing Iceberg catalog and exposes configuration options to do so, reducing the time it takes to gain insight from your data.Bufstream supports updates to the following catalogs today:
 
 - REST Catalog
 - BigLake Metastore (GCP)
@@ -53,8 +53,8 @@ Bufstream streams data directly to Apache Iceberg™ from any topic, eliminating
 
 We plan to add support for the following catalogs in an upcoming release:
 
-- Databricks Unity Catalog
 - Snowflake Polaris
+- Databricks Unity Catalog
 - Snowflake Horizon
 - Glue (AWS)
 
@@ -62,7 +62,7 @@ Bufstream's Iceberg REST catalog support allows you to deploy a [REST adapter](h
 
 ## Why Iceberg?
 
-The existing processes for getting data out of Kafka and into a data lake, warehouse, or analytics tool are prone to human error, introduce duplicative storage, and increase operational expenses. Bufstream eliminates these complex and brittle processes and delegates data transformation to the broker and makes object storage the single source of truth for ready to query data -- leading your team to critical insights faster.Over the last few years, Iceberg has grown to be the leading standard for storing big data sets in the data lakehouse, and as a result we've seen the ecosystem grow to unite data platform teams and analytics teams with tools like Apache Spark, Amazon Athena, Dremio, Trino, and Starburst. These conditions made Iceberg a great fit for Bufstream.Today to shift data out of Kafka and into a data warehouse teams must do some or all of the following:
+The existing processes for getting data out of Kafka and into a data lake, warehouse, or analytics tool are prone to human error, introduce duplicative storage, and increase operational expenses. Bufstream eliminates these complex and brittle processes, delegates data transformation to the broker, and makes object storage the single source of truth for ready to query data -- leading your team to critical insights faster.Over the last few years, Iceberg has grown to be the leading standard for storing big data sets in the data lakehouse, and as a result we've seen the ecosystem grow to unite data platform teams and analytics teams with tools like Apache Spark, Amazon Athena, Dremio, Trino, and Starburst. These conditions made Iceberg a great fit for Bufstream.Today to shift data out of Kafka and into a data warehouse teams must do some or all of the following:
 
 - Set up a consumption workflow that requires additional compute and storage, utilizing Kafka Connect or bespoke direct to data lakehouse engines.
 - Create and maintain a complex pipeline of operations that transform the data to a columnar format (like Parquet), materialize the data, and address any schema changes or evolution.

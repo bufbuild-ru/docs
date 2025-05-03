@@ -605,13 +605,3 @@ This is a basic walkthrough, and you've learned key functions of the BSR:
 1.  Depend on a BSR module (Protovalidate) in your API.
 2.  Refactor part of your API into a documented BSR module you can share with your organization.
 3.  Use a BSR-generated SDK to access your API.
-
-## Related docs
-
-To find out more about how you can build better with Buf, check out some of our other guides:
-
-- [Buf CLI quickstart](../../cli/quickstart/)
-- [Buf Schema Registry overview](../)
-- [Modules and workspaces](../../cli/modules-workspaces/) concepts guide
-- [Repositories](../repositories/) concepts guide
-- [Dependency management](../module/dependency-management/) in the BSR

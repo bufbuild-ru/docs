@@ -274,9 +274,3 @@ breaking:
 :::
 
 Run the same `buf breaking` command, and you should no longer get the error.These scenarios represent the most common use cases for using `buf breaking` locally. If your organization also has instance-wide breaking change detection, you may see different results when running locally versus when you push a module to the BSR. See the [breaking change policy check](../../bsr/policy-checks/breaking/overview/#local-settings) documentation for the details.
-
-## Related docs
-
-- Get detailed explanations of the breaking change [rules and categories](../rules/)
-- Browse the [buf.yaml configuration file reference](../../configuration/v2/buf-yaml/#breaking) and [`buf breaking` command reference](../../reference/cli/buf/breaking/)
-- See more about the types of [inputs](../../reference/inputs/) that the Buf CLI accepts

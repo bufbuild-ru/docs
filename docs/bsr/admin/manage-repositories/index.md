@@ -113,12 +113,12 @@ You can change the visibility of BSR repositories.
 
 You can decide who gets to see your repository by picking whether it's public or private. When you create one, you get to choose which one you want.
 
-- A public repository can be seen by anyone who has access to the instance. For repositories on https://buf.build, this means it can be seen by anyone on the internet. For private customer instances, it means it can only be seen by anyone authenticated on the instance unless you disable authentication for public moduldes.
+- A public repository can be seen by anyone who has access to the instance. For repositories on https://buf.build, this means it can be seen by anyone on the internet. For private customer instances, it means it can only be seen by anyone authenticated on the instance unless you disable authentication for public modules.
 - A private repository is only viewable by you and the people you give permission to.
 
 ### Add a member
 
-Managing members is only allowed for repositories that are owned by a BSR organization. To add a direct access member (one who doesn't belong to the parent organization):
+Managing members is only allowed for repositories that are owned by a BSR organization.This section describes how to manage repository members using the BSR web app. See [Manage user access with IdP groups](../instance/manage-access-idp-groups/) if you're using IdP groups to manage repository membership.To add a direct access member (one who doesn't belong to the parent organization):
 
 1.  Go to the repository's **Settings** page at `https://buf.build/ORGANIZATION/REPOSITORY/settings`
 2.  In the **Manage access** section, click **Add direct access members**.
@@ -126,16 +126,25 @@ Managing members is only allowed for repositories that are owned by a BSR organi
 
 ### Change member access
 
-To change a user's access level or remove their access to the repository:
+To change a member's access level or remove their access to the repository:
 
 1.  Go to the repository's **Settings** page at `https://buf.build/ORGANIZATION/REPOSITORY/settings`
-2.  In the **Direct access** section, select the user whose access you want to change or remove.
-3.  Click the settings icon at the right of the user's row and choose which operation to perform from the dropdown.![Screenshot of user access settings dropdown](../../../images/bsr/repo/change-user-access.png)
-4.  Confirm the operation.
+2.  In the **Direct access** section, go to the member whose access you want to change.
+3.  Choose the member's new role from the **Role** dropdown.
+4.  Confirm the role change.
+
+### Remove a member
+
+To remove a direct access member from the repository:
+
+1.  Go to the repository's **Settings** page at `https://buf.build/ORGANIZATION/REPOSITORY/settings`
+2.  In the **Direct access** section, select the member you want to remove.
+3.  Click the trash can at the right of the member's row.
+4.  Confirm the removal.
 
 ### Deprecate or undeprecate
 
-You can deprecate BSR repositories to indicate to others that depending on this repository is no longer recommended. The Buf CLI warns any user who runs `buf dep update` on a module that depends on a deprecated repository.
+You can deprecate BSR repositories to indicate to others that depending on the underlying module is no longer recommended. The Buf CLI warns any user who runs `buf dep update` on a module that depends on a deprecated repository.
 
 - In the BSR, deprecate or undeprecate a repository from its **Settings** page.
 - From the command line (you must be logged in from your terminal):
@@ -143,7 +152,7 @@ You can deprecate BSR repositories to indicate to others that depending on this 
   ::: info Deprecate a repository
 
   ```console
-  $ buf beta registry repository deprecate <{REMOTE}/{OWNER}/{REPOSITORY}> [--message <deprecation message>]
+  $ buf registry module deprecate <{REMOTE}/{OWNER}/{REPOSITORY}> [--message <deprecation message>]
   ```
 
   :::
@@ -151,7 +160,7 @@ You can deprecate BSR repositories to indicate to others that depending on this 
   ::: info Undeprecate a repository
 
   ```console
-  $ buf beta registry repository undeprecate <{REMOTE}/{OWNER}/{REPOSITORY}>
+  $ buf registry module undeprecate <{REMOTE}/{OWNER}/{REPOSITORY}>
   ```
 
   :::

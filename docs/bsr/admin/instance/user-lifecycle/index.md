@@ -6,10 +6,10 @@ head:
       href: "https://bufbuild.ru/docs/bsr/admin/instance/user-lifecycle/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/admin/instance/customize-homepage/"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/scim/faq/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/admin/instance/bot-users/"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/manage-access-idp-groups/"
   - - meta
     - property: "og:title"
       content: "User lifecycle - Buf Docs"
@@ -109,72 +109,4 @@ If you require permanent account deletion, reach out for assistance.
 
 ## Automated organization membership provisioning
 
-If you want to have all users that login to your instance automatically added to an organization with a specific role, then reach out to us to configure this for you.If you use security groups at your organization and your IdP supports exposing the set of groups a user belongs to in the SAML assertion/OIDC ID token, you can map those groups to BSR Organizations. The BSR automatically enrolls and un-enrolls users as members as your IdP groups change.To configure this, contact [Support](https://support.buf.build) or your Buf representative with the name of the SAML assertion attribute/OIDC ID token claim that contain a user's groups. Then follow the steps below to map or unmap your IdP groups to the BSR.
-
-WarningOnce this is configured, _all_ user tokens from the IdP _must_ contain group information. Any user for whom groups information isn't provided will be unable to login to the BSR.
-
-### Map a security group to a BSR Organization
-
-To map a security group to a BSR Organization, you must issue an API command directly with a user who has admin permissions on the organization:
-
-1.  Create an API token from your user settings page.
-2.  Export `BUF_TOKEN`, `GROUP_NAME`, `ORGANIZATION_NAME` and `PRIVATE_BSR_HOSTNAME` according to your details.
-3.  Get the organization ID:
-
-    ```console
-    $ curl \
-        -H "Authorization: Bearer ${BUF_TOKEN}" \
-        -H "Content-Type: application/json" \
-        -d "{\"name\":\"${ORGANIZATION_NAME}\"}" \
-        "https://${PRIVATE_BSR_HOSTNAME}/buf.alpha.registry.v1alpha1.OrganizationService/GetOrganizationByName"
-    ```
-
-4.  Extract the returned `organization.id`, export it as `ORGANIZATION_ID` and use it to map the group:
-
-    ```console
-    $ curl \
-        -H "Authorization: Bearer ${BUF_TOKEN}" \
-        -H "Content-Type: application/json" \
-        -d "{\"organization_id\":\"${ORGANIZATION_ID}\", \"group_name\":\"${GROUP_NAME}\"}" \
-        "https://${PRIVATE_BSR_HOSTNAME}/buf.alpha.registry.v1alpha1.OrganizationService/AddOrganizationGroup"
-    ```
-
-    - Members of the group are automatically added to the organization at the Member role. You can optionally override this by specifying a `role_override` in the payload:
-
-      ```console
-      $ curl \
-          -H "Authorization: Bearer ${BUF_TOKEN}" \
-          -H "Content-Type: application/json" \
-          -d "{\"organization_id\":\"${ORGANIZATION_ID}\", \"group_name\":\"${GROUP_NAME}\", \"role_override\":\"ORGANIZATION_ROLE_ADMIN\"}" \
-          "https://${PRIVATE_BSR_HOSTNAME}/buf.alpha.registry.v1alpha1.OrganizationService/AddOrganizationGroup"
-      ```
-
-5.  Ask your employees to logout/login for changes to take effect.
-
-### Update a security group mapping
-
-If a security group is already mapped to a BSR organization and you want to change or clear the role override, you must issue this API command directly with a user who has admin permissions on the organization.
-
-```console
-$ curl \
-    -H "Authorization: Bearer ${BUF_TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "{\"organization_id\":\"${ORGANIZATION_ID}\", \"group_name\":\"${GROUP_NAME}\", \"role_override\":\"ORGANIZATION_ROLE_ADMIN\"}" \
-    "https://${PRIVATE_BSR_HOSTNAME}/buf.alpha.registry.v1alpha1.OrganizationService/UpdateOrganizationGroup"
-```
-
-If you want to clear the role override, use `ORGANIZATION_ROLE_UNSPECIFIED` as the `role_override` value.
-
-### Unmap a security group to a BSR Organization
-
-To unmap a group, issue the same commands, except in the final step invoke `RemoveOrganizationGroup` instead.
-
-```console
-$ curl \
-    -H "Authorization: Bearer ${BUF_TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "{\"organization_id\":\"${ORGANIZATION_ID}\", \"group_name\":\"${GROUP_NAME}\"}" \
-    "https://${PRIVATE_BSR_HOSTNAME}/buf.alpha.registry.v1alpha1.OrganizationService/RemoveOrganizationGroup"
-```
-
-Members don't need to logout or login when a group is removed — they're removed from the organization immediately.
+If you want all users who login to your instance to be automatically added to an organization with a specific role, reach out to us to configure this for you.If you want to map IdP security groups to specific organizations or repositories, see [Manage user access with IdP groups](../manage-access-idp-groups/)

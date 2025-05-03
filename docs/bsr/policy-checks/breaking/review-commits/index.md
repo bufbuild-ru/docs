@@ -72,7 +72,3 @@ When a commit has been pushed with a breaking change, additional commits may sta
   - It becomes available as the latest commit on the default label, and be marked as **Approved** on the **Commits** tab.
   - If there are other pending commits stacked up behind the breaking change, the BSR auto-approves them up to the next breaking change, and the last of those commits becomes available as the latest commit on the default label.
 - If you reject a commit and another commit is pushed that fixes the breaking change, any commits between the breaking change and the fix commit are rejected. The fix commit becomes available as the latest commit on the default label.
-
-## Related docs
-
-- Learn about [commits and labels](../../../commits-labels/)

@@ -258,7 +258,3 @@ Failure: exec: "diff": executable file not found in %PATH%
 ```
 
 The solution for this is to add the path of `diff.exe` (`C:\Program Files\Git\usr\bin` by default) in the Control Panel.![Screenshot of Control Panel](../../images/cli/diff-path.png)
-
-## Related docs
-
-- [`buf format` command reference](../../reference/cli/buf/format/)

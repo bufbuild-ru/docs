@@ -50,8 +50,8 @@ The Buf Schema Registry (BSR) enables five types of documentation for your schem
 - Source code with navigation
 - Module documentation (as a `README.md` file you can include in the module)
 - Package documentation (as a code comment above the `package` declaration in your `.proto` files)
-- API reference documentation for their [generated SDKs](../../generated-sdks/tutorial/#api-reference)
-- Getting started guide for their [generated SDKs](../../generated-sdks/user-documentation/)
+- API reference documentation for their [generated SDKs](../../generated-sdks/sdk-documentation/#api-reference)
+- Getting started guide for their [generated SDKs](../../generated-sdks/sdk-documentation/)
 
 This page covers the three types that are directly included in a module.
 
@@ -74,9 +74,3 @@ When you first go to the module documentation, there are links into each of its 
 ## Package documentation
 
 When you click into a package, you see the package docs at the top, an index of the entities categorized by field type on the left, and the entities themselves in the same order on the right:![Entity documentation](../../../images/bsr/docs-generated-fields.png)Clicking in the index takes you to the referenced item, and you can quickly navigate from the docs to the Protobuf file by clicking the filename on the right side of each entity. Each entity's header also has a unique anchor tag that you can click to copy, enabling you to share a link to the exact item.
-
-## Related docs
-
-- To learn how to set up module and package documentation for BSR modules, see [Adding documentation](../create-docs/).
-- To learn how to add a "Getting started" guide for your module's generated SDKs, see [User documentation](../../generated-sdks/user-documentation/).
-- To learn how to view the API reference documentation for a generated SDK, see the [generated SDKs tutorial](../../generated-sdks/tutorial/#api-reference).

@@ -9,7 +9,7 @@ head:
       href: "https://bufbuild.ru/docs/reference/protovalidate/rules/uint32_rules/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/reference/protovalidate/cel_extensions/"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/enums/"
   - - meta
     - property: "og:title"
       content: "Uint64 - Buf Docs"

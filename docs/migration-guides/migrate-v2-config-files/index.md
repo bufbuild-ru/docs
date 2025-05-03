@@ -401,9 +401,3 @@ All `buf mod` subcommands still work, but output a deprecation message to stderr
 $ buf mod update
 Command "update" is deprecated, use "buf dep update" instead. However, "buf mod update" will continue to work.
 ```
-
-## Related docs
-
-- [`buf.yaml`](../../configuration/v2/buf-yaml/) and [`buf.gen.yaml`](../../configuration/v2/buf-gen-yaml/) configuration file references
-- [Modules and workspaces](../../cli/modules-workspaces/), [repositories](../../bsr/repositories/), and [commits and labels](../../bsr/commits-labels/) concepts pages
-- [Pushing to the BSR](../../bsr/module/publish/) guide

@@ -130,7 +130,3 @@ For a full list of supported plugins, navigate to the [BSR plugins page](https:/
 ### I get a 422 status code when trying to install a Python generated SDK. How do I get more information about what went wrong?
 
 A 422 status code means that the plugin failed to run. You can `curl` the wheel endpoint (which `pip` provides in the error message as a URL ending in `.whl`) or open it in your browser to get more details about the failure.
-
-## Related docs
-
-- Try the [generated SDKs tutorial](../tutorial/) to learn how to generate SDKs from the BSR.

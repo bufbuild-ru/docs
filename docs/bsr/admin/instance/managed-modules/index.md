@@ -6,7 +6,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/admin/instance/managed-modules/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/admin/instance/bot-users/"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/customize-homepage/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/admin/instance/audit-logs/"

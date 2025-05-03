@@ -9,7 +9,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/admin/instance/scim/okta-saml/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/admin/instance/customize-appearance/"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/user-lifecycle/"
   - - meta
     - property: "og:title"
       content: "FAQ - Buf Docs"

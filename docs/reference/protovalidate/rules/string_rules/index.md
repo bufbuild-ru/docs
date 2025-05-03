@@ -514,7 +514,7 @@ message MyString {
 - An IPv6 address enclosed in square brackets — for example, "\[2001:0DB8:ABCD:0012::F1\]".
 - A hostname — for example, "example.com".
 
-The port is separated by a colon. It must be non-empty, with a decimal number in the range of 0-65535, inclusive.@generated from field: bool host_and_port = 32;
+The port is separated by a colon. It must be non-empty, with a decimal number in the range of 0-65535, inclusive.
 
 ## well_known_regex
 

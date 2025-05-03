@@ -89,14 +89,6 @@ The `bufstream.yaml` file defines configuration for a Bufstream broker. The Bufs
 
 \_[`StorageConfig`](#buf.bufstream.config.v1alpha1.StorageConfig)\_The data storage configuration.
 
-### `actors`
-
-\_list<[`Actor`](#buf.bufstream.config.v1alpha1.Actor)\>\_The actors that are enabled on this broker.If empty, all actors are enabled. This field is mutually exclusive with `disabled_actors`.
-
-### `disabled_actors`
-
-\_list<[`Actor`](#buf.bufstream.config.v1alpha1.Actor)\>\_The actors that are disabled on this broker.This field is mutually exclusive with `actors`.
-
 ### `dispatch`
 
 \_[`DispatchConfig`](#buf.bufstream.config.v1alpha1.DispatchConfig)\_Configuration for dispatching of requests and data flow between brokers.
@@ -191,10 +183,6 @@ Configuration for observability primitives
 
 \_bool_If set, include "version=" in log output.
 
-#### `metrics_exporter`
-
-\_[`Exporter`](#buf.bufstream.config.v1alpha1.OTEL.Exporter)\_OpenTelemetry exporter for metrics, defaults to NONE. Deprecated: use metrics.exporter_type instead.
-
 #### `metrics`
 
 \_[`MetricsConfig`](#buf.bufstream.config.v1alpha1.MetricsConfig)\_Configuration for metrics.
@@ -203,17 +191,9 @@ Configuration for observability primitives
 
 \_[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)\_If configured, pprof and prometheus exported metrics will be exposed on this address.
 
-#### `trace_exporter`
-
-\_[`Exporter`](#buf.bufstream.config.v1alpha1.OTEL.Exporter)\_OpenTelemetry exporter for traces, defaults to NONE. Deprecated: use traces.exporter_type instead.
-
 #### `traces`
 
 \_[`TracesConfig`](#buf.bufstream.config.v1alpha1.TracesConfig)\_Configuration for traces.
-
-#### `trace_ratio`
-
-\_float64_OpenTelemetry trace sample ratio, defaults to 1. Deprecated: use traces.trace_ratio instead.
 
 #### `exporter`
 
@@ -714,10 +694,6 @@ Configuration for metrics.
 
 \_bool_If set to true, TLS is disabled for the OTLP exporter.
 
-#### `omit_partition_attribute`
-
-\_bool_This omits metrics that depend on the kafka.topic.partition attribute, which may have high cardinality depending on the configuration. One example is kafka.topic.partition.offset.high_water_mark. This omits only the attribute for metrics that have this attribute without depending on it. One example is kafka.produce.record.size. Deprecated: use aggregation.partitions instead.
-
 #### `enable_internal_metrics`
 
 \_bool_Whether to emit `bufstream.internal.*` metrics.
@@ -740,7 +716,7 @@ Configuration for traces.
 
 #### `address`
 
-\_string_The endpoint for OTLP exporter, with a host name and an optional port number. If this is not set, it falls back to observability.exporter.address. If that is not set, it falls back to the OTEL's default behavior, using the host and port of OTEL_EXPORTER_OTLP_TRACES_ENDPOINT, if not found then OTEL_EXPORTER_OTLP_ENDPOINT and finally localhost:4318 for OTLP_HTTP or locahost:4317 for OTLP_GRPC.For OTLP_HTTP, traces.path will be appended to this address.
+\_string_The endpoint for OTLP exporter, with a host name and an optional port number. If this is not set, it falls back to observability.exporter.address. If that is not set, it falls back to the OTEL's default behavior, using the host and port of OTEL_EXPORTER_OTLP_TRACES_ENDPOINT, if not found then OTEL_EXPORTER_OTLP_ENDPOINT and finally localhost:4318 for OTLP_HTTP or localhost:4317 for OTLP_GRPC.For OTLP_HTTP, traces.path will be appended to this address.
 
 #### `path`
 
@@ -760,7 +736,7 @@ Default configuration for metrics and traces exporters.
 
 #### `address`
 
-\_string_The default base address used by OTLP_HTTP and OTLP_GRPC exporters, with a host name and an optional port number. For OTLP_HTTP, "/v1/{metrics, traces}" will be appended to this address, unless the path is overriden by metrics.path or traces.path. If port is unspecified, it defaults to 4317 for OTLP_GRPC and 4318 for OTLP_HTTP.
+\_string_The default base address used by OTLP_HTTP and OTLP_GRPC exporters, with a host name and an optional port number. For OTLP_HTTP, "/v1/{metrics, traces}" will be appended to this address, unless the path is overridden by metrics.path or traces.path. If port is unspecified, it defaults to 4317 for OTLP_GRPC and 4318 for OTLP_HTTP.
 
 #### `insecure`
 
@@ -914,7 +890,7 @@ A certificate chain and private key pair.
 
 ### `Aggregation`
 
-Configuration for metrics aggregation, taking precedence over senstive information redaction.
+Configuration for metrics aggregation, taking precedence over sensitive information redaction.
 
 #### `topics`
 
@@ -922,7 +898,7 @@ _bool_Aggregate metrics across all topics to avoid cardinality issues with clust
 
 #### `partitions`
 
-\_bool_Aggregate metrics across all parttions to avoid cardinality issues with clusters with a large number of partitions. Metrics that support aggregation will report the 'kafka.partition.id' attribute as -1, while some metrics, such as 'bufstream.kafka.topic.partition.offset.high_water_mark' will be omitted if partition level aggregation is enabled.
+\_bool_Aggregate metrics across all partitions to avoid cardinality issues with clusters with a large number of partitions. Metrics that support aggregation will report the 'kafka.partition.id' attribute as -1, while some metrics, such as 'bufstream.kafka.topic.partition.offset.high_water_mark' will be omitted if partition level aggregation is enabled.
 
 #### `consumer_groups`
 
@@ -1234,7 +1210,7 @@ Configuration for minting JWTs for authenticating with a server.
 
 #### `key`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)\_Specifies the key used to sign JWTs. For HMAC keyed hashes, the value is a sequence of opaque bytes used as a shared secret. For the others (asymmetric digital signature algorithms), the value must be a PEM-encoded private key. The type of the key must match the configured algorithm.
+\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)\_Specifies the key used to sign JWTs. For HMAC keyed hashes, the value is just a sequence of opaque bytes used as a shared secret. For the others (asymmetric digital signature algorithms), the value must be a PEM-encoded private key. The type of the key must match the configured algorithm.
 
 #### `expiry`
 
@@ -1304,41 +1280,6 @@ _uint32_
 
 ## Enums
 
-### `Actor`
-
-The processes running in a Bufstream cluster.
-
-#### `ACTOR_WRITER`
-
-The writer accepts records for any topic/partition and fans them into intake files. It then asks a sequencer to append those records to the appropriate topic/partition.
-
-#### `ACTOR_READER`
-
-The reader combines information from sequencers and cashiers to provide a unified interface for fetching records from any topic/partition.
-
-#### `ACTOR_SEQUENCER`
-
-The sequencer:
-
-- reads recent append requests from metadata storage and assigns offsets to them.
-- collects the results of recently sequenced requests and saves them to object storage.
-- combines intake records from object storage with results from memory to create 'FetchChunks'.
-
-#### `ACTOR_CASHIER`
-
-The cashier:
-
-- reads intake files from object storage and serves the topic/partition specific chunks.
-- reads archive data from object storage and serves the topic/partition specific chunks.
-
-#### `ACTOR_CLEANER`
-
-The cleaner:
-
-- reads records from a sequencer and saves archives to object storage.
-- tracks the oldest un-archived record for all topic/partitions in the cluster, and deletes intake files older than the oldest un-archived record.
-- processes transactional consumer group offset updates.
-
 ### `ConnectHttpVersion`
 
 HTTP version options used by ConnectRPC clients.
@@ -1366,18 +1307,6 @@ HTTP/2
 #### `TEXT`
 
 #### `JSON`
-
-### `Exporter`
-
-#### `NONE`
-
-#### `STDOUT`
-
-#### `HTTP`
-
-#### `HTTPS`
-
-#### `PROMETHEUS`
 
 ### `Redaction`
 

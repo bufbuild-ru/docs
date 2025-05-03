@@ -108,9 +108,3 @@ There are some restrictions on changing the default label.
 - You can only change the default label to point to a label that exists and isn't [archived](../commits-labels/#archived-labels).
 - You can't change the default label if [policy checks](../policy-checks/breaking/overview/) are enabled.
 - If [Confluent Schema Registry (CSR)](../csr/overview/) integration is enabled, you can't update the default label to another label if the latest commit on the other label doesn't pass CSR compatibility checks relative to the latest commit on the current default label.
-
-## Related docs
-
-- Learn how to [create and manage repositories](../admin/manage-repositories/).
-- Find out how to [push modules to the BSR](../module/publish/).
-- Read about how the BSR handles [commits and labels](../commits-labels/).

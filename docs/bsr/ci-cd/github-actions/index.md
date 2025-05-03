@@ -6,10 +6,10 @@ head:
       href: "https://bufbuild.ru/docs/bsr/ci-cd/github-actions/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/ci-cd/setup/"
+      href: "https://bufbuild.ru/docs/bsr/module/descriptor/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/remote-plugins/overview/"
+      href: "https://bufbuild.ru/docs/bsr/ci-cd/setup/"
   - - meta
     - property: "og:title"
       content: "GitHub Action - Buf Docs"
@@ -127,9 +127,4 @@ You can further configure the Action (including skipping checks, pointing to a c
     <Parameter>: <value>
 ```
 
-See the unified Action's GitHub Repository for the [complete list of parameters](https://github.com/bufbuild/buf-action?tab=readme-ov-file#configuration) and [example files](https://github.com/bufbuild/buf-action/tree/main/examples) for the most common use cases.
-
-## Related docs
-
-- See the [complete list of parameters](https://github.com/bufbuild/buf-action?tab=readme-ov-file#configuration) and [example files](https://github.com/bufbuild/buf-action/tree/main/examples) in the `buf-action` GitHub repository
-- To migrate from the previous individual Buf GitHub Actions, read the [migration guide](../../../migration-guides/migrate-to-buf-action/)
+See the unified Action's GitHub repository for the [complete list of parameters](https://github.com/bufbuild/buf-action?tab=readme-ov-file#configuration) and [example files](https://github.com/bufbuild/buf-action/tree/main/examples) for the most common use cases.

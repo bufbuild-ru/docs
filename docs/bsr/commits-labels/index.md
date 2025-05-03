@@ -96,9 +96,3 @@ Labels can be archived and unarchived, and the BSR behaves as follows:
 - The [default label](../repositories/#default-label) may not be archived.
 
 For details about how to apply, archive, and unarchive labels, see [Pushing to the BSR](../module/publish/#archiving-and-unarchiving-labels).
-
-## Related docs
-
-- Learn how to [push commits to the BSR](../module/publish/)
-- Browse the [`buf registry label`](../../reference/cli/buf/registry/module/label/) command reference
-- Read the [modules and workspaces](../../cli/modules-workspaces/) and [repository](../repositories/) concept docs

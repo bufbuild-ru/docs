@@ -141,8 +141,3 @@ $ buf build -o -#format=json
 ```
 
 See the [Inputs](../../reference/inputs/#automatically-derived-formats) page for more information about automatically derived formats.
-
-## Related docs
-
-- Read the [overview](../overview/)
-- Browse the [`buf build` command reference](../../reference/cli/buf/build/)

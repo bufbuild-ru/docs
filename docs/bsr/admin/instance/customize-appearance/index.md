@@ -6,7 +6,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/admin/instance/customize-appearance/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/admin/instance/scim/faq/"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/bot-users/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/admin/instance/customize-homepage/"

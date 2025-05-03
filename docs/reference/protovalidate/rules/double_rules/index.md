@@ -166,7 +166,7 @@ message MyDouble {
 
 ## finite
 
-`finite` requires the field value to be finite. If the field value is infinite or NaN, an error message is generated.@generated from field: optional bool finite = 8;
+`finite` requires the field value to be finite. If the field value is infinite or NaN, an error message is generated.
 
 ## example
 

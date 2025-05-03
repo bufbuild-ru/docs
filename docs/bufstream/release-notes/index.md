@@ -45,9 +45,26 @@ head:
 
 # Release notes
 
+## v0.3.23
+
+**_Release date:_** 2025-04-30 | **_Status:_** latest
+
+#### Bug fixes
+
+- Partial rollback of [KIP-896](https://cwiki.apache.org/confluence/display/KAFKA/KIP-896%3A+Remove+old+client+protocol+API+versions+in+Kafka+4.0) deprecations for the Produce RPC. librdkafka clients (as of v2.10.0) [erroneously disable compression](https://github.com/confluentinc/librdkafka/issues/4956) if the minimum version of the Produce RPC isn't v0. This release reestablishes that minimum, but always returns an error for v0-v2 Produce RPCs.
+- Fix Apache Iceberg™ [snapshot summary metrics](https://iceberg.apache.org/spec/#metrics) for deleted files and records. Previously, these metrics erroneously reflected the added files and records.
+- Correct Apache Iceberg™ deletion flow to remove a Parquet file reference from the table metadata prior to removing the file from object storage. Previously, the cleanup process deleted the file before updating the table.
+- Fix bug in data enforcement causing Produce responses to contain partial results. In order to fail open, the enforcement logic "cleans" the Produce request of any failed batches prior to handing it to the actual Kafka logic. However, the enforcement logic was erroneously removing batches without an assigned policy, causing them to be excluded from the result. This release corrects the behavior and ensures responses are complete.
+
+#### Features and improvements
+
+- Improve broker startup behavior when the metadata store is transitively unavailable. The previous behavior caused the broker to exit non-zero, requiring a restart. Now, brokers will retry with backoff to establish a connection to the store.
+- Remove long-deprecated observability configuration options. Though the removed settings are no longer supported in the Bufstream config, the deprecated Helm values will remain supported until the next minor release.
+- Additional performance improvements.
+
 ## v0.3.22
 
-**_Release date:_** 2025-04-24 | **_Status:_** latest
+**_Release date:_** 2025-04-24
 
 #### Bug fixes
 

@@ -67,11 +67,11 @@ help for metadata
 
 #### \--bootstrap-address _string_
 
-Bootstrap address of the bufstream server
+Bootstrap address of the bufstream broker
 
 #### \--client-id _string_
 
-ClientID value to send to the bufstream server
+ClientID value to send to the bufstream broker
 
 #### \--root-ca-path _strings_
 

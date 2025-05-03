@@ -104,8 +104,3 @@ The BSR currently supports generated SDKs for these languages:
 <div onclick="window.location.href = '/docs/bsr/generated-sdks/cmake/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/cpp.svg" width="32" /><strong>C++</strong></div>
 
 </div>
-
-## Related docs
-
-- Learn about [commits and labels](../../commits-labels/)
-- [Setting up recommended SDKs](../../admin/instance/recommended-sdks/)

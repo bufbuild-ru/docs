@@ -75,9 +75,7 @@ To use your Wasm plugin with Buf, update your `buf.yaml` file to point to the co
 +  - plugin: rpc-suffix.wasm
 ```
 
-## Related docs
-
-Now that you have a working WebAssembly plugin, you can learn how to create a plugin from scratch in the [tutorial](../tutorial-create-buf-plugin/). Check out these docs for more detailed information on the Buf plugin framework:
+Now that you have a working WebAssembly plugin, you can learn how to [publish it to the BSR](../publish/). Check out these docs for more detailed information on the Buf plugin framework:
 
 - [Bufplugin framework](https://github.com/bufbuild/bufplugin): The APIs for plugins to the Buf platform
 - [`bufplugin-go`](https://github.com/bufbuild/bufplugin-go): The Go library for creating plugins on the Bufplugin platform

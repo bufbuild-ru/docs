@@ -426,10 +426,3 @@ Although we recommend using a configuration file, without one `buf generate` ass
 ```console
 $ buf generate --template '{"version":"v2","plugins":[{"protoc_builtin":"go","out":"gen/go"}]}'
 ```
-
-## Related docs
-
-- Try out code generation with the [`buf generate` tutorial](../tutorial/)
-- Learn more about consuming [generated SDKs](../../bsr/generated-sdks/overview/) instead of generating code
-- Browse the [`buf generate` command reference](../../reference/cli/buf/generate/)
-- Find out how to create [custom plugins](../../bsr/remote-plugins/custom-plugins/) for your organization

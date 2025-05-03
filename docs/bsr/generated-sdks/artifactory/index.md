@@ -6,13 +6,13 @@ head:
       href: "https://bufbuild.ru/docs/bsr/generated-sdks/artifactory/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/generated-sdks/swift/"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/sdk-documentation/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/overview/"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/cargo/"
   - - meta
     - property: "og:title"
-      content: "Using Artifactory - Buf Docs"
+      content: "Use SDKs with Artifactory - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/bsr/generated-sdks/artifactory.png"
@@ -33,7 +33,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Using Artifactory - Buf Docs"
+      content: "Use SDKs with Artifactory - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/bsr/generated-sdks/artifactory.png"
@@ -43,7 +43,7 @@ head:
 
 ---
 
-# Using Artifactory
+# Use SDKs with Artifactory
 
 This feature is only available on the Pro and Enterprise plans.
 
@@ -138,9 +138,7 @@ You must be a BSR instance admin to set up Artifactory.
 
 ## Usage
 
-+++tabs key:e9af9db9d43b16fd3bf90df47b70e8d0
-
-== Go
+### Go
 
 1.  Click **Set Up Client/CI Tool** on the `go` virtual repository and follow the instructions.
 2.  Run the following in a terminal to configure Artifactory as the go proxy:
@@ -161,7 +159,7 @@ You must be a BSR instance admin to set up Artifactory.
     $ go get buf.example.com/gen/go/acme/petapis/protocolbuffers/go
     ```
 
-== NPM
+### NPM
 
 1.  Click **Set Up Client/CI Tool** on the `npm` virtual repository and follow the instructions.
 2.  Run the following to configure Artifactory as a global registry, so that all `npm install` requests are routed to it.
@@ -188,15 +186,9 @@ You must be a BSR instance admin to set up Artifactory.
     $ npm install @bufteam/example_hello-service.protocolbuffers_js
     ```
 
-== Maven
+### Maven
 
-Click **Set Up Client/CI Tool** on the `maven` virtual repository and follow the instructions.
-
-mvnGradle
-
-== Python
-
-For `mvn`, you add the following server to your `~/.m2/settings.xml` file, replacing `{ArtifactoryUsername}` with your Artifactory username, and `{ArtifactoryToken}` with the token you just generated during setup.
+Click **Set Up Client/CI Tool** on the `maven` virtual repository and follow the instructions.For `mvn`, add the following server to your `~/.m2/settings.xml` file, replacing `{ArtifactoryUsername}` with your Artifactory username, and `{ArtifactoryToken}` with the token you just generated during setup.
 
 ::: info ~/.m2/settings.xml
 
@@ -255,7 +247,7 @@ Then, to use packages add the dependency to your `pom.xml` file. The easiest way
 
 :::
 
-== Cargo
+### Gradle
 
 For `gradle`, Artifactory doesn't supply instructions. Add your Artifactory repository to your `build.gradle` or `build.gradle.kts` file, and supply your Artifactory username and token as a username and password in Gradle Properties for the repository using [credentials](https://docs.gradle.org/current/userguide/declaring_repositories.html#sec:handling_credentials).For example, you could add your credentials to a `gradle.properties` file in your project, replacing `{ArtifactoryUsername}` with your Artifactory username, and `{ArtifactoryToken}` with the token you just generated during setup:
 
@@ -268,9 +260,13 @@ bufArtifactoryPassword="{ArtifactoryToken}"
 
 :::
 
-Then add a repository to your `build.gradle` or `build.gradle.kts` file, replacing `{ArtifactoryMavenURL}` with the URL of your Artifactory Maven Repository:
+Then add a repository to your `build.gradle` or `build.gradle.kts` file, replacing `{ArtifactoryMavenURL}` with the URL of your Artifactory Maven Repository.
 
-::: info build.gradle.kts - Kotlin Syntax
++++tabs key:1104d51ecd14d56dedf2edcf04c281e2
+
+== Kotlin
+
+::: info build.gradle.kts
 
 ```kotlin
 repositories {
@@ -284,7 +280,9 @@ repositories {
 
 :::
 
-::: info build.gradle - Groovy Syntax
+== Groovy
+
+::: info build.gradle
 
 ```groovy
 repositories {
@@ -298,9 +296,15 @@ repositories {
 
 :::
 
-To use packages, add the dependency to your `build.gradle` or `build.gradle.kts` file. The easiest way to find dependencies is to go to your module's assets tab on the BSR, which has a listing of versions for your module with all of the plugins on your instance. For example:
++++
 
-::: info build.gradle.kts - Kotlin Syntax
+To use packages, add the dependency to your `build.gradle` or `build.gradle.kts` file. The easiest way to find dependencies is to go to your module's assets tab on the BSR, which has a listing of versions for your module with all of the plugins on your instance.
+
++++tabs key:1104d51ecd14d56dedf2edcf04c281e2
+
+== Kotlin
+
+::: info build.gradle.kts
 
 ```kotlin
 dependencies {
@@ -310,7 +314,9 @@ dependencies {
 
 :::
 
-::: info build.gradle - Groovy Syntax
+== Groovy
+
+::: info build.gradle
 
 ```groovy
 dependencies {
@@ -320,7 +326,9 @@ dependencies {
 
 :::
 
-== NuGet
++++
+
+### Python
 
 1.  Click **Set Up Client/CI Tool** on the `python` virtual repository and follow the instructions. You should end up with an `index-url` in your `~/.pip/pip.conf` file, containing a URL like:
 
@@ -334,7 +342,7 @@ dependencies {
     $ pip install example_hello-service_protocolbuffers_python
     ```
 
-== mvn
+### Cargo
 
 1.  Click **Set Up Client/CI Tool** on the `buf-cargo` remote repository and follow the instructions. At minimum, you should end up with a `registries.artifactory` configuration in your `.cargo/config.toml` file:
 
@@ -351,7 +359,7 @@ dependencies {
     $ cargo add --registry artifactory example_hello-service_community_neoeinstein-prost
     ```
 
-== Gradle
+### NuGet
 
 1.  Click **Set Up Client/CI Tool** on the `buf-nuget` remote repository and follow the instructions. At minimum, you should end up with an `Artifactory` package source in your `NuGet.config` file:
 
@@ -368,5 +376,3 @@ dependencies {
     ```console
     $ dotnet add package Bsr.Example.HelloService.Grpc.Csharp
     ```
-
-+++

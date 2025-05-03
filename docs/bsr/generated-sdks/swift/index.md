@@ -9,7 +9,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/generated-sdks/python/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/generated-sdks/artifactory/"
+      href: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/overview/"
   - - meta
     - property: "og:title"
       content: "Swift Package Manager/Xcode - Buf Docs"
@@ -227,7 +227,3 @@ To discover SDK versions, you can browse a repository's SDK page, which has inst
 ## Available plugins
 
 For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for Swift.To learn more about how these plugins are packaged and distributed, go to the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).
-
-## Related docs
-
-- Try the [generated SDKs tutorial](../tutorial/) to learn how to generate SDKs from the BSR.

@@ -109,7 +109,7 @@ Bufstream exposes metrics to monitor Kafka producers, consumers, topics, and the
 | ----- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | Gauge | cluster.name <br>kafka.topic.name <br>kafka.topic.partition | The lag between a group member committing an offset in a transaction and the offset being applied. |
 
-| kafka.consumer.group.offset.commit.latency
+#### bufstream.kafka.consumer.group.offset.commit.latency
 
 | Type  | Attributes                                                  | Description                                                                        |
 | ----- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------- |

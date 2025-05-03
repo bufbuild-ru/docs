@@ -1084,9 +1084,3 @@ managed:
 ```
 
 :::
-
-## Related docs
-
-- Try out code generation with the [`buf generate` tutorial](../tutorial/)
-- Browse the [`buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/#managed)
-- Browse the [`buf generate` command reference](../../reference/cli/buf/generate/)

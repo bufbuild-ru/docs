@@ -6,7 +6,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/overview/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/generated-sdks/artifactory/"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/swift/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/setup/"
@@ -89,9 +89,3 @@ When the breaking change policy check is enabled, local setups and CI configurat
   - It also shows a warning if the local `buf.yaml` specifies excluded files, as exclusions can't be specified in the BSR UI.
 
 You can see the instance-wide policy that's applied for your organization by clicking the **Rules** tab in any module in the BSR.![Screen shot showing a module's breaking changes settings](../../../../images/bsr/policy-checks/policy-view.png)
-
-## Related docs
-
-- [Set up](../setup/) the breaking change policy check
-- Learn how to [review commits](../review-commits/)
-- Browse the breaking change [rules and categories](../../../../breaking/rules/)

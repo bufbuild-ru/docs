@@ -6,13 +6,13 @@ head:
       href: "https://bufbuild.ru/docs/bsr/ci-cd/setup/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/module/descriptor/"
+      href: "https://bufbuild.ru/docs/bsr/ci-cd/github-actions/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/ci-cd/github-actions/"
+      href: "https://bufbuild.ru/docs/bsr/remote-plugins/overview/"
   - - meta
     - property: "og:title"
-      content: "General setup - Buf Docs"
+      content: "Other tools - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/bsr/ci-cd/setup.png"
@@ -33,7 +33,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "General setup - Buf Docs"
+      content: "Other tools - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/bsr/ci-cd/setup.png"
@@ -43,17 +43,9 @@ head:
 
 ---
 
-# General CI/CD setup
+# Other CI/CD tools
 
-::: tip Using GitHub Actions?If you're using [GitHub Actions](https://github.com/features/actions), you can skip this guide and refer to the [GitHub Action guide](../github-actions/) instead.
-
-:::
-
-[Continuous Integration/Continuous Deployment (CI/CD)](https://en.wikipedia.org/wiki/CI/CD) is a software development practice that automates building, testing, and deploying software. If you are working with Protobuf, then the Buf CLI should be part of all three of these development stages.This guide illustrates how to integrate the Buf CLI into general CI/CD solutions, such as [CircleCI](https://circleci.com) and [TravisCI](https://travis-ci.org).
-
-::: tip We don't have an SDK for the Buf CLI. If you want to use the Buf CLI as part of some automation, you should shell out to it.
-
-:::
+This guide illustrates how to integrate the Buf CLI into general CI/CD tools, such as [CircleCI](https://circleci.com) and [TravisCI](https://travis-ci.org).
 
 ## Installation
 
@@ -101,6 +93,10 @@ rm -rf $BUF_TMP
 :::
 
 +++
+
+## Using the CLI in automations
+
+The Buf CLI is an executable and doesn't provide an SDK. If you want to use the Buf CLI as part of an automation, you should shell out to it.
 
 ## Running lint and breaking change detection
 

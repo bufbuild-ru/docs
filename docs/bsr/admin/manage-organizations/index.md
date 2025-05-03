@@ -67,13 +67,13 @@ WarningOrganization names can't be changed without deleting and recreating the o
 
 Deleting the organization is a permanent action, and can't be undone. You must first delete all repositories and plugins owned by the organization.
 
-## Manage members
+## Manage organization membership
 
-BSR users can be members of both organizations and [repositories](../manage-repositories/#add-member), and have access privileges to each based on their [role](../roles/). You can use the BSR web app to manage members of your organizations and repositories.
+BSR users can be members of both organizations and [repositories](../manage-repositories/#add-member), and have access to each based on their [role](../roles/).This section describes how to manage organization members using the BSR web app. See [Manage user access with IdP groups](../instance/manage-access-idp-groups/) if you're using IdP groups to manage organization membership.
 
 ### Add a member
 
-Organization members with the `Owner` or `Admin` role can add members. When adding a member to an organization, keep in mind:
+Organization members with the `Owner` or `Admin` role can add and edit members. When adding a member to an organization, keep in mind:
 
 - The member must already have an active Buf account.
 - Once added, the member has the organization's base resource role for each resource type unless given higher access.
@@ -82,12 +82,23 @@ To add a member:
 
 1.  Go to the organization's **Members** page at `https://buf.build/ORGANIZATION/members`
 2.  Select **Add member**.
-3.  Search for the user by username and choose their organization role.
+3.  Search for the user by username and choose their role.
 4.  Click **Submit**.
+
+### Change member access
+
+To change a member's access level:
+
+1.  Go to the organization's **Members** page at `https://buf.build/ORGANIZATION/members`
+2.  Click on the settings icon for the member and choose **Change role**.
+3.  Choose the role to apply.
+4.  Confirm the operation.
+
+If you're using an IdP group to manage membership in the organization, the member's role can't be set lower than the default role set for the IdP group.
 
 ### Remove a member
 
-You may need to manually remove a member from a BSR organization — for example, if a user's credentials are compromised or they leave the company and you're not managing members via SAML or SSO. The organization must always have at least one `Owner`.To remove a member:
+You may need to manually remove a member from a BSR organization — for example, if you're not managing members via SAML or SSO and a user's credentials are compromised or they leave the company. The organization must always have at least one `Owner`.To remove a member:
 
 1.  Go to the organization's **Members** page at `https://buf.build/ORGANIZATION/members`
 2.  Click on the settings icon for the user and choose **Remove user**.

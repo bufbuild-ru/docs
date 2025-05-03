@@ -115,10 +115,3 @@ $ buf lint
 
 proto/pet/v1/pet.proto:30:3:method name should not end with "Method" (buf.build/acme/rpc-suffix)
 ```
-
-## Related docs
-
-- \[Bufplugin framework\]\[bufplugin\]: The APIs for plugins to the Buf platform
-- \[`bufplugin-go`\]\[bufplugin-go\]: The Go library for creating plugins on the Bufplugin platform
-- \[PluginRPC\]\[pluginrpc\]: The underlying framework for writing plugins
-- \[`pluginrpc-go`\]\[pluginrpc-go\]: The Go library for writing SDKs using PluginRPC

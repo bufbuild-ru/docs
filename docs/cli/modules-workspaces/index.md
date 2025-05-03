@@ -333,9 +333,3 @@ deps:
 ```
 
 :::
-
-## Related docs
-
-- Read about [repositories](../../bsr/repositories/) and [commits and labels](../../bsr/commits-labels/)
-- Learn more about [dependency management](../../bsr/module/dependency-management/) in the BSR
-- Read the [`buf.yaml` configuration file](../../configuration/v2/buf-yaml/) documentation

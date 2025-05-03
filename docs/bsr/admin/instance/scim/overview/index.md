@@ -96,8 +96,3 @@ $ curl \
 ```
 
 Inspect the request body for any warnings returned.
-
-## Related docs
-
-- Set up SCIM with [Azure SAML](../azure-saml/)
-- Set up SCIM with [Okta SAML](../okta-saml/)

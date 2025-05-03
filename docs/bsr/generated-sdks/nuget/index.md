@@ -151,7 +151,3 @@ The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencin
 ## Available plugins
 
 For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for C#.To learn more about how these plugins are packaged and distributed, go to the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that you think should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).
-
-## Related docs
-
-- Try the [generated SDKs tutorial](../tutorial/) to learn how to generate SDKs from the BSR.

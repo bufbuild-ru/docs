@@ -205,11 +205,11 @@ export default defineConfig({
                 text: 'CI/CD',
                 collapsed: true,
                 items: [
-                  { text: 'General setup', link: '/docs/bsr/ci-cd/setup/' },
                   {
                     text: 'GitHub Action',
                     link: '/docs/bsr/ci-cd/github-actions/',
                   },
+                  { text: 'Other tools', link: '/docs/bsr/ci-cd/setup/' },
                 ],
               },
               {
@@ -240,8 +240,12 @@ export default defineConfig({
                     link: '/docs/bsr/generated-sdks/tutorial/',
                   },
                   {
-                    text: 'User documentation',
-                    link: '/docs/bsr/generated-sdks/user-documentation/',
+                    text: 'SDK documentation',
+                    link: '/docs/bsr/generated-sdks/sdk-documentation/',
+                  },
+                  {
+                    text: 'Use SDKs with Artifactory',
+                    link: '/docs/bsr/generated-sdks/artifactory/',
                   },
                   { text: 'Cargo', link: '/docs/bsr/generated-sdks/cargo/' },
                   { text: 'CMake', link: '/docs/bsr/generated-sdks/cmake/' },
@@ -256,10 +260,6 @@ export default defineConfig({
                   {
                     text: 'Swift Package Manager/Xcode',
                     link: '/docs/bsr/generated-sdks/swift/',
-                  },
-                  {
-                    text: 'Using Artifactory',
-                    link: '/docs/bsr/generated-sdks/artifactory/',
                   },
                 ],
               },
@@ -421,20 +421,24 @@ export default defineConfig({
                         ],
                       },
                       {
+                        text: 'User lifecycle',
+                        link: '/docs/bsr/admin/instance/user-lifecycle/',
+                      },
+                      {
+                        text: 'Manage user access with IdP groups',
+                        link: '/docs/bsr/admin/instance/manage-access-idp-groups/',
+                      },
+                      {
+                        text: 'Bot users',
+                        link: '/docs/bsr/admin/instance/bot-users/',
+                      },
+                      {
                         text: 'Customize appearance',
                         link: '/docs/bsr/admin/instance/customize-appearance/',
                       },
                       {
                         text: 'Customize homepage',
                         link: '/docs/bsr/admin/instance/customize-homepage/',
-                      },
-                      {
-                        text: 'User lifecycle',
-                        link: '/docs/bsr/admin/instance/user-lifecycle/',
-                      },
-                      {
-                        text: 'Bot users',
-                        link: '/docs/bsr/admin/instance/bot-users/',
                       },
                       {
                         text: 'Managed modules',
@@ -1323,6 +1327,10 @@ export default defineConfig({
                     link: '/docs/reference/protovalidate/violations/',
                   },
                   {
+                    text: 'Field rules',
+                    link: '/docs/reference/protovalidate/rules/field_rules/',
+                  },
+                  {
                     text: 'Standard rules',
                     collapsed: true,
                     items: [
@@ -1421,12 +1429,12 @@ export default defineConfig({
                     ],
                   },
                   {
-                    text: 'CEL extensions',
-                    link: '/docs/reference/protovalidate/cel_extensions/',
+                    text: 'Enums',
+                    link: '/docs/reference/protovalidate/enums/',
                   },
                   {
-                    text: 'API definition',
-                    link: '/docs/https://bufbuild/bufbuild/protovalidate/docs/main:buf.validate',
+                    text: 'CEL extensions',
+                    link: '/docs/reference/protovalidate/cel_extensions/',
                   },
                 ],
               },

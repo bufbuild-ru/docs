@@ -114,4 +114,4 @@ Similar to the [Average Types Usage dashboard](../subscription/manage-costs/#typ
 
 ### Generated SDK API reference documentation
 
-Generated SDKs provide a [full Go and TypeScript API reference](generated-sdks/tutorial/#api-reference) for all of your instance's modules.
+Generated SDKs provide a [full Go and TypeScript API reference](generated-sdks/sdk-documentation/#api-reference) for all of your instance's modules.

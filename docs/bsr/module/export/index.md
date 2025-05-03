@@ -140,8 +140,3 @@ $ curl -sOJ "https://buf.build/acme/petapis/archive/main.zip?imports=true"
 ```
 
 :::
-
-## Related docs
-
-- Browse the [`buf export` command reference](../../../reference/cli/buf/export/) for details about all source types and flags.
-- Learn how to export a [`FileDescriptorSet`](../descriptor/) for a module.

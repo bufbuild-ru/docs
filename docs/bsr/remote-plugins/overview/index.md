@@ -6,7 +6,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/remote-plugins/overview/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/ci-cd/github-actions/"
+      href: "https://bufbuild.ru/docs/bsr/ci-cd/setup/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/remote-plugins/usage/"
@@ -92,9 +92,3 @@ Then invoke `buf generate` and you're done — no maintaining these plugins, no 
 ## Request a public plugin
 
 If you'd like a Protobuf plugin to be added to the Buf Schema Registry, [open an issue](https://github.com/bufbuild/plugins/issues/new?assignees=&labels=Feature&template=plugin-request-for-buf-schema-registry.md&title=Plugin+request+for+Buf+Schema+Registry).
-
-## Related docs
-
-- Try out code generation with the [`buf generate` tutorial](../../../generate/tutorial/)
-- Browse the [`buf generate` reference](../../../reference/cli/buf/generate/) and the [`buf.gen.yaml` reference](../../../configuration/v2/buf-gen-yaml/)
-- Find out how to create [custom plugins](../custom-plugins/) for your organization

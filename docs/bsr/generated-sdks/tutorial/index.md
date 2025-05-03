@@ -9,7 +9,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/generated-sdks/overview/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/generated-sdks/user-documentation/"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/sdk-documentation/"
   - - meta
     - property: "og:title"
       content: "Tutorial - Buf Docs"
@@ -80,10 +80,6 @@ This syntax identifies the plugin version first, then the exact commit in the re
 
 You can pin the SDK to a specific plugin version by going to the **Version** dropdown at the top of the **Installation instructions** section:![Screenshot of Version dropdown](../../../images/bsr/sdks/sdk-version-dropdown.png)
 
-## View API reference documentation
-
-Along with the install instructions, the BSR generates API reference documentation — it currently supports Go and TypeScript, with more languages to follow. The API reference is always in sync with the plugin version and module commit specified by the SDK, and is presented in the way that's standard for each language. Click the **API reference** button at the top right of the SDK to view it.![Screenshot of the API reference button](../../../images/bsr/sdks/sdk-docs-button.png)If the API reference for the SDK hasn't been generated before, the BSR displays a "Docs Generating" banner — otherwise, it displays a link to the reference's root directory. Click through to a package, and it shows its import statement and links to each of the package's descendants. You can then navigate around the documentation as needed.![Screenshot of the docs index](../../../images/bsr/sdks/sdk-docs-index.png)
-
 ## Download an archive
 
 Similarly to generated SDKs, the BSR allows you to download an archive that contains the output of code generation for a combination of any module and Protobuf plugin. This enables you to transform your pre-validated Protobuf schemas into other formats such as JSON Schema or BigQuery for use in later processing steps. You can use the archive with your native package manager, CI/CD workflows, or data pipelines.To generate an archive, you can either:
@@ -118,7 +114,7 @@ curl -nsSOJL https://buf.build/gen/archive/connectrpc/eliza/bufbuild/bufbuild/es
 
 :::
 
-The URL contains these elements:
+Hitting this endpoint always returns a 302 redirect to the download URL, so clients must handle the redirect independently.The URL contains these elements:
 
 - _BSR_INSTANCE_ is the domain name of your BSR instance. (Default: `buf.build`)
 - _MODULE_OWNER_ is the owner of the module.
@@ -132,18 +128,20 @@ The URL contains these elements:
   - a full version reference, in the format `vX.Y.Z-commit.N`. Here, `X.Y.Z` represents the plugin version, `commit` refers to the module's shortened commit name (12 characters), and `N` refers to the plugin revision number. This format is commonly used when you want complete control over generation, allowing you to pin to a specific module commit and plugin version.
 - _FILE_EXT_ is the file extension of the archive. This can be either `tar.gz` or `zip`.
 
-Hitting this endpoint always returns a 302 redirect to the download URL, so clients must handle the redirect independently.
+Hitting this endpoint always returns a 302 redirect to the download URL, so clients must handle the redirect independently.You can also set the `imports` and `wkt` parameters to include the module's imports or the Well Known Types by appending them to the URL:
 
-## Related docs
+```console
+curl -nsSOJL https://buf.build/gen/archive/connectrpc/eliza/bufbuild/bufbuild/es/v1.2.3-fc19856dc930.tar.gz+imports
+curl -nsSOJL https://buf.build/gen/archive/connectrpc/eliza/bufbuild/bufbuild/es/v1.2.3-fc19856dc930.tar.gz+imports_wkt
+```
 
-- Read the [generated SDKs overview](../overview/)
-- View the language guides for more detail about manual installation and versioning syntax:
-  - [Cargo](../cargo/)
-  - [CMake](../cmake/)
-  - [Go packages](../go/)
-  - [Maven/Gradle](../maven/)
-  - [NPM](../npm/)
-  - [NuGet](../nuget/)
-  - [Python](../python/)
-  - [Swift Package Manager/Xcode](../swift/)
-- **Admins:** To learn how to set up recommended SDKs, go to the [admin manual](../../admin/instance/recommended-sdks/)
+Both flags must be set to include the Well Known Types. This behaves the same as applying the `--include_imports` and `--include_wkt` flags to `buf generate` at the command line or setting them in `buf.gen.yaml`:
+
+```yaml{5,6}
+version: v2
+plugins:
+  - remote: buf.build/protocolbuffers/go
+    out: gen/proto
+    include_imports: true
+    include_wkt: true
+```

@@ -411,7 +411,3 @@ plugins:
 ```
 
 :::
-
-## Related docs
-
-- Check out the [generated SDKs tutorial](../../generated-sdks/tutorial/).

@@ -181,7 +181,3 @@ Because the BSR NPM registry implements NPM's [public registry API](https://gith
 ## Available plugins
 
 For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for JavaScript or TypeScript.To learn more about how these plugins are packaged and distributed check out the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that you think should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).
-
-## Related docs
-
-- Try the [generated SDKs tutorial](../tutorial/) to learn how to generate SDKs from the BSR.

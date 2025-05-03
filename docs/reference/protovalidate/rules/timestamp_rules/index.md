@@ -180,5 +180,3 @@ message MyTimestamp {
 :::
 
 ## example
-
-@generated from field: repeated google.protobuf.Timestamp example = 10;

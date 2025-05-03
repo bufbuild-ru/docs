@@ -6,10 +6,10 @@ head:
       href: "https://bufbuild.ru/docs/bsr/admin/instance/bot-users/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/admin/instance/user-lifecycle/"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/manage-access-idp-groups/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/admin/instance/managed-modules/"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/customize-appearance/"
   - - meta
     - property: "og:title"
       content: "Bot users - Buf Docs"

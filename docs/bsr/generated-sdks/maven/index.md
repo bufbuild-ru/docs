@@ -340,7 +340,3 @@ Some users' Protobuf packages may use [Java reserved keywords](https://docs.orac
 ### Can Maven JARs be hosted without the `build.buf.gen` prefix?
 
 No. The package name prefix is tied to the host name of the BSR, so it can't be changed or removed. Private BSR instances for Pro, Enterprise, and On-prem plans have a different prefix based on their host name.
-
-## Related docs
-
-- Try the [generated SDKs tutorial](../tutorial/) to learn how to generate SDKs from the BSR.

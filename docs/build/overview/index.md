@@ -169,9 +169,3 @@ This table shows which files, messages, and extensions are included for various 
 | `buf build --type pkg.Foo` | `foo.proto`, `bar.proto` | `pkg.Foo`, `pkg.Bar`, `other.Qux`    | `other.baz`       |
 | `buf build --type pkg.Bar` | `foo.proto`              | `pkg.Bar`                            |                   |
 | `buf build --type pkg.Baz` | `foo.proto`, `bar.proto` | `pkg.Baz`, `other.Quux`, `other.Qux` | `other.my_option` |
-
-## Related docs
-
-- Learn how to [build an image](../tutorial/) from your Protobuf files
-- Learn more about [images](../../reference/images/)
-- Browse the [`buf build` command reference](../../reference/cli/buf/build/)

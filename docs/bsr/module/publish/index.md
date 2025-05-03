@@ -160,9 +160,3 @@ The BSR evaluates the incoming commit against all existing module labels, with t
   - Checks if all existing labels share the same commit as `HEAD` — if so it compares it against the incoming content
   - If the common `HEAD` matches with the incoming content, the commit is squashed _for the existing labels_
   - The commit is appended to the _new labels_
-
-## Related docs
-
-- Read about [repositories](../../repositories/) and [commits and labels](../../commits-labels/).
-- Learn more about [dependency management](../dependency-management/) in the BSR.
-- Read the [`buf.yaml` configuration file](../../../configuration/v2/buf-yaml/) documentation.

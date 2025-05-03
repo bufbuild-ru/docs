@@ -9,7 +9,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/module/export/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/ci-cd/setup/"
+      href: "https://bufbuild.ru/docs/bsr/ci-cd/github-actions/"
   - - meta
     - property: "og:title"
       content: "Get module's FileDescriptorSet from the BSR - Buf Docs"

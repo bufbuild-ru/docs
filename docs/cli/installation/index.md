@@ -45,16 +45,7 @@ head:
 
 # Install the Buf CLI
 
-The Buf CLI is a developer tool that enables building and management of Protobuf APIs through the command line. It's easy to install, compatible with macOS, Windows, and Linux, and designed to improve the developer experience of working with Protobuf files. You can use the Buf CLI to:
-
-- Lint, format, and detect breaking changes in your Protobuf files
-- Generate code stubs for multiple languages
-- Manage dependencies on other Protobuf files
-- Integrate Protobuf management and maintenance with your workflow
-
----
-
-To install the CLI, you can either use an installation script, or download and extract an archive file from the command line that corresponds to the version of your operating system.
+To install the Buf CLI, you can either use an installation script or download and extract an archive file from the command line that corresponds to the version of your operating system.
 
 +++tabs key:03e8bda3cf345ee99ea1b631bc4970bb
 
@@ -115,7 +106,7 @@ BIN="/usr/local/bin" && \
 rm -f "${BIN}/buf"
 ```
 
-**Tarball**To install the `buf`, `protoc-gen-buf-breaking`, and `protoc-gen-buf-lint` inaries, bash completion, fish completion, and zsh completion to `/usr/local` for version `1.53.0`:
+**Tarball**To install the `buf`, `protoc-gen-buf-breaking`, and `protoc-gen-buf-lint` binaries, and bash/fish/zsh completion to `/usr/local` for version `1.53.0`:
 
 ```sh
 # Substitute PREFIX for your install prefix.
@@ -219,8 +210,3 @@ scoop update buf
 Buf offers Windows binaries for both the `x86_64` and `arm64` architectures. You can download the latest binaries from [GitHub Releases](https://github.com/bufbuild/buf/releases/latest).
 
 +++
-
-## Next steps
-
-- [Try the Buf CLI](../quickstart/)
-- [Try the Buf Schema Registry](../../bsr/quickstart/)

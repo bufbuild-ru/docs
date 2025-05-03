@@ -6,7 +6,7 @@ head:
       href: "https://bufbuild.ru/docs/reference/protovalidate/rules/any_rules/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/reference/protovalidate/violations/"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/field_rules/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/reference/protovalidate/rules/bool_rules/"

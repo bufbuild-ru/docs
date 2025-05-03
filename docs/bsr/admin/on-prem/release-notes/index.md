@@ -45,13 +45,20 @@ head:
 
 # Release notes
 
+## v1.22.0
+
+**_Release date:_** 2025-04-30 | **_Database version:_** 354 | **_Minimum CLI version:_** v1.24.0
+
+- **[Brandable title](../../instance/customize-appearance/):** Instance admins can specify a brand title, customizing the name that users will see in their browser page title.
+- **Security group mapping:** You can now [map security groups to BSR repositories](../../instance/manage-access-idp-groups/#map-group-repository) that are owned by organizations.
+
 ## v1.21.0
 
 **_Release date:_** 2025-04-21 | **_Database version:_** 350 | **_Minimum CLI version:_** v1.24.0
 
 - **[Customize homepage](../../instance/customize-homepage/):** We’ve updated the custom homepage to include an opt-in getting started guide that will only be accessible to authenticated users.
 - **Types usage:** Admins can now access a more detailed dashboard about the [types usage for specific owners or repositories](../../../../subscription/manage-costs/#types-usage-dashboard) in their BSR instance.
-- **Security group mapping:** When [mapping security groups to BSR organizations](../../instance/user-lifecycle/#map-a-security-group-to-a-bsr-organization) you can now optionally override a group member's role by specifying a `role_override`.
+- **Security group mapping:** When [mapping security groups to BSR organizations](../../instance/manage-access-idp-groups/#map-group-organization) you can now optionally override a group member's role by specifying a `role_override`.
 - **Code generation:** We’ve enabled remote code generation caching by default if networking isn't enabled in the [sandbox](../architecture/#bufsandboxd). When enabled, this setting allows the BSR to reuse previously generated code when the same artifact is requested by a user, resulting in faster code generation response times. Administrators of BSR instances where plugins may generate non-deterministic results due to noncompliance with [the plugin protocol](../../../remote-plugins/custom-plugins/#plugin-protocol-requirements) may want to consider disabling the cache by setting `generationCache: false` in the Helm chart.
 
 ## v1.20.1
@@ -80,7 +87,7 @@ head:
 
 **_Release date:_** 2025-03-05 | **_Database version:_** 332 | **_Minimum CLI version:_** v1.24.0
 
-- **[API reference documentation](../../../generated-sdks/tutorial/#api-reference):** The BSR can now generate API reference documentation for the plugin version and module commit specified by a Generated SDK.
+- **[API reference documentation](../../../generated-sdks/sdk-documentation/#api-reference):** The BSR can now generate API reference documentation for the plugin version and module commit specified by a Generated SDK.
 - **[Reviewing CSR breaking changes](../../../csr/overview/#breaking-changes):** Any commits introducing breaking changes to a CSR subject’s schema are no longer blocked at push time. Those commits can now be [reviewed and approved](../../../policy-checks/breaking/review-commits/) by an admin by downgrading the compatibility mode of any affected subjects.
 - We’ve updated the BSR to return a clearer [error message](https://github.com/bufbuild/buf/issues/3650) when running `buf generate` if a given plugin exists but the requested version does not.
 - We've upgraded the [OCI Registry external dependency](../architecture/#external-dependencies) to [v3.0.0-rc.3](https://github.com/distribution/distribution/releases/tag/v3.0.0-rc.3). If you’ve customized your OCI Registry destination, consider updating your internal mirror also.
@@ -103,7 +110,7 @@ head:
 **_Release date:_** 2025-02-06 | **_Database version:_** 327 | **_Minimum CLI version:_** v1.24.0
 
 - **Explore and share plugins and SDKs:** We made improvements to the [plugins](../../../remote-plugins/overview/) and generated SDKs pages, including changes to navigation to allow for better exploration and link sharing capabilities.
-- **User documentation for SDKs:** We've added support for [user documentation](../../../generated-sdks/user-documentation/) for SDKs.
+- **User documentation for SDKs:** We've added support for [user documentation](../../../generated-sdks/sdk-documentation/) for SDKs.
 - **[Recommended SDKs](../../instance/recommended-sdks/):** Admins can now recommend generated SDKs at their respective levels (instance/organization/repository) to help guide schema consumers toward preferred plugins.
 - **Dark mode:** We’ve added dark mode to the BSR, so users can now choose between a light or dark theme for their UI.
 

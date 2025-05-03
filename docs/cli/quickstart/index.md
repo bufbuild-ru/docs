@@ -45,7 +45,13 @@ head:
 
 # Buf CLI quickstart
 
-The Buf CLI is the ultimate tool for modern, fast, and efficient Protobuf API management. With features like formatting, linting, breaking change detection, and code generation, Buf offers a comprehensive solution for Protobuf development and maintenance. Buf integrates seamlessly with your existing workflow, so you can focus on what matters most: writing great APIs. Whether you are working with a small, focused project or a massive, complex system, Buf is the perfect choice. In the next 10 minutes, you'll learn how to use the Buf CLI to easily build, lint, format and generate code for your project.
+The Buf CLI is your Swiss army knife for working with Protobuf files. In this quickstart, you'll learn to:
+
+1.  Configure your workspace and module with a `buf.yaml` file.
+2.  Generate code stubs so you can integrate with your API.
+3.  Lint your Protobuf files to catch errors and ensure they follow best practices.
+4.  Detect breaking changes to maintain backward compatibility.
+5.  Implement a server that uses your generated code and call your API.
 
 ## Prerequisites
 
@@ -220,7 +226,7 @@ If successful, you'll notice a few new files in the `gen` directory — they're 
 
 That's how easy it is to generate code using the Buf CLI. There's no need to build up a set of complicated `protoc` commands — your entire configuration is contained within the `buf.gen.yaml` file.
 
-## Lint your API
+## Lint your Protobuf files
 
 Though the Buf CLI is a great drop-in replacement for `protoc`, it's far more than a just a Protobuf compiler. It also provides linting functionality through the [`buf lint`](../../lint/overview/) command. When you run `buf lint`, it checks all the modules listed in the `buf.yaml` file against the specified set of lint rules.Run this command to check all `.proto` files in the quickstart workspace for lint errors:
 
@@ -546,4 +552,14 @@ Go back to the server terminal window, and the request has been received:
 2024/04/23 14:23:35 Got a request to create a PET_TYPE_SNAKE named Ekans
 ```
 
-The Buf CLI is a powerful tool that streamlines the workflow for protocol buffer development. It provides a simple way to manage your `.proto` files, perform linting and breaking change detection, and generate code as a drop-in replacement for `protoc`. To see how you can more effectively work with Protobuf schemas in larger organizations, do the [Buf Schema Registry quickstart](../../bsr/quickstart/) next.
+## Wrapping up
+
+This is a basic walkthrough, and you've learned key functions of the Buf CLI:
+
+1.  Setting up your local workspace.
+2.  Generating code to implement your API in your chosen language.
+3.  Linting files for code quality and consistency.
+4.  Detecting breaking changes to avoid breaking downstream consumers.
+5.  Accessing your API with a server application that integrates your generated code.
+
+To see how you can more effectively work with Protobuf schemas in larger organizations, do the [Buf Schema Registry quickstart](../../bsr/quickstart/) next.

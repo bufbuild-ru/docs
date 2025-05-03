@@ -389,12 +389,4 @@ fieldOptionSafeForMLStaysTrueRuleSpec = &check.RuleSpec{
 }
 ```
 
-## Related docs
-
-Now that you've built your first Buf plugin, check out these docs for more detailed information on the Buf plugin framework and example code:
-
-- [Bufplugin framework](https://github.com/bufbuild/bufplugin): The APIs for plugins to the Buf platform
-- [`bufplugin-go`](https://github.com/bufbuild/bufplugin-go): The Go library for creating plugins on the Bufplugin platform
-- [PluginRPC](https://github.com/pluginrpc): The underlying framework for writing plugins
-- [`pluginrpc-go`](https://github.com/pluginrpc/pluginrpc-go): The Go library for writing SDKs using PluginRPC
-- [WebAssembly Buf plugins](../webassembly/): Learn how to create a custom Buf plugin using WebAssembly
+Now that you've built your first Buf plugin, learn how to [compile it to WebAssembly](../webassembly/) so you can upload it to the BSR.

@@ -261,6 +261,14 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 
 \_object_Bufstream configuration overrides. Any value here will be set directly on the bufstream config.yaml, taking precedence over any other helm defined values.Defaults to `{}`.
 
+### `connectHttpVersion`
+
+\_string_The HTTP version to use for inter-broker Connect RPCs. By default, HTTP/1.1 is used. Supports \[CONNECT_HTTP_VERSION_1_1, CONNECT_HTTP_VERSION_2_0\]Defaults to `""`.
+
+### `connectIsolation`
+
+\_bool_Whether inter-broker Connect clients should be unique for reads and writes. Disabled by default. Recommended when using CONNECT_HTTP_VERSION_2_0 in `connectHttpVersion`Defaults to `false`.
+
 ### `connectTLS`
 
 \_object_connectTLS contains TLS configuration for Control Server which is used for inter-broker communication using Connect protocol.Defaults to `{"client":{},"server":{}}`.
@@ -481,10 +489,6 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 
 \_object_Defaults to `{}`.
 
-### `observability.metrics.exporter`
-
-\_string_Open Telemetry exporter. Supports \[NONE, STDOUT, HTTP, HTTPS, PROMETHEUS\]. Deprecated: use exporterType instead.Defaults to `""`.
-
 ### `observability.metrics.exporterType`
 
 \_string_Open Telemetry exporter. Supports \[NONE, STDOUT, OTLP_GRPC, OTLP_HTTP, PROMETHEUS\]Defaults to `"NONE"`.
@@ -512,10 +516,6 @@ _object_[Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/r
 ### `observability.tracing.address`
 
 \_string_The endpoint the exporter connects to. The value has a host and an optional port. It should not include the URL path, such as "/v1/traces" or the scheme. Specify path and insecure instead.Defaults to `""`.
-
-### `observability.tracing.exporter`
-
-\_string_Open Telemetry exporter. Supports \[NONE, STDOUT, HTTP, HTTPS\]. Deprecated: use exporterType instead.Defaults to `""`.
 
 ### `observability.tracing.exporterType`
 
@@ -746,6 +746,13 @@ connectTLS:
     #   # the server certificates.
     #   rootCaSecret: ""
 
+# -- The HTTP version to use for inter-broker Connect RPCs. By default, HTTP/1.1 is used. Supports [CONNECT_HTTP_VERSION_1_1, CONNECT_HTTP_VERSION_2_0]
+connectHttpVersion: ""
+# -- Whether inter-broker Connect clients should be unique for reads and writes.
+# Disabled by default.
+# Recommended when using CONNECT_HTTP_VERSION_2_0 in `connectHttpVersion`
+connectIsolation: false
+
 # -- adminTLS contains TLS configuration for Admin Server.
 adminTLS:
   {}
@@ -857,6 +864,7 @@ observability:
   metrics:
     # -- Open Telemetry exporter. Supports [NONE, STDOUT, HTTP, HTTPS, PROMETHEUS].
     # Deprecated: use exporterType instead.
+    # @ignored
     exporter: ""
     # -- Open Telemetry exporter. Supports [NONE, STDOUT, OTLP_GRPC, OTLP_HTTP, PROMETHEUS]
     exporterType: "NONE"
@@ -906,6 +914,7 @@ observability:
   tracing:
     # -- Open Telemetry exporter. Supports [NONE, STDOUT, HTTP, HTTPS].
     # Deprecated: use exporterType instead.
+    # @ignored
     exporter: ""
     # -- Open Telemetry exporter. Supports [NONE, STDOUT, OTLP_GRPC, OTLP_HTTP]
     exporterType: "NONE"
@@ -1048,4 +1057,4 @@ configOverrides: {}
 
 ## Related documentation
 
-To configure Bufstream with recommended cloud-specific settings, consult [Tuning and performance](../../../deployment/tuning-performance/).
+To configure Bufstream with recommended, cloud-specific settings, consult the [tuning performance](../../../deployment/tuning-performance/) documentation.

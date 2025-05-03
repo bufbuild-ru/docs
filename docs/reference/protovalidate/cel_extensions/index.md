@@ -6,7 +6,7 @@ head:
       href: "https://bufbuild.ru/docs/reference/protovalidate/cel_extensions/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/reference/protovalidate/rules/uint64_rules/"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/enums/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/best-practices/style-guide/"

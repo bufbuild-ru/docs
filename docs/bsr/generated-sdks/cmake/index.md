@@ -129,7 +129,3 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 ```
 
 and then verify that the location of the file is `${CMAKE_MODULE_PATH}/cmake` (without the `.cmake` extension).However, if you don't use a `CMAKE_MODULE_PATH` then instead you need to specify the exact file path and name (with `.cmake` extension) to `include`. For example, if you have the file `cmake/googleapis_googleapis_protocolbuffers_cpp.cmake`, then your `include` should look like this:`include(cmake/googleapis_googleapis_protocolbuffers_cpp.cmake)`
-
-## Related docs
-
-- Try the [generated SDKs tutorial](../tutorial/) to learn how to generate SDKs from the BSR.

@@ -356,9 +356,3 @@ buf-codegen-tutorial
 ::: tip For more information about managed mode's defaults, usage, and fields, see [Managed mode](../managed-mode/) and the [buf.gen.yaml reference](../../configuration/v2/buf-gen-yaml/).
 
 :::
-
-## Related docs
-
-- See detailed usage examples in the [overview](../overview/#command-line-input-examples)
-- Learn how to find and consume [remote plugins](../../bsr/remote-plugins/overview/)
-- Browse the [`buf generate` command reference](../../reference/cli/buf/generate/)

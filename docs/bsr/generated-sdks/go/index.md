@@ -248,7 +248,3 @@ For a full list of supported plugins, navigate to the [BSR plugins page](https:/
 ### Why do I get a 404 error when trying to install the generated Go SDK for `buf.build/googleapis/googleapis`?
 
 All types in `googleapis/googleapis` have a `go_package` option that points to the canonical package: `google.golang.org/genproto/googleapis`. We recommend that you import the canonical packages instead of generating `googleapis` yourself.
-
-## Related docs
-
-- Try the [generated SDKs tutorial](../tutorial/) to learn how to generate SDKs from the BSR.

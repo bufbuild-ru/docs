@@ -39,17 +39,25 @@ head:
 
 # Blog
 
+### [Cheap Kafka is cool. Schema-driven-development with Kafka is cooler.](/blog/kafka-schema-driven-development/index.md)
+
+###### May 2, 2025
+
+### [Tip of the Week #4: Accepting mistakes we can’t fix](/blog/totw-4-accepting-mistakes/index.md)
+
+###### April 29, 2025 / [Miguel Young de la Sota](https://github.com/mcy)
+
 ### [Tip of the week #3:  Enum names need prefixes](/blog/totw-3-enum-names-need-prefixes/index.md)
 
-###### April 22, 2025
+###### April 22, 2025 / [Miguel Young de la Sota](https://github.com/mcy)
 
 ### [Tip of the week #2: Compress your Protos!](/blog/totw-2-compress-protos/index.md)
 
-###### April 15, 2025
+###### April 15, 2025 / [Miguel Young de la Sota](https://github.com/mcy)
 
 ### [Tip of the week #1: Field names are forever](/blog/totw-1-field-names/index.md)
 
-###### April 8, 2025
+###### April 8, 2025 / [Miguel Young de la Sota](https://github.com/mcy)
 
 ### [Multi-region, active-active Bufstream at 100 GiB/s](/blog/bufstream-multi-region/index.md)
 
@@ -61,7 +69,7 @@ head:
 
 ### [Connect RPC for JavaScript: Connect-ES 2.0 is now generally available](/blog/connect-es-v2/index.md)
 
-###### November 20, 2024
+###### November 20, 2024 / [Timo Stamm](https://github.com/timostamm) and [Joe Rinehart](https://github.com/jrinehart-buf)
 
 ### [Bufstream is the only cloud-native Kafka implementation validated by Jepsen](/blog/bufstream-jepsen-report/index.md)
 
@@ -69,7 +77,7 @@ head:
 
 ### [Connect-Swift 1.0 is now generally available](/blog/connect-swift-v1/index.md)
 
-###### November 11, 2024
+###### November 11, 2024 / [Michael Rebello](https://github.com/rebello95)
 
 ### [Introducing custom lint and breaking change plugins for Buf](/blog/buf-custom-lint-breaking-change-plugins/index.md)
 
@@ -77,19 +85,19 @@ head:
 
 ### [Generated SDKs for C# are now available on the Buf Schema Registry](/blog/bsr-generated-sdks-for-csharp/index.md)
 
-###### August 28, 2024
+###### August 28, 2024 / [Stefan VanBuren](https://github.com/stefanvanburen)
 
 ### [Generated SDKs for C++ are now available on the Buf Schema Registry](/blog/bsr-generated-sdks-for-cpp/index.md)
 
-###### August 28, 2024
+###### August 28, 2024 / [Steve Ayers](https://github.com/smaye81)
 
 ### [Protobuf for Javascript: Protobuf-ES 2.0 is now generally available](/blog/protobuf-es-v2/index.md)
 
-###### August 14, 2024
+###### August 14, 2024 / [Timo Stamm](https://github.com/timostamm) and [Derek Perez](https://github.com/perezd)
 
 ### [Introducing the new Buf GitHub Action](/blog/unified-buf-github-action-released/index.md)
 
-###### August 13, 2024
+###### August 13, 2024 / [Ed McFarlane](https://github.com/emcfarlane) and [Derek Perez](https://github.com/perezd)
 
 ### [Bufstream: Kafka at 8x lower cost](/blog/bufstream-kafka-lower-cost/index.md)
 
@@ -97,35 +105,35 @@ head:
 
 ### [Generated SDKs for Rust now available on the Buf Schema Registry](/blog/bsr-generated-sdks-for-rust/index.md)
 
-###### June 13, 2024
+###### June 13, 2024 / [Stefan VanBuren](https://github.com/stefanvanburen)
 
 ### [Connect RPC joins CNCF: gRPC you can bet your business on](/blog/connect-rpc-joins-cncf/index.md)
 
-###### June 4, 2024
+###### June 4, 2024 / [Derek Perez](https://github.com/perezd)
 
 ### [Connect RPC vs. Google gRPC: Conformance Deep Dive](/blog/grpc-conformance-deep-dive/index.md)
 
-###### May 30, 2024
+###### May 30, 2024 / [Josh Humphries](https://github.com/jhump) and [Derek Perez](https://github.com/perezd)
 
 ### [Introducing the next generation of the Buf CLI: still v1 and backwards-compatible](/blog/buf-cli-next-generation/index.md)
 
-###### May 17, 2024
+###### May 17, 2024 / [Mary Cutrali ](https://github.com/maryelizbeth)
 
 ### [Introducing the newly improved BSR UI and buf push experience](/blog/enhanced-buf-push-bsr-ui/index.md)
 
-###### May 17, 2024
+###### May 17, 2024 / [Derek Perez](https://github.com/perezd)
 
 ### [Protobuf Editions are here: don’t panic](/blog/protobuf-editions-are-here/index.md)
 
-###### May 9, 2024
+###### May 9, 2024 / [Derek Perez](https://github.com/perezd)
 
 ### [The BSR now integrates with Kong Insomnia, making gRPC even easier to use](/blog/kong-insomnia-grpc-bsr-support/index.md)
 
-###### May 3, 2024
+###### May 3, 2024 / [Derek Perez](https://github.com/perezd)
 
 ### [The Buf Schema Registry is now on the AWS and Google Cloud Marketplaces](/blog/cloud-marketplaces/index.md)
 
-###### December 12, 2023
+###### December 12, 2023 / [Connor Mahoney](https://github.com/connormahony) and [Mary Cutrali ](https://github.com/maryelizbeth)
 
 ### [Give clients pre-built native libraries for your APIs with zero effort](/blog/bsr-generated-sdks/index.md)
 
@@ -133,39 +141,39 @@ head:
 
 ### [Generated Python SDKs are now available in the BSR](/blog/python-generated-sdks/index.md)
 
-###### November 29, 2023
+###### November 29, 2023 / [Stefan VanBuren](https://github.com/stefanvanburen)
 
 ### [Why a Protobuf schema registry?](/blog/why-a-protobuf-schema-registry/index.md)
 
-###### November 20, 2023
+###### November 20, 2023 / [Michael Rebello](https://github.com/rebello95)
 
 ### [The real reason to use Protobuf is not performance](/blog/the-real-reason-to-use-protobuf/index.md)
 
-###### November 15, 2023
+###### November 15, 2023 / [Michael Rebello](https://github.com/rebello95)
 
 ### [Audit breaking changes with the Buf Schema Registry's governance workflow](/blog/review-governance-workflow/index.md)
 
-###### November 6, 2023
+###### November 6, 2023 / [Michael Rebello](https://github.com/rebello95) and [Stefan VanBuren](https://github.com/stefanvanburen)
 
 ### [Type & path uniqueness policy enforcement for enterprises](/blog/type-path-uniqueness/index.md)
 
-###### September 5, 2023
+###### September 5, 2023 / [Patrick Mitchell](https://github.com/pgmitche)
 
 ### [Seamless Gradle integration with the Buf CLI](/blog/seamless-gradle-integration-with-the-buf-cli/index.md)
 
-###### August 9, 2023
+###### August 9, 2023 / Alan Chiu
 
 ### [Swift generated SDKs are now available for Xcode and SPM](/blog/swift-packages/index.md)
 
-###### July 12, 2023
+###### July 12, 2023 / [Patrick Mitchell](https://github.com/pgmitche)
 
 ### [Governance & breaking change policy enforcement for enterprises](/blog/breaking-change-governance/index.md)
 
-###### July 10, 2023
+###### July 10, 2023 / [Michael Rebello](https://github.com/rebello95)
 
 ### [Buf generated SDKs now support Java - introducing the Buf Maven repository](/blog/maven-repository/index.md)
 
-###### May 8, 2023
+###### May 8, 2023 / [Stefan VanBuren](https://github.com/stefanvanburen)
 
 ### [Introducing Cacheable RPCs in Connect](/blog/introducing-connect-cacheable-rpcs/index.md)
 
@@ -177,7 +185,7 @@ head:
 
 ### [Announcing protoc-gen-validate v1.0 and our plans for v2.0](/blog/protoc-gen-validate-v1-and-v2/index.md)
 
-###### April 24, 2023
+###### April 24, 2023 / Elliot Jackson and [Chris Roche](https://github.com/rodaine)
 
 ### [The Buf Schema Registry is out of beta! Announcing new Buf Schema Registry plans and pricing updates](/blog/plans-pricing-updates/index.md)
 
@@ -185,43 +193,43 @@ head:
 
 ### [Protobuf-ES is the only fully-compliant Protobuf library for JavaScript](/blog/protobuf-conformance/index.md)
 
-###### March 21, 2023
+###### March 21, 2023 / [Steve Ayers](https://github.com/smaye81)
 
 ### [The BSR now provides a SCIM service for Pro and Enterprise plans](/blog/introducing-bsr-scim/index.md)
 
-###### March 16, 2023
+###### March 16, 2023 / [Saquib Mian](https://github.com/saquibmian) and [Sean Kim](https://github.com/seankimdev)
 
 ### [OpenTelemetry for connect-go: Observability out of the box](/blog/connect-opentelemetry-go/index.md)
 
-###### March 6, 2023
+###### March 6, 2023 / Joshua Carpeggiani
 
 ### [Connect for Node.js is now available](/blog/connect-node-beta/index.md)
 
-###### February 28, 2023
+###### February 28, 2023 / [Timo Stamm](https://github.com/timostamm) and [Steve Ayers](https://github.com/smaye81)
 
 ### [Announcing Connect-Kotlin: Connect is now fully supported on mobile!](/blog/announcing-connect-kotlin/index.md)
 
-###### February 22, 2023
+###### February 22, 2023 / Alan Chiu and [Michael Rebello](https://github.com/rebello95)
 
 ### [Introducing Connect-Query: Integrate Protobuf with TanStack Query more effectively](/blog/introducing-connect-query/index.md)
 
-###### February 6, 2023
+###### February 6, 2023 / [Paul Sachs](https://github.com/paul-sachs) and [Michael Rebello](https://github.com/rebello95)
 
 ### [Introducing the Buf Reflection API & Prototransform](/blog/buf-reflection-api/index.md)
 
-###### February 2, 2023
+###### February 2, 2023 / Elliot Jackson and [Josh Humphries](https://github.com/jhump)
 
 ### [Speeding up development with BSR drafts](/blog/speeding-up-with-drafts/index.md)
 
-###### January 25, 2023
+###### January 25, 2023 / Tommy Ma
 
 ### [Announcing Connect-Swift: You’ll actually want to use Protobuf on iOS](/blog/announcing-connect-swift/index.md)
 
-###### January 18, 2023
+###### January 18, 2023 / [Michael Rebello](https://github.com/rebello95)
 
 ### [Introducing buf curl - Call your gRPC endpoints with the simplicity of buf](/blog/buf-curl/index.md)
 
-###### January 12, 2023
+###### January 12, 2023 / [Josh Humphries](https://github.com/jhump)
 
 ### [Protobuf-ES has reached version 1.0](/blog/protobuf-es-v1/index.md)
 
@@ -229,11 +237,11 @@ head:
 
 ### [BSR Generated Documentation now supports Protobuf options](/blog/generated-documentation-protobuf-options/index.md)
 
-###### December 21, 2022
+###### December 21, 2022 / [Sean Kim](https://github.com/seankimdev)
 
 ### [Buf Studio Now Has Favorites!](/blog/studio-now-has-favorites/index.md)
 
-###### December 16, 2022
+###### December 16, 2022 / Julian Figueroa and Gilbert Wong
 
 ### [Remote packages and remote plugins are approaching v1!](/blog/remote-packages-remote-plugins-approaching-v1/index.md)
 
@@ -245,11 +253,11 @@ head:
 
 ### [Buf's New Compiler](/blog/bufs-new-compiler/index.md)
 
-###### October 19, 2022
+###### October 19, 2022 / [Josh Humphries](https://github.com/jhump)
 
 ### [The Protobuf Language Specification](/blog/protobuf-language-specification/index.md)
 
-###### September 12, 2022
+###### September 12, 2022 / [Josh Humphries](https://github.com/jhump)
 
 ### [BSR redesign](/blog/bsr-redesign/index.md)
 

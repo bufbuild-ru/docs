@@ -45,7 +45,9 @@ head:
 
 # Manage Confluent Schema Registry instances
 
+::: warning
 This feature is only available on the Enterprise plan.
+:::
 
 Instances are the top-level namespace of the BSR's Confluent Schema Registry integration, which can be used to group related schemas. All users within your BSR have read access to all configured instances and their registered schemas.
 
@@ -60,7 +62,9 @@ Only BSR administrators can create a Confluent Schema Registry instance. To crea
 
 ## Delete an instance
 
-WarningDeleting an instance is permanent! All subjects and schemas registered to the instance will be immediately removed and inaccessible from the Confluent Schema Registry's API.
+::: warning Warning
+Deleting an instance is permanent! All subjects and schemas registered to the instance will be immediately removed and inaccessible from the Confluent Schema Registry's API.
+:::
 
 Only BSR administrators can delete a Confluent Schema Registry instance. To delete an instance:
 

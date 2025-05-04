@@ -350,7 +350,9 @@ EOF
 
 Check that etcd is running after installation.
 
-Warning`etcd` is sensitive to disk performance, so we recommend using the [AWS EBS CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) with `gp3` or `io1/io2` disks, instead of the default `gp2` disks EKS uses.
+::: warning Warning
+`etcd` is sensitive to disk performance, so we recommend using the [AWS EBS CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) with `gp3` or `io1/io2` disks, instead of the default `gp2` disks EKS uses.
+:::
 
 The storage class in the example above can be changed by setting the `persistence.storageClass` value to a custom storage class using those disks.
 

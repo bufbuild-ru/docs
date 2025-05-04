@@ -45,7 +45,9 @@ head:
 
 # Confluent Schema Registry integration overview
 
+::: warning
 This feature is only available on the Enterprise plan.
+:::
 
 The Buf Schema Registry (BSR) includes a Protobuf-first implementation of the Confluent Schema Registry ([CSR](https://docs.confluent.io/platform/current/schema-registry/index.html)) APIs. It's designed to strengthen your streaming data quality where it helps the most — at build time, and at the source of truth for your schemas. Because the BSR implements the entirety of the CSR API, you can take advantage of the Confluent ecosystem, including stream processing systems like kSQL and Kafka Connect, without the risk of runtime errors.
 

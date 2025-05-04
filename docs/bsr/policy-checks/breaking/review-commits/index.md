@@ -45,11 +45,15 @@ head:
 
 # Reviewing commits
 
+::: warning
 This feature is only available on the Enterprise plan.
+:::
 
 This page walks reviewers through the review flow, showing how to review commits that have been placed in the "pending" state due to the instance-wide breaking change policy check. You must be a repository owner or admin to review commits.As a reviewer, you work through any pending changes one by one, and approve or reject each commit. The result of the review is marked for posterity in the **Commits** tab.
 
-WarningReviewing a commit is a one-way street — once reviewed, the commit stays approved or rejected forever.
+::: warning Warning
+Reviewing a commit is a one-way street — once reviewed, the commit stays approved or rejected forever.
+:::
 
 ## Review commits
 

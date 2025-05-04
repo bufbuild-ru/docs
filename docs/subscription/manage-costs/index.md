@@ -61,7 +61,9 @@ To help you track usage costs, the BSR provides a dashboard to organization admi
 
 ### Types usage by instance, owner, and repository
 
+::: warning
 This feature is only available on the Enterprise plan.
+:::
 
 The BSR provides more detailed reporting for private instances: current type usage and historical data for billable types. Instance admins have access to both dashboards, and they can be exported to CSV to easily share usage information with others. Both dashboards can also be filtered on specific organizations and repos in addition to viewing for the entire instance.
 

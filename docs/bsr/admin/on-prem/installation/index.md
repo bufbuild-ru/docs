@@ -88,8 +88,8 @@ $ kubectl create secret --namespace bsr docker-registry bufpullsecret \
 
 The BSR is configured using Helm values through the `bsr` Helm Chart.Create a file named `bsr.yaml` to store the Helm values, which is required by the `helm install` step below.
 
-::: tip This file can be in any location, but we recommend creating it in the same directory where the helm commands are run.
-
+::: tip Note
+This file can be in any location, but we recommend creating it in the same directory where the helm commands are run.
 :::
 
 Set the desired `host` and configure the chart to use the license provided to you by Buf and the image pull secret created above:
@@ -497,9 +497,13 @@ $ kubectl create secret --namespace bsr generic bufd-client-secret \
 
 The BSR uses a Kubernetes [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource to handle incoming traffic and for terminating TLS.
 
-WarningThe domain used here must match the `host` set in the Helm values above.
+::: warning Warning
+The domain used here must match the `host` set in the Helm values above.
+:::
 
-WarningTLS is required for the BSR to function properly. HTTP2 is preferred to allow for gRPC support.
+::: warning Warning
+TLS is required for the BSR to function properly. HTTP2 is preferred to allow for gRPC support.
+:::
 
 ```yaml
 bufd:

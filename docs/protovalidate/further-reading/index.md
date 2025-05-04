@@ -65,8 +65,8 @@ Each of the following provides an idiomatic Protovalidate runtime that meets the
 - [protovalidate-cc](https://github.com/bufbuild/protovalidate-cc/)
 - protovalidate-es _(Coming soon!)_
 
-::: tip Language contributions welcomeInterested in adding support for another language? Check out our [Contributing guidelines](https://github.com/bufbuild/protovalidate/blob/main/.github/CONTRIBUTING.md).
-
+::: tip Language contributions welcome
+Interested in adding support for another language? Check out our [Contributing guidelines](https://github.com/bufbuild/protovalidate/blob/main/.github/CONTRIBUTING.md).
 :::
 
 ## Common Expression Language (CEL)

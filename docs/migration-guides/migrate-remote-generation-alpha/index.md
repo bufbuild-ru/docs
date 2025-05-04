@@ -45,8 +45,8 @@ head:
 
 # Migrate from remote generation alpha
 
-::: tip The remote generation alpha was deprecated as of April 30, 2023. Please migrate to [remote plugins](../../bsr/remote-plugins/overview/) or [generated SDKs](../../bsr/generated-sdks/overview/).
-
+::: tip Note
+The remote generation alpha was deprecated as of April 30, 2023. Please migrate to [remote plugins](../../bsr/remote-plugins/overview/) or [generated SDKs](../../bsr/generated-sdks/overview/).
 :::
 
 The remote generation alpha included two features: remote plugin execution (now called remote plugins), and remote code execution (now called generated SDKs). This document describes the changes and migration requirements for each feature.
@@ -59,7 +59,9 @@ In the alpha, public plugins could be uploaded by individual users with no verif
 
 ### Custom plugins available for Pro and Enterprise customers
 
+::: warning
 This feature is only available on the Enterprise plan.
+:::
 
 The BSR will still allow you to upload custom private plugins. [Contact us](mailto:support@buf.build) if you are interested in working with us.
 

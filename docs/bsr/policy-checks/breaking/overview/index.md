@@ -45,7 +45,9 @@ head:
 
 # Breaking change policy check – Overview
 
+::: warning
 This feature is only available on the Enterprise plan.
+:::
 
 Preventing unintended breaking changes in production is crucial for API and data producers, but often complex to implement across multiple teams. Buf's breaking change policy check allows you to enforce the Buf CLI's [breaking change rules](../../../../breaking/rules/) across your entire private BSR instance with minimal configuration. And because breaking changes are sometimes necessary, it also provides module owners the ability to review breaking changes before they enter the BSR and then approve or deny them. This allows for nuance in cases where breaking changes are acceptable.Buf's breaking change policy check:
 

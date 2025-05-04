@@ -45,7 +45,9 @@ head:
 
 # Webhooks
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 Private BSR instances offer webhooks to notify your backend services when a specific event of interest happens. This allows you to build integrations triggering further actions — for example:
 
@@ -58,8 +60,8 @@ Webhooks are in **alpha**, which includes support for a single event: a successf
 - manage webhook subscriptions using a regular curl+JSON payload; and
 - build an event listener that's compatible with [Connect](https://connectrpc.com/) (`application/proto`) requests.
 
-::: tip In the samples below, please use the domain name for your private BSR instance (for example, `https://buf.example.com`) in place of `BSR_INSTANCE_DOMAIN_NAME`.
-
+::: tip Note
+In the samples below, please use the domain name for your private BSR instance (for example, `https://buf.example.com`) in place of `BSR_INSTANCE_DOMAIN_NAME`.
 :::
 
 ## Webhooks with Connect

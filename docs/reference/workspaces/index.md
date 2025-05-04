@@ -45,7 +45,9 @@ head:
 
 # v1 workspace configuration
 
-WarningThis document describes the way workspaces are configured using `v1` configuration files. We recommend migrating to `v2` configuration files for a more intuitive way of working with multiple modules and sharing dependencies. See the [blog post](/blog/buf-cli-next-generation/index.md) and [migration guide](../../migration-guides/migrate-v2-config-files/) for information and instructions.
+::: warning Warning
+This document describes the way workspaces are configured using `v1` configuration files. We recommend migrating to `v2` configuration files for a more intuitive way of working with multiple modules and sharing dependencies. See the [blog post](/blog/buf-cli-next-generation/index.md) and [migration guide](../../migration-guides/migrate-v2-config-files/) for information and instructions.
+:::
 
 Workspaces are collections of modules that enable you to iterate on modules and manage cross-module dependencies without having to commit to the Buf Schema Registry (BSR). They also allow you to more easily do `buf` operations like breaking change detection and linting across related modules.When iterating on related modules without workspaces, you can get into a dependency loop where you have to push modules that are dependencies to the BSR, and then update the local dependencies of the modules that rely on them. This is both frustrating and prone to error.With workspaces, you define all of the related modules in a simple configuration file, and they can locally vendor each other as you iterate without involving the BSR. And for all local `buf` operations, the workspace is treated as the [input](../inputs/) without the need to specify each module.If you're familiar with `protoc`, a workspace is similar to specifying multiple include `-I` paths, but with the added consistency of defining dependencies in version-controlled config files.
 
@@ -92,8 +94,8 @@ deps:
 
 :::
 
-::: tip You don't need to add modules to the `deps` field to use them locally within a workspace, but you will need to do so when you're ready to [push your modules](#pushing-modules) to the BSR.
-
+::: tip Note
+You don't need to add modules to the `deps` field to use them locally within a workspace, but you will need to do so when you're ready to [push your modules](#pushing-modules) to the BSR.
 :::
 
 See the [`buf.work.yaml` config file reference](../../configuration/v1/buf-work-yaml/) for more information about its fields.
@@ -182,16 +184,16 @@ paymentapis/acme/payment/v2/payment.proto:29:10:Field name "recipientID" should 
 petapis/acme/pet/v1/pet.proto:51:27:Field name "orderV2" should be lower_snake_case, such as "order_v2".
 ```
 
-::: tip When using `buf breaking` in workspace mode, the two [inputs](../inputs/) you're comparing must contain the same number of modules. Otherwise, the Buf CLI can't reliably verify compatibility between the workspaces.
-
+::: tip Note
+When using `buf breaking` in workspace mode, the two [inputs](../inputs/) you're comparing must contain the same number of modules. Otherwise, the Buf CLI can't reliably verify compatibility between the workspaces.
 :::
 
 ## Interaction with module cache
 
 As mentioned above, workspaces enable you to work on multiple modules in parallel, such as introducing a new Protobuf message in one module and depending on it in another.Without a workspace, the Buf CLI relies on the module's [`buf.lock`](../../configuration/v1/buf-lock/) manifest to read its dependencies from the local [module cache](../../cli/modules-workspaces/#module-cache). This requires that you push changes that create new dependencies to the BSR and run `buf dep update` in the module that requires them before they can be used.With a workspace, the module cache is only used for dependencies **not defined in the workspace**. For all directories listed in the `buf.work.yaml` file, the workspace overrides the module cache and allows you to use the new changes without pushing and updating.
 
-::: tip Modules that are dependencies **must be named** (have a value for the `name` field in their buf.yaml file) for the workspace to override the module cache. If the `name` either doesn't match the importing module's dependency or doesn't exist, the Buf CLI uses the module cache instead.
-
+::: tip Note
+Modules that are dependencies **must be named** (have a value for the `name` field in their buf.yaml file) for the workspace to override the module cache. If the `name` either doesn't match the importing module's dependency or doesn't exist, the Buf CLI uses the module cache instead.
 :::
 
 ## Pushing modules from workspaces

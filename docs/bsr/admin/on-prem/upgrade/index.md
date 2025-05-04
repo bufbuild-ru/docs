@@ -74,9 +74,11 @@ It's safe to downgrade to any previous patch version of the same major and minor
 3.  Look up the schema version for the version you have rolled back to in the [BSR Release Notes](../release-notes/) (for example the database schema version for `1.1.0` is `222`).
 4.  Manually run `bufd migratedownto $VERSION` using the bufd binary you are rolling back from and the schema version you looked up in the release notes (for example with `1.2.0` binary run `bufd migratedownto 222` to downgrade to the `1.1.0` schema).
 
-WarningTo the extent that new features are released in the BSR in every release, rolling back to a previous version can result in permanent data loss of data changes in the newer release. These could be:
+::: warning Warning
+To the extent that new features are released in the BSR in every release, rolling back to a previous version can result in permanent data loss of data changes in the newer release. These could be:
 
 - net-new types of data collected in the release that you are rolling back from
 - data removed because of dropped tables or columns in the release you are rolling back to
 
 To minimize potential data loss problems, we recommend never rolling back further than one minor release from the newest version ever deployed to an instance. For example, if you have an instance that started at `1.0.0` and you have upgraded it over time to `1.3.0`, we caution against rolling back earlier than `1.2.0`.
+:::

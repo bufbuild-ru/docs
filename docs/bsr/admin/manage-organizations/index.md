@@ -61,7 +61,9 @@ When setting up a new organization, there are a few important things to keep in 
 - You can add an organization URL in the repository settings later.
 - You can also provide a description of the organization, which can be up to 350 characters in length, and provide an organization logo to make the org memorable and identifiable.
 
-WarningOrganization names can't be changed without deleting and recreating the organization and all of its contents. Choose the name carefully.
+::: warning Warning
+Organization names can't be changed without deleting and recreating the organization and all of its contents. Choose the name carefully.
+:::
 
 ## Delete an organization
 

@@ -53,7 +53,9 @@ The Protobuf binary format is compact and efficient, and it has clever features 
 
 All of these cases call for a mechanism by which the schema for a particular message type can be downloaded on demand, for interpreting the binary data.The [Buf Reflection API](https://buf.build/bufbuild/reflect) provides exactly that mechanism. It provides a means of downloading the schema for any module in the BSR, and even any specific version of a module.
 
-WarningThe Reflection API is currently in beta. It should be considered unstable and possibly impermanent.
+::: warning Warning
+The Reflection API is currently in beta. It should be considered unstable and possibly impermanent.
+:::
 
 In addition to querying for the schema by module name and version, this API also allows the caller to signal what part of the schema in which they're interested, such as a specific message type or a specific service or method. This is used to filter the schema, allowing the client to ignore parts of a module that it doesn't need. In many cases, the client only needs a small subset of the module's schema (especially for large modules), so this can greatly reduce the amount of data that a client needs to download.
 
@@ -61,8 +63,8 @@ In addition to querying for the schema by module name and version, this API also
 
 The Buf Reflection API can be found in the public BSR: [buf.build/bufbuild/reflect](https://buf.build/bufbuild/reflect) (sources are in [GitHub](https://github.com/bufbuild/reflect-api)). You can see the available generated SDKs for it [here](https://buf.build/bufbuild/reflect/sdks/main).It contains a single RPC service: `buf.reflect.v1beta1.FileDescriptorSetService`. This service contains a single endpoint named `GetFileDescriptorSet`, which is for downloading the schema for a particular module (optionally, at a specific version). The response is in the form of a [`FileDescriptorSet`](https://github.com/protocolbuffers/protobuf/blob/v21.0/src/google/protobuf/descriptor.proto#L55-L59). You can find reference documentation for all the request and response fields [in the BSR](https://buf.build/bufbuild/reflect/docs/main:buf.reflect.v1beta1#buf.reflect.v1beta1.FileDescriptorSetService).
 
-::: tip For the general mechanics of how to use APIs exposed by the BSR, see [Invoking the BSR APIs](../../apis/api-access/).
-
+::: tip Note
+For the general mechanics of how to use APIs exposed by the BSR, see [Invoking the BSR APIs](../../apis/api-access/).
 :::
 
 The endpoint accepts a module name, in `<bsr-domain>/<owner>/<repo>` format. For example, `buf.build/connectrpc/eliza` is the module name for the Eliza service (a demo service for [Connect](https://connectrpc.com)). The domain of the BSR is "buf.build" (the public BSR); the owner is the "connectrpc" organization; and the repo name is "eliza".Here's an example API request for downloading the [`buf.build/connectrpc/eliza`](https://buf.build/connectrpc/eliza) module:
@@ -77,8 +79,8 @@ $ curl \
 
 Assuming a valid BSR token is used in the `Authorization` header, this returns a `FileDescriptorSet` that describes the files in the requested module, which describe the Eliza RPC service and all related message types.The above request doesn't contain a `version` field in the request, which means it returns the latest version. This is the same as asking for `"version": "main"`, which also returns the latest version. The version can also refer to a [commit](https://buf.build/connectrpc/eliza/commits/main), either via the commit name or an associated label.
 
-::: tip These are the same ways one can pin a particular version in the `deps` section of a `buf.yaml` file.
-
+::: tip Note
+These are the same ways one can pin a particular version in the `deps` section of a `buf.yaml` file.
 :::
 
 See the [Overview](../../module/dependency-management/) section on dependencies for more.

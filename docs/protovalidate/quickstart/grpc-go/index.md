@@ -52,8 +52,8 @@ This tutorial shows how to add Protovalidate to a Go RPC powered by [gRPC](https
 3.  Adding a gRPC interceptor.
 4.  Testing your validation logic.
 
-::: tip Just need an example?There's an example of Protovalidate for gRPC and Go in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/grpc-go/finish).
-
+::: tip Just need an example?
+There's an example of Protovalidate for gRPC and Go in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/grpc-go/finish).
 :::
 
 ## Prerequisites
@@ -173,8 +173,8 @@ When you add Protovalidate, you'll update the following files:
 
 You'll be working in `cmd/server.go`. It's an executable that runs a server on port 50051. You'll edit it to add a Protovalidate interceptor to gRPC.
 
-::: tip Where's the service itself?`internal/invoice/invoice.go` provides `invoice.Service`, a handler for the `InvoiceService`. Its `CreateInvoice` function sends back a static response.
-
+::: tip Where's the service itself?
+`internal/invoice/invoice.go` provides `invoice.Service`, a handler for the `InvoiceService`. Its `CreateInvoice` function sends back a static response.
 :::
 
 Now that you know your way around the example code, it's time to integrate Protovalidate.
@@ -259,8 +259,8 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
 5.  Verify that configuration is complete by running `buf generate`. It should complete with no error.
 
-::: tip Further reading and `protoc`Learn more about incorporating Protovalidate and `protoc` support in the [Adding protovalidate](../../schemas/adding-protovalidate/) page.
-
+::: tip Further reading and protoc
+Further reading and `protoc`Learn more about incorporating Protovalidate and `protoc` support in the [Adding protovalidate](../../schemas/adding-protovalidate/) page.
 :::
 
 ### Add a standard rule
@@ -307,8 +307,8 @@ message Invoice {
 
 :::
 
-::: tip Learn more about [string](../../../reference/protovalidate/rules/string_rules/) and [standard](../../schemas/standard-rules/) rules.
-
+::: tip Learn more about string and standard rules.
+Learn more about [string](../../../reference/protovalidate/rules/string_rules/) and [standard](../../schemas/standard-rules/) rules.
 :::
 
 ### Enforce complex rules
@@ -384,8 +384,8 @@ message Invoice {
 
 You've added validation rules to your Protobuf. To enforce them, you still need to regenerate code and add a Protovalidate interceptor to your server.
 
-::: tip Learn more about [custom rules](../../schemas/custom-rules/).
-
+::: tip Learn more about custom rules.
+Learn more about [custom rules](../../schemas/custom-rules/).
 :::
 
 ### Compile Protobuf and Go
@@ -428,8 +428,8 @@ The response may be a surprise: the server still considers the request valid and
 
 The RPC is still successful because gRPC hasn't been told to validate inbound requests.
 
-::: tip No Connect or gRPC implementations automatically enforce Protovalidate rules. To enforce your validation rules, you'll need to add an interceptor.
-
+::: tip Note
+No Connect or gRPC implementations automatically enforce Protovalidate rules. To enforce your validation rules, you'll need to add an interceptor.
 :::
 
 ### Add a Protovalidate interceptor
@@ -672,8 +672,8 @@ ok      github.com/bufbuild/buf-examples/protovalidate/grpc-go/finish/internal  
 
 :::
 
-::: tip More testing examplesThe `finish` directory contains a thorough test that you can use as an example for your own tests. Its `invoice.proto` file also contains extensive Protovalidate rules.
-
+::: tip More testing examples
+The `finish` directory contains a thorough test that you can use as an example for your own tests. Its `invoice.proto` file also contains extensive Protovalidate rules.
 :::
 
 ## Wrapping up

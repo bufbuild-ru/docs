@@ -136,8 +136,8 @@ if (results.violations_size() > 0) {
 
 +++
 
-::: tip Ready to code?Jump ahead to the [developer quickstart](quickstart/) to dive in.
-
+::: tip Ready to code?
+Jump ahead to the [developer quickstart](quickstart/) to dive in.
 :::
 
 ## Motivations

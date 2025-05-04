@@ -47,7 +47,9 @@ head:
 
 When your Protovalidate projects grow, you might find that the same custom rules or groups of standard rules start to be repeated. Just like you'd refactor repeated code into a function, predefined rules allow you to write these patterns once and reuse them across your project.
 
-Code availableCompanion code for this page is available in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/rules-predefined).
+::: info Code available
+Companion code for this page is available in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/rules-predefined).
+:::
 
 ## Example case
 
@@ -152,7 +154,9 @@ extend buf.validate.StringRules {
 
 :::
 
-Field numbers must be uniqueBe mindful that extension numbers must not conflict with any other extension to the same message across all Protobuf files in a given process. This restriction also applies to projects that consume Protobuf files indirectly as dependencies. The same extension number may be re-used across different kinds of rule, e.g. 1000 in FloatRules is distinct from 1000 in Int32Rules.Extension numbers may be from 1000 to 536870911, inclusive. Values from 1000 to 99999 are reserved for [Protobuf Global Extension Registry](https://github.com/protocolbuffers/protobuf/blob/main/docs/options.md) entries, and values from 100000 to 536870911 are reserved for integers that aren't explicitly assigned. It's discouraged to use the latter range with rules that are defined in public schemas due to the risk of conflicts.
+::: info Field numbers must be unique
+Be mindful that extension numbers must not conflict with any other extension to the same message across all Protobuf files in a given process. This restriction also applies to projects that consume Protobuf files indirectly as dependencies. The same extension number may be re-used across different kinds of rule, e.g. 1000 in FloatRules is distinct from 1000 in Int32Rules.Extension numbers may be from 1000 to 536870911, inclusive. Values from 1000 to 99999 are reserved for [Protobuf Global Extension Registry](https://github.com/protocolbuffers/protobuf/blob/main/docs/options.md) entries, and values from 100000 to 536870911 are reserved for integers that aren't explicitly assigned. It's discouraged to use the latter range with rules that are defined in public schemas due to the risk of conflicts.
+:::
 
 ### Use predefined rules
 

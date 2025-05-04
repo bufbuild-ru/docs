@@ -59,8 +59,8 @@ In addition, Buf offers several features that ease many of the frustrations of g
 
 The sections below discuss key concepts, local generation (with and without remote plugins), managed mode, and specific invocations of the `buf generate` command.
 
-::: tip See the [tutorial](../tutorial/) for a step-by-step walkthrough of setting up code generation, basic usage, and using remote plugins and managed mode.
-
+::: tip Note
+See the [tutorial](../tutorial/) for a step-by-step walkthrough of setting up code generation, basic usage, and using remote plugins and managed mode.
 :::
 
 ## Key concepts
@@ -81,8 +81,8 @@ Plugins are external programs that implement a specific Protobuf interface. They
 
 This is the Buf config file specifically related to code generation. It's usually placed at the root of your workspace and specifies the plugin to be used for each output, the output path, and set of options that enables you to customize the generated code further.
 
-::: tip To see all of the available configuration options, go to the [`buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/).
-
+::: tip Note
+To see all of the available configuration options, go to the [`buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/).
 :::
 
 ## Generating with local plugins
@@ -184,8 +184,8 @@ plugins:
 
 :::
 
-::: tip For more information, see the [Managed mode](../managed-mode/) and [`buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/) pages.
-
+::: tip Note
+For more information, see the [Managed mode](../managed-mode/) and [`buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/) pages.
 :::
 
 ## Referencing imports

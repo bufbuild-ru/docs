@@ -45,7 +45,9 @@ head:
 
 # Customize the BSR homepage
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 By default, a private instance Buf Schema Registry (BSR) homepage displays the same content as the [public BSR](https://buf.build). As a BSR instance admin, you can customize this page to make it more specific to your overall organization's needs:
 

@@ -45,7 +45,9 @@ head:
 
 # Breaking change policy check – Setup
 
+::: warning
 This feature is only available on the Enterprise plan.
+:::
 
 This page describes how to enable and disable the [breaking change policy check](../overview/) on your private BSR instance. You must be a BSR administrator to access these settings.
 

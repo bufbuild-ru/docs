@@ -45,7 +45,9 @@ head:
 
 # Audit logs
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 Your private BSR instance records certain events and actions and allows administrators to query them. This allows administrators to satisfy security, traceability, accountability, policy, and compliance needs, among others.
 
@@ -73,8 +75,8 @@ message Event {
 }
 ```
 
-::: tip See the [audit API docs](https://buf.build/bufbuild/buf/docs/e32e91a7a3a14c9db9f7f25989f6d1c8:buf.alpha.audit.v1alpha1#buf.alpha.audit.v1alpha1.Event) for details about the supported payloads.
-
+::: tip Note
+See the [audit API docs](https://buf.build/bufbuild/buf/docs/e32e91a7a3a14c9db9f7f25989f6d1c8:buf.alpha.audit.v1alpha1#buf.alpha.audit.v1alpha1.Event) for details about the supported payloads.
 :::
 
 For both Actors and Resources, each one holds its `Type`, `ID` and `Name`, making the payload of the event sometimes unnecessary.Actor types are either `User` events or `System` events. If the actor is a User, which is true in most scenarios, the metadata include its `User Agent`, `IP` and internal `Trace ID` for further investigation and debugging.`Resource` types can be one of `User`, `Organization`, `Organization Member`, `Repository`, `Repository Contributor`, `Repository Commit`, or `Plugin`.Currently, the BSR audits most events that result in mutations to the data it manages. That includes changes to resources like Users, Organizations, and Repository permissions to name a few. The complete list of audited events, associated payloads, and their respective type specifications can be found in the [BSR's schema documentation](https://buf.build/bufbuild/buf/docs/e32e91a7a3a14c9db9f7f25989f6d1c8:buf.alpha.audit.v1alpha1#buf.alpha.audit.v1alpha1.EventType). Treat it as a living document, since it grows to keep pace with new BSR features as they're released.For more in-depth descriptions of each event type, see the [event details section](#audit-event-details).

@@ -45,7 +45,9 @@ head:
 
 # Customize BSR appearance
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 You can customize several aspects of your private instance's appearance to match other internal tools or your branding:
 

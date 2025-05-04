@@ -190,7 +190,9 @@ EOF
 
 Check that `etcd` is running after installation.
 
-Warning`etcd` is sensitive to disk performance, so we recommend using the [Azure Disks Container Storage Interface](https://learn.microsoft.com/en-us/azure/aks/azure-disk-csi) with `Premium SSD v2` disks.
+::: warning Warning
+`etcd` is sensitive to disk performance, so we recommend using the [Azure Disks Container Storage Interface](https://learn.microsoft.com/en-us/azure/aks/azure-disk-csi) with `Premium SSD v2` disks.
+:::
 
 The storage class in the example above can be changed by setting the `persistence.storageClass` value to a custom storage class using those disks.
 

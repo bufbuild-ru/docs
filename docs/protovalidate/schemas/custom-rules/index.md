@@ -47,7 +47,9 @@ head:
 
 When validation logic can't be expressed with [standard rules](../standard-rules/), Protovalidate allows you to write custom rules in [Common Expression Language (CEL)](http://cel.dev). With CEL rules, you can integrate complex domain knowledge into your schema.
 
-Code availableCompanion code for this page is available in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/rules-custom).
+::: info Code available
+Companion code for this page is available in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/rules-custom).
+:::
 
 ## Introduction to CEL expressions
 
@@ -75,8 +77,8 @@ Validity is often a function of multiple fields. In these scenarios, CEL express
 
 With CEL available at the field and message levels, it's hard to think of validation rules that can't be expressed within Protobuf files.
 
-::: tip Learn how to create complex CEL expressions in [advanced CEL rules](../../cel/).
-
+::: tip Note
+Learn how to create complex CEL expressions in [advanced CEL rules](../../cel/).
 :::
 
 ## Creating field rules
@@ -103,8 +105,8 @@ message DeviceInfo {
 
 :::
 
-::: tip What is "this?"Within field-level custom rules, `this` refers to the value of the field. For more information about `this`, see [advanced CEL rules](../../cel/).
-
+::: tip What is "this?"
+Within field-level custom rules, `this` refers to the value of the field. For more information about `this`, see [advanced CEL rules](../../cel/).
 :::
 
 ### Combining field rules

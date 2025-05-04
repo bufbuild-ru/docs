@@ -80,8 +80,8 @@ In addition to comments associated with your Protobuf definitions, we recommend 
 
 Public repositories on the public BSR are often used to share open source software. For your repository to truly be open source, you need to license it so that others are free to use, change, and distribute the software.As a best practice, we encourage you to include the license file with your module. To do this, simply include a `LICENSE` file at the module root and push it to the BSR.
 
-::: tip You need to have a LICENSE file (or at least a symlink to one) in your module directory for its Go package to display on pkg.go.dev, per the [Go license policy](https://pkg.go.dev/license-policy).
-
+::: tip Note
+You need to have a LICENSE file (or at least a symlink to one) in your module directory for its Go package to display on pkg.go.dev, per the [Go license policy](https://pkg.go.dev/license-policy).
 :::
 
 #### Disclaimer

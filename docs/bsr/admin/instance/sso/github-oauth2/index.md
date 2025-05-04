@@ -45,7 +45,9 @@ head:
 
 # GitHub - OAuth2
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 Buf's SSO integration supports the following SAML features:
 
@@ -62,8 +64,8 @@ The steps below must be carried out by a GitHub administrator for your organizat
 
 ## Create an SSO GitHub App
 
-::: tip This GitHub App is only used for SSO and is separate from the Buf GitHub App used for CI/CD integration.
-
+::: tip Note
+This GitHub App is only used for SSO and is separate from the Buf GitHub App used for CI/CD integration.
 :::
 
 1.  Sign in to your GitHub organization at `https://github.com/organizations/YOUR_GITHUB_ORG/settings/apps`.

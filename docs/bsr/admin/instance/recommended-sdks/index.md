@@ -45,7 +45,9 @@ head:
 
 # Recommended SDKs
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 The Buf Schema Registry (BSR) allows admins to recommend generated SDKs at their respective levels to help guide schema consumers toward preferred plugins. Recommended SDKs are eagerly generated, so they're always up to date with the repository's latest commit. If generation fails, the BSR displays a warning to consumers, allowing them to easily copy and share the SDK link with admins to help get the issue fixed.![Example of a recommended SDK with an error message](../../../../images/bsr/sdks/sdk-recommended-error.png)This guide shows admins at each level (BSR instance, organization, and repository) how to set up recommended SDKs. The admin panel is the same for each level, but is found in different areas of the BSR depending on the level:
 

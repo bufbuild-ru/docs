@@ -142,8 +142,8 @@ Breaking change detection doesn't work on changes to custom options like `google
 
 ### Git and GitHub
 
-::: tip Check out Buf's dedicated [GitHub Action](../../bsr/ci-cd/github-actions/) to seamlessly add breaking change detection into your CI/CD pipeline.
-
+::: tip Note
+Check out Buf's dedicated [GitHub Action](../../bsr/ci-cd/github-actions/) to seamlessly add breaking change detection into your CI/CD pipeline.
 :::
 
 #### Local repositories

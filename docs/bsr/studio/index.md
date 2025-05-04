@@ -90,8 +90,8 @@ The server should be setup with a [CORS (Cross-Origin Resource Sharing)](https:/
 Access-Control-Allow-Origin: https://buf.build
 ```
 
-::: tip Private BSR instancesIf you are on a Pro or Enterprise plan, your server needs to be configured to respond with an `Access-Control-Allow-Origin` header that points to the instance of Buf Studio on your private BSR instance instead of the public BSR.
-
+::: tip Private BSR instances
+If you are on a Pro or Enterprise plan, your server needs to be configured to respond with an `Access-Control-Allow-Origin` header that points to the instance of Buf Studio on your private BSR instance instead of the public BSR.
 :::
 
 This enables it to make requests directly to your private production environment using the Connect protocol. For example:
@@ -143,13 +143,17 @@ Note: allowing credentials puts limitations on other CORS features such as using
 
 ### Buf Studio Agent presets
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 In your private BSR instance, admins can create preset URLs for Studio Agents. This is done through the admin panel.![admin panel highlighting agent preset setting](../../images/studio/agent-preset.png)Presets have an optional “Name” that can be set to alias the URL.![agent preset modal](../../images/studio/agent-preset-modal.png)Presets are then presented to users on your BSR in the dropdown menu. They can select from the presets or provide their own Buf Studio Agent URL.![Buf Studio agent URL input](../../images/studio/agent-input-2.png)
 
 ### Long-running Buf Studio Agent instances
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 At Buf we deploy long-running Buf Studio Agent instances within our internal infrastructure. Their endpoints are protected by SSO and combined with the Cookies option described above this allows us to reach any public or internal Protobuf endpoint from Buf Studio. Together with our public and private APIs on the BSR, this setup allows us to test and debug any endpoint with ease.This section describes how to set up your Buf Studio and Buf Studio Agent instances to be long-running for your auth setup and make authenticated requests.For example, you'd like to allow a request from an authenticated user, however, you want to restrict the user's ability to set custom authentication headers:![show authenticated user in Buf Studio and disallow auth headers](../../images/studio/auth-header-example.png)The user can forward their cookies from Buf Studio with the following setting:![user has set cookies option](../../images/studio/cookies.png)The following is an example of a Dockerfile for a long running Buf Studio Agent instance:
 

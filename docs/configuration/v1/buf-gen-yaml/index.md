@@ -45,8 +45,8 @@ head:
 
 # buf.gen.yaml v1 config file
 
-::: tip This file now has a `v2` configuration available. See the [v2 `buf.gen.yaml` reference](../../v2/buf-gen-yaml/) and the [v1 to v2 migration guide](../../../migration-guides/migrate-v2-config-files/) for details about the new configuration and migration instructions.
-
+::: tip Note
+This file now has a `v2` configuration available. See the [v2 `buf.gen.yaml` reference](../../v2/buf-gen-yaml/) and the [v1 to v2 migration guide](../../../migration-guides/migrate-v2-config-files/) for details about the new configuration and migration instructions.
 :::
 
 `buf.gen.yaml` is a configuration file used by the `buf generate` command to generate integration code for the languages of your choice. This file is most often used with a [module](../../../cli/modules-workspaces/) (but can be used with other [input](../../../reference/inputs/) types), and is typically placed next to your [`buf.work.yaml`](../buf-work-yaml/) file at the root of your Protobuf files:
@@ -85,7 +85,7 @@ head:
     - The plugin version is specified by the upstream project.
     - The revision is a sequence number that Buf increments when rebuilding or repackaging the plugin.
 
-    ::: tip
+    ::: tip Note
 
     ```text
       If you don't specify a plugin version, the latest version is pulled in. To avoid unexpected updates
@@ -302,8 +302,8 @@ If the Protobuf file's package declaration conforms to the [`PACKAGE_VERSION_SUF
 
 ### `java_outer_classname`
 
-::: tip This option can't be specified. It can only be overridden using the [per-file override](#per-file-override).
-
+::: tip Note
+This option can't be specified. It can only be overridden using the [per-file override](#per-file-override).
 :::
 
 When managed mode is enabled, [`java_outer_classname`](https://github.com/protocolbuffers/protobuf/blob/v24.2/src/google/protobuf/descriptor.proto#L401) is set to the PascalCase-equivalent of the file's name, removing the `.`from the`.proto`extension. This converts the `weather.proto` filename, for example, to `WeatherProto`.
@@ -370,7 +370,7 @@ managed:
 ### `php_metadata_namespace`
 
 ::: tip
-
+Note
 :::
 
 This option can't be specified. It can only be overridden using the [per-file override](#per-file-override).When managed mode is enabled, [`php_metadata_namespace`](https://github.com/protocolbuffers/protobuf/blob/v24.2/src/google/protobuf/descriptor.proto#L488) defaults to the default managed mode `php_namespace` value with `\GPBMetadata` appended to it. For example, `acme.weather.foo_bar.v1` becomes `Acme\Weather\FooBar\V1\GPBMetadata`.
@@ -390,8 +390,8 @@ managed:
 
 ### `php_namespace`
 
-::: tip This option can't be specified. It can only be overridden using the [per-file override](#per-file-override).
-
+::: tip Note
+This option can't be specified. It can only be overridden using the [per-file override](#per-file-override).
 :::
 
 When managed mode is enabled, [`php_namespace`](https://github.com/protocolbuffers/protobuf/blob/v24.2/src/google/protobuf/descriptor.proto#L483) defaults to the package name connected by `\` with each part in PascalCase. If part of the name is a reserved keyword, it appends `_` at the end of that part. For example:

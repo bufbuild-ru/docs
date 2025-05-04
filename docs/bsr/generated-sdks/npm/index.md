@@ -109,8 +109,8 @@ With your NPM config [set](#setup), you can install `@buf/*` SDKs in any standar
 $ npm install @buf/connectrpc_eliza.bufbuild_es
 ```
 
-::: tip Slow installation?You may notice that installing SDKs from the BSR NPM registry using `npm install` can take longer than installing from the standard NPM registry. This happens because they're lazily generated and then cached. The first `npm install` typically takes longer than subsequent requests because of this.
-
+::: tip Slow installation?
+You may notice that installing SDKs from the BSR NPM registry using `npm install` can take longer than installing from the standard NPM registry. This happens because they're lazily generated and then cached. The first `npm install` typically takes longer than subsequent requests because of this.
 :::
 
 ## Versions
@@ -145,8 +145,8 @@ The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencin
 $ npm install @buf/connectrpc_eliza.bufbuild_es@label-demo
 ```
 
-::: tip Labels with names that contain `/` aren't compatible with the NPM registry versioning scheme.
-
+::: tip Note
+Labels with names that contain `/` aren't compatible with the NPM registry versioning scheme.
 :::
 
 ### Full syntax

@@ -51,8 +51,8 @@ Bufstream stores topic data in archive files in object storage. Before data is a
 
 ### Data transformations
 
-::: tip Transformations are only available for Protobuf encoded data.
-
+::: tip Note
+Transformations are only available for Protobuf encoded data.
 :::
 
 At the start of each archiving job, Bufstream queries the configured schema registry to fetch the latest message schema and caches it in memory to reduce concurrent queries for the same topic. The retrieved Protobuf schema is used to compute an Iceberg schema, and Bufstream stores the state of the Iceberg schema in the system's metadata store (e.g. etcd) to ensure proper re-use of allocated field IDs. The stored state also tracks deleted field and columns and decides whether to create or rename fields if there are incompatible changes to a column's type. Once the Iceberg schema is computed, Bufstream checks the catalog to determine whether or not the schema has changed. If there are changes, Bufstream will update the schema in the table's metadata. If no Iceberg table exists yet, Bufstream creates it and sets the schema ID to 0 for the computed schema.From the computed Iceberg schema, Bufstream derives a Parquet schema that is used to write the data files. Bufstream synthesizes elements from the Protobuf data to map it to Parquet column values. At this time, Bufstream does not support customizing the name of Iceberg or Parquet field types via the use of Protobuf options.

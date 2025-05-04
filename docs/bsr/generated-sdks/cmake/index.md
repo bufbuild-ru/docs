@@ -109,8 +109,8 @@ target_link_libraries(
 )
 ```
 
-::: tip This library name must be what the BSR specifies, _not_ the name of the CMake file from step 1 or the name used with `FetchContent`. This is because it's named this way in the downloaded content from the BSR.
-
+::: tip Note
+This library name must be what the BSR specifies, _not_ the name of the CMake file from step 1 or the name used with `FetchContent`. This is because it's named this way in the downloaded content from the BSR.
 :::
 
 ## Troubleshooting

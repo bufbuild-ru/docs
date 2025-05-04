@@ -130,8 +130,8 @@ $ buf breaking --against '../../../.git#subdir=cli/breaking-change-detection/sta
 
 :::
 
-::: tip Note that in the `--against` target, you need to point to the root of your Git repository, then traverse back down to the directory you're comparing against using the `subdir` option.
-
+::: tip Note
+Note that in the `--against` target, you need to point to the root of your Git repository, then traverse back down to the directory you're comparing against using the `subdir` option.
 :::
 
 ## Compare against the Buf Schema Registry (BSR)

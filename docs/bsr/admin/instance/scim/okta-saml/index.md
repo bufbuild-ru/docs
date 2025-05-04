@@ -45,7 +45,9 @@ head:
 
 # Okta - SAML
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 SCIM for Okta supports the following SCIM resources:
 

@@ -53,8 +53,8 @@ To discover all publicly available plugins, go to [buf.build/plugins](https://bu
 
 1.  Choose a collection or language:![Remote plugin browse screen, showing available collections and languages](../../../images/bsr/plugins/remote-plugins-browse.png)
 
-    ::: tip Plugins without an associated language or collection appear in the **Other** category at the bottom of the filter panel.
-
+    ::: tip Note
+    Plugins without an associated language or collection appear in the **Other** category at the bottom of the filter panel.
     :::
 
 2.  Click through to the group you want, and all available plugins display:![Remote plugin browse screen, showing plugins available for Go](../../../images/bsr/plugins/remote-plugins-select.png)
@@ -85,8 +85,8 @@ plugins:
 
 Then invoke `buf generate` and you're done — no maintaining these plugins, no worrying about how to download or install them. You've generated your stubs and can get back to solving real problems.See the [`buf.gen.yaml` reference](../../../configuration/v2/buf-gen-yaml/) for more information about the other keys under `plugin`.
 
-::: tip If you don't specify a plugin version, the latest version is used to generate. To avoid unexpected updates and possible breaking changes, pin to a specific version.
-
+::: tip Note
+If you don't specify a plugin version, the latest version is used to generate. To avoid unexpected updates and possible breaking changes, pin to a specific version.
 :::
 
 ## Request a public plugin

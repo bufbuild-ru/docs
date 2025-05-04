@@ -59,7 +59,9 @@ proto/example/v1/building_example.proto:7:5:field building.BuildingExample.strin
 
 Because Protovalidate uses Protobuf options, Protobuf projects must include Protovalidate as a dependency and import Protovalidate within Protobuf files.
 
-Code availableCompanion code for this page is available in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/compiling-buf).
+::: info Code available
+Companion code for this page is available in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/compiling-buf).
+:::
 
 ### Add Protovalidate
 
@@ -133,7 +135,9 @@ proto/example/v1/building_example.proto:7:5: Option "(buf.validate.field)" unkno
 
 Because Protovalidate uses Protobuf options, Protobuf projects must include Protovalidate as a dependency and import Protovalidate within Protobuf files.
 
-Code availableCompanion code for this page is available in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/compiling-protoc).
+::: info Code available
+Companion code for this page is available in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/compiling-protoc).
+:::
 
 ### Download `validate.proto`
 

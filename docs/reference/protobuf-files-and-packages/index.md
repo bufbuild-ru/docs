@@ -45,14 +45,14 @@ head:
 
 # Files and packages
 
-::: tip Adhere to the following best practices to avoid issues in your generated code related to file collisions:
+::: tip TL;DR
+Adhere to the following best practices to avoid issues in your generated code related to file collisions:
 
 1.  Always declare a package in your Protobuf sources.Use at least 3 components in the package name: organization, purpose, version.
 2.  Always organize your Protobuf files into a directory structure that mirrors the package name.
 3.  Always import a file using the same path that was used to compile that file.
 
 A highly recommended practice is to [lint](../../lint/overview/) your schemas as part of CI verification. In fact, most of the above best practices are already enforced by the Buf CLI’s lint rules!
-
 :::
 
 In the Protobuf IDL, files have two important facets to their identity:
@@ -90,8 +90,8 @@ message Baz {                  // foo.bar.Baz
 
 Larger organizations and/or large systems with many Protobuf sources likely want longer package names with deeper hierarchies: this helps organize the schemas in addition to helping prevent two different developers from accidentally creating conflicting packages.For example, within a single system or product, you can subdivide packages further using the names of services (for micro-service architectures) or names of significant components or business domain entities. For example, if we have an organization “Acme” that makes an online gaming product named “Gamify”, we might have `acme.gamify.users.v1`. We may also have `acme.gamify.users.settings.v1`, with APIs for a user to update their own settings. And we’d probably have other components, one per game, such as `acme.gamify.bingo.v1` and `acme.gamify.checkers.v1`.Within a single service, you might create sub-packages for orthogonal functions. For example, within `google.bigtable`, there is a sub-package named [`google.bigtable.admin`](https://github.com/googleapis/googleapis/tree/master/google/bigtable/admin) which contains administrative APIs for the BigTable control plane.
 
-::: tip Avoid including parts of your org chart — like team names — in the package. Attributes like these can change over time, and ownership over particular parts of the codebase can also change over time. So it’s better to use names or descriptive words that are unlikely to change.
-
+::: tip Note
+Avoid including parts of your org chart — like team names — in the package. Attributes like these can change over time, and ownership over particular parts of the codebase can also change over time. So it’s better to use names or descriptive words that are unlikely to change.
 :::
 
 ## File Paths

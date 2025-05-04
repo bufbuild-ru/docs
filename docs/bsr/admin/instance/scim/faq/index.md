@@ -45,7 +45,9 @@ head:
 
 # FAQ
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 This page contains frequently asked questions related to the BSR's SCIM 2.0 integration.
 

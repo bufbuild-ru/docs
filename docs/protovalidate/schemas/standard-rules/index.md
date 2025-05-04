@@ -47,7 +47,9 @@ head:
 
 Once you've [added Protovalidate to your project](../adding-protovalidate/), you're ready to begin adding validation rules to your Protobuf files. On this page, you'll learn how rules are defined and explore the standard rules for scalar types, `oneofs`, `maps`, `enums`, and even entire messages.
 
-Code availableCompanion code for this page is available in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/rules-standard).
+::: info Code available
+Companion code for this page is available in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/rules-standard).
+:::
 
 ## Protovalidate rules
 

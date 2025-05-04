@@ -45,7 +45,9 @@ head:
 
 # Overview
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 The BSR supports System for Cross-domain Identity Management (SCIM) 2.0 integration with several identity providers. SCIM is a protocol that maps users and groups from your Identity Provider (IdP) into the BSR, making it easy to manage BSR Organization membership. SCIM enables you to:
 

@@ -65,7 +65,9 @@ You can format the text and add images or tables using Markdown or use the WYSIW
 
 You can edit the guide anytime by clicking **Edit**. Make your changes and click **Publish** to publish the revision.To delete the guide, click the trash can icon at the top right of the editor.
 
-WarningSDK getting started guides aren't version-controlled resources. When their content is changed or deleted, older versions can't be recovered.
+::: warning Warning
+SDK getting started guides aren't version-controlled resources. When their content is changed or deleted, older versions can't be recovered.
+:::
 
 ## API reference
 

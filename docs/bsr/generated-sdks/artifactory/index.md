@@ -45,7 +45,9 @@ head:
 
 # Use SDKs with Artifactory
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 The Buf Schema Registry (BSR) provides generated SDKs of generated code through standard registry APIs in each language. This makes it easy to configure artifact management tools like Artifactory to work with the BSR.This guide uses the `buf.example.com` BSR instance and `https://example.jfrog.io` Artifactory instance as examples, but these should be substituted with the domains of your own instances.
 

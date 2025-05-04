@@ -47,8 +47,8 @@ head:
 
 One of Buf's primary goals is to enforce consistency across all of Protobuf. The [linter](../../lint/overview/) ensures that the APIs themselves conform to a strong set of standards, but those have nothing to do with the structure of the `.proto` source file itself. That's where `buf format` comes in. It reformats your Protobuf files according to the following best practices for file layout and style, so you can focus on more business-critical problems.
 
-::: tip Unlike `buf breaking` and `buf lint`, `buf format` isn't configurable in the `buf.yaml` file. However, you can exclude a subset of your `.proto` files by using the [`--exclude-path`](../../reference/cli/buf/format/#exclude-path) flag.
-
+::: tip Note
+Unlike `buf breaking` and `buf lint`, `buf format` isn't configurable in the `buf.yaml` file. However, you can exclude a subset of your `.proto` files by using the [`--exclude-path`](../../reference/cli/buf/format/#exclude-path) flag.
 :::
 
 ### Structure

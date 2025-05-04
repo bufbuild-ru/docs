@@ -45,7 +45,9 @@ head:
 
 # Manage user access with IdP groups
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 IdP group mapping allows you to manage membership in BSR organizations and repositories via security groups in your IdP, so it works seamlessly with your existing access controls:
 
@@ -60,7 +62,9 @@ IdP group mapping allows you to manage membership in BSR organizations and repos
   - SCIM isn't required for this feature, but if it's enabled and you're using it to push groups to the BSR, your IdP must be configured to provide the OIDC claim/SAML assertion.
 - If you filter which groups the BSR is aware of, only map to those groups. Mapping to a group the BSR can't see has no effect.
 
-WarningOnce this is configured, all user tokens from the IdP must contain group information. If you're using SAML, any user for whom groups information isn't provided will be unable to login to the BSR. If you're using OIDC, their groups will be treated as empty and they will lose access to the mapped organizations and repositories.
+::: warning Warning
+Once this is configured, all user tokens from the IdP must contain group information. If you're using SAML, any user for whom groups information isn't provided will be unable to login to the BSR. If you're using OIDC, their groups will be treated as empty and they will lose access to the mapped organizations and repositories.
+:::
 
 ## Map an IdP group to an organization
 

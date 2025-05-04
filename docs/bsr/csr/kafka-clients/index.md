@@ -45,7 +45,9 @@ head:
 
 # Integrate with Kafka clients
 
+::: warning
 This feature is only available on the Enterprise plan.
+:::
 
 The BSR's Confluent Schema Registry (CSR) integration is compatible with all clients and tools that can consume the CSR API. The examples below use the official Confluent clients in [Java](https://github.com/confluentinc/schema-registry) and [Go](https://pkg.go.dev/github.com/confluentinc/confluent-kafka-go/v2). Configuration and usage may vary for third-party clients.
 

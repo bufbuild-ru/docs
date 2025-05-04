@@ -278,8 +278,8 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
 5.  In any of your open terminal windows, verify that configuration is complete by running `buf generate`. It should complete with no error.
 
-::: tip Further reading and `protoc`Learn more about incorporating Protovalidate and `protoc` support in the [Adding protovalidate](../../schemas/adding-protovalidate/) page.
-
+::: tip Further reading and protoc
+Further reading and `protoc`Learn more about incorporating Protovalidate and `protoc` support in the [Adding protovalidate](../../schemas/adding-protovalidate/) page.
 :::
 
 ### Add Protovalidate rules
@@ -341,8 +341,8 @@ message EmailUpdated {
 
 :::
 
-::: tip Learn more about [string](../../../reference/protovalidate/rules/string_rules/) and [standard](../../schemas/standard-rules/) rules.
-
+::: tip Learn more about string and standard rules.
+Learn more about [string](../../../reference/protovalidate/rules/string_rules/) and [standard](../../schemas/standard-rules/) rules.
 :::
 
 ### Compile Protobuf

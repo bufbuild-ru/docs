@@ -79,8 +79,8 @@ Update your `pom.xml` file to include the Buf Maven repository as a `<repository
 
 :::
 
-::: tip The `<id>` value is important for using private generated SDKs because it must match the `<id>` in the `<server>` section of the `~/.m2/settings.xml` file (see the [private generated SDKs](#private) section for more details).
-
+::: tip Note
+The `<id>` value is important for using private generated SDKs because it must match the `<id>` in the `<server>` section of the `~/.m2/settings.xml` file (see the [private generated SDKs](#private) section for more details).
 :::
 
 #### Adding a dependency
@@ -230,8 +230,8 @@ repositories {
 
 :::
 
-::: tip The `name` value is important for using private generated SDKs because it must be prefixed to each Gradle property that makes up the header credentials.
-
+::: tip Note
+The `name` value is important for using private generated SDKs because it must be prefixed to each Gradle property that makes up the header credentials.
 :::
 
 To specify the actual header credentials as Gradle properties, you can set them in your `~/.gradle/gradle.properties` file, or in any other way that Gradle allows [Gradle properties to be specified](https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_configuration_properties) (command-line, environment variables, etc.):
@@ -267,8 +267,8 @@ repositories {
 
 :::
 
-::: tip The `name` value is important for using private generated SDKs because it must be prefixed to each Gradle property that makes up the header credentials.
-
+::: tip Note
+The `name` value is important for using private generated SDKs because it must be prefixed to each Gradle property that makes up the header credentials.
 :::
 
 To specify the actual header credentials as Gradle properties, you can set them in your `~/.gradle/gradle.properties` file, or in any other way that Gradle allows [Gradle properties to be specified](https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_configuration_properties) (command-line, environment variables, etc.):

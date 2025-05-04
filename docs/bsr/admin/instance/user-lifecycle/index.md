@@ -45,7 +45,9 @@ head:
 
 # User lifecycle
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 For private BSR instances, users are managed by your Identity Provider (IdP). This page describes various aspects of the lifecycle of SSO-managed BSR users.
 

@@ -47,8 +47,8 @@ head:
 
 Understanding how a tool works can be just as important as understanding how to use it. In this page, you'll learn more about [Common Expression Language (CEL)](https://cel.dev), an open source technology at the core of Protovalidate. It explores what CEL and its "expressions" are, who uses CEL, and how Protovalidate uses CEL.When you're finished, you should have a better understanding of CEL, be able to explain how Protovalidate works, and maybe even have ideas about using CEL in other projects.
 
-::: tip What this page isn'tThis page is **not** a tutorial for how to write CEL-based Protovalidate rules. If that's what you're looking for, see [custom](../schemas/custom-rules/) or [predefined](../schemas/predefined-rules/) rules.
-
+::: tip What this page isn't
+This page is **not** a tutorial for how to write CEL-based Protovalidate rules. If that's what you're looking for, see [custom](../schemas/custom-rules/) or [predefined](../schemas/predefined-rules/) rules.
 :::
 
 ## What is CEL?
@@ -153,8 +153,8 @@ Because you've already learned [how CEL works](#how-does-cel-work), you can prob
     4.  Transforming those results into the `Violation` and `Violations` messages defined by Protovalidate.
 5.  Handles the idiomatic response from the Validator: Go uses an `error`, Java uses a `ValidationResult` class, etc.
 
-::: tip It's easier than it sounds.If that sounds like a lot, and you're just interested in using Protovalidate in RPC APIs, don't fret.Buf provides quickstarts with either open-source or example interceptors that do all of this for you. They're available for [Connect and Go](../quickstart/connect-go/), [gRPC and Go](../quickstart/grpc-go/), [gRPC and Java](../quickstart/grpc-java/), and [gRPC and Python](../quickstart/grpc-python/).
-
+::: tip It's easier than it sounds.
+If that sounds like a lot, and you're just interested in using Protovalidate in RPC APIs, don't fret.Buf provides quickstarts with either open-source or example interceptors that do all of this for you. They're available for [Connect and Go](../quickstart/connect-go/), [gRPC and Go](../quickstart/grpc-go/), [gRPC and Java](../quickstart/grpc-java/), and [gRPC and Python](../quickstart/grpc-python/).
 :::
 
 ### What CEL unlocks

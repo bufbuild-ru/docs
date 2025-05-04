@@ -47,8 +47,8 @@ head:
 
 Migrating from `protoc-gen-validate` to Protovalidate should be safe, incremental, and relatively painless. We recommend migrating to Protovalidate using the migration tool, but there may be cases where manual migration is required or preferred. Each workflow is outlined below.
 
-::: tip Protovalidate performs all validations using reflection, so there's no `protoc` plugin to use or manage, and it doesn't require any code generation. You don't need the `protoc-gen-validate` plugin, and shouldn't use it with Protovalidate.
-
+::: tip Note
+Protovalidate performs all validations using reflection, so there's no `protoc` plugin to use or manage, and it doesn't require any code generation. You don't need the `protoc-gen-validate` plugin, and shouldn't use it with Protovalidate.
 :::
 
 ## Using the migration tool
@@ -122,8 +122,8 @@ Allows the program to remove `protoc-gen-validate` options. Defaults to `false`.
 
 Replaces Protovalidate options to match `protoc-gen-validate` options (only if present). Defaults to `false`.
 
-::: tip If neither `-w` nor `-o` is specified, modified Protobuf is emitted to stdout.
-
+::: tip Note
+If neither `-w` nor `-o` is specified, modified Protobuf is emitted to stdout.
 :::
 
 ## Migrating manually

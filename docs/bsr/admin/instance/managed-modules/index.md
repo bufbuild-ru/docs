@@ -45,7 +45,9 @@ head:
 
 # Managed modules
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 Managed modules provides a convenient way to access commonly used community modules directly from your own hosted BSR. Buf keeps these modules up to date and syncs them to your instance automatically, just like we do for https://buf.build. You can see which modules are included by visiting the [bufbuild/modules](https://github.com/bufbuild/modules) GitHub repository.If you encounter any problems with your BSR instance's managed modules, contact [Support](https://support.buf.build) or your Buf representative.
 

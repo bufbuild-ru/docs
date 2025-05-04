@@ -77,7 +77,9 @@ Generated SDKs have no configuration options, so for Free and Teams plans, you c
 
 ### Configure using custom plugins
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 If you're on a private BSR instance, you can use the [custom plugin](../../remote-plugins/custom-plugins/#custom-plugin-sdks) feature to fork and change the configuration of the BSR's [curated plugins](https://github.com/bufbuild/plugins/). You can then upload it to the BSR and use it instead of the curated one (you may want to adjust your [recommended sdks](../../admin/instance/recommended-sdks/) to reflect this). Doing so means that you take on the burden of troubleshooting and maintenance, but for some organizations this method is a reasonable tradeoff.
 

@@ -192,8 +192,8 @@ $ go run cmd/main.go
 
 :::
 
-::: tip The server code in `cmd/main.go` is [preconfigured](https://github.com/bufbuild/buf-examples/blob/main/bsr/quickstart/start/server/cmd/main.go#L35-L39) with the Protovalidate interceptor. Normally you need to add that to your code also — see the [Protovalidate documentation](https://github.com/bufbuild/protovalidate) for specifics.
-
+::: tip Note
+The server code in `cmd/main.go` is [preconfigured](https://github.com/bufbuild/buf-examples/blob/main/bsr/quickstart/start/server/cmd/main.go#L35-L39) with the Protovalidate interceptor. Normally you need to add that to your code also — see the [Protovalidate documentation](https://github.com/bufbuild/protovalidate) for specifics.
 :::
 
 Then, open a new terminal, stay in the `server` directory and try a bad request:
@@ -249,8 +249,8 @@ Stop the server with `Ctrl-c`.Your `CreateInvoiceRequest` accepts an array of ta
 
 To share just the tags functionality, you need to move the `tag.proto` file into a new module.
 
-::: tip The BSR doesn't dictate any particular strategies with regard to monorepo, multi-repo, or "many repos with a 'common' repo." The use of the `common` BSR repo here is for illustrative purposes, and you should conform to your organization's norms instead.
-
+::: tip Note
+The BSR doesn't dictate any particular strategies with regard to monorepo, multi-repo, or "many repos with a 'common' repo." The use of the `common` BSR repo here is for illustrative purposes, and you should conform to your organization's norms instead.
 :::
 
 ### Create a BSR repository

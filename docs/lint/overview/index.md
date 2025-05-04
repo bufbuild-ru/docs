@@ -233,8 +233,8 @@ syntax = "proto3";
 package A; // buf:lint:ignore PACKAGE_VERSION_SUFFIX
 ```
 
-::: tip Although it's possible to ignore lint rules at this granular level, generally it should be an exception. As an alternative to comment ignores, you could move the offending components to a separate `.proto` file and use an authors or owners file to control access to it, limiting approval to a small group of reviewers.You could then set the corresponding `ignore` or `ignore_only` values in `buf.yaml` to point to that file. This allows `buf.yaml` to have its own access group and stay focused on the organization's defaults rather than the exceptions.
-
+::: tip Note
+Although it's possible to ignore lint rules at this granular level, generally it should be an exception. As an alternative to comment ignores, you could move the offending components to a separate `.proto` file and use an authors or owners file to control access to it, limiting approval to a small group of reviewers.You could then set the corresponding `ignore` or `ignore_only` values in `buf.yaml` to point to that file. This allows `buf.yaml` to have its own access group and stay focused on the organization's defaults rather than the exceptions.
 :::
 
 ## Integration with CI/CD workflows

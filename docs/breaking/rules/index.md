@@ -213,8 +213,8 @@ extend Foo {
 }
 ```
 
-::: tip This is a new rule that can only be used with `v2` configuration files.
-
+::: tip Note
+This is a new rule that can only be used with `v2` configuration files.
 :::
 
 ### `FIELD_NO_DELETE`
@@ -227,8 +227,8 @@ message Bar {
 }
 ```
 
-::: tip Unlike other field checks, this rule _doesn't_ apply to extensions.
-
+::: tip Note
+Unlike other field checks, this rule _doesn't_ apply to extensions.
 :::
 
 ### `FIELD_NO_DELETE_UNLESS_NAME_RESERVED`
@@ -245,8 +245,8 @@ message Bar {
 
 Note that it's usually better to deprecate message fields than to reserve them in advance.
 
-::: tip Unlike other field checks, this rule _doesn't_ apply to extensions.
-
+::: tip Note
+Unlike other field checks, this rule _doesn't_ apply to extensions.
 :::
 
 ### `FIELD_NO_DELETE_UNLESS_NUMBER_RESERVED`
@@ -262,8 +262,8 @@ message Bar {
 
 Note that deprecating a field instead of deleting it has the same effect as reserving the field (as well as reserving the name for JSON).
 
-::: tip Unlike other field checks, this rule _doesn't_ apply to extensions.
-
+::: tip Note
+Unlike other field checks, this rule _doesn't_ apply to extensions.
 :::
 
 ### `FIELD_SAME_CARDINALITY`
@@ -284,7 +284,9 @@ Though changing an optional field from implicit to explicit presence is typicall
 
 ### `FIELD_SAME_CTYPE`
 
-WarningThis check is **deprecated**.
+::: warning Warning
+This check is **deprecated**.
+:::
 
 It has been replaced with the [`FIELD_SAME_CPP_STRING_TYPE`](#field_same_cpp_string_type) check. It isn't a valid rule name when used with `v2` configuration files. When using earlier configuration versions, it's treated as an alias for `FIELD_SAME_CPP_STRING_TYPE`.
 
@@ -296,8 +298,8 @@ It has been replaced with the [`FIELD_SAME_CPP_STRING_TYPE`](#field_same_cpp_str
 
 **Categories:** `FILE`, `PACKAGE`, `WIRE_JSON`, `WIRE`This checks that the default value for a field doesn't change. In `proto3` files, the default value is always the zero value for the type, but in `proto2` and in Editions, non-repeated, non-message fields can configure an alternate default value. Changing the default value isn't backwards-compatible since it means that producers and consumers of the schema interpret serialized data differently.
 
-::: tip This is a new rule that can only be used with `v2` configuration files.
-
+::: tip Note
+This is a new rule that can only be used with `v2` configuration files.
 :::
 
 ### `FIELD_SAME_JAVA_UTF8_VALIDATION`
@@ -314,7 +316,9 @@ It has been replaced with the [`FIELD_SAME_CPP_STRING_TYPE`](#field_same_cpp_str
 
 ### `FIELD_SAME_LABEL`
 
-WarningThis check is **deprecated**.
+::: warning Warning
+This check is **deprecated**.
+:::
 
 It has been replaced with the following checks:
 
@@ -417,7 +421,9 @@ Unlike `FIELD_WIRE_COMPATIBLE_CARDINALITY`, the check still fails if a field cha
 
 ### `FILE_SAME_JAVA_STRING_CHECK_UTF8`
 
-WarningThis check is **deprecated**.
+::: warning Warning
+This check is **deprecated**.
+:::
 
 It has been replaced with the [`FIELD_SAME_JAVA_UTF8_VALIDATION`](#field_same_java_utf8_validation) check. It isn't a valid rule name when used with `v2` configuration files. When using earlier configuration versions, it's treated as an alias for `FIELD_SAME_JAVA_UTF8_VALIDATION`.
 
@@ -439,7 +445,9 @@ It has been replaced with the [`FIELD_SAME_JAVA_UTF8_VALIDATION`](#field_same_ja
 
 ### `FILE_SAME_PHP_GENERIC_SERVICES`
 
-WarningAs of v1.32.0 of `buf` (and v26.0 of Protobuf), there is no longer a `php_generic_services` file option.This rule is **deprecated** and has no replacement.
+::: warning Warning
+As of v1.32.0 of `buf` (and v26.0 of Protobuf), there is no longer a `php_generic_services` file option.This rule is **deprecated** and has no replacement.
+:::
 
 It isn't a valid rule name when used with `v2` configuration files. When using earlier configuration versions, it's effectively ignored.
 
@@ -512,8 +520,8 @@ message Bar {
 
 **Category:** `PACKAGE`This has the same effect as `EXTENSION_NO_DELETE`, except that it verifies that types aren't deleted from a given package, while letting them move between files in the same package.
 
-::: tip This is a new rule that can only be used with `v2` configuration files.
-
+::: tip Note
+This is a new rule that can only be used with `v2` configuration files.
 :::
 
 ### `PACKAGE_MESSAGE_NO_DELETE`

@@ -125,8 +125,8 @@ head:
 
 **_Release date:_** 2025-01-21 | **_Database version:_** 322 | **_Minimum CLI version:_** v1.24.0
 
-::: tip A license is now required to operate the BSR — more details on setup can be found in the [installation guide](../installation/#4-configure-the-bsrs-helm-values).
-
+::: tip Note
+A license is now required to operate the BSR — more details on setup can be found in the [installation guide](../installation/#4-configure-the-bsrs-helm-values).
 :::
 
 - **Support custom authorization:** We've added support for retrieving additional claims from the UserInfo endpoint as specified in the [OpenID Connect Core 1.0 specification](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo).

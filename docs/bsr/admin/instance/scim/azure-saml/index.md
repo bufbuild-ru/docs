@@ -45,7 +45,9 @@ head:
 
 # Azure - SAML
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 SCIM for Azure Active Directory supports the following SCIM resources:
 

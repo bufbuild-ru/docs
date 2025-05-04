@@ -163,8 +163,8 @@ message Object {
 }
 ```
 
-::: tip Most people will want to use `buf format -w`.
-
+::: tip Note
+Most people will want to use `buf format -w`.
 :::
 
 **To display a diff between the original and formatted content, use `-d` or `--diff`.**
@@ -222,4 +222,6 @@ $ buf format buf.build/acme/weather -o formatted
 
 :::
 
-WarningThe -w and -o flags can't be used together in a single invocation.
+::: warning Warning
+The -w and -o flags can't be used together in a single invocation.
+:::

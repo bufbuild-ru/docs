@@ -45,7 +45,9 @@ head:
 
 # Custom plugins
 
+::: warning
 This feature is only available on the Pro and Enterprise plans.
+:::
 
 All public plugins on the BSR are maintained by Buf for security purposes — we want to make sure that the code generators everyone uses are verified by us. However, organizations often write custom Protobuf plugins to generate logic specific to their business. Custom plugins are available on our Pro and Enterprise plans — [reach out](mailto:support@buf.build) if you're interested in adding this feature.You can upload unlimited custom plugins, which can be public or private within your private BSR instance:
 
@@ -58,7 +60,9 @@ Custom plugins are interleaved with Buf-managed plugins in the [filter categorie
 
 The [plugin protocol](../../../reference/descriptors/#code-generation) defines how the compiler and a plugin interact with each other, and we can only support plugins that adhere to it.The main requirement of a plugin is that it deterministically outputs files via a `CodeGeneratorResponse` message based only on the input `CodeGeneratorRequest` message. This strict protocol is what allows the BSR to parallelize local code generation, and implement [generated SDKs](../../generated-sdks/overview/) and [remote plugins](../overview/) on the BSR.
 
-WarningPlugins that access the file system, make network requests, or otherwise cause the `CodeGeneratorResponse` to depend on information other than what is in the `CodeGeneratorRequest`, do not conform to the protocol and are **not supported**.Plugins that don't conform to the protocol may work on your local machine, but you may run into issues that we're not able to help you troubleshoot or fix, and these plugins will not work with [generated SDKs](../../generated-sdks/overview/) or [remote plugins](../overview/) on the BSR.
+::: warning Warning
+Plugins that access the file system, make network requests, or otherwise cause the `CodeGeneratorResponse` to depend on information other than what is in the `CodeGeneratorRequest`, do not conform to the protocol and are **not supported**.Plugins that don't conform to the protocol may work on your local machine, but you may run into issues that we're not able to help you troubleshoot or fix, and these plugins will not work with [generated SDKs](../../generated-sdks/overview/) or [remote plugins](../overview/) on the BSR.
+:::
 
 ## Creating a custom plugin
 
@@ -241,7 +245,9 @@ const {
 
 You can delete a custom plugin with the Buf CLI by passing a plugin reference or a plugin reference and version.
 
-WarningIf the version is omitted, then all versions for that plugin will be deleted.
+::: warning Warning
+If the version is omitted, then all versions for that plugin will be deleted.
+:::
 
 ::: info Delete all versions
 

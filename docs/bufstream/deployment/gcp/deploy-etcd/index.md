@@ -203,7 +203,9 @@ EOF
 
 Check that etcd is running after installation.
 
-Warning`etcd` is sensitive to disk performance, so we recommend using SSD-backed disks, such as the `premium-rwo` in the example above.
+::: warning Warning
+`etcd` is sensitive to disk performance, so we recommend using SSD-backed disks, such as the `premium-rwo` in the example above.
+:::
 
 ## Deploy Bufstream
 

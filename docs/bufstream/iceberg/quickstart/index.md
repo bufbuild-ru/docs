@@ -119,7 +119,9 @@ time=2025-04-04T09:04:42.377-04:00 level=INFO msg="Published message" number=2 o
 time=2025-04-04T09:04:42.542-04:00 level=INFO msg="Published message" number=3 of=100 "new email"=herminiofeeney@gleichner.name
 ```
 
-TipIf the process hangs or shows error messages, check your Docker output for the Bufstream container. Mistyping changes to bufsteam.yaml can cause it to fail.
+::: info Tip
+If the process hangs or shows error messages, check your Docker output for the Bufstream container. Mistyping changes to bufsteam.yaml can cause it to fail.
+:::
 
 ## Configure topic for Iceberg
 
@@ -133,7 +135,9 @@ We've included AKHQ, a GUI for Kafka management, to make it easy to configure a 
 
 You should see a success message appear — if you don't, double-check your changes. Your topic is now configured for Iceberg archival.
 
-TipIn production, you should include this configuration as part of your infrastructure management.
+::: info Tip
+In production, you should include this configuration as part of your infrastructure management.
+:::
 
 ## Archive all topics
 

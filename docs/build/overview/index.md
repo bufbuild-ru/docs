@@ -116,7 +116,8 @@ The `--type` flag accepts fully qualified names for [messages](https://developer
   - Request and response types referenced in service methods
   - Any custom options for the services, its methods, and the file in which the service is defined
 
-::: tip Supplying multiple typesYou can specify multiple types by applying the `--type` option multiple times, as in this example:
+::: tip Supplying multiple types
+You can specify multiple types by applying the `--type` option multiple times, as in this example:
 
 ```console
 $ buf build \
@@ -125,7 +126,6 @@ $ buf build \
 ```
 
 In this case, dependent descriptors for both `acme.weather.v1.Units` and `acme.weather.v1.CurrentWeather.Temperature` are included in the output.
-
 :::
 
 As an example, consider these two `.proto` files:

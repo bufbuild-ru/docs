@@ -47,8 +47,8 @@ head:
 
 The migration from v1 to v2 configuration files encompasses a lot of changes under the hood of the Buf CLI (see our [blog post](/blog/buf-cli-next-generation/index.md) for the "Why?"), but the migration itself is straightforward and simple in most cases, and we've provided a tool that does almost all of the work for you. This page describes the changes and shows you how to migrate your configuration to v2.**Your v1 configuration files still work.** Buf is enterprise-grade software, and we want you to be minimally impacted, so you can upgrade at your leisure. However, upgrading is simple and we recommend it.
 
-::: tip Because `v1beta` and v1 configurations are similar, this migration path will also work for `v1beta` configurations. If you still have a `v1beta` configuration, we strongly encourage you to migrate, so you can take advantage of the features below.
-
+::: tip Note
+Because `v1beta` and v1 configurations are similar, this migration path will also work for `v1beta` configurations. If you still have a `v1beta` configuration, we strongly encourage you to migrate, so you can take advantage of the features below.
 :::
 
 ## How to migrate to a v2 configuration
@@ -235,8 +235,8 @@ modules:
 
 :::
 
-::: tip See [Modules and workspaces](../../cli/modules-workspaces/) and the [v2 buf.yaml reference](../../configuration/v2/buf-yaml/) for more details about file layout and configuration settings.
-
+::: tip Note
+See [Modules and workspaces](../../cli/modules-workspaces/) and the [v2 buf.yaml reference](../../configuration/v2/buf-yaml/) for more details about file layout and configuration settings.
 :::
 
 ### `buf.gen.yaml` and managed mode
@@ -380,8 +380,8 @@ version: v2
 
 :::
 
-::: tip See the [code generation overview](../../generate/overview/), [managed mode](../../generate/managed-mode/), and [v2 `buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/) pages for more details about configuration and usage.
-
+::: tip Note
+See the [code generation overview](../../generate/overview/), [managed mode](../../generate/managed-mode/), and [v2 `buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/) pages for more details about configuration and usage.
 :::
 
 ## Buf CLI command changes

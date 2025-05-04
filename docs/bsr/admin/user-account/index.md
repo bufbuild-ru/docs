@@ -65,6 +65,8 @@ If you’ve forgotten your password, you can reset it by clicking on the **Forgo
 
 ## Deleting your account
 
-WarningDeleting your account is a permanent action, and can't be undone. You must first delete all repositories and plugins you own, and leave or delete any organizations you belong to or created.
+::: warning Warning
+Deleting your account is a permanent action, and can't be undone. You must first delete all repositories and plugins you own, and leave or delete any organizations you belong to or created.
+:::
 
 To delete your account, go to the [settings page](https://buf.build/settings/user) and click **Delete account**.

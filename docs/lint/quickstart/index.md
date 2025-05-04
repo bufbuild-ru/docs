@@ -129,8 +129,8 @@ syntax = "proto3";
 
 If you run `buf lint` again, the first two errors about the package no longer appear. You can work through the rest of the errors in a similar way — the messages provide specific suggestions to help you fix them.
 
-::: tip The changes the linter recommends are breaking changes for this package, which illustrates why it's best (if possible) to start linting when you first create your Protobuf files. It's not always possible, so we also provide a way to temporarily ignore rules when you first bring your `.proto` files into Buf — [see below](#step5).
-
+::: tip Note
+The changes the linter recommends are breaking changes for this package, which illustrates why it's best (if possible) to start linting when you first create your Protobuf files. It's not always possible, so we also provide a way to temporarily ignore rules when you first bring your `.proto` files into Buf — [see below](#step5).
 :::
 
 ## Customize lint configuration

@@ -151,8 +151,8 @@ The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencin
 $ go get buf.build/gen/go/connectrpc/eliza/connectrpc/go@LABEL
 ```
 
-::: tip References with names that contain `/` are _not_ compatible with the Go generated SDKs versioning scheme.
-
+::: tip Note
+References with names that contain `/` are _not_ compatible with the Go generated SDKs versioning scheme.
 :::
 
 ### Full syntax

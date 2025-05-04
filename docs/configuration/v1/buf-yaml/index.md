@@ -45,8 +45,8 @@ head:
 
 # buf.yaml v1 config file
 
-::: tip This file now has a `v2` configuration available. See the [v2 `buf.yaml` reference](../../v2/buf-yaml/) and the [migration guide](../../../migration-guides/migrate-v2-config-files/) for details about the new configuration and migration instructions.
-
+::: tip Note
+This file now has a `v2` configuration available. See the [v2 `buf.yaml` reference](../../v2/buf-yaml/) and the [migration guide](../../../migration-guides/migrate-v2-config-files/) for details about the new configuration and migration instructions.
 :::
 
 The `buf.yaml` file defines a [module](../../../cli/modules-workspaces/), and is placed at the root of the Protobuf source files it defines. The placement of the `buf.yaml` configuration tells `buf` where to search for `.proto` files and how to handle imports.This file contains [lint](../../../lint/rules/) and [breaking change](../../../breaking/rules/) rules, and if applicable, the name of your module and a list of dependencies.
@@ -113,8 +113,8 @@ deps:
 
 :::
 
-::: tip Depending on specific references is an advanced feature — you should depend on the latest commit whenever possible. In other words, your `deps` don't need to include the `:<reference>` suffix in most cases.
-
+::: tip Note
+Depending on specific references is an advanced feature — you should depend on the latest commit whenever possible. In other words, your `deps` don't need to include the `:<reference>` suffix in most cases.
 :::
 
 ### `build`

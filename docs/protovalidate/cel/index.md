@@ -45,7 +45,9 @@ head:
 
 # Advanced CEL topics
 
-Understanding how a tool works can be just as important as understanding how to use it. In this page, you'll learn more about [Common Expression Language (CEL)](https://cel.dev), an open source technology at the core of Protovalidate. It explores what CEL and its "expressions" are, who uses CEL, and how Protovalidate uses CEL.When you're finished, you should have a better understanding of CEL, be able to explain how Protovalidate works, and maybe even have ideas about using CEL in other projects.
+Understanding how a tool works can be just as important as understanding how to use it. In this page, you'll learn more about [Common Expression Language (CEL)](https://cel.dev), an open source technology at the core of Protovalidate. It explores what CEL and its "expressions" are, who uses CEL, and how Protovalidate uses CEL.
+
+When you're finished, you should have a better understanding of CEL, be able to explain how Protovalidate works, and maybe even have ideas about using CEL in other projects.
 
 ::: tip What this page isn't
 This page is **not** a tutorial for how to write CEL-based Protovalidate rules. If that's what you're looking for, see [custom](../schemas/custom-rules/) or [predefined](../schemas/predefined-rules/) rules.
@@ -53,7 +55,9 @@ This page is **not** a tutorial for how to write CEL-based Protovalidate rules. 
 
 ## What is CEL?
 
-CEL is a miniature programming language designed to be embedded within applications that need to evaluate, compile, and run brief "one-liners." In other words, it's a way to let other programs safely provide small pieces of code that need to run within your own.A mental model that may be helpful is to think of CEL as the runtime for a formula in a spreadsheet. The spreadsheet's author writes the formula, and "something" within the spreadsheet application executes the formula to provide a result. CEL is that "something."
+CEL is a miniature programming language designed to be embedded within applications that need to evaluate, compile, and run brief "one-liners." In other words, it's a way to let other programs safely provide small pieces of code that need to run within your own.
+
+A mental model that may be helpful is to think of CEL as the runtime for a formula in a spreadsheet. The spreadsheet's author writes the formula, and "something" within the spreadsheet application executes the formula to provide a result. CEL is that "something."
 
 ## Who uses CEL?
 
@@ -66,7 +70,9 @@ CEL is used in popular technologies across the modern internet, proving that it'
 
 ## What's a CEL expression?
 
-CEL's "one-liners" are expressions — code that combines constants, variables, functions, and operators to produce a value. (Expressions are the opposite of statements-code that's a valueless instruction.)One way to think of expressions is that they're the right side of an assignment. In this Go example, `this.size() > 5` is an expression:
+CEL's "one-liners" are expressions — code that combines constants, variables, functions, and operators to produce a value. (Expressions are the opposite of statements-code that's a valueless instruction.)
+
+One way to think of expressions is that they're the right side of an assignment. In this Go example, `this.size() > 5` is an expression:
 
 ```go
 valid := this.size() > 5
@@ -84,7 +90,11 @@ Because CEL's syntax is C-style, its expressions are easy to read and write for 
 
 ## How does CEL work?
 
-At first glance, it's tempting to think that CEL can't scale because it appears to be dynamic. This isn't true. An application using CEL employs the CEL compiler to evaluate and compile expressions into CEL programs. This makes it simple to build a cache of already-encountered expressions or to proactively warm up a cache with a library of expressions.Let's take a look at how this works, using the prior example of checking a `string`'s length. Though implementations vary across its supported languages, they all follow the same basic workflow.First, the application compiles CEL expressions into CEL programs by:
+At first glance, it's tempting to think that CEL can't scale because it appears to be dynamic. This isn't true. An application using CEL employs the CEL compiler to evaluate and compile expressions into CEL programs. This makes it simple to build a cache of already-encountered expressions or to proactively warm up a cache with a library of expressions.
+
+Let's take a look at how this works, using the prior example of checking a `string`'s length. Though implementations vary across its supported languages, they all follow the same basic workflow.
+
+First, the application compiles CEL expressions into CEL programs by:
 
 1.  Receiving one or more CEL expressions to evaluate. In this case, it's `someString.size() > 5`.
 2.  Creating a CEL environment and compiler — these are classes or types provided by the language-specific CEL implementation.
@@ -92,7 +102,11 @@ At first glance, it's tempting to think that CEL can't scale because it appears 
 4.  Receiving the result of the CEL compiler (a CEL abstract syntax tree, or AST).
 5.  Creating a CEL program (another class or type provided by the CEL library) based on the compiled AST.
 
-After CEL expressions are compiled into CEL programs, the program can be provided input and run (evaluated, in CEL's terminology) at any time, returning the result of its expression.It's not too different from writing any other compiled program: the source code is compiled, turned into an executable program, and then a runtime executes the program with any provided input.For more details on how to use CEL directly, see the [CEL tutorials for Go, Java, and C++](https://cel.dev/tutorials/cel-get-started-tutorial).
+After CEL expressions are compiled into CEL programs, the program can be provided input and run (evaluated, in CEL's terminology) at any time, returning the result of its expression.
+
+It's not too different from writing any other compiled program: the source code is compiled, turned into an executable program, and then a runtime executes the program with any provided input.
+
+For more details on how to use CEL directly, see the [CEL tutorials for Go, Java, and C++](https://cel.dev/tutorials/cel-get-started-tutorial).
 
 ## Protovalidate and CEL
 
@@ -109,11 +123,17 @@ err := p.Validate() // err: First name is required
 
 :::
 
-Because it relies on code generation, PGV's rules have to be implemented in each supported language. When UUID was added as a well-known string rule, [the code change](https://github.com/bufbuild/protoc-gen-validate/commit/30b4f8ca30fe575a15e9f5c369c4898d53e38c4e) had to consistently implement the definition of a UUID string in Go, Java, and C++.With that it mind, you can probably guess why Protovalidate uses CEL. If CEL expressions form a way to consistently evaluate expressions across multiple languages, and you can write a library of CEL expressions for common validation cases, you can create a cross-platform validation library.Instead of defining each rule in each language, Protovalidate defines a library of CEL expressions for common rules that work across all of its supported languages.
+Because it relies on code generation, PGV's rules have to be implemented in each supported language. When UUID was added as a well-known string rule, [the code change](https://github.com/bufbuild/protoc-gen-validate/commit/30b4f8ca30fe575a15e9f5c369c4898d53e38c4e) had to consistently implement the definition of a UUID string in Go, Java, and C++.
+
+With that it mind, you can probably guess why Protovalidate uses CEL. If CEL expressions form a way to consistently evaluate expressions across multiple languages, and you can write a library of CEL expressions for common validation cases, you can create a cross-platform validation library.
+
+Instead of defining each rule in each language, Protovalidate defines a library of CEL expressions for common rules that work across all of its supported languages.
 
 ### Where it uses CEL
 
-Unlike `protoc-gen-validate`, Protovalidate isn't a `protoc` plugin. It doesn't rely on any code generation. The core of Protovalidate is simply [one Protobuf file](https://github.com/bufbuild/protovalidate/blob/main/proto/protovalidate/buf/validate/validate.proto) using the `proto2` syntax to define options (annotations).In `validate.proto`, you can see the definition for every standard Protovalidate rule. For example, Protovalidate doesn't have to define validation for a UUID string in Go, Java, and C++. Instead, Protovalidate stores it once as — you probably guessed it — a CEL expression:
+Unlike `protoc-gen-validate`, Protovalidate isn't a `protoc` plugin. It doesn't rely on any code generation. The core of Protovalidate is simply [one Protobuf file](https://github.com/bufbuild/protovalidate/blob/main/proto/protovalidate/buf/validate/validate.proto) using the `proto2` syntax to define options (annotations).
+
+In `validate.proto`, you can see the definition for every standard Protovalidate rule. For example, Protovalidate doesn't have to define validation for a UUID string in Go, Java, and C++. Instead, Protovalidate stores it once as — you probably guessed it — a CEL expression:
 
 ::: info UUID definition in validate.proto
 
@@ -141,7 +161,9 @@ Since the definition of `uuid` is part of the `StringRules` message, its backing
 
 ### How it uses CEL
 
-Because you've already learned [how CEL works](#how-does-cel-work), you can probably extrapolate how your application and Protovalidate use CEL.Your application:
+Because you've already learned [how CEL works](#how-does-cel-work), you can probably extrapolate how your application and Protovalidate use CEL.
+
+Your application:
 
 1.  Depends on the Protovalidate library that supports its language.
 2.  Creates a Protovalidate `Validator` (class or type provided the Protovalidate library).
@@ -154,7 +176,9 @@ Because you've already learned [how CEL works](#how-does-cel-work), you can prob
 5.  Handles the idiomatic response from the Validator: Go uses an `error`, Java uses a `ValidationResult` class, etc.
 
 ::: tip It's easier than it sounds.
-If that sounds like a lot, and you're just interested in using Protovalidate in RPC APIs, don't fret.Buf provides quickstarts with either open-source or example interceptors that do all of this for you. They're available for [Connect and Go](../quickstart/connect-go/), [gRPC and Go](../quickstart/grpc-go/), [gRPC and Java](../quickstart/grpc-java/), and [gRPC and Python](../quickstart/grpc-python/).
+If that sounds like a lot, and you're just interested in using Protovalidate in RPC APIs, don't fret.
+
+Buf provides quickstarts with either open-source or example interceptors that do all of this for you. They're available for [Connect and Go](../quickstart/connect-go/), [gRPC and Go](../quickstart/grpc-go/), [gRPC and Java](../quickstart/grpc-java/), and [gRPC and Python](../quickstart/grpc-python/).
 :::
 
 ### What CEL unlocks
@@ -163,7 +187,9 @@ Because Protovalidate relies on CEL expressions that are compiled into schema me
 
 #### Custom CEL expressions
 
-With Protovalidate, you can write your own validation rules once in your Protobuf files, and then immediately use them across any supported language.Protovalidate calls these [custom rules](../schemas/custom-rules/). Simple to implement, they're nothing more than an association of a CEL expression with a given field or message:
+With Protovalidate, you can write your own validation rules once in your Protobuf files, and then immediately use them across any supported language.
+
+Protovalidate calls these [custom rules](../schemas/custom-rules/). Simple to implement, they're nothing more than an association of a CEL expression with a given field or message:
 
 ::: info Custom rule example
 
@@ -183,7 +209,9 @@ message SampleMessage {
 
 #### Reusable rule libraries
 
-Protovalidate defines its [standard rules](../schemas/standard-rules/) in a Protobuf file. By extending its messages, you can do the same thing. This means you can develop organization-specific libraries of your own rules, [publish them to the Buf Schema Registry](/docs/bsr/module/publish/), and then reuse them across your enterprise.Creating these [predefined rules](../schemas/predefined-rules/) is similar to creating custom rules, using `proto2` syntax and extending Protovalidate's rule messages:
+Protovalidate defines its [standard rules](../schemas/standard-rules/) in a Protobuf file. By extending its messages, you can do the same thing. This means you can develop organization-specific libraries of your own rules, [publish them to the Buf Schema Registry](/docs/bsr/module/publish/), and then reuse them across your enterprise.
+
+Creating these [predefined rules](../schemas/predefined-rules/) is similar to creating custom rules, using `proto2` syntax and extending Protovalidate's rule messages:
 
 ::: info Predefined rule example
 
@@ -205,7 +233,11 @@ extend buf.validate.StringRules {
 
 ### CEL extensions it adds
 
-You've already seen that CEL allows variable values to be bound at runtime. Protovalidate takes advantage of this, providing variables like `this`, `rule`, and `rules` to your CEL expressions.CEL doesn't stop with variables, however — brand-new functions and overloads can be added to CEL itself. CEL programs delegate their execution to implementations provided by the host language, binding to names and CEL types.Protovalidate leverages this to provide common validation functions that aren't built into CEL. For example, every language-specific Protovalidate implementation consistently implements `isNan()` to provide a function that you can use to check for `NaN` values. In `protovalidate-go`'s [source code](https://github.com/bufbuild/protovalidate-go/blob/main/cel/library.go), you can see this function's declaration, naming, binding to the CEL `double` type, and delegation to `math.isNaN()`:
+You've already seen that CEL allows variable values to be bound at runtime. Protovalidate takes advantage of this, providing variables like `this`, `rule`, and `rules` to your CEL expressions.
+
+CEL doesn't stop with variables, however — brand-new functions and overloads can be added to CEL itself. CEL programs delegate their execution to implementations provided by the host language, binding to names and CEL types.
+
+Protovalidate leverages this to provide common validation functions that aren't built into CEL. For example, every language-specific Protovalidate implementation consistently implements `isNan()` to provide a function that you can use to check for `NaN` values. In `protovalidate-go`'s [source code](https://github.com/bufbuild/protovalidate-go/blob/main/cel/library.go), you can see this function's declaration, naming, binding to the CEL `double` type, and delegation to `math.isNaN()`:
 
 ::: info library.go (excerpt)
 
@@ -228,7 +260,9 @@ cel.Function("isNan",
 
 :::
 
-This introduces cross-platform concerns: if Go's `math.IsNaN()` follows different semantics than the type-specific `isNaN()` functions for Java's `Double` and `Float` types, consistency could suffer. Protovalidate addresses this through a suite of [conformance tests](https://github.com/bufbuild/protovalidate/blob/main/docs/conformance.md) that all supported implementations must pass.All of Protovalidate's CEL extensions are documented in the [Protovalidate reference](../../reference/protovalidate/cel_extensions/).
+This introduces cross-platform concerns: if Go's `math.IsNaN()` follows different semantics than the type-specific `isNaN()` functions for Java's `Double` and `Float` types, consistency could suffer. Protovalidate addresses this through a suite of [conformance tests](https://github.com/bufbuild/protovalidate/blob/main/docs/conformance.md) that all supported implementations must pass.
+
+All of Protovalidate's CEL extensions are documented in the [Protovalidate reference](../../reference/protovalidate/cel_extensions/).
 
 ## What you can do with CEL
 

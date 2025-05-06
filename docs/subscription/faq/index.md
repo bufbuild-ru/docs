@@ -61,7 +61,11 @@ Public repositories are and will always be free with no impact to your billing. 
 
 ### What happens if my payment fails?
 
-If your payment fails, there is a 1 billing cycle grace period, including the due date.Buf also sends an email notification with the subject `Action Required - Credit Card Payment Failed`, with an attached unpaid invoice after each failed payment attempt.Once the grace period is over and the invoice is still not paid, the subscription is downgraded to a Community plan and all paid features are disabled.
+If your payment fails, there is a 1 billing cycle grace period, including the due date.
+
+Buf also sends an email notification with the subject `Action Required - Credit Card Payment Failed`, with an attached unpaid invoice after each failed payment attempt.
+
+Once the grace period is over and the invoice is still not paid, the subscription is downgraded to a Community plan and all paid features are disabled.
 
 ### What billing-related emails will I receive from Buf?
 
@@ -158,7 +162,11 @@ Upgrading your plan to a Pro plan includes a private instance of the BSR, custom
 
 ### How do I downgrade or cancel my subscription?
 
-If you're downgrading, first ensure that your account organization details are updated to reflect the features available in the plan you want to downgrade to. For example, if your plan includes a private BSR instance, you need to migrate your repositories to the [public BSR](https://buf.build). Depending on which plan you migrate to, you may also be subject to limits on private repositories and need to change their visibility. For more information on migrating from your private BSR instance, see [Migrating when downgrading from Pro](../migrate/#pro-downgrade).For information on what’s included in the Teams and Community plans, see the [Pricing](https://buf.build/pricing) page.To downgrade or cancel your subscription, go to the **Billing** page for your organization and click **Cancel Subscription** at the bottom of the page. If you're downgrading, resubscribe to the new plan you want.
+If you're downgrading, first ensure that your account organization details are updated to reflect the features available in the plan you want to downgrade to. For example, if your plan includes a private BSR instance, you need to migrate your repositories to the [public BSR](https://buf.build). Depending on which plan you migrate to, you may also be subject to limits on private repositories and need to change their visibility. For more information on migrating from your private BSR instance, see [Migrating when downgrading from Pro](../migrate/#pro-downgrade).
+
+For information on what’s included in the Teams and Community plans, see the [Pricing](https://buf.build/pricing) page.
+
+To downgrade or cancel your subscription, go to the **Billing** page for your organization and click **Cancel Subscription** at the bottom of the page. If you're downgrading, resubscribe to the new plan you want.
 
 - Teams customers will immediately be subject to [Community Plan limits](#community-limits).
 - Pro customers will retain access to their private BSR instance for 1 week for the purposes of exporting data. After 1 week, the instance will be deleted.

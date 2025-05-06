@@ -295,7 +295,9 @@ Bufstream exposes metrics to monitor Kafka producers, consumers, topics, and the
 
 ## Controlling metric cardinality
 
-By default, Bufstream reports metrics for individual topics, partitions, and consumer groups. In some environments, reporting metrics at the default cardinality may be too expensive. For example, if topics typically have hundreds of partitions, reporting per-partition metrics requires a significant cost in the monitoring system.To support environments with high cardinality, Bufstream supports aggregating metrics for topics, partitions, and consumer groups. To configure aggregation in the Helm chart, use the following settings:
+By default, Bufstream reports metrics for individual topics, partitions, and consumer groups. In some environments, reporting metrics at the default cardinality may be too expensive. For example, if topics typically have hundreds of partitions, reporting per-partition metrics requires a significant cost in the monitoring system.
+
+To support environments with high cardinality, Bufstream supports aggregating metrics for topics, partitions, and consumer groups. To configure aggregation in the Helm chart, use the following settings:
 
 ```yaml
 observability:

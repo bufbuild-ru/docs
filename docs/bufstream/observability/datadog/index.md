@@ -101,7 +101,11 @@ Enabling percentiles provides p50, p75, p90, p95, and p99 aggregations.
 
 ## Bufstream overview dashboard
 
-![Bufstream Overview Dashboard](../../../images/bufstream/observability/datadog-dashboard-overview.png)The overview dashboard (dashboard-overview.json) provides a Summary group for high-level Bufstream status as well as groups of panels for Bufstream brokers, Kafka Producers/Consumers, Bufstream metrics (including [data governance](../../data-governance/schema-enforcement/)), and etcd metrics. To report etcd metrics, configure the [etcd integration](https://docs.datadoghq.com/integrations/etcd/).Top-level label drop-downs allow filtering by the Bufstream cluster, topic, consumer group, host (for Go metrics), and etcd cluster.
+![Bufstream Overview Dashboard](../../../images/bufstream/observability/datadog-dashboard-overview.png)
+
+The overview dashboard (dashboard-overview.json) provides a Summary group for high-level Bufstream status as well as groups of panels for Bufstream brokers, Kafka Producers/Consumers, Bufstream metrics (including [data governance](../../data-governance/schema-enforcement/)), and etcd metrics. To report etcd metrics, configure the [etcd integration](https://docs.datadoghq.com/integrations/etcd/).
+
+Top-level label drop-downs allow filtering by the Bufstream cluster, topic, consumer group, host (for Go metrics), and etcd cluster.
 
 ## Bufstream status monitor
 

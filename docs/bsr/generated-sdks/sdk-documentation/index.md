@@ -45,11 +45,15 @@ head:
 
 # SDK documentation
 
-Generated SDKs are largely self-documenting. They include complete instructions for installing via the relevant package manager, or downloading an archive if that's not available. Some SDKs also provide a [generated API reference](#api-reference).In addition, you can add a "Getting started" guide to your SDKs to provide additional context to users.
+Generated SDKs are largely self-documenting. They include complete instructions for installing via the relevant package manager, or downloading an archive if that's not available. Some SDKs also provide a [generated API reference](#api-reference).
+
+In addition, you can add a "Getting started" guide to your SDKs to provide additional context to users.
 
 ## Getting started guide
 
-Each SDK provides an open-text Markdown editor for the guide, allowing you to customize the content for the associated plugin.You must be a BSR instance admin or have the `Owner` or `Admin` [role](../../admin/roles/#organization-roles) in the module's parent organization to access the editor.
+Each SDK provides an open-text Markdown editor for the guide, allowing you to customize the content for the associated plugin.
+
+You must be a BSR instance admin or have the `Owner` or `Admin` [role](../../admin/roles/#organization-roles) in the module's parent organization to access the editor.
 
 ### Add a guide
 
@@ -63,7 +67,9 @@ You can format the text and add images or tables using Markdown or use the WYSIW
 
 ### Edit or delete a guide
 
-You can edit the guide anytime by clicking **Edit**. Make your changes and click **Publish** to publish the revision.To delete the guide, click the trash can icon at the top right of the editor.
+You can edit the guide anytime by clicking **Edit**. Make your changes and click **Publish** to publish the revision.
+
+To delete the guide, click the trash can icon at the top right of the editor.
 
 ::: warning Warning
 SDK getting started guides aren't version-controlled resources. When their content is changed or deleted, older versions can't be recovered.
@@ -71,4 +77,8 @@ SDK getting started guides aren't version-controlled resources. When their conte
 
 ## API reference
 
-Most Go and JavaScript/Typescript SDKs have an easily accessible API reference on the SDK page. It's always in sync with the plugin version and module commit specified by the SDK, and is presented in the way that's standard for each language. Click the **API reference** button at the top right of the SDK to view it.![Screenshot of the API reference button](../../../images/bsr/sdks/sdk-docs-button.png)If the API reference for the SDK hasn't been generated before, the BSR displays a "Docs Generating" banner — otherwise, it displays a link to the reference's root directory. Click through to a package, and it shows its import statement and links to each of the package's descendants. You can then navigate around the documentation as needed.
+Most Go and JavaScript/Typescript SDKs have an easily accessible API reference on the SDK page. It's always in sync with the plugin version and module commit specified by the SDK, and is presented in the way that's standard for each language. Click the **API reference** button at the top right of the SDK to view it.
+
+![Screenshot of the API reference button](../../../images/bsr/sdks/sdk-docs-button.png)
+
+If the API reference for the SDK hasn't been generated before, the BSR displays a "Docs Generating" banner — otherwise, it displays a link to the reference's root directory. Click through to a package, and it shows its import statement and links to each of the package's descendants. You can then navigate around the documentation as needed.

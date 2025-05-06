@@ -88,7 +88,9 @@ Once the plugin is set up, you can run the following tasks through Gradle (via `
 
 ### Format checks
 
-`bufFormatApply` is run manually and has no configuration.`bufFormatCheck` is run automatically during the `check` task if `enforceFormat` is enabled. It has no other configuration.
+`bufFormatApply` is run manually and has no configuration.
+
+`bufFormatCheck` is run automatically during the `check` task if `enforceFormat` is enabled. It has no other configuration.
 
 ```kotlin
 buf {
@@ -102,11 +104,15 @@ buf {
 
 ### Breaking change detection
 
-`bufBreaking` is more complicated since it requires a previous version of the Protobuf schema to validate the current version. Buf's built-in Git integration isn't quite enough since it requires a buildable Protobuf source set and the plugin's extraction step typically targets the project build directory, which is ephemeral and not committed.The plugin uses `buf build` to create an image from the current Protobuf schema and then publishes it as a Maven publication. In subsequent builds of the project, the plugin resolves the previously published schema image and run `buf breaking` against the current schema with the image as its reference.
+`bufBreaking` is more complicated since it requires a previous version of the Protobuf schema to validate the current version. Buf's built-in Git integration isn't quite enough since it requires a buildable Protobuf source set and the plugin's extraction step typically targets the project build directory, which is ephemeral and not committed.
+
+The plugin uses `buf build` to create an image from the current Protobuf schema and then publishes it as a Maven publication. In subsequent builds of the project, the plugin resolves the previously published schema image and run `buf breaking` against the current schema with the image as its reference.
 
 #### Checking against the latest published version
 
-Enable `checkSchemaAgainstLatestRelease` and the plugin resolves the previously published Maven artifact as its input for validation.For example, first publish the project with `publishSchema` enabled:
+Enable `checkSchemaAgainstLatestRelease` and the plugin resolves the previously published Maven artifact as its input for validation.
+
+For example, first publish the project with `publishSchema` enabled:
 
 ```kotlin
 buf {
@@ -164,7 +170,9 @@ buf {
 
 ### Generating code
 
-`bufGenerate` is configured as described in the [Buf docs](../../../generate/overview/). Create a `buf.gen.yaml` in the project root and `bufGenerate` generates code in the project's build directory at `"$buildDir/bufbuild/generated/<out path from buf.gen.yaml>"`.An example for Java code generation using the remote plugin:
+`bufGenerate` is configured as described in the [Buf docs](../../../generate/overview/). Create a `buf.gen.yaml` in the project root and `bufGenerate` generates code in the project's build directory at `"$buildDir/bufbuild/generated/<out path from buf.gen.yaml>"`.
+
+An example for Java code generation using the remote plugin:
 
 ::: info Example buf.gen.yaml
 

@@ -115,7 +115,11 @@ That represents:
 - Commit timestamp: `20231106214313`
 - Commit short name: `d8fbf2620c60`
 
-If you need a more specific version than the latest, such as needing to install a specific plugin version, you can use the [`buf registry sdk version` command](../../../reference/cli/buf/registry/sdk/version/).The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../repositories/#default-label).Only commits that are on the default label at the time they're pushed to the BSR have populated timestamps. Timestamps on commits pushed to other labels are set to `dev` to easily distinguish them as changes in labels that are still in development.
+If you need a more specific version than the latest, such as needing to install a specific plugin version, you can use the [`buf registry sdk version` command](../../../reference/cli/buf/registry/sdk/version/).
+
+The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../repositories/#default-label).
+
+Only commits that are on the default label at the time they're pushed to the BSR have populated timestamps. Timestamps on commits pushed to other labels are set to `dev` to easily distinguish them as changes in labels that are still in development.
 
 ## Other package managers
 
@@ -123,7 +127,9 @@ Because the BSR Python repository implements [PEP 503](https://peps.python.org/p
 
 ## Available plugins
 
-For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for Python.To learn more about how these plugins are packaged and distributed, go to the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that you think should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).
+For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for Python.
+
+To learn more about how these plugins are packaged and distributed, go to the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that you think should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).
 
 ## Troubleshooting
 

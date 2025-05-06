@@ -47,15 +47,21 @@ head:
 
 > We recommend completing the [Buf CLI quickstart](../../../cli/quickstart/#generate-code) to get an overview of `buf generate` with remote plugins.
 
-Protobuf code generation is a challenging process for developers due to the complexities of working with `protoc` and plugins. This challenge is compounded as code generation is scaled across multiple developers, with different languages and runtime requirements for plugins.Buf's remote plugins remove this key obstacle to generating code. Instead of wasting your time maintaining plugins for yourself or your organization, you can reference plugins hosted in the Buf Schema Registry (BSR).
+Protobuf code generation is a challenging process for developers due to the complexities of working with `protoc` and plugins. This challenge is compounded as code generation is scaled across multiple developers, with different languages and runtime requirements for plugins.
+
+Buf's remote plugins remove this key obstacle to generating code. Instead of wasting your time maintaining plugins for yourself or your organization, you can reference plugins hosted in the Buf Schema Registry (BSR).
 
 ## Configuration
 
-The `buf.gen.yaml` file controls how the `buf generate` command executes Protobuf plugins for any [input](../../../reference/inputs/). In it, you specify [remote plugins](../overview/) to perform code generation. For more information on the `buf.gen.yaml` configuration, see the [reference](../../../configuration/v2/buf-gen-yaml/).Buf verifies and maintains the commonly used plugins used across the Protobuf ecosystem. To discover all publicly available plugins, go to [buf.build/plugins](https://buf.build/plugins).
+The `buf.gen.yaml` file controls how the `buf generate` command executes Protobuf plugins for any [input](../../../reference/inputs/). In it, you specify [remote plugins](../overview/) to perform code generation. For more information on the `buf.gen.yaml` configuration, see the [reference](../../../configuration/v2/buf-gen-yaml/).
+
+Buf verifies and maintains the commonly used plugins used across the Protobuf ecosystem. To discover all publicly available plugins, go to [buf.build/plugins](https://buf.build/plugins).
 
 ## Choose your input
 
-Remote plugins generate code for [inputs](../../../reference/inputs/). An input can be a Git repository, tarball, zip file, or a local directory containing Protobuf files configured with a [`buf.yaml`](../../../configuration/v2/buf-yaml/) configuration file. Buf refers to such directories of Protobuf files as [modules](../../../cli/modules-workspaces/).For our purposes, we'll assume you have a directory of `.proto` files with a `buf.yaml` configuration file that defines them as a workspace with at least one module. To create a `buf.yaml` in your current directory if you don't have one, run this command:
+Remote plugins generate code for [inputs](../../../reference/inputs/). An input can be a Git repository, tarball, zip file, or a local directory containing Protobuf files configured with a [`buf.yaml`](../../../configuration/v2/buf-yaml/) configuration file. Buf refers to such directories of Protobuf files as [modules](../../../cli/modules-workspaces/).
+
+For our purposes, we'll assume you have a directory of `.proto` files with a `buf.yaml` configuration file that defines them as a workspace with at least one module. To create a `buf.yaml` in your current directory if you don't have one, run this command:
 
 ```console
 $ buf config init
@@ -203,7 +209,9 @@ plugins:
 
 +++
 
-Note that the code uses the `remote` key to reference a remote plugin. When referencing remote plugins, we recommend including the version of the plugin to ensure reproducible code generation. For more details about the `buf.gen.yaml` fields, see the [configuration file docs](../../../configuration/v2/buf-gen-yaml/).Plugins are invoked in the order they're specified in `buf.gen.yaml`, with results from each invocation combined before writing the result. It's possible to reference both local and remote plugins within a single `buf.gen.yaml` file.
+Note that the code uses the `remote` key to reference a remote plugin. When referencing remote plugins, we recommend including the version of the plugin to ensure reproducible code generation. For more details about the `buf.gen.yaml` fields, see the [configuration file docs](../../../configuration/v2/buf-gen-yaml/).
+
+Plugins are invoked in the order they're specified in `buf.gen.yaml`, with results from each invocation combined before writing the result. It's possible to reference both local and remote plugins within a single `buf.gen.yaml` file.
 
 ## Generate code
 
@@ -315,7 +323,9 @@ workspace_root
 
 ### Connect-Go
 
-[Connect-Go](https://connectrpc.com/docs/go/getting-started) is a slim library for building browser and gRPC-compatible HTTP APIs. Handlers and clients support three protocols: gRPC, gRPC-Web, and Connect's own protocol.[`protoc-gen-connect-go`](https://github.com/connectrpc/connect-go) generates Go service stubs for Connect. The BSR hosts this plugin at [buf.build/connectrpc/go](https://buf.build/connectrpc/go).
+[Connect-Go](https://connectrpc.com/docs/go/getting-started) is a slim library for building browser and gRPC-compatible HTTP APIs. Handlers and clients support three protocols: gRPC, gRPC-Web, and Connect's own protocol.
+
+[`protoc-gen-connect-go`](https://github.com/connectrpc/connect-go) generates Go service stubs for Connect. The BSR hosts this plugin at [buf.build/connectrpc/go](https://buf.build/connectrpc/go).
 
 ::: info buf.gen.yaml
 
@@ -339,7 +349,13 @@ plugins:
 
 ### Connect-ES
 
-[Connect-ES](https://connectrpc.com/docs/node/getting-started) brings the Connect ecosystem to TypeScript, the web browser, and to Node.js. It contains packages for working with Connect and gRPC-Web clients from the browser as well as Connect-, gRPC-, and gRPC-Web-compatible clients and servers in Node.jsIt requires the [`protoc-gen-es`](https://www.npmjs.com/package/@bufbuild/protoc-gen-es) plugin to generate message and service types for TypeScript and JavaScript, and the runtime libraries [`@connectrpc/connect`](https://www.npmjs.com/package/@connectrpc/connect), and [`@bufbuild/protobuf`](https://www.npmjs.com/package/@bufbuild/protobuf).The BSR hosts the plugin at [buf.build/bufbuild/es](https://buf.build/bufbuild/es).To get started with Connect-ES, check out the [tutorial for web](https://connectrpc.com/docs/web), or the [tutorial for Node.js](https://connectrpc.com/docs/node).
+[Connect-ES](https://connectrpc.com/docs/node/getting-started) brings the Connect ecosystem to TypeScript, the web browser, and to Node.js. It contains packages for working with Connect and gRPC-Web clients from the browser as well as Connect-, gRPC-, and gRPC-Web-compatible clients and servers in Node.js
+
+It requires the [`protoc-gen-es`](https://www.npmjs.com/package/@bufbuild/protoc-gen-es) plugin to generate message and service types for TypeScript and JavaScript, and the runtime libraries [`@connectrpc/connect`](https://www.npmjs.com/package/@connectrpc/connect), and [`@bufbuild/protobuf`](https://www.npmjs.com/package/@bufbuild/protobuf).
+
+The BSR hosts the plugin at [buf.build/bufbuild/es](https://buf.build/bufbuild/es).
+
+To get started with Connect-ES, check out the [tutorial for web](https://connectrpc.com/docs/web), or the [tutorial for Node.js](https://connectrpc.com/docs/node).
 
 ::: info buf.gen.yaml
 
@@ -354,7 +370,11 @@ plugins:
 
 ### Connect-Swift
 
-[Connect-Swift](https://connectrpc.com/docs/swift/getting-started) is a small library that provides support for using generated, type-safe, and idiomatic Swift APIs to communicate with your app's servers. It can be used with both the gRPC-Web and Connect protocols.[`protoc-gen-connect-swift`](https://github.com/connectrpc/connect-swift) is responsible for generating Swift clients, and relies on the models generated by [`protoc-gen-swift`](https://github.com/apple/swift-protobuf). The BSR hosts both of these plugins at [buf.build/connectrpc/connect-swift](https://buf.build/connectrpc/swift) and [buf.build/apple/swift](https://buf.build/apple/swift), respectively.To get started with Connect-Swift, check out the [demo tutorial](https://connectrpc.com/docs/swift/getting-started).
+[Connect-Swift](https://connectrpc.com/docs/swift/getting-started) is a small library that provides support for using generated, type-safe, and idiomatic Swift APIs to communicate with your app's servers. It can be used with both the gRPC-Web and Connect protocols.
+
+[`protoc-gen-connect-swift`](https://github.com/connectrpc/connect-swift) is responsible for generating Swift clients, and relies on the models generated by [`protoc-gen-swift`](https://github.com/apple/swift-protobuf). The BSR hosts both of these plugins at [buf.build/connectrpc/connect-swift](https://buf.build/connectrpc/swift) and [buf.build/apple/swift](https://buf.build/apple/swift), respectively.
+
+To get started with Connect-Swift, check out the [demo tutorial](https://connectrpc.com/docs/swift/getting-started).
 
 ::: info buf.gen.yaml
 

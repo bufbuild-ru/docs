@@ -61,7 +61,10 @@ When setting up a new repository, keep the following in mind:
 
 Once you've created the repository, you can begin pushing to it. To create a new repository:
 
-1.  Go to the user dropdown and click **Repositories**.![Screenshot of user dropdown](../../../images/bsr/nav-user-dropdown.png)
+1.  Go to the user dropdown and click **Repositories**.
+
+    ![Screenshot of user dropdown](../../../images/bsr/nav-user-dropdown.png)
+
 2.  Click **Create repository**.
 3.  In the popup that appears, give the repository a name and set its visibility. See the [Repository concepts](../../repositories/#visibility) page for more detail about visibility settings.
 4.  Click **Create**.
@@ -80,11 +83,15 @@ You can add metadata to your repository that displays in the repository list of 
 To add metadata:
 
 1.  Go to the repository **Settings** page: `https://buf.build/{organization}/{repository}/settings`
-2.  In the **General** section, add the source URL and/or the description and click **Save**.![Screenshot of General section](../../../images/bsr/repo/metadata.png)
+2.  In the **General** section, add the source URL and/or the description and click **Save**.
+
+    ![Screenshot of General section](../../../images/bsr/repo/metadata.png)
 
 ### Change default label
 
-When you create a repository, it has a default label of `main`, for parity with most version control systems. Subject to certain [restrictions](../../repositories/#name-change-restrictions), you can change the default to point to a different label.To change the default label pointer:
+When you create a repository, it has a default label of `main`, for parity with most version control systems. Subject to certain [restrictions](../../repositories/#name-change-restrictions), you can change the default to point to a different label.
+
+To change the default label pointer:
 
 1.  In the BSR, navigate to your repository, select **Settings**, then go to the **Change default label** section.
 2.  Start typing in the **Select new label** box — it provides type-ahead results to help you filter all of the available labels.
@@ -118,7 +125,11 @@ You can decide who gets to see your repository by picking whether it's public or
 
 ### Add a member
 
-Managing members is only allowed for repositories that are owned by a BSR organization.This section describes how to manage repository members using the BSR web app. See [Manage user access with IdP groups](../instance/manage-access-idp-groups/) if you're using IdP groups to manage repository membership.To add a direct access member (one who doesn't belong to the parent organization):
+Managing members is only allowed for repositories that are owned by a BSR organization.
+
+This section describes how to manage repository members using the BSR web app. See [Manage user access with IdP groups](../instance/manage-access-idp-groups/) if you're using IdP groups to manage repository membership.
+
+To add a direct access member (one who doesn't belong to the parent organization):
 
 1.  Go to the repository's **Settings** page at `https://buf.build/ORGANIZATION/REPOSITORY/settings`
 2.  In the **Manage access** section, click **Add direct access members**.

@@ -80,7 +80,9 @@ Because Bufstream doesn't have a local disk, most I/O occurs over the network to
 
 ## Horizontal pod autoscaling
 
-We recommend configuring your Bufstream deployment with a minimum deployment size of 6 replicas, and a node group that runs across multiple Availability Zones (AZs). For example, for a node group over 3 AZs, a minimum replica count of 6 keeps cross-AZ network charges down if an instance is unavailable (such as during a deploy). Properly configured clients are directed to Bufstream instances in the same zone. We also recommend maintaining a ratio of 1:4 vCPU to GiB of memory. For example, for a 6 replica deployment, a 1GiB/s workload may demand 16 cores and 64 GiB of memory.If you run Bufstream using the instance type recommended above, we also recommend autoscaling based on CPU usage with a 50% average usage target. Adjusting the autoscaling threshold impacts the overall cost of your cluster and its ability to respond to bursty workloads effectively. You can configure autoscaling for the Bufstream deployment using the following Helm values:
+We recommend configuring your Bufstream deployment with a minimum deployment size of 6 replicas, and a node group that runs across multiple Availability Zones (AZs). For example, for a node group over 3 AZs, a minimum replica count of 6 keeps cross-AZ network charges down if an instance is unavailable (such as during a deploy). Properly configured clients are directed to Bufstream instances in the same zone. We also recommend maintaining a ratio of 1:4 vCPU to GiB of memory. For example, for a 6 replica deployment, a 1GiB/s workload may demand 16 cores and 64 GiB of memory.
+
+If you run Bufstream using the instance type recommended above, we also recommend autoscaling based on CPU usage with a 50% average usage target. Adjusting the autoscaling threshold impacts the overall cost of your cluster and its ability to respond to bursty workloads effectively. You can configure autoscaling for the Bufstream deployment using the following Helm values:
 
 ```yaml
 bufstream:
@@ -168,7 +170,9 @@ Because `etcd` is sensitive to disk performance, we also recommend using these d
 
 #### Permissions
 
-Bufstream uses the [Bitnami etcd package](https://bitnami.com/stack/etcd/helm). Most Bitnami containers are non-root, so privileged tasks like mounting volumes may fail during deployment as the containers don't have the correct privileges to modify ownership of the filesystem.If a Bufstream deploy fails as a result of etcd attempting to mount a persistent volume, the following error appears in your logs:
+Bufstream uses the [Bitnami etcd package](https://bitnami.com/stack/etcd/helm). Most Bitnami containers are non-root, so privileged tasks like mounting volumes may fail during deployment as the containers don't have the correct privileges to modify ownership of the filesystem.
+
+If a Bufstream deploy fails as a result of etcd attempting to mount a persistent volume, the following error appears in your logs:
 
 ```text
 "error":"cannot access data directory: mkdir /bitnami/etcd/data: permission denied

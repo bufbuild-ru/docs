@@ -66,7 +66,9 @@ $ buf curl \
     https://demo.connectrpc.com/connectrpc.eliza.v1.ElizaService/Say
 ```
 
-The URL can use either `http` or `https` as the scheme. If `http` is used then the HTTP 1.1 protocol is used unless the `--http2-prior-knowledge` flag is set. If `https` is used then HTTP/2 is preferred during protocol negotiation and HTTP 1.1 used only if the server doesn't support HTTP/2.The default RPC protocol used is [Connect](https://connectrpc.com/docs/protocol). To use a different protocol, [gRPC](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) or [gRPC-Web](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-WEB.md), use the `--protocol` flag.
+The URL can use either `http` or `https` as the scheme. If `http` is used then the HTTP 1.1 protocol is used unless the `--http2-prior-knowledge` flag is set. If `https` is used then HTTP/2 is preferred during protocol negotiation and HTTP 1.1 used only if the server doesn't support HTTP/2.
+
+The default RPC protocol used is [Connect](https://connectrpc.com/docs/protocol). To use a different protocol, [gRPC](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) or [gRPC-Web](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-WEB.md), use the `--protocol` flag.
 
 ::: info Using gRPC without TLS
 
@@ -83,16 +85,22 @@ The gRPC protocol can't be used with HTTP 1.1, but the other two can as long as 
 
 ## Request Data
 
-The input request is specified via the `-d` or `--data` flag. If absent, an empty request is sent unless the method uses a request stream, in which case an empty stream is sent.There are two ways to provide the request body:
+The input request is specified via the `-d` or `--data` flag. If absent, an empty request is sent unless the method uses a request stream, in which case an empty stream is sent.
+
+There are two ways to provide the request body:
 
 1.  _Immediate_: The value of the `--data` flag is the request body.
 2.  _File_: The value of the `--data` flag starts with an at-sign (`@`). The rest of the flag value is interpreted as a filename from which to read the request body. If that filename is just a dash (`-`) then the request body is read from _stdin_.
 
-The request body is a JSON document that contains the JSON formatted request message. If the RPC method being invoked is a client-streaming method, the request body may consist of multiple JSON values, appended to one another. Multiple JSON documents should usually be separated by whitespace, though this isn't strictly required unless the request message type has a custom JSON representation that isn't a JSON object.If the `--data` flag is specified multiple times, only the value of the last occurrence is used.
+The request body is a JSON document that contains the JSON formatted request message. If the RPC method being invoked is a client-streaming method, the request body may consist of multiple JSON values, appended to one another. Multiple JSON documents should usually be separated by whitespace, though this isn't strictly required unless the request message type has a custom JSON representation that isn't a JSON object.
+
+If the `--data` flag is specified multiple times, only the value of the last occurrence is used.
 
 ## Request Metadata
 
-Request metadata (such as headers) are defined using `-H` or `--header` flags. The flag value is in `name: value` format.There are two ways to provide the request metadata:
+Request metadata (such as headers) are defined using `-H` or `--header` flags. The flag value is in `name: value` format.
+
+There are two ways to provide the request metadata:
 
 1.  _Immediate_: The flag value is in `name: value` format and defines a single header to add to the request.
 2.  _File_: The value of the `--header` flag starts with an at-sign (`@`). The rest of the flag value is interpreted as a filename from which to read request headers, each header on a separate line. If that filename is just a dash (`-`) then the request headers are read from _stdin_.
@@ -116,7 +124,9 @@ The `--header` flag may be specified multiple times. The headers sent with the r
 
 ## RPC Schema
 
-Transcoding from the binary Protobuf format to JSON requires access to the schema for the messages in question. By default, `buf curl` expects the server to expose the [server](https://github.com/grpc/grpc/blob/master/src/proto/grpc/reflection/v1/reflection.proto) [reflection](https://github.com/connectrpc/grpcreflect-go) [service](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md#known-implementations).If the server doesn't support reflection, you can instead indicate the schema to use via a `--schema` option. This option accepts the same kind of [inputs](../../reference/inputs/) as `buf build` and `buf generate`, letting you point to Protobuf sources on disk, in a Git repo, or in a [BSR](../../bsr/) module.
+Transcoding from the binary Protobuf format to JSON requires access to the schema for the messages in question. By default, `buf curl` expects the server to expose the [server](https://github.com/grpc/grpc/blob/master/src/proto/grpc/reflection/v1/reflection.proto) [reflection](https://github.com/connectrpc/grpcreflect-go) [service](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md#known-implementations).
+
+If the server doesn't support reflection, you can instead indicate the schema to use via a `--schema` option. This option accepts the same kind of [inputs](../../reference/inputs/) as `buf build` and `buf generate`, letting you point to Protobuf sources on disk, in a Git repo, or in a [BSR](../../bsr/) module.
 
 ```console
 $ buf curl \
@@ -132,7 +142,11 @@ By default, `buf curl` tries the latest and most appropriate server reflection p
 1.  **grpc-v1**: This corresponds to version "v1" of the gRPC server reflection service ([source](https://github.com/grpc/grpc/blob/master/src/proto/grpc/reflection/v1/reflection.proto)). This is the preferred version and is attempted first.
 2.  **grpc-v1alpha**: This corresponds to version "v1alpha" of the same reflection service ([source](https://github.com/grpc/grpc/blob/master/src/proto/grpc/reflection/v1alpha/reflection.proto)). Many gRPC servers only support this older version.
 
-If you know the server only supports v1alpha, you can use `--reflect-protocol=grpc-v1alpha` to have `buf curl` use that instead of first trying v1.You can separately configure headers used for reflection requests using `--reflect-header` flags. If you want `buf curl` to send all of the same headers as for the main RPC invocation, you can use `--reflect-header=*`.If server reflection is used, the assumed URL for the reflection service is the same as the given RPC target URL, but with the last two path elements removed and replaced with the service and method name for the server reflection protocol.
+If you know the server only supports v1alpha, you can use `--reflect-protocol=grpc-v1alpha` to have `buf curl` use that instead of first trying v1.
+
+You can separately configure headers used for reflection requests using `--reflect-header` flags. If you want `buf curl` to send all of the same headers as for the main RPC invocation, you can use `--reflect-header=*`.
+
+If server reflection is used, the assumed URL for the reflection service is the same as the given RPC target URL, but with the last two path elements removed and replaced with the service and method name for the server reflection protocol.
 
 ::: tip Note
 Server reflection doesn't currently work with HTTP 1.1 since the supported reflection protocols rely on bidirectional streaming.
@@ -140,7 +154,9 @@ Server reflection doesn't currently work with HTTP 1.1 since the supported refle
 
 ## Output
 
-By default, `buf curl` prints the response messages to _stdout_ in JSON format. If an RPC error occurs, the error information is printed to _stderr_, also in JSON format, and the exit code is the [gRPC error code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) shifted three bits to the left. A non-zero exit code that's less than eight indicates incorrect usage or other unexpected error.You can enable verbose output via the `-v` or `--verbose` flag. This generates a lot of output to _stderr_ which may be helpful for troubleshooting, including details related to TLS and traces of all RPC activity, including server reflection calls.
+By default, `buf curl` prints the response messages to _stdout_ in JSON format. If an RPC error occurs, the error information is printed to _stderr_, also in JSON format, and the exit code is the [gRPC error code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) shifted three bits to the left. A non-zero exit code that's less than eight indicates incorrect usage or other unexpected error.
+
+You can enable verbose output via the `-v` or `--verbose` flag. This generates a lot of output to _stderr_ which may be helpful for troubleshooting, including details related to TLS and traces of all RPC activity, including server reflection calls.
 
 ## Examples
 

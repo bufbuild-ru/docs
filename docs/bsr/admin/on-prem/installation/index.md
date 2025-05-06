@@ -45,7 +45,9 @@ head:
 
 # Installation
 
-The BSR is designed to run on Kubernetes, and is distributed as a Helm Chart and accompanying Docker images through an OCI registry. The Helm Chart and Docker images are versioned, and are expected to be used together. The default values in the Chart use Docker images with the same version as the Chart itself.Review the list of [BSR dependencies](../architecture/#dependencies) before getting started.
+The BSR is designed to run on Kubernetes, and is distributed as a Helm Chart and accompanying Docker images through an OCI registry. The Helm Chart and Docker images are versioned, and are expected to be used together. The default values in the Chart use Docker images with the same version as the Chart itself.
+
+Review the list of [BSR dependencies](../architecture/#dependencies) before getting started.
 
 ## Prerequisites
 
@@ -86,7 +88,9 @@ $ kubectl create secret --namespace bsr docker-registry bufpullsecret \
 
 ## 4\. Configure the BSR’s Helm values
 
-The BSR is configured using Helm values through the `bsr` Helm Chart.Create a file named `bsr.yaml` to store the Helm values, which is required by the `helm install` step below.
+The BSR is configured using Helm values through the `bsr` Helm Chart.
+
+Create a file named `bsr.yaml` to store the Helm values, which is required by the `helm install` step below.
 
 ::: tip Note
 This file can be in any location, but we recommend creating it in the same directory where the helm commands are run.
@@ -427,7 +431,9 @@ The BSR supports authentication using an external identity provider (IdP), throu
 
 == SAML
 
-In the SAML IdP, create a new application to represent the BSR. It should return a single sign-on URL and IdP metadata. Either a public URL or raw XML can be specified for the SAML config. If SAML is being configured in Okta, please follow our [Okta - SAML guide](../../instance/sso/okta-saml/).To configure SAML authentication in the BSR, set the following Helm values:
+In the SAML IdP, create a new application to represent the BSR. It should return a single sign-on URL and IdP metadata. Either a public URL or raw XML can be specified for the SAML config. If SAML is being configured in Okta, please follow our [Okta - SAML guide](../../instance/sso/okta-saml/).
+
+To configure SAML authentication in the BSR, set the following Helm values:
 
 ```yaml
 auth:
@@ -464,7 +470,9 @@ $ kubectl create secret --namespace bsr tls bsr-saml-cert \
 
 == OIDC
 
-In the OIDC IdP, create a new application to represent the BSR and provide the callback URL. If OIDC is being configured in Okta, please follow our [Okta - OIDC guide](../../instance/sso/okta-oidc/).To configure OIDC authentication in the BSR, set the following Helm values:
+In the OIDC IdP, create a new application to represent the BSR and provide the callback URL. If OIDC is being configured in Okta, please follow our [Okta - OIDC guide](../../instance/sso/okta-oidc/).
+
+To configure OIDC authentication in the BSR, set the following Helm values:
 
 ```yaml
 auth:

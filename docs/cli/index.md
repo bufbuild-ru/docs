@@ -77,7 +77,9 @@ The Buf CLI interacts with several configuration files, depending on the operati
 
 ## Default configuration
 
-The default configuration location depends on the [input](../reference/inputs/). If the Buf CLI is executed with an input that contains a `buf.yaml` file, it's used for the given operation. Running `buf lint`, for example, uses the `lint` configuration for the workspace and (if specified) each module in the input's `buf.yaml`.If the input doesn't contain a `buf.yaml` file, the Buf CLI operates as if there is a `buf.yaml` file with these default values:
+The default configuration location depends on the [input](../reference/inputs/). If the Buf CLI is executed with an input that contains a `buf.yaml` file, it's used for the given operation. Running `buf lint`, for example, uses the `lint` configuration for the workspace and (if specified) each module in the input's `buf.yaml`.
+
+If the input doesn't contain a `buf.yaml` file, the Buf CLI operates as if there is a `buf.yaml` file with these default values:
 
 ::: info buf.yaml default configuration if missing
 

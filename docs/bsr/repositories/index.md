@@ -45,7 +45,9 @@ head:
 
 # Repositories
 
-Buf Schema Registry (BSR) _repositories_ allow you to share your Protobuf schemas with your team, customers, or the wider Buf community, and are the basis of all of the BSR's features and shareable artifacts. This page describes the relationship between repositories, [modules](../../cli/modules-workspaces/), and [labels](../commits-labels/), and how repositories interact with the BSR's governance features.A BSR repository is a remote location representing a module's commits, labels, and label histories. Repositories are similar to a version control system (VCS) in that you can see the commits, labels, and diffs for your modules, but they only exist in the BSR. You can't clone or fork them, and they're meant to be used alongside your VCS. Each repository has a 1:1 relationship with a Buf module, represented by the module's `name` key. The `name` shows the module's BSR location and ownership:
+Buf Schema Registry (BSR) _repositories_ allow you to share your Protobuf schemas with your team, customers, or the wider Buf community, and are the basis of all of the BSR's features and shareable artifacts. This page describes the relationship between repositories, [modules](../../cli/modules-workspaces/), and [labels](../commits-labels/), and how repositories interact with the BSR's governance features.
+
+A BSR repository is a remote location representing a module's commits, labels, and label histories. Repositories are similar to a version control system (VCS) in that you can see the commits, labels, and diffs for your modules, but they only exist in the BSR. You can't clone or fork them, and they're meant to be used alongside your VCS. Each repository has a 1:1 relationship with a Buf module, represented by the module's `name` key. The `name` shows the module's BSR location and ownership:
 
 ::: info Module/repository name syntax
 
@@ -68,7 +70,9 @@ The URL contains these elements:
 
 ## Access and ownership
 
-Repositories can be owned by either _users_ or _organizations_. Organizations often represent teams within a company that own the schemas contained in the repository and control access to them, both within the BSR and in their VCS. See [Roles](../admin/roles/) for more detail about access controls in the BSR.Repositories can be updated by two types of users: _admins_ and _contributors_. Contributors have write access and can push commits to the repository. Admins can additionally change the settings of the repository itself. See [Manage repositories](../admin/manage-repositories/) for more detail about these settings.
+Repositories can be owned by either _users_ or _organizations_. Organizations often represent teams within a company that own the schemas contained in the repository and control access to them, both within the BSR and in their VCS. See [Roles](../admin/roles/) for more detail about access controls in the BSR.
+
+Repositories can be updated by two types of users: _admins_ and _contributors_. Contributors have write access and can push commits to the repository. Admins can additionally change the settings of the repository itself. See [Manage repositories](../admin/manage-repositories/) for more detail about these settings.
 
 ## Visibility
 
@@ -85,7 +89,9 @@ If you want to share modules with the wider Buf community, push them to the publ
 
 ## Metadata
 
-Each repository has an optional source code URL and description that you can add from the settings page. Adding this information helps others understand the purpose of the repository and navigate to the source code in the VCS if needed. Both fields appear in a user's list of repositories they have access to:![Screenshot of user dashboard with list of their repos](../../images/bsr/user-repo-list.png)
+Each repository has an optional source code URL and description that you can add from the settings page. Adding this information helps others understand the purpose of the repository and navigate to the source code in the VCS if needed. Both fields appear in a user's list of repositories they have access to:
+
+![Screenshot of user dashboard with list of their repos](../../images/bsr/user-repo-list.png)
 
 ## Default label
 
@@ -95,7 +101,9 @@ Each BSR repository has a default label that's used by default in BSR web UI and
 - New commits pushed to the BSR are automatically assigned to the default label if no other label is provided. However, we recommend explicitly associating labels when pushing instead of relying on the default label.
 - A commit made to a label that's the default label at the time of push becomes the latest released commit for [generated SDKs](../generated-sdks/overview/).
 
-The initial default label for a repository is `main`.**We recommend [setting the default label name](../admin/manage-repositories/#change-default-label) to match the name of the branch in your VCS that you release from.** For companies doing continuous deployment, this is usually the default branch in your VCS. This is so that:
+The initial default label for a repository is `main`.
+
+**We recommend [setting the default label name](../admin/manage-repositories/#change-default-label) to match the name of the branch in your VCS that you release from.** For companies doing continuous deployment, this is usually the default branch in your VCS. This is so that:
 
 - Dependency references resolve by default to what's released.
 - Users browsing docs on the BSR see what's released.

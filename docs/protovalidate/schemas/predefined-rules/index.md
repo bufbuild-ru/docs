@@ -53,7 +53,9 @@ Companion code for this page is available in [GitHub](https://github.com/bufbuil
 
 ## Example case
 
-It's normal for a large schema to reuse the same maximum lengths for strings, such as 50, 100, and 250. Such fields are often either required or optional.Consequently, Protobuf messages begin to repeat their Protovalidate rules:
+It's normal for a large schema to reuse the same maximum lengths for strings, such as 50, 100, and 250. Such fields are often either required or optional.
+
+Consequently, Protobuf messages begin to repeat their Protovalidate rules:
 
 ::: info Repeated groups of standard rules
 
@@ -91,7 +93,9 @@ Then, if the definition for a "medium" string changes from 50 characters to 64, 
 
 ### Create a rule file
 
-First, create a separate `.proto` file for predefined rules. It's not required, but separating services, messages, and extensions is good practice.For the example above, create a `predefined_string_rules.proto` file to store all of your predefined `string` rules:
+First, create a separate `.proto` file for predefined rules. It's not required, but separating services, messages, and extensions is good practice.
+
+For the example above, create a `predefined_string_rules.proto` file to store all of your predefined `string` rules:
 
 ::: info predefined_string_rules.proto
 
@@ -105,7 +109,9 @@ import "buf/validate/validate.proto";
 
 :::
 
-Because predefined rules are extensions, this file must use either `proto2` syntax or Protobuf 2023 Edition. You're free to import and use them within `proto3` files.Extensions are always qualified by the package within which they're defined. In this example, it's assumed that predefined rules are defined in the same package as messages. In other cases, usage must qualify the package name of the extension. For example, `(buf.validate.field).float.(foo.bar.required_with_max)`
+Because predefined rules are extensions, this file must use either `proto2` syntax or Protobuf 2023 Edition. You're free to import and use them within `proto3` files.
+
+Extensions are always qualified by the package within which they're defined. In this example, it's assumed that predefined rules are defined in the same package as messages. In other cases, usage must qualify the package name of the extension. For example, `(buf.validate.field).float.(foo.bar.required_with_max)`
 
 ### Extend a rule message
 
@@ -155,7 +161,9 @@ extend buf.validate.StringRules {
 :::
 
 ::: info Field numbers must be unique
-Be mindful that extension numbers must not conflict with any other extension to the same message across all Protobuf files in a given process. This restriction also applies to projects that consume Protobuf files indirectly as dependencies. The same extension number may be re-used across different kinds of rule, e.g. 1000 in FloatRules is distinct from 1000 in Int32Rules.Extension numbers may be from 1000 to 536870911, inclusive. Values from 1000 to 99999 are reserved for [Protobuf Global Extension Registry](https://github.com/protocolbuffers/protobuf/blob/main/docs/options.md) entries, and values from 100000 to 536870911 are reserved for integers that aren't explicitly assigned. It's discouraged to use the latter range with rules that are defined in public schemas due to the risk of conflicts.
+Be mindful that extension numbers must not conflict with any other extension to the same message across all Protobuf files in a given process. This restriction also applies to projects that consume Protobuf files indirectly as dependencies. The same extension number may be re-used across different kinds of rule, e.g. 1000 in FloatRules is distinct from 1000 in Int32Rules.
+
+Extension numbers may be from 1000 to 536870911, inclusive. Values from 1000 to 99999 are reserved for [Protobuf Global Extension Registry](https://github.com/protocolbuffers/protobuf/blob/main/docs/options.md) entries, and values from 100000 to 536870911 are reserved for integers that aren't explicitly assigned. It's discouraged to use the latter range with rules that are defined in public schemas due to the risk of conflicts.
 :::
 
 ### Use predefined rules
@@ -184,7 +192,9 @@ message Person {
 
 ### Define complex predefined rules
 
-The prior example is a simple predefined rule: it doesn't use the rule's value within its CEL expression. If requirements for the `title` field changed to require a nonzero minimum length and an atypical maximum length like `64`, it'd be tempting to stop using predefined rules.Instead, you can create predefined rules that incorporate rule values into both their logic and validation messages. Building on the prior example, you can create a new `required_with_max` that:
+The prior example is a simple predefined rule: it doesn't use the rule's value within its CEL expression. If requirements for the `title` field changed to require a nonzero minimum length and an atypical maximum length like `64`, it'd be tempting to stop using predefined rules.
+
+Instead, you can create predefined rules that incorporate rule values into both their logic and validation messages. Building on the prior example, you can create a new `required_with_max` that:
 
 - Uses the `rule` variable within its CEL expression to access the value assigned to the rule (`64`).
 - Uses the `rules` variable within its CEL expression to resolve conflicts with other rules within the same underlying rule message.
@@ -220,7 +230,9 @@ message Person {
 
 :::
 
-Logic in predefined rules may conflict with or overlap other rules. To resolve these cases, the `rules` variable is available within a predefined rule's CEL expression. Its value is an instance of the message extended by your predefined rule.Using `rules`, the `required_with_max` rule could be updated to always pass validation whenever non-zero `min_len` and `max_len` rules are also applied to the field, delegating validation to these more specific rules:
+Logic in predefined rules may conflict with or overlap other rules. To resolve these cases, the `rules` variable is available within a predefined rule's CEL expression. Its value is an instance of the message extended by your predefined rule.
+
+Using `rules`, the `required_with_max` rule could be updated to always pass validation whenever non-zero `min_len` and `max_len` rules are also applied to the field, delegating validation to these more specific rules:
 
 ::: info Using the rules variable
 

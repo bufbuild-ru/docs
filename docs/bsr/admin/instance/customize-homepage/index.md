@@ -56,4 +56,10 @@ By default, a private instance Buf Schema Registry (BSR) homepage displays the s
 - **Choose whether to display popular repositories:** The BSR recommends a short list of commonly-referenced repositories, but you can hide it if desired.
 - **Create custom groups of orgs and repos:** Point users of your instance toward the repositories and/or organizations that are most important.
 
-To customize your BSR instance's homepage, go to **Admin panel > Home page** and add or edit sections as needed:![Screenshot of BSR homepage admin screen](../../../../images/bsr/homepage/homepage-admin.png)Once you're done, go to the homepage or your instance to confirm it's what you want. This example adds a "Getting started" guide for authenticated users, turns off the user sidebar, adds a custom group, and moves it above the **Popular Repositories** group:![Screenshot of BSR homepage after customizing](../../../../images/bsr/homepage/homepage-customized.png)
+To customize your BSR instance's homepage, go to **Admin panel > Home page** and add or edit sections as needed:
+
+![Screenshot of BSR homepage admin screen](../../../../images/bsr/homepage/homepage-admin.png)
+
+Once you're done, go to the homepage or your instance to confirm it's what you want. This example adds a "Getting started" guide for authenticated users, turns off the user sidebar, adds a custom group, and moves it above the **Popular Repositories** group:
+
+![Screenshot of BSR homepage after customizing](../../../../images/bsr/homepage/homepage-customized.png)

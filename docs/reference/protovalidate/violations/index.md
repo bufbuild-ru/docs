@@ -67,7 +67,9 @@ head:
 
 ### field
 
-`field` is a machine-readable path to the field that failed validation. This could be a nested field, in which case the path will include all the parent fields leading to the actual field that caused the violation.For example, consider the following message:
+`field` is a machine-readable path to the field that failed validation. This could be a nested field, in which case the path will include all the parent fields leading to the actual field that caused the violation.
+
+For example, consider the following message:
 
 ```proto
 message Message {
@@ -86,7 +88,9 @@ violation {
 
 ### rule
 
-`rule` is a machine-readable path that points to the specific rule rule that failed validation. This will be a nested field starting from the FieldRules of the field that failed validation. For custom rules, this will provide the path of the rule, e.g. `cel[0]`.For example, consider the following message:
+`rule` is a machine-readable path that points to the specific rule rule that failed validation. This will be a nested field starting from the FieldRules of the field that failed validation. For custom rules, this will provide the path of the rule, e.g. `cel[0]`.
+
+For example, consider the following message:
 
 ```proto
 message Message {

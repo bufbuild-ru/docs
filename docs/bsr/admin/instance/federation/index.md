@@ -57,7 +57,9 @@ Use of Federation creates a dependency between your single-tenant instance and `
 
 ## Limitations
 
-Depending on a module from `buf.build` doesn't automatically mirror this module into your BSR.Federation is currently only supported between enterprise instances (for instance `buf.example.com`) and public `buf.build` modules. See the table below for an overview:
+Depending on a module from `buf.build` doesn't automatically mirror this module into your BSR.
+
+Federation is currently only supported between enterprise instances (for instance `buf.example.com`) and public `buf.build` modules. See the table below for an overview:
 
 | Module                    | Dependency                                  | Supported                                               |
 | ------------------------- | ------------------------------------------- | ------------------------------------------------------- |

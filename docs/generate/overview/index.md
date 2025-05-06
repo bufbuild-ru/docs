@@ -45,7 +45,11 @@ head:
 
 # Code generation – Overview
 
-This overview provides information about generating code from your Protobuf files using the Buf CLI, ranging from local generation to generated SDKs hosted in the Buf Schema Registry (BSR).One of the challenges with Protobuf code generation is the complexity of working with `protoc` and plugins. Managing and maintaining a stable environment locally on a single machine is hard enough given the complex web of different compiler and plugin versions. The problem is compounded as you scale out code generation across many developers, and often results in a series of ugly bash scripts shared between team members.Buf's code generation streamlines all of that and is designed to work with whatever your Protobuf setup might be. It has the following advantages over `protoc`:
+This overview provides information about generating code from your Protobuf files using the Buf CLI, ranging from local generation to generated SDKs hosted in the Buf Schema Registry (BSR).
+
+One of the challenges with Protobuf code generation is the complexity of working with `protoc` and plugins. Managing and maintaining a stable environment locally on a single machine is hard enough given the complex web of different compiler and plugin versions. The problem is compounded as you scale out code generation across many developers, and often results in a series of ugly bash scripts shared between team members.
+
+Buf's code generation streamlines all of that and is designed to work with whatever your Protobuf setup might be. It has the following advantages over `protoc`:
 
 - **Speed:** Compiles 2x faster than `protoc`.
 - **Clarity:** Allows you to configure your build once and easily edit or reference as needed from source control, instead of memorizing strings of flags.
@@ -87,7 +91,11 @@ To see all of the available configuration options, go to the [`buf.gen.yaml` ref
 
 ## Generating with local plugins
 
-Generating client code with locally installed plugins works similar to `protoc`, but faster. In the diagram below, the `plugins.local` key specifies a local version of `protoc-gen-go`.![Diagram of local code generation from the Buf CLI](../../images/cli/generate-local-plugin.png)For plugins that are built into `protoc`, use the `plugins.protoc_builtin` key and specify the language as the value:
+Generating client code with locally installed plugins works similar to `protoc`, but faster. In the diagram below, the `plugins.local` key specifies a local version of `protoc-gen-go`.
+
+![Diagram of local code generation from the Buf CLI](../../images/cli/generate-local-plugin.png)
+
+For plugins that are built into `protoc`, use the `plugins.protoc_builtin` key and specify the language as the value:
 
 ::: info buf.gen.yaml – Generate code using the built-in protoc C++ plugin
 
@@ -115,7 +123,9 @@ plugins:
 
 ## Generating with remote plugins
 
-As noted above, managing a set of local plugins can complicate your workflow, especially if you're trying to be consistent across teams. A common solution is to rely on custom tooling, which frequently leads to "works on my machine" reproducibility problems. With Buf, you can standardize code generation by specifying the mirrors of the `protoc` plugins that we host in the BSR. Just point the `plugins.remote` key to the BSR, and it generates the code.![Diagram of code generation using the BSR's remote plugins](../../images/cli/generate-remote-plugin.png)
+As noted above, managing a set of local plugins can complicate your workflow, especially if you're trying to be consistent across teams. A common solution is to rely on custom tooling, which frequently leads to "works on my machine" reproducibility problems. With Buf, you can standardize code generation by specifying the mirrors of the `protoc` plugins that we host in the BSR. Just point the `plugins.remote` key to the BSR, and it generates the code.
+
+![Diagram of code generation using the BSR's remote plugins](../../images/cli/generate-remote-plugin.png)
 
 ::: info buf.gen.yaml – Generate code using a remote plugin
 
@@ -132,9 +142,15 @@ For more information, see the [remote plugins overview](../../bsr/remote-plugins
 
 ## Using managed mode
 
-Another issue with code generation is the need define output options that aren't part of the schema. These include fields like package prefixes, namespace information, and so on that aren't part of your API definition but need to be passed to the generator to render the client code correctly.Normally, API producers hard-code these options in their Protobuf files, but they're actually API _consumer_ concerns. Using managed mode allows consumers to easily use smart defaults for these options or override them in the `buf.gen.yaml` file, freeing the producers to provide a universal API. Using managed mode across an entire project or organization gives you a clear separation of concerns while still providing necessary flexibility to consumers.The example below demonstrates using managed mode to generate Java code using remote plugins.
+Another issue with code generation is the need define output options that aren't part of the schema. These include fields like package prefixes, namespace information, and so on that aren't part of your API definition but need to be passed to the generator to render the client code correctly.
 
-**Before\*\***After\*\*
+Normally, API producers hard-code these options in their Protobuf files, but they're actually API _consumer_ concerns. Using managed mode allows consumers to easily use smart defaults for these options or override them in the `buf.gen.yaml` file, freeing the producers to provide a universal API. Using managed mode across an entire project or organization gives you a clear separation of concerns while still providing necessary flexibility to consumers.
+
+The example below demonstrates using managed mode to generate Java code using remote plugins.
+
+**Before**
+
+**After**
 
 ::: info Protobuf file without managed mode
 
@@ -249,7 +265,9 @@ message Bar {
 
 ## Command-line input examples
 
-The examples below show ways of invoking `buf generate` for different inputs or subsets of inputs. Generally, you should specify all inputs in the `buf.gen.yaml` file, but they can also be passed to `buf generate` at the command line as in the examples below. If you specify an input in `buf.gen.yaml` and in the command, the command takes precedence and only that input is generated.See the [`buf.gen.yaml`](../../configuration/v2/buf-gen-yaml/) configuration file documentation to learn how to specify inputs there.
+The examples below show ways of invoking `buf generate` for different inputs or subsets of inputs. Generally, you should specify all inputs in the `buf.gen.yaml` file, but they can also be passed to `buf generate` at the command line as in the examples below. If you specify an input in `buf.gen.yaml` and in the command, the command takes precedence and only that input is generated.
+
+See the [`buf.gen.yaml`](../../configuration/v2/buf-gen-yaml/) configuration file documentation to learn how to specify inputs there.
 
 ::: info Generate from the current workspace root
 
@@ -298,7 +316,9 @@ $ buf generate --include-imports --include-wkt
 
 ### Limit to specific files
 
-By default, the Buf CLI builds all files in the workspace. You can instead manually specify the file or directory paths to build. This is an advanced feature intended to be used for editor or [Bazel](../../cli/build-systems/bazel/) integration. It's better to let the Buf CLI discover all files under management and handle this for you.If you only want to generate code for a subset of your input, you can do so via the `--path` flag:
+By default, the Buf CLI builds all files in the workspace. You can instead manually specify the file or directory paths to build. This is an advanced feature intended to be used for editor or [Bazel](../../cli/build-systems/bazel/) integration. It's better to let the Buf CLI discover all files under management and handle this for you.
+
+If you only want to generate code for a subset of your input, you can do so via the `--path` flag:
 
 ::: info Only generate for the files in the directories proto/foo and proto/bar
 
@@ -334,7 +354,9 @@ $ buf generate --exclude-path proto/baz
 
 :::
 
-These flags can be combined to include and exclude files as needed.This is equivalent to specifying the paths and exclude_paths for an input in the `buf.gen.yaml` file:
+These flags can be combined to include and exclude files as needed.
+
+This is equivalent to specifying the paths and exclude_paths for an input in the `buf.gen.yaml` file:
 
 ::: info buf.gen.yaml
 

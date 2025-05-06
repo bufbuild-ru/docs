@@ -45,7 +45,9 @@ head:
 
 # mTLS
 
-You can use mutual TLS (mTLS) authentication as a fallback for SASL. A Bufstream broker derives the authentication principal from the client certificate if SASL authentication isn't used.To enable mTLS authentication, populate the config below and add it to `kafka.authentication` in your helm values.
+You can use mutual TLS (mTLS) authentication as a fallback for SASL. A Bufstream broker derives the authentication principal from the client certificate if SASL authentication isn't used.
+
+To enable mTLS authentication, populate the config below and add it to `kafka.authentication` in your helm values.
 
 ```yaml
 mtls:

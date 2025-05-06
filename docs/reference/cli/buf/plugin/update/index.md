@@ -55,7 +55,9 @@ $ buf plugin update <directory> [flags]
 
 ### Description
 
-Fetch the latest digests for the specified plugin references in buf.yaml.The first argument is the directory of the local module to update. Defaults to "." if no argument is specified.
+Fetch the latest digests for the specified plugin references in buf.yaml.
+
+The first argument is the directory of the local module to update. Defaults to "." if no argument is specified.
 
 ### Flags
 

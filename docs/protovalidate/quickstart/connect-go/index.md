@@ -260,7 +260,9 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 5.  Verify that configuration is complete by running `buf generate`. It should complete with no error.
 
 ::: tip Further reading and protoc
-Further reading and `protoc`Learn more about incorporating Protovalidate and `protoc` support in the [Adding protovalidate](../../schemas/adding-protovalidate/) page.
+Further reading and `protoc`
+
+Learn more about incorporating Protovalidate and `protoc` support in the [Adding protovalidate](../../schemas/adding-protovalidate/) page.
 :::
 
 ### Add a standard rule
@@ -318,7 +320,9 @@ In `Invoice`, the `line_items` field needs to meet two business rules:
 1.  There should always be at least one `LineItem`.
 2.  No two `LineItems` should ever share the same `product_id` and `price`.
 
-Protovalidate can enforce both of these rules by combining a [standard rule](../../schemas/standard-rules/) with a [custom rule](../../schemas/custom-rules/) written in [Common Expression Language (CEL)](https://cel.dev/).First, use the `min_items` standard rule to require at least one `LineItem`:
+Protovalidate can enforce both of these rules by combining a [standard rule](../../schemas/standard-rules/) with a [custom rule](../../schemas/custom-rules/) written in [Common Expression Language (CEL)](https://cel.dev/).
+
+First, use the `min_items` standard rule to require at least one `LineItem`:
 
 ::: info proto/invoice.proto
 
@@ -434,7 +438,9 @@ No Connect or gRPC implementations automatically enforce Protovalidate rules. To
 
 ### Add a Protovalidate interceptor
 
-Thanks to Connect RPC's prebuilt [Protovalidate interceptor](https://github.com/connectrpc/validate-go/), adding a Protovalidate interceptor for Connect-Go is just a few lines of code.Follow these steps to begin enforcing Protovalidate rules with `connectrpc.com/validate`:
+Thanks to Connect RPC's prebuilt [Protovalidate interceptor](https://github.com/connectrpc/validate-go/), adding a Protovalidate interceptor for Connect-Go is just a few lines of code.
+
+Follow these steps to begin enforcing Protovalidate rules with `connectrpc.com/validate`:
 
 1.  In your first terminal window, use `Ctrl-c` to stop your server.
 2.  Install the interceptor.
@@ -590,7 +596,11 @@ You've now added Protovalidate to a Connect RPC in Go, but `buf curl` isn't a gr
 
 ## Test Protovalidate errors
 
-The starting code for this tutorial contains a table test in `internal/invoice/invoice_test.go`. It starts a server with a Protovalidate interceptor and iterates through a series of test cases.In the prior section, you saw that the `violations` list returned by Protovalidate follows a predictable structure. Each violation in the list is a Protobuf message named `Violation`, [defined within Protovalidate itself](../../../reference/protovalidate/violations/).The test already provides a convenient way to declare expected violations through a `violationSpec` type:
+The starting code for this tutorial contains a table test in `internal/invoice/invoice_test.go`. It starts a server with a Protovalidate interceptor and iterates through a series of test cases.
+
+In the prior section, you saw that the `violations` list returned by Protovalidate follows a predictable structure. Each violation in the list is a Protobuf message named `Violation`, [defined within Protovalidate itself](../../../reference/protovalidate/violations/).
+
+The test already provides a convenient way to declare expected violations through a `violationSpec` type:
 
 ::: info violationSpec in internal/invoice/invoice_test.go
 

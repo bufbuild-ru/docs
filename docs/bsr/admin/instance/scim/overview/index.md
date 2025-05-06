@@ -60,7 +60,9 @@ We support SCIM for the following IdPs and auth methods:
 - Azure (SAML)
 - Okta (SAML)
 
-If your IdP isn't in this list, contact [Support](https://support.buf.build) or your Buf representative to discuss adding support.SCIM 2.0 defines [core user and group schemas](https://www.rfc-editor.org/rfc/rfc7643) that all SCIM implementations must implement. To support the IdPs indicated above, the BSR stores the following SCIM attributes for users:
+If your IdP isn't in this list, contact [Support](https://support.buf.build) or your Buf representative to discuss adding support.
+
+SCIM 2.0 defines [core user and group schemas](https://www.rfc-editor.org/rfc/rfc7643) that all SCIM implementations must implement. To support the IdPs indicated above, the BSR stores the following SCIM attributes for users:
 
 - External ID
 - Username
@@ -84,7 +86,9 @@ $ curl \
     "https://buf.example.com/buf.alpha.registry.v1alpha1.SCIMTokenService/CreateSCIMToken"
 ```
 
-The response includes the token's value in the `token` field. Save this token somewhere safe — you need it to enable SCIM in your IdP.You can also use Buf Studio via `https://buf.example.com/studio` to invoke this endpoint.
+The response includes the token's value in the `token` field. Save this token somewhere safe — you need it to enable SCIM in your IdP.
+
+You can also use Buf Studio via `https://buf.example.com/studio` to invoke this endpoint.
 
 ### Readiness check
 

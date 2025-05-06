@@ -45,13 +45,17 @@ head:
 
 # Build Buf images – Overview
 
-Buf CLI operations are based on Protobuf files that have been successfully compiled, or built. Building an [image](../../reference/images/) from the `.proto` files that define the schema is the first step `buf` executes when running commands like `buf lint` and `buf breaking`. The tooling compiles the `.proto` files into a single binary file that can be easily shared and stored. Generating an image with `buf build`, in its simplest form, is a way to verify that the [input](../../reference/inputs/) successfully compiles.Generally you won't need to generate images directly, but if needed, you can build an image with `buf build`, where `-o` tells it to output to the provided file (and its implied format):
+Buf CLI operations are based on Protobuf files that have been successfully compiled, or built. Building an [image](../../reference/images/) from the `.proto` files that define the schema is the first step `buf` executes when running commands like `buf lint` and `buf breaking`. The tooling compiles the `.proto` files into a single binary file that can be easily shared and stored. Generating an image with `buf build`, in its simplest form, is a way to verify that the [input](../../reference/inputs/) successfully compiles.
+
+Generally you won't need to generate images directly, but if needed, you can build an image with `buf build`, where `-o` tells it to output to the provided file (and its implied format):
 
 ```console
 $ buf build -o image.binpb
 ```
 
-The resulting Buf image is written to the `image.binpb` file. The ordering of the `FileDescriptorProto`s is carefully written to mimic the ordering that `protoc` produces, for both the cases where imports are and aren't written.Images can be output in one of three formats:
+The resulting Buf image is written to the `image.binpb` file. The ordering of the `FileDescriptorProto`s is carefully written to mimic the ordering that `protoc` produces, for both the cases where imports are and aren't written.
+
+Images can be output in one of three formats:
 
 - [Binary](https://protobuf.dev/programming-guides/encoding/)
 - [JSON](https://protobuf.dev/programming-guides/proto3#json)
@@ -87,7 +91,9 @@ The `ImageFileExtension` field doesn't affect Protobuf plugins or any other oper
 
 ### Limit to specific files
 
-By default, `buf` builds all files under the `buf.yaml` configuration file. You can instead manually specify the file or directory paths to build. This is an advanced feature intended to be used for editor or [Bazel](../../cli/build-systems/bazel/) integration — it's better to let `buf` discover all files under management and handle this for you.The compiled result is limited to the given files if the `--path` flag is specified, as in this command:
+By default, `buf` builds all files under the `buf.yaml` configuration file. You can instead manually specify the file or directory paths to build. This is an advanced feature intended to be used for editor or [Bazel](../../cli/build-systems/bazel/) integration — it's better to let `buf` discover all files under management and handle this for you.
+
+The compiled result is limited to the given files if the `--path` flag is specified, as in this command:
 
 ```console
 $ buf build --path path/to/foo.proto --path path/to/bar.proto
@@ -95,7 +101,9 @@ $ buf build --path path/to/foo.proto --path path/to/bar.proto
 
 ### Limit to specific types
 
-When you run `buf build` to create a [`FileDescriptorSet`](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto) or Buf image, the output contains all the Protobuf types declared in the module by default. However, for some advanced use cases you may want the image or `FileDescriptorSet` to contain only a subset of the types described in your Protobuf schemas.Versions 1.1.0 and later of the Buf CLI include a `--type` option for the `buf build` command. It enables you to supply a fully qualified Protobuf name and limit the resulting image or `FileDescriptorSet` to only those descriptors required to represent those types and their required dependencies. This example usage restricts the output types to those required to represent `pkg.foo.Bar`:
+When you run `buf build` to create a [`FileDescriptorSet`](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto) or Buf image, the output contains all the Protobuf types declared in the module by default. However, for some advanced use cases you may want the image or `FileDescriptorSet` to contain only a subset of the types described in your Protobuf schemas.
+
+Versions 1.1.0 and later of the Buf CLI include a `--type` option for the `buf build` command. It enables you to supply a fully qualified Protobuf name and limit the resulting image or `FileDescriptorSet` to only those descriptors required to represent those types and their required dependencies. This example usage restricts the output types to those required to represent `pkg.foo.Bar`:
 
 ```console
 $ buf build --type pkg.foo.Bar

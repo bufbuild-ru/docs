@@ -53,7 +53,9 @@ To create a new organization:
 
 1.  [Sign in](https://login.buf.build/) to the Buf Schema Registry.
 2.  Click on **Show all** under the **Your organization** section.
-3.  Select **Create Organization**.![Create a new organization](../../../images/bsr/org-create.png)
+3.  Select **Create Organization**.
+
+    ![Create a new organization](../../../images/bsr/org-create.png)
 
 When setting up a new organization, there are a few important things to keep in mind:
 
@@ -71,7 +73,9 @@ Deleting the organization is a permanent action, and can't be undone. You must f
 
 ## Manage organization membership
 
-BSR users can be members of both organizations and [repositories](../manage-repositories/#add-member), and have access to each based on their [role](../roles/).This section describes how to manage organization members using the BSR web app. See [Manage user access with IdP groups](../instance/manage-access-idp-groups/) if you're using IdP groups to manage organization membership.
+BSR users can be members of both organizations and [repositories](../manage-repositories/#add-member), and have access to each based on their [role](../roles/).
+
+This section describes how to manage organization members using the BSR web app. See [Manage user access with IdP groups](../instance/manage-access-idp-groups/) if you're using IdP groups to manage organization membership.
 
 ### Add a member
 
@@ -100,7 +104,9 @@ If you're using an IdP group to manage membership in the organization, the membe
 
 ### Remove a member
 
-You may need to manually remove a member from a BSR organization — for example, if you're not managing members via SAML or SSO and a user's credentials are compromised or they leave the company. The organization must always have at least one `Owner`.To remove a member:
+You may need to manually remove a member from a BSR organization — for example, if you're not managing members via SAML or SSO and a user's credentials are compromised or they leave the company. The organization must always have at least one `Owner`.
+
+To remove a member:
 
 1.  Go to the organization's **Members** page at `https://buf.build/ORGANIZATION/members`
 2.  Click on the settings icon for the user and choose **Remove user**.

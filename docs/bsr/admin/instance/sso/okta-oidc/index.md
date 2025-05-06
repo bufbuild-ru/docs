@@ -71,13 +71,20 @@ The steps below must be carried out by an Okta administrator for your organizati
 ### Configure OIDC
 
 1.  Under **General Settings**, give the integration an App name like "Buf Schema Registry" or "Buf". This should be something meaningful to your users.
-2.  Under **Grant type**, make sure to check **Refresh Token**.![ Okta OIDC configuration](../../../../../images/bsr/sso/okta-oidc.png)
+2.  Under **Grant type**, make sure to check **Refresh Token**.
+
+    ![ Okta OIDC configuration](../../../../../images/bsr/sso/okta-oidc.png)
+
 3.  Next, provide the callback URL. This depends on the domain you provided.
 
     - Sign-in redirect URIs are `https://buf.example.com/oauth2/callback`
     - Sign-out redirect URIs are `https://buf.example.com/logout`
 
-    Support for logout will be available in an upcoming release, but we suggest configuring this now so it works seamlessly when enabled. If you require [Application Single Logout](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Single_Logout.htm), contact [Support](https://support.buf.build) or your Buf representative.![ Okta OIDC configuration](../../../../../images/bsr/sso/okta-oidc-2.png)Note that Buf provisions users Just-in-Time based on the email address.
+    Support for logout will be available in an upcoming release, but we suggest configuring this now so it works seamlessly when enabled. If you require [Application Single Logout](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Single_Logout.htm), contact [Support](https://support.buf.build) or your Buf representative.
+
+    ![ Okta OIDC configuration](../../../../../images/bsr/sso/okta-oidc-2.png)
+
+    Note that Buf provisions users Just-in-Time based on the email address.
 
 4.  In the **Assignments** section, select which users or groups of users should have access to this Buf instance.
 
@@ -85,18 +92,25 @@ The steps below must be carried out by an Okta administrator for your organizati
 
 To set up or update your BSR instance's SSO configuration:
 
-1.  Go to the Settings page for your OIDC integration.![Screen shot of Okta OIDC settings](../../../../../images/bsr/sso/okta-oidc-3.png)
+1.  Go to the Settings page for your OIDC integration.
+
+    ![Screen shot of Okta OIDC settings](../../../../../images/bsr/sso/okta-oidc-3.png)
+
 2.  In another tab, go to the **SSO Configuration page** at `http://<BSR_SERVER>/<ORGANIZATION>/pro-settings`.
 3.  From the **SSO Provider** dropdown, choose **OIDC**.
 4.  Copy and paste the client ID, client secret, and the issuer URL (the Okta domain from your OIDC settings) and enter an optional logout URL.
-5.  Click **Update**.![Screen shot of BSR Okta OIDC configuration](../../../../../images/bsr/sso/oidc-config.png)
+5.  Click **Update**.
+
+    ![Screen shot of BSR Okta OIDC configuration](../../../../../images/bsr/sso/oidc-config.png)
 
 ## Configure Token Refresh
 
 1.  Go to the Settings page for your OIDC integration and click **Edit**.
 2.  Scroll down to the **Refresh Token** section.
 3.  Select **Rotate token after every use** and make sure the **Grace period for token rotation** is set to 15s. The important part is to make sure this value isn't set to 0.
-4.  Click **Save**.![Screen shot of Okta Refresh Token settings](../../../../../images/bsr/sso/okta_oidc_refresh_token.png)
+4.  Click **Save**.
+
+    ![Screen shot of Okta Refresh Token settings](../../../../../images/bsr/sso/okta_oidc_refresh_token.png)
 
 ## Next steps
 

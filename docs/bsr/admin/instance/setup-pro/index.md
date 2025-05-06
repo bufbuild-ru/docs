@@ -53,7 +53,9 @@ This page describes the basic setup for a private Pro instance of the Buf Schema
 
 ## DNS setup
 
-No additional DNS setup is required. Your BSR instance is hosted at a custom domain assigned by Buf that takes the form `NAME.buf.dev`, where `NAME` is the name of your BSR organization. You should reference this name instead of the public BSR instance (`buf.build`) when you run commands, create modules, or use modules as dependencies.Your private BSR instance is reachable from the public internet and is protected by SSO and CLI tokens.
+No additional DNS setup is required. Your BSR instance is hosted at a custom domain assigned by Buf that takes the form `NAME.buf.dev`, where `NAME` is the name of your BSR organization. You should reference this name instead of the public BSR instance (`buf.build`) when you run commands, create modules, or use modules as dependencies.
+
+Your private BSR instance is reachable from the public internet and is protected by SSO and CLI tokens.
 
 ## Assign administrative users
 

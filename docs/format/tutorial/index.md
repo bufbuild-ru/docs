@@ -47,7 +47,11 @@ head:
 
 > We recommend completing the [Buf CLI quickstart](../../cli/quickstart/) for an introduction to the `buf format` command.
 
-Formatting your Protobuf files using a consistent and standardized style is a critical aspect of ensuring the readability and maintainability of your codebase. The Buf CLI provides a simple and powerful solution for enforcing this. With the `buf format` command, you can ensure that your Protobuf files adhere to industry best practices.`buf format` rewrites Protobuf files according to an opinionated [style](../style/), so it has no configuration options. No need to waste time and energy deciding how `.proto` files ought to be formatted — the tool decides so you don't have to.In this tutorial, you'll learn how to solve some common formatting problems with `buf format`.
+Formatting your Protobuf files using a consistent and standardized style is a critical aspect of ensuring the readability and maintainability of your codebase. The Buf CLI provides a simple and powerful solution for enforcing this. With the `buf format` command, you can ensure that your Protobuf files adhere to industry best practices.
+
+`buf format` rewrites Protobuf files according to an opinionated [style](../style/), so it has no configuration options. No need to waste time and energy deciding how `.proto` files ought to be formatted — the tool decides so you don't have to.
+
+In this tutorial, you'll learn how to solve some common formatting problems with `buf format`.
 
 ## Usage and examples
 

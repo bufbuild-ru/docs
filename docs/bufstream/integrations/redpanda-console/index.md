@@ -57,7 +57,9 @@ Redpanda Console™ is a web application that helps you manage, inspect, and deb
 
 ### Basic configuration
 
-Configuring Redpanda Console™ to work with Bufstream requires setting the cluster's bootstrap address and specifying a client ID. The simplest way to do so is by setting the `KAFKA_BROKER` and `KAFKA_CLIENTID` environment variables.Set `KAFKA_BROKER` to the bootstrap address of your Bufstream cluster. Set `KAFKA_CLIENTID` by choosing a unique identifier for Redpanda Console™, then appending `;broker_count=1`. For example, you might choose `rpconsole;broker_count=1`. This instructs the Bufstream cluster to present itself as a single Kafka broker, which allows Redpanda Console™ to correctly display statistics for each topic.
+Configuring Redpanda Console™ to work with Bufstream requires setting the cluster's bootstrap address and specifying a client ID. The simplest way to do so is by setting the `KAFKA_BROKER` and `KAFKA_CLIENTID` environment variables.
+
+Set `KAFKA_BROKER` to the bootstrap address of your Bufstream cluster. Set `KAFKA_CLIENTID` by choosing a unique identifier for Redpanda Console™, then appending `;broker_count=1`. For example, you might choose `rpconsole;broker_count=1`. This instructs the Bufstream cluster to present itself as a single Kafka broker, which allows Redpanda Console™ to correctly display statistics for each topic.
 
 ### Connecting to the Buf Schema Registry
 
@@ -96,7 +98,9 @@ For complete documentation of all the available configuration options, refer to 
 
 ## Try Redpanda Console™ with a local Bufstream instance
 
-To try Redpanda Console™ with Bufstream on your local machine, you'll need [Docker](https://docs.docker.com/engine/install/) installed.First, start an in-memory Bufstream instance listening on the default Kafka port:
+To try Redpanda Console™ with Bufstream on your local machine, you'll need [Docker](https://docs.docker.com/engine/install/) installed.
+
+First, start an in-memory Bufstream instance listening on the default Kafka port:
 
 ```bash
 docker run -p 9092:9092 \
@@ -116,6 +120,14 @@ docker run -p 8080:8080 \
   docker.redpanda.com/redpandadata/console:latest
 ```
 
-Once both Bufstream and Redpanda Console™ are running, navigate to `localhost:8080` in your browser.![Redpanda Console home screen](../../../images/bufstream/integrations/rpconsole-home.png)You are now ready to begin managing and debugging Bufstream workloads with Redpanda Console™. Navigate to the topics view in Redpanda Console™ and click on the topic you'd like to inspect.![Redpanda Console all topics view](../../../images/bufstream/integrations/rpconole-topicview.png)In the individual topic view, you'll be able to see all messages produced to the topic as well as update topic configuration.
+Once both Bufstream and Redpanda Console™ are running, navigate to `localhost:8080` in your browser.
+
+![Redpanda Console home screen](../../../images/bufstream/integrations/rpconsole-home.png)
+
+You are now ready to begin managing and debugging Bufstream workloads with Redpanda Console™. Navigate to the topics view in Redpanda Console™ and click on the topic you'd like to inspect.
+
+![Redpanda Console all topics view](../../../images/bufstream/integrations/rpconole-topicview.png)
+
+In the individual topic view, you'll be able to see all messages produced to the topic as well as update topic configuration.
 
 ![Redpanda Console topic inspect](../../../images/bufstream/integrations/rpconsole-inspect-topic.png) ![Redpanda Console configure topic](../../../images/bufstream/integrations/rpconsole-config-topic.png)

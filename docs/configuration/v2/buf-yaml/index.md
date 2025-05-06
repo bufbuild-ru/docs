@@ -49,7 +49,13 @@ head:
 This file has changed between `v1` and `v2` configurations.
 :::
 
-See the [v1 to v2 migration guide](../../../migration-guides/migrate-v2-config-files/) for migration instructions or the [v1 reference](../../v1/buf-yaml/) if you're still using `v1` configuration files.The `buf.yaml` file defines a [workspace](../../../cli/modules-workspaces/), which represents a directory or directories of Protobuf files that you want to treat as a unit. The set consists of one or more packages — see [Files and packages](../../../reference/protobuf-files-and-packages/) for more details about these relationships and how to structure your files.The `buf.yaml` config file and field definitions below explain usage for each field. See the [lint](../../../lint/overview/#defaults-and-configuration) and [breaking change detection](../../../breaking/overview/#defaults-and-configuration) overviews for default configurations for those features.The annotated `buf.yaml` file below assumes a directory structure like this:
+See the [v1 to v2 migration guide](../../../migration-guides/migrate-v2-config-files/) for migration instructions or the [v1 reference](../../v1/buf-yaml/) if you're still using `v1` configuration files.
+
+The `buf.yaml` file defines a [workspace](../../../cli/modules-workspaces/), which represents a directory or directories of Protobuf files that you want to treat as a unit. The set consists of one or more packages — see [Files and packages](../../../reference/protobuf-files-and-packages/) for more details about these relationships and how to structure your files.
+
+The `buf.yaml` config file and field definitions below explain usage for each field. See the [lint](../../../lint/overview/#defaults-and-configuration) and [breaking change detection](../../../breaking/overview/#defaults-and-configuration) overviews for default configurations for those features.
+
+The annotated `buf.yaml` file below assumes a directory structure like this:
 
 ```text
 workspace_root
@@ -205,7 +211,11 @@ plugins:
 
 ## `deps`
 
-**Optional.** Declares one or more modules that your workspace depends on. Dependencies are shared between all modules in the workspace. Buf tooling already accounts for dependencies between the modules that are part of the set, so they shouldn't be declared here.The value must be a valid path to a BSR module (either the public BSR at `buf.build` or a private BSR instance). It can't be a local Git reference to a `buf.yaml` file or a URL path to a Git repo. This means that if you have a module you want to use as a dependency, it must also be pushed to the BSR.The path can also include a specific reference, which is either a [commit or a label](../../../bsr/commits-labels/).
+**Optional.** Declares one or more modules that your workspace depends on. Dependencies are shared between all modules in the workspace. Buf tooling already accounts for dependencies between the modules that are part of the set, so they shouldn't be declared here.
+
+The value must be a valid path to a BSR module (either the public BSR at `buf.build` or a private BSR instance). It can't be a local Git reference to a `buf.yaml` file or a URL path to a Git repo. This means that if you have a module you want to use as a dependency, it must also be pushed to the BSR.
+
+The path can also include a specific reference, which is either a [commit or a label](../../../bsr/commits-labels/).
 
 ::: tip Note
 Depending on specific module references is an advanced feature — you should depend on the latest commit whenever possible. Your `deps` don't need to include the `:<reference>` suffix in most cases.
@@ -311,7 +321,11 @@ syntax = "proto3";
 package A; // buf:lint:ignore PACKAGE_VERSION_SUFFIX
 ```
 
-If this option is unset, the linter ignores the specified rule for any comment that starts with `// buf:lint:ignore RULE_ID`.If this option is set to `true`, any such comments are ignored. See the [lint overview](../../../lint/overview/#comment-ignores) to learn how and when to use comment ignores.In `v1` configurations, this key was called `allow_comment_ignores` and defaulted to `false`. The default behavior in `v2` configurations is to allow comment ignores.
+If this option is unset, the linter ignores the specified rule for any comment that starts with `// buf:lint:ignore RULE_ID`.
+
+If this option is set to `true`, any such comments are ignored. See the [lint overview](../../../lint/overview/#comment-ignores) to learn how and when to use comment ignores.
+
+In `v1` configurations, this key was called `allow_comment_ignores` and defaulted to `false`. The default behavior in `v2` configurations is to allow comment ignores.
 
 ### `enum_zero_value_suffix`
 

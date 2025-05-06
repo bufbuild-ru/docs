@@ -45,11 +45,15 @@ head:
 
 # Editor integration
 
-The Buf CLI produces structured machine readable error output for [build](../../build/overview/), [lint](../../lint/overview/), and [breaking change](../../breaking/overview/) errors which integrate with IDEs, scripts, and other tools.We currently provide integration with Vim, Visual Studio Code, and JetBrains IDEs, and we may support other editors in the future. [Contact us](../../contact/) if you're interested in any of these, or others not already listed here.
+The Buf CLI produces structured machine readable error output for [build](../../build/overview/), [lint](../../lint/overview/), and [breaking change](../../breaking/overview/) errors which integrate with IDEs, scripts, and other tools.
+
+We currently provide integration with Vim, Visual Studio Code, and JetBrains IDEs, and we may support other editors in the future. [Contact us](../../contact/) if you're interested in any of these, or others not already listed here.
 
 ## Vim
 
-Vim integration for linting is available using the [ALE](https://github.com/dense-analysis/ale) lint engine via the [vim-buf](https://github.com/bufbuild/vim-buf) plugin.To use Vim integration `buf` must be [installed](../installation/). Using [vim-plug](https://github.com/junegunn/vim-plug), add this to your `.vimrc`:
+Vim integration for linting is available using the [ALE](https://github.com/dense-analysis/ale) lint engine via the [vim-buf](https://github.com/bufbuild/vim-buf) plugin.
+
+To use Vim integration `buf` must be [installed](../installation/). Using [vim-plug](https://github.com/junegunn/vim-plug), add this to your `.vimrc`:
 
 ```vim
 Plug 'dense-analysis/ale'
@@ -65,7 +69,11 @@ The extension runs `buf lint --path` on save and reveals errors on a per-file ba
 
 ## Visual Studio Code
 
-The Visual Studio Code extension can be downloaded from the in-editor extension browser under the name "Buf" or manually via the [extension page](https://marketplace.visualstudio.com/items?itemName=bufbuild.vscode-buf). You need to have `buf` [installed](../installation/) to use it.Our Buf extension currently supports [linting](../../lint/overview/) your `.proto` files. It runs `buf lint --path` on save and reveals errors on a per-file basis. To detect package-level problems, be sure to run a workspace-wide `buf lint` as part of your CI process.The Buf CLI is executed in the root of your workspace, which means it's configured by the [`buf.yaml`](../../configuration/v2/buf-yaml/) there.
+The Visual Studio Code extension can be downloaded from the in-editor extension browser under the name "Buf" or manually via the [extension page](https://marketplace.visualstudio.com/items?itemName=bufbuild.vscode-buf). You need to have `buf` [installed](../installation/) to use it.
+
+Our Buf extension currently supports [linting](../../lint/overview/) your `.proto` files. It runs `buf lint --path` on save and reveals errors on a per-file basis. To detect package-level problems, be sure to run a workspace-wide `buf lint` as part of your CI process.
+
+The Buf CLI is executed in the root of your workspace, which means it's configured by the [`buf.yaml`](../../configuration/v2/buf-yaml/) there.
 
 ::: tip Note
 The `vscode-buf` extension doesn't work in conjunction with the `vscode-proto` extension. More generally, if you run into issues you may need to disable other extensions that register the `.proto` file suffix.
@@ -73,7 +81,9 @@ The `vscode-buf` extension doesn't work in conjunction with the `vscode-proto` e
 
 ## JetBrains IDEs
 
-The plugin for all IntelliJ-based IDEs is available on the [JetBrains Plugin Marketplace](https://plugins.jetbrains.com/plugin/19147-buf-for-protocol-buffers).You can install it from the settings window of your IDE. The plugin supports [linting and formatting](../../lint/overview/) for your `.proto` files, as well as navigation, syntax highlighting, and more.
+The plugin for all IntelliJ-based IDEs is available on the [JetBrains Plugin Marketplace](https://plugins.jetbrains.com/plugin/19147-buf-for-protocol-buffers).
+
+You can install it from the settings window of your IDE. The plugin supports [linting and formatting](../../lint/overview/) for your `.proto` files, as well as navigation, syntax highlighting, and more.
 
 ## EditorConfig suggestions
 

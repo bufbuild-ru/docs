@@ -57,7 +57,13 @@ This page covers the three types that are directly included in a module.
 
 ## Source code documentation
 
-The BSR generates documentation for each module, enabling anyone to view the module's `.proto` files in with an organized UI and navigate easily between them. It also allows schema publishers to add module and package information to provide additional context and usage details.To view the documentation for any BSR module, go to its **Docs** tab:![Docs tab in main navigation](../../../images/bsr/docs-nav-link.png)To click around an example, see the [`connectrpc/eliza` module](https://buf.build/connectrpc/eliza).
+The BSR generates documentation for each module, enabling anyone to view the module's `.proto` files in with an organized UI and navigate easily between them. It also allows schema publishers to add module and package information to provide additional context and usage details.
+
+To view the documentation for any BSR module, go to its **Docs** tab:
+
+![Docs tab in main navigation](../../../images/bsr/docs-nav-link.png)
+
+To click around an example, see the [`connectrpc/eliza` module](https://buf.build/connectrpc/eliza).
 
 ### Diff schemas
 
@@ -69,8 +75,14 @@ You can do a diff of the schema between any two commits or labels in a BSR repos
 
 ## Module documentation
 
-When you first go to the module documentation, there are links into each of its packages, and any module documentation that the schema owner has provided.![Module documentation](../../../images/bsr/docs-generated-module.png)
+When you first go to the module documentation, there are links into each of its packages, and any module documentation that the schema owner has provided.
+
+![Module documentation](../../../images/bsr/docs-generated-module.png)
 
 ## Package documentation
 
-When you click into a package, you see the package docs at the top, an index of the entities categorized by field type on the left, and the entities themselves in the same order on the right:![Entity documentation](../../../images/bsr/docs-generated-fields.png)Clicking in the index takes you to the referenced item, and you can quickly navigate from the docs to the Protobuf file by clicking the filename on the right side of each entity. Each entity's header also has a unique anchor tag that you can click to copy, enabling you to share a link to the exact item.
+When you click into a package, you see the package docs at the top, an index of the entities categorized by field type on the left, and the entities themselves in the same order on the right:
+
+![Entity documentation](../../../images/bsr/docs-generated-fields.png)
+
+Clicking in the index takes you to the referenced item, and you can quickly navigate from the docs to the Protobuf file by clicking the filename on the right side of each entity. Each entity's header also has a unique anchor tag that you can click to copy, enabling you to share a link to the exact item.

@@ -78,7 +78,9 @@ This script sends a request to the the Buf CLI GitHub Releases using [`curl`](ht
 
 == Build from source
 
-If you intend to install the Buf CLI from source, this assumes that you have the Go toolchain available in your CI/CD.If not, see the [Go Documentation](https://golang.org/) for more details.
+If you intend to install the Buf CLI from source, this assumes that you have the Go toolchain available in your CI/CD.
+
+If not, see the [Go Documentation](https://golang.org/) for more details.
 
 ::: info install.sh
 
@@ -100,7 +102,9 @@ The Buf CLI is an executable and doesn't provide an SDK. If you want to use the 
 
 ## Running lint and breaking change detection
 
-To run lint checks with your job, simply add `buf lint` to it and you're good to go.If your [`buf.yaml`](../../../configuration/v2/buf-yaml/) is defined at the root of your repository, you can run the linter with this command:
+To run lint checks with your job, simply add `buf lint` to it and you're good to go.
+
+If your [`buf.yaml`](../../../configuration/v2/buf-yaml/) is defined at the root of your repository, you can run the linter with this command:
 
 ```console
 $ buf lint
@@ -140,14 +144,20 @@ If you are on [TravisCI](https://travis-ci.org) or [CircleCI](https://circleci.c
 
 ## Handling concurrent non-breaking changes
 
-When multiple developers work on separate branches and each introduces non-breaking changes to a stable Protobuf package, merging these branches sequentially can sometimes lead to false positives in breaking change detection. This occurs because the `buf breaking` command compares the current directory, which may not include the other developers' changes, against the `main` branch.**Scenario:**
+When multiple developers work on separate branches and each introduces non-breaking changes to a stable Protobuf package, merging these branches sequentially can sometimes lead to false positives in breaking change detection. This occurs because the `buf breaking` command compares the current directory, which may not include the other developers' changes, against the `main` branch.
+
+**Scenario:**
 
 1.  Developer A creates the `feature1` branch from `main` and adds a new message.
 2.  Developer B creates the `feature2` branch from `main` and adds a different new message.
 3.  Developer A merges `feature1` into `main`.
 4.  Developer B, before merging `feature2`, runs `buf breaking --against "https://github.com/<your-org>/<your-repo>.git#branch=main"`.
 
-In step 4, `buf breaking` may incorrectly report a breaking change because it doesn't account for the new message added in `feature1` that's now in `main`.**Recommendation:**To avoid false positives during breaking change detection, developers should follow one of these approaches:
+In step 4, `buf breaking` may incorrectly report a breaking change because it doesn't account for the new message added in `feature1` that's now in `main`.
+
+**Recommendation:**
+
+To avoid false positives during breaking change detection, developers should follow one of these approaches:
 
 - Merge the latest changes from `main` into the feature branch before running `buf breaking`:
 
@@ -172,7 +182,9 @@ In step 4, `buf breaking` may incorrectly report a breaking change because it do
 
 ## CI authentication (Optional)
 
-If you wish to authenticate a CI/CD job to access the [BSR](../../) (for example to push a module, create labels, etc.), we recommend you store your `BUF_TOKEN` in your CI/CD provider's secret environment variable storage.For example:
+If you wish to authenticate a CI/CD job to access the [BSR](../../) (for example to push a module, create labels, etc.), we recommend you store your `BUF_TOKEN` in your CI/CD provider's secret environment variable storage.
+
+For example:
 
 - [TravisCI](https://docs.travis-ci.com/user/environment-variables#defining-encrypted-variables-in-travisyml)
 - [CircleCI](https://circleci.com/docs/2.0/env-vars/)
@@ -188,4 +200,6 @@ For more details on authenticating to the `BSR`, see [Authentication](../../auth
 
 ## CI caching
 
-To enable caching of modules downloaded by the Buf CLI, you can either configure caching of the `~/.cache` directory, or set the `BUF_CACHE_DIR` environment variable to a directory of your choice and cache that directory.For more information about module caching, see the [module cache docs](../../../cli/modules-workspaces/#module-cache).
+To enable caching of modules downloaded by the Buf CLI, you can either configure caching of the `~/.cache` directory, or set the `BUF_CACHE_DIR` environment variable to a directory of your choice and cache that directory.
+
+For more information about module caching, see the [module cache docs](../../../cli/modules-workspaces/#module-cache).

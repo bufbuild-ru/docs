@@ -45,7 +45,9 @@ head:
 
 # Publish modules to the BSR
 
-When you want to make a module available for other developers, you push it to the Buf Schema Registry (BSR). Once the module is in the BSR, its code, documentation, and generated SDKs can be accessed by anyone with the correct permissions for your repository. This page describes how to push locally, how to archive and unarchive labels, and how pushing works in CI/CD environments.Pushing to the BSR also interacts with the BSR's [policy checks](../../policy-checks/breaking/overview/) and [Confluent Schema Registry integration](../../csr/overview/) features. See their documentation and [Commits and labels](../../commits-labels/#governance-interaction) for more details.
+When you want to make a module available for other developers, you push it to the Buf Schema Registry (BSR). Once the module is in the BSR, its code, documentation, and generated SDKs can be accessed by anyone with the correct permissions for your repository. This page describes how to push locally, how to archive and unarchive labels, and how pushing works in CI/CD environments.
+
+Pushing to the BSR also interacts with the BSR's [policy checks](../../policy-checks/breaking/overview/) and [Confluent Schema Registry integration](../../csr/overview/) features. See their documentation and [Commits and labels](../../commits-labels/#governance-interaction) for more details.
 
 ## Module and repository setup
 
@@ -93,7 +95,11 @@ When you push from your workspace, the Buf CLI automatically resolves the intern
 
 ## Pushing with labels
 
-Labels allow you to add a commit to the history of a specific stream of development like a release or a feature, similar to branches and tags in a VCS. If no other label is applied, the commit is added to the history of the [default label](../../repositories/#default-label), which is similar to the default branch in a VCS (for example `main` in Git).As a best practice, we recommend always explicitly specifying the labels you want to push to rather than relying on the current default label in the BSR. See [Commits and labels](../../commits-labels/) for more details about label properties and behavior.To apply a label to a commit, add the `--label` flag — you can add multiple labels in the same push command by adding multiple flags:
+Labels allow you to add a commit to the history of a specific stream of development like a release or a feature, similar to branches and tags in a VCS. If no other label is applied, the commit is added to the history of the [default label](../../repositories/#default-label), which is similar to the default branch in a VCS (for example `main` in Git).
+
+As a best practice, we recommend always explicitly specifying the labels you want to push to rather than relying on the current default label in the BSR. See [Commits and labels](../../commits-labels/) for more details about label properties and behavior.
+
+To apply a label to a commit, add the `--label` flag — you can add multiple labels in the same push command by adding multiple flags:
 
 ::: info Apply the 'v1.0.1' and 'releases' labels to the commit
 
@@ -103,11 +109,17 @@ $ buf push --label v1.0.1 --label releases
 
 :::
 
-When a commit is pushed to the BSR, it's appended to the history of each label it was pushed with. Each label begins resolving to this latest commit as long as [policy checks](../../policy-checks/breaking/overview/) are either passing or not enabled. All BSR artifacts for the modules in a commit can be referenced by any of their labels, which are available via a dropdown selector in the BSR UI. This repository has two labels, 'main' and 'demos'. 'main' is the default label:![](../../../images/bsr/nav-label-dropdown.png)See [BSR commit squashing](#commit-squashing) below for more details about the interaction of labels and policy checks when pushing.
+When a commit is pushed to the BSR, it's appended to the history of each label it was pushed with. Each label begins resolving to this latest commit as long as [policy checks](../../policy-checks/breaking/overview/) are either passing or not enabled. All BSR artifacts for the modules in a commit can be referenced by any of their labels, which are available via a dropdown selector in the BSR UI. This repository has two labels, 'main' and 'demos'. 'main' is the default label:
+
+![](../../../images/bsr/nav-label-dropdown.png)
+
+See [BSR commit squashing](#commit-squashing) below for more details about the interaction of labels and policy checks when pushing.
 
 ## Archiving and unarchiving labels
 
-You can archive labels if you no longer need them, so that it's easier to find labels in the label dropdown and "all labels" list. Archiving removes labels from the list but doesn't delete them, and you can unarchive them later if necessary.To archive a label:
+You can archive labels if you no longer need them, so that it's easier to find labels in the label dropdown and "all labels" list. Archiving removes labels from the list but doesn't delete them, and you can unarchive them later if necessary.
+
+To archive a label:
 
 1.  In your repository, choose **View all labels** from the label dropdown, or go directly in the browser:
 
@@ -115,7 +127,9 @@ You can archive labels if you no longer need them, so that it's easier to find l
     https://buf.build/OWNER/REPOSITORY/commits/labels
     ```
 
-2.  Find the label you want to archive and click the icon at the right:![Screenshot of all-label list with archive option highlighted](../../../images/bsr/label-archive.png)
+2.  Find the label you want to archive and click the icon at the right:
+
+    ![Screenshot of all-label list with archive option highlighted](../../../images/bsr/label-archive.png)
 
 To unarchive a label:
 
@@ -125,17 +139,23 @@ To unarchive a label:
     https://buf.build/OWNER/REPOSITORY/commits/labels/archived
     ```
 
-2.  Find the label you want to unarchive and click the icon at the right:![Screenshot of all-label list with unarchive option highlighted](../../../images/bsr/label-unarchive.png)
+2.  Find the label you want to unarchive and click the icon at the right:
+
+    ![Screenshot of all-label list with unarchive option highlighted](../../../images/bsr/label-unarchive.png)
 
 You can also make a commit with the label applied and it automatically unarchives.
 
 ## Pushing with CI/CD
 
-As mentioned above, generally you won't be pushing to the BSR directly from a local environment. Instead, most organizations use GitHub Actions or other automation to push to the BSR automatically from their VCS, so that there's a single source of truth and the BSR commit can link back to the context of the original code commit.For more information about CI/CD, see the [General CI/CD setup](../../ci-cd/setup/) and [GitHub Action setup](../../ci-cd/github-actions/) pages.
+As mentioned above, generally you won't be pushing to the BSR directly from a local environment. Instead, most organizations use GitHub Actions or other automation to push to the BSR automatically from their VCS, so that there's a single source of truth and the BSR commit can link back to the context of the original code commit.
+
+For more information about CI/CD, see the [General CI/CD setup](../../ci-cd/setup/) and [GitHub Action setup](../../ci-cd/github-actions/) pages.
 
 ## BSR commit squashing
 
-When you push a commit to the BSR, it compares it to the existing `HEAD` of each label in the module and attempts to squash it to avoid creating commits with the same content and dependencies. This is especially useful for organizations that have Buf integrated into their Git CI workflows.Because most Git commits don't change your Protobuf files, creating new BSR commits for them adds unwanted noise. Instead, if the commit can be squashed, the BSR does so and returns the ID of the latest BSR commit where the schema actually had changes, which is the commit that it's squashing _into_.
+When you push a commit to the BSR, it compares it to the existing `HEAD` of each label in the module and attempts to squash it to avoid creating commits with the same content and dependencies. This is especially useful for organizations that have Buf integrated into their Git CI workflows.
+
+Because most Git commits don't change your Protobuf files, creating new BSR commits for them adds unwanted noise. Instead, if the commit can be squashed, the BSR does so and returns the ID of the latest BSR commit where the schema actually had changes, which is the commit that it's squashing _into_.
 
 ### Interaction with policy checks
 

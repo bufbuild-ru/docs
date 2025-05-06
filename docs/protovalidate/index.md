@@ -45,7 +45,9 @@ head:
 
 # Protovalidate overview
 
-Protovalidate provides standard annotations to validate common rules on messages and fields, as well as the ability to use [CEL](https://cel.dev) to write custom rules. It's the next generation of [protoc-gen-validate](https://github.com/bufbuild/protoc-gen-validate), the only widely used validation library for Protobuf.Replacing hand-written code, [JavaScript's Yup](https://github.com/jquense/yup), [Go Validator](https://github.com/go-playground/validator), [Java Bean validation](https://beanvalidation.org/), Python's [Pydantic](https://docs.pydantic.dev/), and countless others, Protovalidate ensures consistent validation across languages and systems.
+Protovalidate provides standard annotations to validate common rules on messages and fields, as well as the ability to use [CEL](https://cel.dev) to write custom rules. It's the next generation of [protoc-gen-validate](https://github.com/bufbuild/protoc-gen-validate), the only widely used validation library for Protobuf.
+
+Replacing hand-written code, [JavaScript's Yup](https://github.com/jquense/yup), [Go Validator](https://github.com/go-playground/validator), [Java Bean validation](https://beanvalidation.org/), Python's [Pydantic](https://docs.pydantic.dev/), and countless others, Protovalidate ensures consistent validation across languages and systems.
 
 ## Protovalidate in action
 
@@ -142,14 +144,18 @@ Jump ahead to the [developer quickstart](quickstart/) to dive in.
 
 ## Motivations
 
-Even in a traditional monolith — a simple API with a browser-based frontend — validation logic is commonly repeated on the client and server. As monoliths are decomposed into microservices, publishers, consumers, and data pipelines, each passing messages to and from one another, it's increasingly difficult to ensure validation logic remains consistent.For example, a request to rebook a hypothetical canceled flight reservation may:
+Even in a traditional monolith — a simple API with a browser-based frontend — validation logic is commonly repeated on the client and server. As monoliths are decomposed into microservices, publishers, consumers, and data pipelines, each passing messages to and from one another, it's increasingly difficult to ensure validation logic remains consistent.
+
+For example, a request to rebook a hypothetical canceled flight reservation may:
 
 1.  Originate from a mobile application.
 2.  Be received by a monolithic API.
 3.  Be placed in a queue for processing by a microservice.
 4.  Have its results distributed through multiple streaming data pipelines.
 
-Traditionally, developers validate input at each step in this process: is the passenger locator for the flight a five-character alphanumeric string? Is the departure time within a given time window?Inevitably, validation inconsistencies cause hard-to-trace errors:
+Traditionally, developers validate input at each step in this process: is the passenger locator for the flight a five-character alphanumeric string? Is the departure time within a given time window?
+
+Inevitably, validation inconsistencies cause hard-to-trace errors:
 
 - One language's validation framework may consider a space character an empty string; another might not.
 - Inclusion inconsistencies — "less than" vs. "less than or equals" — create hard-to-recreate, intermittent errors.
@@ -159,7 +165,9 @@ Protovalidate addresses these problems through schema-first development, lifting
 
 ## Principles
 
-Protovalidate is simple, consistent, and extensible. Its validation rules are defined centrally in Protobuf schemas, consistently evaluated across languages, and extended through dynamic expressions.Created by experts in the Protobuf space with decades of experience building Web-scale distributed systems, Protovalidate is free, open source, and integrates seamlessly with the Buf toolchain.
+Protovalidate is simple, consistent, and extensible. Its validation rules are defined centrally in Protobuf schemas, consistently evaluated across languages, and extended through dynamic expressions.
+
+Created by experts in the Protobuf space with decades of experience building Web-scale distributed systems, Protovalidate is free, open source, and integrates seamlessly with the Buf toolchain.
 
 ### Simplicity
 
@@ -186,11 +194,15 @@ message Person {
 
 ### Consistency
 
-Unlike its predecessor (`protoc-gen-validate`), Protovalidate does away with language-specific code generation that might introduce inconsistency. Protovalidate uses the [Common Expression Language (CEL)](https://cel.dev), a cross-language runtime for evaluating expressions. In CEL, `2+2` always equals `4`, and `this.size() > rules.max_len` always returns the same result.Furthermore, every Protovalidate runtime is tested against the same conformance suite, ensuring your schema-first business rules are consistently evaluated in your project's language.
+Unlike its predecessor (`protoc-gen-validate`), Protovalidate does away with language-specific code generation that might introduce inconsistency. Protovalidate uses the [Common Expression Language (CEL)](https://cel.dev), a cross-language runtime for evaluating expressions. In CEL, `2+2` always equals `4`, and `this.size() > rules.max_len` always returns the same result.
+
+Furthermore, every Protovalidate runtime is tested against the same conformance suite, ensuring your schema-first business rules are consistently evaluated in your project's language.
 
 ### Extensibility
 
-Validation solutions that are limited to static rules and regular expression matching are incomplete. Business requirements inevitably require considering combinations of fields or even comparisons to dynamic values, such as a point in time.In Protovalidate, your schemas can express these complex requirements through [CEL](https://cel.dev) expressions:
+Validation solutions that are limited to static rules and regular expression matching are incomplete. Business requirements inevitably require considering combinations of fields or even comparisons to dynamic values, such as a point in time.
+
+In Protovalidate, your schemas can express these complex requirements through [CEL](https://cel.dev) expressions:
 
 ::: info First name and last name total length must be less than 100 characters.
 
@@ -230,17 +242,25 @@ message FlightChangeRequest {
 
 ### Uniform language support
 
-Teams using different languages and frameworks often create different ways to represent validation failures. Different Go teams might use different validation packages, a Java team might use a JSR-380 (Bean Validation) implementation, and others might invent their own libraries.Protovalidate is schema-first: validation errors are represented in messages defined in its own Protobuf schema.Though Protovalidate provides idiomatic runtimes across supported languages, this means that all teams can rely on the same `Violations` and `Violations` APIs to represent validation failures consistently, no matter their language.
+Teams using different languages and frameworks often create different ways to represent validation failures. Different Go teams might use different validation packages, a Java team might use a JSR-380 (Bean Validation) implementation, and others might invent their own libraries.
+
+Protovalidate is schema-first: validation errors are represented in messages defined in its own Protobuf schema.
+
+Though Protovalidate provides idiomatic runtimes across supported languages, this means that all teams can rely on the same `Violations` and `Violations` APIs to represent validation failures consistently, no matter their language.
 
 ### Increased developer focus
 
-Protovalidate ensures that developers focus on writing code serving business goals instead of reinventing validation wheels or investigating hard-to-trace bugs.If a team elects to write its own validation library, they'll inevitably face many decisions:
+Protovalidate ensures that developers focus on writing code serving business goals instead of reinventing validation wheels or investigating hard-to-trace bugs.
+
+If a team elects to write its own validation library, they'll inevitably face many decisions:
 
 1.  If a string field is required, is a space allowed?
 2.  Which date and time library should be used?
 3.  What regular expression implementation should be used?
 
-Teams using language-specific libraries inherit the decisions made by others. Inconsistency is inevitable and expensive to resolve.By embracing the schema-first nature of Protovalidate, all teams inherit consistent behavior, insuring data quality is uniformly enforced across distributed systems.
+Teams using language-specific libraries inherit the decisions made by others. Inconsistency is inevitable and expensive to resolve.
+
+By embracing the schema-first nature of Protovalidate, all teams inherit consistent behavior, insuring data quality is uniformly enforced across distributed systems.
 
 ## Learn more
 

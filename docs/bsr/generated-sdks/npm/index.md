@@ -45,7 +45,9 @@ head:
 
 # NPM
 
-The Buf Schema Registry provides generated SDKs for JavaScript-based languages in the form of an NPM registry, just like any other JavaScript library. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.The BSR's NPM registry is hosted at buf.build/gen/npm/v1. See the [tutorial](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.
+The Buf Schema Registry provides generated SDKs for JavaScript-based languages in the form of an NPM registry, just like any other JavaScript library. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.
+
+The BSR's NPM registry is hosted at buf.build/gen/npm/v1. See the [tutorial](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.
 
 ## Setup
 
@@ -115,7 +117,9 @@ You may notice that installing SDKs from the BSR NPM registry using `npm install
 
 ## Versions
 
-By default, when you `npm install` a [Buf module](../../../cli/modules-workspaces/), the BSR generates code from the most recent [reference](../../../cli/modules-workspaces/#referencing-a-module) for the module. However, you can also install a specific SDK version using NPM's standard `@` syntax, referencing an explicit version or a commit or label name. To discover SDK versions, you can browse a repository's SDK page, which has installation instructions and an interactive UI.The basic install command is:
+By default, when you `npm install` a [Buf module](../../../cli/modules-workspaces/), the BSR generates code from the most recent [reference](../../../cli/modules-workspaces/#referencing-a-module) for the module. However, you can also install a specific SDK version using NPM's standard `@` syntax, referencing an explicit version or a commit or label name. To discover SDK versions, you can browse a repository's SDK page, which has installation instructions and an interactive UI.
+
+The basic install command is:
 
 ```console
 $ npm install @buf/connectrpc_eliza.bufbuild_es
@@ -131,7 +135,9 @@ $ npm install @buf/connectrpc_eliza.bufbuild_es@latest
 
 ### Commit
 
-The SDK uses the `commit-` prefix to indicate that a commit is being referenced.To get the generated SDK for the module at a commit, using the latest plugin version:
+The SDK uses the `commit-` prefix to indicate that a commit is being referenced.
+
+To get the generated SDK for the module at a commit, using the latest plugin version:
 
 ```console
 $ npm install @buf/connectrpc_eliza.bufbuild_es@commit-8b8b971d6fde4dc8ba5d96f9fda7d53c
@@ -139,7 +145,9 @@ $ npm install @buf/connectrpc_eliza.bufbuild_es@commit-8b8b971d6fde4dc8ba5d96f9f
 
 ### Label
 
-The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../repositories/#default-label). The SDK uses the `label-` prefix to indicate that a label is being referenced.To get the generated SDK for the module at a label, using the latest plugin version:
+The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../repositories/#default-label). The SDK uses the `label-` prefix to indicate that a label is being referenced.
+
+To get the generated SDK for the module at a label, using the latest plugin version:
 
 ```console
 $ npm install @buf/connectrpc_eliza.bufbuild_es@label-demo
@@ -172,12 +180,18 @@ Most users likely want to use `@latest`, but if you need to reference an SDK ver
 $ npm install @buf/connectrpc_eliza.bufbuild_es@2.2.2-20230913231627-233fca715f49.1
 ```
 
-If you need a more specific version than the `@latest`, `@commit-` or `@label-` shorthands, such as needing to install a specific plugin version, you can use the [`buf registry sdk version` command](../../../reference/cli/buf/registry/sdk/version/).Only commits that are on the default label at the time they're pushed to the BSR have populated timestamps. Timestamps on commits pushed to other labels are zeroed out with `00000000000000` to easily distinguish them as changes in labels still in development.
+If you need a more specific version than the `@latest`, `@commit-` or `@label-` shorthands, such as needing to install a specific plugin version, you can use the [`buf registry sdk version` command](../../../reference/cli/buf/registry/sdk/version/).
+
+Only commits that are on the default label at the time they're pushed to the BSR have populated timestamps. Timestamps on commits pushed to other labels are zeroed out with `00000000000000` to easily distinguish them as changes in labels still in development.
 
 ## Other package managers
 
-Because the BSR NPM registry implements NPM's [public registry API](https://github.com/npm/registry/blob/master/docs/REGISTRY-API.md), you should be able to use it with package management tools outside of NPM, such as [Yarn](https://yarnpkg.com) and [pnpm](https://pnpm.io), though with some known limitations.Be aware that [Yarn](https://yarnpkg.com) versions greater than [v1.10.0](https://github.com/yarnpkg/yarn/releases/tag/v1.10.0) and less than [v2](https://github.com/yarnpkg/berry) _aren't_ supported. These versions of Yarn require the `shasum` field in the dist object to be set, but the BSR can't compute a digest without generating the code for all possible versions of the package.
+Because the BSR NPM registry implements NPM's [public registry API](https://github.com/npm/registry/blob/master/docs/REGISTRY-API.md), you should be able to use it with package management tools outside of NPM, such as [Yarn](https://yarnpkg.com) and [pnpm](https://pnpm.io), though with some known limitations.
+
+Be aware that [Yarn](https://yarnpkg.com) versions greater than [v1.10.0](https://github.com/yarnpkg/yarn/releases/tag/v1.10.0) and less than [v2](https://github.com/yarnpkg/berry) _aren't_ supported. These versions of Yarn require the `shasum` field in the dist object to be set, but the BSR can't compute a digest without generating the code for all possible versions of the package.
 
 ## Available plugins
 
-For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for JavaScript or TypeScript.To learn more about how these plugins are packaged and distributed check out the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that you think should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).
+For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for JavaScript or TypeScript.
+
+To learn more about how these plugins are packaged and distributed check out the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that you think should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).

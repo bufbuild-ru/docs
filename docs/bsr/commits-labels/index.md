@@ -45,11 +45,19 @@ head:
 
 # Commits and labels
 
-Like a version control system (VCS), the Buf Schema Registry (BSR) tracks the evolution of your schemas. Every time you push a change to the BSR, you create a _commit_, which is an immutable snapshot of a Buf [module](../../cli/modules-workspaces/) at a specific point in time that's stored in its [repository](../repositories/).The BSR allows you to apply _labels_ to commits (similar to GitHub's branches and tags), which are usually used to separate feature development from production code, mark specific releases, and so on. Because the BSR is meant to be used alongside your VCS, its requirements are simpler, so we've chosen to collapse the branch and tag concepts into a single marker, the label.This page explains the similarities and differences between the BSR and branch/tag-based systems, label interactions with Buf's governance features, and archiving and unarchiving labels.See the [Modules and workspaces](../../cli/modules-workspaces/#referencing-a-module) page to learn how to reference a module by a specific commit or label.
+Like a version control system (VCS), the Buf Schema Registry (BSR) tracks the evolution of your schemas. Every time you push a change to the BSR, you create a _commit_, which is an immutable snapshot of a Buf [module](../../cli/modules-workspaces/) at a specific point in time that's stored in its [repository](../repositories/).
+
+The BSR allows you to apply _labels_ to commits (similar to GitHub's branches and tags), which are usually used to separate feature development from production code, mark specific releases, and so on. Because the BSR is meant to be used alongside your VCS, its requirements are simpler, so we've chosen to collapse the branch and tag concepts into a single marker, the label.
+
+This page explains the similarities and differences between the BSR and branch/tag-based systems, label interactions with Buf's governance features, and archiving and unarchiving labels.
+
+See the [Modules and workspaces](../../cli/modules-workspaces/#referencing-a-module) page to learn how to reference a module by a specific commit or label.
 
 ## Commits
 
-Every push of new content to a repository creates a commit that identifies a change in the schema. Commits include the schema files, Markdown docs, dependency manifest, Buf configuration files, and an optional VCS commit URL. They don't include any other VCS information, labels, or explicit parentage. Each commit also generates a digest of the contents. Commits also have no explicit parentage within the BSR — they can be diffed with any other commits in a label's history, but otherwise have no connection to each other.One key difference between VCS commits and BSR commits is that unlike a VCS commit, a BSR commit only exists on the BSR repository and not locally. In addition to those listed above, BSR commits have the following properties:
+Every push of new content to a repository creates a commit that identifies a change in the schema. Commits include the schema files, Markdown docs, dependency manifest, Buf configuration files, and an optional VCS commit URL. They don't include any other VCS information, labels, or explicit parentage. Each commit also generates a digest of the contents. Commits also have no explicit parentage within the BSR — they can be diffed with any other commits in a label's history, but otherwise have no connection to each other.
+
+One key difference between VCS commits and BSR commits is that unlike a VCS commit, a BSR commit only exists on the BSR repository and not locally. In addition to those listed above, BSR commits have the following properties:
 
 - Commits may not be deleted.
 - Commits always belong to at least one label (the [default label](../repositories/#default-label) if not specified)
@@ -68,11 +76,15 @@ Every push of new content to a repository creates a commit that identifies a cha
 
 ## Labels
 
-A label is a mutable pointer to a specific commit. Each label has an append-only, time-ordered history of the commits it has pointed to over time. Labels can be applied when running `buf push` from the command line, but the more common use case is for CI/CD operations to assign labels to commits based on the branches and tags assigned to the corresponding VCS commit. Each repository has a _default label_ (named `main` by default), which is applied to commits unless another label is specified.See the [Repository](../repositories/#default-label) page for more details about default label behavior.
+A label is a mutable pointer to a specific commit. Each label has an append-only, time-ordered history of the commits it has pointed to over time. Labels can be applied when running `buf push` from the command line, but the more common use case is for CI/CD operations to assign labels to commits based on the branches and tags assigned to the corresponding VCS commit. Each repository has a _default label_ (named `main` by default), which is applied to commits unless another label is specified.
+
+See the [Repository](../repositories/#default-label) page for more details about default label behavior.
 
 ### Interaction with governance features
 
-If the BSR's [policy checks](../policy-checks/breaking/overview/) or [Confluent Schema Registry (CSR)](../csr/overview/) integration features are enabled, it enforces restrictions on when a label's pointer updates to a new commit. This protects consumers from broken builds or downstream data issues.When policy checks are enabled, the new commit is allowed, but the label pointer only moves if either the commit doesn't introduce breaking changes _or_ an admin approves the commit from the review flow. Commits exist with one of these statuses at any given moment:
+If the BSR's [policy checks](../policy-checks/breaking/overview/) or [Confluent Schema Registry (CSR)](../csr/overview/) integration features are enabled, it enforces restrictions on when a label's pointer updates to a new commit. This protects consumers from broken builds or downstream data issues.
+
+When policy checks are enabled, the new commit is allowed, but the label pointer only moves if either the commit doesn't introduce breaking changes _or_ an admin approves the commit from the review flow. Commits exist with one of these statuses at any given moment:
 
 - **Passed:** The commit passes all checks (or checks aren't enabled).
 - **Pending:** The commit failed a check and is now in the review flow.

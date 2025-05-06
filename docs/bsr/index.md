@@ -49,7 +49,9 @@ Welcome to the **Buf Schema Registry (BSR)**! This overview covers what the BSR 
 
 ## What's the BSR?
 
-The BSR stores and manages Protobuf files as versioned [modules](../cli/modules-workspaces/) so that individuals and organizations can consume and publish their APIs without friction.The BSR comes with a browseable UI, dependency management, API validation, versioning, generated documentation, and an extendable plugin system that powers remote code generation.
+The BSR stores and manages Protobuf files as versioned [modules](../cli/modules-workspaces/) so that individuals and organizations can consume and publish their APIs without friction.
+
+The BSR comes with a browseable UI, dependency management, API validation, versioning, generated documentation, and an extendable plugin system that powers remote code generation.
 
 ### BSR goals
 
@@ -61,11 +63,41 @@ The BSR stores and manages Protobuf files as versioned [modules](../cli/modules-
 
 ### Why the BSR?
 
-You're probably wondering why adopting the Buf Schema Registry (BSR) is an improvement over your existing Protobuf workflows. We've highlighted available features above, but let's break down how the BSR aims to solve existing problems.**The Protobuf ecosystem deserves build guarantees**Traditional workflows push Protobuf files to version control systems, but these systems lack Protobuf-awareness and thus consumers often waste time working with Protobuf files that don't compile. Yes, some organizations add checks to catch broken Protobuf files, but these are error-prone and don't scale well because _each_ repository needs to be configured, setup and maintained.Since the BSR is a Protobuf-aware registry, it prevents Protobuf files that don't compile from being pushed to the origin in the first place. Your consumers can have confidence that Protobuf files consumed from the BSR aren't broken and can compile. Everyone in the ecosystem benefits because compilation guarantees are pushed from the individual to the BSR.**Generated documentation for all**Sadly, readily consumable _and_ up-to-date documentation is rarely available for Protobuf files. Some organizations setup workflows to generate documentation, but this is yet another manual step that has to be configured and maintained. Furthermore, much of the tooling and plugins are unsupported and generate incomplete documentation.The BSR comes built-in with [generated documentation](documentation/overview/). You get live documentation for every commit to the BSR. Which means live and up-to-date documentation for latest and historic commits. Even better, the documentation the BSR provides has syntax highlighting, definitions, and references.**Keeping Protobuf files synced**Every organization that adopts Protobuf needs to solve distribution, whether internally across teams or externally exposed to the public. Protobuf files are usually checked into repositories, often dispersed, and it becomes challenging to keep Protobuf files synced across projects. API drift is a common issue and even worse, forked Protobuf repositories accidentally get consumed by downstream dependents (instead of the upstream). It's a mess.The BSR solves this by offering a centralized registry to store all your Protobuf files, simplifying the process of publishing and consuming. By making the BSR the single source of truth, it's possible to power developer workflows and business processes around Protobuf without worrying _how_ to keep everything in-sync.**Client SDKs shouldn't be an afterthought**Define. Generate. Consume.Defining a Protobuf-based API enforces a contract between producer and consumers, however consumers are typically an afterthought in the process.Before a client can consume a Protobuf-based API they need to generate an SDK for their language of choice. Traditionally consumers are left to figure out how to build and generate clients, but this is often cumbersome as little guidance is provided and not all Protobuf files correctly encode options for a given language.Fetching a client SDK from the BSR is a single `npm install` or `go get` command.
+You're probably wondering why adopting the Buf Schema Registry (BSR) is an improvement over your existing Protobuf workflows. We've highlighted available features above, but let's break down how the BSR aims to solve existing problems.
+
+**The Protobuf ecosystem deserves build guarantees**
+
+Traditional workflows push Protobuf files to version control systems, but these systems lack Protobuf-awareness and thus consumers often waste time working with Protobuf files that don't compile. Yes, some organizations add checks to catch broken Protobuf files, but these are error-prone and don't scale well because _each_ repository needs to be configured, setup and maintained.
+
+Since the BSR is a Protobuf-aware registry, it prevents Protobuf files that don't compile from being pushed to the origin in the first place. Your consumers can have confidence that Protobuf files consumed from the BSR aren't broken and can compile. Everyone in the ecosystem benefits because compilation guarantees are pushed from the individual to the BSR.
+
+**Generated documentation for all**
+
+Sadly, readily consumable _and_ up-to-date documentation is rarely available for Protobuf files. Some organizations setup workflows to generate documentation, but this is yet another manual step that has to be configured and maintained. Furthermore, much of the tooling and plugins are unsupported and generate incomplete documentation.
+
+The BSR comes built-in with [generated documentation](documentation/overview/). You get live documentation for every commit to the BSR. Which means live and up-to-date documentation for latest and historic commits. Even better, the documentation the BSR provides has syntax highlighting, definitions, and references.
+
+**Keeping Protobuf files synced**
+
+Every organization that adopts Protobuf needs to solve distribution, whether internally across teams or externally exposed to the public. Protobuf files are usually checked into repositories, often dispersed, and it becomes challenging to keep Protobuf files synced across projects. API drift is a common issue and even worse, forked Protobuf repositories accidentally get consumed by downstream dependents (instead of the upstream). It's a mess.
+
+The BSR solves this by offering a centralized registry to store all your Protobuf files, simplifying the process of publishing and consuming. By making the BSR the single source of truth, it's possible to power developer workflows and business processes around Protobuf without worrying _how_ to keep everything in-sync.
+
+**Client SDKs shouldn't be an afterthought**
+
+Define. Generate. Consume.
+
+Defining a Protobuf-based API enforces a contract between producer and consumers, however consumers are typically an afterthought in the process.
+
+Before a client can consume a Protobuf-based API they need to generate an SDK for their language of choice. Traditionally consumers are left to figure out how to build and generate clients, but this is often cumbersome as little guidance is provided and not all Protobuf files correctly encode options for a given language.
+
+Fetching a client SDK from the BSR is a single `npm install` or `go get` command.
 
 ## Start using the BSR
 
-Once you've [installed](../cli/installation/) the latest version of the Buf CLI, you're ready to use the BSR! We recommend starting with the [BSR quickstart](quickstart/), if you haven't already done it. The quickstart provides an overview of the BSR and takes approximately 10 minutes to complete.The Pro and Enterprise plans include a private instance of the Buf Schema Registry (BSR), SSO/SCIM for user provisioning, and several other features to address security, compliance, and automation requirements specific to larger organizations. The pages in this section describe the setup and usage of your private BSR instance and point to relevant sections of the general documentation where there are differences from the public BSR at https://buf.build.
+Once you've [installed](../cli/installation/) the latest version of the Buf CLI, you're ready to use the BSR! We recommend starting with the [BSR quickstart](quickstart/), if you haven't already done it. The quickstart provides an overview of the BSR and takes approximately 10 minutes to complete.
+
+The Pro and Enterprise plans include a private instance of the Buf Schema Registry (BSR), SSO/SCIM for user provisioning, and several other features to address security, compliance, and automation requirements specific to larger organizations. The pages in this section describe the setup and usage of your private BSR instance and point to relevant sections of the general documentation where there are differences from the public BSR at https://buf.build.
 
 - Setup instructions for [Pro plan](admin/instance/setup-pro/)
 - Setup instructions for [Enterprise plan](admin/instance/setup-enterprise/)
@@ -99,11 +131,15 @@ You can enable [webhooks](admin/instance/webhooks/) to trigger actions in other 
 
 ### Policy checks
 
-On your private BSR, you can enforce a set of breaking change rules across all repositories. Once enabled, any commits with breaking changes are put into a review flow, where they can be accepted or rejected by the BSR repository owners or admins. This protects downstream consumers from breaking changes, while enabling those closest to the code to approve them when appropriate. See the [overview](policy-checks/breaking/overview/) and [review commits documentation](policy-checks/breaking/review-commits/) for more information.You can also require that all Protobuf file paths and type names remain unique across modules. When the uniqueness policy check is enabled, the BSR rejects any pushes that introduce violations to this rule. See [Uniqueness checks](policy-checks/uniqueness/) for more information.
+On your private BSR, you can enforce a set of breaking change rules across all repositories. Once enabled, any commits with breaking changes are put into a review flow, where they can be accepted or rejected by the BSR repository owners or admins. This protects downstream consumers from breaking changes, while enabling those closest to the code to approve them when appropriate. See the [overview](policy-checks/breaking/overview/) and [review commits documentation](policy-checks/breaking/review-commits/) for more information.
+
+You can also require that all Protobuf file paths and type names remain unique across modules. When the uniqueness policy check is enabled, the BSR rejects any pushes that introduce violations to this rule. See [Uniqueness checks](policy-checks/uniqueness/) for more information.
 
 ### Usage dashboard
 
-Similar to the [Average Types Usage dashboard](../subscription/manage-costs/#types-usage-dashboard) available on the public BSR, a Maximum Types Usage dashboard is available for private instances at `https://BSR_INSTANCE/admin/usage`, where `BSR_INSTANCE` is your instance's domain name.There are some differences in the way we compute types for private instances vs. the public BSR, which reflect the terms around how these contracts are billed:
+Similar to the [Average Types Usage dashboard](../subscription/manage-costs/#types-usage-dashboard) available on the public BSR, a Maximum Types Usage dashboard is available for private instances at `https://BSR_INSTANCE/admin/usage`, where `BSR_INSTANCE` is your instance's domain name.
+
+There are some differences in the way we compute types for private instances vs. the public BSR, which reflect the terms around how these contracts are billed:
 
 - Types usage for the public BSR is computed as the average number of types over the organization's billing period.
 - Private instance usage tracks the maximum number of types for all organizations on the entire instance over a calendar month.

@@ -45,7 +45,9 @@ head:
 
 # Observability
 
-Observability is the ability to measure the internal states of a system by examining its outputs. Monitoring incoming calls, error scenarios, and traces is critical to ensure a robust system is running properly.The rules and dashboards can be downloaded as a single zip file from the [Release notes](#release-notes) section below.
+Observability is the ability to measure the internal states of a system by examining its outputs. Monitoring incoming calls, error scenarios, and traces is critical to ensure a robust system is running properly.
+
+The rules and dashboards can be downloaded as a single zip file from the [Release notes](#release-notes) section below.
 
 ### Prometheus rules
 
@@ -65,11 +67,15 @@ To import the dashboards, follow [Grafana's instructions](https://grafana.com/do
 
 ## Dashboards
 
-The dashboards included with the BSR expose its overall health and can aid in identifying and diagnosing operational issues. Several charts and components on the dashboards are described in more detail below.![Dashboard](../../../../images/bsr/observability-dashboard.png)
+The dashboards included with the BSR expose its overall health and can aid in identifying and diagnosing operational issues. Several charts and components on the dashboards are described in more detail below.
+
+![Dashboard](../../../../images/bsr/observability-dashboard.png)
 
 ### Service level objectives
 
-Each dashboard is primarily defined in terms of service level objectives (SLOs).Each dashboard has a success rate and latency objective, and the dashboards keeps track of when those objectives are met or missed. The success rate objective is currently 99.5% for all dashboards, and the latency objectives can be viewed in the `config` panel of the dashboards. Generally, the dashboards consider a request failed if it returns an unsuccessful error code (for example 5xx or the Connect RPC equivalent) or if it exceeds its latency target.
+Each dashboard is primarily defined in terms of service level objectives (SLOs).
+
+Each dashboard has a success rate and latency objective, and the dashboards keeps track of when those objectives are met or missed. The success rate objective is currently 99.5% for all dashboards, and the latency objectives can be viewed in the `config` panel of the dashboards. Generally, the dashboards consider a request failed if it returns an unsuccessful error code (for example 5xx or the Connect RPC equivalent) or if it exceeds its latency target.
 
 ### Filters
 
@@ -113,7 +119,13 @@ Availability of the instance based on 5xx responses over a trailing 4 week windo
 
 ## Alerts
 
-Alerts are configured for every grouping on the dashboard in each deployed BSR cluster. Each grouping has an error budget based on an availability objective of 99.5% over the previous four weeks. An alert fires if a given method returns errors at a rate that threatens the 99.5% objective. There are two classes of alerts defined by how rapidly they notify of errors.**High priority alerts** respond swiftly, signalling immediate threats to the system. For these alerts to fire, 50% of the error budget must be consumed in the last hour and the method needs to have received at least 10 requests in that period.**Low priority alerts** are designed for longer durations, capturing potential issues without responding to minor fluctuations. For these alerts to fire, 10% of the error budget must be consumed in the last 24 hours and the method needs to have had at least 10 requests in that period.Simply put, if errors accumulate too quickly within the past one hour or 24 hours, alerts are triggered.
+Alerts are configured for every grouping on the dashboard in each deployed BSR cluster. Each grouping has an error budget based on an availability objective of 99.5% over the previous four weeks. An alert fires if a given method returns errors at a rate that threatens the 99.5% objective. There are two classes of alerts defined by how rapidly they notify of errors.
+
+**High priority alerts** respond swiftly, signalling immediate threats to the system. For these alerts to fire, 50% of the error budget must be consumed in the last hour and the method needs to have received at least 10 requests in that period.
+
+**Low priority alerts** are designed for longer durations, capturing potential issues without responding to minor fluctuations. For these alerts to fire, 10% of the error budget must be consumed in the last 24 hours and the method needs to have had at least 10 requests in that period.
+
+Simply put, if errors accumulate too quickly within the past one hour or 24 hours, alerts are triggered.
 
 ### Diagnosing alerts
 
@@ -131,7 +143,9 @@ By following these steps and utilizing the dashboard, you can swiftly identify, 
 
 ## Status page
 
-To help verify that the BSR is working correctly, we expose a status page to BSR admins at `https://BSR_INSTANCE/-/status`. It's also accessible on port 3003 on each bufd pod without authentication, at `http://<bufd pod ip>:3003/-/status`.![Screenshot of bufd status page](../../../../images/bsr/bufd-status.png)
+To help verify that the BSR is working correctly, we expose a status page to BSR admins at `https://BSR_INSTANCE/-/status`. It's also accessible on port 3003 on each bufd pod without authentication, at `http://<bufd pod ip>:3003/-/status`.
+
+![Screenshot of bufd status page](../../../../images/bsr/bufd-status.png)
 
 ### JSON
 

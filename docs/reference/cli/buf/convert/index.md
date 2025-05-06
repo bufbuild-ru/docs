@@ -55,7 +55,9 @@ $ buf convert <input> [flags]
 
 ### Description
 
-Use an input proto to interpret a proto/json message and convert it to a different format.Examples:
+Use an input proto to interpret a proto/json message and convert it to a different format.
+
+Examples:
 
 ```console
 $ buf convert <input> --type=<type> --from=<payload> --to=<output>

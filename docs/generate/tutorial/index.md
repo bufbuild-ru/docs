@@ -45,11 +45,15 @@ head:
 
 # Code generation quickstart
 
-The Buf CLI's `buf generate` command generates code from your Protobuf files. It uses a `buf.gen.yaml` configuration file to configure input, plugin, and output options, and is a direct replacement for code generation in `protoc`. It can accept many [input types](../../reference/inputs/) — for this tutorial, you'll use a single-module [workspace](../../cli/modules-workspaces/).The tutorial takes you through various ways to set up your generation, from fully local to managed mode.
+The Buf CLI's `buf generate` command generates code from your Protobuf files. It uses a `buf.gen.yaml` configuration file to configure input, plugin, and output options, and is a direct replacement for code generation in `protoc`. It can accept many [input types](../../reference/inputs/) — for this tutorial, you'll use a single-module [workspace](../../cli/modules-workspaces/).
+
+The tutorial takes you through various ways to set up your generation, from fully local to managed mode.
 
 ## Prerequisites
 
-We recommend completing the [Buf CLI quickstart](../../cli/quickstart/#generate-code) to get an overview of the Buf CLI first.This tutorial assumes you already have [Protocol Buffers](https://protobuf.dev/downloads/) installed.
+We recommend completing the [Buf CLI quickstart](../../cli/quickstart/#generate-code) to get an overview of the Buf CLI first.
+
+This tutorial assumes you already have [Protocol Buffers](https://protobuf.dev/downloads/) installed.
 
 - Install the [Buf CLI](../../cli/installation/)
 - Install the `protoc-gen-go` plugin, or have the corresponding `protoc` plugin for your output language of choice installed and in your `$PATH`. The code examples use the Go plugin.
@@ -61,7 +65,9 @@ We recommend completing the [Buf CLI quickstart](../../cli/quickstart/#generate-
 
 ## Define a module
 
-Modules represent a collection of files that are configured, built, and versioned as a logical unit when performing Buf operations. Workspaces are collections of modules and are configured by the `buf.yaml` configuration file, which should usually be put above the directories that contain the modules within it.For example, a `buf-codegen-tutorial` workspace with a single module would be structured like this (this workspace is the example throughout):
+Modules represent a collection of files that are configured, built, and versioned as a logical unit when performing Buf operations. Workspaces are collections of modules and are configured by the `buf.yaml` configuration file, which should usually be put above the directories that contain the modules within it.
+
+For example, a `buf-codegen-tutorial` workspace with a single module would be structured like this (this workspace is the example throughout):
 
 ```text
 buf-codegen-tutorial
@@ -174,7 +180,9 @@ service WeatherService {
 
 ## Configure your `buf.gen.yaml` file
 
-To generate code with the Buf CLI, you use a `buf.gen.yaml` configuration file to specify the languages you want to output, the plugins you want to use, and so on. This file replaces the various command-line flags that are required by `protoc`.Create a new `buf.gen.yaml` file in the workspace root, and copy/paste the following code into it.
+To generate code with the Buf CLI, you use a `buf.gen.yaml` configuration file to specify the languages you want to output, the plugins you want to use, and so on. This file replaces the various command-line flags that are required by `protoc`.
+
+Create a new `buf.gen.yaml` file in the workspace root, and copy/paste the following code into it.
 
 ```text
 buf-codegen-tutorial
@@ -241,7 +249,9 @@ buf-codegen-tutorial
 
 ## Generate code using remote plugins
 
-Now you'll regenerate the code, this time using the same plugin hosted on the Buf Schema Registry (BSR).First, remove the `gen` directory.
+Now you'll regenerate the code, this time using the same plugin hosted on the Buf Schema Registry (BSR).
+
+First, remove the `gen` directory.
 
 ::: info Run from workspace root
 

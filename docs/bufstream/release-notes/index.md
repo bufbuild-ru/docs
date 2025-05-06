@@ -112,7 +112,9 @@ head:
 
 ## v0.3.19
 
-**_Release date:_** 2025-04-15 | **_Status:_** archived*This release has been archived due to a permanent start-up bug when using PostgreSQL (other metadata stores are not impacted). All production workloads should upgrade to use version [0.3.20](#v0320).*
+**_Release date:_** 2025-04-15 | **_Status:_** archived
+
+_This release has been archived due to a permanent start-up bug when using PostgreSQL (other metadata stores are not impacted). All production workloads should upgrade to use version [0.3.20](#v0320)._
 
 ::: tip Note
 **Breaking changes:** This release removes the following `serve` CLI command flags:
@@ -579,7 +581,9 @@ Expand to see previous releases
 
 ### v0.1.2
 
-**_Release date:_** 2024-08-19 | **_Status:_** archived*This release has been archived due to a regression in the transaction processing system. All production workloads should continue to use version [0.1.1](#v011).*
+**_Release date:_** 2024-08-19 | **_Status:_** archived
+
+_This release has been archived due to a regression in the transaction processing system. All production workloads should continue to use version [0.1.1](#v011)._
 
 #### Bug fixes
 

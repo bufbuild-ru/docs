@@ -49,7 +49,9 @@ head:
 This feature is only available on the Pro and Enterprise plans.
 :::
 
-Bot users are headless users created and managed by BSR administrators.They're useful for providing and managing permissions to your automated workflows, such as CI, and when you want a separate BSR user to perform certain tasks, without having to manage the user at the SSO level.
+Bot users are headless users created and managed by BSR administrators.
+
+They're useful for providing and managing permissions to your automated workflows, such as CI, and when you want a separate BSR user to perform certain tasks, without having to manage the user at the SSO level.
 
 ## Limitations
 

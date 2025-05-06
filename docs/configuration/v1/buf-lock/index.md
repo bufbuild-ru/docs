@@ -49,7 +49,9 @@ head:
 This file now has a `v2` configuration available. See the [v2 `buf.lock` reference](../../v2/buf-lock/) and the [v1 to v2 migration guide](../../../migration-guides/migrate-v2-config-files/) for details about the new configuration and migration instructions.
 :::
 
-If your [`buf.yaml`](../buf-yaml/) declares any `deps`, it should be accompanied by a `buf.lock` file that contains your [module](../../../cli/modules-workspaces/)'s dependency manifest. This manifest represents a single, reproducible build of your module.You can create or update a `buf.lock` file for your module by running the `buf dep update` command. For example, given this directory layout and `buf.lock` content for the `buf.build/acme/petapis` module:
+If your [`buf.yaml`](../buf-yaml/) declares any `deps`, it should be accompanied by a `buf.lock` file that contains your [module](../../../cli/modules-workspaces/)'s dependency manifest. This manifest represents a single, reproducible build of your module.
+
+You can create or update a `buf.lock` file for your module by running the `buf dep update` command. For example, given this directory layout and `buf.lock` content for the `buf.build/acme/petapis` module:
 
 ```text
 .

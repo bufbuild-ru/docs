@@ -78,6 +78,7 @@ This file now has a `v2` configuration available. See the [v2 `buf.gen.yaml` ref
 
 - **Local plugins:** If using a `protoc` plugin, the `protoc-gen-` prefix is assumed and you should omit it (for example, `go` instead of `protoc-gen-go`). By default, the Buf CLI expects a `protoc-gen-<name>` program to be on your `PATH` so that it can be discovered and executed. This can be overridden with the `path` field below.
 - **Remote plugins:** Specify the path to the plugin on the Buf Schema Registry (BSR).
+
   - For all public BSR plugins, this takes the form: `buf.build/<owner-org>/<plugin-name>:<plugin-version>`
   - For custom plugins, this takes the form: `<bsr-server>/<owner-org>/<plugin-name>:<plugin-version>`
   - `<plugin-version>` is optional. If it isn't present, the latest version is used. If it's specified, the `revision` field can be specified to pin an exact version.
@@ -250,7 +251,11 @@ service WeatherVisionService {
 
 ### `csharp_namespace`
 
-**Optional**. Controls the [default C# namespace](https://github.com/protocolbuffers/protobuf/blob/v24.2/src/google/protobuf/descriptor.proto#L468) for classes generated from all of the `.proto` files contained within the input. Managed mode generates C# files with a top-level `namespace` based on each `.proto` file’s package, with each part transformed to PascalCase. The default can't be set differently, but can be overridden or excepted for specific `.proto` files.For example, `weather.proto` defines its package as `package ac_me.weather;`, which in the generated C# code becomes `namespace AcMe.Weather`. See the [default behavior](../../../generate/managed-mode/#default-behavior) section for details.This namespace doesn't affect the directory structure of the generated file.
+**Optional**. Controls the [default C# namespace](https://github.com/protocolbuffers/protobuf/blob/v24.2/src/google/protobuf/descriptor.proto#L468) for classes generated from all of the `.proto` files contained within the input. Managed mode generates C# files with a top-level `namespace` based on each `.proto` file’s package, with each part transformed to PascalCase. The default can't be set differently, but can be overridden or excepted for specific `.proto` files.
+
+For example, `weather.proto` defines its package as `package ac_me.weather;`, which in the generated C# code becomes `namespace AcMe.Weather`. See the [default behavior](../../../generate/managed-mode/#default-behavior) section for details.
+
+This namespace doesn't affect the directory structure of the generated file.
 
 #### `except`
 
@@ -373,7 +378,9 @@ managed:
 Note
 :::
 
-This option can't be specified. It can only be overridden using the [per-file override](#per-file-override).When managed mode is enabled, [`php_metadata_namespace`](https://github.com/protocolbuffers/protobuf/blob/v24.2/src/google/protobuf/descriptor.proto#L488) defaults to the default managed mode `php_namespace` value with `\GPBMetadata` appended to it. For example, `acme.weather.foo_bar.v1` becomes `Acme\Weather\FooBar\V1\GPBMetadata`.
+This option can't be specified. It can only be overridden using the [per-file override](#per-file-override).
+
+When managed mode is enabled, [`php_metadata_namespace`](https://github.com/protocolbuffers/protobuf/blob/v24.2/src/google/protobuf/descriptor.proto#L488) defaults to the default managed mode `php_namespace` value with `\GPBMetadata` appended to it. For example, `acme.weather.foo_bar.v1` becomes `Acme\Weather\FooBar\V1\GPBMetadata`.
 
 ::: info buf.gen.yaml override example
 
@@ -426,7 +433,9 @@ managed:
 
 ### `override`
 
-**Optional.** This is a list of per-file overrides for each modifier. In the example below, an override is set for `acme/weather/v1/weather.proto` so that `optimize_for` is set to `CODE_SIZE` for **only** the `acme/weather/v1/weather.proto` file and **not** for the rest of the module.Note that when using the per-file override, the option **must** be formatted as upper case. The following options can be overridden:
+**Optional.** This is a list of per-file overrides for each modifier. In the example below, an override is set for `acme/weather/v1/weather.proto` so that `optimize_for` is set to `CODE_SIZE` for **only** the `acme/weather/v1/weather.proto` file and **not** for the rest of the module.
+
+Note that when using the per-file override, the option **must** be formatted as upper case. The following options can be overridden:
 
 - `CSHARP_NAMESPACE`
 - `GO_PACKAGE` (the option name that `go_package_prefix` modifies)

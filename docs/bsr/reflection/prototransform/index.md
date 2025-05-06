@@ -45,7 +45,13 @@ head:
 
 # Prototransform
 
-Like any Connect API, you can use the Buf Reflection API using a client [generated](../../../generate/tutorial/) via the Buf CLI (for example `buf generate buf.build/bufbuild/reflect`) or by downloading a [generated SDK](../../generated-sdks/overview/). This API client allows you to download `FileDescriptorProtos`.A richer client library, that makes use of dynamic messages (provided by various Protobuf runtimes), is needed to fully unlock some powerful use cases enabled by the API.We've created a Go client library in a package named [`prototransform`](https://pkg.go.dev/github.com/bufbuild/prototransform) which is exactly that. It combines a generated Connect client for the Buf Reflection API with the dynamic message support provided by the Go runtime for Protocol Buffers.This library allows you to dynamically process message data. The current key use case is for converting message data from one format to another, but it also allows you to hook in your own filters which can transform the message. One such transformation, for which additional helpers are provided, is to redact fields (such as stripping message data before it's shipped to a data warehouse). The interface is general and allows for arbitrary manipulation of the message before output is produced.
+Like any Connect API, you can use the Buf Reflection API using a client [generated](../../../generate/tutorial/) via the Buf CLI (for example `buf generate buf.build/bufbuild/reflect`) or by downloading a [generated SDK](../../generated-sdks/overview/). This API client allows you to download `FileDescriptorProtos`.
+
+A richer client library, that makes use of dynamic messages (provided by various Protobuf runtimes), is needed to fully unlock some powerful use cases enabled by the API.
+
+We've created a Go client library in a package named [`prototransform`](https://pkg.go.dev/github.com/bufbuild/prototransform) which is exactly that. It combines a generated Connect client for the Buf Reflection API with the dynamic message support provided by the Go runtime for Protocol Buffers.
+
+This library allows you to dynamically process message data. The current key use case is for converting message data from one format to another, but it also allows you to hook in your own filters which can transform the message. One such transformation, for which additional helpers are provided, is to redact fields (such as stripping message data before it's shipped to a data warehouse). The interface is general and allows for arbitrary manipulation of the message before output is produced.
 
 ## `SchemaWatcher`
 
@@ -97,7 +103,9 @@ converter := &prototransform.Converter{
 }
 ```
 
-To use the converter, you need the expected message type's fully qualified name. This can be data-driven — for example, producers of messages in a queue could add metadata to the queued item that contains the message type's name.Provide the message name and message contents in the configured input format (as `[]byte`), and the converter returns data in the configured output format:
+To use the converter, you need the expected message type's fully qualified name. This can be data-driven — for example, producers of messages in a queue could add metadata to the queued item that contains the message type's name.
+
+Provide the message name and message contents in the configured input format (as `[]byte`), and the converter returns data in the configured output format:
 
 ```go
 convertedData, err := converter.ConvertMessage(messageName, messageData)
@@ -105,7 +113,9 @@ convertedData, err := converter.ConvertMessage(messageName, messageData)
 
 ## Filters
 
-In addition to converting data formats, the converter can also be configured to apply custom mutations/transformations to the message.Let's say there's a custom option that's used to mark fields as sensitive (such as fields that contain secrets or PII — personally identifiable information):
+In addition to converting data formats, the converter can also be configured to apply custom mutations/transformations to the message.
+
+Let's say there's a custom option that's used to mark fields as sensitive (such as fields that contain secrets or PII — personally identifiable information):
 
 ```protobuf
 syntax = "proto3";
@@ -135,4 +145,6 @@ converter := &prototransform.Converter{
 }
 ```
 
-When we convert a message using the above converter, all sensitive fields are omitted in the output data.The signature of a filter is `func(protoreflect.Message) protoreflect.Message`, so it allows any arbitrary transformation. You could even write a filter that returns a completely different type of message, derived from the input. If your filter only needs to mutate the message, you can directly modify the input message and then return it (no need to make a copy of it in the filter).
+When we convert a message using the above converter, all sensitive fields are omitted in the output data.
+
+The signature of a filter is `func(protoreflect.Message) protoreflect.Message`, so it allows any arbitrary transformation. You could even write a filter that returns a completely different type of message, derived from the input. If your filter only needs to mutate the message, you can directly modify the input message and then return it (no need to make a copy of it in the filter).

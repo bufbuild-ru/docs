@@ -45,7 +45,11 @@ head:
 
 # Architecture
 
-On-prem deployments of the BSR are effectively air-gapped from Buf. No sharing of data or analytics occurs without manual action by the customer.Here is a simplified architecture diagram for the Buf Schema Registry (BSR):![BSR architecture diagram](../../../../images/bsr/architecture.png)
+On-prem deployments of the BSR are effectively air-gapped from Buf. No sharing of data or analytics occurs without manual action by the customer.
+
+Here is a simplified architecture diagram for the Buf Schema Registry (BSR):
+
+![BSR architecture diagram](../../../../images/bsr/architecture.png)
 
 ## Dependencies
 

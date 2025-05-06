@@ -143,7 +143,9 @@ The Buf CLI provides a user-friendly experience for generating code locally that
 
 ### Configure a `buf.gen.yaml` file
 
-Now that you've configured the module, the next step is to create a [`buf.gen.yaml`](../../configuration/v2/buf-gen-yaml/) file to configure local code generation. It controls how the `buf generate` command executes `protoc` plugins on a given module. You can use it to configure where each `protoc` plugin writes its results and specify options for each plugin.Create a `buf.gen.yaml` file in the current directory:
+Now that you've configured the module, the next step is to create a [`buf.gen.yaml`](../../configuration/v2/buf-gen-yaml/) file to configure local code generation. It controls how the `buf generate` command executes `protoc` plugins on a given module. You can use it to configure where each `protoc` plugin writes its results and specify options for each plugin.
+
+Create a `buf.gen.yaml` file in the current directory:
 
 ::: info cli/quickstart/start/
 
@@ -228,7 +230,9 @@ That's how easy it is to generate code using the Buf CLI. There's no need to bui
 
 ## Lint your Protobuf files
 
-Though the Buf CLI is a great drop-in replacement for `protoc`, it's far more than a just a Protobuf compiler. It also provides linting functionality through the [`buf lint`](../../lint/overview/) command. When you run `buf lint`, it checks all the modules listed in the `buf.yaml` file against the specified set of lint rules.Run this command to check all `.proto` files in the quickstart workspace for lint errors:
+Though the Buf CLI is a great drop-in replacement for `protoc`, it's far more than a just a Protobuf compiler. It also provides linting functionality through the [`buf lint`](../../lint/overview/) command. When you run `buf lint`, it checks all the modules listed in the `buf.yaml` file against the specified set of lint rules.
+
+Run this command to check all `.proto` files in the quickstart workspace for lint errors:
 
 ::: info cli/quickstart/start/
 
@@ -353,7 +357,9 @@ breaking:
 
 ### Break your API
 
-To see the feature in action, you'll need to introduce a breaking change. First, make a change that's breaking at the `WIRE` level. This is the most fundamental type of breaking change, as it changes how the Protobuf messages are encoded in transit ("on the wire"). This type of breaking change affects _all users in all languages_.Change the type of the `Pet.pet_type` field from `PetType` to `string`:
+To see the feature in action, you'll need to introduce a breaking change. First, make a change that's breaking at the `WIRE` level. This is the most fundamental type of breaking change, as it changes how the Protobuf messages are encoded in transit ("on the wire"). This type of breaking change affects _all users in all languages_.
+
+Change the type of the `Pet.pet_type` field from `PetType` to `string`:
 
 ::: info cli/quickstart/start/proto/pet/v1/pet.proto
 
@@ -518,7 +524,9 @@ $ go mod tidy
 
 ### Call the API
 
-With the `server/main.go` implementation shown above, run the server and call the `PutPet` endpoint from the buf CLI.First, run the server:
+With the `server/main.go` implementation shown above, run the server and call the `PutPet` endpoint from the buf CLI.
+
+First, run the server:
 
 ::: info cli/quickstart/start/
 

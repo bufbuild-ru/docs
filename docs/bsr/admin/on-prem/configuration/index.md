@@ -47,7 +47,9 @@ head:
 
 ## Maintenance mode
 
-The BSR has a maintenance mode in which the BSR starts up, but API calls are prevented, users of the web interface are informed that maintenance is in progress, and no database/object storage writes occur.To enable the maintenance mode, set the `maintenance` Helm value and re-apply the helm chart:
+The BSR has a maintenance mode in which the BSR starts up, but API calls are prevented, users of the web interface are informed that maintenance is in progress, and no database/object storage writes occur.
+
+To enable the maintenance mode, set the `maintenance` Helm value and re-apply the helm chart:
 
 ```yaml
 maintenance: true

@@ -53,7 +53,9 @@ To connect clients to Bufstream, provide Bufstream's bootstrap URL and port to t
 
 ## Minimizing inter-zone network traffic
 
-Bufstream uses [options](../../reference/configuration/client-id-options/) within the client ID to determine which availability zone (AZ) it's operating in and respond to service discovery requests with only the addresses of zone-local brokers. To configure your clients for zone awareness, append a `zone` option to the client ID. For example, use a client ID of `my-app-001,zone=us-east-1a` for the first instance of an application called `my-app` in AWS `us-east-1a`. On deploy, Bufstream emits the AZ values that you can use in client configuration.Following standard Kafka practice, take care to make client IDs unique.
+Bufstream uses [options](../../reference/configuration/client-id-options/) within the client ID to determine which availability zone (AZ) it's operating in and respond to service discovery requests with only the addresses of zone-local brokers. To configure your clients for zone awareness, append a `zone` option to the client ID. For example, use a client ID of `my-app-001,zone=us-east-1a` for the first instance of an application called `my-app` in AWS `us-east-1a`. On deploy, Bufstream emits the AZ values that you can use in client configuration.
+
+Following standard Kafka practice, take care to make client IDs unique.
 
 ## Optimizing performance and write throughput
 

@@ -45,7 +45,9 @@ head:
 
 # Migrate from Protolock
 
-[Protolock](https://github.com/nilslice/protolock) is a widely used Protobuf tool that primarily concentrates on breaking change detection. It deserves a lot of praise — in the OSS world, it largely pioneered the breaking change detection effort, and has been well maintained. We can't heap enough praise on this effort, it's helped the Protobuf ecosystem move forward in a big way.In this document, we'll discuss the pros and cons of Protolock vs. `buf`'s [breaking change detector](../../breaking/overview/), as well as `buf`\-equivalent commands and migration.
+[Protolock](https://github.com/nilslice/protolock) is a widely used Protobuf tool that primarily concentrates on breaking change detection. It deserves a lot of praise — in the OSS world, it largely pioneered the breaking change detection effort, and has been well maintained. We can't heap enough praise on this effort, it's helped the Protobuf ecosystem move forward in a big way.
+
+In this document, we'll discuss the pros and cons of Protolock vs. `buf`'s [breaking change detector](../../breaking/overview/), as well as `buf`\-equivalent commands and migration.
 
 ## Protolock pros
 
@@ -71,7 +73,9 @@ See the [breaking configuration](../../breaking/overview/#defaults-and-configura
 
 ### Protolock rules to `buf` configured rules
 
-See the [breaking rules](../../breaking/rules/) documentation for an overview of all available breaking rules.While we recommend using one of `buf`'s preset breaking categories, the below configuration selects the same rules as the rules enforced by Protolock:
+See the [breaking rules](../../breaking/rules/) documentation for an overview of all available breaking rules.
+
+While we recommend using one of `buf`'s preset breaking categories, the below configuration selects the same rules as the rules enforced by Protolock:
 
 ::: info buf.yaml
 
@@ -119,11 +123,17 @@ breaking:
 
 ### Protolock flags that are `buf` configuration options
 
-The Protolock flag `--ignore` can be handled by the `breaking.ignore` and `breaking.ignore_only` configuration options.The Protolock flag `--protoroot` doesn't have a direct equivalent, but is effectively handled by defining the workspace with a [`buf.yaml`](../../configuration/v2/buf-yaml/) configuration file.The Protolock flag `--lockdir` is handled by your against input, as `buf` can take multiple types of input to compare against. The equivalent in `buf` is to specify your Buf image location with `--against path/to/lock.binpb`.
+The Protolock flag `--ignore` can be handled by the `breaking.ignore` and `breaking.ignore_only` configuration options.
+
+The Protolock flag `--protoroot` doesn't have a direct equivalent, but is effectively handled by defining the workspace with a [`buf.yaml`](../../configuration/v2/buf-yaml/) configuration file.
+
+The Protolock flag `--lockdir` is handled by your against input, as `buf` can take multiple types of input to compare against. The equivalent in `buf` is to specify your Buf image location with `--against path/to/lock.binpb`.
 
 ## Equivalent commands
 
-There are multiple methods to compare versions in `buf`, see the [breaking usage](../../breaking/quickstart/) documentation for more details.This section assumes you are using stored [Buf image](../../reference/images/) files as your method of comparing versions of your Protobuf schema.
+There are multiple methods to compare versions in `buf`, see the [breaking usage](../../breaking/quickstart/) documentation for more details.
+
+This section assumes you are using stored [Buf image](../../reference/images/) files as your method of comparing versions of your Protobuf schema.
 
 ### `protolock init`
 

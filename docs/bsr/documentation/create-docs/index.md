@@ -49,7 +49,13 @@ When you're sharing schemas across teams, consumers need access to documentation
 
 ## Module documentation
 
-Most documentation comes directly from Protobuf comments, but you should also describe your modules so others can understand their functionality.To create module documentation, add a `README.md` file and push it to the BSR along with your Protobuf files. If you already have a `README.md` and want to have a different documentation file for the BSR than your source control, name the file `buf.md` instead. When both files are present, the BSR displays `buf.md` instead of `README.md`.Because documentation is part of your module, any updates to either `README.md` or `buf.md` create new commits in the BSR. You can put the documentation at either the module level or the workspace root. Modules within the workspace without their own documentation fall back to the workspace `README.md` file.In this example, the module at `proto/acme/weatherapi/v1` displays its own `README.md` file, and the module at `proto/acme/units/v1` displays the workspace `README.md` file.
+Most documentation comes directly from Protobuf comments, but you should also describe your modules so others can understand their functionality.
+
+To create module documentation, add a `README.md` file and push it to the BSR along with your Protobuf files. If you already have a `README.md` and want to have a different documentation file for the BSR than your source control, name the file `buf.md` instead. When both files are present, the BSR displays `buf.md` instead of `README.md`.
+
+Because documentation is part of your module, any updates to either `README.md` or `buf.md` create new commits in the BSR. You can put the documentation at either the module level or the workspace root. Modules within the workspace without their own documentation fall back to the workspace `README.md` file.
+
+In this example, the module at `proto/acme/weatherapi/v1` displays its own `README.md` file, and the module at `proto/acme/units/v1` displays the workspace `README.md` file.
 
 ```text{9,14}
 workspace_root
@@ -91,7 +97,11 @@ Comments on the package directive aren't merged across files. Files are parsed a
 
 ## Annotated Protobuf options
 
-The BSR renders annotated Protobuf options in source code style. For the `deprecated` option, it also displays a notice in the header of each deprecated entity:![Deprecation notice](../../../images/bsr/docs-deprecated-source.png)The complete list of Protobuf's built-in options is available in the [`descriptor.proto`](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto#L431) specification. The list below includes all Protobuf options that the BSR renders documentation for when annotated.
+The BSR renders annotated Protobuf options in source code style. For the `deprecated` option, it also displays a notice in the header of each deprecated entity:
+
+![Deprecation notice](../../../images/bsr/docs-deprecated-source.png)
+
+The complete list of Protobuf's built-in options is available in the [`descriptor.proto`](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto#L431) specification. The list below includes all Protobuf options that the BSR renders documentation for when annotated.
 
 - **Message options** - `deprecated`
 - **Field options**

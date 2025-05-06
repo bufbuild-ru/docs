@@ -55,7 +55,9 @@ $ buf dep update <directory> [flags]
 
 ### Description
 
-Fetch the latest digests for the specified module references in buf.yaml, and write them and their transitive dependencies to buf.lock.The first argument is the directory of the local module to update. Defaults to "." if no argument is specified.
+Fetch the latest digests for the specified module references in buf.yaml, and write them and their transitive dependencies to buf.lock.
+
+The first argument is the directory of the local module to update. Defaults to "." if no argument is specified.
 
 ### Flags
 

@@ -73,7 +73,9 @@ The `MINIMAL` category represents what we consider to be **fundamental rules for
 - [`PACKAGE_DIRECTORY_MATCH`](#package_directory_match)
 - [`PACKAGE_SAME_DIRECTORY`](#package_same_directory)
 
-The `MINIMAL` category verifies that all files with package `foo.bar.baz.v1` are in the directory `foo/bar/baz/v1` (relative to the [`buf.yaml`](../../configuration/v2/buf-yaml/) file), and that only one such directory exists. `protoc` doesn't enforce file structure in any way, but you're likely to have a rough time with many Protobuf plugins across various languages if you don't do this. Many languages such as Go and Java explicitly or effectively enforce such a file structure.For example, consider this tree:
+The `MINIMAL` category verifies that all files with package `foo.bar.baz.v1` are in the directory `foo/bar/baz/v1` (relative to the [`buf.yaml`](../../configuration/v2/buf-yaml/) file), and that only one such directory exists. `protoc` doesn't enforce file structure in any way, but you're likely to have a rough time with many Protobuf plugins across various languages if you don't do this. Many languages such as Go and Java explicitly or effectively enforce such a file structure.
+
+For example, consider this tree:
 
 ```text
 .
@@ -93,7 +95,9 @@ Arranging the files this way also has the effect of allowing imports to self-doc
 
 ### `BASIC`
 
-The `BASIC` category includes everything from the `MINIMAL` category, and adds rules that are widely accepted as standard Protobuf style. These rules should be applied for all Protobuf schemas.The additional rules in the `BASIC` category are:
+The `BASIC` category includes everything from the `MINIMAL` category, and adds rules that are widely accepted as standard Protobuf style. These rules should be applied for all Protobuf schemas.
+
+The additional rules in the `BASIC` category are:
 
 - [`ENUM_FIRST_VALUE_ZERO`](#enum_first_value_zero)
 - [`ENUM_NO_ALLOW_ALIAS`](#enum_no_allow_alias)
@@ -118,7 +122,9 @@ The `BASIC` category includes everything from the `MINIMAL` category, and adds r
 
 ### `STANDARD`
 
-The `STANDARD` category includes everything from the `BASIC` category and some additional rules that represent our recommendations for modern Protobuf development. `STANDARD` is also the default set of lint rules used by the Buf CLI if the `buf.yaml` file has no lint settings configured.The additional rules in the `STANDARD` category are:
+The `STANDARD` category includes everything from the `BASIC` category and some additional rules that represent our recommendations for modern Protobuf development. `STANDARD` is also the default set of lint rules used by the Buf CLI if the `buf.yaml` file has no lint settings configured.
+
+The additional rules in the `STANDARD` category are:
 
 - [`ENUM_VALUE_PREFIX`](#enum_value_prefix)
 - [`ENUM_ZERO_VALUE_SUFFIX`](#enum_zero_value_suffix)
@@ -171,39 +177,59 @@ Some RPC protocols don't allow streaming RPCs, such as [Twirp](https://twitchtv.
 
 ### `COMMENT_ENUM`
 
-**Categories:** `COMMENTS`This rule checks that enums have non-empty comments.
+**Categories:** `COMMENTS`
+
+This rule checks that enums have non-empty comments.
 
 ### `COMMENT_ENUM_VALUE`
 
-**Categories:** `COMMENTS`This rule checks that enum values have non-empty comments.
+**Categories:** `COMMENTS`
+
+This rule checks that enum values have non-empty comments.
 
 ### `COMMENT_FIELD`
 
-**Categories:** `COMMENTS`This rule checks that fields have non-empty comments.
+**Categories:** `COMMENTS`
+
+This rule checks that fields have non-empty comments.
 
 ### `COMMENT_MESSAGE`
 
-**Categories:** `COMMENTS`This rule checks that messages have non-empty comments.
+**Categories:** `COMMENTS`
+
+This rule checks that messages have non-empty comments.
 
 ### `COMMENT_ONEOF`
 
-**Categories:** `COMMENTS`This rule checks that oneofs have non-empty comments.
+**Categories:** `COMMENTS`
+
+This rule checks that oneofs have non-empty comments.
 
 ### `COMMENT_RPC`
 
-**Categories:** `COMMENTS`This rule checks that RPCs have non-empty comments.
+**Categories:** `COMMENTS`
+
+This rule checks that RPCs have non-empty comments.
 
 ### `COMMENT_SERVICE`
 
-**Categories:** `COMMENTS`This rule checks that services have non-empty comments.
+**Categories:** `COMMENTS`
+
+This rule checks that services have non-empty comments.
 
 ### `DIRECTORY_SAME_PACKAGE`
 
-**Categories:** `MINIMAL`, `BASIC`, `STANDARD`This rule checks that all files in a given directory are in the same package.
+**Categories:** `MINIMAL`, `BASIC`, `STANDARD`
+
+This rule checks that all files in a given directory are in the same package.
 
 ### `ENUM_FIRST_VALUE_ZERO`
 
-**Categories:** `BASIC`, `STANDARD`This rule enforces that the first enum value is the zero value, which is a `proto3` requirement on build, but isn't required in `proto2` on build. The rule enforces that the requirement is also followed in `proto2`.This example results in a linting error if the rule is active:
+**Categories:** `BASIC`, `STANDARD`
+
+This rule enforces that the first enum value is the zero value, which is a `proto3` requirement on build, but isn't required in `proto2` on build. The rule enforces that the requirement is also followed in `proto2`.
+
+This example results in a linting error if the rule is active:
 
 ```protobuf
 syntax = "proto2";
@@ -217,7 +243,9 @@ enum Scheme {
 
 ### `ENUM_NO_ALLOW_ALIAS`
 
-**Categories:** `BASIC`, `STANDARD`This rule outlaws aliased enums like this:
+**Categories:** `BASIC`, `STANDARD`
+
+This rule outlaws aliased enums like this:
 
 ```protobuf
 enum Foo {
@@ -228,15 +256,21 @@ enum Foo {
 }
 ```
 
-The Protobuf `allow_alias` option lets multiple enum values have the same number. This can lead to issues when working with the JSON representation of Protobuf, which is a first-class citizen of `proto3`. If you get a serialized Protobuf value over the wire in binary format, the specific enum value it applies to is unknown, and JSON usually serializes enum values by name. This can lead to hard-to-track bugs if you declare an alias and expect names to be interchangeable.Instead of having an alias, we recommend deprecating your current enum and making a new one with the enum value name you want, or just sticking with the current name for your enum value.
+The Protobuf `allow_alias` option lets multiple enum values have the same number. This can lead to issues when working with the JSON representation of Protobuf, which is a first-class citizen of `proto3`. If you get a serialized Protobuf value over the wire in binary format, the specific enum value it applies to is unknown, and JSON usually serializes enum values by name. This can lead to hard-to-track bugs if you declare an alias and expect names to be interchangeable.
+
+Instead of having an alias, we recommend deprecating your current enum and making a new one with the enum value name you want, or just sticking with the current name for your enum value.
 
 ### `ENUM_PASCAL_CASE`
 
-**Categories:** `BASIC`, `STANDARD`This rule checks that enums are PascalCase.
+**Categories:** `BASIC`, `STANDARD`
+
+This rule checks that enums are PascalCase.
 
 ### `ENUM_VALUE_PREFIX`
 
-**Categories:** `STANDARD`This rule requires that all enum value names are prefixed with the enum name. For example:
+**Categories:** `STANDARD`
+
+This rule requires that all enum value names are prefixed with the enum name. For example:
 
 ```protobuf
 enum Foo {
@@ -273,11 +307,15 @@ enum SecureProtocol {
 
 ### `ENUM_VALUE_UPPER_SNAKE_CASE`
 
-**Categories:** `BASIC`, `STANDARD`This rule checks that enum values are UPPER_SNAKE_CASE.
+**Categories:** `BASIC`, `STANDARD`
+
+This rule checks that enum values are UPPER_SNAKE_CASE.
 
 ### `ENUM_ZERO_VALUE_SUFFIX`
 
-**Categories:** `STANDARD`This rule requires that all enum values have a zero value with a defined suffix. By default, it verifies that the zero value of all enums ends in `_UNSPECIFIED`, but the suffix is [configurable](../overview/).
+**Categories:** `STANDARD`
+
+This rule requires that all enum values have a zero value with a defined suffix. By default, it verifies that the zero value of all enums ends in `_UNSPECIFIED`, but the suffix is [configurable](../overview/).
 
 ```protobuf
 enum Foo {
@@ -300,11 +338,15 @@ message Uri {
 
 ### `FIELD_LOWER_SNAKE_CASE`
 
-**Categories:** `BASIC`, `STANDARD`This rule checks that field names are lower_snake_case.
+**Categories:** `BASIC`, `STANDARD`
+
+This rule checks that field names are lower_snake_case.
 
 ### `FIELD_NOT_REQUIRED`
 
-**Categories:** `BASIC`, `STANDARD`This rule checks that field isn't configured as required. This means that using the "required" label in proto2 sources isn't allowed and using the feature `field_presence = LEGACY_REQUIRED` isn't allowed in Editions sources.
+**Categories:** `BASIC`, `STANDARD`
+
+This rule checks that field isn't configured as required. This means that using the "required" label in proto2 sources isn't allowed and using the feature `field_presence = LEGACY_REQUIRED` isn't allowed in Editions sources.
 
 ::: tip Note
 This is a new rule that can only be used with `v2` configuration files.
@@ -312,19 +354,27 @@ This is a new rule that can only be used with `v2` configuration files.
 
 ### `FILE_LOWER_SNAKE_CASE`
 
-**Categories:** `STANDARD`This rule says that all `.proto` files must be named as `lower_snake_case.proto`. This is the widely accepted standard.
+**Categories:** `STANDARD`
+
+This rule says that all `.proto` files must be named as `lower_snake_case.proto`. This is the widely accepted standard.
 
 ### `IMPORT_NO_PUBLIC`
 
-**Categories:** `BASIC`, `STANDARD`This rule outlaws declaring imports as `public`. If you didn't know that was possible, forget what you just learned in this sentence.
+**Categories:** `BASIC`, `STANDARD`
+
+This rule outlaws declaring imports as `public`. If you didn't know that was possible, forget what you just learned in this sentence.
 
 ### `IMPORT_NO_WEAK`
 
-**Categories:** `BASIC`, `STANDARD`Similar to the `IMPORT_NO_PUBLIC` rule, this rule outlaws declaring imports as `weak`. If you didn't know that was possible, forget what you just learned in this sentence.
+**Categories:** `BASIC`, `STANDARD`
+
+Similar to the `IMPORT_NO_PUBLIC` rule, this rule outlaws declaring imports as `weak`. If you didn't know that was possible, forget what you just learned in this sentence.
 
 ### `IMPORT_USED`
 
-**Categories:** `BASIC`, `STANDARD`This rule checks that all the imports declared across your Protobuf files are actually used. This `.proto` file, for example, fails:
+**Categories:** `BASIC`, `STANDARD`
+
+This rule checks that all the imports declared across your Protobuf files are actually used. This `.proto` file, for example, fails:
 
 ```protobuf
 syntax = "proto3";
@@ -341,27 +391,39 @@ message Payment {
 
 ### `MESSAGE_PASCAL_CASE`
 
-**Categories:** `BASIC`, `STANDARD`This rule checks that messages are PascalCase.
+**Categories:** `BASIC`, `STANDARD`
+
+This rule checks that messages are PascalCase.
 
 ### `ONEOF_LOWER_SNAKE_CASE`
 
-**Categories:** `BASIC`, `STANDARD`This rule checks that oneof names are lower_snake_case.
+**Categories:** `BASIC`, `STANDARD`
+
+This rule checks that oneof names are lower_snake_case.
 
 ### `PACKAGE_DEFINED`
 
-**Categories:** `MINIMAL`, `BASIC`, `STANDARD`This rule checks that all files have a package declaration.
+**Categories:** `MINIMAL`, `BASIC`, `STANDARD`
+
+This rule checks that all files have a package declaration.
 
 ### `PACKAGE_DIRECTORY_MATCH`
 
-**Categories:** `MINIMAL`, `BASIC`, `STANDARD`This rule checks that all files are in a directory that matches their package name.
+**Categories:** `MINIMAL`, `BASIC`, `STANDARD`
+
+This rule checks that all files are in a directory that matches their package name.
 
 ### `PACKAGE_LOWER_SNAKE_CASE`
 
-**Categories:** `BASIC`, `STANDARD`This rule checks that packages are lower_snake_case.
+**Categories:** `BASIC`, `STANDARD`
+
+This rule checks that packages are lower_snake_case.
 
 ### `PACKAGE_NO_IMPORT_CYCLE`
 
-**Categories:** `STANDARD` (only for `v2` configuration files, otherwise uncategorized)This rule detects package import cycles. The Protobuf compiler outlaws circular file imports, but it's still possible to introduce package cycles, such as these:
+**Categories:** `STANDARD` (only for `v2` configuration files, otherwise uncategorized)
+
+This rule detects package import cycles. The Protobuf compiler outlaws circular file imports, but it's still possible to introduce package cycles, such as these:
 
 ```text
 .
@@ -403,7 +465,9 @@ These packages successfully compile, but this file structure introduces problems
 
 ### `PACKAGE_SAME_<file_option>`
 
-**Categories:** `BASIC`, `STANDARD`The Buf CLI doesn't lint file option values, as explained in the [What we left out](#what-we-left-out) section below. However, it's important to have consistent file option values across all files in a given Protobuf package if you do use them.
+**Categories:** `BASIC`, `STANDARD`
+
+The Buf CLI doesn't lint file option values, as explained in the [What we left out](#what-we-left-out) section below. However, it's important to have consistent file option values across all files in a given Protobuf package if you do use them.
 
 - `PACKAGE_SAME_CSHARP_NAMESPACE` checks that all files with a given package have the same value for the `csharp_namespace` option.
 - `PACKAGE_SAME_GO_PACKAGE` checks that all files with a given package have the same value for the `go_package` option.
@@ -413,7 +477,9 @@ These packages successfully compile, but this file structure introduces problems
 - `PACKAGE_SAME_RUBY_PACKAGE` checks that all files with a given package have the same value for the `ruby_package` option.
 - `PACKAGE_SAME_SWIFT_PREFIX` checks that all files with a given package have the same value for the `swift_prefix` option.
 
-Each of these rules verify that if a given file option is used in one file in a given package, it's used in every file in that package.For example, if you have file `foo_one.proto`:
+Each of these rules verify that if a given file option is used in one file in a given package, it's used in every file in that package.
+
+For example, if you have file `foo_one.proto`:
 
 ```protobuf
 // foo_one.proto
@@ -441,11 +507,17 @@ option java_package = "com.foo.v1";
 
 ### `PACKAGE_SAME_DIRECTORY`
 
-**Categories:** `MINIMAL`, `BASIC`, `STANDARD`This rule checks that all files with a given package are in the same directory.
+**Categories:** `MINIMAL`, `BASIC`, `STANDARD`
+
+This rule checks that all files with a given package are in the same directory.
 
 ### `PACKAGE_VERSION_SUFFIX`
 
-**Categories:** `STANDARD`This rule enforces that the last component of a package must be a version of the form `v\d+, v\d+test.*, v\d+(alpha|beta)\d*, or v\d+p\d+(alpha|beta)\d*`, where numbers are >=1.Valid examples:
+**Categories:** `STANDARD`
+
+This rule enforces that the last component of a package must be a version of the form `v\d+, v\d+test.*, v\d+(alpha|beta)\d*, or v\d+p\d+(alpha|beta)\d*`, where numbers are >=1.
+
+Valid examples:
 
 ```text
 foo.v1
@@ -471,7 +543,11 @@ One of the core promises of Protobuf schema development is to never have breakin
 
 ### `PROTOVALIDATE`
 
-**Categories:** `STANDARD`This rule requires that all [`protovalidate`](https://github.com/bufbuild/protovalidate#readme) constraints specified are valid.For a [`buf.validate.field`](https://buf.build/bufbuild/protovalidate/docs/main:buf.validate#buf.validate.FieldConstraints) to be valid, it must ensure:
+**Categories:** `STANDARD`
+
+This rule requires that all [`protovalidate`](https://github.com/bufbuild/protovalidate#readme) constraints specified are valid.
+
+For a [`buf.validate.field`](https://buf.build/bufbuild/protovalidate/docs/main:buf.validate#buf.validate.FieldConstraints) to be valid, it must ensure:
 
 - `ignore` is the only option if set to `IGNORE_ALWAYS`
 - `required` can not be set if `ignore` is set to `IGNORE_IF_UNPOPULATED`.
@@ -542,19 +618,29 @@ For a set of rules specified on a field, such as `(buf.validate.field).int32`, t
 
 ### `RPC_NO_CLIENT_STREAMING`
 
-**Categories:** `UNARY_RPC`This rule checks that RPCs aren't client streaming.
+**Categories:** `UNARY_RPC`
+
+This rule checks that RPCs aren't client streaming.
 
 ### `RPC_NO_SERVER_STREAMING`
 
-**Categories:** `UNARY_RPC`This rule checks that RPCs aren't server streaming.
+**Categories:** `UNARY_RPC`
+
+This rule checks that RPCs aren't server streaming.
 
 ### `RPC_PASCAL_CASE`
 
-**Categories:** `BASIC`, `STANDARD`This rule checks that RPCs are PascalCase.
+**Categories:** `BASIC`, `STANDARD`
+
+This rule checks that RPCs are PascalCase.
 
 ### `RPC_REQUEST_STANDARD_NAME` `RPC_RESPONSE_STANDARD_NAME` `RPC_REQUEST_RESPONSE_UNIQUE`
 
-**Categories:** `STANDARD`These rules enforce the message name of RPC request/responses, and that all request/responses are unique.**One of the single most important rules to enforce in modern Protobuf development is to have a unique request and response message for every RPC.** Separate RPCs shouldn't have their request and response parameters controlled by the same Protobuf message, and if you share a Protobuf message between multiple RPCs, this results in multiple RPCs being affected when fields on this Protobuf message change. **Even in straightforward cases**, best practice is to always have a wrapper message for your RPC request and response types. The Buf CLI enforces this with these three rules by verifying that:
+**Categories:** `STANDARD`
+
+These rules enforce the message name of RPC request/responses, and that all request/responses are unique.
+
+**One of the single most important rules to enforce in modern Protobuf development is to have a unique request and response message for every RPC.** Separate RPCs shouldn't have their request and response parameters controlled by the same Protobuf message, and if you share a Protobuf message between multiple RPCs, this results in multiple RPCs being affected when fields on this Protobuf message change. **Even in straightforward cases**, best practice is to always have a wrapper message for your RPC request and response types. The Buf CLI enforces this with these three rules by verifying that:
 
 - All request and response messages are unique across your Protobuf schema.
 - All request and response messages are named after the RPC, either by naming them `MethodNameRequest`, `MethodNameResponse` or `ServiceNameMethodNameRequest`, `ServiceNameMethodNameResponse`.
@@ -578,11 +664,15 @@ Though we **don't** recommend it, we provide a few configuration options to loos
 
 ### `SERVICE_PASCAL_CASE`
 
-**Categories:** `BASIC`, `STANDARD`This rule checks that services are PascalCase.
+**Categories:** `BASIC`, `STANDARD`
+
+This rule checks that services are PascalCase.
 
 ### `SERVICE_SUFFIX`
 
-**Categories:** `STANDARD`This rule enforces that all services are suffixed with `Service`. For example:
+**Categories:** `STANDARD`
+
+This rule enforces that all services are suffixed with `Service`. For example:
 
 ```protobuf
 service FooService {}
@@ -590,7 +680,9 @@ service BarService {}
 service BazService {}
 ```
 
-Service names inherently end up having a lot of overlap with package names, and service naming often ends up inconsistent as a result across a larger Protobuf schema. Enforcing a consistent suffix takes away some of this inconsistency.The suffix is [configurable](../overview/). For example, if you have this configuration in your `buf.yaml`:
+Service names inherently end up having a lot of overlap with package names, and service naming often ends up inconsistent as a result across a larger Protobuf schema. Enforcing a consistent suffix takes away some of this inconsistency.
+
+The suffix is [configurable](../overview/). For example, if you have this configuration in your `buf.yaml`:
 
 ::: info buf.yaml
 
@@ -612,11 +704,15 @@ service BazEndpoint {}
 
 ### `STABLE_PACKAGE_NO_IMPORT_UNSTABLE`
 
-**Categories:** noneThis rule checks that all files that have stable versioned packages (e.g. `v1`) do not import packages with unstable version packages (e.g. `alpha`, `beta`, `v1alpha1`).
+**Categories:** none
+
+This rule checks that all files that have stable versioned packages (e.g. `v1`) do not import packages with unstable version packages (e.g. `alpha`, `beta`, `v1alpha1`).
 
 ### `SYNTAX_SPECIFIED`
 
-**Categories:** `BASIC`, `STANDARD`This rule checks that all files have a syntax specified.
+**Categories:** `BASIC`, `STANDARD`
+
+This rule checks that all files have a syntax specified.
 
 ## What we left out
 
@@ -624,7 +720,13 @@ We think that the above lint rules represent a set that sufficiently enforces co
 
 ### File option values
 
-The Buf CLI doesn't include linting for specific file option values. It's not that we don't think consistency across these file options is important — in fact, we think it simplifies Protobuf stub consumption. One of our core principles is that **language-specific file options shouldn't be part of your core Protobuf schema**. Your Protobuf schema should only describe language-independent elements as much as possible.The values for most file options, in fact, should be deduced in a stable and deterministic manner. For example, we think that `java_package` should likely be a constant prefix followed by the package name as a suffix. Your `go_package` should use the last component of your package name. And `java_multiple_files` should always be `true`. These aren't defaults for backwards-compatibility reasons, but if you're using a tool like the Buf CLI to produce your stubs, you shouldn't have to think about any of this.This is exactly why we created [managed mode](../../generate/managed-mode/), which sets all of these file options _on the fly_ with `buf generate`.The Buf CLI still enforces that specific file options are the same across a given package through the `BASIC` and `STANDARD` categories described above. We do find this to be important, regardless of what values you choose. Fortunately, with managed mode you can remove file option declarations from your Protobuf files altogether.
+The Buf CLI doesn't include linting for specific file option values. It's not that we don't think consistency across these file options is important — in fact, we think it simplifies Protobuf stub consumption. One of our core principles is that **language-specific file options shouldn't be part of your core Protobuf schema**. Your Protobuf schema should only describe language-independent elements as much as possible.
+
+The values for most file options, in fact, should be deduced in a stable and deterministic manner. For example, we think that `java_package` should likely be a constant prefix followed by the package name as a suffix. Your `go_package` should use the last component of your package name. And `java_multiple_files` should always be `true`. These aren't defaults for backwards-compatibility reasons, but if you're using a tool like the Buf CLI to produce your stubs, you shouldn't have to think about any of this.
+
+This is exactly why we created [managed mode](../../generate/managed-mode/), which sets all of these file options _on the fly_ with `buf generate`.
+
+The Buf CLI still enforces that specific file options are the same across a given package through the `BASIC` and `STANDARD` categories described above. We do find this to be important, regardless of what values you choose. Fortunately, with managed mode you can remove file option declarations from your Protobuf files altogether.
 
 ### Custom options
 

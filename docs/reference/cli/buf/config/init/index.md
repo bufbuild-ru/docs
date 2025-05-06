@@ -55,7 +55,11 @@ $ buf config init [buf.build/owner/foobar] [flags]
 
 ### Description
 
-This command will write a new buf.yaml file to start your local development.If a buf.yaml already exists, this command will not overwrite it, and will produce an error.The effects of this command may change over time - this command may initialize i.e. buf.gen.yaml files in the future.
+This command will write a new buf.yaml file to start your local development.
+
+If a buf.yaml already exists, this command will not overwrite it, and will produce an error.
+
+The effects of this command may change over time - this command may initialize i.e. buf.gen.yaml files in the future.
 
 ### Flags
 

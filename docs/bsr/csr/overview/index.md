@@ -87,7 +87,13 @@ Taking advantage of Buf's CSR implementation has three overall steps:
 
 3.  Push the annotated `.proto` files to the BSR. Buf's breaking change detection validates the annotated schemas and sends them to the [review flow](../../policy-checks/breaking/review-commits/) if they're not backward compatible.
 
-Once the push that includes the subject mapping is successful, the Confluent integration automatically creates a subject associated with the message on your CSR instance. For example, the example `.proto` file above creates a subject named `email-updated-value` associated with the `demo.analytics.EmailUpdated` message on the `default` CSR instance.Because subjects are defined in your schemas, you're able to view, code review, and manage them the way you do any other source code. In the BSR, you could view the subject above at:`https://buf.example.com/integrations/confluent/default/subjects/email-updated-value/versions/latest`After you create the subject, you use the CSR URL and a Buf token to configure Confluent-aware Kafka producers and consumers to serialize and deserialize the topics defined in your Protobuf schemas. See [Integrating with Kafka clients](../kafka-clients/) for examples.
+Once the push that includes the subject mapping is successful, the Confluent integration automatically creates a subject associated with the message on your CSR instance. For example, the example `.proto` file above creates a subject named `email-updated-value` associated with the `demo.analytics.EmailUpdated` message on the `default` CSR instance.
+
+Because subjects are defined in your schemas, you're able to view, code review, and manage them the way you do any other source code. In the BSR, you could view the subject above at:
+
+`https://buf.example.com/integrations/confluent/default/subjects/email-updated-value/versions/latest`
+
+After you create the subject, you use the CSR URL and a Buf token to configure Confluent-aware Kafka producers and consumers to serialize and deserialize the topics defined in your Protobuf schemas. See [Integrating with Kafka clients](../kafka-clients/) for examples.
 
 ## Integration with breaking change detection
 
@@ -150,6 +156,7 @@ All Confluent subjects start with the compatibility mode of the [CSR instance](.
 
 - If the reviewer rejects the commit, the BSR blocks the breaking change and the subject's compatibility mode remains `BACKWARD_TRANSITIVE`. The commit must be reverted or fixed for any new schema change to be available to the CSR or other downstream systems.
 - If the reviewer approves the commit, they must choose a new compatibility mode for each affected CSR subject to deal with the breaking change:
+
   - `BACKWARD`: **Default and recommended.** Enforces the schema's backwards compatibility against the latest BSR version on the default label. This _may_ break both existing producers using old versions of that subject's schemas, and existing consumers in general.
   - `NONE`: No compatibility checks are performed on the schema. This won't break producers, but _may_ break consumers as bad data can enter the pipeline. This setting is only useful if you're actively developing a schema, expect a lot of breaking changes, and don't want this check to block them — ideally you have no consumers yet at that point.
 

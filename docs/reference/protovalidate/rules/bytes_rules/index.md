@@ -154,7 +154,9 @@ message MyBytes {
 
 ## contains
 
-`contains` requires the field value to have the specified bytes anywhere in the string. If the field value doesn't meet the requirement, an error message is generated.\`\`\`proto title="bytes.contains example"buf message MyBytes { // value does not contain \\x02\\x03 optional bytes value = 1 \[(buf.validate.field).bytes.contains = "\\x02\\x03"\]; }
+`contains` requires the field value to have the specified bytes anywhere in the string. If the field value doesn't meet the requirement, an error message is generated.
+
+\`\`\`proto title="bytes.contains example"buf message MyBytes { // value does not contain \\x02\\x03 optional bytes value = 1 \[(buf.validate.field).bytes.contains = "\\x02\\x03"\]; }
 
 ````text
 ## in

@@ -55,7 +55,11 @@ $ buf export <source> [flags]
 
 ### Description
 
-The first argument is the source or module to export, which must be one of format \[dir,git,mod,protofile,tar,zip\]. This defaults to "." if no argument is specified.Examples:Export proto files in `<source>` to an output directory.
+The first argument is the source or module to export, which must be one of format \[dir,git,mod,protofile,tar,zip\]. This defaults to "." if no argument is specified.
+
+Examples:
+
+Export proto files in `<source>` to an output directory.
 
 ```console
 $ buf export <source> --output=<output-dir>

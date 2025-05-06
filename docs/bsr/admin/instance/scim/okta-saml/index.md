@@ -84,7 +84,10 @@ The steps below must be carried out by users with administrative privileges in y
       - Import Groups
     - **Authentication Mode**: `HTTP Header`
     - **Authorization**: enter the SCIM token you created earlier
-3.  Click **Test Connector Configuration**. You should see the following screen (an **X** shows for those you haven't checked — this is expected):![Okta SCIM connector success](../../../../../images/bsr/scim/test-connector-configuration-success.png)
+3.  Click **Test Connector Configuration**. You should see the following screen (an **X** shows for those you haven't checked — this is expected):
+
+    ![Okta SCIM connector success](../../../../../images/bsr/scim/test-connector-configuration-success.png)
+
 4.  Click **Save**.
 5.  Click the **To App** side tab.
 6.  Click **Edit** and enable the following options:
@@ -119,7 +122,11 @@ The BSR uses any IdP-provided groups in combination with [automated organization
 1.  In your Okta application, navigate to the **Push Groups** tab.
 2.  Click **Refresh App Groups** to pull the latest groups from the BSR. You may have to wait a few moments for it to complete.
 3.  Under **Push Groups**, chose the relevant group selection criteria. Once a group has been selected, you see one of two options:
+
     - If the BSR already knows about the group, Okta indicates that a match was found.
     - If the BSR doesn't know about the group, Okta allows you to either link to another group in the BSR, or create a new one. In most cases, you want to create a new group.
+
 4.  Click **Save**.
-5.  Okta now attempts a Group Push. If it encounters an error, it's shown directly next to the group (see screenshot below). If this happens, contact [Support](https://support.buf.build) or your Buf representative to resolve the error and try again.![Okta SCIM attribute mappings](../../../../../images/bsr/scim/okta-scim-push-groups-error.png)
+5.  Okta now attempts a Group Push. If it encounters an error, it's shown directly next to the group (see screenshot below). If this happens, contact [Support](https://support.buf.build) or your Buf representative to resolve the error and try again.
+
+    ![Okta SCIM attribute mappings](../../../../../images/bsr/scim/okta-scim-push-groups-error.png)

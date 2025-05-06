@@ -319,7 +319,11 @@ plugins:
       - require_unimplemented_servers=false
 ```
 
-By default, buf generate will look for a file of this shape named "buf.gen.yaml" in your current directory. This can be thought of as a template for the set of plugins you want to invoke.The first argument is the source, module, or image to generate from. Defaults to "." if no argument is specified.Use buf.gen.yaml as template, current directory as input:
+By default, buf generate will look for a file of this shape named "buf.gen.yaml" in your current directory. This can be thought of as a template for the set of plugins you want to invoke.
+
+The first argument is the source, module, or image to generate from. Defaults to "." if no argument is specified.
+
+Use buf.gen.yaml as template, current directory as input:
 
 ```console
 $ buf generate
@@ -349,7 +353,11 @@ Generate to the bar/ directory, prepending bar/ to the out directives in the tem
 $ buf generate --template bar.yaml -o bar https://github.com/foo/bar.git
 ```
 
-The paths in the template and the -o flag will be interpreted as relative to the current directory, so you can place your template files anywhere.If you only want to generate stubs for a subset of your input, you can do so via the --path. e.g.Only generate for the files in the directories proto/foo and proto/bar:
+The paths in the template and the -o flag will be interpreted as relative to the current directory, so you can place your template files anywhere.
+
+If you only want to generate stubs for a subset of your input, you can do so via the --path. e.g.
+
+Only generate for the files in the directories proto/foo and proto/bar:
 
 ```console
 $ buf generate --path proto/foo --path proto/bar
@@ -367,7 +375,11 @@ Only generate for the files in the directory proto/foo on your git repository:
 $ buf generate --template buf.gen.yaml https://github.com/foo/bar.git --path proto/foo
 ```
 
-Note that all paths must be contained within the same module. For example, if you have a module in "proto", you cannot specify "--path proto", however "--path proto/foo" is allowed as "proto/foo" is contained within "proto".Plugins are invoked in the order they are specified in the template, but each plugin has a per-directory parallel invocation, with results from each invocation combined before writing the result.Insertion points are processed in the order the plugins are specified in the template.
+Note that all paths must be contained within the same module. For example, if you have a module in "proto", you cannot specify "--path proto", however "--path proto/foo" is allowed as "proto/foo" is contained within "proto".
+
+Plugins are invoked in the order they are specified in the template, but each plugin has a per-directory parallel invocation, with results from each invocation combined before writing the result.
+
+Insertion points are processed in the order the plugins are specified in the template.
 
 ### Flags
 

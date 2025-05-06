@@ -45,7 +45,9 @@ head:
 
 # Invoking the BSR APIs
 
-Buf Schema Registries provide a web UI at their domain. For example, the web UI for the public BSR is at [buf.build](https://buf.build/). This is also Buf's main website — if you login, you see the BSR interface.BSRs also provide an API server, for programmatic access of BSR functions. For now the set of APIs is narrow, but it's likely to expand over time to include more of the BSR's capabilities.
+Buf Schema Registries provide a web UI at their domain. For example, the web UI for the public BSR is at [buf.build](https://buf.build/). This is also Buf's main website — if you login, you see the BSR interface.
+
+BSRs also provide an API server, for programmatic access of BSR functions. For now the set of APIs is narrow, but it's likely to expand over time to include more of the BSR's capabilities.
 
 ::: warning Warning
 Only the Reflection API endpoint is exposed currently and it's in beta. It should be considered unstable and possibly impermanent.
@@ -55,7 +57,13 @@ The APIs are served from the same domain with the web UI. For example, to send A
 
 ## Connect
 
-All APIs provided by the BSR are [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) services, defined in Protobuf modules available on the public BSR in the [bufbuild](https://buf.build/bufbuild) organization. They're exposed using [Connect](https://connectrpc.com/) and support clients using three different protocols: Connect, [gRPC](https://grpc.io/), and [gRPC-Web](https://github.com/grpc/grpc-web#readme).Since the APIs are defined in Protobuf, you can use `buf generate` to generate an API client in a variety of languages. Connect support is still growing, so you can use gRPC clients if you use a language not yet supported. You can also use [generated SDKs](../../generated-sdks/overview/) to download a client from the BSR.The [Connect protocol](https://connectrpc.com/docs/protocol) also makes it easy to consume non-streaming (aka “unary”) endpoints from clients that, for whatever reason, can't use a generated Connect or gRPC client. For example, you can even use `curl` or `wget` with unary endpoints. Connect supports JSON encoding of request and response messages out of the box. Since the API is defined in Protobuf, refer to the [official JSON mapping documentation](https://protobuf.dev/programming-guides/proto3#json) for how a message is represented in JSON.All APIs are currently exposed at the root URI (currently required for gRPC compatibility). For example, the URL to use for an RPC to the public BSR looks like so:
+All APIs provided by the BSR are [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) services, defined in Protobuf modules available on the public BSR in the [bufbuild](https://buf.build/bufbuild) organization. They're exposed using [Connect](https://connectrpc.com/) and support clients using three different protocols: Connect, [gRPC](https://grpc.io/), and [gRPC-Web](https://github.com/grpc/grpc-web#readme).
+
+Since the APIs are defined in Protobuf, you can use `buf generate` to generate an API client in a variety of languages. Connect support is still growing, so you can use gRPC clients if you use a language not yet supported. You can also use [generated SDKs](../../generated-sdks/overview/) to download a client from the BSR.
+
+The [Connect protocol](https://connectrpc.com/docs/protocol) also makes it easy to consume non-streaming (aka “unary”) endpoints from clients that, for whatever reason, can't use a generated Connect or gRPC client. For example, you can even use `curl` or `wget` with unary endpoints. Connect supports JSON encoding of request and response messages out of the box. Since the API is defined in Protobuf, refer to the [official JSON mapping documentation](https://protobuf.dev/programming-guides/proto3#json) for how a message is represented in JSON.
+
+All APIs are currently exposed at the root URI (currently required for gRPC compatibility). For example, the URL to use for an RPC to the public BSR looks like so:
 
 ```text
 https://buf.build/<fully.qualified.ServiceName>/<MethodName>

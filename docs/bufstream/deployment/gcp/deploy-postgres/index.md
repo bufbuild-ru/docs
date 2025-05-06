@@ -45,7 +45,9 @@ head:
 
 # Deploy Bufstream to Google Cloud with Cloud SQL for PostgreSQL
 
-This page walks you through installing Bufstream into your Google Cloud Platform (GCP) deployment, using PostgreSQL for metadata storage. See [Tuning and performance](../../tuning-performance/) for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
+This page walks you through installing Bufstream into your Google Cloud Platform (GCP) deployment, using PostgreSQL for metadata storage. See [Tuning and performance](../../tuning-performance/) for defaults and recommendations about resources, replicas, storage, and scaling.
+
+Data from your Bufstream cluster never leaves your network or reports back to Buf.
 
 ## Prerequisites
 
@@ -87,7 +89,9 @@ $ gcloud storage buckets create gs://<bucket-name> --project <gcp-project-name>
 
 ## Create a CloudSQL instance for PostgreSQL
 
-If you don't already have one, you need the `Cloud SQL Admin` role (`roles/cloudsql.admin`).Create a new Cloud SQL instance with IAM authentication support:
+If you don't already have one, you need the `Cloud SQL Admin` role (`roles/cloudsql.admin`).
+
+Create a new Cloud SQL instance with IAM authentication support:
 
 ```console
 $ gcloud sql instances create <instance name> \
@@ -298,7 +302,9 @@ metadata:
 
 ### 3\. Install the Helm chart
 
-If you want to deploy Bufstream with zone-aware routing, go to the [zonal deployment steps](#zonal-deployment). If not, follow the instructions below to deploy the basic Helm chart.After following the steps above, the set of Helm values should be similar to the example below:
+If you want to deploy Bufstream with zone-aware routing, go to the [zonal deployment steps](#zonal-deployment). If not, follow the instructions below to deploy the basic Helm chart.
+
+After following the steps above, the set of Helm values should be similar to the example below:
 
 +++tabs key:7aa715642264784801820a6eecd2ac16
 

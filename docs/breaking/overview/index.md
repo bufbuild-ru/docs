@@ -45,7 +45,11 @@ head:
 
 # Breaking change detection – Overview
 
-This page provides an overview of Buf's breaking change detection. At every step of the development process, starting with developer IDEs and culminating in the Buf Schema Registry's instance-wide enforcement, breaking change detection ensures that your organization can evolve Protobuf schemas quickly and safely.Protobuf has many ways to evolve schemas without breaking existing code. Many of Buf's [breaking change rules](../../lint/rules/) maximize your evolution options to do exactly that. However, sometimes it's a better choice to make a breaking change rather than go to the extra effort of backwards compatibility. If you have few clients and can easily update and deploy them, it may be perfectly okay to break your schemas. And if you have a public API or too many clients to easily update, you should probably avoid breaking them.Whichever path you choose, Buf's breaking change detection allows you to make informed decisions, while removing the need for constant vigilance during code review. It reliably and mechanically identifies breaking changes so you and your team can focus on making an informed decision about whether to allow them or not.
+This page provides an overview of Buf's breaking change detection. At every step of the development process, starting with developer IDEs and culminating in the Buf Schema Registry's instance-wide enforcement, breaking change detection ensures that your organization can evolve Protobuf schemas quickly and safely.
+
+Protobuf has many ways to evolve schemas without breaking existing code. Many of Buf's [breaking change rules](../../lint/rules/) maximize your evolution options to do exactly that. However, sometimes it's a better choice to make a breaking change rather than go to the extra effort of backwards compatibility. If you have few clients and can easily update and deploy them, it may be perfectly okay to break your schemas. And if you have a public API or too many clients to easily update, you should probably avoid breaking them.
+
+Whichever path you choose, Buf's breaking change detection allows you to make informed decisions, while removing the need for constant vigilance during code review. It reliably and mechanically identifies breaking changes so you and your team can focus on making an informed decision about whether to allow them or not.
 
 ## Key concepts
 
@@ -55,11 +59,15 @@ Buf's breaking change detection evaluates your schemas' compatibility at three p
 - **In code review:** You can [integrate with your CI/CD workflows](../../bsr/ci-cd/setup/) (like [GitHub Actions](https://github.com/bufbuild/buf-action)) to ensure that breaking changes get flagged directly in your review flow.
 - **When shipping to the Buf Schema Registry (BSR):** This makes them available to other teams and downstream systems like Kafka. The BSR lets your organization enforce [policy checks](../../bsr/policy-checks/breaking/overview/) that prevent developers from committing unintended breaking changes to the BSR. Instead, they go to a [review flow](../../bsr/policy-checks/breaking/review-commits/) so that the repository owners can review the changes and approve or reject them before they enter your production environment.
 
-`buf breaking` runs a set of compatibility checks comparing the current version of your Protobuf schema to a past version. The past version can be any type of [input](../../reference/inputs/) that the Buf CLI accepts, such as a BSR module, a GitHub repo, or a Buf [image](../../reference/images/).The checker has a built-in set of rules and categories and can also accept rules and categories via [Buf plugins](../../cli/buf-plugins/overview/). You can use them alongside or in place of Buf's defaults.
+`buf breaking` runs a set of compatibility checks comparing the current version of your Protobuf schema to a past version. The past version can be any type of [input](../../reference/inputs/) that the Buf CLI accepts, such as a BSR module, a GitHub repo, or a Buf [image](../../reference/images/).
+
+The checker has a built-in set of rules and categories and can also accept rules and categories via [Buf plugins](../../cli/buf-plugins/overview/). You can use them alongside or in place of Buf's defaults.
 
 ## Rules and categories
 
-The checker's categories reflect the nature of the breaking changes, so choosing a strictness level is straightforward. You can also select rules individually to more closely match your organization's policies. See the [rules and categories](../rules/) page for detailed information.The configuration categories, from strictest to most lenient, are:
+The checker's categories reflect the nature of the breaking changes, so choosing a strictness level is straightforward. You can also select rules individually to more closely match your organization's policies. See the [rules and categories](../rules/) page for detailed information.
+
+The configuration categories, from strictest to most lenient, are:
 
 - `FILE`: **Default.** Detects generated source code breakage on a per-file basis
 - `PACKAGE`: Detects generated source code breakage on a per-package basis
@@ -83,7 +91,9 @@ breaking:
 
 :::
 
-You can skip the Buf checker's built-in rules and categories entirely by omitting them and listing categories or rules provided by Buf plugins instead. If any configured Buf plugins have rules where [`default`](https://github.com/bufbuild/bufplugin/blob/main/buf/plugin/check/v1/rule.proto#L87) is `true`, those rules are automatically checked if the `breaking` sections of `buf.yaml` don't list any of the plugin's rules or categories.Below is an example of each `buf breaking` configuration option. For more information on specific options and Buf's rules and categories, see the [`buf.yaml` reference](../../configuration/v2/buf-yaml/) and the [rules and categories](../rules/) page.
+You can skip the Buf checker's built-in rules and categories entirely by omitting them and listing categories or rules provided by Buf plugins instead. If any configured Buf plugins have rules where [`default`](https://github.com/bufbuild/bufplugin/blob/main/buf/plugin/check/v1/rule.proto#L87) is `true`, those rules are automatically checked if the `breaking` sections of `buf.yaml` don't list any of the plugin's rules or categories.
+
+Below is an example of each `buf breaking` configuration option. For more information on specific options and Buf's rules and categories, see the [`buf.yaml` reference](../../configuration/v2/buf-yaml/) and the [rules and categories](../rules/) page.
 
 ::: info buf.yaml
 
@@ -158,7 +168,9 @@ Note that many CI services like [Travis CI](https://travis-ci.com/) don't do a f
 $ buf breaking --against 'https://github.com/foo/bar.git'
 ```
 
-It only clones the single commit at the `HEAD` of the branch, so even for large repositories, this should be quick.For remote locations that require authentication, see [HTTPS Authentication](../../reference/inputs/#https) and [SSH Authentication](../../reference/inputs/#ssh) for details.
+It only clones the single commit at the `HEAD` of the branch, so even for large repositories, this should be quick.
+
+For remote locations that require authentication, see [HTTPS Authentication](../../reference/inputs/#https) and [SSH Authentication](../../reference/inputs/#ssh) for details.
 
 #### Using tags
 
@@ -229,7 +241,9 @@ $ buf breaking --against '.git#branch=main' --error-format=json | jq .
 
 ### Limit to specific files
 
-By default, the Buf CLI builds all files under the `buf.yaml` configuration file. Instead, you can manually specify the file or directory paths to check. This is an advanced feature intended for editor or [Bazel](../../cli/build-systems/bazel/) integration. In general, it's better to let the Buf CLI discover all files under management and handle this for you, especially when using the `FILE` category.The `--path` flag limits breaking change detection to the specified files if applied:
+By default, the Buf CLI builds all files under the `buf.yaml` configuration file. Instead, you can manually specify the file or directory paths to check. This is an advanced feature intended for editor or [Bazel](../../cli/build-systems/bazel/) integration. In general, it's better to let the Buf CLI discover all files under management and handle this for you, especially when using the `FILE` category.
+
+The `--path` flag limits breaking change detection to the specified files if applied:
 
 ```console
 $ buf breaking --against .git#branch=main --path path/to/foo.proto --path path/to/bar.proto
@@ -237,7 +251,9 @@ $ buf breaking --against .git#branch=main --path path/to/foo.proto --path path/t
 
 ### Advanced use cases
 
-Due to the nature of inputs, `buf breaking` happily compares just about anything. You may have an advanced use case, so this example demonstrates its ability to compare a `git` repository against a remote archive.Copy/paste this into your terminal:
+Due to the nature of inputs, `buf breaking` happily compares just about anything. You may have an advanced use case, so this example demonstrates its ability to compare a `git` repository against a remote archive.
+
+Copy/paste this into your terminal:
 
 ```console
 $ buf breaking \

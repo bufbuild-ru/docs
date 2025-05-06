@@ -55,13 +55,19 @@ $ bufstream admin clean storage [flags]
 
 ### Description
 
-Note that this will result in all existing state being deleted!Local storage is only used if the storage provider is LOCAL_DISK or the embedded etcd server is used. This is common in local testing (when running 'bufstream serve' with no arguments). This command will not attempt to clean any data stored in other metadata storage or storage providers (S3, GCS).
+Note that this will result in all existing state being deleted!
+
+Local storage is only used if the storage provider is LOCAL_DISK or the embedded etcd server is used. This is common in local testing (when running 'bufstream serve' with no arguments). This command will not attempt to clean any data stored in other metadata storage or storage providers (S3, GCS).
 
 ### Flags
 
 #### \--data-dir _string_
 
-The location of the storage.The default for Darwin and Linux is $XDG_DATA_HOME/bufstream if $XDG_DATA_HOME is set, otherwise $HOME/.local/share/bufstream.If Bufstream supports Windows in the future, the default will be %!L(MISSING)ocalAppData%!(MISSING)bufstream.
+The location of the storage.
+
+The default for Darwin and Linux is $XDG_DATA_HOME/bufstream if $XDG_DATA_HOME is set, otherwise $HOME/.local/share/bufstream.
+
+If Bufstream supports Windows in the future, the default will be %!L(MISSING)ocalAppData%!(MISSING)bufstream.
 
 #### \-h, --help
 

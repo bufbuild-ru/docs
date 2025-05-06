@@ -54,7 +54,11 @@ Buf doesn't use these binaries but they can be useful in situations where you ha
 
 ## `protoc-gen-buf-breaking`
 
-The `protoc-gen-buf-breaking` binary performs [breaking change detection](../../breaking/overview/) as a `protoc` plugin.All flags and config are passed to the plugin as an option in JSON format. You need to pass these options using `--buf-breaking_opt` as opposed to `--buf-breaking_out`, as the option includes the `:` character as part of JSON.The option for `protoc-gen-buf-breaking` has this structure:
+The `protoc-gen-buf-breaking` binary performs [breaking change detection](../../breaking/overview/) as a `protoc` plugin.
+
+All flags and config are passed to the plugin as an option in JSON format. You need to pass these options using `--buf-breaking_opt` as opposed to `--buf-breaking_out`, as the option includes the `:` character as part of JSON.
+
+The option for `protoc-gen-buf-breaking` has this structure:
 
 ```json
 {
@@ -96,7 +100,11 @@ pet/v1/pet.proto:18:3:Field "1" on message "Pet" changed type from "enum" to "st
 
 ## `protoc-gen-buf-lint`
 
-The `protoc-gen-buf-lint` binary performs [linting](../../lint/overview/) as a `protoc` plugin.All flags and config are passed to the plugin as an option in JSON format. You need to pass these options using `--buf-lint_opt` as opposed to `--buf-lint_out`, as the option includes the `:` character as part of JSON.The option for `protoc-gen-buf-lint` has this structure:
+The `protoc-gen-buf-lint` binary performs [linting](../../lint/overview/) as a `protoc` plugin.
+
+All flags and config are passed to the plugin as an option in JSON format. You need to pass these options using `--buf-lint_opt` as opposed to `--buf-lint_out`, as the option includes the `:` character as part of JSON.
+
+The option for `protoc-gen-buf-lint` has this structure:
 
 ```json
 {

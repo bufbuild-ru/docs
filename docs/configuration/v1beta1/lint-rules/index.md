@@ -49,7 +49,11 @@ head:
 Lint rules and categories have been simplified between `v1beta1` and `v1` configurations. The old `v1beta1` documentation is included here for posterity, but we strongly recommend migrating to a `v2` configuration. See the [migration guide](../../../migration-guides/migrate-v2-config-files/) to get started. You can find the `v1` lint rules [here](../../../lint/rules/) (they're unchanged for `v2` configurations).
 :::
 
-`buf` provides a carefully curated set of lint rules designed to provide consistency and maintainability across a Protobuf schema of any size and any purpose, but without being so opinionated as to restrict organizations from making the design decisions they need to make for their individual APIs.`buf lint` applies individual lint rules across your Protobuf schema, reporting any violations as errors. All lint rules have an **ID**, and belong to one or more **categories**. On this page, we'll discuss the available categories, and the individual rules within each category.Although categories aren't required to be in tree form, they can be represented as such. Note this is just a human representation and isn't actual configuration.
+`buf` provides a carefully curated set of lint rules designed to provide consistency and maintainability across a Protobuf schema of any size and any purpose, but without being so opinionated as to restrict organizations from making the design decisions they need to make for their individual APIs.
+
+`buf lint` applies individual lint rules across your Protobuf schema, reporting any violations as errors. All lint rules have an **ID**, and belong to one or more **categories**. On this page, we'll discuss the available categories, and the individual rules within each category.
+
+Although categories aren't required to be in tree form, they can be represented as such. Note this is just a human representation and isn't actual configuration.
 
 - `STANDARD`
   - `STYLE_DEFAULT`
@@ -75,7 +79,9 @@ Buf provides three "main top-level" categories of increasing strictness:
 - `BASIC`
 - `STANDARD`
 
-These provide the majority of lint rules you may want to apply.Additionally, Buf provides "extra top-level" categories, currently:
+These provide the majority of lint rules you may want to apply.
+
+Additionally, Buf provides "extra top-level" categories, currently:
 
 - `COMMENTS`
 - `UNARY_RPC`
@@ -85,7 +91,11 @@ These enforce additional constraints that users may want to apply to their Proto
 
 ### `MINIMAL`
 
-The `MINIMAL` category represents what we consider to be **fundamental rules for modern Protobuf development, regardless of style**. We find these rules so important that if it were up to us (which it isn't), and `protoc` could make breaking changes (which it can't, and shouldn't), these would be required for protoc to produce valid output.Not applying these rules can lead to a myriad of bad situations across the variety of available Protobuf plugins, especially plugins not built into `protoc` itself. There is no downside to applying these rules. If you can't tell, we **highly** recommend abiding by the `MINIMAL` group for your development sanity.The `MINIMAL` category includes three "sub-categories".
+The `MINIMAL` category represents what we consider to be **fundamental rules for modern Protobuf development, regardless of style**. We find these rules so important that if it were up to us (which it isn't), and `protoc` could make breaking changes (which it can't, and shouldn't), these would be required for protoc to produce valid output.
+
+Not applying these rules can lead to a myriad of bad situations across the variety of available Protobuf plugins, especially plugins not built into `protoc` itself. There is no downside to applying these rules. If you can't tell, we **highly** recommend abiding by the `MINIMAL` group for your development sanity.
+
+The `MINIMAL` category includes three "sub-categories".
 
 #### `FILE_LAYOUT`
 
@@ -111,11 +121,17 @@ In short, this verifies that all files that declare a given package `foo.bar.baz
                     └── baz_service.proto // package foo.bar.baz.v1
 ```
 
-`protoc` doesn't enforce file structure in any way, however you're like to have a rough time with many Protobuf plugins across various languages if you don't do this.This also has the effect of allowing imports to self-document their package, for example you know that the import `foo/bar/bat/v1/bat.proto` has types in the package `foo.bar.bat.v1`.There is no downside to maintaining this structure, and in fact many languages explicitly or effectively enforce such a file structure (for example, Go and Java).
+`protoc` doesn't enforce file structure in any way, however you're like to have a rough time with many Protobuf plugins across various languages if you don't do this.
+
+This also has the effect of allowing imports to self-document their package, for example you know that the import `foo/bar/bat/v1/bat.proto` has types in the package `foo.bar.bat.v1`.
+
+There is no downside to maintaining this structure, and in fact many languages explicitly or effectively enforce such a file structure (for example, Go and Java).
 
 #### `PACKAGE_AFFINITY`
 
-Buf doesn't lint file option values, but it's important to make sure that certain file option values are consistent across all files in a given Protobuf package if you do use them.The `PACKAGE_AFFINITY` category includes these rules:
+Buf doesn't lint file option values, but it's important to make sure that certain file option values are consistent across all files in a given Protobuf package if you do use them.
+
+The `PACKAGE_AFFINITY` category includes these rules:
 
 - `PACKAGE_SAME_CSHARP_NAMESPACE` checks that all files with a given package have the same value for the `csharp_namespace` option.
 - `PACKAGE_SAME_GO_PACKAGE` checks that all files with a given package have the same value for the `go_package` option.
@@ -125,7 +141,9 @@ Buf doesn't lint file option values, but it's important to make sure that certai
 - `PACKAGE_SAME_RUBY_PACKAGE` checks that all files with a given package have the same value for the `ruby_package` option.
 - `PACKAGE_SAME_SWIFT_PREFIX` checks that all files with a given package have the same value for the `swift_prefix` option.
 
-Each of these rules also verifies that if a given option is used in one file in a given package, it's used in every file.For example, if we have file `foo_one.proto`:
+Each of these rules also verifies that if a given option is used in one file in a given package, it's used in every file.
+
+For example, if we have file `foo_one.proto`:
 
 ::: info foo_one.proto
 
@@ -180,7 +198,9 @@ enum Foo {
 }
 ```
 
-The `allow_alias` option allows multiple enum values to have the same number. This can lead to issues when working with the JSON representation of Protobuf, a first-class citizen of proto3. If you get a serialized Protobuf value over the wire in binary format, it's unknown what specific value in the enum it applies to, and JSON usually serialized enum values by name. While in practice, if you declare an alias, you expect names to be interchangeable, this can lead to hard-to-track bugs.Instead of having an alias, we recommend deprecating your current enum, and making a new one with the enum value name you want. Or just stick with the current name for your enum value.
+The `allow_alias` option allows multiple enum values to have the same number. This can lead to issues when working with the JSON representation of Protobuf, a first-class citizen of proto3. If you get a serialized Protobuf value over the wire in binary format, it's unknown what specific value in the enum it applies to, and JSON usually serialized enum values by name. While in practice, if you declare an alias, you expect names to be interchangeable, this can lead to hard-to-track bugs.
+
+Instead of having an alias, we recommend deprecating your current enum, and making a new one with the enum value name you want. Or just stick with the current name for your enum value.
 
 ##### `FIELD_NO_DESCRIPTOR`
 
@@ -241,7 +261,11 @@ lint:
 
 #### `STYLE_BASIC`
 
-The `STYLE_BASIC` category includes basic style checks that are widely accepted as standard Protobuf style. These checks should generally be applied for all Protobuf schemas.These checks represent the "old" [Google Style Guide](https://developers.google.com/protocol-buffers/docs/style) that has been around for years, before elements from the [Uber Style Guide](https://github.com/uber/prototool/tree/dev/style) were merged in during the spring of 2019.The `STYLE_BASIC` category includes these rules:
+The `STYLE_BASIC` category includes basic style checks that are widely accepted as standard Protobuf style. These checks should generally be applied for all Protobuf schemas.
+
+These checks represent the "old" [Google Style Guide](https://developers.google.com/protocol-buffers/docs/style) that has been around for years, before elements from the [Uber Style Guide](https://github.com/uber/prototool/tree/dev/style) were merged in during the spring of 2019.
+
+The `STYLE_BASIC` category includes these rules:
 
 - `ENUM_PASCAL_CASE` checks that enums are PascalCase.
 - `ENUM_VALUE_UPPER_SNAKE_CASE` checks that enum values are UPPER_SNAKE_CASE.
@@ -285,7 +309,9 @@ lint:
 
 #### `STYLE_DEFAULT`
 
-The `STYLE_DEFAULT` category includes everything in `STYLE_BASIC`, as well as style checks that we recommend for consistent, maintainable Protobuf schemas. We recommend applying all of these checks to any schema you develop.The `STYLE_DEFAULT` category includes these rules on top of `STYLE_BASIC`:
+The `STYLE_DEFAULT` category includes everything in `STYLE_BASIC`, as well as style checks that we recommend for consistent, maintainable Protobuf schemas. We recommend applying all of these checks to any schema you develop.
+
+The `STYLE_DEFAULT` category includes these rules on top of `STYLE_BASIC`:
 
 - `ENUM_VALUE_PREFIX` checks that enum values are prefixed with ENUM_NAME_UPPER_SNAKE_CASE.
 - `ENUM_ZERO_VALUE_SUFFIX` checks that enum zero values are suffixed with \_UNSPECIFIED (suffix is configurable).
@@ -350,7 +376,9 @@ enum Foo {
 }
 ```
 
-The suffix is [configurable](../../../lint/overview/#defaults-and-configuration).All enums should have a zero value. Proto3 doesn't differentiate between set and unset fields, so if an enum field is not explicitly set, it defaults to the zero value. If an explicit zero value isn't part of the enum definition, this defaults to the actual zero value of the enum. For example, if you had:
+The suffix is [configurable](../../../lint/overview/#defaults-and-configuration).
+
+All enums should have a zero value. Proto3 doesn't differentiate between set and unset fields, so if an enum field is not explicitly set, it defaults to the zero value. If an explicit zero value isn't part of the enum definition, this defaults to the actual zero value of the enum. For example, if you had:
 
 ```protobuf
 enum Scheme {
@@ -371,7 +399,9 @@ This rule says that all `.proto` files must be named in `lower_snake_case.proto`
 
 ##### `RPC_REQUEST_STANDARD_NAME`, `RPC_RESPONSE_STANDARD_NAME`, `RPC_REQUEST_RESPONSE_UNIQUE`
 
-These rules enforce the message name of RPC request/responses, and that all request/responses are unique.**One of the single most important rules to enforce in modern Protobuf development is to have a unique request and response message for every RPC.** Separate RPCs shouldn't have their request and response parameters controlled by the same Protobuf message, and if you share a Protobuf message between multiple RPCs, this results in multiple RPCs being affected when fields on this Protobuf message change. **Even in straightforward cases**, best practice is to always have a wrapper message for your RPC request and response types. Buf enforces this with these three rules by verifying that:
+These rules enforce the message name of RPC request/responses, and that all request/responses are unique.
+
+**One of the single most important rules to enforce in modern Protobuf development is to have a unique request and response message for every RPC.** Separate RPCs shouldn't have their request and response parameters controlled by the same Protobuf message, and if you share a Protobuf message between multiple RPCs, this results in multiple RPCs being affected when fields on this Protobuf message change. **Even in straightforward cases**, best practice is to always have a wrapper message for your RPC request and response types. Buf enforces this with these three rules by verifying that:
 
 - All request and response messages are unique across your Protobuf schema.
 - All request and response messages are named after the RPC, either by naming them `MethodNameRequest`, `MethodNameResponse` or `ServiceNameMethodNameRequest`, `ServiceNameMethodNameResponse`.
@@ -391,7 +421,9 @@ There are [configuration options](../../../lint/overview/#defaults-and-configura
 
 ##### `PACKAGE_VERSION_SUFFIX`
 
-This rule enforces that the last component of a package must be a version of the form `v\d+, v\d+test.*, v\d+(alpha|beta)\d*, or v\d+p\d+(alpha|beta)\d*`, where numbers are >=1.Examples (all taken directly from `buf` testing):
+This rule enforces that the last component of a package must be a version of the form `v\d+, v\d+test.*, v\d+(alpha|beta)\d*, or v\d+p\d+(alpha|beta)\d*`, where numbers are >=1.
+
+Examples (all taken directly from `buf` testing):
 
 ```text
 foo.v1
@@ -413,7 +445,9 @@ foo.bar.v1test
 foo.bar.v1testfoo
 ```
 
-One of the core promises of Protobuf API development is to never have breaking changes in your APIs, and Buf helps enforce this through the [breaking change detector](../../../breaking/overview/). There are scenarios, however, where you do want to properly version your API. Instead of making changes, the proper method to do so is to make a completely new Protobuf package that's a copy of your existing Protobuf package, serve both packages server-side, and manually migrate your callers. This rule enforces that all packages have a version attached so that it's clear when a package represents a new version.A common idiom is to use alpha and beta packages for packages that are still in development and can have breaking changes. You can [configure the breaking change detector](../../../breaking/overview/#defaults-and-configuration) to ignore breaking changes in files for these packages with the `ignore_unstable_packages` option:
+One of the core promises of Protobuf API development is to never have breaking changes in your APIs, and Buf helps enforce this through the [breaking change detector](../../../breaking/overview/). There are scenarios, however, where you do want to properly version your API. Instead of making changes, the proper method to do so is to make a completely new Protobuf package that's a copy of your existing Protobuf package, serve both packages server-side, and manually migrate your callers. This rule enforces that all packages have a version attached so that it's clear when a package represents a new version.
+
+A common idiom is to use alpha and beta packages for packages that are still in development and can have breaking changes. You can [configure the breaking change detector](../../../breaking/overview/#defaults-and-configuration) to ignore breaking changes in files for these packages with the `ignore_unstable_packages` option:
 
 ::: info buf.yaml
 
@@ -435,7 +469,9 @@ service BarService {}
 service BazService {}
 ```
 
-Service names inherently end up having a lot of overlap with package names, and service naming often ends up inconsistent as a result across a larger Protobuf schema. Enforcing a consistent suffix takes away some of this inconsistency.The suffix is configurable via the `lint.service_suffix` option. For example, if you have this configuration in your `buf.yaml`...
+Service names inherently end up having a lot of overlap with package names, and service naming often ends up inconsistent as a result across a larger Protobuf schema. Enforcing a consistent suffix takes away some of this inconsistency.
+
+The suffix is configurable via the `lint.service_suffix` option. For example, if you have this configuration in your `buf.yaml`...
 
 ::: info buf.yaml
 
@@ -457,7 +493,9 @@ service BazEndpoint {}
 
 ### `COMMENTS`
 
-This is an "extra top-level" category that enforces that comments are present on various parts of your Protobuf schema.The `COMMENTS` category includes these rules:
+This is an "extra top-level" category that enforces that comments are present on various parts of your Protobuf schema.
+
+The `COMMENTS` category includes these rules:
 
 - `COMMENT_ENUM` checks that enums have non-empty comments.
 - `COMMENT_ENUM_VALUE` checks that enum values have non-empty comments.
@@ -467,7 +505,9 @@ This is an "extra top-level" category that enforces that comments are present on
 - `COMMENT_RPC` checks that RPCs have non-empty comments.
 - `COMMENT_SERVICE` checks that services have non-empty comments.
 
-Note that only leading comments are considered - trailing comments don't count towards passing these rules.Buf intends to host a documentation service (both public and on-prem) in the future, which may include a structured documentation scheme, however for now you may want to at least enforce that certain parts of your schema contain comments. This group allows such enforcement. Of note is that general usage may be not to use all rules in this category, instead selecting the rules you specifically want. For example:
+Note that only leading comments are considered - trailing comments don't count towards passing these rules.
+
+Buf intends to host a documentation service (both public and on-prem) in the future, which may include a structured documentation scheme, however for now you may want to at least enforce that certain parts of your schema contain comments. This group allows such enforcement. Of note is that general usage may be not to use all rules in this category, instead selecting the rules you specifically want. For example:
 
 ::: info buf.yaml
 
@@ -486,7 +526,9 @@ lint:
 
 ### `UNARY_RPC`
 
-This is an "extra top-level" category that outlaws streaming RPCs.This `UNARY_RPC` category includes these rules:
+This is an "extra top-level" category that outlaws streaming RPCs.
+
+This `UNARY_RPC` category includes these rules:
 
 - `RPC_NO_CLIENT_STREAMING` checks that RPCs aren't client streaming.
 - `RPC_NO_SERVER_STREAMING` checks that RPCs aren't server streaming.
@@ -495,11 +537,17 @@ Some RPC protocols don't allow streaming RPCs, for example [Twirp](https://twitc
 
 ### `OTHER`
 
-This is an "extra top-level" category that includes lint rules not in a main collection.This category can be modified between collection versions.
+This is an "extra top-level" category that includes lint rules not in a main collection.
+
+This category can be modified between collection versions.
 
 ###### `ENUM_FIRST_VALUE_ZERO`
 
-This rule enforces that the first enum value is the zero value.This is a `proto3` requirement on build, but isn't required in `proto2` on build. This rule enforces that this is also followed in `proto2`.As an example:
+This rule enforces that the first enum value is the zero value.
+
+This is a `proto3` requirement on build, but isn't required in `proto2` on build. This rule enforces that this is also followed in `proto2`.
+
+As an example:
 
 ```protobuf
 syntax = "proto2";

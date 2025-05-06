@@ -45,7 +45,9 @@ head:
 
 # Deploy Bufstream to Google Cloud with etcd
 
-This page walks you through installing Bufstream into your Google Cloud Platform (GCP) deployment, using etcd for metadata storage. See [Tuning and performance](../../tuning-performance/) for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
+This page walks you through installing Bufstream into your Google Cloud Platform (GCP) deployment, using etcd for metadata storage. See [Tuning and performance](../../tuning-performance/) for defaults and recommendations about resources, replicas, storage, and scaling.
+
+Data from your Bufstream cluster never leaves your network or reports back to Buf.
 
 ## Prerequisites
 
@@ -67,7 +69,9 @@ If you don't yet have your GCP environment, you'll need at least the following I
 
 ## Terraform Module
 
-We also provide a Terraform Module at [https://github.com/bufbuild/terraform-modules-bufstream](https://github.com/bufbuild/terraform-modules-bufstream). It sets up all necessary components from an empty GCP project, or adds all necessary components to any subset of the required ones that are already installed.If you're setting up from an empty project, you need the following permissions:
+We also provide a Terraform Module at [https://github.com/bufbuild/terraform-modules-bufstream](https://github.com/bufbuild/terraform-modules-bufstream). It sets up all necessary components from an empty GCP project, or adds all necessary components to any subset of the required ones that are already installed.
+
+If you're setting up from an empty project, you need the following permissions:
 
 - `Compute Network Admin` (`roles/compute.networkAdmin`)
 - `Kubernetes Engine Admin` (`roles/container.admin`)
@@ -305,7 +309,9 @@ metadata:
 
 ### 3\. Install the Helm chart
 
-If you want to deploy Bufstream with zone-aware routing, go to the [zonal deployment steps](#zonal-deployment). If not, follow the instructions below to deploy the basic Helm chart.After following the steps above, the set of Helm values should be similar to the example below:
+If you want to deploy Bufstream with zone-aware routing, go to the [zonal deployment steps](#zonal-deployment). If not, follow the instructions below to deploy the basic Helm chart.
+
+After following the steps above, the set of Helm values should be similar to the example below:
 
 +++tabs key:7aa715642264784801820a6eecd2ac16
 

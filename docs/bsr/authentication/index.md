@@ -114,7 +114,9 @@ If you wish to add authentication to your continuous integration jobs, we recomm
 - [Travis CI](https://docs.travis-ci.com/user/environment-variables#defining-encrypted-variables-in-travisyml)
 - [CircleCI](https://circleci.com/docs/2.0/env-vars/)
 
-Access the secret token as specified by your CI provider and make it available as a `BUF_TOKEN` environment variable .If this isn't possible, you can also login via the Buf CLI (assuming `BUF_TOKEN` is set):
+Access the secret token as specified by your CI provider and make it available as a `BUF_TOKEN` environment variable .
+
+If this isn't possible, you can also login via the Buf CLI (assuming `BUF_TOKEN` is set):
 
 ```console
 $ echo ${BUF_TOKEN} | buf registry login --token-stdin
@@ -133,7 +135,9 @@ You can now use any of the authenticated Buf CLI commands, such as `buf push`.
 
 ### Where BSR credentials are stored locally
 
-Credentials are stored in `$HOME/.netrc`. After running [`buf registry logout`](../../reference/cli/buf/registry/logout/), all existing BSR credentials are removed from `$HOME/.netrc`. If you're developing on a Windows machine, the credentials file is `%HOME%/_netrc`.For more information on `.netrc`, check out the [curl documentation](https://everything.curl.dev/usingcurl/netrc).
+Credentials are stored in `$HOME/.netrc`. After running [`buf registry logout`](../../reference/cli/buf/registry/logout/), all existing BSR credentials are removed from `$HOME/.netrc`. If you're developing on a Windows machine, the credentials file is `%HOME%/_netrc`.
+
+For more information on `.netrc`, check out the [curl documentation](https://everything.curl.dev/usingcurl/netrc).
 
 ### `BUF_TOKEN` formats
 
@@ -164,4 +168,6 @@ The order of precedence for CLI authentication is:
 
 ## IP address blocking
 
-We block access to all BSR instances from any IP address that [Google classifies](https://cloud.google.com/armor/docs/security-policy-overview#source_geography_rules) as being located in a country sanctioned by the [US OFAC](https://ofac.treasury.gov/sanctions-programs-and-country-information). Trying to access the BSR from these IP addresses results in a `403: Forbidden` error.If you believe your IP addresses are being categorized erroneously, you can [report the issue directly to Google](https://support.google.com/websearch/workflow/9308722?visit_id=638742065393032079-474813271&rd=1).
+We block access to all BSR instances from any IP address that [Google classifies](https://cloud.google.com/armor/docs/security-policy-overview#source_geography_rules) as being located in a country sanctioned by the [US OFAC](https://ofac.treasury.gov/sanctions-programs-and-country-information). Trying to access the BSR from these IP addresses results in a `403: Forbidden` error.
+
+If you believe your IP addresses are being categorized erroneously, you can [report the issue directly to Google](https://support.google.com/websearch/workflow/9308722?visit_id=638742065393032079-474813271&rd=1).

@@ -92,4 +92,8 @@ The steps below must be carried out by users with administrative privileges in y
 
 ## Provision users
 
-In the **Overview** tab in the Provisioning app, click **Start Provisioning**. Azure provisions users on a fixed interval, but you can also navigate to **Provision on demand** if you want to immediately provision users.If you had previously assigned this Azure application to users before enabling SCIM, Azure tries to match the users to existing users within the BSR, and this should succeed without error. If this fails, consult the **Provisioning Logs** tab in the Provisioning app.If you encounter any errors provisioning users, see the [relevant part of the FAQ](../faq/#how-do-i-resolve-a-failed-user-provision). If you are unable to resolve those issues, contact [Support](https://support.buf.build) or your Buf representative.
+In the **Overview** tab in the Provisioning app, click **Start Provisioning**. Azure provisions users on a fixed interval, but you can also navigate to **Provision on demand** if you want to immediately provision users.
+
+If you had previously assigned this Azure application to users before enabling SCIM, Azure tries to match the users to existing users within the BSR, and this should succeed without error. If this fails, consult the **Provisioning Logs** tab in the Provisioning app.
+
+If you encounter any errors provisioning users, see the [relevant part of the FAQ](../faq/#how-do-i-resolve-a-failed-user-provision). If you are unable to resolve those issues, contact [Support](https://support.buf.build) or your Buf representative.

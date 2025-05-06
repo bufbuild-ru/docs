@@ -58,7 +58,9 @@ To learn more about how these plugins are packaged and distributed, go to the [b
 
 ## Setup
 
-You need to be logged into the BSR from the command line to consume the C++ SDKs. See the [authentication docs](../../authentication/) for local and CI environments.Using a C++ generated SDK requires configuring CMake scripts in your project to pull the generated libraries from the BSR. The BSR's generated SDKs page for C++ walks you through a series of steps to do so, and they're explained in more detail below.
+You need to be logged into the BSR from the command line to consume the C++ SDKs. See the [authentication docs](../../authentication/) for local and CI environments.
+
+Using a C++ generated SDK requires configuring CMake scripts in your project to pull the generated libraries from the BSR. The BSR's generated SDKs page for C++ walks you through a series of steps to do so, and they're explained in more detail below.
 
 ### 1\. Create `FetchContent` script
 
@@ -85,11 +87,17 @@ The URL to fetch the content is also generated based on the module and plugin. I
 https://buf.build/gen/cmake/{moduleOwner}/{moduleName}/{pluginOwner}/{pluginName}/{pluginVersion}-{commitHash}.{pluginRevision}
 ```
 
-The `commitHash` is the first 12 characters of the complete hash generated for the module commit in the BSR.The CMake script can live anywhere, but for consistency, we recommend placing it in a file in a `cmake/` directory, named with the same name passed to `FetchContent`. In this example, the code is saved to a file named `cmake/googleapis_googleapis_protocolbuffers_cpp.cmake`.If your build process has issues finding this file, see [Troubleshooting](#troubleshooting).
+The `commitHash` is the first 12 characters of the complete hash generated for the module commit in the BSR.
+
+The CMake script can live anywhere, but for consistency, we recommend placing it in a file in a `cmake/` directory, named with the same name passed to `FetchContent`. In this example, the code is saved to a file named `cmake/googleapis_googleapis_protocolbuffers_cpp.cmake`.
+
+If your build process has issues finding this file, see [Troubleshooting](#troubleshooting).
 
 ### 2\. Add the script to your build process
 
-The next step is to invoke this `FetchContent` script as part of your build process. We recommend using CMake's [include](https://cmake.org/cmake/help/latest/command/include.html#include) command.In your main `CMakeLists.txt` file, add the following line:
+The next step is to invoke this `FetchContent` script as part of your build process. We recommend using CMake's [include](https://cmake.org/cmake/help/latest/command/include.html#include) command.
+
+In your main `CMakeLists.txt` file, add the following line:
 
 ```cmake
 include(googleapis_googleapis_protocolbuffers_cpp)
@@ -122,10 +130,16 @@ CMake Error at CMakeLists.txt:27 (include):
   include could not find requested file:
 ```
 
-This means that your build process is unable to find your `FetchContent` CMake file. When you use `include`, CMake first looks for a file with the exact path and name you specified relative to your `CMAKE_SOURCE_DIR`. If it doesn't find it, it then searches `CMAKE_MODULE_PATH` for a file with the name specified and a `.cmake` extension.Our instructions on the BSR assume that you have a `CMAKE_MODULE_PATH` set, which is why our `include` doesn't specify a `.cmake` extension. To resolve this, verify that you have a `CMAKE_MODULE_PATH` configured. For example, if you saved the file in a `cmake/` directory, check that you have something similar to the following in your main `CMakeLists.txt` file:
+This means that your build process is unable to find your `FetchContent` CMake file. When you use `include`, CMake first looks for a file with the exact path and name you specified relative to your `CMAKE_SOURCE_DIR`. If it doesn't find it, it then searches `CMAKE_MODULE_PATH` for a file with the name specified and a `.cmake` extension.
+
+Our instructions on the BSR assume that you have a `CMAKE_MODULE_PATH` set, which is why our `include` doesn't specify a `.cmake` extension. To resolve this, verify that you have a `CMAKE_MODULE_PATH` configured. For example, if you saved the file in a `cmake/` directory, check that you have something similar to the following in your main `CMakeLists.txt` file:
 
 ```Makefile
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 ```
 
-and then verify that the location of the file is `${CMAKE_MODULE_PATH}/cmake` (without the `.cmake` extension).However, if you don't use a `CMAKE_MODULE_PATH` then instead you need to specify the exact file path and name (with `.cmake` extension) to `include`. For example, if you have the file `cmake/googleapis_googleapis_protocolbuffers_cpp.cmake`, then your `include` should look like this:`include(cmake/googleapis_googleapis_protocolbuffers_cpp.cmake)`
+and then verify that the location of the file is `${CMAKE_MODULE_PATH}/cmake` (without the `.cmake` extension).
+
+However, if you don't use a `CMAKE_MODULE_PATH` then instead you need to specify the exact file path and name (with `.cmake` extension) to `include`. For example, if you have the file `cmake/googleapis_googleapis_protocolbuffers_cpp.cmake`, then your `include` should look like this:
+
+`include(cmake/googleapis_googleapis_protocolbuffers_cpp.cmake)`

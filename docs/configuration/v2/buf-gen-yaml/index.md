@@ -313,7 +313,11 @@ The `managed` key is used to enable managed mode, an advanced feature that allow
 
 ### `override`
 
-**Optional.** Allows you to granularly override the file and field options that managed mode handles. Similar to `disable` rules, there are two types of `override` rules: field option or file option.For each `override` rule, you must provide an option and a valid value based on the option. You can then choose to set a path and/or module to filter the files that the `override` rule applies to. The rules are applied instead of managed mode's [default behavior](../../../generate/managed-mode/#default-behavior) unless an option or file has an applicable `disable` rule.For file option `override` rules, there are 4 possible keys:
+**Optional.** Allows you to granularly override the file and field options that managed mode handles. Similar to `disable` rules, there are two types of `override` rules: field option or file option.
+
+For each `override` rule, you must provide an option and a valid value based on the option. You can then choose to set a path and/or module to filter the files that the `override` rule applies to. The rules are applied instead of managed mode's [default behavior](../../../generate/managed-mode/#default-behavior) unless an option or file has an applicable `disable` rule.
+
+For file option `override` rules, there are 4 possible keys:
 
 - `file_option` (required)
 - `value` (required)
@@ -337,11 +341,13 @@ For field option `override` rules, there are 5 possible keys:
 **Required.** One of:
 
 - `remote`: Indicates a remote plugin hosted on either the public BSR at https://buf.build or a private BSR.
+
   - For all public BSR plugins, this must take the form: `buf.build/<owner-org>/<plugin-name>:<plugin-version>`
   - For custom plugins, this takes the form: `<bsr-server>/<owner-org>/<plugin-name>:<plugin-version>`
   - `<plugin-version>` is optional. If it isn't present, the latest version is used. If it's specified, the `revision` field can be specified to pin an exact version.
     - The plugin version is specified by the upstream project.
     - The revision is a sequence number that Buf increments when rebuilding or repackaging the plugin.
+
 - `protoc_builtin`: Only applies to the code generators that are built into `protoc`. The following values for this field result in invoking `protoc` instead of a dedicated plugin binary:
 
   - `cpp`
@@ -365,7 +371,9 @@ For field option `override` rules, there are 5 possible keys:
 
 ### `opt`
 
-**Optional.** Specifies one or more plugin options for a plugin. You can provide options as either a single string or a list of strings.In `protoc`, you specify options with the `--<plugin name>_opt` flag and at least 1 argument:
+**Optional.** Specifies one or more plugin options for a plugin. You can provide options as either a single string or a list of strings.
+
+In `protoc`, you specify options with the `--<plugin name>_opt` flag and at least 1 argument:
 
 ```text
 protoc --foo_out=bar --foo_opt=x=y,a=b <proto files>
@@ -440,7 +448,9 @@ Each filter operates on the input image that's the result of the previous operat
 
 ## `inputs`
 
-**Optional.** A list of inputs to generate code for. In previous Buf configurations, the input was passed to `buf generate` from the CLI, but in the `v2` configuration, it's specified in `buf.gen.yaml` so that all code generation settings are in one place.The accepted input types are the same as the [input types](../../../reference/inputs/#source) currently supported by the Buf CLI, with each key listed on a separate line. Every input can also optionally take the following sub-keys:
+**Optional.** A list of inputs to generate code for. In previous Buf configurations, the input was passed to `buf generate` from the CLI, but in the `v2` configuration, it's specified in `buf.gen.yaml` so that all code generation settings are in one place.
+
+The accepted input types are the same as the [input types](../../../reference/inputs/#source) currently supported by the Buf CLI, with each key listed on a separate line. Every input can also optionally take the following sub-keys:
 
 - `types`: Include only the specified types when generating.
 - `paths`: Include only the specified paths when generating.
@@ -455,7 +465,9 @@ String. Specifies a local directory path as the input, with the location as the 
 
 ### `module`
 
-String. Specifies a remote BSR module as the input, with the location as the value. A [commit or label](../../../bsr/commits-labels/) can also be specified.Example: `buf.build/acme/weather`, `buf.build/acme/weather:main`, `buf.build/acme/weather:7abdb7802c8f4737a1a23a35ca8266ef`
+String. Specifies a remote BSR module as the input, with the location as the value. A [commit or label](../../../bsr/commits-labels/) can also be specified.
+
+Example: `buf.build/acme/weather`, `buf.build/acme/weather:main`, `buf.build/acme/weather:7abdb7802c8f4737a1a23a35ca8266ef`
 
 ### `tarball`
 

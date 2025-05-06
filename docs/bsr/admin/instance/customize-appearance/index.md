@@ -56,11 +56,15 @@ You can customize several aspects of your private instance's appearance to match
 - **Custom logo and favicons:** Replace Buf's logo with your company's logo in the header and favicons.
 - **Font families:** Override or extend the default fonts for UI text and code blocks.
 
-To customize your BSR's appearance, go to **Admin panel > Theme**:![Screenshot of theme panel](../../../../images/bsr/theming.png)
+To customize your BSR's appearance, go to **Admin panel > Theme**:
+
+![Screenshot of theme panel](../../../../images/bsr/theming.png)
 
 ## Changing fonts
 
 For both font options, the panel displays the currently chosen fonts in order from left to right, following the behavior of the `font-family` CSS property.
 
 - To remove a font from the list, click on the **X** next to its name.
-- To add a font, click into the search bar. You can either add a font from the list or manually define a custom font:![Screenshot of custom font panel](../../../../images/bsr/theming-add-custom-font.png)
+- To add a font, click into the search bar. You can either add a font from the list or manually define a custom font:
+
+  ![Screenshot of custom font panel](../../../../images/bsr/theming-add-custom-font.png)

@@ -49,7 +49,9 @@ The Buf Schema Repository (BSR) provides generated SDKs for C# in the form of a 
 
 ## Setup
 
-To use Buf's NuGet repository, you must configure it in your `NuGet.config` file.You need to configure a token for the registry. Create a token (see the [Authentication](../../authentication/#create-a-token) page for instructions), and then include it in the `ClearTextPassword` field:
+To use Buf's NuGet repository, you must configure it in your `NuGet.config` file.
+
+You need to configure a token for the registry. Create a token (see the [Authentication](../../authentication/#create-a-token) page for instructions), and then include it in the `ClearTextPassword` field:
 
 ```xml{10}
 <?xml version="1.0" encoding="utf-8"?>
@@ -94,7 +96,9 @@ The BSR NuGet repository has a special syntax for SDK names:
 BSR.{Module-Owner}.{Module-Name}.{Plugin-Owner}.{Plugin-Name}
 ```
 
-Each component is title-cased to follow C# package-naming conventions. For an easy way to find the package name for your module, visit your repository's generated SDK page.For example, the SDK name `BSR.Connectrpc.Eliza.Grpc.Csharp` contains code for the [`connectrpc/eliza`](https://buf.build/connectrpc/eliza) module using the [`grpc/csharp`](https://buf.build/grpc/csharp) plugin.
+Each component is title-cased to follow C# package-naming conventions. For an easy way to find the package name for your module, visit your repository's generated SDK page.
+
+For example, the SDK name `BSR.Connectrpc.Eliza.Grpc.Csharp` contains code for the [`connectrpc/eliza`](https://buf.build/connectrpc/eliza) module using the [`grpc/csharp`](https://buf.build/grpc/csharp) plugin.
 
 ### Versions
 
@@ -146,8 +150,12 @@ That represents:
 - Commit timestamp: `20240717164601`
 - Commit short name: `6bcea16e2570`
 
-The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../repositories/#default-label).Commits on the default label have released versions, and all other commits have unreleased versions.
+The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../repositories/#default-label).
+
+Commits on the default label have released versions, and all other commits have unreleased versions.
 
 ## Available plugins
 
-For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for C#.To learn more about how these plugins are packaged and distributed, go to the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that you think should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).
+For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for C#.
+
+To learn more about how these plugins are packaged and distributed, go to the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that you think should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).

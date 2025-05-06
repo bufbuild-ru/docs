@@ -49,7 +49,9 @@ Buf modules can depend on other modules that share a [workspace](../../../cli/mo
 
 ## Configuring dependencies
 
-Buf uses two files to manage dependencies: `buf.yaml` and `buf.lock`.The `buf.yaml` file specifies the workspace's configuration and external dependencies. All external dependencies can be imported by modules in the workspace, and are referenced by their module names on the Buf Schema Registry (BSR). All modules contained within the workspace can be dependencies for each other without any further declaration.
+Buf uses two files to manage dependencies: `buf.yaml` and `buf.lock`.
+
+The `buf.yaml` file specifies the workspace's configuration and external dependencies. All external dependencies can be imported by modules in the workspace, and are referenced by their module names on the Buf Schema Registry (BSR). All modules contained within the workspace can be dependencies for each other without any further declaration.
 
 ::: info Example with internal and external dependencies
 
@@ -112,7 +114,9 @@ deps:
 
 ## Viewing dependencies and dependents
 
-You can view any module's direct and indirect dependencies, and any modules that depend on it, by going to the **Deps** tab in its repository. All entries are clickable, allowing you to navigate to and explore each dependency's codebase.![BSR dependency tab view](../../../images/bsr/deps-view.png)
+You can view any module's direct and indirect dependencies, and any modules that depend on it, by going to the **Deps** tab in its repository. All entries are clickable, allowing you to navigate to and explore each dependency's codebase.
+
+![BSR dependency tab view](../../../images/bsr/deps-view.png)
 
 - **Dependencies** shows only the dependencies of the module _at the specific label or commit that you're currently viewing_.
 - **Used by** shows dependents on the module for any of its labels and commits, for each dependent's _latest commit in its default label_. Older commits or other labels within the dependent aren't displayed.
@@ -123,7 +127,9 @@ Understanding how imports are resolved is essential for properly managing depend
 
 ### Local imports
 
-The resolution process first checks the workspace's `.proto` files for imports relative to its `buf.yaml` file. If the specified import exists in the specified location, the imported file is resolved locally.For example, consider a workspace with the following structure:
+The resolution process first checks the workspace's `.proto` files for imports relative to its `buf.yaml` file. If the specified import exists in the specified location, the imported file is resolved locally.
+
+For example, consider a workspace with the following structure:
 
 ```text
 workspace_root
@@ -257,4 +263,8 @@ deps:
 
 ### How do we know if/when a dependency has been tampered with?
 
-Whenever you're building your modules, `buf build` examines your local Buf cache, downloads any missing dependencies, and checks its manifest digest against the one stored in the `buf.lock` file. The CLI warns you if they don't match and fails the build, avoiding use of the offending dependency consumption.Such a scenario means that the dependency had different content than the one defined in the lock file, which could mean a potential [man-in-the-middle (MITM)](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attack.As long as your `buf.lock` is checked into source control, and you keep your CLI version regularly updated, dependencies consumed from the BSR are protected against tampering.
+Whenever you're building your modules, `buf build` examines your local Buf cache, downloads any missing dependencies, and checks its manifest digest against the one stored in the `buf.lock` file. The CLI warns you if they don't match and fails the build, avoiding use of the offending dependency consumption.
+
+Such a scenario means that the dependency had different content than the one defined in the lock file, which could mean a potential [man-in-the-middle (MITM)](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attack.
+
+As long as your `buf.lock` is checked into source control, and you keep your CLI version regularly updated, dependencies consumed from the BSR are protected against tampering.

@@ -49,7 +49,9 @@ head:
 The `v1beta1` configuration file described in this page is deprecated and we recommend upgrading to a [`v2`](../../v2/buf-yaml/) configuration. For instructions and context, see the [migration guide](../../../migration-guides/migrate-v2-config-files/).
 :::
 
-The `buf.yaml` file defines a [module](../../../cli/modules-workspaces/), and is placed at the root of the Protobuf source files it defines. The placement of the `buf.yaml` configuration tells `buf` where to search for `.proto` files, and how to handle imports.This file contains [lint](../../../lint/rules/) and [breaking change detection](../../../breaking/rules/) rules, and if applicable, the name of your module and a list of dependencies.
+The `buf.yaml` file defines a [module](../../../cli/modules-workspaces/), and is placed at the root of the Protobuf source files it defines. The placement of the `buf.yaml` configuration tells `buf` where to search for `.proto` files, and how to handle imports.
+
+This file contains [lint](../../../lint/rules/) and [breaking change detection](../../../breaking/rules/) rules, and if applicable, the name of your module and a list of dependencies.
 
 ## Default values
 
@@ -135,7 +137,11 @@ This is a list of the directories to ignore from `.proto` file discovery. Any di
 
 > `roots` are no longer recommended and have been removed in `v1` in favor of [workspaces](../../../reference/workspaces/). If you have any `roots` configured, see the [`v2` migration guide](../../../migration-guides/migrate-v2-config-files/).
 
-This is a list of the directories that contain your `.proto` files. The directory paths must be relative to the root of your `buf.yaml`, and can't point to a location outside of your `buf.yaml`. They also represent the root of your import paths within your `.proto` files.For those familiar with `protoc`, `roots` corresponds to your `--proto_paths`, aliased as `-I` with `protoc` — these are the directories that the compiler uses to search for imports.As an example, suppose your module defines two files, `proto/foo/bar/bar.proto` and `proto/foo/baz/baz.proto`. If you want these files to refer to each other without the common `proto` root, you could apply this configuration:
+This is a list of the directories that contain your `.proto` files. The directory paths must be relative to the root of your `buf.yaml`, and can't point to a location outside of your `buf.yaml`. They also represent the root of your import paths within your `.proto` files.
+
+For those familiar with `protoc`, `roots` corresponds to your `--proto_paths`, aliased as `-I` with `protoc` — these are the directories that the compiler uses to search for imports.
+
+As an example, suppose your module defines two files, `proto/foo/bar/bar.proto` and `proto/foo/baz/baz.proto`. If you want these files to refer to each other without the common `proto` root, you could apply this configuration:
 
 ::: info buf.yaml
 
@@ -166,7 +172,9 @@ import "foo/bar/bar.proto";
 
 > These requirements are no longer relevant in `v1` because `roots` have been removed. These guidelines remain for users that are still using `v1beta1`. For more information, see the [`v2` migration guide](../../../migration-guides/migrate-v2-config-files/).
 
-There are two additional requirements that `buf` imposes on your `.proto` file structure for compilation to succeed that aren't enforced by `protoc`, both of which are essential to successful modern Protobuf development across a number of languages.**1\. Roots must not overlap — one root can not be a sub-directory of another root.**
+There are two additional requirements that `buf` imposes on your `.proto` file structure for compilation to succeed that aren't enforced by `protoc`, both of which are essential to successful modern Protobuf development across a number of languages.
+
+**1\. Roots must not overlap — one root can not be a sub-directory of another root.**
 
 ````text
 For example, this isn't a valid configuration:

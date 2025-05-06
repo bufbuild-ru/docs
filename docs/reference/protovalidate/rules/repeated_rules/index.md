@@ -49,7 +49,9 @@ RepeatedRules describe the rules applied to `repeated` values.
 
 ## min_items
 
-`min_items` requires that this field must contain at least the specified minimum number of items.Note that `min_items = 1` is equivalent to setting a field as `required`.
+`min_items` requires that this field must contain at least the specified minimum number of items.
+
+Note that `min_items = 1` is equivalent to setting a field as `required`.
 
 ::: info repeated.min_items example
 

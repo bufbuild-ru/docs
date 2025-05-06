@@ -45,11 +45,15 @@ head:
 
 # GitHub Action
 
-The [buf-action](https://github.com/bufbuild/buf-action) GitHub Action makes it easy to run the [Buf CLI](https://buf.build) within a workflow to check for [build](../../../reference/cli/buf/build/), [lint](../../../lint/overview/), [format](../../../format/style/), and [breaking change](../../../breaking/overview/) errors, and automatically [publish schema changes](../../module/publish/) to the [Buf Schema Registry (BSR)](https://buf.build/product/bsr).![Annotations example for lint and breaking changes](../../../images/integrations/gh-annotations-example.png "Annotations example")
+The [buf-action](https://github.com/bufbuild/buf-action) GitHub Action makes it easy to run the [Buf CLI](https://buf.build) within a workflow to check for [build](../../../reference/cli/buf/build/), [lint](../../../lint/overview/), [format](../../../format/style/), and [breaking change](../../../breaking/overview/) errors, and automatically [publish schema changes](../../module/publish/) to the [Buf Schema Registry (BSR)](https://buf.build/product/bsr).
+
+![Annotations example for lint and breaking changes](../../../images/integrations/gh-annotations-example.png "Annotations example")
 
 ## Prerequisites
 
-If you're publishing schema changes, the Buf GitHub Action requires a BSR [authentication token](../../authentication/#create-a-token). Authenticating with the BSR is required for both the "push" and "archive label" steps.To authenticate with the BSR, set the `token` parameter to the [BSR token](../../authentication/#create-a-token). We recommend storing the `token` value as a [GitHub secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
+If you're publishing schema changes, the Buf GitHub Action requires a BSR [authentication token](../../authentication/#create-a-token). Authenticating with the BSR is required for both the "push" and "archive label" steps.
+
+To authenticate with the BSR, set the `token` parameter to the [BSR token](../../authentication/#create-a-token). We recommend storing the `token` value as a [GitHub secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
 
 ## Setup
 
@@ -94,7 +98,11 @@ With the default configuration above, the Action does the following:
 
 ### Summary comment
 
-The Action reports the status of the most recent checks in a comment on each pull request.![Comment example showing the GitHub summary](../../../images/integrations/gh-comment-example.png "Summary comment example")To disable the comment, set the `comment` parameter to `false` and remove the `pull_request: write` permission because it's no longer required.
+The Action reports the status of the most recent checks in a comment on each pull request.
+
+![Comment example showing the GitHub summary](../../../images/integrations/gh-comment-example.png "Summary comment example")
+
+To disable the comment, set the `comment` parameter to `false` and remove the `pull_request: write` permission because it's no longer required.
 
 ```diff
 name: Buf CI

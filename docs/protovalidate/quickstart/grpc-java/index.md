@@ -271,7 +271,9 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 5.  Verify that configuration is complete by running `buf generate`. It should complete with no error.
 
 ::: tip Further reading and protoc
-Further reading and `protoc`Learn more about incorporating Protovalidate and `protoc` support in the [Adding protovalidate](../../schemas/adding-protovalidate/) page.
+Further reading and `protoc`
+
+Learn more about incorporating Protovalidate and `protoc` support in the [Adding protovalidate](../../schemas/adding-protovalidate/) page.
 :::
 
 ### Add a standard rule
@@ -329,7 +331,9 @@ In `Invoice`, the `line_items` field needs to meet two business rules:
 1.  There should always be at least one `LineItem`.
 2.  No two `LineItems` should ever share the same `product_id` and `price`.
 
-Protovalidate can enforce both of these rules by combining a [standard rule](../../schemas/standard-rules/) with a [custom rule](../../schemas/custom-rules/) written in [Common Expression Language (CEL)](https://cel.dev/).First, use the `min_items` standard rule to require at least one `LineItem`:
+Protovalidate can enforce both of these rules by combining a [standard rule](../../schemas/standard-rules/) with a [custom rule](../../schemas/custom-rules/) written in [Common Expression Language (CEL)](https://cel.dev/).
+
+First, use the `min_items` standard rule to require at least one `LineItem`:
 
 ::: info proto/invoice.proto
 
@@ -445,7 +449,9 @@ No Connect or gRPC implementations automatically enforce Protovalidate rules. To
 
 ### Add a Protovalidate interceptor
 
-The `buf-examples` repository provides a sample `ValidationInterceptor` class, a gRPC `ServerInterceptor` that's ready to use with Protovalidate. It inspects requests, runs Protovalidate, and returns a gRPC `INVALID_ARGUMENT` status on failure. Validation failure responses use the same response format as the Connect RPC [Protovalidate interceptor](https://github.com/connectrpc/validate-go/).Follow these steps to begin enforcing Protovalidate rules:
+The `buf-examples` repository provides a sample `ValidationInterceptor` class, a gRPC `ServerInterceptor` that's ready to use with Protovalidate. It inspects requests, runs Protovalidate, and returns a gRPC `INVALID_ARGUMENT` status on failure. Validation failure responses use the same response format as the Connect RPC [Protovalidate interceptor](https://github.com/connectrpc/validate-go/).
+
+Follow these steps to begin enforcing Protovalidate rules:
 
 1.  In your first console window, use `Ctrl-c` to stop your server.
 2.  In `InvoiceServer`, add necessary imports:
@@ -561,7 +567,11 @@ You've now added Protovalidate to a gRPC in Java, but `buf curl` isn't a great w
 
 ## Test Protovalidate errors
 
-The starting code for this tutorial contains `InvoiceServerTest`, a JUnit 5 test. It starts a server with a Protovalidate interceptor and iterates through a series of test cases.In the prior section, you saw that the `violations` list returned by Protovalidate follows a predictable structure. Each violation in the list is a Protobuf message named `Violation`, [defined within Protovalidate itself](../../../reference/protovalidate/violations/).The test already provides a convenient way to declare expected violations through a `ViolationSpec` class:
+The starting code for this tutorial contains `InvoiceServerTest`, a JUnit 5 test. It starts a server with a Protovalidate interceptor and iterates through a series of test cases.
+
+In the prior section, you saw that the `violations` list returned by Protovalidate follows a predictable structure. Each violation in the list is a Protobuf message named `Violation`, [defined within Protovalidate itself](../../../reference/protovalidate/violations/).
+
+The test already provides a convenient way to declare expected violations through a `ViolationSpec` class:
 
 ::: info ViolationSpec in InvoiceServerTest.java
 

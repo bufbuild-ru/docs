@@ -53,7 +53,11 @@ The BSR limits the number of API requests you can make within a specified amount
 
 #### Unauthenticated traffic
 
-The BSR allows 10 unauthenticated code generation requests per hour, with a burst of up to 10 requests. If you send more than 10 unauthenticated requests per hour using [remote plugins](../remote-plugins/overview/), you’ll receive a rate limit error.To prevent service interruptions, ensure that your CI jobs and local usages of the Buf CLI authenticate with the Buf Schema Registry (BSR) before making these requests.Pro and Enterprise users aren't affected by this limit.
+The BSR allows 10 unauthenticated code generation requests per hour, with a burst of up to 10 requests. If you send more than 10 unauthenticated requests per hour using [remote plugins](../remote-plugins/overview/), you’ll receive a rate limit error.
+
+To prevent service interruptions, ensure that your CI jobs and local usages of the Buf CLI authenticate with the Buf Schema Registry (BSR) before making these requests.
+
+Pro and Enterprise users aren't affected by this limit.
 
 ## How to authenticate
 
@@ -80,7 +84,9 @@ The BSR allows 1 authenticated request per second to this service, with a burst 
 
 ### Buf CLI
 
-Every call to `buf generate` that involves remote plugins counts as one request, with a max limit of 20 plugins per request. For example, if you have a `buf.gen.yaml` file with 22 remote plugins, the BSR rejects your request.If you have exactly 20 (or fewer) plugins and run `buf generate`, this counts as one request.
+Every call to `buf generate` that involves remote plugins counts as one request, with a max limit of 20 plugins per request. For example, if you have a `buf.gen.yaml` file with 22 remote plugins, the BSR rejects your request.
+
+If you have exactly 20 (or fewer) plugins and run `buf generate`, this counts as one request.
 
 ## Monitoring your rate limit
 
@@ -99,4 +105,6 @@ Requests that exceed a rate limit return HTTP status code 429 and the `X-RateLim
 
 ## Increasing your rate limit
 
-If you want a higher rate limit, consider making authenticated requests instead of unauthenticated requests. Authenticated requests have a significantly higher rate limit than unauthenticated requests. See how to [authenticate the Buf CLI](../authentication/#authenticating-in-ci) for details on authenticating.If you are hitting a rate limit that you don't believe you should be, [contact us](../../contact/).
+If you want a higher rate limit, consider making authenticated requests instead of unauthenticated requests. Authenticated requests have a significantly higher rate limit than unauthenticated requests. See how to [authenticate the Buf CLI](../authentication/#authenticating-in-ci) for details on authenticating.
+
+If you are hitting a rate limit that you don't believe you should be, [contact us](../../contact/).

@@ -45,7 +45,9 @@ head:
 
 # Migrate to v2 configuration files
 
-The migration from v1 to v2 configuration files encompasses a lot of changes under the hood of the Buf CLI (see our [blog post](/blog/buf-cli-next-generation/index.md) for the "Why?"), but the migration itself is straightforward and simple in most cases, and we've provided a tool that does almost all of the work for you. This page describes the changes and shows you how to migrate your configuration to v2.**Your v1 configuration files still work.** Buf is enterprise-grade software, and we want you to be minimally impacted, so you can upgrade at your leisure. However, upgrading is simple and we recommend it.
+The migration from v1 to v2 configuration files encompasses a lot of changes under the hood of the Buf CLI (see our [blog post](/blog/buf-cli-next-generation/index.md) for the "Why?"), but the migration itself is straightforward and simple in most cases, and we've provided a tool that does almost all of the work for you. This page describes the changes and shows you how to migrate your configuration to v2.
+
+**Your v1 configuration files still work.** Buf is enterprise-grade software, and we want you to be minimally impacted, so you can upgrade at your leisure. However, upgrading is simple and we recommend it.
 
 ::: tip Note
 Because `v1beta` and v1 configurations are similar, this migration path will also work for `v1beta` configurations. If you still have a `v1beta` configuration, we strongly encourage you to migrate, so you can take advantage of the features below.
@@ -65,7 +67,9 @@ If you want to see what the v2 files and directory structure look like before ma
 $ buf config migrate --diff
 ```
 
-The migration tool does have one case where it doesn't detect the configuration files: if you have configuration files with a non-standard name (for example, if you've specified language-specific templates for code generation like `buf.gen.go.yaml`).You also may not want to migrate all of your files at once for various reasons, such as:
+The migration tool does have one case where it doesn't detect the configuration files: if you have configuration files with a non-standard name (for example, if you've specified language-specific templates for code generation like `buf.gen.go.yaml`).
+
+You also may not want to migrate all of your files at once for various reasons, such as:
 
 - you want to keep v1 `buf.yaml` files around for testing purposes
 - you want to separate migration of `buf.yaml`/`buf.work.yaml`/`buf.lock` files from `buf.gen.yaml` files
@@ -98,7 +102,9 @@ $ buf config migrate --workspace </paths/to/workspaces>
 
 :::
 
-After migration, run `buf build` and `buf lint` in the root of your repository to make sure everything works.In v2 configurations, we've added the `PACKAGE_NO_IMPORT_CYCLE` rule to the `STANDARD` lint category. The tool ignores this rule during migration by disabling it in the generated `buf.yaml` file, but you should test whether your workspace passes the rule by removing the declaration and rerunning `buf lint`:
+After migration, run `buf build` and `buf lint` in the root of your repository to make sure everything works.
+
+In v2 configurations, we've added the `PACKAGE_NO_IMPORT_CYCLE` rule to the `STANDARD` lint category. The tool ignores this rule during migration by disabling it in the generated `buf.yaml` file, but you should test whether your workspace passes the rule by removing the declaration and rerunning `buf lint`:
 
 ```yaml{5,6}
 version: v2
@@ -208,7 +214,11 @@ modules:
   - path: .
 ```
 
-Unlike v1 configuration files, v2 files support multi-module push. In multi-module workspaces, you no longer need to push modules in dependency order and run `buf dep update` on each dependent module before pushing it to the Buf Schema Registry (BSR). v2 workspaces share a list of dependencies via a single `deps` key and can implicitly depend on other modules within the same workspace without declaration, so when you push the workspace, each module is automatically pushed in dependency order. Running `buf dep update` generates a single `buf.lock` dependency manifest for the whole workspace.Your v1 module-level lint and breaking changes configurations still work as-is, but we've also added these settings at the workspace level so you can set defaults for all of the modules in your workspace. This enables you to standardize rules across your modules more easily while retaining flexibility.**Lint and breaking rules applied at the module level completely replace the workspace-level rules for the schemas in that module.** Using the set of files above, you could apply looser lint rules to the files in the `vendor` module like this:
+Unlike v1 configuration files, v2 files support multi-module push. In multi-module workspaces, you no longer need to push modules in dependency order and run `buf dep update` on each dependent module before pushing it to the Buf Schema Registry (BSR). v2 workspaces share a list of dependencies via a single `deps` key and can implicitly depend on other modules within the same workspace without declaration, so when you push the workspace, each module is automatically pushed in dependency order. Running `buf dep update` generates a single `buf.lock` dependency manifest for the whole workspace.
+
+Your v1 module-level lint and breaking changes configurations still work as-is, but we've also added these settings at the workspace level so you can set defaults for all of the modules in your workspace. This enables you to standardize rules across your modules more easily while retaining flexibility.
+
+**Lint and breaking rules applied at the module level completely replace the workspace-level rules for the schemas in that module.** Using the set of files above, you could apply looser lint rules to the files in the `vendor` module like this:
 
 ::: info buf.yaml – Module-level overrides of workspace lint rules
 
@@ -241,7 +251,9 @@ See [Modules and workspaces](../../cli/modules-workspaces/) and the [v2 buf.yaml
 
 ### `buf.gen.yaml` and managed mode
 
-Code generation configuration has changed substantially in v2 configurations to consolidate settings in the `buf.gen.yaml` file and simplify setting up managed mode.Plugins are still specified as a list of keys under the `plugins` key, but the plugin type must be one of `remote`, `local`, or `protoc_builtin`. The configurations below are equivalent:
+Code generation configuration has changed substantially in v2 configurations to consolidate settings in the `buf.gen.yaml` file and simplify setting up managed mode.
+
+Plugins are still specified as a list of keys under the `plugins` key, but the plugin type must be one of `remote`, `local`, or `protoc_builtin`. The configurations below are equivalent:
 
 ::: info buf.gen.yaml – v1 plugins: key examples
 
@@ -330,7 +342,9 @@ $ buf generate
 
 :::
 
-Managed mode has been simplified and expanded to cover field options as well as file options. Instead of having per-file and per-module overrides interwoven among the options, we've added two top-level keys, `disable` and `override`, which control these configurations. This allows you to more easily specify a hierarchy of managed mode settings, and also specify them down to the field level.If a file option has no [default behavior](../../generate/managed-mode/#default-behavior), then managed mode only modifies it from the Protobuf default if an `override` rule is specified. The following managed mode configurations are equivalent:
+Managed mode has been simplified and expanded to cover field options as well as file options. Instead of having per-file and per-module overrides interwoven among the options, we've added two top-level keys, `disable` and `override`, which control these configurations. This allows you to more easily specify a hierarchy of managed mode settings, and also specify them down to the field level.
+
+If a file option has no [default behavior](../../generate/managed-mode/#default-behavior), then managed mode only modifies it from the Protobuf default if an `override` rule is specified. The following managed mode configurations are equivalent:
 
 ::: info buf.gen.yaml – v1 managed mode example
 

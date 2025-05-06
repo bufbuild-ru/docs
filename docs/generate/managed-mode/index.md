@@ -49,7 +49,9 @@ head:
 This feature has changed significantly between `v1` and `v2` configurations. See the [v1 to v2 migration guide](../../migration-guides/migrate-v2-config-files/) for migration instructions or the [v1 `buf.gen.yaml` reference](../../configuration/v1/buf-gen-yaml/) if you're still using `v1` configuration files.
 :::
 
-Managed mode is a feature of `buf generate` that allows API consumers to control file and field options when generating code from Protobuf files, even without control of the API itself. It's easy to implement and provides a thoughtful set of defaults for these options, with enough granularity to manage them more directly as needed. It hides some of Protobuf's quirks and allows consumers to start generating code quickly.It removes the need for API producers to make these decisions for consumers. Instead, producers can leave this information out and different types of consumers can rely on managed mode to generate code in the ways that they need to use it.
+Managed mode is a feature of `buf generate` that allows API consumers to control file and field options when generating code from Protobuf files, even without control of the API itself. It's easy to implement and provides a thoughtful set of defaults for these options, with enough granularity to manage them more directly as needed. It hides some of Protobuf's quirks and allows consumers to start generating code quickly.
+
+It removes the need for API producers to make these decisions for consumers. Instead, producers can leave this information out and different types of consumers can rely on managed mode to generate code in the ways that they need to use it.
 
 ## Enable managed mode
 
@@ -61,7 +63,9 @@ managed:
   enabled: true
 ```
 
-If your desired code generation behavior matches managed mode's [default behavior](#default-behavior), enabling it is all you need to do. When you generate code, these defaults are automatically applied as file options to your Protobuf files.If you need different behavior, managed mode allows you to selectively override or disable the options necessary to generate the code as you require. The sections below have details about how to construct `override` and `disable` rules for each of the options, and this example illustrates a few key interactions:
+If your desired code generation behavior matches managed mode's [default behavior](#default-behavior), enabling it is all you need to do. When you generate code, these defaults are automatically applied as file options to your Protobuf files.
+
+If you need different behavior, managed mode allows you to selectively override or disable the options necessary to generate the code as you require. The sections below have details about how to construct `override` and `disable` rules for each of the options, and this example illustrates a few key interactions:
 
 ```yaml
 version: v2
@@ -100,7 +104,9 @@ For a complex configuration showing greater granularity of file/field options, s
 
 ### Precedence rules
 
-If a managed mode option has both `override` and `disable` specified, `disable` takes precedence and `override` settings won't be applied. For options that set package prefixes or suffixes, this means that disabling the base option (such as `go_package`) also disables any overrides that set a prefix or suffix.Some of managed mode's options allow you to extend a file option by adding a prefix and/or suffix in addition to modifying it directly, like `go_package` and `go_package_prefix`. If a file matches multiple rules that modify the same option (`go_package` in this case), then the last one specified is applied. For example, if you set both Go options like this, only the `go_package_prefix` value is applied because they're both trying to modify `go_package`:
+If a managed mode option has both `override` and `disable` specified, `disable` takes precedence and `override` settings won't be applied. For options that set package prefixes or suffixes, this means that disabling the base option (such as `go_package`) also disables any overrides that set a prefix or suffix.
+
+Some of managed mode's options allow you to extend a file option by adding a prefix and/or suffix in addition to modifying it directly, like `go_package` and `go_package_prefix`. If a file matches multiple rules that modify the same option (`go_package` in this case), then the last one specified is applied. For example, if you set both Go options like this, only the `go_package_prefix` value is applied because they're both trying to modify `go_package`:
 
 ::: info Both Go options set
 
@@ -151,7 +157,9 @@ package acme.weather.v1;
 
 :::
 
-it generates code from the `buf.build/protocolbuffers/java` plugin for the `.proto` file and puts it in the `gen/proto/com/acme/weather/v1` directory of your workspace. Your generated Java code files have a `package com.acme.weather.v1;` declaration.However, if you need the code to live in `gen/proto/net/acme/weather/v1` with a `package net.acme.weather.v1;` declaration, you add an `override` rule for `java_package_prefix` :
+it generates code from the `buf.build/protocolbuffers/java` plugin for the `.proto` file and puts it in the `gen/proto/com/acme/weather/v1` directory of your workspace. Your generated Java code files have a `package com.acme.weather.v1;` declaration.
+
+However, if you need the code to live in `gen/proto/net/acme/weather/v1` with a `package net.acme.weather.v1;` declaration, you add an `override` rule for `java_package_prefix` :
 
 ```yaml
 version: v2
@@ -273,7 +281,9 @@ managed:
 
 ## Disable managed mode for specific inputs
 
-In addition to overriding specific options, you can also disable managed mode entirely for any combination of inputs by input, file, and/or field. Commonly this is used to keep managed mode from overriding options for inputs like the [buf.build/googleapis/googleapis](https://buf.build/googleapis/googleapis) module.To disable a specific option for all inputs, list it under the `disable` key:
+In addition to overriding specific options, you can also disable managed mode entirely for any combination of inputs by input, file, and/or field. Commonly this is used to keep managed mode from overriding options for inputs like the [buf.build/googleapis/googleapis](https://buf.build/googleapis/googleapis) module.
+
+To disable a specific option for all inputs, list it under the `disable` key:
 
 ```yaml
 version: v2

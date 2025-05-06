@@ -55,7 +55,13 @@ Private BSR instances offer webhooks to notify your backend services when a spec
 - Notify interested parties to inform them of any changes to `.proto` files or versions
 - Tag your git repository based on your BSR tags
 
-Webhooks are in **alpha**, which includes support for a single event: a successful `buf push` on a repository.Webhooks are _disabled_ by default. Contact [Support](https://support.buf.build) or your Buf representative if you want webhooks enabled for your private BSR instance. If webhooks are enabled, then by default they process batches of up to 20 events every 5 seconds.Integrating consists of writing an event listener and then subscribing to events. The event listener must implement the [EventService](https://buf.build/bufbuild/buf/docs/main:buf.alpha.webhook.v1alpha1#buf.alpha.webhook.v1alpha1.EventService) and subscriptions are managed through the [WebhookService](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1#buf.alpha.registry.v1alpha1.WebhookService). These services can be easily interacted with using the Connect library, as shown below in [Webhooks with Connect](#webhooks-with-connect).If you can't use Connect, see the [Webhooks without Connect](#webhooks-without-connect) guide below that shows you how to:
+Webhooks are in **alpha**, which includes support for a single event: a successful `buf push` on a repository.
+
+Webhooks are _disabled_ by default. Contact [Support](https://support.buf.build) or your Buf representative if you want webhooks enabled for your private BSR instance. If webhooks are enabled, then by default they process batches of up to 20 events every 5 seconds.
+
+Integrating consists of writing an event listener and then subscribing to events. The event listener must implement the [EventService](https://buf.build/bufbuild/buf/docs/main:buf.alpha.webhook.v1alpha1#buf.alpha.webhook.v1alpha1.EventService) and subscriptions are managed through the [WebhookService](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1#buf.alpha.registry.v1alpha1.WebhookService). These services can be easily interacted with using the Connect library, as shown below in [Webhooks with Connect](#webhooks-with-connect).
+
+If you can't use Connect, see the [Webhooks without Connect](#webhooks-without-connect) guide below that shows you how to:
 
 - manage webhook subscriptions using a regular curl+JSON payload; and
 - build an event listener that's compatible with [Connect](https://connectrpc.com/) (`application/proto`) requests.
@@ -66,7 +72,9 @@ In the samples below, please use the domain name for your private BSR instance (
 
 ## Webhooks with Connect
 
-This guide uses a Go [Connect](https://connectrpc.com/) client and generated Go code for the webhooks service. This code was generated using the `connectrpc/go` [plugin](https://buf.build/connectrpc/go) in the [BSR public repository](https://buf.build/bufbuild/buf).The generated module from that plugin includes:
+This guide uses a Go [Connect](https://connectrpc.com/) client and generated Go code for the webhooks service. This code was generated using the `connectrpc/go` [plugin](https://buf.build/connectrpc/go) in the [BSR public repository](https://buf.build/bufbuild/buf).
+
+The generated module from that plugin includes:
 
 - packages based in the [original Protobuf packages](https://buf.build/bufbuild/buf/docs/main) from the BSR module
 - a nested `connect` package for RPC handlers and clients that use the [connect-go library](https://connectrpc.com/docs/go/getting-started).
@@ -127,7 +135,9 @@ func main() {
 
 ### Manage subscriptions
 
-Webhooks are managed through the BSR API. The easiest way to interact with the API is to use the generated Connect client. Users with the [Admin role](../../roles/#base-resource-roles) in a repository can manage webhook subscriptions for that repository.Below is an example of managing webhooks using the BSR [Webhook service](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1#buf.alpha.registry.v1alpha1.WebhookService). First, fetch the generated go module from the connect-go [template](https://buf.build/bufbuild/buf/sdks/main) if you didn't in the previous step:
+Webhooks are managed through the BSR API. The easiest way to interact with the API is to use the generated Connect client. Users with the [Admin role](../../roles/#base-resource-roles) in a repository can manage webhook subscriptions for that repository.
+
+Below is an example of managing webhooks using the BSR [Webhook service](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1#buf.alpha.registry.v1alpha1.WebhookService). First, fetch the generated go module from the connect-go [template](https://buf.build/bufbuild/buf/sdks/main) if you didn't in the previous step:
 
 ```console
 $ go get buf.build/gen/go/bufbuild/buf/connectrpc/go
@@ -211,7 +221,9 @@ Connect isn't required for communicating with the webhooks service — because t
 
 ### Prepare to receive webhooks
 
-The BSR supports [Connect-compatible](https://connectrpc.com/) backend services for webhooks. Events trigger an HTTP POST to the subscribed callback URL, with a `Content-Type: application/proto` header and a proto payload with the event details.A listener service must exist at the callback URL that's compatible with the `Event` RPC signature in the public `bufbuild` [Protobuf docs](https://buf.build/bufbuild/buf/docs/main:buf.alpha.webhook.v1alpha1#buf.alpha.webhook.v1alpha1.EventService). Here are the [possible payloads](https://buf.build/bufbuild/buf/docs/main:buf.alpha.webhook.v1alpha1#buf.alpha.webhook.v1alpha1.EventRequest), and the [expected response](https://buf.build/bufbuild/buf/docs/main:buf.alpha.webhook.v1alpha1#buf.alpha.webhook.v1alpha1.EventResponse).
+The BSR supports [Connect-compatible](https://connectrpc.com/) backend services for webhooks. Events trigger an HTTP POST to the subscribed callback URL, with a `Content-Type: application/proto` header and a proto payload with the event details.
+
+A listener service must exist at the callback URL that's compatible with the `Event` RPC signature in the public `bufbuild` [Protobuf docs](https://buf.build/bufbuild/buf/docs/main:buf.alpha.webhook.v1alpha1#buf.alpha.webhook.v1alpha1.EventService). Here are the [possible payloads](https://buf.build/bufbuild/buf/docs/main:buf.alpha.webhook.v1alpha1#buf.alpha.webhook.v1alpha1.EventRequest), and the [expected response](https://buf.build/bufbuild/buf/docs/main:buf.alpha.webhook.v1alpha1#buf.alpha.webhook.v1alpha1.EventResponse).
 
 ### Manage subscriptions with the Buf CLI
 

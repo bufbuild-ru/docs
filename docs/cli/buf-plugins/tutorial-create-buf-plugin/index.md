@@ -45,7 +45,9 @@ head:
 
 # Create a Buf plugin – Tutorial
 
-Buf's [lint](../../../lint/overview/) and [breaking change](../../../breaking/overview/) checks come with pre-defined rules and categories that cover the vast majority of customer needs. However, organizations sometimes need to enforce different or additional rules. For these cases, you can create [Buf plugins](../overview/) that work with the Buf checkers so you can integrate your own rules and categories into your workflows.This tutorial demonstrates how to define your own rules in a Buf plugin and how to install and use it locally.
+Buf's [lint](../../../lint/overview/) and [breaking change](../../../breaking/overview/) checks come with pre-defined rules and categories that cover the vast majority of customer needs. However, organizations sometimes need to enforce different or additional rules. For these cases, you can create [Buf plugins](../overview/) that work with the Buf checkers so you can integrate your own rules and categories into your workflows.
+
+This tutorial demonstrates how to define your own rules in a Buf plugin and how to install and use it locally.
 
 ## Prerequisites
 

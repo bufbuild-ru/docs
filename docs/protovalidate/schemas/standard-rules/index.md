@@ -53,11 +53,17 @@ Companion code for this page is available in [GitHub](https://github.com/bufbuil
 
 ## Protovalidate rules
 
-Protovalidate rules are Protobuf option annotations representing validation rules and business requirements. When a message is validated, every rule must pass for it to be considered valid.All Protovalidate rules are defined in the [Common Expression Language (CEL)](https://cel.dev/). Protovalidate's built-in rules provide a shorthand syntax for dozens of common validation rules, and you're free to [examine their CEL definitions](https://buf.build/bufbuild/protovalidate/docs/main:buf.validate) within the API itself.On this page, we'll explore Protovalidate's built-in rules, starting with simple scalar fields.
+Protovalidate rules are Protobuf option annotations representing validation rules and business requirements. When a message is validated, every rule must pass for it to be considered valid.
+
+All Protovalidate rules are defined in the [Common Expression Language (CEL)](https://cel.dev/). Protovalidate's built-in rules provide a shorthand syntax for dozens of common validation rules, and you're free to [examine their CEL definitions](https://buf.build/bufbuild/protovalidate/docs/main:buf.validate) within the API itself.
+
+On this page, we'll explore Protovalidate's built-in rules, starting with simple scalar fields.
 
 ## Field rules
 
-Field rules are the simplest and most commonly used Protovalidate rules. A field rule applies one requirement to one field in a message.For example, you can require that `first_name` meet a minimum length:
+Field rules are the simplest and most commonly used Protovalidate rules. A field rule applies one requirement to one field in a message.
+
+For example, you can require that `first_name` meet a minimum length:
 
 ::: info Simple field rule
 
@@ -168,7 +174,9 @@ View reference documentation for [repeated rules](../../../reference/protovalida
 
 ### Map rules
 
-Protovalidate's `map` rules provide common `map` validation tasks. You can validate minimum or maximum numbers of key-value pairs and even express sets of rules applied to keys and values.In this example, each value in a map must meet a minimum and maximum length, and the map must have at least one key-value pair:
+Protovalidate's `map` rules provide common `map` validation tasks. You can validate minimum or maximum numbers of key-value pairs and even express sets of rules applied to keys and values.
+
+In this example, each value in a map must meet a minimum and maximum length, and the map must have at least one key-value pair:
 
 ::: info Map rule example
 
@@ -243,7 +251,9 @@ View reference documentation for each well-known type's rules:
 
 ## Message rules
 
-The last type of standard rule is the `buf.validate.message` option. The only standard rules provided are `disabled` and `cel`.The `disabled` rule causes the entire message to be ignored by Protovalidate:
+The last type of standard rule is the `buf.validate.message` option. The only standard rules provided are `disabled` and `cel`.
+
+The `disabled` rule causes the entire message to be ignored by Protovalidate:
 
 ::: info Disabling validation for a message
 

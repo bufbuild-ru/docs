@@ -55,7 +55,11 @@ $ buf format <source> [flags]
 
 ### Description
 
-By default, the source is the current directory and the formatted content is written to stdout.Examples:Write the current directory's formatted content to stdout:
+By default, the source is the current directory and the formatted content is written to stdout.
+
+Examples:
+
+Write the current directory's formatted content to stdout:
 
 ```console
 $ buf format
@@ -125,7 +129,9 @@ $ buf format buf.build/acme/petapis
 ...
 ```
 
-Write the result to a specified output file or directory with -o e.g.Write the formatted file to another file:
+Write the result to a specified output file or directory with -o e.g.
+
+Write the formatted file to another file:
 
 ```console
 $ buf format simple/simple.proto -o simple/simple.formatted.proto
@@ -143,7 +149,9 @@ This also works with module references:
 $ buf format buf.build/acme/weather -o formatted
 ```
 
-Rewrite the file(s) in-place with -w. e.g.Rewrite a single file in-place:
+Rewrite the file(s) in-place with -w. e.g.
+
+Rewrite a single file in-place:
 
 ```console
 $ buf format simple.proto -w

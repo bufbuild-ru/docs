@@ -66,11 +66,15 @@ As a result, you only need to install a single generated SDK to use the schema.
 
 ## Developing against pre-release code
 
-In addition to simpler dependency management, generated SDKs also make iterating on Protobuf APIs easier. All [labels](../../commits-labels/#labels) in the BSR produce SDKs, allowing consumer teams to work with pre-release client code before pushing their APIs to the default label. Consumers can use the latest version of a generated SDK (the default) or pin it to a specific commit or label instead.Go to the tutorial to learn [how to install generated SDKs from the BSR](../tutorial/), or the guides linked below for manual installation instructions and specific versioning syntax.
+In addition to simpler dependency management, generated SDKs also make iterating on Protobuf APIs easier. All [labels](../../commits-labels/#labels) in the BSR produce SDKs, allowing consumer teams to work with pre-release client code before pushing their APIs to the default label. Consumers can use the latest version of a generated SDK (the default) or pin it to a specific commit or label instead.
+
+Go to the tutorial to learn [how to install generated SDKs from the BSR](../tutorial/), or the guides linked below for manual installation instructions and specific versioning syntax.
 
 ## Configuration limitations
 
-Generated SDKs have no configuration options, so for Free and Teams plans, you can't configure plugin options for them. For example, using them requires that all of the module's imports also use generated SDKs, so if you need a different import path, you need to generate your own code.To customize plugin options for the generated code, you can use the Buf CLI to generate the files yourself, and provide whatever configuration you want:
+Generated SDKs have no configuration options, so for Free and Teams plans, you can't configure plugin options for them. For example, using them requires that all of the module's imports also use generated SDKs, so if you need a different import path, you need to generate your own code.
+
+To customize plugin options for the generated code, you can use the Buf CLI to generate the files yourself, and provide whatever configuration you want:
 
 - [Local code generation](../../../generate/overview/)
 - [Remote plugin code generation](../../remote-plugins/overview/)
@@ -89,20 +93,20 @@ The BSR currently supports generated SDKs for these languages:
 
 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px">
 
-<div onclick="window.location.href = '/docs/bsr/generated-sdks/go/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/go.svg" width="32" /><strong>Go</strong></div>
+<div data-v-43384334 onclick="window.location.href='/docs/bsr/generated-sdks/go/'" class="pager-link" style="cursor: pointer"><h5>Go</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/go.svg width="64" /></div></div>
 
-<div onclick="window.location.href = '/docs/bsr/generated-sdks/npm/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/javascript.svg" width="32" /><strong>JavaScript and TypeScript</strong></div>
+<div data-v-43384334 onclick="window.location.href='/docs/bsr/generated-sdks/npm/'" class="pager-link" style="cursor: pointer"><h5>JavaScript and TypeScript</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/javascript.svg width="64" /> <img src=/docs/images/logos/typescript.svg width="64" /></div></div>
 
-<div onclick="window.location.href = '/docs/bsr/generated-sdks/maven/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/java.svg" width="32" /><strong>Java and Kotlin</strong></div>
+<div data-v-43384334 onclick="window.location.href='/docs/bsr/generated-sdks/maven/'" class="pager-link" style="cursor: pointer"><h5>Java and Kotlin</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/java.svg width="64" /> <img src=/docs/images/logos/kotlin.svg width="64" /></div></div>
 
-<div onclick="window.location.href = '/docs/bsr/generated-sdks/swift/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/swift.svg" width="32" /><strong>Swift</strong></div>
+<div data-v-43384334 onclick="window.location.href='/docs/bsr/generated-sdks/swift/'" class="pager-link" style="cursor: pointer"><h5>Swift</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/swift.svg width="64" /></div></div>
 
-<div onclick="window.location.href = '/docs/bsr/generated-sdks/python/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/python.svg" width="32" /><strong>Python</strong></div>
+<div data-v-43384334 onclick="window.location.href='/docs/bsr/generated-sdks/python/'" class="pager-link" style="cursor: pointer"><h5>Python</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/python.svg width="64" /></div></div>
 
-<div onclick="window.location.href = '/docs/bsr/generated-sdks/cargo/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/rust.svg" width="32" /><strong>Rust/Cargo</strong></div>
+<div data-v-43384334 onclick="window.location.href='/docs/bsr/generated-sdks/cargo/'" class="pager-link" style="cursor: pointer"><h5>Rust/Cargo</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/rust.svg width="64" /></div></div>
 
-<div onclick="window.location.href = '/docs/bsr/generated-sdks/nuget/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/csharp.svg" width="32" /><strong>C#/Dotnet</strong></div>
+<div data-v-43384334 onclick="window.location.href='/docs/bsr/generated-sdks/nuget/'" class="pager-link" style="cursor: pointer"><h5>C#/Dotnet</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/csharp.svg width="64" /></div></div>
 
-<div onclick="window.location.href = '/docs/bsr/generated-sdks/cmake/'" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; cursor: pointer"><img src="/docs/images/logos/cpp.svg" width="32" /><strong>C++</strong></div>
+<div data-v-43384334 onclick="window.location.href='/docs/bsr/generated-sdks/cmake/'" class="pager-link" style="cursor: pointer"><h5>C++</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/cpp.svg width="64" /></div></div>
 
 </div>

@@ -69,7 +69,9 @@ head:
 
 ### Dashboard
 
-To import the dashboard, follow [Grafana's instructions](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/import-dashboards/), using `dashboard-overview.json`.The dashboard exposes its overall health status to aid in identifying and diagnosing operational issues.
+To import the dashboard, follow [Grafana's instructions](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/import-dashboards/), using `dashboard-overview.json`.
+
+The dashboard exposes its overall health status to aid in identifying and diagnosing operational issues.
 
 ### Alerts
 
@@ -87,7 +89,9 @@ When using Grafana, Bufstream metrics can either be scraped at a Prometheus endp
 
 ### Prometheus
 
-If Bufstream is configured to expose a [Prometheus](../overview/#prometheus) endpoint, metrics can be scraped at `https://0.0.0.0:9090/metrics/`.We recommend setting pod annotations for the Bufstream pods. Specify the annotations in your Helm values file:
+If Bufstream is configured to expose a [Prometheus](../overview/#prometheus) endpoint, metrics can be scraped at `https://0.0.0.0:9090/metrics/`.
+
+We recommend setting pod annotations for the Bufstream pods. Specify the annotations in your Helm values file:
 
 ```yaml
 bufstream:
@@ -108,7 +112,11 @@ To monitor etcd, you may need to enable metrics for your etcd deployment. For et
 
 ## Bufstream overview dashboard
 
-![Bufstream Overview Dashboard](../../../images/bufstream/observability/grafana-dashboard-overview.png)The overview dashboard (grafana-overview-dashboard.json) provides a Overview row for high-level Bufstream status as well as rows of panels for Bufstream brokers, Kafka Producers/Consumers, Bufstream metrics (including [data governance](../../data-governance/schema-enforcement/)), and etcd metrics.Top-level label drop-downs allow filtering by the Kubernetes cluster, Bufstream cluster, Kafka API key, topic, and consumer group.
+![Bufstream Overview Dashboard](../../../images/bufstream/observability/grafana-dashboard-overview.png)
+
+The overview dashboard (grafana-overview-dashboard.json) provides a Overview row for high-level Bufstream status as well as rows of panels for Bufstream brokers, Kafka Producers/Consumers, Bufstream metrics (including [data governance](../../data-governance/schema-enforcement/)), and etcd metrics.
+
+Top-level label drop-downs allow filtering by the Kubernetes cluster, Bufstream cluster, Kafka API key, topic, and consumer group.
 
 ## Bufstream status alerting rule
 

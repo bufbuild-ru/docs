@@ -136,7 +136,9 @@ time=2025-02-18T19:48:10.251-05:00 level=INFO msg="consumed message with new ema
 
 :::
 
-Note that there's something fishy in the last log message — the new email isn't a valid address. You're about to combine Protovalidate with Bufstream's Kafka capabilities to make sure invalid messages are rejected by the broker.It's okay to use `Ctrl-C` to stop the broker, producer, and consumer before continuing.
+Note that there's something fishy in the last log message — the new email isn't a valid address. You're about to combine Protovalidate with Bufstream's Kafka capabilities to make sure invalid messages are rejected by the broker.
+
+It's okay to use `Ctrl-C` to stop the broker, producer, and consumer before continuing.
 
 ## Explore tutorial code
 
@@ -144,7 +146,9 @@ This tutorial uses the example in `bufstream/start`. All filenames are relative 
 
 ### Makefile
 
-This project's `Makefile` provides targets for downloading and running the Bufstream broker and the included Go-based producer and consumer applications.One item to note is that producer and consumer targets both specify Kafka targets, groups, and [Buf Schema Registry (BSR)-based Confluent Schema Registry](../../../bsr/csr/overview/) URLs. When using Protovalidate in your own Bufstream-based Kafka applications, they should be configured for your equivalents.
+This project's `Makefile` provides targets for downloading and running the Bufstream broker and the included Go-based producer and consumer applications.
+
+One item to note is that producer and consumer targets both specify Kafka targets, groups, and [Buf Schema Registry (BSR)-based Confluent Schema Registry](../../../bsr/csr/overview/) URLs. When using Protovalidate in your own Bufstream-based Kafka applications, they should be configured for your equivalents.
 
 ::: info Makefile producer target
 
@@ -279,7 +283,9 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 5.  In any of your open terminal windows, verify that configuration is complete by running `buf generate`. It should complete with no error.
 
 ::: tip Further reading and protoc
-Further reading and `protoc`Learn more about incorporating Protovalidate and `protoc` support in the [Adding protovalidate](../../schemas/adding-protovalidate/) page.
+Further reading and `protoc`
+
+Learn more about incorporating Protovalidate and `protoc` support in the [Adding protovalidate](../../schemas/adding-protovalidate/) page.
 :::
 
 ### Add Protovalidate rules
@@ -353,7 +359,9 @@ Next, use any terminal window to compile your Protobuf and regenerate code, addi
 $ buf generate
 ```
 
-With regenerated code, your broker, producer and consumer should still build and start. (If you're still running the either, stop them with `Ctrl-c`.)Restart the broker:
+With regenerated code, your broker, producer and consumer should still build and start. (If you're still running the either, stop them with `Ctrl-c`.)
+
+Restart the broker:
 
 ::: info Broker terminal
 
@@ -422,7 +430,9 @@ The producer fails to reject the invalid messages because Bufstream hasn't been 
 
 ### Add Protovalidate enforcement
 
-Enforcing Protovalidate logic in a Bufstream broker is a simple configuration change.Follow these steps to begin enforcing Protovalidate rules in Bufstream:
+Enforcing Protovalidate logic in a Bufstream broker is a simple configuration change.
+
+Follow these steps to begin enforcing Protovalidate rules in Bufstream:
 
 1.  Stop the broker, producer, and consumer with `Ctrl-c`.
 2.  Open `config/bufstream.yaml`.

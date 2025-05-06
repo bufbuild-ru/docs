@@ -106,7 +106,9 @@ For complete documentation of all the available configuration options, refer to 
 
 ## Try AKHQ with a local Bufstream instance
 
-To try AKHQ with Bufstream on your local machine, you'll need [Docker](https://docs.docker.com/engine/install/) installed.First, start an in-memory Bufstream instance listening on the default Kafka port:
+To try AKHQ with Bufstream on your local machine, you'll need [Docker](https://docs.docker.com/engine/install/) installed.
+
+First, start an in-memory Bufstream instance listening on the default Kafka port:
 
 ```bash
 docker run -p 9092:9092 \
@@ -140,4 +142,8 @@ docker run -p 8080:8080 \
   tchiotludo/akhq:latest
 ```
 
-Once both Bufstream and AKHQ are running, navigate to `localhost:8080` in your browser.![AKHQ home screen](../../../images/bufstream/integrations/akhq-home.png)You can now use AKHQ to create new topics, view and publish messages, view detailed statistics for each topic, and more.
+Once both Bufstream and AKHQ are running, navigate to `localhost:8080` in your browser.
+
+![AKHQ home screen](../../../images/bufstream/integrations/akhq-home.png)
+
+You can now use AKHQ to create new topics, view and publish messages, view detailed statistics for each topic, and more.

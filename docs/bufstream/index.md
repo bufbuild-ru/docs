@@ -66,11 +66,15 @@ Bufstream is the only enterprise-ready new-age Kafka implementation available to
 
 ## First-class schema support
 
-Bufstream is already the best in the business for your pure Kafka needs. However, if you send Protobuf payloads over Kafka, Bufstream is so much more.Bufstream offers **first-class schema support on the broker-side**. When paired with a schema registry that implements the Confluent Schema Registry API (such as the [BSR](../bsr/), or the Confluent Schema Registry itself), Bufstream's brokers deeply understand your Protobuf payloads.
+Bufstream is already the best in the business for your pure Kafka needs. However, if you send Protobuf payloads over Kafka, Bufstream is so much more.
+
+Bufstream offers **first-class schema support on the broker-side**. When paired with a schema registry that implements the Confluent Schema Registry API (such as the [BSR](../bsr/), or the Confluent Schema Registry itself), Bufstream's brokers deeply understand your Protobuf payloads.
 
 ### Broker-side schema awareness
 
-In traditional Kafka, brokers are simple data pipes; brokers have no understanding of what data traverses them. This simplicity helped Kafka gain ubiquity, however in practice, most data that is sent through Kafka topics has some schema that represents it. Understanding the schema of the payloads is critical to ensuring data quality. Unfortunately, in the Kafka ecosystem, this job is precariously left to clients, bolted on as an afterthought to an ecosystem not designed to understand schemas in the first place.We think this is a broken model:
+In traditional Kafka, brokers are simple data pipes; brokers have no understanding of what data traverses them. This simplicity helped Kafka gain ubiquity, however in practice, most data that is sent through Kafka topics has some schema that represents it. Understanding the schema of the payloads is critical to ensuring data quality. Unfortunately, in the Kafka ecosystem, this job is precariously left to clients, bolted on as an afterthought to an ecosystem not designed to understand schemas in the first place.
+
+We think this is a broken model:
 
 - Your producer's client should be extremely simple: just post a raw message to your Kafka topic, and let the broker deal with the rest. By forcing clients to understand your schemas, you're requiring the ecosystem to maintain fat, hard-to-maintain Kafka clients across many languages. Their complexity means that language support suffers.
 - Systems should never rely on client-side enforcement! Client-side enforcement is in effect "opt-in" enforcement. Producers can choose to do it or not, meaning you have no guarantees as to the quality of data sent to your consumers.

@@ -45,7 +45,9 @@ head:
 
 # Swift Package Manager/Xcode
 
-The Buf Schema Registry provides generated SDKs for Swift in the form of a Swift Package Manager repository, just like any other Swift library. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.See the [tutorial](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.
+The Buf Schema Registry provides generated SDKs for Swift in the form of a Swift Package Manager repository, just like any other Swift library. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.
+
+See the [tutorial](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.
 
 ## Setup and usage
 
@@ -55,7 +57,11 @@ Follow the instructions for your package manager of choice below.
 
 == Xcode
 
-No setup is required to start using Buf's generated Swift SDKs with Xcode.However, Xcode doesn't yet support using the Swift Package Manager CLI and `Package.swift` for iOS/Mac apps. Dependency management for these targets is still done with Git repositories. To account for this, Buf provides a read-only Git server for generated SDKs, which is available at the `https://buf.build/gen/swift/git` host.If you aren't developing an iOS, macOS, watchOS, or tvOS app and use a `Package.swift` manifest file to control your package and its dependencies, please use our Swift Package Manager implementation.
+No setup is required to start using Buf's generated Swift SDKs with Xcode.
+
+However, Xcode doesn't yet support using the Swift Package Manager CLI and `Package.swift` for iOS/Mac apps. Dependency management for these targets is still done with Git repositories. To account for this, Buf provides a read-only Git server for generated SDKs, which is available at the `https://buf.build/gen/swift/git` host.
+
+If you aren't developing an iOS, macOS, watchOS, or tvOS app and use a `Package.swift` manifest file to control your package and its dependencies, please use our Swift Package Manager implementation.
 
 ### Adding a dependency
 
@@ -76,11 +82,17 @@ To find the Git URLs for your BSR module, go to the module's **SDKs** tab, which
 4.  Click **Add Package**. A new pop-up will appear prompting you to link the SDK's products to your app.
 5.  Ensure the library is checked and click **Add** to confirm the SDK addition (there will only ever be one library). Note that this will automatically add any transitive dependencies.
 
-When using generated SDKs sourced from the read-only Git server with Xcode, only use the **Branch** dependency rule providing the **main** branch, or the **Exact Version** dependency rule, providing the SemVer, as the ranging rules will not function.Note: Since Buf lazily produces a separate Git URL for each version of an SDK upon first request, Xcode's auto-update functionality doesn't work with these generated SDKs.To update an SDK, navigate to the module's **SDKs** tab and get a new link for a new version. Then manually update the dependency by replacing the existing SDK with the SDK sourced from the new link.
+When using generated SDKs sourced from the read-only Git server with Xcode, only use the **Branch** dependency rule providing the **main** branch, or the **Exact Version** dependency rule, providing the SemVer, as the ranging rules will not function.
+
+Note: Since Buf lazily produces a separate Git URL for each version of an SDK upon first request, Xcode's auto-update functionality doesn't work with these generated SDKs.
+
+To update an SDK, navigate to the module's **SDKs** tab and get a new link for a new version. Then manually update the dependency by replacing the existing SDK with the SDK sourced from the new link.
 
 == Swift Package Manager
 
-To find the references for your BSR module to use with Swift Package Manager, go to the module's **SDKs** page, which you can find at `https://buf.build/ORGANIZATION/REPOSITORY/sdks`.Ensure you have the **Swift** language and the **SPM** tab selected.
+To find the references for your BSR module to use with Swift Package Manager, go to the module's **SDKs** page, which you can find at `https://buf.build/ORGANIZATION/REPOSITORY/sdks`.
+
+Ensure you have the **Swift** language and the **SPM** tab selected.
 
 #### Setup
 
@@ -141,7 +153,9 @@ When using SDKs generated from private BSR repositories, you'll need to authenti
 
 == Xcode
 
-When you attempt to access a private BSR module's generated SDKs with Xcode, a prompt window will appear.In the prompt window, ensure that it's requesting your username and password, and not the other VCS-based alternatives (GitHub, GitLab). Supply the username and token in these fields.
+When you attempt to access a private BSR module's generated SDKs with Xcode, a prompt window will appear.
+
+In the prompt window, ensure that it's requesting your username and password, and not the other VCS-based alternatives (GitHub, GitLab). Supply the username and token in these fields.
 
 == Swift Package Manager
 
@@ -222,8 +236,14 @@ With SDK versions (valid \[semver\]\[semver\]):
   - module commit short name (12 characters) **d8fbf2620c60**
 - The final identifier is the plugin revision **1** for the plugin version
 
-To discover SDK versions, you can browse a repository's SDK page, which has installation instructions and an interactive UI.If you need a more specific version than the latest, such as needing to install a specific plugin version, you can use the [`buf registry sdk version` command](../../../reference/cli/buf/registry/sdk/version/).Only commits that are on the default label at the time they're pushed to the BSR have populated timestamps. Timestamps on commits pushed to other labels are zeroed out with `00000000000000` to easily distinguish them as changes in labels that are still in development.
+To discover SDK versions, you can browse a repository's SDK page, which has installation instructions and an interactive UI.
+
+If you need a more specific version than the latest, such as needing to install a specific plugin version, you can use the [`buf registry sdk version` command](../../../reference/cli/buf/registry/sdk/version/).
+
+Only commits that are on the default label at the time they're pushed to the BSR have populated timestamps. Timestamps on commits pushed to other labels are zeroed out with `00000000000000` to easily distinguish them as changes in labels that are still in development.
 
 ## Available plugins
 
-For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for Swift.To learn more about how these plugins are packaged and distributed, go to the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).
+For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for Swift.
+
+To learn more about how these plugins are packaged and distributed, go to the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).

@@ -45,7 +45,9 @@ head:
 
 # Deploy Bufstream to AWS with etcd
 
-This page walks you through installing Bufstream into your AWS deployment, using etcd for metadata storage. See [Tuning and performance](../../tuning-performance/) for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
+This page walks you through installing Bufstream into your AWS deployment, using etcd for metadata storage. See [Tuning and performance](../../tuning-performance/) for defaults and recommendations about resources, replicas, storage, and scaling.
+
+Data from your Bufstream cluster never leaves your network or reports back to Buf.
 
 ## Prerequisites
 
@@ -68,7 +70,9 @@ If you don't yet have your AWS environment, you'll need the following:
 
 ## Terraform module
 
-We also provide a Terraform module at [https://github.com/bufbuild/terraform-modules-bufstream](https://github.com/bufbuild/terraform-modules-bufstream). It sets up all necessary components from an empty AWS account, or adds all necessary components to any subset of the required ones that are already installed.If you're setting up from an empty account, the following IAM policy should contain the minimum permissions needed:
+We also provide a Terraform module at [https://github.com/bufbuild/terraform-modules-bufstream](https://github.com/bufbuild/terraform-modules-bufstream). It sets up all necessary components from an empty AWS account, or adds all necessary components to any subset of the required ones that are already installed.
+
+If you're setting up from an empty account, the following IAM policy should contain the minimum permissions needed:
 
 ```text
 {
@@ -382,7 +386,9 @@ Bufstream requires S3-compatible object storage.
 
 == EKS Pod Identity (recommended)
 
-Bufstream attempts to acquire credentials from the environment using EKS Pod Identity.To configure storage, set the following Helm values, filling in your S3 variables:
+Bufstream attempts to acquire credentials from the environment using EKS Pod Identity.
+
+To configure storage, set the following Helm values, filling in your S3 variables:
 
 ::: info bufstream-values.yaml
 
@@ -402,7 +408,9 @@ The k8s service account to create the pod identity association for is named `buf
 
 == OIDC provider
 
-Bufstream attempts to acquire credentials from the environment using the OIDC provider.To configure storage, set the following Helm values, filling in your S3 variables:
+Bufstream attempts to acquire credentials from the environment using the OIDC provider.
+
+To configure storage, set the following Helm values, filling in your S3 variables:
 
 ::: info bufstream-values.yaml
 
@@ -475,7 +483,9 @@ metadata:
 
 ### 3\. Install the Helm chart
 
-Proceed to the [zonal deployment steps](#zonal-deployment) if you want to deploy Bufstream with zone-aware routing. If not, follow the instructions below to deploy the basic Helm chart.After following the steps above, the set of Helm values should be similar to the example below:
+Proceed to the [zonal deployment steps](#zonal-deployment) if you want to deploy Bufstream with zone-aware routing. If not, follow the instructions below to deploy the basic Helm chart.
+
+After following the steps above, the set of Helm values should be similar to the example below:
 
 +++tabs key:856b4f5d9314b0e898cfa429826c66f3
 

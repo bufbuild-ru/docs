@@ -55,7 +55,9 @@ $ buf config migrate [flags]
 
 ### Description
 
-If no flags are specified, the current directory is searched for buf.yamls, buf.work.yamls, and buf.gen.yamls.The effects of this command may change over time
+If no flags are specified, the current directory is searched for buf.yamls, buf.work.yamls, and buf.gen.yamls.
+
+The effects of this command may change over time
 
 ### Flags
 

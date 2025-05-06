@@ -45,7 +45,9 @@ head:
 
 # Linting – Overview
 
-Linting tools help to maintain the quality of code by enforcing a set of rules for style, syntax, and best practices. They can catch errors early, make the code easier to understand, and reduce the amount of manual code review required. The Buf CLI lints Protobuf files using a set of rules designed to encourage common conventions and maximize forward compatibility without restricting your organization's ability to adopt an in-house style guide.This document provides an overview of Buf's Protobuf linting features.
+Linting tools help to maintain the quality of code by enforcing a set of rules for style, syntax, and best practices. They can catch errors early, make the code easier to understand, and reduce the amount of manual code review required. The Buf CLI lints Protobuf files using a set of rules designed to encourage common conventions and maximize forward compatibility without restricting your organization's ability to adopt an in-house style guide.
+
+This document provides an overview of Buf's Protobuf linting features.
 
 ## Key concepts
 
@@ -58,7 +60,9 @@ The linter has a built-in set of rules and categories and can also accept rules 
 
 ## Rules and categories
 
-The linter's built-in rules are split up into categories to make choosing a strictness level straightforward, but rules can also be selected individually to more closely match your organization's policies. See the [rules and categories](../rules/) page for detailed information.The configuration categories, from strictest to most lenient, are:
+The linter's built-in rules are split up into categories to make choosing a strictness level straightforward, but rules can also be selected individually to more closely match your organization's policies. See the [rules and categories](../rules/) page for detailed information.
+
+The configuration categories, from strictest to most lenient, are:
 
 - `STANDARD`
 - `BASIC`
@@ -86,7 +90,9 @@ lint:
 
 :::
 
-You can skip the Buf linter's built-in rules and categories entirely by omitting them and listing categories or rules provided by Buf plugins instead. If any configures Buf plugins have rules where [`default`](https://github.com/bufbuild/bufplugin/blob/main/buf/plugin/check/v1/rule.proto#L87) is set to `true`, those rules are automatically checked if none of the plugin's rules or categories are listed in the `lint` sections of `buf.yaml`.Below is an example of each `buf lint` configuration option. For more information on specific options and Buf's rules and categories, see the [`buf.yaml` reference](../../configuration/v2/buf-yaml/) and the [rules and categories](../rules/) page.
+You can skip the Buf linter's built-in rules and categories entirely by omitting them and listing categories or rules provided by Buf plugins instead. If any configures Buf plugins have rules where [`default`](https://github.com/bufbuild/bufplugin/blob/main/buf/plugin/check/v1/rule.proto#L87) is set to `true`, those rules are automatically checked if none of the plugin's rules or categories are listed in the `lint` sections of `buf.yaml`.
+
+Below is an example of each `buf lint` configuration option. For more information on specific options and Buf's rules and categories, see the [`buf.yaml` reference](../../configuration/v2/buf-yaml/) and the [rules and categories](../rules/) page.
 
 ::: info buf.yaml
 
@@ -234,7 +240,9 @@ package A; // buf:lint:ignore PACKAGE_VERSION_SUFFIX
 ```
 
 ::: tip Note
-Although it's possible to ignore lint rules at this granular level, generally it should be an exception. As an alternative to comment ignores, you could move the offending components to a separate `.proto` file and use an authors or owners file to control access to it, limiting approval to a small group of reviewers.You could then set the corresponding `ignore` or `ignore_only` values in `buf.yaml` to point to that file. This allows `buf.yaml` to have its own access group and stay focused on the organization's defaults rather than the exceptions.
+Although it's possible to ignore lint rules at this granular level, generally it should be an exception. As an alternative to comment ignores, you could move the offending components to a separate `.proto` file and use an authors or owners file to control access to it, limiting approval to a small group of reviewers.
+
+You could then set the corresponding `ignore` or `ignore_only` values in `buf.yaml` to point to that file. This allows `buf.yaml` to have its own access group and stay focused on the organization's defaults rather than the exceptions.
 :::
 
 ## Integration with CI/CD workflows

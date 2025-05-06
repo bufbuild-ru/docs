@@ -45,7 +45,11 @@ head:
 
 # Manage your user account
 
-A Buf account grants you access to Buf Schema Registry repositories and allows you to explore the available modules. You'll also need a Buf account to share modules on the Buf Schema Registry.If you haven't already, [sign up](https://buf.build/signup). You'll see several login options, including Google, GitHub, and traditional email and password. Next, you'll receive a verification email and need to verify your email address by clicking the link inside.After you've successfully verified, select a username and complete your registration. If successful, you'll see that you're logged in and that your username displays in the upper right-hand corner.
+A Buf account grants you access to Buf Schema Registry repositories and allows you to explore the available modules. You'll also need a Buf account to share modules on the Buf Schema Registry.
+
+If you haven't already, [sign up](https://buf.build/signup). You'll see several login options, including Google, GitHub, and traditional email and password. Next, you'll receive a verification email and need to verify your email address by clicking the link inside.
+
+After you've successfully verified, select a username and complete your registration. If successful, you'll see that you're logged in and that your username displays in the upper right-hand corner.
 
 ## Updating your profile
 
@@ -61,7 +65,9 @@ API tokens allow you to [authenticate](../../authentication/) as this user and a
 
 ## Resetting your password
 
-If you’ve forgotten your password, you can reset it by clicking on the **Forgot password?** link on the [login page](https://buf.build/login). Enter your email address, and you'll receive an email with instructions for resetting your password.Once you’ve successfully reset your password, you'll receive a confirmation email in your inbox.
+If you’ve forgotten your password, you can reset it by clicking on the **Forgot password?** link on the [login page](https://buf.build/login). Enter your email address, and you'll receive an email with instructions for resetting your password.
+
+Once you’ve successfully reset your password, you'll receive a confirmation email in your inbox.
 
 ## Deleting your account
 

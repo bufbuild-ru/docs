@@ -51,119 +51,209 @@ The `bufstream.yaml` file defines configuration for a Bufstream broker. The Bufs
 
 ### `name`
 
-\_string_The name of this Bufstream broker.Names should be unique for each broker in the cluster. Defaults to the hostname. **Do not store sensitive information in this field.** The name may be stored in logs, traces, metrics, etc.
+_string_
+
+The name of this Bufstream broker.
+
+Names should be unique for each broker in the cluster. Defaults to the hostname. **Do not store sensitive information in this field.** The name may be stored in logs, traces, metrics, etc.
 
 ### `cluster`
 
-\_string_The name of the cluster.All brokers in the same cluster should have the same value. **Do not store sensitive information in this field.** The cluster path may be stored in keys, logs, traces, metrics, etc.
+_string_
+
+The name of the cluster.
+
+All brokers in the same cluster should have the same value. **Do not store sensitive information in this field.** The cluster path may be stored in keys, logs, traces, metrics, etc.
 
 ### `zone`
 
-\_string_The location of the broker, e.g., the datacenter/rack/availability zone where the broker is running.If unspecified, the broker will attempt to resolve an availability zone from the host's metadata service. **Do not store sensitive information in this field.** The zone may be stored in keys, logs, traces, metrics, etc.
+_string_
+
+The location of the broker, e.g., the datacenter/rack/availability zone where the broker is running.
+
+If unspecified, the broker will attempt to resolve an availability zone from the host's metadata service. **Do not store sensitive information in this field.** The zone may be stored in keys, logs, traces, metrics, etc.
 
 ### `observability`
 
-\_[`ObservabilityConfig`](#buf.bufstream.config.v1alpha1.ObservabilityConfig)\_Configuration of observability and debugging utilities exposed by the broker.
+_[`ObservabilityConfig`](#buf.bufstream.config.v1alpha1.ObservabilityConfig)_
+
+Configuration of observability and debugging utilities exposed by the broker.
 
 ### `etcd`
 
-\_[`EtcdConfig`](#buf.bufstream.config.v1alpha1.EtcdConfig)\_If specified, the broker will use etcd as the metadata storage of the cluster.
+_[`EtcdConfig`](#buf.bufstream.config.v1alpha1.EtcdConfig)_
+
+If specified, the broker will use etcd as the metadata storage of the cluster.
 
 ### `postgres`
 
-\_[`PostgresConfig`](#buf.bufstream.config.v1alpha1.PostgresConfig)\_If specified, the broker will use Postgres as the metadata storage of the cluster.
+_[`PostgresConfig`](#buf.bufstream.config.v1alpha1.PostgresConfig)_
+
+If specified, the broker will use Postgres as the metadata storage of the cluster.
 
 ### `spanner`
 
-\_[`SpannerConfig`](#buf.bufstream.config.v1alpha1.SpannerConfig)\_If specified, the broker will use Google Cloud Spanner as the metadata storage of the cluster.
+_[`SpannerConfig`](#buf.bufstream.config.v1alpha1.SpannerConfig)_
+
+If specified, the broker will use Google Cloud Spanner as the metadata storage of the cluster.
 
 ### `in_memory`
 
-\_bool_If true, the broker will use an in-memory cache for metadata storage.This option is intended for local use and testing, and only works with single broker clusters.
+_bool_
+
+If true, the broker will use an in-memory cache for metadata storage.
+
+This option is intended for local use and testing, and only works with single broker clusters.
 
 ### `auto_migrate_metadata_storage`
 
-\_bool_If true, the broker will run migrations for the metadata storage on startup.Only one broker per cluster should have this option enabled.
+_bool_
+
+If true, the broker will run migrations for the metadata storage on startup.
+
+Only one broker per cluster should have this option enabled.
 
 ### `storage`
 
-\_[`StorageConfig`](#buf.bufstream.config.v1alpha1.StorageConfig)\_The data storage configuration.
+_[`StorageConfig`](#buf.bufstream.config.v1alpha1.StorageConfig)_
+
+The data storage configuration.
 
 ### `dispatch`
 
-\_[`DispatchConfig`](#buf.bufstream.config.v1alpha1.DispatchConfig)\_Configuration for dispatching of requests and data flow between brokers.
+_[`DispatchConfig`](#buf.bufstream.config.v1alpha1.DispatchConfig)_
+
+Configuration for dispatching of requests and data flow between brokers.
 
 ### `intake`
 
-\_[`IntakeConfig`](#buf.bufstream.config.v1alpha1.IntakeConfig)\_Configuration for intake and processing of produced data.
+_[`IntakeConfig`](#buf.bufstream.config.v1alpha1.IntakeConfig)_
+
+Configuration for intake and processing of produced data.
 
 ### `cache`
 
-\_[`CacheConfig`](#buf.bufstream.config.v1alpha1.CacheConfig)\_Configuration for caches maintained by the broker.
+_[`CacheConfig`](#buf.bufstream.config.v1alpha1.CacheConfig)_
+
+Configuration for caches maintained by the broker.
 
 ### `archive`
 
-\_[`ArchiveConfig`](#buf.bufstream.config.v1alpha1.ArchiveConfig)\_Configuration for archiving and compaction performed by the broker.
+_[`ArchiveConfig`](#buf.bufstream.config.v1alpha1.ArchiveConfig)_
+
+Configuration for archiving and compaction performed by the broker.
 
 ### `kafka`
 
-\_[`KafkaConfig`](#buf.bufstream.config.v1alpha1.KafkaConfig)\_Configuration for the Kafka interface.
+_[`KafkaConfig`](#buf.bufstream.config.v1alpha1.KafkaConfig)_
+
+Configuration for the Kafka interface.
 
 ### `data_enforcement`
 
-\_[`DataEnforcementConfig`](#buf.bufstream.config.v1alpha1.DataEnforcementConfig)\_Configuration for data enforcement via schemas of records flowing in and out of the broker.
+_[`DataEnforcementConfig`](#buf.bufstream.config.v1alpha1.DataEnforcementConfig)_
+
+Configuration for data enforcement via schemas of records flowing in and out of the broker.
 
 ### `iceberg_integration`
 
-\_[`IcebergIntegrationConfig`](#buf.bufstream.config.v1alpha1.IcebergIntegrationConfig)\_Configuration for Iceberg integration, for exposing Kafka topics as tables in Apache Iceberg v2 format.
+_[`IcebergIntegrationConfig`](#buf.bufstream.config.v1alpha1.IcebergIntegrationConfig)_
+
+Configuration for Iceberg integration, for exposing Kafka topics as tables in Apache Iceberg v2 format.
 
 ### `available_memory_bytes`
 
-\_uint64_The maximum amount of memory bufstream should consider usable.By default this is expected to be 4GiB per vCPU, as determined at startup. The configured value is not a hard limit, and is used to influence the default sizes of various caches. Explicitly setting a cache size elsewhere overrides any settings derived from this value.
+_uint64_
+
+The maximum amount of memory bufstream should consider usable.
+
+By default this is expected to be 4GiB per vCPU, as determined at startup. The configured value is not a hard limit, and is used to influence the default sizes of various caches. Explicitly setting a cache size elsewhere overrides any settings derived from this value.
 
 ### `labels`
 
-\_map<string, string>\_Labels associated with the Bufstream broker.Labels may appear in logs, metrics, and traces.
+_map<string, string>_
+
+Labels associated with the Bufstream broker.
+
+Labels may appear in logs, metrics, and traces.
 
 ### `connect_address`
 
-\_[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)\_The address to listen on for inter-broker Connect RPCs.By default, brokers bind to a random, available port on localhost.
+_[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)_
+
+The address to listen on for inter-broker Connect RPCs.
+
+By default, brokers bind to a random, available port on localhost.
 
 ### `connect_public_address`
 
-\_[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)\_The public address advertised to other brokers.This field should only be set if different from `connect_address`.
+_[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)_
+
+The public address advertised to other brokers.
+
+This field should only be set if different from `connect_address`.
 
 ### `connect_tls`
 
-\_[`ConnectTlsConfig`](#buf.bufstream.config.v1alpha1.ConnectTlsConfig)\_The TLS configuration for inter-broker Connect RPCs.By default TLS is not used.
+_[`ConnectTlsConfig`](#buf.bufstream.config.v1alpha1.ConnectTlsConfig)_
+
+The TLS configuration for inter-broker Connect RPCs.
+
+By default TLS is not used.
 
 ### `admin_address`
 
-\_[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)\_The address to listen on for Admin RPCs.
+_[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)_
+
+The address to listen on for Admin RPCs.
 
 ### `admin_tls`
 
-\_[`TLSListenerConfig`](#buf.bufstream.config.v1alpha1.TLSListenerConfig)\_If populated, enables and enforces TLS termination on the Admin RPCs server.
+_[`TLSListenerConfig`](#buf.bufstream.config.v1alpha1.TLSListenerConfig)_
+
+If populated, enables and enforces TLS termination on the Admin RPCs server.
 
 ### `connect_http_version`
 
-\_[`ConnectHttpVersion`](#buf.bufstream.config.v1alpha1.ConnectHttpVersion)\_The HTTP version to use for inter-broker Connect RPCs.By default, HTTP/1.1 is used.
+_[`ConnectHttpVersion`](#buf.bufstream.config.v1alpha1.ConnectHttpVersion)_
+
+The HTTP version to use for inter-broker Connect RPCs.
+
+By default, HTTP/1.1 is used.
 
 ### `connect_isolation`
 
-\_bool_Whether inter-broker Connect clients should be unique for reads and writes.Disabled by default. Recommended when using HTTP/2 in `connect_http_version`.
+_bool_
+
+Whether inter-broker Connect clients should be unique for reads and writes.
+
+Disabled by default. Recommended when using HTTP/2 in `connect_http_version`.
 
 ### `record_expiry_delay_max`
 
-\_duration_How often to scan all owned partitions to (try to) delete expired records.Defaults to 6h.
+_duration_
+
+How often to scan all owned partitions to (try to) delete expired records.
+
+Defaults to 6h.
 
 ### `fetch_sync_group_count`
 
-\_int32_The number of 'groups' to cluster fetchers into for synchronization at the same log append time.Dynamically configurable as `bufstream.fetch.sync.group.count`.
+_int32_
+
+The number of 'groups' to cluster fetchers into for synchronization at the same log append time.
+
+Dynamically configurable as `bufstream.fetch.sync.group.count`.
 
 ### `data_dir`
 
-\_string_Root directory where data is stored when the embedded etcd server is used or the storage provider is LOCAL_DISK. In all other cases, bufstream does not write data to disk.The default for Darwin and Linux is $XDG_DATA_HOME/bufstream if $XDG_DATA_HOME is set, otherwise $HOME/.local/share/bufstream.If Bufstream supports Windows in the future, the default will be %LocalAppData%\\bufstream.
+_string_
+
+Root directory where data is stored when the embedded etcd server is used or the storage provider is LOCAL_DISK. In all other cases, bufstream does not write data to disk.
+
+The default for Darwin and Linux is $XDG_DATA_HOME/bufstream if $XDG_DATA_HOME is set, otherwise $HOME/.local/share/bufstream.
+
+If Bufstream supports Windows in the future, the default will be %LocalAppData%\\bufstream.
 
 ## Sub-Messages
 
@@ -173,35 +263,51 @@ Configuration for observability primitives
 
 #### `log_level`
 
-\_[`Level`](#buf.bufstream.log.v1alpha1.Log.Level)\_log level, defaults to INFO
+_[`Level`](#buf.bufstream.log.v1alpha1.Log.Level)_
+
+log level, defaults to INFO
 
 #### `log_format`
 
-\_[`Format`](#buf.bufstream.log.v1alpha1.Log.Format)\_log format, defaults to TEXT when connected to a terminal, otherwise JSON.
+_[`Format`](#buf.bufstream.log.v1alpha1.Log.Format)_
+
+log format, defaults to TEXT when connected to a terminal, otherwise JSON.
 
 #### `log_git_version`
 
-\_bool_If set, include "version=" in log output.
+_bool_
+
+If set, include "version=" in log output.
 
 #### `metrics`
 
-\_[`MetricsConfig`](#buf.bufstream.config.v1alpha1.MetricsConfig)\_Configuration for metrics.
+_[`MetricsConfig`](#buf.bufstream.config.v1alpha1.MetricsConfig)_
+
+Configuration for metrics.
 
 #### `debug_address`
 
-\_[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)\_If configured, pprof and prometheus exported metrics will be exposed on this address.
+_[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)_
+
+If configured, pprof and prometheus exported metrics will be exposed on this address.
 
 #### `traces`
 
-\_[`TracesConfig`](#buf.bufstream.config.v1alpha1.TracesConfig)\_Configuration for traces.
+_[`TracesConfig`](#buf.bufstream.config.v1alpha1.TracesConfig)_
+
+Configuration for traces.
 
 #### `exporter`
 
-\_[`ExporterDefaults`](#buf.bufstream.config.v1alpha1.ExporterDefaults)\_Default values for metrics and traces exporters.
+_[`ExporterDefaults`](#buf.bufstream.config.v1alpha1.ExporterDefaults)_
+
+Default values for metrics and traces exporters.
 
 #### `sensitive_information_redaction`
 
-\_[`Redaction`](#buf.bufstream.config.v1alpha1.SensitiveInformationRedaction.Redaction)\_Redact sensitive information such as topic names, before adding to metrics, traces and logs.
+_[`Redaction`](#buf.bufstream.config.v1alpha1.SensitiveInformationRedaction.Redaction)_
+
+Redact sensitive information such as topic names, before adding to metrics, traces and logs.
 
 ### `EtcdConfig`
 
@@ -209,15 +315,25 @@ Configuration options specific to etcd metadata storage.
 
 #### `addresses`
 
-\_list<[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)\>\_The etcd node addresses.Currently, Bufstream assumes no path-prefix when connecting to the etcd cluster.
+_list<[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)\>_
+
+The etcd node addresses.
+
+Currently, Bufstream assumes no path-prefix when connecting to the etcd cluster.
 
 #### `session_ttl_seconds`
 
-\_int32_The amount of time an etcd node can be unreachable before it is considered down.After this TTL, the broker's presence in the cluster is essentially lost. Currently, the broker will shutdown if this TTL is exceeded.
+_int32_
+
+The amount of time an etcd node can be unreachable before it is considered down.
+
+After this TTL, the broker's presence in the cluster is essentially lost. Currently, the broker will shutdown if this TTL is exceeded.
 
 #### `tls`
 
-\_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig)\_TLS configuration options for connecting to etcd. The empty value of this message means connecting to etcd cluster without TLS.
+_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig)_
+
+TLS configuration options for connecting to etcd. The empty value of this message means connecting to etcd cluster without TLS.
 
 ### `PostgresConfig`
 
@@ -225,15 +341,21 @@ Configuration options specific to postgres metadata storage.
 
 #### `dsn`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)\_DSN is the data source name or database URL used to configure connections to the database.
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)_
+
+DSN is the data source name or database URL used to configure connections to the database.
 
 #### `cloud_sql_proxy`
 
-\_[`CloudSQLProxy`](#buf.bufstream.config.v1alpha1.CloudSQLProxy)\_Configuration to connect to a Cloud SQL database. If set, the database will be dialed via the proxy.
+_[`CloudSQLProxy`](#buf.bufstream.config.v1alpha1.CloudSQLProxy)_
+
+Configuration to connect to a Cloud SQL database. If set, the database will be dialed via the proxy.
 
 #### `pool`
 
-\_[`PostgresDBConnectionPool`](#buf.bufstream.config.v1alpha1.PostgresDBConnectionPool)\_Configuration settings for the database connection pool.
+_[`PostgresDBConnectionPool`](#buf.bufstream.config.v1alpha1.PostgresDBConnectionPool)_
+
+Configuration settings for the database connection pool.
 
 ### `SpannerConfig`
 
@@ -241,15 +363,21 @@ Configuration options specific to Spanner metadata storage.
 
 #### `project_id`
 
-\_string (required)\_The Spanner project ID.
+_string (required)_
+
+The Spanner project ID.
 
 #### `instance_id`
 
-\_string (required)\_The Spanner instance ID.
+_string (required)_
+
+The Spanner instance ID.
 
 #### `database_name`
 
-\_string_The Spanner database name.
+_string_
+
+The Spanner database name.
 
 ### `StorageConfig`
 
@@ -257,7 +385,11 @@ Configuration options specific to data storage.
 
 #### `provider`
 
-\_[`Provider`](#buf.bufstream.config.v1alpha1.StorageConfig.Provider)\_The data storage provider.If unspecified, a provider is automatically resolved with the following heuristics:
+_[`Provider`](#buf.bufstream.config.v1alpha1.StorageConfig.Provider)_
+
+The data storage provider.
+
+If unspecified, a provider is automatically resolved with the following heuristics:
 
 - If `bucket` is set, we attempt to resolve metadata from the host
   - If the AWS metadata service responds, we assume `S3`
@@ -267,75 +399,135 @@ Configuration options specific to data storage.
 
 #### `region`
 
-\_string_The region in which the `bucket` exists.This field defaults to the region of the broker's host.
+_string_
+
+The region in which the `bucket` exists.
+
+This field defaults to the region of the broker's host.
 
 #### `bucket`
 
-\_string_The object storage bucket where data is stored.This field is required for `GCS` and `S3` providers.
+_string_
+
+The object storage bucket where data is stored.
+
+This field is required for `GCS` and `S3` providers.
 
 #### `directory_bucket`
 
-\_bool_If the bucket is a directory bucket.A directory bucket does not sort objects by path and only supports prefixes ending in `/`. See https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html
+_bool_
+
+If the bucket is a directory bucket.
+
+A directory bucket does not sort objects by path and only supports prefixes ending in `/`. See https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html
 
 #### `prefix`
 
-\_string_The path prefix of objects stored in the data storage.Defaults to `bufstream/`.This field is only used by the `GCS` and `S3` providers.
+_string_
+
+The path prefix of objects stored in the data storage.
+
+Defaults to `bufstream/`.
+
+This field is only used by the `GCS` and `S3` providers.
 
 #### `endpoint`
 
-\_string_The provider's HTTPS endpoint to use instead of the default.
+_string_
+
+The provider's HTTPS endpoint to use instead of the default.
 
 #### `force_path_style`
 
-\_bool_Enable path-based routing (instead of subdomains) for buckets.
+_bool_
+
+Enable path-based routing (instead of subdomains) for buckets.
 
 #### `access_key_id`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\_Specifies the AWS access key ID for authentication to the bucket.By default, authentication is performed using the metadata service of the broker's host. If set, `secret_access_key` must also be provided.
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
+
+Specifies the AWS access key ID for authentication to the bucket.
+
+By default, authentication is performed using the metadata service of the broker's host. If set, `secret_access_key` must also be provided.
 
 #### `secret_access_key`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\_Specifies the AWS secret access key for authentication to the bucket.By default, authentication is performed using the metadata service of the broker's host. If set, `access_key_id` must also be provided.
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
+
+Specifies the AWS secret access key for authentication to the bucket.
+
+By default, authentication is performed using the metadata service of the broker's host. If set, `access_key_id` must also be provided.
 
 #### `get_hedge_delay`
 
-\_duration_How long before a GET request to the data storage provider is hedged with an additional request.Hedging improves p99 performance of requests to the storage provider. Defaults to 250ms.
+_duration_
+
+How long before a GET request to the data storage provider is hedged with an additional request.
+
+Hedging improves p99 performance of requests to the storage provider. Defaults to 250ms.
 
 #### `debug_logging`
 
-\_[`Level`](#buf.bufstream.log.v1alpha1.Log.Level)\_Enables data storage debug logging at the specified level.This level must be equal to or higher than the level specified in `observability.log_level`.
+_[`Level`](#buf.bufstream.log.v1alpha1.Log.Level)_
+
+Enables data storage debug logging at the specified level.
+
+This level must be equal to or higher than the level specified in `observability.log_level`.
 
 #### `put_hedge_delay`
 
-\_duration_Enables hedging of PUT requests to the data storage provider with the specified delay.Hedging of PUT requests should only be hedged for S3 and GCS providers.
+_duration_
+
+Enables hedging of PUT requests to the data storage provider with the specified delay.
+
+Hedging of PUT requests should only be hedged for S3 and GCS providers.
 
 #### `write_isolation`
 
-\_bool_If writes should use the same clients as reads.By default, different clients are used between reads and writes.
+_bool_
+
+If writes should use the same clients as reads.
+
+By default, different clients are used between reads and writes.
 
 ### `DispatchConfig`
 
-Configuration options specific to request dispatching and data flow between brokers.Dispatch controls Bufstream `<->` Bufstream communication and is used to improve the efficiency of a Bufstream cluster by fanning in requests for the same data to shared 'authoritative' brokers. For example, setting all `local_*` options to false, disables all Bufstream `<->` Bufstream communication.
+Configuration options specific to request dispatching and data flow between brokers.
+
+Dispatch controls Bufstream `<->` Bufstream communication and is used to improve the efficiency of a Bufstream cluster by fanning in requests for the same data to shared 'authoritative' brokers. For example, setting all `local_*` options to false, disables all Bufstream `<->` Bufstream communication.
 
 #### `local_intake_cache`
 
-\_bool_Whether the intake cache should be handled separately by each broker or dispatched to shared brokers.
+_bool_
+
+Whether the intake cache should be handled separately by each broker or dispatched to shared brokers.
 
 #### `local_produce`
 
-\_bool_Whether calls to produce records should be handled separately by each broker or dispatched to shared brokers.
+_bool_
+
+Whether calls to produce records should be handled separately by each broker or dispatched to shared brokers.
 
 #### `local_fetch_recent`
 
-\_bool_Whether calls to fetch recent records should be handled separately by each broker or dispatched to shared brokers.
+_bool_
+
+Whether calls to fetch recent records should be handled separately by each broker or dispatched to shared brokers.
 
 #### `local_fetch_archive`
 
-\_bool_Whether calls to fetch archive records should be handled separately by each broker or dispatched to shared brokers.
+_bool_
+
+Whether calls to fetch archive records should be handled separately by each broker or dispatched to shared brokers.
 
 #### `unavailable_retry_count`
 
-\_int32_The number of retry attempts to make when an Unavailable error is encountered.When N, N retries, N+1 attempts in total.
+_int32_
+
+The number of retry attempts to make when an Unavailable error is encountered.
+
+When N, N retries, N+1 attempts in total.
 
 ### `IntakeConfig`
 
@@ -343,71 +535,113 @@ Configuration options specific to intake and processing of produced data.
 
 #### `delay_max`
 
-\_duration_The maximum delay to wait before writing an intake file.Dynamically configurable as `bufstream.intake.delay.max.ms`.
+_duration_
+
+The maximum delay to wait before writing an intake file.
+
+Dynamically configurable as `bufstream.intake.delay.max.ms`.
 
 #### `delay_max_bytes`
 
-\_int64_The maximum number of bytes to enqueue before writing an intake file.Dynamically configurable as `bufstream.intake.delay.max.bytes`.
+_int64_
+
+The maximum number of bytes to enqueue before writing an intake file.
+
+Dynamically configurable as `bufstream.intake.delay.max.bytes`.
 
 #### `txn_timeout_max`
 
-\_duration_The maximum timeout for all transactions.
+_duration_
+
+The maximum timeout for all transactions.
 
 #### `txn_timeout_default`
 
-\_duration_The default timeout for a new transactions.
+_duration_
+
+The default timeout for a new transactions.
 
 #### `log_append_time_difference_max`
 
-\_duration_The maximum difference between intake write time and log append time.Dynamically configurable as `bufstream.intake.log.append.time.difference.max.ms`.
+_duration_
+
+The maximum difference between intake write time and log append time.
+
+Dynamically configurable as `bufstream.intake.log.append.time.difference.max.ms`.
 
 #### `recent_sequence_eager`
 
-\_bool_Whether recent messages should be sequenced actively.When true, recent messages will be sequenced as soon as they are available. When false, recent messages will be sequenced only when requested.
+_bool_
+
+Whether recent messages should be sequenced actively.
+
+When true, recent messages will be sequenced as soon as they are available. When false, recent messages will be sequenced only when requested.
 
 #### `producer_id_batch_size`
 
-\_int32_How many producer IDs a Bufstream process reserves at a time.
+_int32_
+
+How many producer IDs a Bufstream process reserves at a time.
 
 #### `file_delete_delay_max`
 
-\_duration_How often to scan all intake files to (try to) delete old files.
+_duration_
+
+How often to scan all intake files to (try to) delete old files.
 
 #### `write_through_cache`
 
-\_bool_Whether intake entries should be written through the cache.
+_bool_
+
+Whether intake entries should be written through the cache.
 
 #### `write_stream`
 
-\_bool_Whether intake entries should be streamed when written.
+_bool_
+
+Whether intake entries should be streamed when written.
 
 #### `write_stream_chunk_bytes`
 
-\_int32_The maximum number of bytes to write in a single intake write stream chunk.
+_int32_
+
+The maximum number of bytes to write in a single intake write stream chunk.
 
 #### `shelf_msg_max`
 
-\_int32_The maximum number of recent messages to shelve in at a time.
+_int32_
+
+The maximum number of recent messages to shelve in at a time.
 
 #### `recent_msg_min`
 
-\_int32_The minimum number of recent messages to keep for each topic/partition.
+_int32_
+
+The minimum number of recent messages to keep for each topic/partition.
 
 #### `end_txn_skew_max`
 
-_duration_The maximum amount of time an end transaction request can appear to come \_before_ the last modification to the transaction.
+_duration_
+
+The maximum amount of time an end transaction request can appear to come _before_ the last modification to the transaction.
 
 #### `end_txn_revision_check`
 
-\_bool_Whether to record the revision that the end transaction request was started at and to fail the request if the transaction changed while active since then.
+_bool_
+
+Whether to record the revision that the end transaction request was started at and to fail the request if the transaction changed while active since then.
 
 #### `sequence_delay_max`
 
-\_duration_The maximum delay to wait before sequencing a message.
+_duration_
+
+The maximum delay to wait before sequencing a message.
 
 #### `default_sequence_shard_count`
 
-\_int32_The default number of sequence shards to use for new clusters.
+_int32_
+
+The default number of sequence shards to use for new clusters.
 
 ### `CacheConfig`
 
@@ -415,35 +649,57 @@ Configuration options specific to the cache behavior of the broker.
 
 #### `intake_max_bytes`
 
-\_int64_The maximum number of intake file bytes to keep in memory.
+_int64_
+
+The maximum number of intake file bytes to keep in memory.
 
 #### `intake_load_max`
 
-\_int32_The maximum number of intake files to load concurrently.No limit is enforced when set to 0.
+_int32_
+
+The maximum number of intake files to load concurrently.
+
+No limit is enforced when set to 0.
 
 #### `shelf_max_bytes`
 
-\_int64_The maximum number of shelf bytes to keep in memory.
+_int64_
+
+The maximum number of shelf bytes to keep in memory.
 
 #### `archive_max_bytes`
 
-\_int64_The maximum number of archive log entry bytes to keep in memory.
+_int64_
+
+The maximum number of archive log entry bytes to keep in memory.
 
 #### `fetch_record_max_bytes`
 
-\_int64_The maximum number of record bytes fetched from recent or shelf messages to keep in memory.
+_int64_
+
+The maximum number of record bytes fetched from recent or shelf messages to keep in memory.
 
 #### `kafka_fetch_eager_max_bytes`
 
-\_int64_The maximum number of record bytes to keep in memory for eagerly fetched records.
+_int64_
+
+The maximum number of record bytes to keep in memory for eagerly fetched records.
 
 #### `producer_max`
 
-\_int32_The maximum number of producers tracked per topic/partition. (May be exceeded due to other constraints.)Each topic/partition tracks the sequence number and transaction state for each producer writing to it.The sequence number may be forgotten for the least-recently-used producer, when this limit is exceeded.
+_int32_
+
+The maximum number of producers tracked per topic/partition. (May be exceeded due to other constraints.)
+
+Each topic/partition tracks the sequence number and transaction state for each producer writing to it.
+
+The sequence number may be forgotten for the least-recently-used producer, when this limit is exceeded.
 
 #### `topic_max`
 
-\_int32_The maximum number of topics to keep in memory.
+_int32_
+
+The maximum number of topics to keep in memory.
 
 ### `ArchiveConfig`
 
@@ -451,7 +707,13 @@ Configuration options specific to the archiving of the broker.
 
 #### `min_bytes`
 
-\_int64_Determines when to start writing an archive for any topart.When -1, no archive ever starts. When 0, an archive starts as soon as a shelf write is detected (see start_delay_max) or a previous archive completes (unless the topic/partition was idle). When >0, an archive starts once the accumulation of that many bytes is detected (see start_delay_max) in the shelves.An archive completes when:
+_int64_
+
+Determines when to start writing an archive for any topart.
+
+When -1, no archive ever starts. When 0, an archive starts as soon as a shelf write is detected (see start_delay_max) or a previous archive completes (unless the topic/partition was idle). When >0, an archive starts once the accumulation of that many bytes is detected (see start_delay_max) in the shelves.
+
+An archive completes when:
 
 - It contains more than `max_bytes` (at a suitable data boundary).
 - No new records are produced for `idle_max`. (The topic/partition is idle.)
@@ -461,43 +723,81 @@ Dynamically configurable as `bufstream.archive.min.bytes`.
 
 #### `max_bytes`
 
-\_int64_The maximum size of an archive.Actually the threshold after which an archive is completed.Dynamically configurable as `bufstream.archive.max.bytes`.
+_int64_
+
+The maximum size of an archive.
+
+Actually the threshold after which an archive is completed.
+
+Dynamically configurable as `bufstream.archive.max.bytes`.
 
 #### `start_delay_max`
 
-\_duration_How often to check a topic/partition to start a new archive.
+_duration_
+
+How often to check a topic/partition to start a new archive.
 
 #### `complete_delay_max`
 
-\_duration_The maximum time before an archive upload is completed.Dynamically configurable as `bufstream.archive.complete.delay.max.ms`.
+_duration_
+
+The maximum time before an archive upload is completed.
+
+Dynamically configurable as `bufstream.archive.complete.delay.max.ms`.
 
 #### `idle_max`
 
-\_duration_The duration to wait for more data before completing an archive.When 0, an archive completes as soon as there are no more records to archive. When >0, an archive completes after waiting this duration with no new records.Dynamically configurable as `bufstream.archive.idle.max.ms`.
+_duration_
+
+The duration to wait for more data before completing an archive.
+
+When 0, an archive completes as soon as there are no more records to archive. When >0, an archive completes after waiting this duration with no new records.
+
+Dynamically configurable as `bufstream.archive.idle.max.ms`.
 
 #### `concurrent_max`
 
-\_int32_The maximum number of topic/partitions to archive at once.When unset (or 0), the default limit is used. When -1, no limit is enforced. When >0, only that many topic/partitions are archived at once per broker.
+_int32_
+
+The maximum number of topic/partitions to archive at once.
+
+When unset (or 0), the default limit is used. When -1, no limit is enforced. When >0, only that many topic/partitions are archived at once per broker.
 
 #### `fetch_sync`
 
-\_bool_Whether archive fetches should be synchronized to read at the same log append time.Dynamically configurable as `bufstream.archive.fetch.sync`.
+_bool_
+
+Whether archive fetches should be synchronized to read at the same log append time.
+
+Dynamically configurable as `bufstream.archive.fetch.sync`.
 
 #### `fetch_max_batches`
 
-_int32_The maximum number of batches to fetch from an archive in a single request, per topic/partition.When set to 0, no maximum is enforced. When set to -1, no maximum is enforced \_and_ batches entirely before the requested offset may be returned by the server for performance reasons. These batches are ignored by the client.
+_int32_
+
+The maximum number of batches to fetch from an archive in a single request, per topic/partition.
+
+When set to 0, no maximum is enforced. When set to -1, no maximum is enforced _and_ batches entirely before the requested offset may be returned by the server for performance reasons. These batches are ignored by the client.
 
 #### `follow_active`
 
-\_bool_Whether archive creation should try to read/write from the last active zone.The last active zone is the zone that most recently read the topic/partition. Or is no zone has read the topic/partition, the zone that most recently wrote to it.
+_bool_
+
+Whether archive creation should try to read/write from the last active zone.
+
+The last active zone is the zone that most recently read the topic/partition. Or is no zone has read the topic/partition, the zone that most recently wrote to it.
 
 #### `default_log_level`
 
-\_[`Level`](#buf.bufstream.log.v1alpha1.Log.Level)\_The default log level for background archive operations.
+_[`Level`](#buf.bufstream.log.v1alpha1.Log.Level)_
+
+The default log level for background archive operations.
 
 #### `parquet_partition_granularity`
 
-\_[`PartitionGranularity`](#buf.bufstream.config.v1alpha1.ArchiveConfig.PartitionGranularity)\_The granularity of partitions for Parquet files. Parquet files will be organized into a directory hierarchy to enable efficient pruning for time-based queries (compatible with Hive-style partitioning). The partitions are based on the ingestion timestamp. If unspecified, the default granularity is daily. Using a coarser granularity (i.e. monthly) is useful for low-volume topics, to enable reasonably large files (query systems generally prefer to operate on fewer, larger files instead of many small files). Finer granularity (i.e. hour) is for topics that are both high-volume and where queries are expected to frequently filter on intra-day timestamps.
+_[`PartitionGranularity`](#buf.bufstream.config.v1alpha1.ArchiveConfig.PartitionGranularity)_
+
+The granularity of partitions for Parquet files. Parquet files will be organized into a directory hierarchy to enable efficient pruning for time-based queries (compatible with Hive-style partitioning). The partitions are based on the ingestion timestamp. If unspecified, the default granularity is daily. Using a coarser granularity (i.e. monthly) is useful for low-volume topics, to enable reasonably large files (query systems generally prefer to operate on fewer, larger files instead of many small files). Finer granularity (i.e. hour) is for topics that are both high-volume and where queries are expected to frequently filter on intra-day timestamps.
 
 ### `KafkaConfig`
 
@@ -505,91 +805,165 @@ Configuration options specific to the broker's Kafka interface
 
 #### `address`
 
-\_[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)\_The address the Kafka server should listen on.Defaults to a random available port on localhost.
+_[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)_
+
+The address the Kafka server should listen on.
+
+Defaults to a random available port on localhost.
 
 #### `public_address`
 
-\_[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)\_The public address clients should use to connect to the Kafka server, if different from `address`.
+_[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)_
+
+The public address clients should use to connect to the Kafka server, if different from `address`.
 
 #### `tls`
 
-\_[`TLSListenerConfig`](#buf.bufstream.config.v1alpha1.TLSListenerConfig)\_If populated, enables and enforces TLS termination on the Kafka server.
+_[`TLSListenerConfig`](#buf.bufstream.config.v1alpha1.TLSListenerConfig)_
+
+If populated, enables and enforces TLS termination on the Kafka server.
 
 #### `fetch_eager`
 
-\_bool_If a fetch should return as soon as any records are available.When false, fetch wait for every topic/partition to be queried. When true, fetch returns as soon as any topic/partition has records, and the rest are fetched in the background under the assumption the client will try to fetch them in a subsequent request.Dynamically configurable as `bufstream.kafka.fetch.eager`.
+_bool_
+
+If a fetch should return as soon as any records are available.
+
+When false, fetch wait for every topic/partition to be queried. When true, fetch returns as soon as any topic/partition has records, and the rest are fetched in the background under the assumption the client will try to fetch them in a subsequent request.
+
+Dynamically configurable as `bufstream.kafka.fetch.eager`.
 
 #### `fetch_eager_offset_strategy`
 
-\_[`FetchEagerOffsetStrategy`](#buf.bufstream.config.v1alpha1.KafkaConfig.FetchEagerOffsetStrategy)\_The strategy to use when no data is available for a topic partition.
+_[`FetchEagerOffsetStrategy`](#buf.bufstream.config.v1alpha1.KafkaConfig.FetchEagerOffsetStrategy)_
+
+The strategy to use when no data is available for a topic partition.
 
 #### `fetch_sync`
 
-\_bool_If fetches from different readers should be synchronized to improve cache hit rates.Dynamically configurable as `bufstream.kafka.fetch.sync`.
+_bool_
+
+If fetches from different readers should be synchronized to improve cache hit rates.
+
+Dynamically configurable as `bufstream.kafka.fetch.sync`.
 
 #### `produce_concurrent`
 
-\_bool_If records from a producer to different topic/partitions may be sequenced concurrently instead of serially.Dynamically configurable as `bufstream.kafka.produce.concurrent`.
+_bool_
+
+If records from a producer to different topic/partitions may be sequenced concurrently instead of serially.
+
+Dynamically configurable as `bufstream.kafka.produce.concurrent`.
 
 #### `zone_balance_strategy`
 
-\_[`BalanceStrategy`](#buf.bufstream.config.v1alpha1.KafkaConfig.BalanceStrategy)\_How to balance clients across zones, when then client does not specify a zone.Dynamically configurable as `bufstream.kafka.zone.balance.strategy`.
+_[`BalanceStrategy`](#buf.bufstream.config.v1alpha1.KafkaConfig.BalanceStrategy)_
+
+How to balance clients across zones, when then client does not specify a zone.
+
+Dynamically configurable as `bufstream.kafka.zone.balance.strategy`.
 
 #### `partition_balance_strategy`
 
-\_[`BalanceStrategy`](#buf.bufstream.config.v1alpha1.KafkaConfig.BalanceStrategy)\_How to balance topic/partitions across bufstream brokers.Dynamically configurable as `bufstream.kafka.partition.balance.strategy`.
+_[`BalanceStrategy`](#buf.bufstream.config.v1alpha1.KafkaConfig.BalanceStrategy)_
+
+How to balance topic/partitions across bufstream brokers.
+
+Dynamically configurable as `bufstream.kafka.partition.balance.strategy`.
 
 #### `request_buffer_size`
 
-\_uint32_The number of Kafka requests to unmarshal and buffer before processing.Defaults to 5.
+_uint32_
+
+The number of Kafka requests to unmarshal and buffer before processing.
+
+Defaults to 5.
 
 #### `idle_timeout`
 
-\_duration_How long a Kafka connection can be idle before being closed by the server.If set a value less than or equal to zero, the timeout will be disabled.
+_duration_
+
+How long a Kafka connection can be idle before being closed by the server.
+
+If set a value less than or equal to zero, the timeout will be disabled.
 
 #### `request_timeout`
 
-\_duration_The maximum amount of time to wait for a Kafka request to complete.If set a value less than or equal to zero, the default timeout will be used.
+_duration_
+
+The maximum amount of time to wait for a Kafka request to complete.
+
+If set a value less than or equal to zero, the default timeout will be used.
 
 #### `num_partitions`
 
-\_int32_The default number of partitions to use for a new topic.Dynamically configurable as `num.partitions`.
+_int32_
+
+The default number of partitions to use for a new topic.
+
+Dynamically configurable as `num.partitions`.
 
 #### `exact_log_sizes`
 
-\_bool_If exact log sizes should be fetched when listing sizes for all topics/partitions.
+_bool_
+
+If exact log sizes should be fetched when listing sizes for all topics/partitions.
 
 #### `exact_log_offsets`
 
-\_bool_If exact log high water mark and start offsets should be computed when fetching records.
+_bool_
+
+If exact log high water mark and start offsets should be computed when fetching records.
 
 #### `distinct_hosts`
 
-\_bool_If the casing of hostnames should be randomized per 'broker'.
+_bool_
+
+If the casing of hostnames should be randomized per 'broker'.
 
 #### `wait_for_latest`
 
-\_bool_If 'broker' should ensure a topic/partition is fully loaded before serving.
+_bool_
+
+If 'broker' should ensure a topic/partition is fully loaded before serving.
 
 #### `group_consumer_session_timeout`
 
-\_duration_The default group consumer session timeout.Dynamically configurable as `group.consumer.session.timeout.ms`.
+_duration_
+
+The default group consumer session timeout.
+
+Dynamically configurable as `group.consumer.session.timeout.ms`.
 
 #### `group_consumer_session_timeout_min`
 
-\_duration_The minimum group consumer session timeout.Dynamically configurable as `group.consumer.min.session.timeout.ms`.
+_duration_
+
+The minimum group consumer session timeout.
+
+Dynamically configurable as `group.consumer.min.session.timeout.ms`.
 
 #### `group_consumer_session_timeout_max`
 
-\_duration_The maximum group consumer session timeout.Dynamically configurable as `group.consumer.max.session.timeout.ms`.
+_duration_
+
+The maximum group consumer session timeout.
+
+Dynamically configurable as `group.consumer.max.session.timeout.ms`.
 
 #### `shutdown_grace_period`
 
-\_duration_The grace period to allow clients before shutting down.
+_duration_
+
+The grace period to allow clients before shutting down.
 
 #### `producer_request_timeout`
 
-\_duration_The maximum period to wait for a producer RPC to complete.This includes:
+_duration_
+
+The maximum period to wait for a producer RPC to complete.
+
+This includes:
 
 - Produce
 - EndTxn
@@ -598,15 +972,23 @@ Set lower than `request.timeout.ms` to mitigate race conditions in some clients 
 
 #### `default_broker_count`
 
-\_int32_The default number of brokers to report to clients.When set to zero, each bufstream broker is reported as a broker.
+_int32_
+
+The default number of brokers to report to clients.
+
+When set to zero, each bufstream broker is reported as a broker.
 
 #### `group_consumer_offset_update_concurrent_max`
 
-\_int32_The maximum number of consumer group offset updates to process concurrently.
+_int32_
+
+The maximum number of consumer group offset updates to process concurrently.
 
 #### `authentication`
 
-\_[`AuthenticationConfig`](#buf.bufstream.config.v1alpha1.AuthenticationConfig)\_If populated, enables and enforces authentication.
+_[`AuthenticationConfig`](#buf.bufstream.config.v1alpha1.AuthenticationConfig)_
+
+If populated, enables and enforces authentication.
 
 ### `DataEnforcementConfig`
 
@@ -614,15 +996,21 @@ Configuration of data enforcement policies applied to records.
 
 #### `schema_registries`
 
-\_list<[`SchemaRegistry`](#buf.bufstream.config.v1alpha1.SchemaRegistry)\>\_The schema registries used for data enforcement.
+_list<[`SchemaRegistry`](#buf.bufstream.config.v1alpha1.SchemaRegistry)\>_
+
+The schema registries used for data enforcement.
 
 #### `produce`
 
-\_list<[`DataEnforcementPolicy`](#buf.bufstream.config.v1alpha1.DataEnforcementPolicy)\>\_Policies to attempt to apply to produce requests. The first policy that matches the topic will be used. If none match, no data enforcement will occur.
+_list<[`DataEnforcementPolicy`](#buf.bufstream.config.v1alpha1.DataEnforcementPolicy)\>_
+
+Policies to attempt to apply to produce requests. The first policy that matches the topic will be used. If none match, no data enforcement will occur.
 
 #### `fetch`
 
-\_list<[`DataEnforcementPolicy`](#buf.bufstream.config.v1alpha1.DataEnforcementPolicy)\>\_Policies to attempt to apply to fetch responses. The first policy that matches the topic will be used. If none match, no data enforcement will occur.
+_list<[`DataEnforcementPolicy`](#buf.bufstream.config.v1alpha1.DataEnforcementPolicy)\>_
+
+Policies to attempt to apply to fetch responses. The first policy that matches the topic will be used. If none match, no data enforcement will occur.
 
 ### `IcebergIntegrationConfig`
 
@@ -630,7 +1018,9 @@ Configuration of Iceberg integration settings, for archiving Kafka topic data to
 
 #### `catalogs`
 
-\_list<[`IcebergCatalog`](#buf.bufstream.config.v1alpha1.IcebergCatalog)\>\_The catalogs that host Iceberg table metadata.
+_list<[`IcebergCatalog`](#buf.bufstream.config.v1alpha1.IcebergCatalog)\>_
+
+The catalogs that host Iceberg table metadata.
 
 ### `HostPort`
 
@@ -638,25 +1028,35 @@ A network host and optional port pair.
 
 #### `host`
 
-\_string_A hostname or IP address to connect to or listen on.
+_string_
+
+A hostname or IP address to connect to or listen on.
 
 #### `port`
 
-\_uint32_The associated port. If unspecified, refer to the field documentation for default behavior.
+_uint32_
+
+The associated port. If unspecified, refer to the field documentation for default behavior.
 
 ### `ConnectTlsConfig`
 
 #### `server_name`
 
-\_string_The server name clients should use for TLS verification when connecting to this ConnectRPC server. If unset, the listener address will be used.
+_string_
+
+The server name clients should use for TLS verification when connecting to this ConnectRPC server. If unset, the listener address will be used.
 
 #### `server`
 
-\_[`TLSListenerConfig`](#buf.bufstream.config.v1alpha1.TLSListenerConfig) (required)\_Enables and enforces TLS termination on the Connect server.
+_[`TLSListenerConfig`](#buf.bufstream.config.v1alpha1.TLSListenerConfig) (required)_
+
+Enables and enforces TLS termination on the Connect server.
 
 #### `client`
 
-\_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig) (required)\_The TLS client configuration options for connecting to the other Bufstream brokers in the cluster.
+_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig) (required)_
+
+The TLS client configuration options for connecting to the other Bufstream brokers in the cluster.
 
 ### `TLSListenerConfig`
 
@@ -664,15 +1064,21 @@ TLSListenerConfig is TLS/SSL configuration options for servers. At least one cer
 
 #### `certificates`
 
-\_list<[`Certificate`](#buf.bufstream.config.v1alpha1.Certificate)\>\_Certificates to present to the client. The first certificate compatible with the client's requirements is selected automatically.
+_list<[`Certificate`](#buf.bufstream.config.v1alpha1.Certificate)\>_
+
+Certificates to present to the client. The first certificate compatible with the client's requirements is selected automatically.
 
 #### `client_auth`
 
-\_[`Type`](#buf.bufstream.config.v1alpha1.ClientAuth.Type)\_Declare the policy the server will follow for mutual TLS (mTLS).
+_[`Type`](#buf.bufstream.config.v1alpha1.ClientAuth.Type)_
+
+Declare the policy the server will follow for mutual TLS (mTLS).
 
 #### `client_cas`
 
-\_list<[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\>\_The PEM-encoded certificate authorities used by the server to validate the client certificates. This field cannot be empty if client_auth performs verification.
+_list<[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\>_
+
+The PEM-encoded certificate authorities used by the server to validate the client certificates. This field cannot be empty if client_auth performs verification.
 
 ### `MetricsConfig`
 
@@ -680,31 +1086,57 @@ Configuration for metrics.
 
 #### `exporter_type`
 
-\_[`ExporterType`](#buf.bufstream.config.v1alpha1.MetricsConfig.ExporterType)\_The type of exporter to use.
+_[`ExporterType`](#buf.bufstream.config.v1alpha1.MetricsConfig.ExporterType)_
+
+The type of exporter to use.
 
 #### `address`
 
-\_string_The endpoint for OTLP exporter, with a host name and an optional port number. If this is not set, it falls back to observability.exporter.address. If that is not set, it falls back to OTEL's default behavior, using the the host and port of OTEL_EXPORTER_OTLP_METRICS_ENDPOINT, if not found then OTEL_EXPORTER_OTLP_ENDPOINT and finally localhost:4318 for OTLP_HTTP or locahost:4317 for OTLP_GRPC.For OTLP_HTTP, metrics.path will be appended to this address.
+_string_
+
+The endpoint for OTLP exporter, with a host name and an optional port number. If this is not set, it falls back to observability.exporter.address. If that is not set, it falls back to OTEL's default behavior, using the the host and port of OTEL_EXPORTER_OTLP_METRICS_ENDPOINT, if not found then OTEL_EXPORTER_OTLP_ENDPOINT and finally localhost:4318 for OTLP_HTTP or locahost:4317 for OTLP_GRPC.
+
+For OTLP_HTTP, metrics.path will be appended to this address.
 
 #### `path`
 
-\_string_This url path used by the OTLP_HTTP exporter, this defaults to "/v1/metrics". This is appended to the host and port of the endpoint that the exporter connects to.
+_string_
+
+This url path used by the OTLP_HTTP exporter, this defaults to "/v1/metrics". This is appended to the host and port of the endpoint that the exporter connects to.
 
 #### `insecure`
 
-\_bool_If set to true, TLS is disabled for the OTLP exporter.
+_bool_
+
+If set to true, TLS is disabled for the OTLP exporter.
 
 #### `enable_internal_metrics`
 
-\_bool_Whether to emit `bufstream.internal.*` metrics.
+_bool_
+
+Whether to emit `bufstream.internal.*` metrics.
 
 #### `enable_labels`
 
-\_map<string, [`LabelValueList`](#buf.bufstream.config.v1alpha1.LabelValueList)\>\_A map from label name to the allowed list of values for the label.Labels are custom key-value pairs that are added to logs, metrics, and traces.Keys have a minimum length of 1 character and a maximum length of 63 characters, and cannot be empty. Values can be empty, and have a maximum length of 63 characters.Keys and values can contain only lowercase letters, numeric characters, underscores, and dashes. All characters must use UTF-8 encoding, and international characters are allowed. Keys must start with a lowercase letter or international character.Labels can be specified in Kafka client ids (e.g. "my-client-id;label.foo=bar") or in topic configuration.Only labels in this list are added to metrics. If not set, no labels are added to metrics.
+_map<string, [`LabelValueList`](#buf.bufstream.config.v1alpha1.LabelValueList)\>_
+
+A map from label name to the allowed list of values for the label.
+
+Labels are custom key-value pairs that are added to logs, metrics, and traces.
+
+Keys have a minimum length of 1 character and a maximum length of 63 characters, and cannot be empty. Values can be empty, and have a maximum length of 63 characters.
+
+Keys and values can contain only lowercase letters, numeric characters, underscores, and dashes. All characters must use UTF-8 encoding, and international characters are allowed. Keys must start with a lowercase letter or international character.
+
+Labels can be specified in Kafka client ids (e.g. "my-client-id;label.foo=bar") or in topic configuration.
+
+Only labels in this list are added to metrics. If not set, no labels are added to metrics.
 
 #### `aggregation`
 
-\_[`Aggregation`](#buf.bufstream.config.v1alpha1.MetricsConfig.Aggregation)\_This option, typically set to reduce cardinality, aggregates some metrics over certain attributes, such as kafka.topic.name.
+_[`Aggregation`](#buf.bufstream.config.v1alpha1.MetricsConfig.Aggregation)_
+
+This option, typically set to reduce cardinality, aggregates some metrics over certain attributes, such as kafka.topic.name.
 
 ### `TracesConfig`
 
@@ -712,23 +1144,35 @@ Configuration for traces.
 
 #### `exporter_type`
 
-\_[`ExporterType`](#buf.bufstream.config.v1alpha1.TracesConfig.ExporterType)\_The type of exporter to use.
+_[`ExporterType`](#buf.bufstream.config.v1alpha1.TracesConfig.ExporterType)_
+
+The type of exporter to use.
 
 #### `address`
 
-\_string_The endpoint for OTLP exporter, with a host name and an optional port number. If this is not set, it falls back to observability.exporter.address. If that is not set, it falls back to the OTEL's default behavior, using the host and port of OTEL_EXPORTER_OTLP_TRACES_ENDPOINT, if not found then OTEL_EXPORTER_OTLP_ENDPOINT and finally localhost:4318 for OTLP_HTTP or localhost:4317 for OTLP_GRPC.For OTLP_HTTP, traces.path will be appended to this address.
+_string_
+
+The endpoint for OTLP exporter, with a host name and an optional port number. If this is not set, it falls back to observability.exporter.address. If that is not set, it falls back to the OTEL's default behavior, using the host and port of OTEL_EXPORTER_OTLP_TRACES_ENDPOINT, if not found then OTEL_EXPORTER_OTLP_ENDPOINT and finally localhost:4318 for OTLP_HTTP or localhost:4317 for OTLP_GRPC.
+
+For OTLP_HTTP, traces.path will be appended to this address.
 
 #### `path`
 
-\_string_This url path used by the OTLP_HTTP exporter, this defaults to "/v1/traces". This is appended to the host and port of the endpoint that the exporter connects to.
+_string_
+
+This url path used by the OTLP_HTTP exporter, this defaults to "/v1/traces". This is appended to the host and port of the endpoint that the exporter connects to.
 
 #### `insecure`
 
-\_bool_If set to true, TLS is disabled for the OTLP exporter.
+_bool_
+
+If set to true, TLS is disabled for the OTLP exporter.
 
 #### `trace_ratio`
 
-\_float64_OpenTelemetry trace sample ratio, defaults to 1.
+_float64_
+
+OpenTelemetry trace sample ratio, defaults to 1.
 
 ### `ExporterDefaults`
 
@@ -736,11 +1180,15 @@ Default configuration for metrics and traces exporters.
 
 #### `address`
 
-\_string_The default base address used by OTLP_HTTP and OTLP_GRPC exporters, with a host name and an optional port number. For OTLP_HTTP, "/v1/{metrics, traces}" will be appended to this address, unless the path is overridden by metrics.path or traces.path. If port is unspecified, it defaults to 4317 for OTLP_GRPC and 4318 for OTLP_HTTP.
+_string_
+
+The default base address used by OTLP_HTTP and OTLP_GRPC exporters, with a host name and an optional port number. For OTLP_HTTP, "/v1/{metrics, traces}" will be appended to this address, unless the path is overridden by metrics.path or traces.path. If port is unspecified, it defaults to 4317 for OTLP_GRPC and 4318 for OTLP_HTTP.
 
 #### `insecure`
 
-\_bool_If set to true, TLS is disabled for the OTLP exporter. This can be overwritten by metrics.insecure or traces.insecure.
+_bool_
+
+If set to true, TLS is disabled for the OTLP exporter. This can be overwritten by metrics.insecure or traces.insecure.
 
 ### `TLSDialerConfig`
 
@@ -748,15 +1196,21 @@ TLSDialerConfig is TLS/SSL configuration options for clients. The empty value of
 
 #### `certificate`
 
-\_[`Certificate`](#buf.bufstream.config.v1alpha1.Certificate)\_Certificate to present if client certificate verification is enabled on the server (i.e., mTLS).
+_[`Certificate`](#buf.bufstream.config.v1alpha1.Certificate)_
+
+Certificate to present if client certificate verification is enabled on the server (i.e., mTLS).
 
 #### `insecure_skip_verify`
 
-\_bool_Controls whether a client verifies the server's certificate chain and host name. If true, the dialer accepts any certificate presented by the server and host name in that certificate. In this mode, TLS is susceptible to machine-in-the-middle attacks and should only be used for testing.
+_bool_
+
+Controls whether a client verifies the server's certificate chain and host name. If true, the dialer accepts any certificate presented by the server and host name in that certificate. In this mode, TLS is susceptible to machine-in-the-middle attacks and should only be used for testing.
 
 #### `root_cas`
 
-\_list<[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\>\_The PEM-encoded root certificate authorities used by the client to validate the server certificates. If empty, the host's root CA set is used.
+_list<[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\>_
+
+The PEM-encoded root certificate authorities used by the client to validate the server certificates. If empty, the host's root CA set is used.
 
 ### `DataSource`
 
@@ -764,23 +1218,33 @@ Configuration values sourced from various locations.
 
 #### `path`
 
-\_string_A file path to the data relative to the current working directory. Trailing newlines are stripped from the file contents.
+_string_
+
+A file path to the data relative to the current working directory. Trailing newlines are stripped from the file contents.
 
 #### `env_var`
 
-\_string_An environment variable containing the data.
+_string_
+
+An environment variable containing the data.
 
 #### `string`
 
-\_string_An inline string of the data.
+_string_
+
+An inline string of the data.
 
 #### `bytes`
 
-\_base64-bytes_An inline byte blob of the data.
+_base64-bytes_
+
+An inline byte blob of the data.
 
 #### `encoding`
 
-\_[`Encoding`](#buf.bufstream.config.v1alpha1.DataSource.Encoding)\_The encoding of the data source value. Defaults to PLAINTEXT.
+_[`Encoding`](#buf.bufstream.config.v1alpha1.DataSource.Encoding)_
+
+The encoding of the data source value. Defaults to PLAINTEXT.
 
 ### `CloudSQLProxy`
 
@@ -788,15 +1252,21 @@ Configuration options specific to the Cloud SQL Proxy.
 
 #### `icn`
 
-\_string (required)\_ICN is the Cloud SQL instance's connection name, typically in the format "project-name:region:instance-name".
+_string (required)_
+
+ICN is the Cloud SQL instance's connection name, typically in the format "project-name:region:instance-name".
 
 #### `iam`
 
-\_bool_Use IAM auth to connect to the Cloud SQL database.
+_bool_
+
+Use IAM auth to connect to the Cloud SQL database.
 
 #### `private_ip`
 
-\_bool_Use private IP to connect to the Cloud SQL database.
+_bool_
+
+Use private IP to connect to the Cloud SQL database.
 
 ### `PostgresDBConnectionPool`
 
@@ -804,11 +1274,15 @@ Configuration settings for the PostgreSQL connection pool.
 
 #### `max_connections`
 
-\_int32_The maximum size of the connection pool. Defaults to 10.
+_int32_
+
+The maximum size of the connection pool. Defaults to 10.
 
 #### `min_connections`
 
-\_int32_The minimum size of the connection pool. Defaults to 0.
+_int32_
+
+The minimum size of the connection pool. Defaults to 0.
 
 ### `AuthenticationConfig`
 
@@ -818,11 +1292,17 @@ _[`SASLConfig`](#buf.bufstream.config.v1alpha1.SASLConfig)_
 
 #### `mtls`
 
-\_[`MutualTLSAuthConfig`](#buf.bufstream.config.v1alpha1.MutualTLSAuthConfig)\_If set, will use the configured mTLS for authentication.This acts as a fallback if SASL is also enabled.
+_[`MutualTLSAuthConfig`](#buf.bufstream.config.v1alpha1.MutualTLSAuthConfig)_
+
+If set, will use the configured mTLS for authentication.
+
+This acts as a fallback if SASL is also enabled.
 
 #### `max_receive_bytes`
 
-\_int64_The maximum receive size allowed before and during initial authentication. Default receive size is 512KB. Set to -1 for no limit.
+_int64_
+
+The maximum receive size allowed before and during initial authentication. Default receive size is 512KB. Set to -1 for no limit.
 
 ### `SchemaRegistry`
 
@@ -830,11 +1310,15 @@ A single schema registry used in data enforcement.
 
 #### `name`
 
-\_string_Name of this registry, used to disambiguate multiple registries used across policies.
+_string_
+
+Name of this registry, used to disambiguate multiple registries used across policies.
 
 #### `confluent`
 
-\_[`CSRConfig`](#buf.bufstream.config.v1alpha1.CSRConfig)\_Confluent Schema Registry
+_[`CSRConfig`](#buf.bufstream.config.v1alpha1.CSRConfig)_
+
+Confluent Schema Registry
 
 ### `DataEnforcementPolicy`
 
@@ -842,19 +1326,27 @@ A set of policies to apply data enforcement rules on records flowing into or out
 
 #### `topics`
 
-\_[`StringMatcher`](#buf.bufstream.config.v1alpha1.StringMatcher)\_Apply these policies only if the topic of the record(s) matches. If no topics are specified, the policy will always be applied.
+_[`StringMatcher`](#buf.bufstream.config.v1alpha1.StringMatcher)_
+
+Apply these policies only if the topic of the record(s) matches. If no topics are specified, the policy will always be applied.
 
 #### `schema_registry`
 
-\_string (required)\_The schema registry to use for retrieving schemas for this policy.
+_string (required)_
+
+The schema registry to use for retrieving schemas for this policy.
 
 #### `keys`
 
-\_[`Element`](#buf.bufstream.config.v1alpha1.DataEnforcementPolicy.Element)\_The policy to apply to a record's key. If unset, enforcement will not occur.
+_[`Element`](#buf.bufstream.config.v1alpha1.DataEnforcementPolicy.Element)_
+
+The policy to apply to a record's key. If unset, enforcement will not occur.
 
 #### `values`
 
-\_[`Element`](#buf.bufstream.config.v1alpha1.DataEnforcementPolicy.Element)\_The policy to apply to a record's value. If unset, enforcement will not occur.
+_[`Element`](#buf.bufstream.config.v1alpha1.DataEnforcementPolicy.Element)_
+
+The policy to apply to a record's value. If unset, enforcement will not occur.
 
 ### `IcebergCatalog`
 
@@ -862,19 +1354,29 @@ A single catalog server, used to maintain an Iceberg table by updating its schem
 
 #### `name`
 
-\_string_Name of this catalog, used to disambiguate multiple catalogs used across topics and tables.
+_string_
+
+Name of this catalog, used to disambiguate multiple catalogs used across topics and tables.
 
 #### `rest`
 
-\_[`RESTCatalogConfig`](#buf.bufstream.config.v1alpha1.RESTCatalogConfig)\_REST catalog. Valid table names must be in the form "namespace.table". The namespace may contain multiple components such as "ns1.ns2.ns3.table". The underlying catalog implementation that provides the REST API may impose further constraints on table and namespace naming.Also see https://github.com/apache/iceberg/blob/main/open-api/rest-catalog-open-api.yaml
+_[`RESTCatalogConfig`](#buf.bufstream.config.v1alpha1.RESTCatalogConfig)_
+
+REST catalog. Valid table names must be in the form "namespace.table". The namespace may contain multiple components such as "ns1.ns2.ns3.table". The underlying catalog implementation that provides the REST API may impose further constraints on table and namespace naming.
+
+Also see https://github.com/apache/iceberg/blob/main/open-api/rest-catalog-open-api.yaml
 
 #### `biglake_metastore`
 
-\_[`BigLakeMetastoreConfig`](#buf.bufstream.config.v1alpha1.BigLakeMetastoreConfig)\_Google Cloud BigLake Metastore. Valid table names must be in the form "database.table".
+_[`BigLakeMetastoreConfig`](#buf.bufstream.config.v1alpha1.BigLakeMetastoreConfig)_
+
+Google Cloud BigLake Metastore. Valid table names must be in the form "database.table".
 
 #### `bigquery_metastore`
 
-\_[`BigQueryMetastoreConfig`](#buf.bufstream.config.v1alpha1.BigQueryMetastoreConfig)\_Google Cloud BigQuery Metastore. Valid table names must be in the form "dataset.table". This catalog is still in Preview/Beta but is expected to eventually replace usages of Google Cloud BigLake Metastore.
+_[`BigQueryMetastoreConfig`](#buf.bufstream.config.v1alpha1.BigQueryMetastoreConfig)_
+
+Google Cloud BigQuery Metastore. Valid table names must be in the form "dataset.table". This catalog is still in Preview/Beta but is expected to eventually replace usages of Google Cloud BigLake Metastore.
 
 ### `Certificate`
 
@@ -882,11 +1384,15 @@ A certificate chain and private key pair.
 
 #### `chain`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)\_The PEM-encoded leaf certificate, which may contain intermediate certificates following the leaf certificate to form a certificate chain.
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)_
+
+The PEM-encoded leaf certificate, which may contain intermediate certificates following the leaf certificate to form a certificate chain.
 
 #### `private_key`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)\_The PEM-encoded (unencrypted) private key of the certificate chain.
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)_
+
+The PEM-encoded (unencrypted) private key of the certificate chain.
 
 ### `Aggregation`
 
@@ -894,43 +1400,61 @@ Configuration for metrics aggregation, taking precedence over sensitive informat
 
 #### `topics`
 
-_bool_Aggregate metrics across all topics to avoid cardinality issues with clusters with a large number of topics. Metrics that support this aggregation will report the 'kafka.topic.name' attribute as '\_all_topics_'. NOTE: This implies partitions aggregation, which omits metrics like 'bufstream.kafka.topic.partition.offset.high_water_mark'.
+_bool_
+
+Aggregate metrics across all topics to avoid cardinality issues with clusters with a large number of topics. Metrics that support this aggregation will report the 'kafka.topic.name' attribute as '_all_topics_'. NOTE: This implies partitions aggregation, which omits metrics like 'bufstream.kafka.topic.partition.offset.high_water_mark'.
 
 #### `partitions`
 
-\_bool_Aggregate metrics across all partitions to avoid cardinality issues with clusters with a large number of partitions. Metrics that support aggregation will report the 'kafka.partition.id' attribute as -1, while some metrics, such as 'bufstream.kafka.topic.partition.offset.high_water_mark' will be omitted if partition level aggregation is enabled.
+_bool_
+
+Aggregate metrics across all partitions to avoid cardinality issues with clusters with a large number of partitions. Metrics that support aggregation will report the 'kafka.partition.id' attribute as -1, while some metrics, such as 'bufstream.kafka.topic.partition.offset.high_water_mark' will be omitted if partition level aggregation is enabled.
 
 #### `consumer_groups`
 
-_bool_Aggregate metrics across all consumer groups to avoid cardinality issues with clusters with a large number of groups. Metrics that support aggregation will report the 'kafka.consumer.group.id' as '\_all_groups_', while some metrics such as 'bufstream.kafka.consumer.group.generation' will be omitted if consumer group level aggregation is enabled.
+_bool_
+
+Aggregate metrics across all consumer groups to avoid cardinality issues with clusters with a large number of groups. Metrics that support aggregation will report the 'kafka.consumer.group.id' as '_all_groups_', while some metrics such as 'bufstream.kafka.consumer.group.generation' will be omitted if consumer group level aggregation is enabled.
 
 #### `principal_ids`
 
-_bool_Aggregate metrics across all authentication principals to avoid cardinality issues with clusters with a large number of principals. Metrics that support aggregation will report the 'authentication.principal_id' as '\_all_principal_ids_'.
+_bool_
+
+Aggregate metrics across all authentication principals to avoid cardinality issues with clusters with a large number of principals. Metrics that support aggregation will report the 'authentication.principal*id' as '\_all_principal_ids*'.
 
 ### `SASLConfig`
 
 #### `plain`
 
-\_[`PlainMechanism`](#buf.bufstream.config.v1alpha1.PlainMechanism)\_Configuration for the PLAIN mechanism. See https://datatracker.ietf.org/doc/html/rfc4616.
+_[`PlainMechanism`](#buf.bufstream.config.v1alpha1.PlainMechanism)_
+
+Configuration for the PLAIN mechanism. See https://datatracker.ietf.org/doc/html/rfc4616.
 
 #### `anonymous`
 
-\_bool_Whether to accept ANONYMOUS as a mechanism. Not recommended. See https://datatracker.ietf.org/doc/html/rfc4505.
+_bool_
+
+Whether to accept ANONYMOUS as a mechanism. Not recommended. See https://datatracker.ietf.org/doc/html/rfc4505.
 
 #### `scram`
 
-\_[`SCRAMMechanism`](#buf.bufstream.config.v1alpha1.SCRAMMechanism)\_Configuration for the SCRAM-\* mechanisms. See https://datatracker.ietf.org/doc/html/rfc5802.
+_[`SCRAMMechanism`](#buf.bufstream.config.v1alpha1.SCRAMMechanism)_
+
+Configuration for the SCRAM-\* mechanisms. See https://datatracker.ietf.org/doc/html/rfc5802.
 
 #### `oauth_bearer`
 
-\_[`OAuthBearerMechanism`](#buf.bufstream.config.v1alpha1.OAuthBearerMechanism)\_Configuration for the OAUTHBEARER mechanism.
+_[`OAuthBearerMechanism`](#buf.bufstream.config.v1alpha1.OAuthBearerMechanism)_
+
+Configuration for the OAUTHBEARER mechanism.
 
 ### `MutualTLSAuthConfig`
 
 #### `principal_source`
 
-\_[`PrincipalSource`](#buf.bufstream.config.v1alpha1.MutualTLSAuthConfig.PrincipalSource)\_Where to extract the principal from the client certificate.
+_[`PrincipalSource`](#buf.bufstream.config.v1alpha1.MutualTLSAuthConfig.PrincipalSource)_
+
+Where to extract the principal from the client certificate.
 
 ### `CSRConfig`
 
@@ -938,19 +1462,27 @@ Configuration for the Confluent Schema Registry (CSR) API.
 
 #### `url`
 
-\_string_Root URL (including protocol and any required path prefix) of the CSR API.
+_string_
+
+Root URL (including protocol and any required path prefix) of the CSR API.
 
 #### `instance_name`
 
-\_string_Name of the CSR instance within the BSR. This name is used to disambiguate subjects of the same name within the same schema file. Used exclusively for schema coercion.
+_string_
+
+Name of the CSR instance within the BSR. This name is used to disambiguate subjects of the same name within the same schema file. Used exclusively for schema coercion.
 
 #### `tls`
 
-\_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig)\_TLS configuration. If unset and the url field specifies https, a default configuration is used.
+_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig)_
+
+TLS configuration. If unset and the url field specifies https, a default configuration is used.
 
 #### `basic_auth`
 
-\_[`BasicAuth`](#buf.bufstream.config.v1alpha1.BasicAuth)\_Authenticate against the CSR API using basic auth credentials
+_[`BasicAuth`](#buf.bufstream.config.v1alpha1.BasicAuth)_
+
+Authenticate against the CSR API using basic auth credentials
 
 ### `StringMatcher`
 
@@ -958,19 +1490,27 @@ Provides match rules to be applied to string values
 
 #### `invert`
 
-\_bool_Inverts the matching behavior (effectively "not").
+_bool_
+
+Inverts the matching behavior (effectively "not").
 
 #### `all`
 
-\_bool_Matches all values; useful as a catch-all.
+_bool_
+
+Matches all values; useful as a catch-all.
 
 #### `equal`
 
-\_string_Matches case-sensitively.
+_string_
+
+Matches case-sensitively.
 
 #### `in`
 
-\_[`StringSet`](#buf.bufstream.config.v1alpha1.StringSet)\_Matches case-sensitively any of the values in the set.
+_[`StringSet`](#buf.bufstream.config.v1alpha1.StringSet)_
+
+Matches case-sensitively any of the values in the set.
 
 ### `Element`
 
@@ -978,35 +1518,51 @@ Rules applied to either the key or value of a record.
 
 #### `name_strategy`
 
-\_[`SubjectNameStrategy`](#buf.bufstream.config.v1alpha1.Enforcement.SubjectNameStrategy)\_The strategy used to associate this element with the subject name when looking up the schema.
+_[`SubjectNameStrategy`](#buf.bufstream.config.v1alpha1.Enforcement.SubjectNameStrategy)_
+
+The strategy used to associate this element with the subject name when looking up the schema.
 
 #### `coerce`
 
-\_bool_If the element is not wrapped in the schema registries expected format and a schema is associated with it, setting this field to true will attempt to resolve a schema for the element and wrap it correctly.
+_bool_
+
+If the element is not wrapped in the schema registries expected format and a schema is associated with it, setting this field to true will attempt to resolve a schema for the element and wrap it correctly.
 
 #### `on_internal_error`
 
-\_[`Action`](#buf.bufstream.config.v1alpha1.Enforcement.Action)\_The action to perform for internal errors (e.g., unavailability of the schema registry). If unset, the default behavior is REJECT_BATCH in produce and PASS_THROUGH in fetch.
+_[`Action`](#buf.bufstream.config.v1alpha1.Enforcement.Action)_
+
+The action to perform for internal errors (e.g., unavailability of the schema registry). If unset, the default behavior is REJECT_BATCH in produce and PASS_THROUGH in fetch.
 
 #### `on_no_schema`
 
-\_[`Action`](#buf.bufstream.config.v1alpha1.Enforcement.Action)\_The action to perform for elements that do not have a schema associated with them. If skip_parse is true, this action will apply if the message is not in the appropriate schema wire format. If unset, the default behavior is PASS_THROUGH.
+_[`Action`](#buf.bufstream.config.v1alpha1.Enforcement.Action)_
+
+The action to perform for elements that do not have a schema associated with them. If skip_parse is true, this action will apply if the message is not in the appropriate schema wire format. If unset, the default behavior is PASS_THROUGH.
 
 #### `skip_parse`
 
-\_bool_If true, will skip verifying that the schema applies to the element's contents. If set with coerce, coerced messages will be identified as the latest version of the element's schema and may be erroneous. Setting this field is mutually exclusive with validation and redaction.
+_bool_
+
+If true, will skip verifying that the schema applies to the element's contents. If set with coerce, coerced messages will be identified as the latest version of the element's schema and may be erroneous. Setting this field is mutually exclusive with validation and redaction.
 
 #### `on_parse_error`
 
-\_[`Action`](#buf.bufstream.config.v1alpha1.Enforcement.Action)\_The action to perform for elements that fail to parse with their associated schema. Fetch policies should not REJECT_BATCH to avoid blocking consumers.
+_[`Action`](#buf.bufstream.config.v1alpha1.Enforcement.Action)_
+
+The action to perform for elements that fail to parse with their associated schema. Fetch policies should not REJECT_BATCH to avoid blocking consumers.
 
 #### `validation`
 
-\_[`ValidationPolicy`](#buf.bufstream.config.v1alpha1.ValidationPolicy)\_If set, parsed messages will have semantic validation applied to them based off their schema.
+_[`ValidationPolicy`](#buf.bufstream.config.v1alpha1.ValidationPolicy)_
+
+If set, parsed messages will have semantic validation applied to them based off their schema.
 
 #### `redaction`
 
-\_[`RedactPolicy`](#buf.bufstream.config.v1alpha1.RedactPolicy)\_If set, parsed messages will have the specified fields redacted. For produce, this will result in data loss.
+_[`RedactPolicy`](#buf.bufstream.config.v1alpha1.RedactPolicy)_
+
+If set, parsed messages will have the specified fields redacted. For produce, this will result in data loss.
 
 ### `RESTCatalogConfig`
 
@@ -1014,35 +1570,51 @@ Configuration for the REST Iceberg catalog API.
 
 #### `url`
 
-\_string_Root URL (including protocol and any required path prefix) of the catalog server.
+_string_
+
+Root URL (including protocol and any required path prefix) of the catalog server.
 
 #### `uri_prefix`
 
-\_string_Optional URI prefix. This is separate from any URI prefix present in `url`. This prefix appears after the "/v1/" API path component but before the remainder of the URI path.
+_string_
+
+Optional URI prefix. This is separate from any URI prefix present in `url`. This prefix appears after the "/v1/" API path component but before the remainder of the URI path.
 
 #### `tls`
 
-\_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig)\_TLS configuration. If unset and the url field specifies https, a default configuration is used.
+_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig)_
+
+TLS configuration. If unset and the url field specifies https, a default configuration is used.
 
 #### `basic_auth`
 
-\_[`BasicAuth`](#buf.bufstream.config.v1alpha1.BasicAuth)\_Authenticate against the Iceberg catalog using basic auth credentials.
+_[`BasicAuth`](#buf.bufstream.config.v1alpha1.BasicAuth)_
+
+Authenticate against the Iceberg catalog using basic auth credentials.
 
 #### `bearer_token`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\_Authenticate against the Iceberg catalog with the given static bearer token (which could be a long-lived OAuth2 token).
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
+
+Authenticate against the Iceberg catalog with the given static bearer token (which could be a long-lived OAuth2 token).
 
 #### `oauth2`
 
-\_[`OAuth2Config`](#buf.bufstream.config.v1alpha1.OAuth2Config)\_Authenticate against the Iceberg catalog with the given OAuth2 configuration.
+_[`OAuth2Config`](#buf.bufstream.config.v1alpha1.OAuth2Config)_
+
+Authenticate against the Iceberg catalog with the given OAuth2 configuration.
 
 #### `sigv4`
 
-\_[`AWSSigV4Config`](#buf.bufstream.config.v1alpha1.AWSSigV4Config)\_Authenticate against the Iceberg catalog using AWS Signature V4 request signing.
+_[`AWSSigV4Config`](#buf.bufstream.config.v1alpha1.AWSSigV4Config)_
+
+Authenticate against the Iceberg catalog using AWS Signature V4 request signing.
 
 #### `jwt`
 
-\_[`JWTConfig`](#buf.bufstream.config.v1alpha1.JWTConfig)\_Authenticate against the Iceberg catalog using JWTs.
+_[`JWTConfig`](#buf.bufstream.config.v1alpha1.JWTConfig)_
+
+Authenticate against the Iceberg catalog using JWTs.
 
 ### `BigLakeMetastoreConfig`
 
@@ -1050,15 +1622,21 @@ Configuration for using BigLake Metastore as an Iceberg catalog.
 
 #### `project`
 
-\_string_The GCP project of the BigLake Metastore. If empty, this is assumed to be the current project in which the bufstream workload is running.
+_string_
+
+The GCP project of the BigLake Metastore. If empty, this is assumed to be the current project in which the bufstream workload is running.
 
 #### `location`
 
-\_string (required)\_The location of the BigLake Metastore. (Note that BigQuery can only access Metastore instances in the same location.)
+_string (required)_
+
+The location of the BigLake Metastore. (Note that BigQuery can only access Metastore instances in the same location.)
 
 #### `catalog`
 
-\_string (required)\_The name of an Iceberg catalog in the Metastore.
+_string (required)_
+
+The name of an Iceberg catalog in the Metastore.
 
 ### `BigQueryMetastoreConfig`
 
@@ -1066,21 +1644,33 @@ Configuration for using BigQuery Metastore as an Iceberg catalog.
 
 #### `project`
 
-\_string_The GCP project of the BigQuery Metastore. If empty, this is assumed to be the current project in which the bufstream workload is running.
+_string_
+
+The GCP project of the BigQuery Metastore. If empty, this is assumed to be the current project in which the bufstream workload is running.
 
 #### `location`
 
-\_string_The location for any BigQuery datasets that are created. Must be present if cloud_resource_connection is present. Otherwise, if absent, datasets cannot be auto-created, so any dataset referenced by an Iceberg table name must already exist.
+_string_
+
+The location for any BigQuery datasets that are created. Must be present if cloud_resource_connection is present. Otherwise, if absent, datasets cannot be auto-created, so any dataset referenced by an Iceberg table name must already exist.
 
 #### `cloud_resource_connection`
 
-\_string_The name of a BigQuery Cloud Resource connection. This is only the simple name of the connection, not the full name. Since a BigQuery dataset can only use connections in the same project and location, the full connection name (which includes its project and location) is not necessary.If absent, no override connection will be associated with created tables.
+_string_
+
+The name of a BigQuery Cloud Resource connection. This is only the simple name of the connection, not the full name. Since a BigQuery dataset can only use connections in the same project and location, the full connection name (which includes its project and location) is not necessary.
+
+If absent, no override connection will be associated with created tables.
 
 ### `LabelValueList`
 
 #### `values`
 
-\_list`<string>`\_The list of values to allow for the label.If this is not set, all values are allowed.
+_list`<string>`_
+
+The list of values to allow for the label.
+
+If this is not set, all values are allowed.
 
 ### `PlainMechanism`
 
@@ -1092,25 +1682,35 @@ _list<[`BasicAuth`](#buf.bufstream.config.v1alpha1.BasicAuth)\>_
 
 #### `admin_credentials`
 
-\_[`SCRAMCredentials`](#buf.bufstream.config.v1alpha1.SCRAMCredentials) (required)\_The admin's credentials boostrapped.
+_[`SCRAMCredentials`](#buf.bufstream.config.v1alpha1.SCRAMCredentials) (required)_
+
+The admin's credentials boostrapped.
 
 ### `OAuthBearerMechanism`
 
 #### `static`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\_Static JWKS file or content.
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
+
+Static JWKS file or content.
 
 #### `remote`
 
-\_[`HttpsEndpoint`](#buf.bufstream.config.v1alpha1.OAuthBearerMechanism.HttpsEndpoint)\_An endpoint serving JWKS that is periodically refreshed.
+_[`HttpsEndpoint`](#buf.bufstream.config.v1alpha1.OAuthBearerMechanism.HttpsEndpoint)_
+
+An endpoint serving JWKS that is periodically refreshed.
 
 #### `audience`
 
-\_string_If provided, will match the 'aud' claim to this value.
+_string_
+
+If provided, will match the 'aud' claim to this value.
 
 #### `issuer`
 
-\_string_If provided, will match the 'iss' claim to this value.
+_string_
+
+If provided, will match the 'iss' claim to this value.
 
 ### `BasicAuth`
 
@@ -1118,11 +1718,15 @@ Basic Authentication username/password pair.
 
 #### `username`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)\_The source of the basicauth username.
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)_
+
+The source of the basicauth username.
 
 #### `password`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)\_The source of the basicauth password.
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)_
+
+The source of the basicauth password.
 
 ### `StringSet`
 
@@ -1138,7 +1742,9 @@ The semantic validation rules applied to parsed elements during data enforcement
 
 #### `on_error`
 
-\_[`Action`](#buf.bufstream.config.v1alpha1.Enforcement.Action)\_The action to perform if the element fails semantic validation defined in the schema. Fetch policies should not REJECT_BATCH to avoid blocking consumers.
+_[`Action`](#buf.bufstream.config.v1alpha1.Enforcement.Action)_
+
+The action to perform if the element fails semantic validation defined in the schema. Fetch policies should not REJECT_BATCH to avoid blocking consumers.
 
 ### `RedactPolicy`
 
@@ -1146,15 +1752,21 @@ The redaction rules applied to parsed elements during data enforcement.
 
 #### `fields`
 
-\_[`StringMatcher`](#buf.bufstream.config.v1alpha1.StringMatcher)\_Strip fields with matching names.
+_[`StringMatcher`](#buf.bufstream.config.v1alpha1.StringMatcher)_
+
+Strip fields with matching names.
 
 #### `debug_redact`
 
-\_bool_Strip fields from the element annotated with the debug_redact field option (proto only).
+_bool_
+
+Strip fields from the element annotated with the debug_redact field option (proto only).
 
 #### `shallow`
 
-\_bool_By default, fields will be redacted recursively in the message. If shallow is set to true, only the top level fields will be evaluated.
+_bool_
+
+By default, fields will be redacted recursively in the message. If shallow is set to true, only the top level fields will be evaluated.
 
 ### `OAuth2Config`
 
@@ -1162,23 +1774,33 @@ Configuration for a client using OAuth2 to generate access tokens for authentica
 
 #### `token_endpoint_url`
 
-\_string_The URL of the token endpoint, used to provision access tokens for use with requests to the catalog. If not specified, this defaults to the catalog's base URL with "v1/oauth/tokens" appended to the URI path, which matches the URI of the endpoint as specified in the Iceberg Catalog's OpenAPI spec.
+_string_
+
+The URL of the token endpoint, used to provision access tokens for use with requests to the catalog. If not specified, this defaults to the catalog's base URL with "v1/oauth/tokens" appended to the URI path, which matches the URI of the endpoint as specified in the Iceberg Catalog's OpenAPI spec.
 
 #### `scope`
 
-\_string_The scope to request when provisioning an access token. If not specified, defaults to "catalog".
+_string_
+
+The scope to request when provisioning an access token. If not specified, defaults to "catalog".
 
 #### `client_id`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)\_The credentials used to authenticate to the token endpoint.
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)_
+
+The credentials used to authenticate to the token endpoint.
 
 #### `client_secret`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)\_The credentials used to authenticate to the token endpoint.
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)_
+
+The credentials used to authenticate to the token endpoint.
 
 #### `tls`
 
-\_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig)\_Optional alternate TLS configuration for the token endpoint. If not specified, accessing the token endpoint will use the same TLS configuration as used for accessing other REST catalog endpoints. (See RESTCatalogConfig.tls).
+_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig)_
+
+Optional alternate TLS configuration for the token endpoint. If not specified, accessing the token endpoint will use the same TLS configuration as used for accessing other REST catalog endpoints. (See RESTCatalogConfig.tls).
 
 ### `AWSSigV4Config`
 
@@ -1186,19 +1808,33 @@ Configuration for a client to use AWS Signature V4 to authenticate with a server
 
 #### `region`
 
-\_string_The AWS region to indicate in the credential scope of the signature.This field defaults to the region of the broker's host.
+_string_
+
+The AWS region to indicate in the credential scope of the signature.
+
+This field defaults to the region of the broker's host.
 
 #### `service`
 
-\_string_The AWS service to indicate in the credential scope of the signature. The default service depends on how this configuration is used. For authenticating with an Iceberg REST catalog, it defaults to "execute-api".
+_string_
+
+The AWS service to indicate in the credential scope of the signature. The default service depends on how this configuration is used. For authenticating with an Iceberg REST catalog, it defaults to "execute-api".
 
 #### `access_key_id`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\_Specifies the AWS access key ID for authentication to the bucket.By default, authentication is performed using the metadata service of the broker's host. If set, `secret_access_key` must also be provided.
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
+
+Specifies the AWS access key ID for authentication to the bucket.
+
+By default, authentication is performed using the metadata service of the broker's host. If set, `secret_access_key` must also be provided.
 
 #### `secret_access_key`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\_Specifies the AWS secret access key for authentication to the bucket.By default, authentication is performed using the metadata service of the broker's host. If set, `access_key_id` must also be provided.
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
+
+Specifies the AWS secret access key for authentication to the bucket.
+
+By default, authentication is performed using the metadata service of the broker's host. If set, `access_key_id` must also be provided.
 
 ### `JWTConfig`
 
@@ -1206,31 +1842,45 @@ Configuration for minting JWTs for authenticating with a server.
 
 #### `alg`
 
-\_[`JWTAlgorithm`](#buf.bufstream.config.v1alpha1.JWTAlgorithm) (required)\_Specifies the algorithm to use when generating a JWT.
+_[`JWTAlgorithm`](#buf.bufstream.config.v1alpha1.JWTAlgorithm) (required)_
+
+Specifies the algorithm to use when generating a JWT.
 
 #### `key`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)\_Specifies the key used to sign JWTs. For HMAC keyed hashes, the value is just a sequence of opaque bytes used as a shared secret. For the others (asymmetric digital signature algorithms), the value must be a PEM-encoded private key. The type of the key must match the configured algorithm.
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)_
+
+Specifies the key used to sign JWTs. For HMAC keyed hashes, the value is just a sequence of opaque bytes used as a shared secret. For the others (asymmetric digital signature algorithms), the value must be a PEM-encoded private key. The type of the key must match the configured algorithm.
 
 #### `expiry`
 
-\_duration_The duration after which a newly minted JWT will expire. If not specified and use_jti is not set, JWTs will default to a duration of one hour.
+_duration_
+
+The duration after which a newly minted JWT will expire. If not specified and use_jti is not set, JWTs will default to a duration of one hour.
 
 #### `use_jti`
 
-\_bool_When set, JWTs will be used exactly once. Furthermore, each JWT will be assigned a unique ID, which servers can record to prevent re-use (and to more strongly prevent replay attacks). Note that this involves creating and signing a new JWT for every request, which will use extra CPU resources and can add latency to each request.
+_bool_
+
+When set, JWTs will be used exactly once. Furthermore, each JWT will be assigned a unique ID, which servers can record to prevent re-use (and to more strongly prevent replay attacks). Note that this involves creating and signing a new JWT for every request, which will use extra CPU resources and can add latency to each request.
 
 #### `issuer`
 
-\_string (required)\_The issuer claim in the JWT.
+_string (required)_
+
+The issuer claim in the JWT.
 
 #### `subject`
 
-\_string (required)\_The subject claim in the JWT.
+_string (required)_
+
+The subject claim in the JWT.
 
 #### `audience`
 
-\_string_The optional audience claim in the JWT.
+_string_
+
+The optional audience claim in the JWT.
 
 ### `SCRAMCredentials`
 
@@ -1254,15 +1904,23 @@ _[`SaltedPassword`](#buf.bufstream.config.v1alpha1.SCRAMCredentials.SaltedPasswo
 
 #### `url`
 
-\_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\_A HTTPS url for the JWKS file
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
+
+A HTTPS url for the JWKS file
 
 #### `refresh_interval`
 
-\_duration_The keys are loaded from the URL once on startup and cached. This controls the cache duration.Defaults to an hour. Set to a negative number to never refresh.
+_duration_
+
+The keys are loaded from the URL once on startup and cached. This controls the cache duration.
+
+Defaults to an hour. Set to a negative number to never refresh.
 
 #### `tls`
 
-\_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig)\_TLS configuration. If unset, a default configuration is used.
+_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig)_
+
+TLS configuration. If unset, a default configuration is used.
 
 ### `SaltedPassword`
 
@@ -1336,11 +1994,15 @@ GCP GCS service
 
 #### `LOCAL_DISK`
 
-Local, on-disk storageThis option is for debugging purposes and should only be used by clusters that share the same filesystem.
+Local, on-disk storage
+
+This option is for debugging purposes and should only be used by clusters that share the same filesystem.
 
 #### `INLINE`
 
-Use metadata storage (e.g., in_memory or etcd).This option should only be used for testing purposes.
+Use metadata storage (e.g., in_memory or etcd).
+
+This option should only be used for testing purposes.
 
 #### `AZURE`
 

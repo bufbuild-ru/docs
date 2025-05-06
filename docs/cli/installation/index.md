@@ -72,7 +72,9 @@ This installs:
 $ npm install @bufbuild/buf
 ```
 
-This installs the binaries `buf`, `protoc-gen-buf-breaking`, and `protoc-gen-buf-lint` to be used within your project.To execute `buf` from the command line, you can use `npx`:
+This installs the binaries `buf`, `protoc-gen-buf-breaking`, and `protoc-gen-buf-lint` to be used within your project.
+
+To execute `buf` from the command line, you can use `npx`:
 
 ```console
 $ npx buf --version
@@ -80,12 +82,20 @@ $ npx buf --version
 
 == GitHub
 
-`buf` is released via the [bufbuild/buf](https://github.com/bufbuild/buf) repository.Two types of assets are available:
+`buf` is released via the [bufbuild/buf](https://github.com/bufbuild/buf) repository.
+
+Two types of assets are available:
 
 - The single `buf`, `protoc-gen-buf-breaking`, and `protoc-gen-buf-lint` binaries.
 - A tarball containing the binaries, bash completion, fish completion, and zsh completion.
 
-See the [Releases](https://github.com/bufbuild/buf/releases) page for the current release.**Binary**The binary is all you need to get started.To install just the `buf` binary to `/usr/local/bin` for version `1.53.0`:
+See the [Releases](https://github.com/bufbuild/buf/releases) page for the current release.
+
+**Binary**
+
+The binary is all you need to get started.
+
+To install just the `buf` binary to `/usr/local/bin` for version `1.53.0`:
 
 ```sh
 # Substitute BIN for your bin directory.
@@ -98,7 +108,9 @@ curl -sSL \
 chmod +x "${BIN}/buf"
 ```
 
-`/usr/local/bin` should be on your `$PATH`.To uninstall from `/usr/local/bin`:
+`/usr/local/bin` should be on your `$PATH`.
+
+To uninstall from `/usr/local/bin`:
 
 ```sh
 # Substitute BIN for your bin directory.
@@ -106,7 +118,9 @@ BIN="/usr/local/bin" && \
 rm -f "${BIN}/buf"
 ```
 
-**Tarball**To install the `buf`, `protoc-gen-buf-breaking`, and `protoc-gen-buf-lint` binaries, and bash/fish/zsh completion to `/usr/local` for version `1.53.0`:
+**Tarball**
+
+To install the `buf`, `protoc-gen-buf-breaking`, and `protoc-gen-buf-lint` binaries, and bash/fish/zsh completion to `/usr/local` for version `1.53.0`:
 
 ```sh
 # Substitute PREFIX for your install prefix.
@@ -118,7 +132,9 @@ curl -sSL \
 tar -xvzf - -C "${PREFIX}" --strip-components 1
 ```
 
-The binaries are installed to `/usr/local/bin`, which should be on your `$PATH`.To uninstall from `/usr/local`:
+The binaries are installed to `/usr/local/bin`, which should be on your `$PATH`.
+
+To uninstall from `/usr/local`:
 
 ```sh
 # Substitute PREFIX for your install prefix.
@@ -181,11 +197,19 @@ GOBIN=C:\dev\go\bin go install github.com/bufbuild/buf/cmd/buf@v1.53.0
 
 #### Errors when using `tools.go`
 
-This isn't an issue with Buf — all Go CLI tools can have this problem when using this approach. Despite its suggestion on the Go wiki, we consider it somewhat of an anti-pattern at Buf. **We don't support or recommend using `tools.go`.**Programs are built (and tested) with a specific set of dependencies, and the `tools.go` method results in those dependencies being resolved with the dependencies of your own program (and other tools), which is ill-advised at best and incorrect at worst. Go packages aren't supposed to change in incompatible ways while keeping the same identity (which is why `v2` and `v1` packages, for example, have different import paths). Unfortunately, people break things and sometimes breaking changes are published on minor releases with the same import path. When this happens, the `tools.go` approach becomes problematic.We recommend that you install Go tooling like anything else — either with individual `go install` calls or from released binaries. This way you're insulated from this problem. In addition, with Go v1.16 and higher, you can specify versions to `go install`, so ensuring everyone is using the same version for tooling is easily done without using `go.mod`.You can find Buf’s officially recommended command for installing from source using `go install` above. Using this command causes the Go tool to ignore `go.mod`, so the versions of Buf dependencies are the exact ones that we intend.
+This isn't an issue with Buf — all Go CLI tools can have this problem when using this approach. Despite its suggestion on the Go wiki, we consider it somewhat of an anti-pattern at Buf. **We don't support or recommend using `tools.go`.**
+
+Programs are built (and tested) with a specific set of dependencies, and the `tools.go` method results in those dependencies being resolved with the dependencies of your own program (and other tools), which is ill-advised at best and incorrect at worst. Go packages aren't supposed to change in incompatible ways while keeping the same identity (which is why `v2` and `v1` packages, for example, have different import paths). Unfortunately, people break things and sometimes breaking changes are published on minor releases with the same import path. When this happens, the `tools.go` approach becomes problematic.
+
+We recommend that you install Go tooling like anything else — either with individual `go install` calls or from released binaries. This way you're insulated from this problem. In addition, with Go v1.16 and higher, you can specify versions to `go install`, so ensuring everyone is using the same version for tooling is easily done without using `go.mod`.
+
+You can find Buf’s officially recommended command for installing from source using `go install` above. Using this command causes the Go tool to ignore `go.mod`, so the versions of Buf dependencies are the exact ones that we intend.
 
 == Docker
 
-Buf ships a Docker image ([bufbuild/buf](https://hub.docker.com/r/bufbuild/buf)) that enables you to use `buf` as part of your Docker workflow.For example, you can run `buf lint` with this command:
+Buf ships a Docker image ([bufbuild/buf](https://hub.docker.com/r/bufbuild/buf)) that enables you to use `buf` as part of your Docker workflow.
+
+For example, you can run `buf lint` with this command:
 
 ```console
 $ docker run --volume "$(pwd):/workspace" --workdir /workspace bufbuild/buf lint

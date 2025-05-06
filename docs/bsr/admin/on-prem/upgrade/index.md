@@ -47,7 +47,9 @@ head:
 
 ## Upgrade
 
-We currently support (and test) zero downtime sequential upgrades from one minor version to the next minor version. For example, if you’re on version `1.0.0` then you can safely upgrade to `1.0.X` or `1.1.X` without any downtime.To upgrade, deploy the new version of the helm chart. The exact steps vary depending on how you use helm — directly, with [helmfile](https://github.com/helmfile/helmfile), or through CI. If using helm directly, upgrade the Helm chart on the cluster using the `bsr.yaml` Helm values file you created [during installation](../installation/):
+We currently support (and test) zero downtime sequential upgrades from one minor version to the next minor version. For example, if you’re on version `1.0.0` then you can safely upgrade to `1.0.X` or `1.1.X` without any downtime.
+
+To upgrade, deploy the new version of the helm chart. The exact steps vary depending on how you use helm — directly, with [helmfile](https://github.com/helmfile/helmfile), or through CI. If using helm directly, upgrade the Helm chart on the cluster using the `bsr.yaml` Helm values file you created [during installation](../installation/):
 
 ```console
 $ helm upgrade bsr oci://us-docker.pkg.dev/buf-images-1/bsr/charts/bsr \
@@ -58,7 +60,9 @@ $ helm upgrade bsr oci://us-docker.pkg.dev/buf-images-1/bsr/charts/bsr \
 
 ### Multi-version upgrades
 
-If you want to upgrade more than one minor version (for example `1.0.0` to `1.2.0`) and you care about avoiding downtime, then you need to apply minor version upgrades one at a time (for example deploy `1.1.0`, verify deploy successful, deploy `1.2.0`, verify deploy successful, etc.).If you are OK with downtime and prefer to minimize the number of steps required to upgrade across multiple versions, you can use the following process (note that this only saves you time if you are upgrading 3 or more minor versions at once):
+If you want to upgrade more than one minor version (for example `1.0.0` to `1.2.0`) and you care about avoiding downtime, then you need to apply minor version upgrades one at a time (for example deploy `1.1.0`, verify deploy successful, deploy `1.2.0`, verify deploy successful, etc.).
+
+If you are OK with downtime and prefer to minimize the number of steps required to upgrade across multiple versions, you can use the following process (note that this only saves you time if you are upgrading 3 or more minor versions at once):
 
 1.  Using the currently deployed version of the helm chart, enable [maintenance mode](../configuration/#maintenance-mode) in the helm values, and apply it (for example deploy `1.0.0` with `maintenance: true`).
 2.  Verify that the deploy has completed.
@@ -67,7 +71,9 @@ If you want to upgrade more than one minor version (for example `1.0.0` to `1.2.
 
 ## Downgrade
 
-It's safe to downgrade to any previous patch version of the same major and minor version with no downtime or data loss (for example downgrade from `1.1.9` to `1.1.0`). All you need to do is deploy the previous patch version that you want to roll back to.It's also safe to downgrade one minor version with no downtime. For example, if an instance is on version `1.2.3` then you can downgrade back to `1.1.0` using the following process:
+It's safe to downgrade to any previous patch version of the same major and minor version with no downtime or data loss (for example downgrade from `1.1.9` to `1.1.0`). All you need to do is deploy the previous patch version that you want to roll back to.
+
+It's also safe to downgrade one minor version with no downtime. For example, if an instance is on version `1.2.3` then you can downgrade back to `1.1.0` using the following process:
 
 1.  Deploy the version you want to roll back to (for example `1.1.0`). This is safe to do as a rolling deployment, so that you don't incur downtime.
 2.  Ensure that the rollback has completed and there are no more instances of the newer version (for example `1.2.0`) running.

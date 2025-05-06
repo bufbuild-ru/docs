@@ -75,7 +75,11 @@ The steps below must be carried out by an Okta administrator for your organizati
 2.  Set **Audience URI (SP Entity ID)** to `https://buf.example.com`.
 3.  For **Name ID format** and **Application username**, select `EmailAddress` and `Email`, respectively.
 
-Buf provisions users Just-in-Time based on the email address — **make sure you've configured the Name ID correctly**.![ Okta SAML configuration](../../../../../images/bsr/sso/okta-saml.png)We recommend keeping the Okta defaults under **Advanced Settings**. However, if your organization has additional requirements, such as Single Logout (SLO) or adding Assertion Encryption, contact [Support](https://support.buf.build) or your Buf representative.
+Buf provisions users Just-in-Time based on the email address — **make sure you've configured the Name ID correctly**.
+
+![ Okta SAML configuration](../../../../../images/bsr/sso/okta-saml.png)
+
+We recommend keeping the Okta defaults under **Advanced Settings**. However, if your organization has additional requirements, such as Single Logout (SLO) or adding Assertion Encryption, contact [Support](https://support.buf.build) or your Buf representative.
 
 ### Get metadata URL
 
@@ -83,7 +87,9 @@ Buf supports fetching dynamic configuration directly from the publicly hosted Ok
 
 1.  Navigate to the Buf application.
 2.  Click the **Sign On** tab and look for **Identity Provider Metadata**. This is a public URL Okta provides for you to share with your Service Provider.
-3.  Copy the Metadata URL to use for configuring your BSR instance.![ Okta SAML configuration](../../../../../images/bsr/sso/okta-saml-2.png)
+3.  Copy the Metadata URL to use for configuring your BSR instance.
+
+    ![ Okta SAML configuration](../../../../../images/bsr/sso/okta-saml-2.png)
 
 ## Update SSO configuration
 
@@ -91,5 +97,8 @@ To set up or update your BSR instance's SSO configuration:
 
 1.  Go to the **SSO Configuration page** at `http://<BSR_SERVER>/<ORGANIZATION>/pro-settings`.
 2.  From the **SSO Provider** dropdown, choose **SAML**.
-3.  Enter the Metadata URL in the **IdP Metadata URL** text box.![IdP metadata text entry box](../../../../../images/bsr/sso/okta-saml-metadata.png)
+3.  Enter the Metadata URL in the **IdP Metadata URL** text box.
+
+    ![IdP metadata text entry box](../../../../../images/bsr/sso/okta-saml-metadata.png)
+
 4.  Click **Update**.

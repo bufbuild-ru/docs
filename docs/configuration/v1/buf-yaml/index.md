@@ -49,7 +49,9 @@ head:
 This file now has a `v2` configuration available. See the [v2 `buf.yaml` reference](../../v2/buf-yaml/) and the [migration guide](../../../migration-guides/migrate-v2-config-files/) for details about the new configuration and migration instructions.
 :::
 
-The `buf.yaml` file defines a [module](../../../cli/modules-workspaces/), and is placed at the root of the Protobuf source files it defines. The placement of the `buf.yaml` configuration tells `buf` where to search for `.proto` files and how to handle imports.This file contains [lint](../../../lint/rules/) and [breaking change](../../../breaking/rules/) rules, and if applicable, the name of your module and a list of dependencies.
+The `buf.yaml` file defines a [module](../../../cli/modules-workspaces/), and is placed at the root of the Protobuf source files it defines. The placement of the `buf.yaml` configuration tells `buf` where to search for `.proto` files and how to handle imports.
+
+This file contains [lint](../../../lint/rules/) and [breaking change](../../../breaking/rules/) rules, and if applicable, the name of your module and a list of dependencies.
 
 ## Default values
 
@@ -196,7 +198,9 @@ lint:
 
 #### `ignore_only`
 
-**Optional.** Allows directories or files to be excluded from specific lint rules when running `buf lint` by taking a map from lint rule ID or category to path. As with `ignore`, the paths **must** be relative to the `buf.yaml`.For example, this config sets up specific ignores for the `ENUM_PASCAL_CASE` rule and the `BASIC` category:
+**Optional.** Allows directories or files to be excluded from specific lint rules when running `buf lint` by taking a map from lint rule ID or category to path. As with `ignore`, the paths **must** be relative to the `buf.yaml`.
+
+For example, this config sets up specific ignores for the `ENUM_PASCAL_CASE` rule and the `BASIC` category:
 
 ::: info buf.yaml
 
@@ -366,7 +370,9 @@ breaking:
 
 #### `ignore_only`
 
-Allows directories or files to be excluded from specific breaking rules when running `buf breaking` by taking a map from breaking rule ID or category to path. As with `ignore`, the paths **must** be relative to the `buf.yaml`. **We don't recommend this option.**For example, this config sets us specific ignores for the `FILE_SAME_TYPE` rule and the `WIRE` category:
+Allows directories or files to be excluded from specific breaking rules when running `buf breaking` by taking a map from breaking rule ID or category to path. As with `ignore`, the paths **must** be relative to the `buf.yaml`. **We don't recommend this option.**
+
+For example, this config sets us specific ignores for the `FILE_SAME_TYPE` rule and the `WIRE` category:
 
 ::: info buf.yaml
 

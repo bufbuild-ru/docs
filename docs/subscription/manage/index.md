@@ -45,7 +45,9 @@ head:
 
 # Manage your subscription
 
-This page contains information on how to purchase a Buf paid subscription, upgrade an existing subscription, and update your billing information.You can upgrade from Buf Community to a Teams or Pro plan. When you upgrade to a paid subscription, you can immediately use all the features and entitlements offered in your new subscription. For detailed information on features available in each subscription, see [Buf Pricing](https://buf.build/pricing).
+This page contains information on how to purchase a Buf paid subscription, upgrade an existing subscription, and update your billing information.
+
+You can upgrade from Buf Community to a Teams or Pro plan. When you upgrade to a paid subscription, you can immediately use all the features and entitlements offered in your new subscription. For detailed information on features available in each subscription, see [Buf Pricing](https://buf.build/pricing).
 
 ## Upgrade to a Teams subscription
 
@@ -54,7 +56,10 @@ Below, we'll walk through how to purchase a Buf Teams subscription and gain acce
 1.  Go to the [Teams checkout](https://buf.build/checkout/teams/get-started).
 2.  Sign up for a new Buf account or log in to an existing account.
 3.  Select the organization or create a new one to manage the account.
-4.  Add a payment method.Link a payment method to your organization. Your 30-day trial begins immediately, after which you will receive an email with an estimate of the next month's charges based on usage. You won't be charged until the end of the billing cycle after your trial ends.
+4.  Add a payment method.
+
+    Link a payment method to your organization. Your 30-day trial begins immediately, after which you will receive an email with an estimate of the next month's charges based on usage. You won't be charged until the end of the billing cycle after your trial ends.
+
 5.  Review the configuration details before creating your account and click **Complete**.
 
 ## Upgrade to a Pro subscription
@@ -63,8 +68,14 @@ Below, we'll walk through how to purchase a Buf Pro subscription and enable the 
 
 1.  Go to the [Pro checkout](https://buf.build/checkout/pro/get-started).
 2.  Sign up for a new Buf account or log in to an existing account.
-3.  Select the organization or create a new one to manage the registry.This organization will manage the new registry. Any existing members of the chosen organization will be given access to the registry. The URL for your registry will be generated based on the selected organization name.
-4.  Link a payment method to your organization.Your 30-day trial begins immediately, after which you will receive an email with an estimate of the next month's charges based on usage. You won't be charged until the end of the billing cycle after your trial ends.
+3.  Select the organization or create a new one to manage the registry.
+
+    This organization will manage the new registry. Any existing members of the chosen organization will be given access to the registry. The URL for your registry will be generated based on the selected organization name.
+
+4.  Link a payment method to your organization.
+
+    Your 30-day trial begins immediately, after which you will receive an email with an estimate of the next month's charges based on usage. You won't be charged until the end of the billing cycle after your trial ends.
+
 5.  Review the configuration details before creating your registry and select **Create Registry**. The new registry is typically available within 30 minutes after subscription.
 
 ## Registry settings page

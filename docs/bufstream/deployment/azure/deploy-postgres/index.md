@@ -45,7 +45,9 @@ head:
 
 # Deploy Bufstream to Azure with Azure Database for PostgreSQL
 
-This page walks you through installing Bufstream into your Azure deployment, using PostgreSQL for metadata storage. See [Tuning and performance](../../tuning-performance/) for defaults and recommendations about resources, replicas, storage, and scaling.Data from your Bufstream cluster never leaves your network or reports back to Buf.
+This page walks you through installing Bufstream into your Azure deployment, using PostgreSQL for metadata storage. See [Tuning and performance](../../tuning-performance/) for defaults and recommendations about resources, replicas, storage, and scaling.
+
+Data from your Bufstream cluster never leaves your network or reports back to Buf.
 
 ## Prerequisites
 
@@ -191,7 +193,9 @@ Bufstream is configured using Helm values that are passed to the `bufstream` Hel
 
 == Microsoft Entra Workload ID (recommended)
 
-Bufstream attempts to acquire credentials from the environment using WIF.To configure storage, set the following Helm values, filling in your Blob Storage variables:
+Bufstream attempts to acquire credentials from the environment using WIF.
+
+To configure storage, set the following Helm values, filling in your Blob Storage variables:
 
 ::: info bufstream-values.yaml
 
@@ -287,7 +291,9 @@ metadata:
 
 ### 3\. Install the Helm chart
 
-Proceed to the [zonal deployment steps](#zonal-deployment) if you want to deploy Bufstream with zone-aware routing. If not, follow the instructions below to deploy the basic Helm chart.Add the following to the `bufstream-values.yaml` Helm values file to make bufstream brokers automatically detect their zone:
+Proceed to the [zonal deployment steps](#zonal-deployment) if you want to deploy Bufstream with zone-aware routing. If not, follow the instructions below to deploy the basic Helm chart.
+
+Add the following to the `bufstream-values.yaml` Helm values file to make bufstream brokers automatically detect their zone:
 
 ```yaml
 discoverZoneFromNode: true

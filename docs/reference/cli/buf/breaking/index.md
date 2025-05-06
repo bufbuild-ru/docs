@@ -55,7 +55,9 @@ $ buf breaking <input> --against <against-input> [flags]
 
 ### Description
 
-This command makes sure that the `<input>` location has no breaking changes compared to the `<against-input>` location.The first argument is the source, module, or image to check for breaking changes, which must be one of format \[binpb,dir,git,json,mod,protofile,tar,txtpb,yaml,zip\]. This defaults to "." if no argument is specified.
+This command makes sure that the `<input>` location has no breaking changes compared to the `<against-input>` location.
+
+The first argument is the source, module, or image to check for breaking changes, which must be one of format \[binpb,dir,git,json,mod,protofile,tar,txtpb,yaml,zip\]. This defaults to "." if no argument is specified.
 
 ### Flags
 

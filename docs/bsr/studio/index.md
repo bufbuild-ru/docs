@@ -55,13 +55,27 @@ head:
 
 ## Composing requests
 
-Start by selecting the Protobuf method you want to make a request with. With the **Select Method** menu you can choose a BSR module and use Buf Studio's fuzzy search to select the desired service and method for you request:![Studio method select demo](../../images/studio/method-select.gif)Note that the streaming endpoints are currently greyed out as Buf Studio currently only supports unary RPC. We intend to support streaming RPC in the future.Once you've selected your RPC, declare the **target URL** of the Protobuf API that you're looking to make a request to. This shouldn't include the service or RPC path, which Buf Studio wills append based on your selected RPC definition.![Studio target url input](../../images/studio/target-url.png)Once you've configured your RPC and target URL, create the payload of your request using the Buf Studio's built-in editor. Based on the schema for your RPC's request message, the editor gives you:
+Start by selecting the Protobuf method you want to make a request with. With the **Select Method** menu you can choose a BSR module and use Buf Studio's fuzzy search to select the desired service and method for you request:
+
+![Studio method select demo](../../images/studio/method-select.gif)
+
+Note that the streaming endpoints are currently greyed out as Buf Studio currently only supports unary RPC. We intend to support streaming RPC in the future.
+
+Once you've selected your RPC, declare the **target URL** of the Protobuf API that you're looking to make a request to. This shouldn't include the service or RPC path, which Buf Studio wills append based on your selected RPC definition.
+
+![Studio target url input](../../images/studio/target-url.png)
+
+Once you've configured your RPC and target URL, create the payload of your request using the Buf Studio's built-in editor. Based on the schema for your RPC's request message, the editor gives you:
 
 - Autocompletion: use Ctrl+Space to trigger suggestions.
 - Validation: invalid field types, invalid JSON, etc. The editor underlines the invalid region.
 - Documentation: hover over fields, or use the "Docs" tab above the editor to view documentation for the Protobuf definition.
 
-![Studio request editor](../../images/studio/request-editor.gif)You can also set the headers for your request. This can be useful for any metadata you want to send through, authorization headers, etc.![Studio request headers](../../images/studio/request-headers.png)
+![Studio request editor](../../images/studio/request-editor.gif)
+
+You can also set the headers for your request. This can be useful for any metadata you want to send through, authorization headers, etc.
+
+![Studio request headers](../../images/studio/request-headers.png)
 
 ## Sending requests
 
@@ -104,7 +118,9 @@ For a more specific implementation example, see the [Connect RPC CORS documentat
 
 ### Request via Buf Studio Agent
 
-Buf Studio agent is tool that can be used to expand the use of Buf Studio to protocols and servers normally out of reach for browsers. It's OSS that ships as part of the Buf CLI and uses [Connect-Go](https://github.com/connectrpc/connect-go) to implement a small proxy to unlock this extra functionality.With Buf Studio Agent, the request flow is as follows:
+Buf Studio agent is tool that can be used to expand the use of Buf Studio to protocols and servers normally out of reach for browsers. It's OSS that ships as part of the Buf CLI and uses [Connect-Go](https://github.com/connectrpc/connect-go) to implement a small proxy to unlock this extra functionality.
+
+With Buf Studio Agent, the request flow is as follows:
 
 ```
 sequenceDiagram
@@ -122,17 +138,41 @@ When using Buf Studio Agent, Buf Studio can now also reach:
 - **gRPC servers:** The gRPC protocol can't be used with any major browser, but Buf Studio Agent can. Communication between Buf Studio Agent and Buf Studio is handled with a protocol understandable by browsers, which Buf Studio Agent dynamically reframes to communicate with the target server.
 - **Servers without the required CORS configuration:** Because CORS is a browser-specific limitation, Buf Studio Agent can issue requests to any server. The required CORS config is built into Buf Studio Agent by default, so the browser can reach Buf Studio Agent which forwards your request to the target server.
 
-To use Buf Studio Agent, configure the Buf Studio Agent URL in the UI with a URL to a running instance of Buf Studio Agent:![Studio Agent url](../../images/studio/agent-url.png)For more information on running Buf Studio Agent, see the [reference section](#reference-studio-agent-flags) below.
+To use Buf Studio Agent, configure the Buf Studio Agent URL in the UI with a URL to a running instance of Buf Studio Agent:
+
+![Studio Agent url](../../images/studio/agent-url.png)
+
+For more information on running Buf Studio Agent, see the [reference section](#reference-studio-agent-flags) below.
 
 ## Saving requests
 
-Depending on request complexity, composing a well-formed and complete payload can take time and effort. To avoid repeatedly composing requests, you can save them to your profile for later reuse.To save requests to your Favorites, first make sure you are logged in. All requests in the History section have a star icon, and clicking on it allows you to preserve the target url, request body, headers, and protocol.![Studio add favorite](../../images/studio/add-favorite.png)All Favorites appear on the left side of the editor, where you can rename, delete, or populate them back into the editor.![Studio rename favorite](../../images/studio/rename-favorite.png)Once you load a Favorite back to the editor, you can modify it before sending it again.![Studio load favorite](../../images/studio/load-favorite.gif)And as with any other request in-editor, you can share it with anyone using the “Share” button.![Studio share request](../../images/studio/share-request.png)
+Depending on request complexity, composing a well-formed and complete payload can take time and effort. To avoid repeatedly composing requests, you can save them to your profile for later reuse.
+
+To save requests to your Favorites, first make sure you are logged in. All requests in the History section have a star icon, and clicking on it allows you to preserve the target url, request body, headers, and protocol.
+
+![Studio add favorite](../../images/studio/add-favorite.png)
+
+All Favorites appear on the left side of the editor, where you can rename, delete, or populate them back into the editor.
+
+![Studio rename favorite](../../images/studio/rename-favorite.png)
+
+Once you load a Favorite back to the editor, you can modify it before sending it again.
+
+![Studio load favorite](../../images/studio/load-favorite.gif)
+
+And as with any other request in-editor, you can share it with anyone using the “Share” button.
+
+![Studio share request](../../images/studio/share-request.png)
 
 ## Advanced setup
 
 ### Cookies
 
-Some APIs use cookies to authenticate requests. You can configure Buf Studio to include cookies with your requests by checking the following option:![Studio options tab with cookies option](../../images/studio/cookies.png)Cookies for the target URL need to contain `SameSite=None; Secure` to be included in requests from Buf Studio. Servers that accept cross-origin cookies for authentication should also use CORS to indicate to the browser that Studio requests may include credentials by using the `Access-Control-Allow-Credentials` header:
+Some APIs use cookies to authenticate requests. You can configure Buf Studio to include cookies with your requests by checking the following option:
+
+![Studio options tab with cookies option](../../images/studio/cookies.png)
+
+Cookies for the target URL need to contain `SameSite=None; Secure` to be included in requests from Buf Studio. Servers that accept cross-origin cookies for authentication should also use CORS to indicate to the browser that Studio requests may include credentials by using the `Access-Control-Allow-Credentials` header:
 
 ```text
 Access-Control-Allow-Origin: https://buf.build
@@ -147,7 +187,17 @@ Note: allowing credentials puts limitations on other CORS features such as using
 This feature is only available on the Pro and Enterprise plans.
 :::
 
-In your private BSR instance, admins can create preset URLs for Studio Agents. This is done through the admin panel.![admin panel highlighting agent preset setting](../../images/studio/agent-preset.png)Presets have an optional “Name” that can be set to alias the URL.![agent preset modal](../../images/studio/agent-preset-modal.png)Presets are then presented to users on your BSR in the dropdown menu. They can select from the presets or provide their own Buf Studio Agent URL.![Buf Studio agent URL input](../../images/studio/agent-input-2.png)
+In your private BSR instance, admins can create preset URLs for Studio Agents. This is done through the admin panel.
+
+![admin panel highlighting agent preset setting](../../images/studio/agent-preset.png)
+
+Presets have an optional “Name” that can be set to alias the URL.
+
+![agent preset modal](../../images/studio/agent-preset-modal.png)
+
+Presets are then presented to users on your BSR in the dropdown menu. They can select from the presets or provide their own Buf Studio Agent URL.
+
+![Buf Studio agent URL input](../../images/studio/agent-input-2.png)
 
 ### Long-running Buf Studio Agent instances
 
@@ -155,7 +205,19 @@ In your private BSR instance, admins can create preset URLs for Studio Agents. T
 This feature is only available on the Pro and Enterprise plans.
 :::
 
-At Buf we deploy long-running Buf Studio Agent instances within our internal infrastructure. Their endpoints are protected by SSO and combined with the Cookies option described above this allows us to reach any public or internal Protobuf endpoint from Buf Studio. Together with our public and private APIs on the BSR, this setup allows us to test and debug any endpoint with ease.This section describes how to set up your Buf Studio and Buf Studio Agent instances to be long-running for your auth setup and make authenticated requests.For example, you'd like to allow a request from an authenticated user, however, you want to restrict the user's ability to set custom authentication headers:![show authenticated user in Buf Studio and disallow auth headers](../../images/studio/auth-header-example.png)The user can forward their cookies from Buf Studio with the following setting:![user has set cookies option](../../images/studio/cookies.png)The following is an example of a Dockerfile for a long running Buf Studio Agent instance:
+At Buf we deploy long-running Buf Studio Agent instances within our internal infrastructure. Their endpoints are protected by SSO and combined with the Cookies option described above this allows us to reach any public or internal Protobuf endpoint from Buf Studio. Together with our public and private APIs on the BSR, this setup allows us to test and debug any endpoint with ease.
+
+This section describes how to set up your Buf Studio and Buf Studio Agent instances to be long-running for your auth setup and make authenticated requests.
+
+For example, you'd like to allow a request from an authenticated user, however, you want to restrict the user's ability to set custom authentication headers:
+
+![show authenticated user in Buf Studio and disallow auth headers](../../images/studio/auth-header-example.png)
+
+The user can forward their cookies from Buf Studio with the following setting:
+
+![user has set cookies option](../../images/studio/cookies.png)
+
+The following is an example of a Dockerfile for a long running Buf Studio Agent instance:
 
 ```dockerfile
 FROM bufbuild/buf:latest
@@ -172,7 +234,9 @@ ENTRYPOINT /usr/local/bin/buf beta studio-agent --timeout=0s \
 - `--forward-header=${auth-header}=${auth-header}`: This takes the `${auth-header};` from the originating request, in this case, set by the edge after validating the user's cookies, and forward it on the request made by Buf Studio Agent.
 - `--disallowed-header ${auth-header}`: This strips `${auth-header}` if the user attempts to configure a custom value for `${auth-header}` in their request configuration.
 
-With both configurations, the user won't be able to set their own `${auth-header}` value, but Buf Studio Agent validates and forwards the value from their cookies.This results in the following flow:
+With both configurations, the user won't be able to set their own `${auth-header}` value, but Buf Studio Agent validates and forwards the value from their cookies.
+
+This results in the following flow:
 
 ```
 sequenceDiagram
@@ -194,7 +258,9 @@ sequenceDiagram
 
 ## Reference: Buf Studio Agent flags
 
-Buf Studio agent is included in the Buf CLI under `buf beta studio-agent`. This runs an HTTP(S) server that forwards requests from the Buf Studio to the target URL.`buf beta studio-agent` is available in CLI versions v1.5.0+
+Buf Studio agent is included in the Buf CLI under `buf beta studio-agent`. This runs an HTTP(S) server that forwards requests from the Buf Studio to the target URL.
+
+`buf beta studio-agent` is available in CLI versions v1.5.0+
 
 #### `buf beta studio-agent`
 

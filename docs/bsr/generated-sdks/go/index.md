@@ -45,7 +45,11 @@ head:
 
 # Go packages
 
-The Buf Schema Registry provides generated SDKs for Go from modules and plugins using `go get`, just like any other Go library. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.See the [tutorial](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.The BSR Go module proxy implements the [GOPROXY protocol](https://golang.org/ref/mod#goproxy-protocol) for [Buf modules](../../../cli/modules-workspaces/) by generating SDKs on the fly — Go code stubs aren't generated until you request them using `go get`. Once generated, they're cached, and the cached SDKs are returned from subsequent requests.
+The Buf Schema Registry provides generated SDKs for Go from modules and plugins using `go get`, just like any other Go library. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.
+
+See the [tutorial](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.
+
+The BSR Go module proxy implements the [GOPROXY protocol](https://golang.org/ref/mod#goproxy-protocol) for [Buf modules](../../../cli/modules-workspaces/) by generating SDKs on the fly — Go code stubs aren't generated until you request them using `go get`. Once generated, they're cached, and the cached SDKs are returned from subsequent requests.
 
 ## Using Go modules
 
@@ -99,7 +103,9 @@ GOPRIVATE=buf.build/gen/go go get ... @latest
 
 ## Import paths
 
-If you're consuming a publicly available generated SDK, an easy way to get the import paths for your packages is to load up the module on pkg.go.dev (for example, https://pkg.go.dev/buf.build/gen/go/connectrpc/eliza/connectrpc/go). From there, you can drill down into directories to get the import path for a particular package.If you're not consuming a publicly available SDK, you can generally construct an import path by combining the elements that go into the import path, as in the preceding example: BSR instance, module, plugin, and Protobuf package.
+If you're consuming a publicly available generated SDK, an easy way to get the import paths for your packages is to load up the module on pkg.go.dev (for example, https://pkg.go.dev/buf.build/gen/go/connectrpc/eliza/connectrpc/go). From there, you can drill down into directories to get the import path for a particular package.
+
+If you're not consuming a publicly available SDK, you can generally construct an import path by combining the elements that go into the import path, as in the preceding example: BSR instance, module, plugin, and Protobuf package.
 
 ::: info Go import path syntax
 
@@ -145,7 +151,9 @@ $ go get buf.build/gen/go/connectrpc/eliza/connectrpc/go@COMMIT_ID
 
 ### Label
 
-The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../repositories/#default-label).To get the generated SDK for the module at a label, using the latest plugin version:
+The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../repositories/#default-label).
+
+To get the generated SDK for the module at a label, using the latest plugin version:
 
 ```console
 $ go get buf.build/gen/go/connectrpc/eliza/connectrpc/go@LABEL
@@ -182,17 +190,25 @@ Most users likely want to use `@latest`, but if you need to reference a version 
 $ go get buf.build/gen/go/connectrpc/eliza/connectrpc/go@v1.11.0-20230727062025-d8fbf2620c60.1
 ```
 
-If you need a more specific version than the `@latest`, `@COMMIT_ID` or `@LABEL` shorthands, such as needing to install a specific plugin version, you can use the [`buf registry sdk version` command](../../../reference/cli/buf/registry/sdk/version/).Only commits that are on the default label at the time they're pushed to the BSR have populated timestamps. Timestamps on commits pushed to other labels are zeroed out with `00000000000000` to easily distinguish them as changes in labels that are still in development.
+If you need a more specific version than the `@latest`, `@COMMIT_ID` or `@LABEL` shorthands, such as needing to install a specific plugin version, you can use the [`buf registry sdk version` command](../../../reference/cli/buf/registry/sdk/version/).
+
+Only commits that are on the default label at the time they're pushed to the BSR have populated timestamps. Timestamps on commits pushed to other labels are zeroed out with `00000000000000` to easily distinguish them as changes in labels that are still in development.
 
 ## Private generated SDKs
 
-When using SDKs generated from private BSR repositories, you'll need to authenticate by including a personal API token for local use or a [Bot user's](../../admin/instance/bot-users/) API token for CI workflows.The `go` tool [authenticates with proxies](https://golang.org/ref/mod#private-module-proxy-auth) using `.netrc` credentials or credentials directly specified in GOPROXY URLs. Luckily, `buf registry login` updates your `.netrc` for you. See the [Authentication](../../authentication/) page for instructions on authenticating with `buf registry login`.Private modules are only accessible to authorized users and can't be pulled through the default module proxy at https://proxy.golang.org or have their checksums verified with the public checksum database at https://sum.golang.org/. To access private modules, you need to specify [`GOPRIVATE`](https://go.dev/ref/mod#environment-variables):
+When using SDKs generated from private BSR repositories, you'll need to authenticate by including a personal API token for local use or a [Bot user's](../../admin/instance/bot-users/) API token for CI workflows.
+
+The `go` tool [authenticates with proxies](https://golang.org/ref/mod#private-module-proxy-auth) using `.netrc` credentials or credentials directly specified in GOPROXY URLs. Luckily, `buf registry login` updates your `.netrc` for you. See the [Authentication](../../authentication/) page for instructions on authenticating with `buf registry login`.
+
+Private modules are only accessible to authorized users and can't be pulled through the default module proxy at https://proxy.golang.org or have their checksums verified with the public checksum database at https://sum.golang.org/. To access private modules, you need to specify [`GOPRIVATE`](https://go.dev/ref/mod#environment-variables):
 
 ```console
 export GOPRIVATE="buf.build/gen/go,${GOPRIVATE}"
 ```
 
-This implicitly sets `GONOPROXY`/`GONOSUMDB` to the same value, causing Go to use the `direct` strategy for fetching directly from BSR without going through the public proxy.Modify the Go environment using the `export` command in your shell or with the `go env -w` command to persist the change:
+This implicitly sets `GONOPROXY`/`GONOSUMDB` to the same value, causing Go to use the `direct` strategy for fetching directly from BSR without going through the public proxy.
+
+Modify the Go environment using the `export` command in your shell or with the `go env -w` command to persist the change:
 
 +++tabs key:c4b84db704574793a2bdb66ffddf8578
 
@@ -237,11 +253,15 @@ export GOPROXY="https://${BSR_USER}:${BSR_TOKEN}@buf.build/gen/go,${GOPROXY}"
 export GONOSUMDB="https://${BSR_USER}:${BSR_TOKEN}@buf.build/gen/go,${GONOSUMDB}"
 ```
 
-As mentioned in the Go docs on using direct credentials, use caution when taking this approach, as environment variables may appear in shell history and in logs.Because `GONOPROXY` includes the Buf registry, use of `GOPRIVATE` _not compatible_ with specifying auth directly in `GOPROXY`. Only netrc-based auth via `buf registry login` is supported in this configuration.
+As mentioned in the Go docs on using direct credentials, use caution when taking this approach, as environment variables may appear in shell history and in logs.
+
+Because `GONOPROXY` includes the Buf registry, use of `GOPRIVATE` _not compatible_ with specifying auth directly in `GOPROXY`. Only netrc-based auth via `buf registry login` is supported in this configuration.
 
 ## Available plugins
 
-For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for Go.To learn more about how these plugins are packaged and distributed, go to the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).
+For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for Go.
+
+To learn more about how these plugins are packaged and distributed, go to the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).
 
 ## Troubleshooting
 

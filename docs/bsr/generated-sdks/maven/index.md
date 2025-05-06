@@ -45,7 +45,9 @@ head:
 
 # Maven/Gradle
 
-The Buf Schema Registry provides generated SDKs for JVM-based languages in the form of a Maven repository, just like any other Java or Kotlin library. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.The BSR's Maven repository is hosted at [https://buf.build/gen/maven](https://buf.build/gen/maven). See the [tutorial](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.
+The Buf Schema Registry provides generated SDKs for JVM-based languages in the form of a Maven repository, just like any other Java or Kotlin library. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.
+
+The BSR's Maven repository is hosted at [https://buf.build/gen/maven](https://buf.build/gen/maven). See the [tutorial](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.
 
 ## Setup and usage
 
@@ -292,7 +294,9 @@ The BSR Maven repository has a special syntax for SDK names:
 {moduleOwner}_{moduleName}_{pluginOwner}_{pluginName}
 ```
 
-For example, the SDK name `connectrpc_eliza_connectrpc_kotlin` contains code for the [`connectrpc/eliza`](https://buf.build/connectrpc/eliza) module using the [connectrpc/kotlin](https://buf.build/connectrpc/kotlin) plugin.Additionally, if a plugin supports the [Java Protobuf Lite runtime](https://github.com/protocolbuffers/protobuf/blob/b478a29bf0945d5b141992885ac9cfde45c66697/java/lite.md), the name is suffixed with `_lite`:
+For example, the SDK name `connectrpc_eliza_connectrpc_kotlin` contains code for the [`connectrpc/eliza`](https://buf.build/connectrpc/eliza) module using the [connectrpc/kotlin](https://buf.build/connectrpc/kotlin) plugin.
+
+Additionally, if a plugin supports the [Java Protobuf Lite runtime](https://github.com/protocolbuffers/protobuf/blob/b478a29bf0945d5b141992885ac9cfde45c66697/java/lite.md), the name is suffixed with `_lite`:
 
 ```text
 {moduleOwner}_{moduleName}_{pluginOwner}_{pluginName}_lite
@@ -325,11 +329,17 @@ That represents:
 - Commit timestamp: `20230913231627`
 - Commit short name: `233fca715f49`
 
-If you need a more specific version than the latest, such as needing to install a specific plugin version, you can use the [`buf registry sdk version` command](../../../reference/cli/buf/registry/sdk/version/).The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../repositories/#default-label).Only commits that are on the default label at the time they're pushed to the BSR have populated timestamps. Timestamps on commits pushed to other labels are zeroed out with `00000000000000` to easily distinguish them as changes in labels that are still in development.
+If you need a more specific version than the latest, such as needing to install a specific plugin version, you can use the [`buf registry sdk version` command](../../../reference/cli/buf/registry/sdk/version/).
+
+The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../repositories/#default-label).
+
+Only commits that are on the default label at the time they're pushed to the BSR have populated timestamps. Timestamps on commits pushed to other labels are zeroed out with `00000000000000` to easily distinguish them as changes in labels that are still in development.
 
 ## Available plugins
 
-For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for Java or Kotlin.To learn more about how these plugins are packaged and distributed, go to the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).
+For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for Java or Kotlin.
+
+To learn more about how these plugins are packaged and distributed, go to the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).
 
 ## Troubleshooting
 

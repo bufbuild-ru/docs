@@ -45,14 +45,18 @@ head:
 
 # Export modules from the BSR
 
-Within the Buf ecosystem, moving `.proto` files around is unnecessary. You can manage dependencies in your modules and vendor commonly used modules like `googleapis/googleapis` from the Buf Schema Registry (BSR) community modules. However, tools other than the Buf CLI may require all `.proto` files to be present locally.To export `.proto` files from the BSR, you can either:
+Within the Buf ecosystem, moving `.proto` files around is unnecessary. You can manage dependencies in your modules and vendor commonly used modules like `googleapis/googleapis` from the Buf Schema Registry (BSR) community modules. However, tools other than the Buf CLI may require all `.proto` files to be present locally.
+
+To export `.proto` files from the BSR, you can either:
 
 - use the Buf CLI's `buf export` command
 - download and extract an archive file
 
 ## Export with the Buf CLI
 
-The `buf export` command allows you to copy `.proto` files to your local environment from many types of sources, including the BSR, a Git repository, or a `.tar` file. From there you can inspect them or move them into other tools or legacy systems.The basic `buf export` command requires a local destination directory path for the output and defaults to the current local directory as the source:
+The `buf export` command allows you to copy `.proto` files to your local environment from many types of sources, including the BSR, a Git repository, or a `.tar` file. From there you can inspect them or move them into other tools or legacy systems.
+
+The basic `buf export` command requires a local destination directory path for the output and defaults to the current local directory as the source:
 
 ```console
 $ buf export -o /path/to/directory
@@ -84,7 +88,9 @@ $ buf export https://github.com/bufbuild/protovalidate.git -o /path/to/directory
 
 :::
 
-When exporting from the BSR, you can append a specific commit or label reference to the module name, preceded by a colon (`:`). By default, exporting from the BSR includes all dependencies.You can also limit the output to a subset of the source by either excluding or including specific paths to a directory or file (multiple paths must be separated by commas):
+When exporting from the BSR, you can append a specific commit or label reference to the module name, preceded by a colon (`:`). By default, exporting from the BSR includes all dependencies.
+
+You can also limit the output to a subset of the source by either excluding or including specific paths to a directory or file (multiple paths must be separated by commas):
 
 ::: info Exclude the 'geo' directory
 

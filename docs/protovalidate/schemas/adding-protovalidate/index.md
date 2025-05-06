@@ -65,7 +65,9 @@ Companion code for this page is available in [GitHub](https://github.com/bufbuil
 
 ### Add Protovalidate
 
-Protovalidate is published to the [Buf Schema Registry](../../../bsr/) as a public dependency at `buf.build/bufbuild/protovalidate`. Follow the steps below to install it. If you're already familiar with BSR modules, you'll notice that they're no different from any other dependency.First, add Protovalidate to the `deps` section of your `buf.yaml` file:
+Protovalidate is published to the [Buf Schema Registry](../../../bsr/) as a public dependency at `buf.build/bufbuild/protovalidate`. Follow the steps below to install it. If you're already familiar with BSR modules, you'll notice that they're no different from any other dependency.
+
+First, add Protovalidate to the `deps` section of your `buf.yaml` file:
 
 ::: info Add Protovalidate's BSR module
 
@@ -141,7 +143,9 @@ Companion code for this page is available in [GitHub](https://github.com/bufbuil
 
 ### Download `validate.proto`
 
-Protovalidate's source `.proto` file is available in [GitHub](https://github.com/bufbuild/protovalidate). Follow the steps below to use it with `protoc`. If you already know how to vendor and include Protobuf dependencies, you'll notice that this is no different from any other dependency.First, download `validate.proto` to the `vendor` directory:
+Protovalidate's source `.proto` file is available in [GitHub](https://github.com/bufbuild/protovalidate). Follow the steps below to use it with `protoc`. If you already know how to vendor and include Protobuf dependencies, you'll notice that this is no different from any other dependency.
+
+First, download `validate.proto` to the `vendor` directory:
 
 ::: info Download validate.proto as a vendored file
 

@@ -137,7 +137,11 @@ The Protovalidate rule checks that the invoice includes at least one line item, 
 
 ### Generate code
 
-Before you publish your fix, you should generate code from your Protobuf files and test it out.You define the code generation configuration in the `buf.gen.yaml` config file by specifying inputs, the plugins you want to generate with, and output location and options.Generating Go code requires setting a `go_package` or `go_package_prefix` option. When you use dependencies, you may encounter Go compiler errors because the package option is also applied to the dependency:
+Before you publish your fix, you should generate code from your Protobuf files and test it out.
+
+You define the code generation configuration in the `buf.gen.yaml` config file by specifying inputs, the plugins you want to generate with, and output location and options.
+
+Generating Go code requires setting a `go_package` or `go_package_prefix` option. When you use dependencies, you may encounter Go compiler errors because the package option is also applied to the dependency:
 
 ::: info Incorrect Protovalidate import
 
@@ -181,7 +185,9 @@ $ buf generate
 
 :::
 
-A new `gen` directory appears, which contains your generated code.Next, validate your code. Start the server (which imports the code stubs you just generated):
+A new `gen` directory appears, which contains your generated code.
+
+Next, validate your code. Start the server (which imports the code stubs you just generated):
 
 ::: info bsr/start/server/
 
@@ -243,7 +249,11 @@ Go back to the terminal where the server is running — you should see the outpu
 
 :::
 
-Stop the server with `Ctrl-c`.Your `CreateInvoiceRequest` accepts an array of tags that your company's business analysts use to categorize invoices. It returns the tag values when a valid invoice is created.Seeing that the tags may have use for other teams, you decide to split them out into a separate API so that they can be used without requiring the invoice API.
+Stop the server with `Ctrl-c`.
+
+Your `CreateInvoiceRequest` accepts an array of tags that your company's business analysts use to categorize invoices. It returns the tag values when a valid invoice is created.
+
+Seeing that the tags may have use for other teams, you decide to split them out into a separate API so that they can be used without requiring the invoice API.
 
 ## Publish a module
 
@@ -255,7 +265,9 @@ The BSR doesn't dictate any particular strategies with regard to monorepo, multi
 
 ### Create a BSR repository
 
-Before you can move the `tags.proto` file, you need to create a new BSR repository for it.Sign in to the BSR:
+Before you can move the `tags.proto` file, you need to create a new BSR repository for it.
+
+Sign in to the BSR:
 
 ```console
 $ buf registry login
@@ -346,7 +358,9 @@ buf.build/USERNAME/common:e1fb01dc1bac43ad9b8ca03b7911834c
 
 ### Add documentation
 
-The BSR auto-generates schema documentation from your Protobuf files, which you can see in your repository at `https://buf.build/USERNAME/common/docs`. You'll add a basic `README` file to describe the module as well. See the [Schema documentation](../documentation/overview/) section for more information on other ways to document your schemas.Create a new `README.md` file in the `common` directory with some basic content:
+The BSR auto-generates schema documentation from your Protobuf files, which you can see in your repository at `https://buf.build/USERNAME/common/docs`. You'll add a basic `README` file to describe the module as well. See the [Schema documentation](../documentation/overview/) section for more information on other ways to document your schemas.
+
+Create a new `README.md` file in the `common` directory with some basic content:
 
 ::: info bsr/start/common
 
@@ -356,7 +370,9 @@ $ echo -e "# Tags\n\nThis module allows you to add custom tags for tracking or a
 
 :::
 
-Run `buf push` again. You can view your new documentation in the BSR by going to the web app: `https://buf.build/USERNAME/common`.Congrats — you've made a dependency that other teams can integrate into their code. Now you need to refactor your own code to use it too.
+Run `buf push` again. You can view your new documentation in the BSR by going to the web app: `https://buf.build/USERNAME/common`.
+
+Congrats — you've made a dependency that other teams can integrate into their code. Now you need to refactor your own code to use it too.
 
 ### Update the API
 
@@ -437,7 +453,9 @@ One way Protobuf beats REST is that it relies on [generated SDKs](../generated-s
 
 ### Configure SDK generation
 
-All that's required from your end is to publish your API like any other BSR module. This example client also uses the invoice API, so to enable its generated SDKs, follow the same steps you used for the tags API.Back in the `/server` directory:
+All that's required from your end is to publish your API like any other BSR module. This example client also uses the invoice API, so to enable its generated SDKs, follow the same steps you used for the tags API.
+
+Back in the `/server` directory:
 
 1.  Create a BSR repository for the invoice module:
 
@@ -484,7 +502,9 @@ All that's required from your end is to publish your API like any other BSR modu
 
     :::
 
-The BSR now automatically creates generated SDKs for each module commit. (You read that right: versioning is free and automatic.)Teams consuming your APIs can import generated SDKs using their package manager of choice, like Go Modules, `npm`, Gradle, or `pip`. In the next section, you'll create a Go client to import both modules' SDKs, the same way another team would.
+The BSR now automatically creates generated SDKs for each module commit. (You read that right: versioning is free and automatic.)
+
+Teams consuming your APIs can import generated SDKs using their package manager of choice, like Go Modules, `npm`, Gradle, or `pip`. In the next section, you'll create a Go client to import both modules' SDKs, the same way another team would.
 
 ### Install client SDKs
 

@@ -53,7 +53,9 @@ In the Confluent ecosystem, schemas are associated with data via [_subjects_](ht
 
 ## Register schemas
 
-You create subjects within the BSR's Confluent Schema Registry by annotating messages with a custom option that identifies the instance and subject name.The subject is claimed by the module that contains the annotated message, preventing use of that subject by other modules. It's an error to annotate multiple messages in a module with the same instance and subject name.
+You create subjects within the BSR's Confluent Schema Registry by annotating messages with a custom option that identifies the instance and subject name.
+
+The subject is claimed by the module that contains the annotated message, preventing use of that subject by other modules. It's an error to annotate multiple messages in a module with the same instance and subject name.
 
 ::: tip Note
 All references to buf.example.com below should be replaced with the hostname for your private BSR instance.
@@ -106,7 +108,9 @@ All references to buf.example.com below should be replaced with the hostname for
     $ buf push
     ```
 
-    You can check it in the browser using your instance URL (you must be logged into the BSR):`https://buf.example.com/integrations/confluent/INSTANCE_NAME/subjects/email-updated-value/versions/latest`
+    You can check it in the browser using your instance URL (you must be logged into the BSR):
+
+    `https://buf.example.com/integrations/confluent/INSTANCE_NAME/subjects/email-updated-value/versions/latest`
 
 ## Deregister a schema
 

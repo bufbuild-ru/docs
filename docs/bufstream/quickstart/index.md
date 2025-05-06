@@ -47,7 +47,11 @@ head:
 
 ## What is Bufstream?
 
-[Bufstream](https://buf.build/product/bufstream) is a fully self-hosted drop-in replacement for Apache Kafka® that writes data to S3-compatible object storage. It’s 100% compatible with the Kafka protocol, including support for exactly-once semantics (EOS) and transactions. Bufstream is 8x cheaper to operate, and a single cluster can elastically scale to hundreds of GB/s of throughput. It's the universal Kafka replacement for the modern age.Additionally, for teams sending Protobuf messages across their Kafka topics, Bufstream is a perfect partner. Bufstream can enforce data quality and governance requirements on the broker with [Protovalidate](https://github.com/bufbuild/protovalidate). Bufstream can directly persist records as [Apache Iceberg™](https://iceberg.apache.org/) tables, reducing time-to-insight in popular data lakehouse products such as Snowflake or ClickHouse.In this tutorial, we'll first explore Bufstream just as a Kafka replacement. Then, we'll explore Bufstream's additional capabilities when paired with Protobuf.
+[Bufstream](https://buf.build/product/bufstream) is a fully self-hosted drop-in replacement for Apache Kafka® that writes data to S3-compatible object storage. It’s 100% compatible with the Kafka protocol, including support for exactly-once semantics (EOS) and transactions. Bufstream is 8x cheaper to operate, and a single cluster can elastically scale to hundreds of GB/s of throughput. It's the universal Kafka replacement for the modern age.
+
+Additionally, for teams sending Protobuf messages across their Kafka topics, Bufstream is a perfect partner. Bufstream can enforce data quality and governance requirements on the broker with [Protovalidate](https://github.com/bufbuild/protovalidate). Bufstream can directly persist records as [Apache Iceberg™](https://iceberg.apache.org/) tables, reducing time-to-insight in popular data lakehouse products such as Snowflake or ClickHouse.
+
+In this tutorial, we'll first explore Bufstream just as a Kafka replacement. Then, we'll explore Bufstream's additional capabilities when paired with Protobuf.
 
 ## Run the broker
 
@@ -56,7 +60,11 @@ Bufstream brokers are simple binaries. In production, a Bufstream broker needs:
 - An object store, such as S3, GCS, or Azure Blob Storage.
 - A metadata store, such as etcd, Postgres, Google Cloud Spanner, or Aurora.
 
-With access to these two services, Bufstream brokers can elastically scale to meet your requirements.Bufstream brokers can also run locally for testing and CI, using your local file system as the object store, and an embedded etcd server as the metadata store. Let's get a Bufstream broker running!Download the Bufstream broker:
+With access to these two services, Bufstream brokers can elastically scale to meet your requirements.
+
+Bufstream brokers can also run locally for testing and CI, using your local file system as the object store, and an embedded etcd server as the metadata store. Let's get a Bufstream broker running!
+
+Download the Bufstream broker:
 
 ```bash
 # Bufstream brokers are only available for Mac and Linux!
@@ -86,7 +94,11 @@ Bufstream is a drop-in replacement for Kafka. You'll likely want to verify that 
 
 ### AKHQ
 
-[AKHQ](https://akhq.io/) is a GUI for Kafka. Let's get a console running, and connect to Bufstream.For this example, you'll need [Docker](https://docs.docker.com/engine/install) installed and running.In a new terminal, create a configuration file for AKHQ:
+[AKHQ](https://akhq.io/) is a GUI for Kafka. Let's get a console running, and connect to Bufstream.
+
+For this example, you'll need [Docker](https://docs.docker.com/engine/install) installed and running.
+
+In a new terminal, create a configuration file for AKHQ:
 
 ```bash
 # See https://akhq.io/docs for more details.
@@ -111,7 +123,9 @@ From here, you can open AKHQ in your favorite browser at `localhost:8080`. Creat
 
 ### Redpanda Console
 
-[Redpanda Console™](https://docs.redpanda.com/current/console) is a web application that helps you manage, inspect, and debug Kafka-compatible workloads. Let's connect a console to Bufstream. (If you're still running AKHQ, stop it, first.)Run Redpanda Console:
+[Redpanda Console™](https://docs.redpanda.com/current/console) is a web application that helps you manage, inspect, and debug Kafka-compatible workloads. Let's connect a console to Bufstream. (If you're still running AKHQ, stop it, first.)
+
+Run Redpanda Console:
 
 ```bash
 docker run -p 8080:8080 \
@@ -120,11 +134,17 @@ docker run -p 8080:8080 \
     docker.redpanda.com/redpandadata/console
 ```
 
-Open Redpanda Console in your favorite browser at `localhost:8080`.It's ok to close any AKHQ or Redpanda terminals before continuing.
+Open Redpanda Console in your favorite browser at `localhost:8080`.
+
+It's ok to close any AKHQ or Redpanda terminals before continuing.
 
 ## Protobuf and Bufstream
 
-Bufstream is compatible with Kafka, but it's so much more. When paired with Protobuf, Bufstream can also enforce data quality directly on the broker.We'll use code already written within [github.com/bufbuild/bufstream-demo](https://github.com/bufbuild/bufstream-demo) to publish and consume messages while exploring Bufstream's data enforcement functionality.For this example, you'll need [Go](https://go.dev/doc/install) installed. If you are on a Mac and using Homebrew, this is as easy as:
+Bufstream is compatible with Kafka, but it's so much more. When paired with Protobuf, Bufstream can also enforce data quality directly on the broker.
+
+We'll use code already written within [github.com/bufbuild/bufstream-demo](https://github.com/bufbuild/bufstream-demo) to publish and consume messages while exploring Bufstream's data enforcement functionality.
+
+For this example, you'll need [Go](https://go.dev/doc/install) installed. If you are on a Mac and using Homebrew, this is as easy as:
 
 ```bash
 brew install go
@@ -151,7 +171,9 @@ Open two more terminals in `bufstream-demo`, for a total of three:
 
 ### First-class schema support
 
-Bufstream integrates directly with any registry that implements Confluent Schema Registry API to provide first-class support for Protobuf schemas on the broker-side. Bufstream's understanding of the schema of your topic[1](#fn:1) allows it to provide some interesting functionality unavailable in other Kafka-compatible implementations.In this tutorial, we'll use the [Buf Schema Registry](../../bsr/) as our Confluent-compatible schema registry. The BSR has the ability to automatically associate Protobuf messages that it stores with subjects via a custom message option contained in the [buf.build/bufbuild/confluent](https://buf.build/bufbuild/confluent) [module](../../cli/modules-workspaces/). In the bufstream-demo example, we associate the [`EmailUpdated`](https://demo.buf.dev/bufbuild/bufstream-demo/docs/main:bufstream.demo.v1#bufstream.demo.v1.EmailUpdated) message with the `email-updated` topic (via the `email-updated-value` subject).
+Bufstream integrates directly with any registry that implements Confluent Schema Registry API to provide first-class support for Protobuf schemas on the broker-side. Bufstream's understanding of the schema of your topic[1](#fn:1) allows it to provide some interesting functionality unavailable in other Kafka-compatible implementations.
+
+In this tutorial, we'll use the [Buf Schema Registry](../../bsr/) as our Confluent-compatible schema registry. The BSR has the ability to automatically associate Protobuf messages that it stores with subjects via a custom message option contained in the [buf.build/bufbuild/confluent](https://buf.build/bufbuild/confluent) [module](../../cli/modules-workspaces/). In the bufstream-demo example, we associate the [`EmailUpdated`](https://demo.buf.dev/bufbuild/bufstream-demo/docs/main:bufstream.demo.v1#bufstream.demo.v1.EmailUpdated) message with the `email-updated` topic (via the `email-updated-value` subject).
 
 ```protobuf
 message EmailUpdated {
@@ -185,11 +207,17 @@ message EmailUpdated {
 }
 ```
 
-This schema is pushed to the [demo.buf.dev/bufbuild/bufstream-demo](https://demo.buf.dev/bufbuild/bufstream-demo) module. The BSR picks up the subject association, and uses the `EmailUpdated` schema for the `email-updated` topic.The BSR makes working with Protobuf schemas trivial, however Bufstream can work with the Confluent Schema Registry, and any other Confluent-compatible registry.Now that we have this association between topic and schema on the broker, let's find out what we can do with it!
+This schema is pushed to the [demo.buf.dev/bufbuild/bufstream-demo](https://demo.buf.dev/bufbuild/bufstream-demo) module. The BSR picks up the subject association, and uses the `EmailUpdated` schema for the `email-updated` topic.
+
+The BSR makes working with Protobuf schemas trivial, however Bufstream can work with the Confluent Schema Registry, and any other Confluent-compatible registry.
+
+Now that we have this association between topic and schema on the broker, let's find out what we can do with it!
 
 ### Schema enforcement and enveloping
 
-It's often helpful to make Kafka messages self-describing, so that tools and frameworks can unmarshal, manipulate, and display them. The most common approach to making messages self-describing is to prefix the serialized message with a few extra bytes (commonly called an "envelope"). The prefix encodes the ID of the message's schema, which can then be retrieved from a schema registry. Much of the Kafka ecosystem supports this format, including most client libraries, [Kafka Connect](https://docs.confluent.io/platform/current/connect/index.html), [AKHQ](https://akhq.io/), [kSQLdb](https://ksqldb.io/), and [Snowflake's Kafka Connector](https://docs.confluent.io/cloud/current/connectors/cc-snowflake-sink/cc-snowflake-sink.html#schema-config). Before enveloping, enforcing that your payload matches your schema is an important safety concern.Typically, enforcement and enveloping is the job of producers. Producers connect to both the Confluent Schema Registry and Kafka via a fat client, which performs schema enforcement on the client-side, following with enveloping of the payload. We think this is a broken model:
+It's often helpful to make Kafka messages self-describing, so that tools and frameworks can unmarshal, manipulate, and display them. The most common approach to making messages self-describing is to prefix the serialized message with a few extra bytes (commonly called an "envelope"). The prefix encodes the ID of the message's schema, which can then be retrieved from a schema registry. Much of the Kafka ecosystem supports this format, including most client libraries, [Kafka Connect](https://docs.confluent.io/platform/current/connect/index.html), [AKHQ](https://akhq.io/), [kSQLdb](https://ksqldb.io/), and [Snowflake's Kafka Connector](https://docs.confluent.io/cloud/current/connectors/cc-snowflake-sink/cc-snowflake-sink.html#schema-config). Before enveloping, enforcing that your payload matches your schema is an important safety concern.
+
+Typically, enforcement and enveloping is the job of producers. Producers connect to both the Confluent Schema Registry and Kafka via a fat client, which performs schema enforcement on the client-side, following with enveloping of the payload. We think this is a broken model:
 
 - Your producer's client should be extremely simple: just post a raw message to your Kafka topic, and let the broker deal with the rest. By moving enforcement and enveloping logic to the client, you're requiring the ecosystem to maintain fat, hard-to-maintain Kafka clients across many languages. Their complexity means that language support suffers.
 - Systems should never rely on client-side enforcement! Client-side enforcement is in effect "opt-in" enforcement. Producers can choose to do it or not, meaning you have no guarantees as to the quality of data sent to your consumers.
@@ -198,13 +226,17 @@ Bufstream can **enforce your schemas** and **automatically envelope** your paylo
 
 #### Run Bufstream in traditional Kafka mode
 
-First, let's run Bufstream with a demo producer and consumer, where the producer talks to the Confluent Schema Registry, does enforcement and enveloping, and the consumer unenvelopes data by talking to the Confluent Schema Registry itself. This is the typical setup today.The producer publishes three types of payloads:
+First, let's run Bufstream with a demo producer and consumer, where the producer talks to the Confluent Schema Registry, does enforcement and enveloping, and the consumer unenvelopes data by talking to the Confluent Schema Registry itself. This is the typical setup today.
+
+The producer publishes three types of payloads:
 
 - An `EmailUpdated` message that passes schema enforcement and is semantically valid (see below).
 - An `EmailUpdated` message that passes schema enforcement but is semantically invalid.
 - An invalid message that does not conform to the `EmailUpdated` schema.
 
-If given a CSR URL, the producer performs schema enforcement and enveloping for the `EmailUpdated` messages, while bypassing any enforcement or enveloping to produce the invalid message. If no CSR URL is provided, the producer performs no schema enforcement or enveloping at all.In the three terminals open to the `bufstream-demo` directory, run:
+If given a CSR URL, the producer performs schema enforcement and enveloping for the `EmailUpdated` messages, while bypassing any enforcement or enveloping to produce the invalid message. If no CSR URL is provided, the producer performs no schema enforcement or enveloping at all.
+
+In the three terminals open to the `bufstream-demo` directory, run:
 
 ::: info Broker terminal
 
@@ -380,14 +412,20 @@ Astute followers of this tutorial will notice that some messages had new email a
 msg="consumed message with new email pug and old email lanestanton@swift.net"
 ```
 
-This is because we were only enforcing that a given message sent by the producer matched the shape of the schema. The schema has `string new_email_address` and `string old_email_address`: any string will do, whether it is a valid email address, or an animal name.However, there's more to fields than just the data type. We might want to:
+This is because we were only enforcing that a given message sent by the producer matched the shape of the schema. The schema has `string new_email_address` and `string old_email_address`: any string will do, whether it is a valid email address, or an animal name.
+
+However, there's more to fields than just the data type. We might want to:
 
 - Make sure that a `string email_address` field is actually an email address.
 - Validate that an `age` field is always between 18 and 45.
 - Check that a `name` field matches the regex `^[A-za-z]+$`.
 - Validate that the field `email_address` is always set.
 
-All of these are **semantic** properties of the field. In Kafka world today, you have no way of enforcing such properties with any schema language - all you can do is make sure that your data matches the schema shape via schema enforcement. However, we can do better.Buf has built the [Protovalidate](https://github.com/bufbuild/protovalidate) library to solve this challenge. Protovalidate allows you to add semantic properties to your fields, messages, and enums. Bufstream integrates with Protovalidate and can enforce these semantic properties on the broker, as an additional step on top of schema enforcement. Only Protobuf and Bufstream offer this capability. Let's try it out:Uncomment the following lines from `config/bufstream.yaml` in `bufstream-demo`:
+All of these are **semantic** properties of the field. In Kafka world today, you have no way of enforcing such properties with any schema language - all you can do is make sure that your data matches the schema shape via schema enforcement. However, we can do better.
+
+Buf has built the [Protovalidate](https://github.com/bufbuild/protovalidate) library to solve this challenge. Protovalidate allows you to add semantic properties to your fields, messages, and enums. Bufstream integrates with Protovalidate and can enforce these semantic properties on the broker, as an additional step on top of schema enforcement. Only Protobuf and Bufstream offer this capability. Let's try it out:
+
+Uncomment the following lines from `config/bufstream.yaml` in `bufstream-demo`:
 
 ```diff
 -        #validation:

@@ -45,7 +45,11 @@ head:
 
 # Iceberg quickstart
 
-Bufstream's Iceberg integration lets you skip data pipelines and use modern analytics tools like Spark, Clickhouse, Trino, BigQuery, and Athena to query your streaming data. In-process, it writes Kafka messages to Parquet files and maintains Iceberg metadata. There's no data duplication and zero ETL.All of this, plus schema and data quality enforcement, happens within the broker itself. There's no additional infrastructure, hidden Flink job, availability restrictions, or cost — just high-quality data, ready for analysis.In this quickstart, you'll learn to create a local Bufstream and Iceberg environment:
+Bufstream's Iceberg integration lets you skip data pipelines and use modern analytics tools like Spark, Clickhouse, Trino, BigQuery, and Athena to query your streaming data. In-process, it writes Kafka messages to Parquet files and maintains Iceberg metadata. There's no data duplication and zero ETL.
+
+All of this, plus schema and data quality enforcement, happens within the broker itself. There's no additional infrastructure, hidden Flink job, availability restrictions, or cost — just high-quality data, ready for analysis.
+
+In this quickstart, you'll learn to create a local Bufstream and Iceberg environment:
 
 1.  Deploying a Docker-based Bufstream environment with local object storage and Iceberg REST catalog.
 2.  Configuring Bufstream and a topic for Iceberg archival.
@@ -65,7 +69,9 @@ Bufstream's Iceberg integration lets you skip data pipelines and use modern anal
 
 ## Configure Bufstream for Iceberg
 
-Bufstream works with your existing Iceberg catalogs. It doesn't limit you — you're free to use your existing infrastructure and multiple catalogs. To use Iceberg, you'll need to create at least one named catalog in your [Bufstream Iceberg configuration](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.IcebergIntegrationConfig).This example includes a REST Iceberg catalog as part of its Docker compose project. Edit `config/bufstream.yaml` and add the following to reference it:
+Bufstream works with your existing Iceberg catalogs. It doesn't limit you — you're free to use your existing infrastructure and multiple catalogs. To use Iceberg, you'll need to create at least one named catalog in your [Bufstream Iceberg configuration](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.IcebergIntegrationConfig).
+
+This example includes a REST Iceberg catalog as part of its Docker compose project. Edit `config/bufstream.yaml` and add the following to reference it:
 
 ::: info config/bufstream.yaml
 
@@ -81,7 +87,9 @@ iceberg_integration:
 
 ## Start Docker project
 
-Integrating Bufstream with Iceberg requires the Bufstream broker, object storage, and an Iceberg catalog implementation. These are all available via Docker images, so we've included a `docker-compose.yml` that makes it easy to run all of this infrastructure locally. Additionally, it starts AKHQ (a GUI for Kafka management) and Apache Spark (an analytics engine compatible with Iceberg).Start all of this with one command:
+Integrating Bufstream with Iceberg requires the Bufstream broker, object storage, and an Iceberg catalog implementation. These are all available via Docker images, so we've included a `docker-compose.yml` that makes it easy to run all of this infrastructure locally. Additionally, it starts AKHQ (a GUI for Kafka management) and Apache Spark (an analytics engine compatible with Iceberg).
+
+Start all of this with one command:
 
 ```console
 $ docker compose up -d
@@ -141,7 +149,9 @@ In production, you should include this configuration as part of your infrastruct
 
 ## Archive all topics
 
-In production, Bufstream automatically archives topic data to Iceberg based on a [scheduled interval](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.ArchiveConfig). Decreasing this interval decreases latency but increases cost.In development, it's handy to be able to control this manually. Using Bufstream's `admin` command, you can immediately archive all pending (hot) topic data to Iceberg (cold) storage:
+In production, Bufstream automatically archives topic data to Iceberg based on a [scheduled interval](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.ArchiveConfig). Decreasing this interval decreases latency but increases cost.
+
+In development, it's handy to be able to control this manually. Using Bufstream's `admin` command, you can immediately archive all pending (hot) topic data to Iceberg (cold) storage:
 
 ```console
 $ docker exec bufstream /usr/local/bin/bufstream admin clean topics
@@ -159,7 +169,9 @@ Now you're ready to query Iceberg.
 
 ## Query Iceberg
 
-Iceberg isn't a database — it's a table format for analytical databases. To query your tables, you'll need a query engine like Apache Spark, Google's BigQuery, AWS Athena, Clickhouse, or Trino. For quickstart purposes, a local Apache Spark instance and its Jupyter Notebook interface works just fine.Open the provided Jupyter Notebook at [http://localhost:8888/notebooks/notebooks/bufstream-iceberg-quickstart.ipynb](http://localhost:8888/notebooks/notebooks/bufstream-iceberg-quickstart.ipynb). It contains all you need to configure a Spark session and query your topic's data.
+Iceberg isn't a database — it's a table format for analytical databases. To query your tables, you'll need a query engine like Apache Spark, Google's BigQuery, AWS Athena, Clickhouse, or Trino. For quickstart purposes, a local Apache Spark instance and its Jupyter Notebook interface works just fine.
+
+Open the provided Jupyter Notebook at [http://localhost:8888/notebooks/notebooks/bufstream-iceberg-quickstart.ipynb](http://localhost:8888/notebooks/notebooks/bufstream-iceberg-quickstart.ipynb). It contains all you need to configure a Spark session and query your topic's data.
 
 ### Connect to Iceberg
 

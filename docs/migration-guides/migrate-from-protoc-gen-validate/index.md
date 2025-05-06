@@ -64,21 +64,33 @@ Protovalidate performs all validations using reflection, so there's no `protoc` 
 
 ### Migration workflow
 
-1.  **(Optional) Format Protobuf files**Though the migration tool does a best-effort attempt to preserve the formatting of the original file, it may produce valid but ill-formatted code. To reduce noise related to reformatting, run a formatter (such as [`buf format`](../../format/style/)) over the corpus of `.proto` files and commit its changes before proceeding.
-2.  **Run the migration tool**This first run adds matching Protovalidate annotations alongside any existing `protoc-gen-validate` annotations. Optionally, run the formatter again after the migration tool to clean up any strange output.
+1.  **(Optional) Format Protobuf files**
+
+    Though the migration tool does a best-effort attempt to preserve the formatting of the original file, it may produce valid but ill-formatted code. To reduce noise related to reformatting, run a formatter (such as [`buf format`](../../format/style/)) over the corpus of `.proto` files and commit its changes before proceeding.
+
+2.  **Run the migration tool**
+
+    This first run adds matching Protovalidate annotations alongside any existing `protoc-gen-validate` annotations. Optionally, run the formatter again after the migration tool to clean up any strange output.
 
     ```console
     $ go run ./tools/protovalidate-migrate -w /path/to/protos
     ```
 
-3.  **Use Protovalidate**Update code that uses `protoc-gen-validate` code generation to consume the Protovalidate library instead (or simultaneously).
-4.  **(Optional) Update pre-existing Protovalidate annotations**Rerunning the migration tool is a no-op for any `.proto` files that already import Protovalidate. Replace any pre-existing annotations by running the tool with the `--replace-protovalidate` flag. This ensures that these annotations match `protoc-gen-validate` annotations.
+3.  **Use Protovalidate**
+
+    Update code that uses `protoc-gen-validate` code generation to consume the Protovalidate library instead (or simultaneously).
+
+4.  **(Optional) Update pre-existing Protovalidate annotations**
+
+    Rerunning the migration tool is a no-op for any `.proto` files that already import Protovalidate. Replace any pre-existing annotations by running the tool with the `--replace-protovalidate` flag. This ensures that these annotations match `protoc-gen-validate` annotations.
 
     ```console
     $ go run ./tools/protovalidate-migrate -w --replace-protovalidate /path/to/protos
     ```
 
-5.  **Remove `protoc-gen-validate` annotations**Once you're ready to make the switch and have removed references to the `protoc-gen-validate` generated code, run the migration tool again with the `--remove-legacy` flag to remove legacy annotations from `.proto` files.
+5.  **Remove `protoc-gen-validate` annotations**
+
+    Once you're ready to make the switch and have removed references to the `protoc-gen-validate` generated code, run the migration tool again with the `--remove-legacy` flag to remove legacy annotations from `.proto` files.
 
     ```console
     $ go run ./tools/protovalidate-migrate -w --remove-legacy /path/to/protos
@@ -128,13 +140,33 @@ If neither `-w` nor `-o` is specified, modified Protobuf is emitted to stdout.
 
 ## Migrating manually
 
-1.  **Understand the changes**The first step to manual migration is understanding the changes between `protoc-gen-validate` and Protovalidate. Review the [Standard constraint changes](#standard-constraint-changes) section of this guide to understand how constraints have changed.
-2.  **Update imports**Replace any imports of `validate/validate.proto` with `buf/validate/validate.proto` in your `.proto` files.
-3.  **Update message-level constraints**Replace `(validate.ignored)` and `(validate.disabled)` with the new `(buf.validate.message)` option as described in the [Message constraints](#message-constraints) section.
-4.  **Update oneof constraints**Replace `(validate.required)` for oneof fields with the new `(buf.validate.oneof)` option as described in the [Oneof constraints](#oneof-constraints) section.
-5.  **Update field-level constraints**Replace all field-level constraints, including `(validate.rules).<TYPE>.required`, `(validate.rules).message.skip`, and `(validate.rules).<TYPE>.ignore_empty`, with the new `(buf.validate.field)` option as described in the [Field constraints](#field-constraints) section.
-6.  **Remove unnecessary constraints**Remove the `(validate.rules).map.no_sparse` constraint, as it's not supported in Protovalidate.
-7.  **Test and validate**After performing the above steps, test your Protobuf code to ensure it's functioning as expected. Review any warnings or errors, making corrections as necessary.
+1.  **Understand the changes**
+
+    The first step to manual migration is understanding the changes between `protoc-gen-validate` and Protovalidate. Review the [Standard constraint changes](#standard-constraint-changes) section of this guide to understand how constraints have changed.
+
+2.  **Update imports**
+
+    Replace any imports of `validate/validate.proto` with `buf/validate/validate.proto` in your `.proto` files.
+
+3.  **Update message-level constraints**
+
+    Replace `(validate.ignored)` and `(validate.disabled)` with the new `(buf.validate.message)` option as described in the [Message constraints](#message-constraints) section.
+
+4.  **Update oneof constraints**
+
+    Replace `(validate.required)` for oneof fields with the new `(buf.validate.oneof)` option as described in the [Oneof constraints](#oneof-constraints) section.
+
+5.  **Update field-level constraints**
+
+    Replace all field-level constraints, including `(validate.rules).<TYPE>.required`, `(validate.rules).message.skip`, and `(validate.rules).<TYPE>.ignore_empty`, with the new `(buf.validate.field)` option as described in the [Field constraints](#field-constraints) section.
+
+6.  **Remove unnecessary constraints**
+
+    Remove the `(validate.rules).map.no_sparse` constraint, as it's not supported in Protovalidate.
+
+7.  **Test and validate**
+
+    After performing the above steps, test your Protobuf code to ensure it's functioning as expected. Review any warnings or errors, making corrections as necessary.
 
 ## Standard constraint changes
 

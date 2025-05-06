@@ -106,7 +106,9 @@ To authenticate with [SASL/SCRAM](https://datatracker.ietf.org/doc/html/rfc5802)
 
 #### Configuration
 
-The SCRAM admin's credentials consist of a username, hash function, and a password in either plain text or the salted form, along with the salt and iteration used for salting.To configure the SCRAM admin with a password in plain text:
+The SCRAM admin's credentials consist of a username, hash function, and a password in either plain text or the salted form, along with the salt and iteration used for salting.
+
+To configure the SCRAM admin with a password in plain text:
 
 1.  Create a Kubernetes secret with keys `username` and `plaintext`.
 2.  Populate the config below add it to `kafka.authentication.sasl` in your helm values.

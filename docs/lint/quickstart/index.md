@@ -135,7 +135,9 @@ The changes the linter recommends are breaking changes for this package, which i
 
 ## Customize lint configuration
 
-We recommend that you use the `STANDARD` category for linting — it represents what we consider to be best practice for Protobuf development. However, if your organization's style has other requirements, you can choose a different category or add and remove individual rules from your configuration.For example, if your org agrees with `STANDARD` rules but doesn't want to check for a suffix on service names, you can selectively ignore that rule in the configuration like this:
+We recommend that you use the `STANDARD` category for linting — it represents what we consider to be best practice for Protobuf development. However, if your organization's style has other requirements, you can choose a different category or add and remove individual rules from your configuration.
+
+For example, if your org agrees with `STANDARD` rules but doesn't want to check for a suffix on service names, you can selectively ignore that rule in the configuration like this:
 
 ::: info cli/linting/start/buf.yaml
 

@@ -120,7 +120,11 @@ $ buf build --error-format=json
 
 ## Change the output format
 
-By default, `buf build` outputs its result to `/dev/null`. In this case, it's common to use `buf build` as a validation step, analogous to checking if the input compiles.`buf build` also supports outputting a [`FileDescriptorSet`](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto) or an [image](../../reference/images/), which is Buf's custom extension of the `FileDescriptorSet`. Better yet, these outputs can be formatted in a variety of ways.`buf build` can deduce the output format by the file extension:
+By default, `buf build` outputs its result to `/dev/null`. In this case, it's common to use `buf build` as a validation step, analogous to checking if the input compiles.
+
+`buf build` also supports outputting a [`FileDescriptorSet`](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto) or an [image](../../reference/images/), which is Buf's custom extension of the `FileDescriptorSet`. Better yet, these outputs can be formatted in a variety of ways.
+
+`buf build` can deduce the output format by the file extension:
 
 ```console
 $ buf build -o image.binpb

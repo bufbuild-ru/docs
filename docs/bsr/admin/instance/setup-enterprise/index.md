@@ -53,7 +53,11 @@ This page describes the basic setup for a private instance of the Buf Schema Reg
 
 ## Configure your DNS
 
-Your BSR instance is hosted using a custom domain provided by you.For example, if your domain is `example.com`, you might choose to use `buf.example.com` as your private BSR instance's domain name. Once you've chosen a domain for your BSR instance, inform us of the name.A Buf engineer will provide you with the value for your `CNAME` records. The following examples use `example-corp.enterprise.buf.build` as a placeholder for this value.
+Your BSR instance is hosted using a custom domain provided by you.
+
+For example, if your domain is `example.com`, you might choose to use `buf.example.com` as your private BSR instance's domain name. Once you've chosen a domain for your BSR instance, inform us of the name.
+
+A Buf engineer will provide you with the value for your `CNAME` records. The following examples use `example-corp.enterprise.buf.build` as a placeholder for this value.
 
 ```text
 buf.example.com.          CNAME    example-corp.enterprise.buf.build.

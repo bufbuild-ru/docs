@@ -89,14 +89,18 @@ The steps below must be carried out by a Google Workspace administrator for your
     - **Name ID format**: `EMAIL`
     - **Name ID**: `Basic Information > Primary email`
 
-    Buf provisions users Just-in-Time based on the email address — **make sure you've configured the Name ID correctly**.![Google - Service Provider details](../../../../../images/bsr/sso/google-sp.png)
+    Buf provisions users Just-in-Time based on the email address — **make sure you've configured the Name ID correctly**.
+
+    ![Google - Service Provider details](../../../../../images/bsr/sso/google-sp.png)
 
 2.  Click **Continue**.
 3.  On the **Attribute mapping** screen, leave the attributes section empty and click **Finish**.
 
 ### Enable user access
 
-Once you've finished configuring the SAML app, enable it for your users. It's OFF for everyone by default.![Google - Enable SAML for users](../../../../../images/bsr/sso/google-saml-enable.png)
+Once you've finished configuring the SAML app, enable it for your users. It's OFF for everyone by default.
+
+![Google - Enable SAML for users](../../../../../images/bsr/sso/google-saml-enable.png)
 
 ## Update SSO configuration
 
@@ -105,5 +109,8 @@ To set up or update your BSR instance's SSO configuration:
 1.  Go to the **SSO Configuration page** at `http://<BSR_SERVER>/<ORGANIZATION>/pro-settings`.
 2.  From the **SSO Provider** dropdown, choose **SAML**.
 3.  Click the **Use IdP raw metadata instead** link.
-4.  Copy and paste the contents of the IdP metadata XML file you downloaded earlier into the **IdP Raw Metadata** text box.![IdP metadata text entry box](../../../../../images/bsr/sso/google-saml-idp.png)
+4.  Copy and paste the contents of the IdP metadata XML file you downloaded earlier into the **IdP Raw Metadata** text box.
+
+    ![IdP metadata text entry box](../../../../../images/bsr/sso/google-saml-idp.png)
+
 5.  Click **Update**.

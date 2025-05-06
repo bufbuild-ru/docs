@@ -79,12 +79,18 @@ Only configure what's listed here.
 - Set the **Homepage URL** to `https://buf.example.com` — this varies depending on your installation.
 - Ensure that **Expire user authorization tokens** is selected.
 - Under **Identifying and authorizing users**, set the **Callback URL** to `https://buf.example.com/oauth2/callback`
+
   - Sign-in redirect URIs should be `https://buf.example.com/oauth2/callback`
   - Sign-out redirect URIs should be `https://buf.example.com/logout`
+
 - Under **Webhook** make sure that **Active** isn't selected.
 - Under **User permissions** ensure that **Email addresses** is set to **Read-only**, no other permissions are needed.
 - Click **Create GitHub App** to create the app.
-- Click **Generate a new Client Secret**.![Screen shot of GitHub app configuration](../../../../../images/bsr/sso/github-oauth2.png)Copy the client ID and client secret so you can use them to update your BSR instance's SSO configuration.
+- Click **Generate a new Client Secret**.
+
+  ![Screen shot of GitHub app configuration](../../../../../images/bsr/sso/github-oauth2.png)
+
+  Copy the client ID and client secret so you can use them to update your BSR instance's SSO configuration.
 
 ## Update SSO configuration
 
@@ -93,7 +99,9 @@ To set up or update your BSR instance's SSO configuration:
 1.  Go to the **SSO Configuration page** at `http://BSR_INSTANCE/<ORGANIZATION>/pro-settings`.
 2.  From the **SSO Provider** dropdown, choose **GitHub**.
 3.  Enter your client ID, client secret, and an optional logout URL.
-4.  Click **Update**.![Screen shot of BSR GitHub SSO configuration](../../../../../images/bsr/sso/github-config.png)
+4.  Click **Update**.
+
+    ![Screen shot of BSR GitHub SSO configuration](../../../../../images/bsr/sso/github-config.png)
 
 ## Next steps
 

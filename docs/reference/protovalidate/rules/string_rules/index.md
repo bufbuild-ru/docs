@@ -259,7 +259,11 @@ message MyString {
 
 ## email
 
-`email` specifies that the field value must be a valid email address, for example "foo@example.com".Conforms to the definition for a valid email address from the [HTML standard](https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address). Note that this standard willfully deviates from [RFC 5322](https://datatracker.ietf.org/doc/html/rfc5322), which allows many unexpected forms of email addresses and will easily match a typographical error.If the field value isn't a valid email address, an error message will be generated.
+`email` specifies that the field value must be a valid email address, for example "foo@example.com".
+
+Conforms to the definition for a valid email address from the [HTML standard](https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address). Note that this standard willfully deviates from [RFC 5322](https://datatracker.ietf.org/doc/html/rfc5322), which allows many unexpected forms of email addresses and will easily match a typographical error.
+
+If the field value isn't a valid email address, an error message will be generated.
 
 ::: info string.email example
 
@@ -274,7 +278,9 @@ message MyString {
 
 ## hostname
 
-`hostname` specifies that the field value must be a valid hostname, for example "foo.example.com".A valid hostname follows the rules below:
+`hostname` specifies that the field value must be a valid hostname, for example "foo.example.com".
+
+A valid hostname follows the rules below:
 
 - The name consists of one or more labels, separated by a dot (".").
 - Each label can be 1 to 63 alphanumeric characters.
@@ -298,7 +304,13 @@ message MyString {
 
 ## ip
 
-`ip` specifies that the field value must be a valid IP (v4 or v6) address.IPv4 addresses are expected in the dotted decimal format — for example, "192.168.5.21". IPv6 addresses are expected in their text representation — for example, "::1", or "2001:0DB8:ABCD:0012::0".Both formats are well-defined in the internet standard [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986). Zone identifiers for IPv6 addresses (for example, "fe80::a%en1") are supported.If the field value isn't a valid IP address, an error message will be generated.
+`ip` specifies that the field value must be a valid IP (v4 or v6) address.
+
+IPv4 addresses are expected in the dotted decimal format — for example, "192.168.5.21". IPv6 addresses are expected in their text representation — for example, "::1", or "2001:0DB8:ABCD:0012::0".
+
+Both formats are well-defined in the internet standard [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986). Zone identifiers for IPv6 addresses (for example, "fe80::a%en1") are supported.
+
+If the field value isn't a valid IP address, an error message will be generated.
 
 ::: info string.ip example
 
@@ -343,7 +355,11 @@ message MyString {
 
 ## uri
 
-`uri` specifies that the field value must be a valid URI, for example "https://example.com/foo/bar?baz=quux#frag".URI is defined in the internet standard [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986). Zone Identifiers in IPv6 address literals are supported ([RFC 6874](https://datatracker.ietf.org/doc/html/rfc6874)).If the field value isn't a valid URI, an error message will be generated.
+`uri` specifies that the field value must be a valid URI, for example "https://example.com/foo/bar?baz=quux#frag".
+
+URI is defined in the internet standard [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986). Zone Identifiers in IPv6 address literals are supported ([RFC 6874](https://datatracker.ietf.org/doc/html/rfc6874)).
+
+If the field value isn't a valid URI, an error message will be generated.
 
 ::: info string.uri example
 
@@ -358,7 +374,11 @@ message MyString {
 
 ## uri_ref
 
-`uri_ref` specifies that the field value must be a valid URI Reference — either a URI such as "https://example.com/foo/bar?baz=quux#frag", or a Relative Reference such as "./foo/bar?query".URI, URI Reference, and Relative Reference are defined in the internet standard [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986). Zone Identifiers in IPv6 address literals are supported ([RFC 6874](https://datatracker.ietf.org/doc/html/rfc6874)).If the field value isn't a valid URI Reference, an error message will be generated.
+`uri_ref` specifies that the field value must be a valid URI Reference — either a URI such as "https://example.com/foo/bar?baz=quux#frag", or a Relative Reference such as "./foo/bar?query".
+
+URI, URI Reference, and Relative Reference are defined in the internet standard [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986). Zone Identifiers in IPv6 address literals are supported ([RFC 6874](https://datatracker.ietf.org/doc/html/rfc6874)).
+
+If the field value isn't a valid URI Reference, an error message will be generated.
 
 ::: info string.uri_ref example
 
@@ -463,7 +483,11 @@ message MyString {
 
 ## ip_prefix
 
-`ip_prefix` specifies that the field value must be a valid IP (v4 or v6) prefix — for example, "192.168.0.0/16" or "2001:0DB8:ABCD:0012::0/64".The prefix must have all zeros for the unmasked bits. For example, "2001:0DB8:ABCD:0012::0/64" designates the left-most 64 bits for the prefix, and the remaining 64 bits must be zero.If the field value isn't a valid IP prefix, an error message will be generated.
+`ip_prefix` specifies that the field value must be a valid IP (v4 or v6) prefix — for example, "192.168.0.0/16" or "2001:0DB8:ABCD:0012::0/64".
+
+The prefix must have all zeros for the unmasked bits. For example, "2001:0DB8:ABCD:0012::0/64" designates the left-most 64 bits for the prefix, and the remaining 64 bits must be zero.
+
+If the field value isn't a valid IP prefix, an error message will be generated.
 
 ::: info string.ip_prefix example
 
@@ -478,7 +502,11 @@ message MyString {
 
 ## ipv4_prefix
 
-`ipv4_prefix` specifies that the field value must be a valid IPv4 prefix, for example "192.168.0.0/16".The prefix must have all zeros for the unmasked bits. For example, "192.168.0.0/16" designates the left-most 16 bits for the prefix, and the remaining 16 bits must be zero.If the field value isn't a valid IPv4 prefix, an error message will be generated.
+`ipv4_prefix` specifies that the field value must be a valid IPv4 prefix, for example "192.168.0.0/16".
+
+The prefix must have all zeros for the unmasked bits. For example, "192.168.0.0/16" designates the left-most 16 bits for the prefix, and the remaining 16 bits must be zero.
+
+If the field value isn't a valid IPv4 prefix, an error message will be generated.
 
 ::: info string.ipv4_prefix example
 
@@ -493,7 +521,11 @@ message MyString {
 
 ## ipv6_prefix
 
-`ipv6_prefix` specifies that the field value must be a valid IPv6 prefix — for example, "2001:0DB8:ABCD:0012::0/64".The prefix must have all zeros for the unmasked bits. For example, "2001:0DB8:ABCD:0012::0/64" designates the left-most 64 bits for the prefix, and the remaining 64 bits must be zero.If the field value is not a valid IPv6 prefix, an error message will be generated.
+`ipv6_prefix` specifies that the field value must be a valid IPv6 prefix — for example, "2001:0DB8:ABCD:0012::0/64".
+
+The prefix must have all zeros for the unmasked bits. For example, "2001:0DB8:ABCD:0012::0/64" designates the left-most 64 bits for the prefix, and the remaining 64 bits must be zero.
+
+If the field value is not a valid IPv6 prefix, an error message will be generated.
 
 ::: info string.ipv6_prefix example
 
@@ -508,7 +540,9 @@ message MyString {
 
 ## host_and_port
 
-`host_and_port` specifies that the field value must be valid host/port pair — for example, "example.com:8080".The host can be one of:
+`host_and_port` specifies that the field value must be valid host/port pair — for example, "example.com:8080".
+
+The host can be one of:
 
 - An IPv4 address in dotted decimal format — for example, "192.168.5.21".
 - An IPv6 address enclosed in square brackets — for example, "\[2001:0DB8:ABCD:0012::F1\]".

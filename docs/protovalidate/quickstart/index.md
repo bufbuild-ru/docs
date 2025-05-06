@@ -71,7 +71,9 @@ Each language's quickstart code contains Buf CLI configuration files (`buf.yaml`
 
 ### Depending on Protovalidate
 
-Published publicly on the [Buf Schema Registry](../../bsr/), the Protovalidate module provides the Protobuf extensions, options, and messages powering validation.Add it as a dependency in `buf.yaml`:
+Published publicly on the [Buf Schema Registry](../../bsr/), the Protovalidate module provides the Protobuf extensions, options, and messages powering validation.
+
+Add it as a dependency in `buf.yaml`:
 
 +++tabs key:70a55f19e07dd7ea6318bf95a4fe1060
 
@@ -216,7 +218,9 @@ disable:
 
 ### Adding rules to a message
 
-To add rules to a message, you'll first import Protovalidate and then add Protovalidate annotations.Make the following changes to `proto/bufbuild/weather/v1/weather_service.proto` to add rules to a `GetWeatherRequest` message. (Java note: this directory is relative to `src/main`.)
+To add rules to a message, you'll first import Protovalidate and then add Protovalidate annotations.
+
+Make the following changes to `proto/bufbuild/weather/v1/weather_service.proto` to add rules to a `GetWeatherRequest` message. (Java note: this directory is relative to `src/main`.)
 
 ::: info proto/bufbuild/weather/v1/weather_service.proto
 
@@ -256,7 +260,9 @@ message GetWeatherRequest {
 
 ## Generating code
 
-Protovalidate doesn't introduce any new code generation plugins because its rules are compiled as part of your service and message descriptors — `buf generate` works without any changes.Run it to include your new rules in the `GetWeatherRequest` descriptor:
+Protovalidate doesn't introduce any new code generation plugins because its rules are compiled as part of your service and message descriptors — `buf generate` works without any changes.
+
+Run it to include your new rules in the `GetWeatherRequest` descriptor:
 
 ```console
 $ buf generate
@@ -272,7 +278,9 @@ If Protovalidate only provided logical validations on known types, such as maxim
 2.  A `SaveBlogEntryRequest` must have a `status` of `DRAFT`, `PUBLISHED`, or `ARCHIVED`.
 3.  An `AddProductToInventoryRequest` must have a serial number starting with a constant prefix and matching a complicated regular expression.
 
-Protovalidate can meet all of these requirements because all Protovalidate rules are defined in [Common Expression Language (CEL)](https://cel.dev). CEL is a lightweight, high-performance expression language that allows expressions like `this.first_flight_duration + this.second_flight_duration < duration('48h')` to evaluate consistently across languages.Adding a CEL-based rule to a field is straightforward. Instead of a providing a static value, you provide a unique identifier (`id`), an error message, and a CEL expression. Building on the prior `GetWeatherRequest` example, add a custom rule stating that users must ask for weather forecasts within the next 72 hours:
+Protovalidate can meet all of these requirements because all Protovalidate rules are defined in [Common Expression Language (CEL)](https://cel.dev). CEL is a lightweight, high-performance expression language that allows expressions like `this.first_flight_duration + this.second_flight_duration < duration('48h')` to evaluate consistently across languages.
+
+Adding a CEL-based rule to a field is straightforward. Instead of a providing a static value, you provide a unique identifier (`id`), an error message, and a CEL expression. Building on the prior `GetWeatherRequest` example, add a custom rule stating that users must ask for weather forecasts within the next 72 hours:
 
 ::: info proto/bufbuild/weather/v1/weather_service.proto
 
@@ -320,7 +328,9 @@ $ buf generate
 
 ## Running validations
 
-All Protovalidate languages provide an idiomatic API for validating a Protobuf message.In the final code exercise, you'll use it directly, checking enforcement of `GetWeatherRequest`'s validation rules.
+All Protovalidate languages provide an idiomatic API for validating a Protobuf message.
+
+In the final code exercise, you'll use it directly, checking enforcement of `GetWeatherRequest`'s validation rules.
 
 +++tabs key:70a55f19e07dd7ea6318bf95a4fe1060
 
@@ -490,7 +500,11 @@ You've now walked through the basic steps for using Protovalidate: adding it as 
 
 ### Validating API requests
 
-One of Protovalidate's most common use cases is for validating requests made to RPC APIs. Though it's possible to use the above examples to add a validation request at the start of every request handler, it's not efficient. Instead, use Protovalidate within a ConnectRPC or gRPC interceptor, providing global input validation.Open-source Protovalidate interceptors are available for [Connect Go](https://github.com/connectrpc/validate-go/) and [gRPC-Go](https://github.com/grpc-ecosystem/go-grpc-middleware). In the quickstarts for specific languages and gRPC frameworks, you'll also find example interceptors for [Java](grpc-java/), and [Python](grpc-python/).Adding these interceptors is no different from configuring any other RPC interceptor:
+One of Protovalidate's most common use cases is for validating requests made to RPC APIs. Though it's possible to use the above examples to add a validation request at the start of every request handler, it's not efficient. Instead, use Protovalidate within a ConnectRPC or gRPC interceptor, providing global input validation.
+
+Open-source Protovalidate interceptors are available for [Connect Go](https://github.com/connectrpc/validate-go/) and [gRPC-Go](https://github.com/grpc-ecosystem/go-grpc-middleware). In the quickstarts for specific languages and gRPC frameworks, you'll also find example interceptors for [Java](grpc-java/), and [Python](grpc-python/).
+
+Adding these interceptors is no different from configuring any other RPC interceptor:
 
 +++tabs key:60847cc0c9011a92578351a21479db50
 
@@ -556,7 +570,9 @@ For a deep dive into using Protovalidate for RPC APIs with executable tutorials,
 
 ### Validating Kafka messages
 
-In traditional Kafka, brokers are simple data pipes — they have no understanding of what data traverses them. Though this simplicity helped Kafka gain ubiquity, most data sent through Kafka topics is structured and should follow a schema.Using [Bufstream](../../bufstream/) — the Kafka-compatible message queue built for the data lakehouse era — you can add Protovalidate rule enforcement to broker-side schema awareness. With a Bufstream broker already using the [Buf Schema Registry's Confluent Schema Registry support](../../bsr/csr/overview/), enabling Protovalidate is a two-line configuration change within `data_enforcement`:
+In traditional Kafka, brokers are simple data pipes — they have no understanding of what data traverses them. Though this simplicity helped Kafka gain ubiquity, most data sent through Kafka topics is structured and should follow a schema.
+
+Using [Bufstream](../../bufstream/) — the Kafka-compatible message queue built for the data lakehouse era — you can add Protovalidate rule enforcement to broker-side schema awareness. With a Bufstream broker already using the [Buf Schema Registry's Confluent Schema Registry support](../../bsr/csr/overview/), enabling Protovalidate is a two-line configuration change within `data_enforcement`:
 
 ::: info Bufstream Configuration YAML
 

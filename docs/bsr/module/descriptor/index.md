@@ -45,7 +45,9 @@ head:
 
 # Get module's FileDescriptorSet from the BSR
 
-You can use [`buf build`](../../../reference/cli/buf/build/) to build the FileDescriptorSet or a [Buf image](../../../build/overview/) that's wire compatible with FileDescriptorSet. However, there are certain scenarios or environments where it may be difficult to access the Buf CLI.The BSR API allows you to access the FileDescriptorSet of a module hosted on the BSR directly. Using `curl`, the basic download command requires a BSR module as the source:
+You can use [`buf build`](../../../reference/cli/buf/build/) to build the FileDescriptorSet or a [Buf image](../../../build/overview/) that's wire compatible with FileDescriptorSet. However, there are certain scenarios or environments where it may be difficult to access the Buf CLI.
+
+The BSR API allows you to access the FileDescriptorSet of a module hosted on the BSR directly. Using `curl`, the basic download command requires a BSR module as the source:
 
 ::: info Get the FileDescriptorSet and output the binary in the terminal
 
@@ -91,7 +93,9 @@ $ curl -s "https://buf.build/acme/petapis/descriptor/main?source_info=true" --ou
 
 ## Include source retention options
 
-By default, the FileDescriptorSet includes no [source retention options](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto#L732-L739).You can extend the FileDescriptorSet output to include the source retention options by adding the `source_retention_options=true` query parameter:
+By default, the FileDescriptorSet includes no [source retention options](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto#L732-L739).
+
+You can extend the FileDescriptorSet output to include the source retention options by adding the `source_retention_options=true` query parameter:
 
 ::: info Include source retention options
 

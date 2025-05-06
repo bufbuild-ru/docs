@@ -49,11 +49,19 @@ head:
 This document describes the way workspaces are configured using `v1` configuration files. We recommend migrating to `v2` configuration files for a more intuitive way of working with multiple modules and sharing dependencies. See the [blog post](/blog/buf-cli-next-generation/index.md) and [migration guide](../../migration-guides/migrate-v2-config-files/) for information and instructions.
 :::
 
-Workspaces are collections of modules that enable you to iterate on modules and manage cross-module dependencies without having to commit to the Buf Schema Registry (BSR). They also allow you to more easily do `buf` operations like breaking change detection and linting across related modules.When iterating on related modules without workspaces, you can get into a dependency loop where you have to push modules that are dependencies to the BSR, and then update the local dependencies of the modules that rely on them. This is both frustrating and prone to error.With workspaces, you define all of the related modules in a simple configuration file, and they can locally vendor each other as you iterate without involving the BSR. And for all local `buf` operations, the workspace is treated as the [input](../inputs/) without the need to specify each module.If you're familiar with `protoc`, a workspace is similar to specifying multiple include `-I` paths, but with the added consistency of defining dependencies in version-controlled config files.
+Workspaces are collections of modules that enable you to iterate on modules and manage cross-module dependencies without having to commit to the Buf Schema Registry (BSR). They also allow you to more easily do `buf` operations like breaking change detection and linting across related modules.
+
+When iterating on related modules without workspaces, you can get into a dependency loop where you have to push modules that are dependencies to the BSR, and then update the local dependencies of the modules that rely on them. This is both frustrating and prone to error.
+
+With workspaces, you define all of the related modules in a simple configuration file, and they can locally vendor each other as you iterate without involving the BSR. And for all local `buf` operations, the workspace is treated as the [input](../inputs/) without the need to specify each module.
+
+If you're familiar with `protoc`, a workspace is similar to specifying multiple include `-I` paths, but with the added consistency of defining dependencies in version-controlled config files.
 
 ## Configuration
 
-A workspace requires at least one [module](../../cli/modules-workspaces/), which is defined by a `buf.yaml` file. The workspace config file, `buf.work.yaml`, is generally one level above the module directories, often at the root of a VCS. Below is a complete example of a workspace that includes a Pets API and a Payments API, where the Pets API is importing the Payments API. It contains a `buf.work.yaml` configuration file and a `buf.yaml` configuration file, and shows our recommended directory structure.The [`buf.work.yaml`](../../configuration/v1/buf-work-yaml/) file lists the directories of the modules it includes, and the `buf.yaml` files define the dependencies between modules.
+A workspace requires at least one [module](../../cli/modules-workspaces/), which is defined by a `buf.yaml` file. The workspace config file, `buf.work.yaml`, is generally one level above the module directories, often at the root of a VCS. Below is a complete example of a workspace that includes a Pets API and a Payments API, where the Pets API is importing the Payments API. It contains a `buf.work.yaml` configuration file and a `buf.yaml` configuration file, and shows our recommended directory structure.
+
+The [`buf.work.yaml`](../../configuration/v1/buf-work-yaml/) file lists the directories of the modules it includes, and the `buf.yaml` files define the dependencies between modules.
 
 ```text
 .
@@ -102,7 +110,11 @@ See the [`buf.work.yaml` config file reference](../../configuration/v1/buf-work-
 
 ### Additional requirements
 
-The Buf CLI imposes two additional requirements on your `.proto` file structure for compilation to succeed, both of which are essential to successful modern Protobuf development across a number of languages.**1\. Workspace modules must not overlap. A workspace module can't be a sub-directory of another workspace module.**This, for example, **isn't** a valid configuration:
+The Buf CLI imposes two additional requirements on your `.proto` file structure for compilation to succeed, both of which are essential to successful modern Protobuf development across a number of languages.
+
+**1\. Workspace modules must not overlap. A workspace module can't be a sub-directory of another workspace module.**
+
+This, for example, **isn't** a valid configuration:
 
 ::: info buf.work.yaml
 
@@ -115,7 +127,11 @@ version: v1 # THIS IS INVALID AND RESULTS IN A PRE-COMPILATION ERROR
 
 :::
 
-Following this rule ensures that imports are consistent across all your `.proto` files. Without it, in the above example a file `foo/bar/bar.proto` could be imported as either `bar/bar.proto` or `bar.proto`. Having inconsistent imports leads to a number of major issues across the Protobuf plugin ecosystem, so we don't allow it.**2\. All `.proto` file paths must be unique relative to each workspace module.**Consider this configuration:
+Following this rule ensures that imports are consistent across all your `.proto` files. Without it, in the above example a file `foo/bar/bar.proto` could be imported as either `bar/bar.proto` or `bar.proto`. Having inconsistent imports leads to a number of major issues across the Protobuf plugin ecosystem, so we don't allow it.
+
+**2\. All `.proto` file paths must be unique relative to each workspace module.**
+
+Consider this configuration:
 
 ::: info buf.work.yaml
 
@@ -169,7 +185,9 @@ message PurchasePetRequest {
 
 ## Multiple-module operations
 
-If the [input](../inputs/) for a `buf` command is a directory containing a `buf.work.yaml` file, the command acts upon all of the modules defined in the `buf.work.yaml`.For example, suppose that we update both the `paymentapis` and `petapis` directories with some `lint` failures, such as using a camel case field name. We can easily lint all of the modules defined in a `buf.work.yaml` with a single command:
+If the [input](../inputs/) for a `buf` command is a directory containing a `buf.work.yaml` file, the command acts upon all of the modules defined in the `buf.work.yaml`.
+
+For example, suppose that we update both the `paymentapis` and `petapis` directories with some `lint` failures, such as using a camel case field name. We can easily lint all of the modules defined in a `buf.work.yaml` with a single command:
 
 ```console
 $ ls
@@ -190,7 +208,11 @@ When using `buf breaking` in workspace mode, the two [inputs](../inputs/) you're
 
 ## Interaction with module cache
 
-As mentioned above, workspaces enable you to work on multiple modules in parallel, such as introducing a new Protobuf message in one module and depending on it in another.Without a workspace, the Buf CLI relies on the module's [`buf.lock`](../../configuration/v1/buf-lock/) manifest to read its dependencies from the local [module cache](../../cli/modules-workspaces/#module-cache). This requires that you push changes that create new dependencies to the BSR and run `buf dep update` in the module that requires them before they can be used.With a workspace, the module cache is only used for dependencies **not defined in the workspace**. For all directories listed in the `buf.work.yaml` file, the workspace overrides the module cache and allows you to use the new changes without pushing and updating.
+As mentioned above, workspaces enable you to work on multiple modules in parallel, such as introducing a new Protobuf message in one module and depending on it in another.
+
+Without a workspace, the Buf CLI relies on the module's [`buf.lock`](../../configuration/v1/buf-lock/) manifest to read its dependencies from the local [module cache](../../cli/modules-workspaces/#module-cache). This requires that you push changes that create new dependencies to the BSR and run `buf dep update` in the module that requires them before they can be used.
+
+With a workspace, the module cache is only used for dependencies **not defined in the workspace**. For all directories listed in the `buf.work.yaml` file, the workspace overrides the module cache and allows you to use the new changes without pushing and updating.
 
 ::: tip Note
 Modules that are dependencies **must be named** (have a value for the `name` field in their buf.yaml file) for the workspace to override the module cache. If the `name` either doesn't match the importing module's dependency or doesn't exist, the Buf CLI uses the module cache instead.

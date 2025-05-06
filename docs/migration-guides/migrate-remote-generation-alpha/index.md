@@ -55,7 +55,9 @@ The remote generation alpha included two features: remote plugin execution (now 
 
 ### Public plugins are now solely maintained by the Buf team
 
-In the alpha, public plugins could be uploaded by individual users with no verification. This caused a subpar experience for users who discovered plugins on their own, and also caused a security headache for some of our customers. All public remote plugins are now maintained and verified by the Buf team directly.To see all publicly available plugins, go to [buf.build/plugins](https://buf.build/plugins). We think we've covered the vast majority of use cases — however, if you find a useful plugin that should be added, please [file an issue](https://github.com/bufbuild/plugins/issues/new/choose)!
+In the alpha, public plugins could be uploaded by individual users with no verification. This caused a subpar experience for users who discovered plugins on their own, and also caused a security headache for some of our customers. All public remote plugins are now maintained and verified by the Buf team directly.
+
+To see all publicly available plugins, go to [buf.build/plugins](https://buf.build/plugins). We think we've covered the vast majority of use cases — however, if you find a useful plugin that should be added, please [file an issue](https://github.com/bufbuild/plugins/issues/new/choose)!
 
 ### Custom plugins available for Pro and Enterprise customers
 
@@ -97,7 +99,9 @@ The synthetic versioning scheme has been replaced by a more explicit versioning 
 0.4.0-20220908151351-622fe7149695.1
 ```
 
-This new semver-compatible versioning scheme can be pinned in lock files and always references a specific plugin + module for reproducibility.Most users fetch the `@latest` version and will be unaffected by the versioning change.
+This new semver-compatible versioning scheme can be pinned in lock files and always references a specific plugin + module for reproducibility.
+
+Most users fetch the `@latest` version and will be unaffected by the versioning change.
 
 ### Go module proxy
 
@@ -108,18 +112,28 @@ There are a couple of key changes from the alpha:
 - The template reference in the path has been replaced with plugins and moved to the end.
 - The version has changed to include plugin version and module commit information.
 
-The new format is:`buf.build/gen/go/{moduleOwner}/{moduleName}/{pluginOwner}/{pluginName}`
+The new format is:
+
+`buf.build/gen/go/{moduleOwner}/{moduleName}/{pluginOwner}/{pluginName}`
 
 ```diff
 - go.buf.build/protocolbuffers/go/acme/petapis
 + buf.build/gen/go/acme/petapis/protocolbuffers/go
 ```
 
-This means you'll need to search and replace the old import path with the new one and run `go mod tidy`.The versioning has also changed to a more descriptive form:`{pluginVersion}-{moduleCommitTimestamp}-{moduleCommitName}.{pluginRevision}`Instead of relying on the commit sequence, it now relies directly on commits. For ways to pin to a commit and other documentation see the new \[Go proxy\]\[../bsr/remote-plugins/go.md#using-go-modules\] docs.
+This means you'll need to search and replace the old import path with the new one and run `go mod tidy`.
+
+The versioning has also changed to a more descriptive form:
+
+`{pluginVersion}-{moduleCommitTimestamp}-{moduleCommitName}.{pluginRevision}`
+
+Instead of relying on the commit sequence, it now relies directly on commits. For ways to pin to a commit and other documentation see the new \[Go proxy\]\[../bsr/remote-plugins/go.md#using-go-modules\] docs.
 
 #### connect-go template
 
-If you've used the [connect-go template](https://buf.build/bufbuild/templates/connect-go) you'll need to update all **connect** imports to the generated code of the connect plugin.The `go.mod` file also now requires two different imports, one for the [`go`](https://buf.build/protocolbuffers/go) plugin and the other for the [`connect-go`](https://buf.build/connectrpc/go) plugin.
+If you've used the [connect-go template](https://buf.build/bufbuild/templates/connect-go) you'll need to update all **connect** imports to the generated code of the connect plugin.
+
+The `go.mod` file also now requires two different imports, one for the [`go`](https://buf.build/protocolbuffers/go) plugin and the other for the [`connect-go`](https://buf.build/connectrpc/go) plugin.
 
 ::: info go.mod
 
@@ -146,7 +160,9 @@ import (
 
 #### grpc-go template
 
-If you've used the [`grpc-go` template](https://buf.build/grpc/templates/go) you'll need to update all **grpc** imports to the generated code of the grpc plugin.The `go.mod` file also now requires two different imports, one for the [`go`](https://buf.build/protocolbuffers/go) plugin and the other for the [`grpc-go`](https://buf.build/grpc/go) plugin.
+If you've used the [`grpc-go` template](https://buf.build/grpc/templates/go) you'll need to update all **grpc** imports to the generated code of the grpc plugin.
+
+The `go.mod` file also now requires two different imports, one for the [`go`](https://buf.build/protocolbuffers/go) plugin and the other for the [`grpc-go`](https://buf.build/grpc/go) plugin.
 
 ::: info go.mod
 
@@ -158,7 +174,9 @@ If you've used the [`grpc-go` template](https://buf.build/grpc/templates/go) you
 
 :::
 
-We patched the [`grpc-go`](https://buf.build/grpc/go) plugin to generate code to a subpackage. It previously generated code to the same package as the [`go`](https://buf.build/protocolbuffers/go) plugin. The new import path is a subpackage that is named in the format: `{goPackageName}grpc`Example:
+We patched the [`grpc-go`](https://buf.build/grpc/go) plugin to generate code to a subpackage. It previously generated code to the same package as the [`go`](https://buf.build/protocolbuffers/go) plugin. The new import path is a subpackage that is named in the format: `{goPackageName}grpc`
+
+Example:
 
 ```diff
 package main
@@ -184,7 +202,9 @@ If you used a custom template that included the [`protoc-gen-validate`](https://
 
 #### protoc-gen-grpc-gateway plugin
 
-If you used a custom template that included the [`grpc-gateway`](https://buf.build/grpc-ecosystem/gateway) plugin, you can update **grpc-gateway** imports to the generated code of the `grpc-gateway` plugin.The `go.mod` file also now requires three different imports, for the [`go`](https://buf.build/protocolbuffers/go) plugin, the [`grpc-go`](https://buf.build/grpc/go) plugin, and the [`grpc-gateway`](https://buf.build/grpc-ecosystem/gateway) plugin.
+If you used a custom template that included the [`grpc-gateway`](https://buf.build/grpc-ecosystem/gateway) plugin, you can update **grpc-gateway** imports to the generated code of the `grpc-gateway` plugin.
+
+The `go.mod` file also now requires three different imports, for the [`go`](https://buf.build/protocolbuffers/go) plugin, the [`grpc-go`](https://buf.build/grpc/go) plugin, and the [`grpc-gateway`](https://buf.build/grpc-ecosystem/gateway) plugin.
 
 ::: info go.mod
 
@@ -197,7 +217,9 @@ If you used a custom template that included the [`grpc-gateway`](https://buf.bui
 
 :::
 
-We patched the [`grpc-gateway`](https://buf.build/grpc-ecosystem/gateway) plugin to generate code to a subpackage. It previously generated code to the same package as the [`go`](https://buf.build/protocolbuffers/go) and [`grpc-go`](https://buf.build/grpc/go) plugins. The new import path is a subpackage that's named in the format: `{goPackageName}gateway`The import path for the [`grpc-gateway`](https://buf.build/grpc-ecosystem/gateway) plugin generated code changes like so:
+We patched the [`grpc-gateway`](https://buf.build/grpc-ecosystem/gateway) plugin to generate code to a subpackage. It previously generated code to the same package as the [`go`](https://buf.build/protocolbuffers/go) and [`grpc-go`](https://buf.build/grpc/go) plugins. The new import path is a subpackage that's named in the format: `{goPackageName}gateway`
+
+The import path for the [`grpc-gateway`](https://buf.build/grpc-ecosystem/gateway) plugin generated code changes like so:
 
 ```diff
 package main
@@ -221,7 +243,13 @@ The base URL for the BSR NPM registry has changed, so you need to update your `.
 
 #### Naming convention
 
-The naming convention has changed because templates were removed in favor of plugins. The new format is:`{moduleOwner}_{moduleName}.{pluginOwner}_{pluginName}`Note that the dot (`.`) delimiter is used to break up the module and the plugin components.This means you'll need to do 2 things:
+The naming convention has changed because templates were removed in favor of plugins. The new format is:
+
+`{moduleOwner}_{moduleName}.{pluginOwner}_{pluginName}`
+
+Note that the dot (`.`) delimiter is used to break up the module and the plugin components.
+
+This means you'll need to do 2 things:
 
 1.  `npm remove` the old package and `npm install` the new package
 2.  Search and replace application imports
@@ -235,7 +263,11 @@ New documentation is available at [NPM registry](../../bsr/generated-sdks/go/).
 
 #### connect-web template
 
-If you consumed [connect-web template](https://buf.build/bufbuild/templates/connect-web) you'll need to update all imports for **base types** within your application code. This plugin now outputs plugin dependencies, namely [Protobuf-ES](https://www.npmjs.com/package/@bufbuild/protoc-gen-es), into a separate package.Also, please note that the `connect-web` plugin has been renamed to `connect-es`. As a result, this plugin now outputs files with a `_connect` suffix rather than `_connectweb`.Show example
+If you consumed [connect-web template](https://buf.build/bufbuild/templates/connect-web) you'll need to update all imports for **base types** within your application code. This plugin now outputs plugin dependencies, namely [Protobuf-ES](https://www.npmjs.com/package/@bufbuild/protoc-gen-es), into a separate package.
+
+Also, please note that the `connect-web` plugin has been renamed to `connect-es`. As a result, this plugin now outputs files with a `_connect` suffix rather than `_connectweb`.
+
+Show example
 
 \#### One package (old behavior)
 

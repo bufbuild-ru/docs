@@ -45,11 +45,21 @@ head:
 
 # Modules and workspaces
 
-All Buf operations and features work with collections of Protobuf files that you configure, rather than specifying file paths on the command line. This page describes how to define these collections for both your local environment and for pushing to the Buf Schema Registry (BSR) to share with your team, customers, or the wider Buf community.A _module_ is the key primitive in the Buf ecosystem, and represents a collection of Protobuf files that are configured, built, and versioned as a logical unit. Modules simplify file discovery and eliminate the need for complex `protoc` build scripts that define your Protobuf sources with `-I`. Instead, you configure a module in the `buf.yaml` file, which specifies the location of the files, any exclusions, and its linting and breaking change detection rule sets if they're different from the workspace defaults._Workspaces_ are collections of modules that are defined together in the same `buf.yaml` file to create a local working environment. They can contain a single module or multiple modules. All modules in a workspace can import each other without specific dependency declarations, and also share any dependencies that are defined for the workspace (for example, on an external module such as [`googleapis`](https://buf.build/googleapis/googleapis)).Workspaces are also the default input for Buf CLI commands, and are the unit used to push content to the BSR. Pushing the workspace means that all modules in the workspace are pushed to their respective BSR [repositories](../../bsr/repositories/).
+All Buf operations and features work with collections of Protobuf files that you configure, rather than specifying file paths on the command line. This page describes how to define these collections for both your local environment and for pushing to the Buf Schema Registry (BSR) to share with your team, customers, or the wider Buf community.
+
+A _module_ is the key primitive in the Buf ecosystem, and represents a collection of Protobuf files that are configured, built, and versioned as a logical unit. Modules simplify file discovery and eliminate the need for complex `protoc` build scripts that define your Protobuf sources with `-I`. Instead, you configure a module in the `buf.yaml` file, which specifies the location of the files, any exclusions, and its linting and breaking change detection rule sets if they're different from the workspace defaults.
+
+_Workspaces_ are collections of modules that are defined together in the same `buf.yaml` file to create a local working environment. They can contain a single module or multiple modules. All modules in a workspace can import each other without specific dependency declarations, and also share any dependencies that are defined for the workspace (for example, on an external module such as [`googleapis`](https://buf.build/googleapis/googleapis)).
+
+Workspaces are also the default input for Buf CLI commands, and are the unit used to push content to the BSR. Pushing the workspace means that all modules in the workspace are pushed to their respective BSR [repositories](../../bsr/repositories/).
 
 ## Workspace layout
 
-Though each module in the workspace is already a versioned entity composed of Protobuf files, we recommend implementing some level of versioning in the workspace's directory and package structure, even if it only contains a single module. Structuring the files this way decreases the likelihood of API collisions with other user-defined schemas. For more details, see [Files and packages](../../reference/protobuf-files-and-packages/).For example, suppose you want to create a workspace with two modules, `vendor/units/v1` and `acme/weatherapi/v1`. It would ideally have a directory structure that mirrors the packages, with the `.proto` files nested by package in a separate folder. All Buf config files should be at the root of the workspace.![Workspace and module layout diagram](../../images/concepts/module-workspace.png)
+Though each module in the workspace is already a versioned entity composed of Protobuf files, we recommend implementing some level of versioning in the workspace's directory and package structure, even if it only contains a single module. Structuring the files this way decreases the likelihood of API collisions with other user-defined schemas. For more details, see [Files and packages](../../reference/protobuf-files-and-packages/).
+
+For example, suppose you want to create a workspace with two modules, `vendor/units/v1` and `acme/weatherapi/v1`. It would ideally have a directory structure that mirrors the packages, with the `.proto` files nested by package in a separate folder. All Buf config files should be at the root of the workspace.
+
+![Workspace and module layout diagram](../../images/concepts/module-workspace.png)
 
 ```text
 workspace_root
@@ -74,11 +84,15 @@ workspace_root
 
 ### Module documentation
 
-In addition to comments associated with your Protobuf definitions, we recommend adding a `README.md` file at the module root to describe the module's overall function. The module `README.md` file is similar to a GitHub repository's `README.md` and currently supports all CommonMark syntax.Because the `README.md` is displayed as the primary user documentation for modules, we consider it an integral part of the module. Any changes made to it trigger a new commit in the BSR. See [Adding documentation](../../bsr/documentation/create-docs/) for more information.
+In addition to comments associated with your Protobuf definitions, we recommend adding a `README.md` file at the module root to describe the module's overall function. The module `README.md` file is similar to a GitHub repository's `README.md` and currently supports all CommonMark syntax.
+
+Because the `README.md` is displayed as the primary user documentation for modules, we consider it an integral part of the module. Any changes made to it trigger a new commit in the BSR. See [Adding documentation](../../bsr/documentation/create-docs/) for more information.
 
 ### Module license
 
-Public repositories on the public BSR are often used to share open source software. For your repository to truly be open source, you need to license it so that others are free to use, change, and distribute the software.As a best practice, we encourage you to include the license file with your module. To do this, simply include a `LICENSE` file at the module root and push it to the BSR.
+Public repositories on the public BSR are often used to share open source software. For your repository to truly be open source, you need to license it so that others are free to use, change, and distribute the software.
+
+As a best practice, we encourage you to include the license file with your module. To do this, simply include a `LICENSE` file at the module root and push it to the BSR.
 
 ::: tip Note
 You need to have a LICENSE file (or at least a symlink to one) in your module directory for its Go package to display on pkg.go.dev, per the [Go license policy](https://pkg.go.dev/license-policy).
@@ -235,7 +249,9 @@ The URL contains these elements:
 - _OWNER_ is either a user or organization within the BSR ecosystem.
 - _REPOSITORY_ is storage for all versions of a single module.
 
-The module's `name` uniquely identifies it in the BSR, which allows it to be referenced as a dependency, consumed as an SDK, and much more.See the [`buf.yaml` documentation](../../configuration/v2/buf-yaml/) for full descriptions of its configuration options, and the [lint](../../lint/overview/) and [breaking change detection](../../breaking/overview/) documentation for full descriptions of their options and rules.
+The module's `name` uniquely identifies it in the BSR, which allows it to be referenced as a dependency, consumed as an SDK, and much more.
+
+See the [`buf.yaml` documentation](../../configuration/v2/buf-yaml/) for full descriptions of its configuration options, and the [lint](../../lint/overview/) and [breaking change detection](../../breaking/overview/) documentation for full descriptions of their options and rules.
 
 ## Buf operations in the workspace
 
@@ -247,7 +263,9 @@ When pushing to the BSR, the workspace is the unit being pushed, as long as all 
 
 ### Dependency management
 
-When resolving imports, Buf looks within the workspace first — if it finds the dependency locally, it resolves it there. Otherwise, it attempts to find it in the BSR based on the declarations in the `deps` field. This makes it easier to iterate on related modules at the same time before pushing to the BSR.In the workspace, imports are resolved relative to the root of the module being imported (the value of its `path` field), which is an assumed prefix for the import value. For example, using the same directory structure as above, assume that `proto/acme/weatherapi/v1/api.proto` imports both of the Protobuf files in the `vendor` module and `calculate.proto` from its own module. Its import statements would look like this:
+When resolving imports, Buf looks within the workspace first — if it finds the dependency locally, it resolves it there. Otherwise, it attempts to find it in the BSR based on the declarations in the `deps` field. This makes it easier to iterate on related modules at the same time before pushing to the BSR.
+
+In the workspace, imports are resolved relative to the root of the module being imported (the value of its `path` field), which is an assumed prefix for the import value. For example, using the same directory structure as above, assume that `proto/acme/weatherapi/v1/api.proto` imports both of the Protobuf files in the `vendor` module and `calculate.proto` from its own module. Its import statements would look like this:
 
 ::: info proto/acme/weatherapi/v1/api.proto
 

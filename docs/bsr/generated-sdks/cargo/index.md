@@ -79,7 +79,13 @@ See the [names and versions](#names-versions) section for syntax specifics.
 
 ## Eager generation
 
-Unlike our other generated SDKs, which generate SDKs lazily, the BSR eagerly generates Rust crates to populate the checksum of the generated crate in the package index. Once you've run `cargo add` on a crate, future pushes to the default label for the crate's repository automatically generate SDKs.To eagerly generate a version for a particular label or commit, go to the module you want to generate for, then choose a label from the dropdown or enter a commit ID:![This repository has two labels, 'main' and 'demos'. 'main' is the default label](../../../images/bsr/nav-label-dropdown.png)Future pushes to the label automatically generate SDKs.
+Unlike our other generated SDKs, which generate SDKs lazily, the BSR eagerly generates Rust crates to populate the checksum of the generated crate in the package index. Once you've run `cargo add` on a crate, future pushes to the default label for the crate's repository automatically generate SDKs.
+
+To eagerly generate a version for a particular label or commit, go to the module you want to generate for, then choose a label from the dropdown or enter a commit ID:
+
+![This repository has two labels, 'main' and 'demos'. 'main' is the default label](../../../images/bsr/nav-label-dropdown.png)
+
+Future pushes to the label automatically generate SDKs.
 
 ## Names and versions
 
@@ -114,8 +120,14 @@ That represents:
 - Commit timestamp: `20240523144506`
 - Commit short name: `ce529d32d80c`
 
-If you need a more specific version than the latest, such as needing to install a specific plugin version, you can use the [`buf registry sdk version`](../../../reference/cli/buf/registry/sdk/version/) command.The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../repositories/#default-label).Only commits that are on the default label at the time they're pushed to the BSR have populated timestamps. Timestamps on commits pushed to other labels are set to `00000000000000` to easily distinguish them as changes in labels that are still in development.
+If you need a more specific version than the latest, such as needing to install a specific plugin version, you can use the [`buf registry sdk version`](../../../reference/cli/buf/registry/sdk/version/) command.
+
+The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencing-a-module). This feature enables you to push unreleased Protobuf file changes and consume generated code without affecting the [default label](../../repositories/#default-label).
+
+Only commits that are on the default label at the time they're pushed to the BSR have populated timestamps. Timestamps on commits pushed to other labels are set to `00000000000000` to easily distinguish them as changes in labels that are still in development.
 
 ## Available plugins
 
-For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for Rust.To learn more about how these plugins are packaged and distributed, go to the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that you think should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).
+For a full list of supported plugins, navigate to the [BSR plugins page](https://buf.build/plugins) and search for Rust.
+
+To learn more about how these plugins are packaged and distributed, go to the [bufbuild/plugins repository](https://github.com/bufbuild/plugins). If you find a useful plugin that you think should be added, [file an issue](https://github.com/bufbuild/plugins/issues/new/choose).

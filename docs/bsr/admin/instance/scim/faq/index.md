@@ -53,7 +53,11 @@ This page contains frequently asked questions related to the BSR's SCIM 2.0 inte
 
 ### How do I resolve a failed User provision?
 
-When a user is provisioned within the BSR, SCIM Clients first try to match the IdP user to an existing user in the BSR. The BSR's SCIM integration uses the user's **email address** to match an IdP user.Users can fail to provision from the IdP to the BSR for various reasons. Usually it's the result of a conflict with an existing user in the BSR. If your IdP reports this error, ensure that the user you are trying to provision has recently logged in and logged out of the system. Contact [Support](https://support.buf.build) or your Buf representative if you're unable to verify this.Also ensure that your IdP is configured to map the correct value to the SCIM `email` and `userName` fields. To reconcile the corrupted state:
+When a user is provisioned within the BSR, SCIM Clients first try to match the IdP user to an existing user in the BSR. The BSR's SCIM integration uses the user's **email address** to match an IdP user.
+
+Users can fail to provision from the IdP to the BSR for various reasons. Usually it's the result of a conflict with an existing user in the BSR. If your IdP reports this error, ensure that the user you are trying to provision has recently logged in and logged out of the system. Contact [Support](https://support.buf.build) or your Buf representative if you're unable to verify this.
+
+Also ensure that your IdP is configured to map the correct value to the SCIM `email` and `userName` fields. To reconcile the corrupted state:
 
 1.  Deprovision the user from the application in your IdP.
 2.  Fix any attribute misconfigurations.

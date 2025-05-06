@@ -55,7 +55,9 @@ $ buf plugin prune <directory> [flags]
 
 ### Description
 
-Plugins that are no longer configured in buf.yaml are removed from the buf.lock file.The first argument is the directory of your buf.yaml configuration file. Defaults to "." if no argument is specified.
+Plugins that are no longer configured in buf.yaml are removed from the buf.lock file.
+
+The first argument is the directory of your buf.yaml configuration file. Defaults to "." if no argument is specified.
 
 ### Flags
 

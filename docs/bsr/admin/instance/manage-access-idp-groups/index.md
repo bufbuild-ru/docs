@@ -96,7 +96,9 @@ To map a group to a BSR organization, issue an API command with a user who has [
 
 ### Override the default member role
 
-Members of the group are automatically added to the organization at the `Member` role by default. You can optionally override this by specifying a `role_override` in the payload, where the value is one of the [specified roles](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1#buf.alpha.registry.v1alpha1.OrganizationRole). The `ORGANIZATION_ROLE_MACHINE` is equivalent to the `WRITER` role.To create the mapping with a role override, issue this API command with a user who has admin permissions on the organization:
+Members of the group are automatically added to the organization at the `Member` role by default. You can optionally override this by specifying a `role_override` in the payload, where the value is one of the [specified roles](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1#buf.alpha.registry.v1alpha1.OrganizationRole). The `ORGANIZATION_ROLE_MACHINE` is equivalent to the `WRITER` role.
+
+To create the mapping with a role override, issue this API command with a user who has admin permissions on the organization:
 
 ```console
 $ curl \
@@ -164,7 +166,9 @@ You can only map groups to repositories that are owned by an organization. To ma
 
 ### Override the default resource role
 
-Members of the group are automatically added to the repository with a `Read` resource role by default. You can optionally override this by specifying a `role_override` in the payload, where the value is one of the [specified roles](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1#buf.alpha.registry.v1alpha1.RepositoryRole) (except for `REPOSITORY_ROLE_OWNER`, which is the parent organization).To create the mapping with a role override, issue this API command with a user who has the `Admin` resource role on the repository:
+Members of the group are automatically added to the repository with a `Read` resource role by default. You can optionally override this by specifying a `role_override` in the payload, where the value is one of the [specified roles](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1#buf.alpha.registry.v1alpha1.RepositoryRole) (except for `REPOSITORY_ROLE_OWNER`, which is the parent organization).
+
+To create the mapping with a role override, issue this API command with a user who has the `Admin` resource role on the repository:
 
 ```console
 $ curl \

@@ -53,19 +53,25 @@ For private BSR instances, users are managed by your Identity Provider (IdP). Th
 
 ## Provisioning new users
 
-Users are provisioned Just In Time (JIT) on first login. Buf usernames are derived from the left portion of the email address before the `@`. To ensure the username works across the Buf ecosystem, all invalid characters are replaced with a dash (`-`).The username must start with a letter and contain only alphanumeric characters and a dash (`-`). Examples:
+Users are provisioned Just In Time (JIT) on first login. Buf usernames are derived from the left portion of the email address before the `@`. To ensure the username works across the Buf ecosystem, all invalid characters are replaced with a dash (`-`).
+
+The username must start with a letter and contain only alphanumeric characters and a dash (`-`). Examples:
 
 - `bob.smith@example.com` -> `bob-smith`
 - `julia-smith+demo@example.com` -> `julia-smith-demo`
 
-In the event of a username or reserved word collision, the system appends sequentially incrementing integers to the username to ensure uniqueness.Newly provisioned users can access any public repositories in your private BSR instance. As on the public BSR, organization owners can manually add users to their organizations to share access to an organization's private repositories.
+In the event of a username or reserved word collision, the system appends sequentially incrementing integers to the username to ensure uniqueness.
+
+Newly provisioned users can access any public repositories in your private BSR instance. As on the public BSR, organization owners can manually add users to their organizations to share access to an organization's private repositories.
 
 - If you want to have all users who login to your instance automatically added to an organization with a specific role, reach out to us to configure this for you.
 - If you want to map organization membership to security groups in your Identity Provider, then use [automated organization membership provisioning](#autoprovisioning).
 
 ## Provisioning admin users
 
-Private BSR instances provide special privileges for administrator accounts to configure and manage various aspects of your BSR instance.During the setup of your BSR instance, you'll be asked which account to designate as an administrator. At this time, administrator privileges can only be granted by Buf engineers, so reach out if you need additional admin users.
+Private BSR instances provide special privileges for administrator accounts to configure and manage various aspects of your BSR instance.
+
+During the setup of your BSR instance, you'll be asked which account to designate as an administrator. At this time, administrator privileges can only be granted by Buf engineers, so reach out if you need additional admin users.
 
 ## Deactivating users
 
@@ -111,4 +117,6 @@ If you require permanent account deletion, reach out for assistance.
 
 ## Automated organization membership provisioning
 
-If you want all users who login to your instance to be automatically added to an organization with a specific role, reach out to us to configure this for you.If you want to map IdP security groups to specific organizations or repositories, see [Manage user access with IdP groups](../manage-access-idp-groups/)
+If you want all users who login to your instance to be automatically added to an organization with a specific role, reach out to us to configure this for you.
+
+If you want to map IdP security groups to specific organizations or repositories, see [Manage user access with IdP groups](../manage-access-idp-groups/)

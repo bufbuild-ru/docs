@@ -45,11 +45,25 @@ head:
 
 # Buf images
 
-Buf images are a powerful tool for distributing and sharing compiled Protocol Buffer (Protobuf) schemas across your organization. They provide a compact and efficient representation of a Protobuf schema, allowing you to easily manage the evolution of your schema and ensure compatibility across multiple systems.A Buf image is a binary representation of a compiled Protobuf schema, optimized for distribution and use in multiple systems. It captures the complete state of a Protobuf schema, including all messages, enums, and services and their relationships to each other.Buf images are designed to be forwards- and backwards-compatible, allowing you to manage the evolution of your schema over time without breaking compatibility with existing systems. They also include a rich set of metadata, such as source code locations and comments, that can be used to provide additional context and understanding of your schema.Linting and breaking change detection internally operate on Buf images that the Buf CLI either produces on the fly or reads from an external location. They represent a stable, widely used method to represent a compiled Protobuf schema. For the breaking change detector, images are the storage format used if you want to manually store the state of your Protobuf schema. See the [input documentation](../inputs/) for more details.
+Buf images are a powerful tool for distributing and sharing compiled Protocol Buffer (Protobuf) schemas across your organization. They provide a compact and efficient representation of a Protobuf schema, allowing you to easily manage the evolution of your schema and ensure compatibility across multiple systems.
+
+A Buf image is a binary representation of a compiled Protobuf schema, optimized for distribution and use in multiple systems. It captures the complete state of a Protobuf schema, including all messages, enums, and services and their relationships to each other.
+
+Buf images are designed to be forwards- and backwards-compatible, allowing you to manage the evolution of your schema over time without breaking compatibility with existing systems. They also include a rich set of metadata, such as source code locations and comments, that can be used to provide additional context and understanding of your schema.
+
+Linting and breaking change detection internally operate on Buf images that the Buf CLI either produces on the fly or reads from an external location. They represent a stable, widely used method to represent a compiled Protobuf schema. For the breaking change detector, images are the storage format used if you want to manually store the state of your Protobuf schema. See the [input documentation](../inputs/) for more details.
 
 ## How Buf images work
 
-Buf images are built using the `buf build` command, which compiles your `.proto` files into a single binary file. It takes as input a `buf.yaml` configuration file that defines the set of `.proto` files to include in the image and any additional configuration options.Once the Buf image is built, it can be distributed and used in multiple systems, either by copying the binary file or by publishing it to a repository, such as a artifact repository or version control system.To use a Buf image in a system, you need to install the Buf tooling and configure your build system to include the Buf image in your dependencies. The Buf tooling provides a number of features for working with Buf images, including validation, generation of language bindings, and more.An image is Buf's custom extension to the Protobuf `FileDescriptorSet`. Due to the forwards- and backwards-compatible nature of Protobuf, we add a field to `FileDescriptorSet` while maintaining compatibility in both directions — existing Protobuf plugins drop this field, and the Buf CLI doesn't require the field to be set to work with images.[Modules](../../cli/modules-workspaces/) are the primitive of Buf, and Buf images represent the compiled artifact of a module. In fact, images contain information about the module used to create it, which powers a variety of [Buf Schema Registry](../../bsr/) features. For clarity, the `Image` Protobuf definition is shown below (notice the `ModuleInfo` in the `ImageFileExtension`):
+Buf images are built using the `buf build` command, which compiles your `.proto` files into a single binary file. It takes as input a `buf.yaml` configuration file that defines the set of `.proto` files to include in the image and any additional configuration options.
+
+Once the Buf image is built, it can be distributed and used in multiple systems, either by copying the binary file or by publishing it to a repository, such as a artifact repository or version control system.
+
+To use a Buf image in a system, you need to install the Buf tooling and configure your build system to include the Buf image in your dependencies. The Buf tooling provides a number of features for working with Buf images, including validation, generation of language bindings, and more.
+
+An image is Buf's custom extension to the Protobuf `FileDescriptorSet`. Due to the forwards- and backwards-compatible nature of Protobuf, we add a field to `FileDescriptorSet` while maintaining compatibility in both directions — existing Protobuf plugins drop this field, and the Buf CLI doesn't require the field to be set to work with images.
+
+[Modules](../../cli/modules-workspaces/) are the primitive of Buf, and Buf images represent the compiled artifact of a module. In fact, images contain information about the module used to create it, which powers a variety of [Buf Schema Registry](../../bsr/) features. For clarity, the `Image` Protobuf definition is shown below (notice the `ModuleInfo` in the `ImageFileExtension`):
 
 ```protobuf
 // Image is an extended FileDescriptorSet.
@@ -122,7 +136,11 @@ here's (roughly) what happens:
 - `protoc-gen-go` runs, and either errors or produces a [`CodeGeneratorResponse`](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/compiler/plugin.proto#L99), which specifies what files are to be generated and their content. The serialized CodeGeneratorResponse is written to stdout of `protoc-gen-go`.
 - On success of `protoc-gen-go`, `protoc` reads stdout and then writes these generated files.
 
-The built-in generators to `protoc`, such as `--java_out`, `--cpp_out`, etc., work in roughly the same manner, although instead of executing an external binary, this is done internally to `protoc`.**`FileDescriptorSet`s are the core primitive used throughout the Protobuf ecosystem to represent a compiled Protobuf schema. They're also the primary artifact that `protoc` produces.**Everything you do with `protoc`, and any plugins you use, talk in terms of `FileDescriptorSet`s. [gRPC Reflection](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md) uses them under the hood as well.
+The built-in generators to `protoc`, such as `--java_out`, `--cpp_out`, etc., work in roughly the same manner, although instead of executing an external binary, this is done internally to `protoc`.
+
+**`FileDescriptorSet`s are the core primitive used throughout the Protobuf ecosystem to represent a compiled Protobuf schema. They're also the primary artifact that `protoc` produces.**
+
+Everything you do with `protoc`, and any plugins you use, talk in terms of `FileDescriptorSet`s. [gRPC Reflection](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md) uses them under the hood as well.
 
 ## Creating `FileDescriptorSet`s with protoc
 
@@ -132,7 +150,9 @@ The built-in generators to `protoc`, such as `--java_out`, `--cpp_out`, etc., wo
 $ protoc -I . -o /dev/stdout foo.proto
 ```
 
-The resulting `FileDescriptorSet` contains a single `FileDescriptorProto` with name `foo.proto`.By default, `FileDescriptorSet`s don't include any imports not specified on the command line, and don't include source code information. Source code information is useful for generating documentation inside your generated stubs, and for things like linters and breaking change detectors. As an example, assume `foo.proto` imports `bar.proto`. To produce a `FileDescriptorSet` that includes both `foo.proto` and `bar.proto`, as well as source code information:
+The resulting `FileDescriptorSet` contains a single `FileDescriptorProto` with name `foo.proto`.
+
+By default, `FileDescriptorSet`s don't include any imports not specified on the command line, and don't include source code information. Source code information is useful for generating documentation inside your generated stubs, and for things like linters and breaking change detectors. As an example, assume `foo.proto` imports `bar.proto`. To produce a `FileDescriptorSet` that includes both `foo.proto` and `bar.proto`, as well as source code information:
 
 ```console
 $ protoc -I . --include_imports --include_source_info -o /dev/stdout foo.proto

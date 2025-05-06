@@ -55,7 +55,9 @@ $ buf registry sdk version --module=<buf.build/owner/repository[:ref]> --plugin=
 
 ### Description
 
-This command returns the version of the Generated SDK for the given module and plugin. Examples:Get the version of the eliza module and the go plugin for use with the Go module proxy.
+This command returns the version of the Generated SDK for the given module and plugin. Examples:
+
+Get the version of the eliza module and the go plugin for use with the Go module proxy.
 
 ```console
 $ buf registry sdk version --module=buf.build/connectrpc/eliza --plugin=buf.build/protocolbuffers/go

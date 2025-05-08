@@ -82,7 +82,7 @@ To display binary Protobuf messages as human-readable JSON, AKHQ can integrate w
 
 ::: info Add schema registry to /app/application.yml
 
-```diff
+```yaml
 akhq:
   connections:
     bufstream:
@@ -90,14 +90,22 @@ akhq:
         client.id: "akhq;broker_count=1"
         bootstrap.servers: "localhost:9092" # your cluster's bootstrap address
         metadata.recovery.strategy: REBOOTSTRAP
-+     schema-registry:
-+       type: "confluent"
-+       # The URL for your instance of the Confluent Schema Registry within the Buf Schema Registry
-+       url: "https://buf.example.com/integrations/confluent/my-registry"
-+       # The username of the Buf bot user that will manage the connections for your schema registry
-+       basic-auth-username: "example-bot-user"
-+       # The token generated for the above bot user
-+       basic-auth-password: "example-bot-token"
+    // [!code ++]
+    schema-registry:
+        // [!code ++]
+        type: "confluent"
+        // [!code ++]
+        # The URL for your instance of the Confluent Schema Registry within the Buf Schema Registry
+        // [!code ++]
+        url: "https://buf.example.com/integrations/confluent/my-registry"
+        // [!code ++]
+        # The username of the Buf bot user that will manage the connections for your schema registry
+        // [!code ++]
+        basic-auth-username: "example-bot-user"
+        // [!code ++]
+        # The token generated for the above bot user
+        // [!code ++]
+        basic-auth-password: "example-bot-token"
 ```
 
 :::

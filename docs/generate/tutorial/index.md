@@ -305,18 +305,24 @@ Because your project may not include these Protobuf options, we'll use the files
 
 ::: info buf.gen.yaml with managed mode settings for go_package
 
-```diff
+```yaml
 version: v2
 clean: true
-+managed:
-+  enabled: true
-+  override:
-+    - file_option: go_package_prefix
-+      value: github.com/acme/weather/gen/go
+// [!code ++]
+managed:
+  // [!code ++]
+  enabled: true
+  // [!code ++]
+  override:
+    // [!code ++]
+    - file_option: go_package_prefix
+      // [!code ++]
+      value: github.com/acme/weather/gen/go
 plugins:
   - remote: buf.build/protocolbuffers/go:v1.31.0
     out: gen/go
--   opt: paths=source_relative
+    // [!code --]
+    opt: paths=source_relative
 inputs:
   - directory: proto
 ```

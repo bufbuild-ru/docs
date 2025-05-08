@@ -65,7 +65,7 @@ The output of this command is a Wasm binary file named `rpc-suffix.wasm`. The `.
 
 To use your Wasm plugin with Buf, update your `buf.yaml` file to point to the compiled Wasm binary. The plugin must contain the `.wasm` extension in the `plugin` field. For example, update the plugin field in your `buf.yaml` file to the path of the `rpc-suffix.wasm` binary:
 
-```diff
+```yaml
  version: v2
  modules:
    - path: proto
@@ -75,8 +75,10 @@ To use your Wasm plugin with Buf, update your `buf.yaml` file to point to the co
      - STANDARD
      - RPC_SUFFIX
  plugins:
--  - plugin: rpc-suffix
-+  - plugin: rpc-suffix.wasm
+  // [!code --]
+  - plugin: rpc-suffix
+  // [!code ++]
+  - plugin: rpc-suffix.wasm
 ```
 
 Now that you have a working WebAssembly plugin, you can learn how to [publish it to the BSR](../publish/). Check out these docs for more detailed information on the Buf plugin framework:

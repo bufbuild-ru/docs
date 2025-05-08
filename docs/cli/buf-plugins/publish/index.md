@@ -88,7 +88,7 @@ As a best practice, we recommend always explicitly specifying the labels you wan
 
 To use the plugin, you update your `buf.yaml` file to point to the remote plugin.
 
-```diff
+```yaml
  version: v2
  modules:
    - path: proto
@@ -98,8 +98,10 @@ To use the plugin, you update your `buf.yaml` file to point to the remote plugin
      - STANDARD
      - RPC_SUFFIX
  plugins:
--  - plugin: rpc-suffix.wasm
-+  - plugin: buf.build/acme/rpc-suffix
+  // [!code --]
+  - plugin: rpc-suffix.wasm
+  // [!code ++]
+  - plugin: buf.build/acme/rpc-suffix
 ```
 
 Next, you need to update the `buf.lock` file to set the plugin version:

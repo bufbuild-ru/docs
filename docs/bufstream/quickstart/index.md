@@ -427,11 +427,15 @@ Buf has built the [Protovalidate](https://github.com/bufbuild/protovalidate) lib
 
 Uncomment the following lines from `config/bufstream.yaml` in `bufstream-demo`:
 
-```diff
--        #validation:
--          #on_error: REJECT_BATCH
-+        validation:
-+          on_error: REJECT_BATCH
+```yaml
+        // [!code --]
+         #validation:
+        // [!code --]
+           #on_error: REJECT_BATCH
+        // [!code ++]
+         validation:
+        // [!code ++]
+           on_error: REJECT_BATCH
 ```
 
 Then, kill the processes and bring them back up:

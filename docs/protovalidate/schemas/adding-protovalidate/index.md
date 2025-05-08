@@ -71,12 +71,14 @@ First, add Protovalidate to the `deps` section of your `buf.yaml` file:
 
 ::: info Add Protovalidate's BSR module
 
-```diff
+```yaml
 version: v2
 modules:
   - path: proto
-+ deps:
-+   - buf.build/bufbuild/protovalidate
+// [!code ++]
+deps:
+  // [!code ++]
+  - buf.build/bufbuild/protovalidate
 lint:
   use:
     - STANDARD

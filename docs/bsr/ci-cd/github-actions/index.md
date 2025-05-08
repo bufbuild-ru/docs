@@ -104,7 +104,7 @@ The Action reports the status of the most recent checks in a comment on each pul
 
 To disable the comment, set the `comment` parameter to `false` and remove the `pull_request: write` permission because it's no longer required.
 
-```diff
+```yaml
 name: Buf CI
 on:
   push:
@@ -113,7 +113,8 @@ on:
   delete:
 permissions:
   contents: read
-- pull-requests: write
+// [!code --]
+pull-requests: write
 jobs:
   buf:
     runs-on: ubuntu-latest
@@ -122,7 +123,8 @@ jobs:
       - uses: bufbuild/buf-action@v1
         with:
           token: ${{ secrets.BUF_TOKEN }}
-+         pr_comment: false
+        // [!code ++]
+          pr_comment: false
 ```
 
 ## Configuration

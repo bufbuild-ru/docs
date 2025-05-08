@@ -77,10 +77,12 @@ The documentation for [remote plugins](../../bsr/remote-plugins/overview/) (the 
 
 Full example covering all changes:
 
-```diff
+```yaml
 plugins:
--  - remote: buf.build/bufbuild/plugins/connect-go:v1.3.1-1
-+  - plugin: buf.build/connectrpc/go:v1.3.1
+  // [!code --]
+  - remote: buf.build/bufbuild/plugins/connect-go:v1.3.1-1
+  // [!code ++]
+  - plugin: buf.build/connectrpc/go:v1.3.1
 ```
 
 ## Migrate to generated SDKs
@@ -147,14 +149,14 @@ The `go.mod` file also now requires two different imports, one for the [`go`](ht
 
 Example:
 
-```diff
+```go
 package main
 
 import (
--  petv1 "go.buf.build/connectrpc/go/acme/petapis/pet/v1"
--  petv1connect "go.buf.build/connectrpc/go/acme/petapis/pet/v1/petv1connect"
-+  petv1 "buf.build/gen/go/acme/petapis/protocolbuffers/go/pet/v1"
-+  petv1connect "buf.build/gen/go/acme/petapis/connectrpc/go/pet/v1/petv1connect"
+  petv1 "go.buf.build/connectrpc/go/acme/petapis/pet/v1" // [!code --]
+  petv1connect "go.buf.build/connectrpc/go/acme/petapis/pet/v1/petv1connect" // [!code --]
+  petv1 "buf.build/gen/go/acme/petapis/protocolbuffers/go/pet/v1" // [!code ++]
+  petv1connect "buf.build/gen/go/acme/petapis/connectrpc/go/pet/v1/petv1connect" // [!code ++]
 )
 ```
 
@@ -178,19 +180,19 @@ We patched the [`grpc-go`](https://buf.build/grpc/go) plugin to generate code to
 
 Example:
 
-```diff
+```go
 package main
 
 import (
--  petv1 "go.buf.build/grpc/go/acme/petapis/pet/v1"
-+  petv1 "buf.build/gen/go/acme/petapis/protocolbuffers/go/pet/v1"
-+  petv1grpc "buf.build/gen/go/acme/petapis/grpc/go/pet/v1/petv1grpc"
+  petv1 "go.buf.build/grpc/go/acme/petapis/pet/v1" // [!code --]
+  petv1 "buf.build/gen/go/acme/petapis/protocolbuffers/go/pet/v1" // [!code ++]
+  petv1grpc "buf.build/gen/go/acme/petapis/grpc/go/pet/v1/petv1grpc" // [!code ++]
 )
 
 func main() {
   ...
--  client := petv1.NewPetStoreServiceClient(conn)
-+  client := petv1grpc.NewPetStoreServiceClient(conn)
+  client := petv1.NewPetStoreServiceClient(conn) // [!code --]
+  client := petv1grpc.NewPetStoreServiceClient(conn) // [!code ++]
   res, err := client.GetPet(ctx, &petv1.GetPetRequest{})
   ...
 }
@@ -221,12 +223,12 @@ We patched the [`grpc-gateway`](https://buf.build/grpc-ecosystem/gateway) plugin
 
 The import path for the [`grpc-gateway`](https://buf.build/grpc-ecosystem/gateway) plugin generated code changes like so:
 
-```diff
+```go
 package main
 
 import (
--  petv1 "go.buf.build/grpc/go/acme/petapis/pet/v1"
-+  petv1gateway "buf.build/gen/go/acme/petapis/grpc-ecosystem/gateway/v2/pet/v1/petv1gateway"
+  petv1 "go.buf.build/grpc/go/acme/petapis/pet/v1" // [!code --]
+  petv1gateway "buf.build/gen/go/acme/petapis/grpc-ecosystem/gateway/v2/pet/v1/petv1gateway" // [!code ++]
 )
 ```
 

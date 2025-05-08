@@ -576,14 +576,16 @@ Using [Bufstream](../../bufstream/) — the Kafka-compatible message queue built
 
 ::: info Bufstream Configuration YAML
 
-```diff
+```yaml
 data_enforcement:
   produce:
     - topics: { all: true }
       values:
         on_parse_error: REJECT_BATCH
-+       validation:
-+         on_error: REJECT_BATCH
+        // [!code ++]
+        validation:
+        // [!code ++]
+          on_error: REJECT_BATCH
 ```
 
 :::

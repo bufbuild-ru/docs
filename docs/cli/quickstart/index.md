@@ -111,10 +111,12 @@ The generated `buf.yaml` file defaults to a workspace with one module, with the 
 
 ::: info Update path to proto subdirectory
 
-```diff
+```yaml
 version: v2
-+modules:
-+  - path: proto
+// [!code ++]
+modules:
+  // [!code ++]
+  - path: proto
 lint:
   use:
     - STANDARD

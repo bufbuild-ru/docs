@@ -166,7 +166,7 @@ $ go install ./cmd/rpc-suffix
 
 then add the plugin and its rule ID to the `buf.yaml` config file:
 
-```diff
+```yaml
  version: v2
  modules:
    - path: proto
@@ -174,9 +174,12 @@ then add the plugin and its rule ID to the `buf.yaml` config file:
  lint:
    use:
      - STANDARD
-+    - RPC_SUFFIX
-+ plugins:
-+   - plugin: rpc-suffix
+    // [!code ++]
+    - RPC_SUFFIX
+// [!code ++]
+plugins:
+  // [!code ++]
+  - plugin: rpc-suffix
 ```
 
 You can now verify that the new rule is being checked when you lint:
@@ -188,20 +191,20 @@ $ buf lint
 
 With the dummy plugin working, you now need to add the rule logic:
 
-```diff
+```go
 package main
 
 import (
     "context"
-+   "strings"
-+
+    "strings" // [!code ++]
+
     "buf.build/go/bufplugin/check"
     "buf.build/go/bufplugin/check/checkutil"
     "google.golang.org/protobuf/reflect/protoreflect"
 )
 
-+const forbiddenRPCSuffix = "Method"
-+
+const forbiddenRPCSuffix = "Method"
+
 var (
     rpcSuffixRuleSpec = &check.RuleSpec{
         ID:      "RPC_SUFFIX",
@@ -226,16 +229,16 @@ func checkRPCSuffix(
     _ check.Request,
     methodDescriptor protoreflect.MethodDescriptor,
 ) error {
--   responseWriter.AddAnnotation(
--       check.WithMessage("hello world"),
--   )
-+   methodName := string(methodDescriptor.Name())
-+   if strings.HasSuffix(methodName, forbiddenRPCSuffix) {
-+       responseWriter.AddAnnotation(
-+           check.WithDescriptor(methodDescriptor),
-+           check.WithMessagef("method name should not end with %q", forbiddenRPCSuffix),
-+       )
-+   }
+    responseWriter.AddAnnotation( // [!code --]
+        check.WithMessage("hello world"), // [!code --]
+    ) // [!code --]
+    methodName := string(methodDescriptor.Name()) // [!code ++]
+    if strings.HasSuffix(methodName, forbiddenRPCSuffix) { // [!code ++]
+        responseWriter.AddAnnotation( // [!code ++]
+            check.WithDescriptor(methodDescriptor), // [!code ++]
+            check.WithMessagef("method name should not end with %q", forbiddenRPCSuffix), // [!code ++]
+        ) // [!code ++]
+    } // [!code ++]
     return nil
 }
 ```
@@ -255,7 +258,7 @@ Now that you've implemented the rule logic, let's look at how to make a rule con
 
 Instead of hard-coding the check against the `Method` suffix, suppose you want the user to be able to set which suffixes to check for. You can enable this by making the plugin configurable from the `buf.yaml` config file. From the user's perspective, it looks like this:
 
-```diff
+```yaml
  version: v2
  modules:
    - path: proto
@@ -266,15 +269,19 @@ Instead of hard-coding the check against the `Method` suffix, suppose you want t
      - RPC_SUFFIX
  plugins:
    - plugin: rpc-suffix
-+    options:
-+      forbidden_rpc_suffixes:
-+        - Method
-+        - RPC
+    // [!code ++]
+    options:
+      // [!code ++]
+      forbidden_rpc_suffixes:
+        // [!code ++]
+         - Method
+        // [!code ++]
+         - RPC
 ```
 
 [Plugin options](https://github.com/bufbuild/bufplugin/blob/main/buf/plugin/option/v1/option.proto) are key-value pairs, so this configuration passes the `forbidden_rpc_suffixes` key and its values `["Method", "RPC"]` to the plugin. To enable the plugin to interpret the option, you remove the hard-coded value and add the key in its place, then check to see if the user has configured it:
 
-```diff
+```go
 package main
 
 import (
@@ -283,15 +290,15 @@ import (
 
     "buf.build/go/bufplugin/check"
     "buf.build/go/bufplugin/check/checkutil"
-+   "buf.build/go/bufplugin/option"
+    "buf.build/go/bufplugin/option" // [!code ++]
     "google.golang.org/protobuf/reflect/protoreflect"
 )
 
--const forbiddenRPCSuffix = "Method"
-+const (
-+   defaultForbiddenRPCSuffix     = "Method"
-+   forbiddenRPCSuffixesOptionKey = "forbidden_rpc_suffixes"
-+)
+const forbiddenRPCSuffix = "Method"
+const (
+    defaultForbiddenRPCSuffix     = "Method" // [!code ++]
+    forbiddenRPCSuffixesOptionKey = "forbidden_rpc_suffixes" // [!code ++]
+)
 
 var (
     rpcSuffixRuleSpec = &check.RuleSpec{
@@ -314,30 +321,30 @@ func main() {
 func checkRPCSuffix(
     _ context.Context,
     responseWriter check.ResponseWriter,
--   _ check.Request,
-+   request check.Request,
+    _ check.Request, // [!code --]
+    request check.Request, // [!code ++]
     methodDescriptor protoreflect.MethodDescriptor,
 ) error {
     methodName := string(methodDescriptor.Name())
--   if strings.HasSuffix(methodName, forbiddenRPCSuffix) {
--       responseWriter.AddAnnotation(
--           check.WithDescriptor(methodDescriptor),
--           check.WithMessagef("method name should not end with %q", forbiddenRPCSuffix),
--       )
-+   forbiddenRPCSuffixes, err := option.GetStringSliceValue(request.Options(), forbiddenRPCSuffixesOptionKey)
-+   if err != nil {
-+       return err
-+   }
-+   if len(forbiddenRPCSuffixes) == 0 {
-+       forbiddenRPCSuffixes = append(forbiddenRPCSuffixes, defaultForbiddenRPCSuffix)
-+   }
-+   for _, forbiddenRPCSuffix := range forbiddenRPCSuffixes {
-+       if strings.HasSuffix(methodName, forbiddenRPCSuffix) {
-+           responseWriter.AddAnnotation(
-+               check.WithDescriptor(methodDescriptor),
-+               check.WithMessagef("method name should not end with %q", forbiddenRPCSuffix),
-+           )
-+       }
+    if strings.HasSuffix(methodName, forbiddenRPCSuffix) { // [!code --]
+        responseWriter.AddAnnotation( // [!code --]
+            check.WithDescriptor(methodDescriptor), // [!code --]
+            check.WithMessagef("method name should not end with %q", forbiddenRPCSuffix), // [!code --]
+        ) // [!code --]
+    forbiddenRPCSuffixes, err := option.GetStringSliceValue(request.Options(), forbiddenRPCSuffixesOptionKey) // [!code ++]
+    if err != nil { // [!code ++]
+        return err // [!code ++]
+    } // [!code ++]
+    if len(forbiddenRPCSuffixes) == 0 { // [!code ++]
+        forbiddenRPCSuffixes = append(forbiddenRPCSuffixes, defaultForbiddenRPCSuffix) // [!code ++]
+    } // [!code ++]
+    for _, forbiddenRPCSuffix := range forbiddenRPCSuffixes { // [!code ++]
+        if strings.HasSuffix(methodName, forbiddenRPCSuffix) { // [!code ++]
+            responseWriter.AddAnnotation( // [!code ++]
+                check.WithDescriptor(methodDescriptor), // [!code ++]
+                check.WithMessagef("method name should not end with %q", forbiddenRPCSuffix), // [!code ++]
+            ) // [!code ++]
+        } // [!code ++]
     }
     return nil
 }

@@ -79,8 +79,8 @@ The endpoint accepts a module name, in `<bsr-domain>/<owner>/<repo>` format. For
 
 Here's an example API request for downloading the [`buf.build/connectrpc/eliza`](https://buf.build/connectrpc/eliza) module:
 
-```console
-$ curl \
+```sh
+curl \
     https://buf.build/buf.reflect.v1beta1.FileDescriptorSetService/GetFileDescriptorSet \
     -H "Authorization: Bearer ${BUF_TOKEN}" \
     -H "Content-Type: application/json" \
@@ -101,8 +101,8 @@ See the [Overview](../../module/dependency-management/) section on dependencies 
 
 The request may also include a field named `symbols` that's an array of fully qualified names. If present and non-empty, the returned schema is pruned to only include the data required to describe the requested symbols. All other content in the module is omitted. This is particularly useful with large modules, to reduce the amount of schema data that a client needs to download. For example, a client might need the schema for a single service, but it's defined in a large module that defines _many_ services. The request can indicate the name of the service of interest in the `symbols` field to get back only what it needs and nothing else. Here's an example that returns only the `google.longrunning.Operations` service from the [`buf.build/googleapis/googleapis`](https://buf.build/googleapis/googleapis) module:
 
-```console
-$ curl \
+```sh
+curl \
     https://buf.build/buf.reflect.v1beta1.FileDescriptorSetService/GetFileDescriptorSet \
     -H "Authorization: Bearer ${BUF_TOKEN}" \
     -H "Content-Type: application/json" \

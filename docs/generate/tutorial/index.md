@@ -58,9 +58,9 @@ This tutorial assumes you already have [Protocol Buffers](https://protobuf.dev/d
 - Install the [Buf CLI](../../cli/installation/)
 - Install the `protoc-gen-go` plugin, or have the corresponding `protoc` plugin for your output language of choice installed and in your `$PATH`. The code examples use the Go plugin.
 
-  ```console
-  $ go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.31.0
-  $ export PATH="$PATH:$(go env GOPATH)/bin"
+  ```sh
+  go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.31.0
+  export PATH="$PATH:$(go env GOPATH)/bin"
   ```
 
 ## Define a module
@@ -81,10 +81,10 @@ buf-codegen-tutorial
 
 Create a basic boilerplate `buf.yaml` file with all the required elements by running `buf config init` in your workspace root:
 
-```console
-$ mkdir buf-codegen-tutorial
-$ cd buf-codegen-tutorial
-$ buf config init
+```sh
+mkdir buf-codegen-tutorial
+cd buf-codegen-tutorial
+buf config init
 ```
 
 The command generates a minimal configuration file to define your module:
@@ -137,9 +137,9 @@ Add a `weather.proto` file within the module's path:
 
 ::: info Create a weather.proto file
 
-```console
-$ mkdir -p proto/acme/weather/v1
-$ touch proto/acme/weather/v1/weather.proto
+```sh
+mkdir -p proto/acme/weather/v1
+touch proto/acme/weather/v1/weather.proto
 ```
 
 :::
@@ -222,8 +222,8 @@ Now that your configuration is set up, all you need to do is run the command:
 
 ::: info Run from workspace root
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 :::
@@ -255,8 +255,8 @@ First, remove the `gen` directory.
 
 ::: info Run from workspace root
 
-```console
-$ rm -rf gen
+```sh
+rm -rf gen
 ```
 
 :::
@@ -282,8 +282,8 @@ Regenerate the code:
 
 ::: info Run from workspace root
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 :::

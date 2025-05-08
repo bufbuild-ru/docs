@@ -62,8 +62,8 @@ In this quickstart, you'll learn to create a local Bufstream and Iceberg environ
 - Have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [`go`](https://go.dev/dl/) installed and in your `$PATH`.
 - Clone the `buf-examples` repo and go to the example code directory:
 
-  ```console
-  $ git clone git@github.com:bufbuild/buf-examples.git && \
+  ```sh
+  git clone git@github.com:bufbuild/buf-examples.git && \
       cd buf-examples/bufstream/iceberg-quickstart
   ```
 
@@ -91,8 +91,8 @@ Integrating Bufstream with Iceberg requires the Bufstream broker, object storage
 
 Start all of this with one command:
 
-```console
-$ docker compose up -d
+```sh
+docker compose up -d
 ```
 
 After dependencies are downloaded, the console should show that all containers have started:
@@ -111,8 +111,8 @@ After dependencies are downloaded, the console should show that all containers h
 
 This quickstart includes a sample producer that fills the `email-updated` topic with events. Start the producer:
 
-```console
-$ go run ./cmd/producer \
+```sh
+go run ./cmd/producer \
   --topic email-updated \
   --group email-verifier \
   --csr-url "https://demo.buf.dev/integrations/confluent/bufstream-demo"
@@ -153,8 +153,8 @@ In production, Bufstream automatically archives topic data to Iceberg based on a
 
 In development, it's handy to be able to control this manually. Using Bufstream's `admin` command, you can immediately archive all pending (hot) topic data to Iceberg (cold) storage:
 
-```console
-$ docker exec bufstream /usr/local/bin/bufstream admin clean topics
+```sh
+docker exec bufstream /usr/local/bin/bufstream admin clean topics
 ```
 
 You should see no errors, just INFO messages like the following:
@@ -263,8 +263,8 @@ com    10
 
 To remove the containers you've created and shutdown all services, run the following:
 
-```console
-$ docker compose down
+```sh
+docker compose down
 ```
 
 ## Wrapping up

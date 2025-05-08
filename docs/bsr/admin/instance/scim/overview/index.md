@@ -78,8 +78,8 @@ If you plan to push groups from your IdP to the BSR, you must have [automated or
 
 To use the SCIM integration, you must obtain a SCIM token. Execute the following as a BSR administrator:
 
-```console
-$ curl \
+```sh
+curl \
     -H "Authorization: Bearer ${BUF_TOKEN}" \
     -H "Content-Type: application/json" \
     -d '{ "expire_time": "2023-03-03T15:56:12+00:00" }' \ # omit expire_time to create a token that never expires
@@ -94,8 +94,8 @@ You can also use Buf Studio via `https://buf.example.com/studio` to invoke this 
 
 The BSR contains an optional readiness check that can inform you of any issues you may encounter when enabling SCIM provisioning. To assess your BSR instance's readiness, issue the following request to the BSR using your SCIM token:
 
-```console
-$ curl \
+```sh
+curl \
     -H "Authorization: Bearer ${SCIM_TOKEN}" \
     -H "Content-Type: application/json" \
     "https://${PRIVATE_BSR_HOSTNAME}/scim/v2/readiness"

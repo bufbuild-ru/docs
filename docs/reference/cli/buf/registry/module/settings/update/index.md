@@ -49,8 +49,8 @@ Update BSR module settings
 
 ### Usage
 
-```console
-$ buf registry module settings update <remote/owner/module> [flags]
+```sh
+buf registry module settings update <remote/owner/module> [flags]
 ```
 
 ### Flags

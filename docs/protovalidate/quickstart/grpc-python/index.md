@@ -62,15 +62,15 @@ There's an example of Protovalidate for gRPC and Python in [GitHub](https://gith
 - Have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [`Python 3.7+`](https://www.python.org/downloads/) installed and in your `$PATH`.
 - Clone the `buf-examples` repo and navigate to the `protovalidate/grpc-python/start` directory:
 
-  ```console
-  $ git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/protovalidate/grpc-python/start
+  ```sh
+  git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/protovalidate/grpc-python/start
   ```
 
 - Create, start, and initialize a virtual environment to isolate this tutorial from any other Python environments:
 
-  ```console
-  $ python3 -m venv .venv
-  $ source .venv/bin/activate
+  ```sh
+  python3 -m venv .venv
+  source .venv/bin/activate
   (venv) $ pip3 install -r requirements.txt --extra-index-url https://buf.build/gen/python
   ```
 
@@ -83,8 +83,8 @@ This tutorial's `CreateInvoice` RPC doesn't have any input validation. Your goal
 
 Run the test now, and you can see that it fails:
 
-```console
-$ python3 -m unittest -v invoice_server_test.py
+```sh
+python3 -m unittest -v invoice_server_test.py
 test_a_valid_invoice_can_be_created (invoice_server_test.InvoiceServerTest.test_a_valid_invoice_can_be_created) ... ok
 test_invoice_id_must_be_a_uuid (invoice_server_test.InvoiceServerTest.test_invoice_id_must_be_a_uuid) ... FAIL
 test_two_line_items_cannot_have_the_same_product_id_and_unit_price (invoice_server_test.InvoiceServerTest.test_two_line_items_cannot_have_the_same_product_id_and_unit_price) ... FAIL
@@ -108,8 +108,8 @@ After a few seconds, you should see that it has started:
 
 In a second terminal window, use `buf curl` to send an invalid `CreateInvoiceRequest`:
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{ "invoice": { "invoice_id": "" } }' \
     --protocol grpc \
     --http2-prior-knowledge \
@@ -228,8 +228,8 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
     ::: info Updating CLI dependencies
 
-    ```console
-    $ buf dep update
+    ```sh
+    buf dep update
     WARN    Module buf.build/bufbuild/protovalidate is declared in your buf.yaml deps but is unused...
     ```
 
@@ -374,8 +374,8 @@ Learn more about [custom rules](../../schemas/custom-rules/).
 
 Next, compile your Protobuf and regenerate code, adding the Protovalidate options to all of your message descriptors:
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 With regenerated code, your server should still compile and build. (If you're still running the server, stop it with `Ctrl-c`.)
@@ -392,8 +392,8 @@ After a few seconds, you should see that it has started:
 
 In a second terminal window, use `buf curl` to send the same invalid `CreateInvoiceRequest`:
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{ "invoice": { "invoice_id": "" } }' \
     --protocol grpc \
     --http2-prior-knowledge \
@@ -475,8 +475,8 @@ Follow these steps to begin enforcing Protovalidate rules:
 
 Now that you've added the Protovalidate interceptor and restarted your server, try the `buf curl` command again:
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{ "invoice": { "invoice_id": "" } }' \
     --protocol grpc \
     --http2-prior-knowledge \
@@ -508,8 +508,8 @@ This time, you should receive a block of JSON representing Protovalidate's enfor
 
 Last, use `buf curl` to test the custom rule that checks for logically unique `LineItems`:
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{ "invoice": { "invoice_id": "079a91c2-cb8b-4f01-9cf9-1b9c0abdd6d2", "line_items": [{"product_id": "A", "unit_price": "1" }, {"product_id": "A", "unit_price": "1" }] } }' \
     --protocol grpc \
     --http2-prior-knowledge \

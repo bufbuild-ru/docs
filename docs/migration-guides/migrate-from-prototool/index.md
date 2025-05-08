@@ -220,17 +220,17 @@ The command `prototool all` runs formatting and linting at once but it doesn't p
 
 ### `prototool break check --git-branch main`
 
-```console
-$ buf breaking --against '.git#branch=main'
-$ buf breaking --against '.git#tag=v1.0.0'
+```sh
+buf breaking --against '.git#branch=main'
+buf breaking --against '.git#tag=v1.0.0'
 ```
 
 Prototool's `--json` flag can be replaced with `--error-format=json` with `buf`.
 
 ### `prototool break check --descriptor-set-path lock.binpb`
 
-```console
-$ buf breaking --against lock.binpb
+```sh
+buf breaking --against lock.binpb
 ```
 
 ### `prototool cache`
@@ -241,16 +241,16 @@ There is no equivalent in `buf`.
 
 ### `prototool compile`
 
-```console
-$ buf build
+```sh
+buf build
 ```
 
 `buf` handles `/dev/null` on Mac and Linux, and `nul` in Windows as a special-case, and even though writing to `/dev/null` is fast, `buf` stops short on writing if this is specified.
 
 ### `prototool config init`
 
-```console
-$ buf beta config init
+```sh
+buf beta config init
 ```
 
 ### `prototool create`
@@ -261,16 +261,16 @@ There is no equivalent in `buf`.
 
 ### `prototool descriptor-set`
 
-```console
-$ buf build --exclude-imports --exclude-source-info -o -
+```sh
+buf build --exclude-imports --exclude-source-info -o -
 ```
 
 This writes a binary [Buf image](../../reference/images/) to stdout. While images are wire compatible with `FileDescriptorSet`s, you can strip the extra metadata with the `--as-file-descriptor-set` flag. If you want to write to a file, specify the file path for `-o` instead of `-`.
 
 ### `prototool files`
 
-```console
-$ buf ls-files
+```sh
+buf ls-files
 ```
 
 ### `prototool format`
@@ -281,44 +281,44 @@ buf format
 
 ### `prototool generate`
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 See the [generation documentation](../../generate/overview/) for more details.
 
 ### `prototool grpc`
 
-```console
-$ buf curl
+```sh
+buf curl
 ```
 
 See the [documentation for invoking RPCs](../../curl/usage/) for more details.
 
 ### `prototool lint`
 
-```console
-$ buf lint
+```sh
+buf lint
 ```
 
 Prototool's `--json` flag can be replaced with `--error-format=json` with `buf`.
 
 ### `prototool lint --list-linters`
 
-```console
-$ buf config ls-lint-rules
+```sh
+buf config ls-lint-rules
 ```
 
 ### `prototool lint --list-all-linters`
 
-```console
-$ buf config ls-lint-rules --all
+```sh
+buf config ls-lint-rules --all
 ```
 
 ### `prototool version`
 
-```console
-$ buf --version
+```sh
+buf --version
 ```
 
 ### `prototool x inspect`
@@ -331,9 +331,9 @@ We recommend using `buf build -o -#format=json | jq` instead for Protobuf schema
 
 Prototool provides a [Docker image](https://hub.docker.com/r/uber/prototool) with `prototool` installed. The equivalent Docker image for `buf` is [bufbuild/buf](https://hub.docker.com/r/bufbuild/buf). For example:
 
-```console
-$ docker pull bufbuild/buf
-$ docker run --volume "$(pwd):/workspace" --workdir "/workspace" bufbuild/buf lint
+```sh
+docker pull bufbuild/buf
+docker run --volume "$(pwd):/workspace" --workdir "/workspace" bufbuild/buf lint
 ```
 
 Note that the `buf` command is the `ENTRYPOINT`, so you omit `buf` from the `docker run` invocation.

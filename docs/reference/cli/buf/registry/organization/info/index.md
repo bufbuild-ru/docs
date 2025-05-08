@@ -49,8 +49,8 @@ Show information about a BSR organization
 
 ### Usage
 
-```console
-$ buf registry organization info <remote/organization> [flags]
+```sh
+buf registry organization info <remote/organization> [flags]
 ```
 
 ### Flags

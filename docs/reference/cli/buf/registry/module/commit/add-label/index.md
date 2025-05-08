@@ -49,8 +49,8 @@ Add labels to a commit
 
 ### Usage
 
-```console
-$ buf registry module commit add-label <remote/owner/module:commit> --label <label> [flags]
+```sh
+buf registry module commit add-label <remote/owner/module:commit> --label <label> [flags]
 ```
 
 ### Flags

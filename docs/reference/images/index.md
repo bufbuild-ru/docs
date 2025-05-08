@@ -114,8 +114,8 @@ message ImageFileExtension {
 
 Images always include the `ImageExtension` field. But if you want a pure `FileDescriptorSet` without this field set, and thus to mimic `protoc` entirely, you can build using the `--as-file-descriptor-set` flag:
 
-```console
-$ buf build -o image.binpb --as-file-descriptor-set
+```sh
+buf build -o image.binpb --as-file-descriptor-set
 ```
 
 The `ImageExtension` field doesn't affect Protobuf plugins or any other operations, as they merely see this as an unknown field, but we provide the option in case you want it.
@@ -124,8 +124,8 @@ The `ImageExtension` field doesn't affect Protobuf plugins or any other operatio
 
 When you invoke this command:
 
-```console
-$ protoc -I . --go_out=gen/go foo.proto
+```sh
+protoc -I . --go_out=gen/go foo.proto
 ```
 
 here's (roughly) what happens:
@@ -146,24 +146,24 @@ Everything you do with `protoc`, and any plugins you use, talk in terms of `File
 
 `protoc` provides the `--descriptor_set_out` flag, aliased as `-o`, to allow writing serialized `FileDescriptorSet`s. For example, given a single file `foo.proto`, you can write a `FileDescriptorSet` to stdout like this:
 
-```console
-$ protoc -I . -o /dev/stdout foo.proto
+```sh
+protoc -I . -o /dev/stdout foo.proto
 ```
 
 The resulting `FileDescriptorSet` contains a single `FileDescriptorProto` with name `foo.proto`.
 
 By default, `FileDescriptorSet`s don't include any imports not specified on the command line, and don't include source code information. Source code information is useful for generating documentation inside your generated stubs, and for things like linters and breaking change detectors. As an example, assume `foo.proto` imports `bar.proto`. To produce a `FileDescriptorSet` that includes both `foo.proto` and `bar.proto`, as well as source code information:
 
-```console
-$ protoc -I . --include_imports --include_source_info -o /dev/stdout foo.proto
+```sh
+protoc -I . --include_imports --include_source_info -o /dev/stdout foo.proto
 ```
 
 ## Using protoc output as `buf` input
 
 Since `buf` speaks in terms of [Buf images](./) and [`FileDescriptorSet`](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/descriptor.proto)s are images, we can use `protoc` output as `buf` input. Here's an example for `buf lint`:
 
-```console
-$ protoc -I . --include_source_info -o /dev/stdout foo.proto | buf lint -
+```sh
+protoc -I . --include_source_info -o /dev/stdout foo.proto | buf lint -
 ```
 
 ## `protoc` lint and breaking change detection plugins

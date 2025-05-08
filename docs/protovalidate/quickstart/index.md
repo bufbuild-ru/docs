@@ -59,8 +59,8 @@ If you'd like to code along in Go, Java, or Python, complete the following steps
 2.  Have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and your choice of [`go`](https://go.dev/dl/), [`Java 17+`](https://www.oracle.com/in/java/), or [`Python 3.7+`](https://www.python.org/downloads/) installed.
 3.  Clone the `buf-examples` repository:
 
-    ```console
-    $ git clone git@github.com:bufbuild/buf-examples.git
+    ```sh
+    git clone git@github.com:bufbuild/buf-examples.git
     ```
 
 4.  Open a terminal to the repository and navigate to the `protovalidate/quickstart-go/start`, `protovalidate/quickstart-java/start`, or `protovalidate/quickstart-python/start` directory.
@@ -150,8 +150,8 @@ breaking:
 
 Next, update dependencies. You may see a warning that Protovalidate hasn't yet been used. That's fine.
 
-```console
-$ buf dep update
+```sh
+buf dep update
 WARN    Module buf.build/bufbuild/protovalidate is declared in your buf.yaml deps but is unused...
 ```
 
@@ -264,8 +264,8 @@ Protovalidate doesn't introduce any new code generation plugins because its rule
 
 Run it to include your new rules in the `GetWeatherRequest` descriptor:
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 To learn more about generating code with the Buf CLI, read the [code generation overview](../../generate/overview/).
@@ -322,8 +322,8 @@ message GetWeatherRequest {
 
 Remember to recompile and regenerate code:
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 ## Running validations
@@ -339,14 +339,14 @@ In the final code exercise, you'll use it directly, checking enforcement of `Get
 1.  Make sure you've navigated to `protovalidate/quickstart-go/start` within the `buf-examples` repository.
 2.  Install Protovalidate using `go get`.
 
-    ```console
-    $ go get github.com/bufbuild/protovalidate-go@v0.9.3
+    ```sh
+    go get github.com/bufbuild/protovalidate-go@v0.9.3
     ```
 
 3.  Run `weather/weather_test.go` with `go test`. It should fail — it expects invalid latitudes and longitudes to be rejected, but you haven't yet added any validation.
 
-    ```console
-    $ go test ./weather
+    ```sh
+    go test ./weather
     --- FAIL: TestRequests (0.00s)
         --- FAIL: TestRequests/latitude_too_low (0.00s)
             weather_test.go:65:
@@ -388,8 +388,8 @@ In the final code exercise, you'll use it directly, checking enforcement of `Get
 
 5.  Run `go test`. Now that you've added validation, all tests should pass.
 
-    ```console
-    $ go test ./weather
+    ```sh
+    go test ./weather
     ```
 
 == Java
@@ -449,8 +449,8 @@ In the final code exercise, you'll use it directly, checking enforcement of `Get
 
 5.  Run `./gradlew test`. Now that you've added validation, all tests should pass.
 
-    ```console
-    $ ./gradlew test
+    ```sh
+    ./gradlew test
     ```
 
 == Python
@@ -458,16 +458,16 @@ In the final code exercise, you'll use it directly, checking enforcement of `Get
 1.  Make sure you've navigated to `protovalidate/quickstart-python/start` within the `buf-examples` repository.
 2.  Using a virtual environment, install dependencies. In your own projects, you'd need to add the [protocolbuffers/pyi](https://buf.build/bufbuild/protovalidate/sdks/v0.10.7:protocolbuffers/pyi) and [protocolbuffers/python](https://buf.build/bufbuild/protovalidate/sdks/v0.10.7:protocolbuffers/python) generated SDKs for Protovalidate.
 
-    ```console
-    $ python3 -m venv venv
-    $ source ./venv/bin/activate
+    ```sh
+    python3 -m venv venv
+    source ./venv/bin/activate
     (venv) $ pip install -r requirements.txt --extra-index-url https://buf.build/gen/python
     ```
 
 3.  Run `weather_test.py`. It should fail — it expects invalid latitudes and longitudes to be rejected, but you haven't yet added any validation.
 
-    ```console
-    $ python3 -m unittest -v weather_test.py
+    ```sh
+    python3 -m unittest -v weather_test.py
     test_bad_forecast_date (weather_test.WeatherTest.test_bad_forecast_date) ... FAIL
     test_bad_latitude (weather_test.WeatherTest.test_bad_latitude) ... FAIL
     test_bad_longitude (weather_test.WeatherTest.test_bad_longitude) ... FAIL
@@ -490,8 +490,8 @@ In the final code exercise, you'll use it directly, checking enforcement of `Get
 
 5.  Run `weather_test.py`. Now that you've added validation, all tests should pass.
 
-    ```console
-    $ python3 -m unittest -v weather_test.py
+    ```sh
+    python3 -m unittest -v weather_test.py
     ```
 
 +++

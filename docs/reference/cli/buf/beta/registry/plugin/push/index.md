@@ -49,8 +49,8 @@ Push a plugin to a registry
 
 ### Usage
 
-```console
-$ buf beta registry plugin push <source> [flags]
+```sh
+buf beta registry plugin push <source> [flags]
 ```
 
 ### Description

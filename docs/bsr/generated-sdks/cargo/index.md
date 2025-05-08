@@ -63,16 +63,16 @@ credential-provider = "cargo:token"
 
 You then need to configure a token for the registry. See the [Authentication](../../authentication/#create-a-token) page for instructions on creating a token, then run:
 
-```console
-$ cargo login --registry buf "Bearer {token}"
+```sh
+cargo login --registry buf "Bearer {token}"
 ```
 
 ## Installing generated SDKs
 
 To install a generated SDK, use `cargo add` and reference the SDK name. For example, to install the [`connectrpc/eliza`](https://buf.build/connectrpc/eliza) Protobuf module using the [`community/neoeinstein-prost`](https://buf.build/community/neoeinstein-prost) plugin, run this command:
 
-```console
-$ cargo add --registry buf connectrpc_eliza_community_neoeinstein-prost
+```sh
+cargo add --registry buf connectrpc_eliza_community_neoeinstein-prost
 ```
 
 See the [names and versions](#names-versions) section for syntax specifics.

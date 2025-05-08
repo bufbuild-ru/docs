@@ -57,8 +57,8 @@ In this tutorial, you'll learn how to solve some common formatting problems with
 
 By default, the [input](../../reference/inputs/) is the current directory and the formatted content is written to stdout. Given the `weather.proto` example file and file layout below, you get the following changes when you run the command.
 
-```console
-$ buf format
+```sh
+buf format
 ```
 
 ```text
@@ -153,9 +153,9 @@ message Object {
 
 **To rewrite files in place, use the `-w` or `--write` flag.**
 
-```console
-$ buf format -w
-$ cat proto/simple/v1/simple.proto
+```sh
+buf format -w
+cat proto/simple/v1/simple.proto
 
 syntax = "proto3";
 
@@ -173,8 +173,8 @@ Most people will want to use `buf format -w`.
 
 **To display a diff between the original and formatted content, use `-d` or `--diff`.**
 
-```console
-$ buf format -d
+```sh
+buf format -d
 
 diff -u proto/simple/v1/simple.proto.orig proto/simple/v1/simple.proto
 --- proto/simple/v1/simple.proto.orig    ...
@@ -194,34 +194,34 @@ diff -u proto/simple/v1/simple.proto.orig proto/simple/v1/simple.proto
 
 You can also use the `--exit-code` flag to exit with a non-zero exit code if there is a diff:
 
-```console
-$ buf format --exit-code
-$ buf format -w --exit-code
-$ buf format -d --exit-code
+```sh
+buf format --exit-code
+buf format -w --exit-code
+buf format -d --exit-code
 ```
 
 **To write the result to a specified output file or directory, use `-o` or `--output` and specify the file path.**
 
 ::: info Write the formatted file to another file
 
-```console
-$ buf format proto/simple/v1/simple.proto -o formatted/simple.formatted.proto
+```sh
+buf format proto/simple/v1/simple.proto -o formatted/simple.formatted.proto
 ```
 
 :::
 
 ::: info Write the formatted directory to another directory, creating it if it doesn't exist
 
-```console
-$ buf format proto -o formatted
+```sh
+buf format proto -o formatted
 ```
 
 :::
 
 ::: info This also works with module references
 
-```console
-$ buf format buf.build/acme/weather -o formatted
+```sh
+buf format buf.build/acme/weather -o formatted
 ```
 
 :::

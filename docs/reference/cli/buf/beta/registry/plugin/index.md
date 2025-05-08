@@ -49,8 +49,8 @@ Manage plugins on the Buf Schema Registry
 
 ### Usage
 
-```console
-$ buf beta registry plugin [flags]
+```sh
+buf beta registry plugin [flags]
 ```
 
 ### Flags

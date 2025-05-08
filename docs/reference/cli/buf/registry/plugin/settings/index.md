@@ -49,8 +49,8 @@ Manage a plugin's settings
 
 ### Usage
 
-```console
-$ buf registry plugin settings [flags]
+```sh
+buf registry plugin settings [flags]
 ```
 
 ### Flags

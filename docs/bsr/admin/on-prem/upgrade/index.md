@@ -51,8 +51,8 @@ We currently support (and test) zero downtime sequential upgrades from one minor
 
 To upgrade, deploy the new version of the helm chart. The exact steps vary depending on how you use helm — directly, with [helmfile](https://github.com/helmfile/helmfile), or through CI. If using helm directly, upgrade the Helm chart on the cluster using the `bsr.yaml` Helm values file you created [during installation](../installation/):
 
-```console
-$ helm upgrade bsr oci://us-docker.pkg.dev/buf-images-1/bsr/charts/bsr \
+```sh
+helm upgrade bsr oci://us-docker.pkg.dev/buf-images-1/bsr/charts/bsr \
   --version "1.x.x" \
   --namespace=bsr \
   --values bsr.yaml

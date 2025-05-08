@@ -49,8 +49,8 @@ Update BSR plugin settings
 
 ### Usage
 
-```console
-$ buf registry plugin settings update <remote/owner/plugin> [flags]
+```sh
+buf registry plugin settings update <remote/owner/plugin> [flags]
 ```
 
 ### Flags

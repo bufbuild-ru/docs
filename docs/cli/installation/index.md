@@ -53,8 +53,8 @@ To install the Buf CLI, you can either use an installation script or download an
 
 You can install `buf` on macOS or Linux using [Homebrew](https://brew.sh):
 
-```console
-$ brew install bufbuild/buf/buf
+```sh
+brew install bufbuild/buf/buf
 ```
 
 This installs:
@@ -68,16 +68,16 @@ This installs:
 
 `buf` is available via [npm](https://www.npmjs.com/package/@bufbuild/buf):
 
-```console
-$ npm install @bufbuild/buf
+```sh
+npm install @bufbuild/buf
 ```
 
 This installs the binaries `buf`, `protoc-gen-buf-breaking`, and `protoc-gen-buf-lint` to be used within your project.
 
 To execute `buf` from the command line, you can use `npx`:
 
-```console
-$ npx buf --version
+```sh
+npx buf --version
 ```
 
 == GitHub
@@ -211,8 +211,8 @@ Buf ships a Docker image ([bufbuild/buf](https://hub.docker.com/r/bufbuild/buf))
 
 For example, you can run `buf lint` with this command:
 
-```console
-$ docker run --volume "$(pwd):/workspace" --workdir /workspace bufbuild/buf lint
+```sh
+docker run --volume "$(pwd):/workspace" --workdir /workspace bufbuild/buf lint
 ```
 
 == Windows

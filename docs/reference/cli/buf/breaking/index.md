@@ -49,8 +49,8 @@ Verify no breaking changes have been made
 
 ### Usage
 
-```console
-$ buf breaking <input> --against <against-input> [flags]
+```sh
+buf breaking <input> --against <against-input> [flags]
 ```
 
 ### Description

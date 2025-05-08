@@ -49,8 +49,8 @@ Serve a Bufstream cluster
 
 ### Usage
 
-```console
-$ bufstream serve [flags]
+```sh
+bufstream serve [flags]
 ```
 
 ### Description

@@ -49,8 +49,8 @@ Add labels to a commit
 
 ### Usage
 
-```console
-$ buf registry plugin commit add-label <remote/owner/plugin:commit> --label <label> [flags]
+```sh
+buf registry plugin commit add-label <remote/owner/plugin:commit> --label <label> [flags]
 ```
 
 ### Flags

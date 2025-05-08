@@ -100,8 +100,8 @@ To enable Swift Package Manager to properly resolve all dependencies with the `b
 
 ::: info Setup
 
-```console
-$ swift package-registry set https://buf.build/gen/swift --scope=buf
+```sh
+swift package-registry set https://buf.build/gen/swift --scope=buf
 ```
 
 :::
@@ -163,8 +163,8 @@ To access the private module, execute the following with the `swift` toolchain, 
 
 ::: info Login
 
-```console
-$ swift package-registry login https://buf.build/gen/swift/login --token={token}
+```sh
+swift package-registry login https://buf.build/gen/swift/login --token={token}
 ```
 
 :::

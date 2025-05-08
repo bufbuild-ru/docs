@@ -49,8 +49,8 @@ Manage Generated SDKs
 
 ### Usage
 
-```console
-$ buf registry sdk [flags]
+```sh
+buf registry sdk [flags]
 ```
 
 ### Flags

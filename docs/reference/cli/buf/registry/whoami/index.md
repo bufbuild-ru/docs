@@ -49,8 +49,8 @@ Check if you are logged in to the Buf Schema Registry
 
 ### Usage
 
-```console
-$ buf registry whoami <domain> [flags]
+```sh
+buf registry whoami <domain> [flags]
 ```
 
 ### Description

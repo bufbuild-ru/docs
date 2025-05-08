@@ -49,8 +49,8 @@ List modules commits
 
 ### Usage
 
-```console
-$ buf registry module commit list <remote/owner/module[:ref]> [flags]
+```sh
+buf registry module commit list <remote/owner/module[:ref]> [flags]
 ```
 
 ### Description

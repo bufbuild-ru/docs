@@ -49,8 +49,8 @@ Archive a module label
 
 ### Usage
 
-```console
-$ buf registry module label archive <remote/owner/module:label> [flags]
+```sh
+buf registry module label archive <remote/owner/module:label> [flags]
 ```
 
 ### Flags

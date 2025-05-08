@@ -49,8 +49,8 @@ Update pinned remote plugins in a buf.lock
 
 ### Usage
 
-```console
-$ buf plugin update <directory> [flags]
+```sh
+buf plugin update <directory> [flags]
 ```
 
 ### Description

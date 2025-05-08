@@ -49,8 +49,8 @@ Delete the underlying local storage for the bufstream cluster
 
 ### Usage
 
-```console
-$ bufstream admin clean storage [flags]
+```sh
+bufstream admin clean storage [flags]
 ```
 
 ### Description

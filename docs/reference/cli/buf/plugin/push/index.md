@@ -49,8 +49,8 @@ Push a check plugin to a registry
 
 ### Usage
 
-```console
-$ buf plugin push <remote/owner/plugin> [flags]
+```sh
+buf plugin push <remote/owner/plugin> [flags]
 ```
 
 ### Description

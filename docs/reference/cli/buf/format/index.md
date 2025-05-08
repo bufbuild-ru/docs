@@ -49,8 +49,8 @@ Format Protobuf files
 
 ### Usage
 
-```console
-$ buf format <source> [flags]
+```sh
+buf format <source> [flags]
 ```
 
 ### Description
@@ -61,22 +61,22 @@ Examples:
 
 Write the current directory's formatted content to stdout:
 
-```console
-$ buf format
+```sh
+buf format
 ```
 
 Most people will want to rewrite the files defined in the current directory in-place with -w:
 
-```console
-$ buf format -w
+```sh
+buf format -w
 ```
 
 Display a diff between the original and formatted content with -d Write a diff instead of the formatted file:
 
-```console
-$ buf format simple/simple.proto -d
+```sh
+buf format simple/simple.proto -d
 
-$ diff -u simple/simple.proto.orig simple/simple.proto
+diff -u simple/simple.proto.orig simple/simple.proto
 --- simple/simple.proto.orig    2022-03-24 09:44:10.000000000 -0700
 +++ simple/simple.proto 2022-03-24 09:44:10.000000000 -0700
 @@ -2,8 +2,7 @@
@@ -94,16 +94,16 @@ message Object {
 
 Use the --exit-code flag to exit with a non-zero exit code if there is a diff:
 
-```console
-$ buf format --exit-code
-$ buf format -w --exit-code
-$ buf format -d --exit-code
+```sh
+buf format --exit-code
+buf format -w --exit-code
+buf format -d --exit-code
 ```
 
 Format a file, directory, or module reference by specifying a source e.g. Write the formatted file to stdout:
 
-```console
-$ buf format simple/simple.proto
+```sh
+buf format simple/simple.proto
 
 syntax = "proto3";
 
@@ -117,15 +117,15 @@ message Object {
 
 Write the formatted directory to stdout:
 
-```console
-$ buf format simple
+```sh
+buf format simple
 ...
 ```
 
 Write the formatted module reference to stdout:
 
-```console
-$ buf format buf.build/acme/petapis
+```sh
+buf format buf.build/acme/petapis
 ...
 ```
 
@@ -133,42 +133,42 @@ Write the result to a specified output file or directory with -o e.g.
 
 Write the formatted file to another file:
 
-```console
-$ buf format simple/simple.proto -o simple/simple.formatted.proto
+```sh
+buf format simple/simple.proto -o simple/simple.formatted.proto
 ```
 
 Write the formatted directory to another directory, creating it if it doesn't exist:
 
-```console
-$ buf format proto -o formatted
+```sh
+buf format proto -o formatted
 ```
 
 This also works with module references:
 
-```console
-$ buf format buf.build/acme/weather -o formatted
+```sh
+buf format buf.build/acme/weather -o formatted
 ```
 
 Rewrite the file(s) in-place with -w. e.g.
 
 Rewrite a single file in-place:
 
-```console
-$ buf format simple.proto -w
+```sh
+buf format simple.proto -w
 ```
 
 Rewrite an entire directory in-place:
 
-```console
-$ buf format proto -w
+```sh
+buf format proto -w
 ```
 
 Write a diff and rewrite the file(s) in-place:
 
-```console
-$ buf format simple -d -w
+```sh
+buf format simple -d -w
 
-$ diff -u simple/simple.proto.orig simple/simple.proto
+diff -u simple/simple.proto.orig simple/simple.proto
 ...
 ```
 

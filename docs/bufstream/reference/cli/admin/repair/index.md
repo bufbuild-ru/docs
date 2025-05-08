@@ -49,8 +49,8 @@ Perform Bufstream repair tasks
 
 ### Usage
 
-```console
-$ bufstream admin repair [flags]
+```sh
+bufstream admin repair [flags]
 ```
 
 ### Flags

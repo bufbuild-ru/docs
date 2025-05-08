@@ -49,8 +49,8 @@ List configured modules
 
 ### Usage
 
-```console
-$ buf config ls-modules [flags]
+```sh
+buf config ls-modules [flags]
 ```
 
 ### Flags

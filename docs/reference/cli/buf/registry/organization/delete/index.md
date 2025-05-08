@@ -49,8 +49,8 @@ Delete a BSR organization
 
 ### Usage
 
-```console
-$ buf registry organization delete <remote/organization> [flags]
+```sh
+buf registry organization delete <remote/organization> [flags]
 ```
 
 ### Flags

@@ -49,8 +49,8 @@ List plugin labels
 
 ### Usage
 
-```console
-$ buf registry plugin label list <remote/owner/plugin[:ref]> [flags]
+```sh
+buf registry plugin label list <remote/owner/plugin[:ref]> [flags]
 ```
 
 ### Flags

@@ -49,8 +49,8 @@ Report usage statistics
 
 ### Usage
 
-```console
-$ bufstream admin usage [flags]
+```sh
+bufstream admin usage [flags]
 ```
 
 ### Description

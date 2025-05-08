@@ -97,8 +97,8 @@ notifications:
 
 Then create a k8s secret containing the SMTP user's password:
 
-```console
-$ kubectl create secret --namespace bsr generic bufd-smtp-password \
+```sh
+kubectl create secret --namespace bsr generic bufd-smtp-password \
   --from-literal=password=<smtp password>
 ```
 
@@ -134,15 +134,15 @@ bufjavacompilerd:
 
 To create the kubernetes secret containing the Artifactory password:
 
-```console
-$ kubectl create secret --namespace bsr generic bufjavacompilerd-registry \
+```sh
+kubectl create secret --namespace bsr generic bufjavacompilerd-registry \
   --from-literal=password=my-password
 ```
 
 To create the kubernetes secret containing a custom Java JKS trust store:
 
-```console
-$ kubectl create secret --namespace bsr generic bufjavacompilerd-truststore \
+```sh
+kubectl create secret --namespace bsr generic bufjavacompilerd-truststore \
 --from-file=cacerts=trustStore.jks \
 --from-literal=password=my-truststore-password
 ```

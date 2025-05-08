@@ -49,8 +49,8 @@ The Buf CLI
 
 ### Usage
 
-```console
-$ buf [flags]
+```sh
+buf [flags]
 ```
 
 ### Description

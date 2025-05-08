@@ -81,8 +81,8 @@ Authorization: Bearer <token>
 
 ### curl
 
-```console
-$ curl \
+```sh
+curl \
    https://buf.build/buf.reflect.v1beta1.FileDescriptorSetService/GetFileDescriptorSet \
    -H "Authorization: Bearer ${BUF_TOKEN}" \
    -H "Content-Type: application/json" \

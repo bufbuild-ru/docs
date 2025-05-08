@@ -71,8 +71,8 @@ Consider this file layout:
 
 This `protoc` command is used to generate Go/gRPC client and server stubs:
 
-```console
-$ protoc \
+```sh
+protoc \
     -I proto \
     -I vendor/protoc-gen-validate \
     --go_out=. \
@@ -115,8 +115,8 @@ modules:
 
 You can verify that the workspace compiles with this command:
 
-```console
-$ buf build
+```sh
+buf build
 ```
 
 The `buf build` command:
@@ -165,15 +165,15 @@ The `buf.gen.yaml` file is typically placed next to the `buf.yaml`, so that your
 
 With this, you can generate the Go/gRPC client and server stubs with this command:
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 Most users only need a single `buf.gen.yaml` code generation template. If your project has more complex code generation requirement, however, you can use the `--template` flag to use more than one `buf.gen.yaml` templates.
 
 For example, if you need different `buf.gen.yaml` configurations for your _public_ and _private_ API definitions, you might consider a setup like this, where the `public` directory contains your public APIs and the `private` directory contains your private APIs:
 
-```console
-$ buf generate public --template buf.public.gen.yaml
-$ buf generate private --template buf.private.gen.yaml
+```sh
+buf generate public --template buf.public.gen.yaml
+buf generate private --template buf.private.gen.yaml
 ```

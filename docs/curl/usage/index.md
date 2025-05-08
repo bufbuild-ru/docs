@@ -47,8 +47,8 @@ head:
 
 The `buf curl` command lets you invoke RPCs on a Connect, gRPC, or gRPC-Web server. This improves usability over the standard [curl](https://curl.se/) utility since `buf curl` handles aspects of the relevant protocol for you, without you having to define the right headers and craft message envelopes. It also allows you to provide request data and view response data in JSON format, even while the on-the-wire format is binary.
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{"sentence": "I feel happy."}' \
     https://demo.connectrpc.com/connectrpc.eliza.v1.ElizaService/Say
 
@@ -61,8 +61,8 @@ You can view a listing of all supported options and how to use them by running `
 
 The only positional argument is the URL of the RPC method to invoke. The name of the method to invoke comes from the last two path components of the URL, which should be the fully qualified service name and method name, respectively.
 
-```console
-$ buf curl \
+```sh
+buf curl \
     https://demo.connectrpc.com/connectrpc.eliza.v1.ElizaService/Say
 ```
 
@@ -72,8 +72,8 @@ The default RPC protocol used is [Connect](https://connectrpc.com/docs/protocol)
 
 ::: info Using gRPC without TLS
 
-```console
-$ buf curl --protocol grpc --http2-prior-knowledge \
+```sh
+buf curl --protocol grpc --http2-prior-knowledge \
     http://localhost:20202/foo.bar.v1.FooService/DoSomething
 ```
 
@@ -128,8 +128,8 @@ Transcoding from the binary Protobuf format to JSON requires access to the schem
 
 If the server doesn't support reflection, you can instead indicate the schema to use via a `--schema` option. This option accepts the same kind of [inputs](../../reference/inputs/) as `buf build` and `buf generate`, letting you point to Protobuf sources on disk, in a Git repo, or in a [BSR](../../bsr/) module.
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --schema buf.build/connectrpc/eliza \
     --data '{"name": "Bob Loblaw"}' \
     https://demo.connectrpc.com/connectrpc.eliza.v1.ElizaService/Introduce
@@ -162,15 +162,15 @@ You can enable verbose output via the `-v` or `--verbose` flag. This generates a
 
 Issue a unary RPC to a plain-text (like "h2c") gRPC server, where the schema for the service is in a Buf module in the current directory, using an empty request message:
 
-```console
-$ buf curl --schema . --protocol grpc --http2-prior-knowledge \
+```sh
+buf curl --schema . --protocol grpc --http2-prior-knowledge \
     http://localhost:20202/foo.bar.v1.FooService/DoSomething
 ```
 
 Issue an RPC to a Connect server, where the schema comes from the Buf Schema Registry, using a request that's defined as a command-line argument:
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --schema buf.build/connectrpc/eliza \
     --data '{"name": "Bob Loblaw"}' \
     https://demo.connectrpc.com/connectrpc.eliza.v1.ElizaService/Introduce
@@ -183,8 +183,8 @@ $ buf curl \
 
 Issue a unary RPC to a server that supports reflection, with verbose output:
 
-```console
-$ buf curl -v \
+```sh
+buf curl -v \
    --data '{"sentence": "I am not feeling well."}' \
    https://demo.connectrpc.com/connectrpc.eliza.v1.ElizaService/Say
 
@@ -258,8 +258,8 @@ buf: * (#1) Call complete
 
 Issue a client-streaming RPC to a gRPC-web server that supports reflection, where custom headers and request data are both in a _heredoc_:
 
-```console
-$ buf curl --data @- --header @- --protocol grpcweb \
+```sh
+buf curl --data @- --header @- --protocol grpcweb \
     https://demo.connectrpc.com/connectrpc.eliza.v1.ElizaService/Converse \
     <<EOM
 Custom-Header-1: foo-bar-baz

@@ -83,13 +83,13 @@ If the module that you want to sync can't be added to the managed modules reposi
 
 ::: info Example sequence
 
-```console
-$ buf export buf.build/acme/petapis --output petapis
-$ cd petapis
-$ buf config init buf.example.com/acme/petapis
-$ buf beta registry organization create buf.example.com/acme
-$ buf beta registry repository create buf.example.com/acme/petapis --visibility public
-$ buf push
+```sh
+buf export buf.build/acme/petapis --output petapis
+cd petapis
+buf config init buf.example.com/acme/petapis
+buf beta registry organization create buf.example.com/acme
+buf beta registry repository create buf.example.com/acme/petapis --visibility public
+buf push
 ```
 
 :::

@@ -82,8 +82,8 @@ You need to configure a token for the registry. Create a token (see the [Authent
 
 To install a generated SDK, use `dotnet add package` and reference the SDK name. For example, to install the [`connectrpc/eliza`](https://buf.build/connectrpc/eliza) Protobuf module using the [`grpc/csharp`](https://buf.build/grpc/csharp) plugin, run this command:
 
-```console
-$ dotnet add package BSR.Connectrpc.Eliza.Grpc.Csharp
+```sh
+dotnet add package BSR.Connectrpc.Eliza.Grpc.Csharp
 ```
 
 See below for syntax specifics.

@@ -84,14 +84,14 @@ If you don't already have one, you need the `Storage Admin` role (`roles/storage
 
 ### Single-region
 
-```console
-$ gcloud storage buckets create gs://<bucket-name> --project <gcp-project-name> --location=<gcp region>
+```sh
+gcloud storage buckets create gs://<bucket-name> --project <gcp-project-name> --location=<gcp region>
 ```
 
 ### Dual-region/multi-region
 
-```console
-$ gcloud storage buckets create gs://<bucket-name> --project <gcp-project-name> --location=<gcp location> --placement=<region1>,<region2>
+```sh
+gcloud storage buckets create gs://<bucket-name> --project <gcp-project-name> --location=<gcp location> --placement=<region1>,<region2>
 ```
 
 Read the [GCP docs](https://cloud.google.com/storage/docs/locations) for more details about the possible bucket locations.
@@ -100,8 +100,8 @@ Read the [GCP docs](https://cloud.google.com/storage/docs/locations) for more de
 
 The instance `config` field specifies whether the Spanner instance is single-region, dual-region, or multi-region. Read the [GCP Spanner guide](https://cloud.google.com/spanner/docs/instance-configurations) to decide which base configuration name to use as the value. Then create a Spanner instance using the following command:
 
-```console
-$ gcloud spanner instances create <instance name> \
+```sh
+gcloud spanner instances create <instance name> \
   --edition=STANDARD \
   --config=<single region or multi region instance config name> \
   --description='Bufstream-instance' \
@@ -113,9 +113,9 @@ $ gcloud spanner instances create <instance name> \
 
 Bufstream needs a dedicated service account. If you don't have one yet, make sure you have the `Service Account Admin` role (`roles/iam.serviceAccountAdmin`) and create a service account:
 
-```console
-$ gcloud iam service-accounts create bufstream-service-account --project <project>
-$ gcloud iam service-accounts add-iam-policy-binding bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com \
+```sh
+gcloud iam service-accounts create bufstream-service-account --project <project>
+gcloud iam service-accounts add-iam-policy-binding bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com \
     --role roles/iam.workloadIdentityUser \
     --member "serviceAccount:<gcp-project-name>.svc.id.goog[bufstream/bufstream-service-account]"
 ```
@@ -126,26 +126,26 @@ $ gcloud iam service-accounts add-iam-policy-binding bufstream-service-account@<
 
 If you have the Storage Admin role, you can use add permissions directly on the bucket:
 
-```console
-$ gcloud storage buckets add-iam-policy-binding gs://<bucket-name> --member=serviceAccount:bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com --role=roles/storage.objectAdmin
-$ gcloud spanner instances add-iam-policy-binding <spanner instance id> --member=serviceAccount:bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com --role=roles/spanner.databaseAdmin
+```sh
+gcloud storage buckets add-iam-policy-binding gs://<bucket-name> --member=serviceAccount:bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com --role=roles/storage.objectAdmin
+gcloud spanner instances add-iam-policy-binding <spanner instance id> --member=serviceAccount:bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com --role=roles/spanner.databaseAdmin
 ```
 
 == Project-wide permissions
 
 If you have the the `Project IAM Admin` role (`roles/resourcemanager.projectIamAdmin`), you can also set the permission on the entire project:
 
-```console
-$ gcloud projects add-iam-policy-binding <gcp-project-name> --member=serviceAccount:bufstream-service-account --role=roles/storage.objectAdmin
-$ gcloud projects add-iam-policy-binding <gcp-project-name> --member=serviceAccount:bufstream-service-account --role=roles/spanner.databaseAdmin
+```sh
+gcloud projects add-iam-policy-binding <gcp-project-name> --member=serviceAccount:bufstream-service-account --role=roles/storage.objectAdmin
+gcloud projects add-iam-policy-binding <gcp-project-name> --member=serviceAccount:bufstream-service-account --role=roles/spanner.databaseAdmin
 ```
 
 +++
 
 Using Custom Object Storage permissions If you have the \`Role Administrator\` role (\`roles/iam.roleAdmin\`), you can also create a role with the minimal set of permissions required:
 
-```console
-$ gcloud iam roles create 'bufstream.gcs' \
+```sh
+gcloud iam roles create 'bufstream.gcs' \
   --project <gcp-project-name> \
   --permissions \
   storage.objects.create,\
@@ -164,8 +164,8 @@ Then replace \`--role=roles/storage.objectAdmin\` with \`--role=projects//roles/
 
 Create a Kubernetes namespace in the k8s cluster for the `bufstream` deployment to use:
 
-```console
-$ kubectl create namespace bufstream
+```sh
+kubectl create namespace bufstream
 ```
 
 ## Deploy Bufstream
@@ -174,8 +174,8 @@ $ kubectl create namespace bufstream
 
 To get started, authenticate `helm` with the Bufstream OCI registry using the keyfile that was sent alongside this documentation. _The keyfile should contain a base64 encoded string._
 
-```console
-$ cat keyfile | helm registry login -u _json_key_base64 --password-stdin \
+```sh
+cat keyfile | helm registry login -u _json_key_base64 --password-stdin \
   https://us-docker.pkg.dev/buf-images-1/bufstream
 ```
 
@@ -219,14 +219,14 @@ Alternatively, you can use service account credentials. You'll need the `Service
 
 1.  Create a key credential for the service account:
 
-```console
-$ gcloud iam service-accounts keys create credentials.json --iam-account=bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com --key-file-type=json
+```sh
+gcloud iam service-accounts keys create credentials.json --iam-account=bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com --key-file-type=json
 ```
 
 1.  Create a k8s secret containing the service account credentials:
 
-```console
-$ kubectl create secret --namespace bufstream generic bufstream-service-account-credentials \
+```sh
+kubectl create secret --namespace bufstream generic bufstream-service-account-credentials \
   --from-file=credentials.json=credentials.json
 ```
 
@@ -321,8 +321,8 @@ Using the `bufstream-values.yaml` Helm values file, install the Helm chart for t
 
 ### Single-region
 
-```console
-$ helm install bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
+```sh
+helm install bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
   --version "<version>" \
   --namespace=bufstream \
   --values bufstream-values.yaml
@@ -332,12 +332,12 @@ $ helm install bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/b
 
 Install the helm chart to separate regional kubernetes clusters by specifying the `--kube-context=<gke cluster context>` argument.
 
-```console
-$ helm install --kube-context="<gke cluster region1>" bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
+```sh
+helm install --kube-context="<gke cluster region1>" bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
   --version "<version>" \
   --namespace=bufstream \
   --values bufstream-values.yaml
-$ helm install --kube-context="<gke cluster region2>" bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
+helm install --kube-context="<gke cluster region2>" bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
   --version "<version>" \
   --namespace=bufstream \
   --values bufstream-values.yaml
@@ -366,8 +366,8 @@ bufstream:
 
 and run the `helm upgrade` command for Bufstream:
 
-```console
-$ helm upgrade bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
+```sh
+helm upgrade bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
   --version "<version>" \
   --namespace=bufstream \
   --values bufstream-values.yaml

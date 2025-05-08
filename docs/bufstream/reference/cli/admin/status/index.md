@@ -49,8 +49,8 @@ checks Bufstream status
 
 ### Usage
 
-```console
-$ bufstream admin status [flags]
+```sh
+bufstream admin status [flags]
 ```
 
 ### Description

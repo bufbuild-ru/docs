@@ -49,8 +49,8 @@ Manage a plugin's labels
 
 ### Usage
 
-```console
-$ buf registry plugin label [flags]
+```sh
+buf registry plugin label [flags]
 ```
 
 ### Flags

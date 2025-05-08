@@ -49,8 +49,8 @@ List breaking rules
 
 ### Usage
 
-```console
-$ buf config ls-breaking-rules [flags]
+```sh
+buf config ls-breaking-rules [flags]
 ```
 
 ### Flags

@@ -132,16 +132,16 @@ path: ["go", "run", "google.golang.org/protobuf/cmd/protoc-gen-go"]
 
 - `directory` **(default for local plugins):** This results in `buf` splitting the input files by directory and making separate plugin invocations in parallel, roughly the concurrent equivalent of this operation:
 
-  ```console
-  $ for dir in $(find . -name '*.proto' -print0 | xargs -0 -n1 dirname | sort | uniq); do protoc -I . $(find "${dir}" -name '*.proto'); done
+  ```sh
+  for dir in $(find . -name '*.proto' -print0 | xargs -0 -n1 dirname | sort | uniq); do protoc -I . $(find "${dir}" -name '*.proto'); done
   ```
 
   Almost every `protoc` plugin requires this, so it's the recommended setting for local generation.
 
 - `all`: This results in `buf generate` making a single plugin invocation with all input files, which is roughly equivalent to this:
 
-  ```console
-  $ protoc -I . $(find . -name '*.proto')
+  ```sh
+  protoc -I . $(find . -name '*.proto')
   ```
 
   This option is needed for certain plugins that expect all files to be given at once. The BSR also sets the value to `all` for remote plugin generation to improve performance.

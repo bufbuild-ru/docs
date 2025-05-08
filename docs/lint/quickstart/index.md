@@ -54,8 +54,8 @@ Buf offers linting for Protobuf files via the `buf lint` command in the Buf CLI.
 - Install the [Buf CLI](../../cli/installation/)
 - Clone the `buf-examples` repo and go to this quickstart's directory:
 
-  ```console
-  $ git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/cli/linting/start
+  ```sh
+  git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/cli/linting/start
   ```
 
 ## Inspect the workspace
@@ -99,8 +99,8 @@ Run `buf lint` on your workspace — it lints the `proto` directory since that's
 
 ::: info cli/linting/start/
 
-```console
-$ buf lint
+```sh
+buf lint
 
 proto/acme/weather/v1/weather.proto:17:1:Files with package "weather" must be within a directory "weather" relative to root but were in directory "acme/weather/v1".
 proto/acme/weather/v1/weather.proto:17:1:Package name "weather" should be suffixed with a correctly formed version, such as "weather.v1".
@@ -172,8 +172,8 @@ There may be times when you want to ignore errors temporarily, such as adding `b
 
 ::: info cli/linting/start
 
-```console
-$ buf lint --error-format=config-ignore-yaml
+```sh
+buf lint --error-format=config-ignore-yaml
 
 version: v2
 lint:

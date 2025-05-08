@@ -49,8 +49,8 @@ Initialize buf configuration files for your local development
 
 ### Usage
 
-```console
-$ buf config init [buf.build/owner/foobar] [flags]
+```sh
+buf config init [buf.build/owner/foobar] [flags]
 ```
 
 ### Description

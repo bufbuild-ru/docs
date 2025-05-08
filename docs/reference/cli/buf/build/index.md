@@ -49,8 +49,8 @@ Build Protobuf files into a Buf image
 
 ### Usage
 
-```console
-$ buf build <input> [flags]
+```sh
+buf build <input> [flags]
 ```
 
 ### Description

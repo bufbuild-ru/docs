@@ -49,8 +49,8 @@ Create a BSR plugin
 
 ### Usage
 
-```console
-$ buf registry plugin create <remote/owner/plugin> [flags]
+```sh
+buf registry plugin create <remote/owner/plugin> [flags]
 ```
 
 ### Flags

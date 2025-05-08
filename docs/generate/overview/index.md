@@ -231,8 +231,8 @@ import "proto/foo/foo.proto";
 
 However, if you specify an input to `buf generate` other than the module's root, the input is prepended to the `import` path when looking for the file. For example, if you pass the `proto` directory as the input:
 
-```console
-$ buf generate proto
+```sh
+buf generate proto
 ```
 
 then the Buf CLI looks for `foo.proto` at `proto/proto/foo/foo.proto`, which doesn't exist. You would need to change your import path to be:
@@ -271,24 +271,24 @@ See the [`buf.gen.yaml`](../../configuration/v2/buf-gen-yaml/) configuration fil
 
 ::: info Generate from the current workspace root
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 :::
 
 ::: info Generate from a BSR module
 
-```console
-$ buf generate buf.build/acme/petapis
+```sh
+buf generate buf.build/acme/petapis
 ```
 
 :::
 
 ::: info Generate from a GitHub repository
 
-```console
-$ buf generate https://github.com/foo/bar.git
+```sh
+buf generate https://github.com/foo/bar.git
 ```
 
 :::
@@ -299,8 +299,8 @@ By default, code generation doesn't include your imports or the Well-Known Types
 
 ::: info Include dependencies, without WKT
 
-```console
-$ buf generate --include-imports
+```sh
+buf generate --include-imports
 ```
 
 :::
@@ -322,24 +322,24 @@ If you only want to generate code for a subset of your input, you can do so via 
 
 ::: info Only generate for the files in the directories proto/foo and proto/bar
 
-```console
-$ buf generate --path proto/foo --path proto/bar
+```sh
+buf generate --path proto/foo --path proto/bar
 ```
 
 :::
 
 ::: info Only generate for the files proto/foo/foo.proto and proto/foo/bar.proto
 
-```console
-$ buf generate --path proto/foo/foo.proto --path proto/foo/bar.proto
+```sh
+buf generate --path proto/foo/foo.proto --path proto/foo/bar.proto
 ```
 
 :::
 
 ::: info Only generate for the files in the directory proto/foo in your GitHub repository
 
-```console
-$ buf generate https://github.com/foo/bar.git --template data/generate.yaml --path proto/foo
+```sh
+buf generate https://github.com/foo/bar.git --template data/generate.yaml --path proto/foo
 ```
 
 :::
@@ -348,8 +348,8 @@ You can also exclude paths by using the `--exclude-path` flag:
 
 ::: info Exclude the files in the directory proto/foo
 
-```console
-$ buf generate --exclude-path proto/baz
+```sh
+buf generate --exclude-path proto/baz
 ```
 
 :::
@@ -408,8 +408,8 @@ You can also use the `--type` flag, which gets precedence over whatever is confi
 
 ::: info Only generate the type with a fully qualified name of foo.v1.User
 
-```console
-$ buf generate --type foo.v1.User
+```sh
+buf generate --type foo.v1.User
 ```
 
 :::
@@ -418,8 +418,8 @@ $ buf generate --type foo.v1.User
 
 You can generate to a specific output directory using the `--output` or `-o` flag. This command generates to the `bar/` directory while prepending `bar/` to the `out` directives in the `buf.gen.yaml` file:
 
-```console
-$ buf generate https://github.com/foo/bar.git -o bar
+```sh
+buf generate https://github.com/foo/bar.git -o bar
 ```
 
 The paths in the config file and the `-o` flag are interpreted as relative to your **current directory**, so you can place your config files anywhere.
@@ -428,23 +428,23 @@ The paths in the config file and the `-o` flag are interpreted as relative to yo
 
 The config file doesn't have to be named `buf.gen.yaml`, nor does it have to be in the directory where you're invoking `buf generate`. To specify a config file elsewhere, use the `--template` flag:
 
-```console
-$ buf generate buf.build/acme/petapis --template templates/generation.yaml
+```sh
+buf generate buf.build/acme/petapis --template templates/generation.yaml
 ```
 
 ### Generate using multiple configuration files
 
 If you want to use different plugin options for the same input, we recommend creating separate, uniquely-named `buf.gen.yaml` files for each configuration. You can then run `buf generate` once for each configuration file with the `--template` flag. For example, to use one file for Go and a different file for Java, you could create `buf.gen.go.yaml` and`buf.gen.java.yaml` file and then run these commands:
 
-```console
-$ buf generate --template buf.gen.go.yaml
-$ buf generate --template buf.gen.java.yaml
+```sh
+buf generate --template buf.gen.go.yaml
+buf generate --template buf.gen.java.yaml
 ```
 
 ### Generate without a configuration file
 
 Although we recommend using a configuration file, without one `buf generate` assumes the input is the current directory. You can also specify the config file as JSON in the invocation. This can be useful when configuring CI/CD builds for an organization when you want to centralize the configuration for all teams.
 
-```console
-$ buf generate --template '{"version":"v2","plugins":[{"protoc_builtin":"go","out":"gen/go"}]}'
+```sh
+buf generate --template '{"version":"v2","plugins":[{"protoc_builtin":"go","out":"gen/go"}]}'
 ```

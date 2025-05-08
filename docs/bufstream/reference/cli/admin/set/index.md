@@ -49,8 +49,8 @@ updates a configuration parameter
 
 ### Usage
 
-```console
-$ bufstream admin set <param> <value> [flags]
+```sh
+bufstream admin set <param> <value> [flags]
 ```
 
 ### Description

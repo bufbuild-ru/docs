@@ -49,8 +49,8 @@ List plugins commits
 
 ### Usage
 
-```console
-$ buf registry plugin commit list <remote/owner/plugin[:ref]> [flags]
+```sh
+buf registry plugin commit list <remote/owner/plugin[:ref]> [flags]
 ```
 
 ### Description

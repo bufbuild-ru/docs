@@ -164,8 +164,8 @@ You can directly compare against the `.proto` files at the head of a `git` branc
 
 Note that many CI services like [Travis CI](https://travis-ci.com/) don't do a full clone of your repo, instead cloning a certain number of commits (typically around 50) on the specific branch that you're testing. In this scenario, other branches aren't present in your clone within CI, so the previous local example doesn't work. You can fix this by giving the remote path directly to the Buf CLI so it can clone the repo itself, for example against `https://github.com/foo/bar.git`:
 
-```console
-$ buf breaking --against 'https://github.com/foo/bar.git'
+```sh
+buf breaking --against 'https://github.com/foo/bar.git'
 ```
 
 It only clones the single commit at the `HEAD` of the branch, so even for large repositories, this should be quick.
@@ -176,38 +176,38 @@ For remote locations that require authentication, see [HTTPS Authentication](../
 
 You can compare against a `git` tag, for example `v1.0.0`:
 
-```console
-$ buf breaking --against '.git#tag=v1.0.0'
+```sh
+buf breaking --against '.git#tag=v1.0.0'
 ```
 
 #### Within subdirectories
 
 You can compare against a subdirectory in your git repository. For example, if your `buf.yaml` file is in the `proto` subdirectory:
 
-```console
-$ buf breaking --against '.git#tag=v1.0.0,subdir=proto'
+```sh
+buf breaking --against '.git#tag=v1.0.0,subdir=proto'
 ```
 
 ### Buf Schema Registry
 
 You can compare a single module against the latest version stored in the BSR:
 
-```console
-$ buf breaking --against <REMOTE>/<ORGANIZATION>/<REPOSITORY>
+```sh
+buf breaking --against <REMOTE>/<ORGANIZATION>/<REPOSITORY>
 ```
 
 ::: info Example
 
-```console
-$ buf breaking --against buf.build/acme/petapis
+```sh
+buf breaking --against buf.build/acme/petapis
 ```
 
 :::
 
 You can also compare all modules in an input (such as your local workspace) at once:
 
-```console
-$ buf breaking --against-registry
+```sh
+buf breaking --against-registry
 ```
 
 To use the `--against-registry` flag, all modules in the input must have a `name` to be resolvable to the BSR, or `buf breaking` errors.
@@ -216,17 +216,17 @@ To use the `--against-registry` flag, all modules in the input must have a `name
 
 You can compare against tarballs and zip archives of your `.proto` files as well. This is especially useful for GitHub, where you can retrieve them for any commit or branch. This example assumes your repo is `github.com/foo/bar` and `COMMIT` is a variable storing the commit to compare against:
 
-```console
-$ buf breaking --against "https://github.com/foo/bar/archive/${COMMIT}.tar.gz#strip_components=1"
-$ buf breaking --against "https://github.com/foo/bar/archive/${COMMIT}.zip#strip_components=1"
+```sh
+buf breaking --against "https://github.com/foo/bar/archive/${COMMIT}.tar.gz#strip_components=1"
+buf breaking --against "https://github.com/foo/bar/archive/${COMMIT}.zip#strip_components=1"
 ```
 
 ### Output as JSON
 
 You can also output the errors as JSON. The output defaults to a single-line comma-separated message, but you can pipe it to other tools for formatting. For example, you can send the output to [`jq`](https://jqlang.github.io/jq/):
 
-```console
-$ buf breaking --against '.git#branch=main' --error-format=json | jq .
+```sh
+buf breaking --against '.git#branch=main' --error-format=json | jq .
 
 {
   "path":"acme/pet/v1/pet.proto",
@@ -245,8 +245,8 @@ By default, the Buf CLI builds all files under the `buf.yaml` configuration file
 
 The `--path` flag limits breaking change detection to the specified files if applied:
 
-```console
-$ buf breaking --against .git#branch=main --path path/to/foo.proto --path path/to/bar.proto
+```sh
+buf breaking --against .git#branch=main --path path/to/foo.proto --path path/to/bar.proto
 ```
 
 ### Advanced use cases
@@ -255,8 +255,8 @@ Due to the nature of inputs, `buf breaking` happily compares just about anything
 
 Copy/paste this into your terminal:
 
-```console
-$ buf breaking \
+```sh
+buf breaking \
   "https://github.com/googleapis/googleapis.git" \
   --against "https://github.com/googleapis/googleapis/archive/b89f7fa5e7cc64e9e38a59c97654616ad7b5932d.tar.gz#strip_components=1" \
   --config '{"version":"v2","breaking":{"use":["PACKAGE"]}}'
@@ -266,8 +266,8 @@ google/cloud/asset/v1/assets.proto:27:1:File option "cc_enable_arenas" changed f
 
 To explicitly target a branch, you can adapt the command to include `branch=<branch_name>` in the `git` input:
 
-```console{2}
-$ buf breaking \
+```sh{2}
+buf breaking \
   "https://github.com/googleapis/googleapis.git#branch=main" \
   --against "https://github.com/googleapis/googleapis/archive/b89f7fa5e7cc64e9e38a59c97654616ad7b5932d.tar.gz#strip_components=1" \
   --config '{"version":"v2","breaking":{"use":["PACKAGE"]}}'

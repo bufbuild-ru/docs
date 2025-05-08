@@ -181,8 +181,8 @@ You can authenticate to S3 with access keys, or you can use Kubernetes Workload 
 
 If you don't already have one, you need the `AmazonS3FullAccess` role. To create a new S3 bucket, you need the `AmazonS3FullAccess` role.
 
-```console
-$ aws s3api create-bucket \
+```sh
+aws s3api create-bucket \
   --bucket <bucket-name> \
   --region <region> \
   --create-bucket-configuration LocationConstraint=<region>
@@ -196,8 +196,8 @@ You'll need the `IAMFullAccess` role.
 
 == EKS Pod Identity (recommended)
 
-```console
-$ aws iam create-role \
+```sh
+aws iam create-role \
   --role-name BufstreamRole \
   --assume-role-policy-document file://<(echo '{
     "Version": "2012-10-17",
@@ -223,7 +223,7 @@ $ aws iam create-role \
     ]
   }')
 
-$ aws eks create-pod-identity-association \
+aws eks create-pod-identity-association \
   --cluster-name <cluster-name> \
   --namespace bufstream \
   --service-account bufstream-service-account \
@@ -234,8 +234,8 @@ $ aws eks create-pod-identity-association \
 
 Refer to the [OIDC provider guide](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) for details
 
-```console
-$ aws iam create-role \
+```sh
+aws iam create-role \
   --role-name BufstreamRole \
   --assume-role-policy-document file://<(echo '{
     "Version": "2012-10-17",
@@ -267,8 +267,8 @@ Refer to the [guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credent
 
 ---
 
-```console
-$ aws iam create-policy \
+```sh
+aws iam create-policy \
   --policy-name BufstreamS3 \
   --policy-document file://<(echo '{
     "Version": "2012-10-17",
@@ -290,7 +290,7 @@ $ aws iam create-policy \
     ]
   }')
 
-$ aws iam attach-role-policy \
+aws iam attach-role-policy \
   --policy-arn arn:aws:iam::<aws-account-id>:policy/BufstreamS3 \
   --role-name BufstreamRole
 ```
@@ -299,16 +299,16 @@ $ aws iam attach-role-policy \
 
 Create a Kubernetes namespace in the k8s cluster for the `bufstream` deployment to use:
 
-```console
-$ kubectl create namespace bufstream
+```sh
+kubectl create namespace bufstream
 ```
 
 ## Deploy etcd
 
 Bufstream requires an [`etcd`](https://etcd.io/) cluster. To set up an example deployment of `etcd` on Kubernetes, use the [Bitnami `etcd` Helm chart](https://github.com/bitnami/charts/tree/main/bitnami/etcd) with the following values:
 
-```console
-$ helm install \
+```sh
+helm install \
   --namespace bufstream \
   bufstream-etcd \
   oci://registry-1.docker.io/bitnamicharts/etcd \
@@ -366,8 +366,8 @@ The storage class in the example above can be changed by setting the `persistenc
 
 To get started, authenticate `helm` with the Bufstream OCI registry using the keyfile that was sent alongside this documentation. _The keyfile should contain a base64 encoded string._
 
-```console
-$ cat keyfile | helm registry login -u _json_key_base64 --password-stdin \
+```sh
+cat keyfile | helm registry login -u _json_key_base64 --password-stdin \
   https://us-docker.pkg.dev/buf-images-1/bufstream
 ```
 
@@ -438,8 +438,8 @@ Alternatively, you can use an access key pair.
 
 1.  Create a k8s secret containing the s3 access secret key:
 
-```console
-$ kubectl create secret --namespace bufstream generic bufstream-storage \
+```sh
+kubectl create secret --namespace bufstream generic bufstream-storage \
   --from-literal=secret_access_key=<s3 secret access key>
 ```
 
@@ -570,8 +570,8 @@ observability:
 
 Using the `bufstream-values.yaml` Helm values file, install the Helm chart for the cluster and set the correct Bufstream version:
 
-```console
-$ helm install bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
+```sh
+helm install bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
   --version "<version>" \
   --namespace=bufstream \
   --values bufstream-values.yaml
@@ -599,8 +599,8 @@ bufstream:
 
 and run the `helm upgrade` command for Bufstream:
 
-```console
-$ helm upgrade bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
+```sh
+helm upgrade bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
   --version "<version>" \
   --namespace=bufstream \
   --values bufstream-values.yaml
@@ -608,8 +608,8 @@ $ helm upgrade bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/b
 
 check the progress of the NLB creation using the following command:
 
-```console
-$ kubectl describe service bufstream
+```sh
+kubectl describe service bufstream
 ```
 
 once the NLB is created, to get its DNS name and more details, use the following commands:
@@ -638,8 +638,8 @@ kafka:
 
 and run the `helm upgrade` command for Bufstream to update the public address:
 
-```console
-$ helm upgrade bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
+```sh
+helm upgrade bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
   --version "<version>" \
   --namespace=bufstream \
   --values bufstream-values.yaml
@@ -651,16 +651,16 @@ $ helm upgrade bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/b
 
 First, specify a list of target zones in a `ZONES` variable, which are used for future commands.
 
-```console
-$ ZONES=(<zone1> <zone2> <zone3>)
+```sh
+ZONES=(<zone1> <zone2> <zone3>)
 ```
 
 ### 2\. Create EKS Pod Association for all zones
 
 If you're using EKS Pod association, you'll need to create a pod association for each service account in each zone.
 
-```console
-$ for ZONE in $ZONES; do
+```sh
+for ZONE in $ZONES; do
   aws eks create-pod-identity-association \
     --cluster-name <cluster-name> \
     --namespace bufstream \
@@ -673,8 +673,8 @@ done
 
 Then, use this script to iterate through the availability zones saved in the `ZONES` variable and create a Helm values file for each zone:
 
-```console
-$ for ZONE in $ZONES; do
+```sh
+for ZONE in $ZONES; do
   cat <<EOF > "bufstream-${ZONE}-values.yaml"
 nameOverride: bufstream-${ZONE}
 name: bufstream-${ZONE}
@@ -758,8 +758,8 @@ kafka:
 
 To deploy a zone-aware Bufstream using the `bufstream-values.yaml` Helm values file, install the Helm chart for the cluster, set the target Bufstream version, and supply the `ZONES` variable:
 
-```console
-$ for ZONE in $ZONES; do
+```sh
+for ZONE in $ZONES; do
   helm install "bufstream-${ZONE}" oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
     --version "<version>" \
     --namespace=bufstream \
@@ -774,8 +774,8 @@ If you change any configuration in the `bufstream-values.yaml` file, re-run the 
 
 Create a regional service which creates a bootstrap address for Bufstream across all the zones.
 
-```console
-$ cat <<EOF | kubectl apply -f -
+```sh
+cat <<EOF | kubectl apply -f -
 ---
 apiVersion: v1
 kind: Service

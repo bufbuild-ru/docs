@@ -94,8 +94,8 @@ The BSR defaults to providing SDKs at the latest module and plugin versions unle
 
 Notice that when you make these changes, the installation command updates to reflect the new version:
 
-```console
-$ npm install @buf/connectrpc_eliza.bufbuild_es@2.2.2-20230822171018-8b8b971d6fde
+```sh
+npm install @buf/connectrpc_eliza.bufbuild_es@2.2.2-20230822171018-8b8b971d6fde
 ```
 
 This syntax identifies the plugin version first, then the exact commit in the repository that the `demo` label represents.

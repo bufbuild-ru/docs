@@ -49,8 +49,8 @@ Delete a BSR plugin
 
 ### Usage
 
-```console
-$ buf registry plugin delete <remote/owner/plugin> [flags]
+```sh
+buf registry plugin delete <remote/owner/plugin> [flags]
 ```
 
 ### Flags

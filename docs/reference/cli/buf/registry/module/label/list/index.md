@@ -49,8 +49,8 @@ List module labels
 
 ### Usage
 
-```console
-$ buf registry module label list <remote/owner/module[:ref]> [flags]
+```sh
+buf registry module label list <remote/owner/module[:ref]> [flags]
 ```
 
 ### Flags

@@ -49,8 +49,8 @@ If your [`buf.yaml`](../buf-yaml/) declares any dependencies in the `deps` field
 
 You can create or update a `buf.lock` file by running the [`buf dep update`](../../../reference/cli/buf/dep/update/) command at the root of the workspace (where the `buf.yaml` file is):
 
-```console
-$ buf dep update
+```sh
+buf dep update
 ```
 
 A `buf.yaml` file that has the `deps` section below results in the corresponding `buf.lock` file:

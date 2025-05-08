@@ -49,8 +49,8 @@ Migrate Bufstream cluster storage
 
 ### Usage
 
-```console
-$ bufstream migrate [flags]
+```sh
+bufstream migrate [flags]
 ```
 
 ### Description

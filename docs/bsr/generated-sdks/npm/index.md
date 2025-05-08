@@ -53,22 +53,22 @@ The BSR's NPM registry is hosted at buf.build/gen/npm/v1. See the [tutorial](../
 
 NPM is configured to use the public NPM registry at [registry.npmjs.org](https://registry.npmjs.org) by default. To configure NPM to use Buf's NPM registry for the `@buf` package scope, use this command to [set](https://docs.npmjs.com/cli/v8/commands/npm-config#set) your NPM config:
 
-```console
-$ npm config set @buf:registry https://buf.build/gen/npm/v1
+```sh
+npm config set @buf:registry https://buf.build/gen/npm/v1
 ```
 
 This updates your global [`.npmrc`](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc) to fetch `@buf/*` SDKs from the BSR. You can configure [Yarn](https://yarnpkg.com) in an analogous way:
 
-```console
-$ yarn config set @buf:registry https://buf.build/gen/npm/v1
+```sh
+yarn config set @buf:registry https://buf.build/gen/npm/v1
 ```
 
 ### Using private packages
 
 To install SDKs generated from private [Buf modules](../../../cli/modules-workspaces/), you need to configure NPM to send an authentication token with each request to the BSR NPM registry:
 
-```console
-$ npm config set //buf.build/gen/npm/v1/:_authToken {token}
+```sh
+npm config set //buf.build/gen/npm/v1/:_authToken {token}
 ```
 
 This command adds an entry to your [`.npmrc`](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc) file:
@@ -107,8 +107,8 @@ In this example, `@buf/connectrpc_eliza.bufbuild_es`, the BSR generates code for
 
 With your NPM config [set](#setup), you can install `@buf/*` SDKs in any standard NPM project. Here's an example installation command:
 
-```console
-$ npm install @buf/connectrpc_eliza.bufbuild_es
+```sh
+npm install @buf/connectrpc_eliza.bufbuild_es
 ```
 
 ::: tip Slow installation?
@@ -121,16 +121,16 @@ By default, when you `npm install` a [Buf module](../../../cli/modules-workspace
 
 The basic install command is:
 
-```console
-$ npm install @buf/connectrpc_eliza.bufbuild_es
+```sh
+npm install @buf/connectrpc_eliza.bufbuild_es
 ```
 
 ### Latest
 
 If you don't specify a version, NPM fetches `@latest` by default, but you can also specify it:
 
-```console
-$ npm install @buf/connectrpc_eliza.bufbuild_es@latest
+```sh
+npm install @buf/connectrpc_eliza.bufbuild_es@latest
 ```
 
 ### Commit
@@ -139,8 +139,8 @@ The SDK uses the `commit-` prefix to indicate that a commit is being referenced.
 
 To get the generated SDK for the module at a commit, using the latest plugin version:
 
-```console
-$ npm install @buf/connectrpc_eliza.bufbuild_es@commit-8b8b971d6fde4dc8ba5d96f9fda7d53c
+```sh
+npm install @buf/connectrpc_eliza.bufbuild_es@commit-8b8b971d6fde4dc8ba5d96f9fda7d53c
 ```
 
 ### Label
@@ -149,8 +149,8 @@ The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencin
 
 To get the generated SDK for the module at a label, using the latest plugin version:
 
-```console
-$ npm install @buf/connectrpc_eliza.bufbuild_es@label-demo
+```sh
+npm install @buf/connectrpc_eliza.bufbuild_es@label-demo
 ```
 
 ::: tip Note
@@ -176,8 +176,8 @@ With SDK versions (valid [semver](https://semver.org)):
 
 Most users likely want to use `@latest`, but if you need to reference an SDK version explicitly, you can do so like this:
 
-```console
-$ npm install @buf/connectrpc_eliza.bufbuild_es@2.2.2-20230913231627-233fca715f49.1
+```sh
+npm install @buf/connectrpc_eliza.bufbuild_es@2.2.2-20230913231627-233fca715f49.1
 ```
 
 If you need a more specific version than the `@latest`, `@commit-` or `@label-` shorthands, such as needing to install a specific plugin version, you can use the [`buf registry sdk version` command](../../../reference/cli/buf/registry/sdk/version/).

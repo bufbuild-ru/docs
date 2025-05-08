@@ -51,8 +51,8 @@ This page describes how to add Protovalidate as a dependency and then compile Pr
 
 If you add Protovalidate rule annotations to a Protobuf file and immediately try to compile your workspace, you'll receive an error similar to the following:
 
-```console
-$ buf build
+```sh
+buf build
 proto/example/v1/building_example.proto:7:5:field building.BuildingExample.string_field:
   unknown extension buf.validate.field
 ```
@@ -93,8 +93,8 @@ Next, run `buf dep update`:
 
 ::: info Update dependencies with the Buf CLI
 
-```console
-$ buf dep update
+```sh
+buf dep update
 ```
 
 :::
@@ -119,9 +119,9 @@ package bufbuild.weather.v1;
 
 With Protovalidate installed as a dependency and `validate.proto` imported within `.proto` files, the Buf CLI can now `lint`, `build`, and `generate`:
 
-```console
-$ buf build
-$ echo $?
+```sh
+buf build
+echo $?
 0
 ```
 
@@ -129,8 +129,8 @@ $ echo $?
 
 If you add Protovalidate rule annotations to a Protobuf file and immediately try to compile with `protoc`, you'll receive an error similar to the following:
 
-```console
-$ protoc proto/example/v1/building_example.proto \
+```sh
+protoc proto/example/v1/building_example.proto \
                 --cpp_out=:./gen
 proto/example/v1/building_example.proto:7:5: Option "(buf.validate.field)" unknown.
   Ensure that your proto definition file imports the proto which defines the
@@ -198,11 +198,11 @@ With `validate.proto` in the `vendor` directory and imported within `.proto` fil
 
 ::: info Including Protovalidate protoc
 
-```console
-$ protoc proto/example/v1/building_example.proto \
+```sh
+protoc proto/example/v1/building_example.proto \
     -I. -I./vendor/github.com/bufbuild/protovalidate/ \
     --cpp_out=:./gen
-$ echo $?
+echo $?
 0
 ```
 

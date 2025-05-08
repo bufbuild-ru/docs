@@ -49,8 +49,8 @@ Resolve commit from a reference
 
 ### Usage
 
-```console
-$ buf registry module commit resolve <remote/owner/repository[:ref]> [flags]
+```sh
+buf registry module commit resolve <remote/owner/repository[:ref]> [flags]
 ```
 
 ### Flags

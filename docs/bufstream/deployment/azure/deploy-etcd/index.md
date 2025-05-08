@@ -73,16 +73,16 @@ You can authenticate to Azure Blob Storage with storage account shared access ke
 
 If you don't already have one, create a new resource group:
 
-```console
-$ az group create \
+```sh
+az group create \
   --name <group-name> \
   --location <region>
 ```
 
 Then, create a new storage account within the group:
 
-```console
-$ az storage account create \
+```sh
+az storage account create \
   --name <account-name> \
   --resource-group <group-name> \
   --location <region> \
@@ -96,8 +96,8 @@ $ az storage account create \
 
 Create a storage container inside the storage account created above:
 
-```console
-$ az storage container create \
+```sh
+az storage container create \
     --name <container-name> \
     --account-name <account-name> \
     --auth-mode login
@@ -107,22 +107,22 @@ $ az storage container create \
 
 The managed identity must be given the `Storage Blob Data Contributor` role with access to the target container.
 
-```console
-$ az identity create \
+```sh
+az identity create \
   --name <identity name> \
   --resource-group <group name> \
   --location <region>
 
-$ export MANAGED_IDENTITY_CLIENT_ID="$(az identity show --resource-group <group name> --name <identity name> --query 'clientId' -otsv)"
+export MANAGED_IDENTITY_CLIENT_ID="$(az identity show --resource-group <group name> --name <identity name> --query 'clientId' -otsv)"
 
-$ az role assignment create \
+az role assignment create \
     --role "Storage Blob Data Contributor" \
     --assignee $MANAGED_IDENTITY_CLIENT_ID \
     --scope "/subscriptions/<azure-subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Storage/storageAccounts/<account-name>/blobServices/default/containers/<container-name>"
 
-$ export AKS_OIDC_ISSUER="$(az aks show --name <aks cluster name> --resource-group <aks cluster resource group name> --query "oidcIssuerProfile.issuerUrl" -otsv)"
+export AKS_OIDC_ISSUER="$(az aks show --name <aks cluster name> --resource-group <aks cluster resource group name> --query "oidcIssuerProfile.issuerUrl" -otsv)"
 
-$ az identity federated-credential create \
+az identity federated-credential create \
   --name bufstream \
   --identity-name <identity name> \
   --resource-group <group name> \
@@ -130,23 +130,23 @@ $ az identity federated-credential create \
   --subject system:serviceaccount:bufstream:bufstream-service-account" \
   --audience api://AzureADTokenExchange
 
-$ echo $MANAGED_IDENTITY_CLIENT_ID # Save and use for helm values below
+echo $MANAGED_IDENTITY_CLIENT_ID # Save and use for helm values below
 ```
 
 ## Create a namespace
 
 Create a Kubernetes namespace in the k8s cluster for the `bufstream` deployment to use:
 
-```console
-$ kubectl create namespace bufstream
+```sh
+kubectl create namespace bufstream
 ```
 
 ## Deploy etcd
 
 Bufstream requires an [`etcd`](https://etcd.io/) cluster. To set up an example deployment of `etcd` on Kubernetes, use the [Bitnami `etcd` Helm chart](https://github.com/bitnami/charts/tree/main/bitnami/etcd) with the following values:
 
-```console
-$ helm install \
+```sh
+helm install \
   --namespace bufstream \
   bufstream-etcd \
   oci://registry-1.docker.io/bitnamicharts/etcd \
@@ -204,8 +204,8 @@ The storage class in the example above can be changed by setting the `persistenc
 
 To get started, authenticate `helm` with the Bufstream OCI registry using the keyfile that was sent alongside this documentation. _The keyfile should contain a base64 encoded string._
 
-```console
-$ cat keyfile | helm registry login -u _json_key_base64 --password-stdin \
+```sh
+cat keyfile | helm registry login -u _json_key_base64 --password-stdin \
   https://us-docker.pkg.dev/buf-images-1/bufstream
 ```
 
@@ -255,16 +255,16 @@ Alternatively, you can use a shared key pair.
 
 1.  Fetch the shared key for the storage account. It is recommended to only use the first key returned. The second key should only be used when you are rotating keys.
 
-    ```console
-    $ az storage account keys list \
+    ```sh
+    az storage account keys list \
       --resource-group <group-name> \
       --account-name <account-name>
     ```
 
 2.  Create a k8s secret containing the storage account's shared key:
 
-    ```console
-    $ kubectl create secret --namespace bufstream generic bufstream-storage \
+    ```sh
+    kubectl create secret --namespace bufstream generic bufstream-storage \
       --from-literal=secret_access_key=<Azure storage account key>
     ```
 
@@ -376,8 +376,8 @@ discoverZoneFromNode: true
 
 Using the `bufstream-values.yaml` Helm values file, install the Helm chart for the cluster and set the correct Bufstream version:
 
-```console
-$ helm install bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
+```sh
+helm install bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
   --version "<version>" \
   --namespace=bufstream \
   --values bufstream-values.yaml
@@ -391,18 +391,18 @@ If you change any configuration in the `bufstream-values.yaml` file, re-run the 
 
 First, specify a list of target zones in a `ZONES` variable, which are used for future commands.
 
-```console
-$ ZONES=(<zone1> <zone2> <zone3>)
+```sh
+ZONES=(<zone1> <zone2> <zone3>)
 ```
 
 ### 2\. Create WIF Association for all zones
 
 If you're using WIF, you'll need to create a federated identity credential for each service account in each zone.
 
-```console
-$ export AKS_OIDC_ISSUER="$(az aks show --name <aks cluster name> --resource-group <group name> --query "oidcIssuerProfile.issuerUrl" -otsv)"
+```sh
+export AKS_OIDC_ISSUER="$(az aks show --name <aks cluster name> --resource-group <group name> --query "oidcIssuerProfile.issuerUrl" -otsv)"
 
-$ for ZONE in $ZONES; do
+for ZONE in $ZONES; do
   az identity federated-credential create \
     --name bufstream-${ZONE} \
     --identity-name <identity name> \
@@ -417,8 +417,8 @@ done
 
 Then, use this script to iterate through the availability zones saved in the `ZONES` variable and create a Helm values file for each zone:
 
-```console
-$ for ZONE in $ZONES; do
+```sh
+for ZONE in $ZONES; do
   cat <<EOF > "bufstream-${ZONE}-values.yaml"
 nameOverride: bufstream-${ZONE}
 name: bufstream-${ZONE}
@@ -507,8 +507,8 @@ kafka:
 
 To deploy a zone-aware Bufstream using the `bufstream-values.yaml` Helm values file, install the Helm chart for the cluster, set the target Bufstream version, and supply the `ZONES` variable:
 
-```console
-$ for ZONE in $ZONES; do
+```sh
+for ZONE in $ZONES; do
   helm install "bufstream-${ZONE}" oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
     --version "<version>" \
     --namespace=bufstream \
@@ -523,8 +523,8 @@ If you change any configuration in the `bufstream-values.yaml` file, re-run the 
 
 Create a regional service which creates a bootstrap address for Bufstream across all the zones.
 
-```console
-$ cat <<EOF | kubectl apply -f -
+```sh
+cat <<EOF | kubectl apply -f -
 ---
 apiVersion: v1
 kind: Service

@@ -49,8 +49,8 @@ client commands
 
 ### Usage
 
-```console
-$ bufstream client [flags]
+```sh
+bufstream client [flags]
 ```
 
 ### Description

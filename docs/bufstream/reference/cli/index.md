@@ -49,8 +49,8 @@ The Bufstream process.
 
 ### Usage
 
-```console
-$ bufstream [flags]
+```sh
+bufstream [flags]
 ```
 
 ### Description

@@ -58,8 +58,8 @@ Protovalidate performs all validations using reflection, so there's no `protoc` 
 - Have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [`go`](https://go.dev/dl/) installed and in your `$PATH`.
 - Clone the `protovalidate` repo and go to its directory:
 
-  ```console
-  $ git clone https://github.com/bufbuild/protovalidate.git && cd protovalidate
+  ```sh
+  git clone https://github.com/bufbuild/protovalidate.git && cd protovalidate
   ```
 
 ### Migration workflow
@@ -72,8 +72,8 @@ Protovalidate performs all validations using reflection, so there's no `protoc` 
 
     This first run adds matching Protovalidate annotations alongside any existing `protoc-gen-validate` annotations. Optionally, run the formatter again after the migration tool to clean up any strange output.
 
-    ```console
-    $ go run ./tools/protovalidate-migrate -w /path/to/protos
+    ```sh
+    go run ./tools/protovalidate-migrate -w /path/to/protos
     ```
 
 3.  **Use Protovalidate**
@@ -84,24 +84,24 @@ Protovalidate performs all validations using reflection, so there's no `protoc` 
 
     Rerunning the migration tool is a no-op for any `.proto` files that already import Protovalidate. Replace any pre-existing annotations by running the tool with the `--replace-protovalidate` flag. This ensures that these annotations match `protoc-gen-validate` annotations.
 
-    ```console
-    $ go run ./tools/protovalidate-migrate -w --replace-protovalidate /path/to/protos
+    ```sh
+    go run ./tools/protovalidate-migrate -w --replace-protovalidate /path/to/protos
     ```
 
 5.  **Remove `protoc-gen-validate` annotations**
 
     Once you're ready to make the switch and have removed references to the `protoc-gen-validate` generated code, run the migration tool again with the `--remove-legacy` flag to remove legacy annotations from `.proto` files.
 
-    ```console
-    $ go run ./tools/protovalidate-migrate -w --remove-legacy /path/to/protos
+    ```sh
+    go run ./tools/protovalidate-migrate -w --remove-legacy /path/to/protos
     ```
 
 ### Usage and flags
 
 ::: info Example usage
 
-```console
-$ go run ./tools/protovalidate-migrate <flags> /path/to/proto
+```sh
+go run ./tools/protovalidate-migrate <flags> /path/to/proto
 ```
 
 :::

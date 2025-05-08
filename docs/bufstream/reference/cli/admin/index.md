@@ -49,8 +49,8 @@ Perform Bufstream administrative tasks
 
 ### Usage
 
-```console
-$ bufstream admin [flags]
+```sh
+bufstream admin [flags]
 ```
 
 ### Flags

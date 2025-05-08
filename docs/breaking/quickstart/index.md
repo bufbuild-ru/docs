@@ -56,8 +56,8 @@ This quickstart takes you through running breaking change detection locally usin
 - Install the [Buf CLI](../../cli/installation/)
 - Clone the `buf-examples` repo and go to this quickstart's directory:
 
-  ```console
-  $ git clone git@github.com:bufbuild/buf-examples.git &&
+  ```sh
+  git clone git@github.com:bufbuild/buf-examples.git &&
       cd buf-examples/cli/breaking-change-detection/start
   ```
 
@@ -128,8 +128,8 @@ Then run `buf breaking` to compare the workspace to the one in the original repo
 
 ::: info cli/breaking-change-detection/start/
 
-```console
-$ buf breaking --against '../../../.git#subdir=cli/breaking-change-detection/start/proto'
+```sh
+buf breaking --against '../../../.git#subdir=cli/breaking-change-detection/start/proto'
 ```
 
 :::
@@ -182,8 +182,8 @@ Run `buf breaking` again, this time comparing against the latest version of the 
 
 ::: info cli/breaking-change-detection/start/
 
-```console
-$ buf breaking --against buf.build/tutorials/breaking
+```sh
+buf breaking --against buf.build/tutorials/breaking
 
 proto/pet/v1/pet.proto:11:21:Enum value "4" on enum "PetType" changed name from "PET_TYPE_HAMSTER" to "PET_TYPE_RODENT".
 ```
@@ -200,8 +200,8 @@ First, move the `PetType` enum to a new `pet_type.proto` file.
 
 ::: info cli/breaking-change-detection/start/
 
-```console
-$ touch proto/pet/v1/pet_type.proto
+```sh
+touch proto/pet/v1/pet_type.proto
 ```
 
 :::
@@ -250,8 +250,8 @@ Run `buf breaking` again, this time comparing against the latest version of the 
 
 ::: info cli/breaking-change-detection/start/
 
-```console
-$ buf breaking --against 'https://github.com/bufbuild/buf-examples.git#branch=main,subdir=cli/breaking-change-detection/start/proto'
+```sh
+buf breaking --against 'https://github.com/bufbuild/buf-examples.git#branch=main,subdir=cli/breaking-change-detection/start/proto'
 proto/pet/v1/pet.proto:1:1:Previously present enum "PetType" was deleted from file.
 ```
 

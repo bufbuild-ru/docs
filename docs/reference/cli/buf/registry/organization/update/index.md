@@ -49,8 +49,8 @@ Update a BSR organization
 
 ### Usage
 
-```console
-$ buf registry organization update <remote/organization> [flags]
+```sh
+buf registry organization update <remote/organization> [flags]
 ```
 
 ### Flags

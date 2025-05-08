@@ -49,8 +49,8 @@ Manage BSR modules
 
 ### Usage
 
-```console
-$ buf registry module [flags]
+```sh
+buf registry module [flags]
 ```
 
 ### Flags

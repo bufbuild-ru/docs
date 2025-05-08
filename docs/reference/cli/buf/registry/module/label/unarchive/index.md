@@ -49,8 +49,8 @@ Unarchive a module label
 
 ### Usage
 
-```console
-$ buf registry module label unarchive <remote/owner/module:label> [flags]
+```sh
+buf registry module label unarchive <remote/owner/module:label> [flags]
 ```
 
 ### Flags

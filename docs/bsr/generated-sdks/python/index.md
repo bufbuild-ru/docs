@@ -68,8 +68,8 @@ extra-index-url = https://buf.build/gen/python
 
 To install a generated SDK, use `pip install` and reference the SDK name. For example, to install the [`connectrpc/eliza`](https://buf.build/connectrpc/eliza) Protobuf module using the [`protocolbuffers/python`](https://buf.build/protocolbuffers/python) plugin, you could install the generated SDK like this:
 
-```console
-$ pip install connectrpc-eliza-protocolbuffers-python
+```sh
+pip install connectrpc-eliza-protocolbuffers-python
 ```
 
 See the [names and versions](#remote) section for syntax specifics.

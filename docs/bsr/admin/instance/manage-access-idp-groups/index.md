@@ -74,8 +74,8 @@ To map a group to a BSR organization, issue an API command with a user who has [
 2.  Export `BUF_TOKEN`, `GROUP_NAME`, `ORGANIZATION_NAME` and `PRIVATE_BSR_HOSTNAME` according to your details.
 3.  Get the organization ID:
 
-    ```console
-    $ curl \
+    ```sh
+    curl \
         -H "Authorization: Bearer ${BUF_TOKEN}" \
         -H "Content-Type: application/json" \
         -d "{\"name\":\"${ORGANIZATION_NAME}\"}" \
@@ -84,8 +84,8 @@ To map a group to a BSR organization, issue an API command with a user who has [
 
 4.  Extract the returned `organization.id`, export it as `ORGANIZATION_ID` and use it to map the group (see below if you want to override the default member role):
 
-    ```console
-    $ curl \
+    ```sh
+    curl \
         -H "Authorization: Bearer ${BUF_TOKEN}" \
         -H "Content-Type: application/json" \
         -d "{\"organization_id\":\"${ORGANIZATION_ID}\", \"group_name\":\"${GROUP_NAME}\"}" \
@@ -100,8 +100,8 @@ Members of the group are automatically added to the organization at the `Member`
 
 To create the mapping with a role override, issue this API command with a user who has admin permissions on the organization:
 
-```console
-$ curl \
+```sh
+curl \
     -H "Authorization: Bearer ${BUF_TOKEN}" \
     -H "Content-Type: application/json" \
     -d "{\"organization_id\":\"${ORGANIZATION_ID}\", \"group_name\":\"${GROUP_NAME}\", \"role_override\":\"ORGANIZATION_ROLE_ADMIN\"}" \
@@ -112,8 +112,8 @@ $ curl \
 
 If you want to change or clear the role override, issue this API command with a user who has admin permissions on the organization:
 
-```console
-$ curl \
+```sh
+curl \
     -H "Authorization: Bearer ${BUF_TOKEN}" \
     -H "Content-Type: application/json" \
     -d "{\"organization_id\":\"${ORGANIZATION_ID}\", \"group_name\":\"${GROUP_NAME}\", \"role_override\":\"ORGANIZATION_ROLE_ADMIN\"}" \
@@ -126,8 +126,8 @@ To clear the role override, use `ORGANIZATION_ROLE_UNSPECIFIED` as the `role_ove
 
 To unmap a group, issue the same commands as for mapping, except in the final step invoke `RemoveOrganizationGroup` instead.
 
-```console{5}
-$ curl \
+```sh{5}
+curl \
     -H "Authorization: Bearer ${BUF_TOKEN}" \
     -H "Content-Type: application/json" \
     -d "{\"organization_id\":\"${ORGANIZATION_ID}\", \"group_name\":\"${GROUP_NAME}\"}" \
@@ -144,8 +144,8 @@ You can only map groups to repositories that are owned by an organization. To ma
 2.  Export `BUF_TOKEN`, `GROUP_NAME`, `REPOSITORY_NAME`, `ORGANIZATION_NAME`, and `PRIVATE_BSR_HOSTNAME` according to your details.
 3.  Get the repository ID:
 
-    ```console
-    $ curl \
+    ```sh
+    curl \
         -H "Authorization: Bearer ${BUF_TOKEN}" \
         -H "Content-Type: application/json" \
         -d "{\"fullName\":\"${ORGANIZATION_NAME}/${REPOSITORY_NAME}\"}" \
@@ -154,8 +154,8 @@ You can only map groups to repositories that are owned by an organization. To ma
 
 4.  Extract the returned `repository.id`, export it as `REPOSITORY_ID` and use it to map the group (see below if you want to override the default resource role):
 
-    ```console
-    $ curl \
+    ```sh
+    curl \
         -H "Authorization: Bearer ${BUF_TOKEN}" \
         -H "Content-Type: application/json" \
         -d "{\"repository_id\":\"${REPOSITORY_ID}\", \"group_name\":\"${GROUP_NAME}\"}" \
@@ -170,8 +170,8 @@ Members of the group are automatically added to the repository with a `Read` res
 
 To create the mapping with a role override, issue this API command with a user who has the `Admin` resource role on the repository:
 
-```console
-$ curl \
+```sh
+curl \
     -H "Authorization: Bearer ${BUF_TOKEN}" \
     -H "Content-Type: application/json" \
     -d "{\"repository_id\":\"${REPOSITORY_ID}\", \"group_name\":\"${GROUP_NAME}\", \"role_override\":\"REPOSITORY_ROLE_WRITE\"}" \
@@ -182,8 +182,8 @@ $ curl \
 
 If you want to change or clear the role override, issue this API command with a user who has the `Admin` resource role on the repository:
 
-```console
-$ curl \
+```sh
+curl \
     -H "Authorization: Bearer ${BUF_TOKEN}" \
     -H "Content-Type: application/json" \
     -d "{\"repository_id\":\"${REPOSITORY_ID}\", \"group_name\":\"${GROUP_NAME}\", \"role_override\":\"REPOSITORY_ROLE_WRITE\"}" \
@@ -196,8 +196,8 @@ To clear the role override, use `REPOSITORY_ROLE_UNSPECIFIED` as the `role_overr
 
 To unmap a group, issue the same commands as for mapping, except in the final step invoke `RemoveRepositoryGroup` instead.
 
-```console{5}
-$ curl \
+```sh{5}
+curl \
     -H "Authorization: Bearer ${BUF_TOKEN}" \
     -H "Content-Type: application/json" \
     -d "{\"repository_id\":\"${REPOSITORY_ID}\", \"group_name\":\"${GROUP_NAME}\"}" \

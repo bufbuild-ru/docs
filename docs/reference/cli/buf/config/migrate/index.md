@@ -49,8 +49,8 @@ Migrate all buf.yaml, buf.work.yaml, buf.gen.yaml, and buf.lock files at the spe
 
 ### Usage
 
-```console
-$ buf config migrate [flags]
+```sh
+buf config migrate [flags]
 ```
 
 ### Description

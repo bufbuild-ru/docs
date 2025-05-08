@@ -106,38 +106,38 @@ To run lint checks with your job, simply add `buf lint` to it and you're good to
 
 If your [`buf.yaml`](../../../configuration/v2/buf-yaml/) is defined at the root of your repository, you can run the linter with this command:
 
-```console
-$ buf lint
+```sh
+buf lint
 ```
 
 If, on the other hand, your `buf.yaml` is defined in a nested directory, such as the `proto` directory, the command looks like this:
 
-```console
-$ buf lint proto
+```sh
+buf lint proto
 ```
 
 For `buf breaking`, the process is similar, but be sure to set the full `https` or `ssh` remote as the target. If your `buf.yaml` is defined at the root of your repository, the command looks like this:
 
-```console
-$ buf breaking --against "https://github.com/<your-org>/<your-repo>.git#branch=main"
+```sh
+buf breaking --against "https://github.com/<your-org>/<your-repo>.git#branch=main"
 ```
 
 Also valid:
 
-```console
-$ buf breaking --against "ssh://git@github.com/<your-org>/<your-repo>.git#branch=main"
+```sh
+buf breaking --against "ssh://git@github.com/<your-org>/<your-repo>.git#branch=main"
 ```
 
 Again, if your `buf.yaml` is defined in a nested directory, such as the `proto` directory, the command looks like this (notice the `subdir` parameter):
 
-```console
-$ buf breaking proto --against "https://github.com/<your-org>/<your-repo>.git#branch=main,subdir=proto"
+```sh
+buf breaking proto --against "https://github.com/<your-org>/<your-repo>.git#branch=main,subdir=proto"
 ```
 
 Also valid:
 
-```console
-$ buf breaking proto --against "ssh://git@github.com/<your-org>/<your-repo>.git#branch=main,subdir=proto"
+```sh
+buf breaking proto --against "ssh://git@github.com/<your-org>/<your-repo>.git#branch=main,subdir=proto"
 ```
 
 If you are on [TravisCI](https://travis-ci.org) or [CircleCI](https://circleci.com) they don't clone any branches outside of the one being tested, so this enables the Buf CLI to clone using the remote and run the [breaking change detector](../../../breaking/overview/).
@@ -161,21 +161,21 @@ To avoid false positives during breaking change detection, developers should fol
 
 - Merge the latest changes from `main` into the feature branch before running `buf breaking`:
 
-  ```console
-  $ git fetch origin
-  $ git merge origin/main
-  $ buf breaking --against "https://github.com/<your-org>/<your-repo>.git#branch=main"
+  ```sh
+  git fetch origin
+  git merge origin/main
+  buf breaking --against "https://github.com/<your-org>/<your-repo>.git#branch=main"
   ```
 
   This approach ensures that the `buf breaking` command considers all changes in `main` before running the check. CI/CD pipelines typically use this approach.
 
 - Temporarily merge the latest changes from `main` into the feature branch, then abort the merge:
 
-  ```console
-  $ git fetch origin
-  $ git merge --no-commit --no-ff origin/main
-  $ buf breaking --against "https://github.com/<your-org>/<your-repo>.git#branch=main"
-  $ git merge --abort
+  ```sh
+  git fetch origin
+  git merge --no-commit --no-ff origin/main
+  buf breaking --against "https://github.com/<your-org>/<your-repo>.git#branch=main"
+  git merge --abort
   ```
 
   This approach ensures that the `buf breaking` command considers all changes in `main` without altering the feature branch.
@@ -192,8 +192,8 @@ For example:
 
 You can then access the token in your job using an environment variable, which enables you to create a `.netrc` file for your job during setup. Here's an example assuming you've stored your token as `BUF_API_TOKEN` and your username as `BUF_USER`:
 
-```console
-$ echo ${BUF_API_TOKEN} | buf registry login --username ${BUF_USER} --token-stdin
+```sh
+echo ${BUF_API_TOKEN} | buf registry login --username ${BUF_USER} --token-stdin
 ```
 
 For more details on authenticating to the `BSR`, see [Authentication](../../authentication/).

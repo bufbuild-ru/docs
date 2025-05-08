@@ -49,8 +49,8 @@ Get commit information
 
 ### Usage
 
-```console
-$ buf registry plugin commit info <remote/owner/repository:commit> [flags]
+```sh
+buf registry plugin commit info <remote/owner/repository:commit> [flags]
 ```
 
 ### Flags

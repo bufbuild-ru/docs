@@ -53,8 +53,8 @@ Our Pro tier gives organizations a private instance of the BSR with dedicated su
 
 To access the BSR, you need to provide login configuration details via the buf CLI.
 
-```console
-$ buf registry login <name>.buf.dev
+```sh
+buf registry login <name>.buf.dev
 ```
 
 Bot users need to have tokens from the new instance generated, see [authentication](../../bsr/authentication/) for details.

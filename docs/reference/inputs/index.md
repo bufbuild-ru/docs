@@ -72,8 +72,8 @@ The core primitive for Buf is the [module](../../cli/modules-workspaces/). Proto
 
 With the BSR, you can refer to any version of a Buf module and use it as an input for each of the `buf` commands. You can lint all the Protobuf files in the `buf.build/acme/petapis` module, for example, with the `buf lint` command:
 
-```console
-$ buf lint buf.build/acme/petapis
+```sh
+buf lint buf.build/acme/petapis
 ```
 
 ### Breaking change detection
@@ -84,9 +84,9 @@ It's sometimes preferable, however, to store a representation of your old versio
 
 For example:
 
-```console
-$ buf build -o image.binpb
-$ buf breaking --against image.binpb
+```sh
+buf build -o image.binpb
+buf breaking --against image.binpb
 ```
 
 ## Specifying an input
@@ -268,8 +268,8 @@ The command below, for examples, shows a way to compile all Protobuf files in yo
 
 Images should use the `.binpb`, `.txtpb`, and `.json` file extensions when stored on disk, as these are [now the canonical file extensions](https://protobuf.dev/programming-guides/techniques#suffixes) for these encoding formats.
 
-```console
-$ protoc -I . $(find. -name '*.proto') -o /dev/stdout | buf lint -
+```sh
+protoc -I . $(find. -name '*.proto') -o /dev/stdout | buf lint -
 ```
 
 ### binpb
@@ -310,8 +310,8 @@ Examples:
 
 When combined with [jq](https://stedolan.github.io/jq), this also allows for introspection. For example, to see a list of all packages:
 
-```console
-$ buf build -o -#format=json | jq '.file[] | .package' | sort | uniq | head
+```sh
+buf build -o -#format=json | jq '.file[] | .package' | sort | uniq | head
 "google.actions.type"
 "google.ads.admob.v1"
 "google.ads.googleads.v1.common"
@@ -405,13 +405,13 @@ Basic authentication can be also specified for remote archives, Git repositories
 
 Assuming one of these mechanisms is present, you can call `buf` as you normally would:
 
-```console
-$ buf lint https://github.com/org/private-repo.git#branch=main
-$ buf lint https://github.com/org/private-repo.git#tag=v1.0.0
-$ buf lint https://github.com/org/private-repo/archive/main.tar.gz#strip_components=1
-$ buf lint https://github.com/org/private-repo/archive/main.zip#strip_components=1
-$ buf breaking --against https://github.com/org/private-repo.git#branch=main
-$ buf breaking --against https://github.com/org/private-repo.git#tag=v1.0.0
+```sh
+buf lint https://github.com/org/private-repo.git#branch=main
+buf lint https://github.com/org/private-repo.git#tag=v1.0.0
+buf lint https://github.com/org/private-repo/archive/main.tar.gz#strip_components=1
+buf lint https://github.com/org/private-repo/archive/main.zip#strip_components=1
+buf breaking --against https://github.com/org/private-repo.git#branch=main
+buf breaking --against https://github.com/org/private-repo.git#tag=v1.0.0
 ```
 
 ### SSH
@@ -427,11 +427,11 @@ These environment variables can also be used:
 
 Assuming one of these mechanisms is present, you can call `buf` as you normally would:
 
-```console
-$ buf lint ssh://git@github.com/org/private-repo.git#branch=main
-$ buf lint ssh://git@github.com/org/private-repo.git#tag=v1.0.0
-$ buf breaking --against ssh://git@github.com/org/private-repo.git#branch=main
-$ buf breaking --against ssh://git@github.com/org/private-repo.git#tag=v1.0.0
+```sh
+buf lint ssh://git@github.com/org/private-repo.git#branch=main
+buf lint ssh://git@github.com/org/private-repo.git#tag=v1.0.0
+buf breaking --against ssh://git@github.com/org/private-repo.git#branch=main
+buf breaking --against ssh://git@github.com/org/private-repo.git#tag=v1.0.0
 ```
 
 Note that CI services such as [CircleCI](https://circleci.com) have a private key and known hosts file pre-installed, so this should work out of the box.

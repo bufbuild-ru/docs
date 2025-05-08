@@ -226,8 +226,8 @@ buf_lint_test(
 
 This can be run as:
 
-```console
-$ bazel test :foo_proto_lint
+```sh
+bazel test :foo_proto_lint
 ```
 
 We recommend having a single `buf_lint_test` for each `proto_library` target. The [Gazelle extension](#gazelle) can generate them in the same pattern.
@@ -268,8 +268,8 @@ buf_breaking_test(
 
 This can be run as:
 
-```console
-$ bazel test :foo_proto_breaking
+```sh
+bazel test :foo_proto_breaking
 ```
 
 We recommend having a single `buf_breaking_test` for each `buf.yaml`.
@@ -282,8 +282,8 @@ The [Gazelle extension](#gazelle) can generate `buf_breaking_test` in either lev
 
 You can generate a Buf [image](../../../reference/images/) file like this:
 
-```console
-$ buf build --exclude-imports -o image.binpb <input>
+```sh
+buf build --exclude-imports -o image.binpb <input>
 ```
 
 The `<input>` is often a directory containing a `buf.yaml` file, but all of the other [Input formats](../../../reference/inputs/#format) are also supported.
@@ -363,8 +363,8 @@ Export the `buf.yaml` file by adding `exports_files(["buf.yaml"])` to the `BUILD
 
 Now run Gazelle:
 
-```console
-$ bazel run //:gazelle
+```sh
+bazel run //:gazelle
 ```
 
 This takes care of updating your Protobuf build files — just run `//:gazelle` whenever Protobuf files are added/removed.
@@ -408,8 +408,8 @@ load("@rules_buf//buf:defs.bzl", "buf_dependencies")
 
 Now run Gazelle `update-repos` command:
 
-```console
-$ bazel run //:gazelle-update-repos
+```sh
+bazel run //:gazelle-update-repos
 ```
 
 This creates the file `buf_deps.bzl` with the `buf_deps` macro that loads the `buf_dependencies` rules. It also calls the macro from the `WORKSPACE` file.
@@ -428,8 +428,8 @@ By default, a `buf_lint_test` rule is generated for each of the `proto_library` 
 
 Run this command to list the generated lint rules:
 
-```console
-$ bazel query 'kind(buf_lint_test, //...)'
+```sh
+bazel query 'kind(buf_lint_test, //...)'
 ```
 
 ### Breaking change detection
@@ -456,14 +456,14 @@ This is the default and preferred mode. `buf_breaking_test` is generated for eac
 
 Once the `buf_breaking_against` directive is added, run `gazelle`:
 
-```console
-$ bazel run //:gazelle
+```sh
+bazel run //:gazelle
 ```
 
 Run this command to list the generated breaking rules:
 
-```console
-$ bazel query 'kind(buf_breaking_test, //...)'
+```sh
+bazel query 'kind(buf_breaking_test, //...)'
 ```
 
 This mimics running `buf breaking` on a module. This is the most accurate way to check for breaking changes. However, depending on multiple targets at once is an anti-pattern in Bazel, so that's why we've provided package mode as an alternative.
@@ -480,14 +480,14 @@ Add this Gazelle directive to switch to package mode:
 
 Now run Gazelle again:
 
-```console
-$ bazel run //:gazelle
+```sh
+bazel run //:gazelle
 ```
 
 Running this command shows `buf_breaking_test` rules generated in multiple packages:
 
-```console
-$ bazel query 'kind(buf_breaking_test, //...)'
+```sh
+bazel query 'kind(buf_breaking_test, //...)'
 ```
 
 #### Example: Module vs. Package mode

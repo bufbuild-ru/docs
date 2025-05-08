@@ -49,8 +49,8 @@ Print the dependency graph
 
 ### Usage
 
-```console
-$ buf dep graph <input> [flags]
+```sh
+buf dep graph <input> [flags]
 ```
 
 ### Description

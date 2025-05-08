@@ -49,8 +49,8 @@ Delete a repository webhook
 
 ### Usage
 
-```console
-$ buf beta registry webhook delete [flags]
+```sh
+buf beta registry webhook delete [flags]
 ```
 
 ### Flags

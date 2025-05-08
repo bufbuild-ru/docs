@@ -49,8 +49,8 @@ Work with configuration files
 
 ### Usage
 
-```console
-$ buf config [flags]
+```sh
+buf config [flags]
 ```
 
 ### Flags

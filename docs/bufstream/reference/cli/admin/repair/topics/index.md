@@ -49,8 +49,8 @@ repairs issues with topics
 
 ### Usage
 
-```console
-$ bufstream admin repair topics [flags]
+```sh
+bufstream admin repair topics [flags]
 ```
 
 ### Description

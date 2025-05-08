@@ -49,8 +49,8 @@ Archive a plugin label
 
 ### Usage
 
-```console
-$ buf registry plugin label archive <remote/owner/plugin:label> [flags]
+```sh
+buf registry plugin label archive <remote/owner/plugin:label> [flags]
 ```
 
 ### Flags

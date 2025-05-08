@@ -49,8 +49,8 @@ cleans intake files
 
 ### Usage
 
-```console
-$ bufstream admin clean intake [flags]
+```sh
+bufstream admin clean intake [flags]
 ```
 
 ### Description

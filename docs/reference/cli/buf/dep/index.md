@@ -49,8 +49,8 @@ Work with dependencies
 
 ### Usage
 
-```console
-$ buf dep [flags]
+```sh
+buf dep [flags]
 ```
 
 ### Flags

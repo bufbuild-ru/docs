@@ -57,14 +57,14 @@ Because `v1beta` and v1 configurations are similar, this migration path will als
 
 For the vast majority of configurations, the migration tool does everything you need. Run it from the root of your Git repository, and it finds all `buf.yaml`, `buf.gen.yaml`, and `buf.work.yaml` files and upgrades them to v2 `buf.yaml` and `buf.gen.yaml` files at the Git root:
 
-```console
-$ buf config migrate
+```sh
+buf config migrate
 ```
 
 If you want to see what the v2 files and directory structure look like before making any changes, you can print the diff to stdout first:
 
-```console
-$ buf config migrate --diff
+```sh
+buf config migrate --diff
 ```
 
 The migration tool does have one case where it doesn't detect the configuration files: if you have configuration files with a non-standard name (for example, if you've specified language-specific templates for code generation like `buf.gen.go.yaml`).
@@ -78,8 +78,8 @@ In these cases, you can manually specify exactly which files you want to migrate
 
 ::: info Migrate only buf.gen.yaml files at the specified paths
 
-```console
-$ buf config migrate --buf-gen-yaml </paths/to/files>
+```sh
+buf config migrate --buf-gen-yaml </paths/to/files>
 ```
 
 :::
@@ -314,9 +314,9 @@ In v1 configs, the command must be run twice to capture both directories because
 
 ::: info v1 — must run command twice
 
-```console
-$ buf generate proto
-$ buf generate baz
+```sh
+buf generate proto
+buf generate baz
 ```
 
 :::
@@ -336,8 +336,8 @@ inputs:
 
 ::: info v2 — generates code for all inputs specified in buf.yaml
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 :::
@@ -411,7 +411,7 @@ Because `buf.yaml` is now the configuration file for multiple modules, the comma
 
 All `buf mod` subcommands still work, but output a deprecation message to stderr reminding you of the new command location.
 
-```console
-$ buf mod update
+```sh
+buf mod update
 Command "update" is deprecated, use "buf dep update" instead. However, "buf mod update" will continue to work.
 ```

@@ -49,8 +49,8 @@ Get the price for BSR paid plans for a given source or module
 
 ### Usage
 
-```console
-$ buf beta price <source> [flags]
+```sh
+buf beta price <source> [flags]
 ```
 
 ### Description

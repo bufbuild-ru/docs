@@ -85,8 +85,8 @@ The generated module from that plugin includes:
 
 You build the webhook listener using the Connect client code generated from the [Webhook Event service](https://buf.build/bufbuild/buf/docs/main:buf.alpha.webhook.v1alpha1#buf.alpha.webhook.v1alpha1.EventService). First, fetch the generated go module from the [connect-go plugin](https://buf.build/bufbuild/buf/sdks/main):
 
-```console
-$ go get buf.build/gen/go/bufbuild/buf/connectrpc/go
+```sh
+go get buf.build/gen/go/bufbuild/buf/connectrpc/go
 ```
 
 Here's an example Connect implementation:
@@ -139,8 +139,8 @@ Webhooks are managed through the BSR API. The easiest way to interact with the A
 
 Below is an example of managing webhooks using the BSR [Webhook service](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1#buf.alpha.registry.v1alpha1.WebhookService). First, fetch the generated go module from the connect-go [template](https://buf.build/bufbuild/buf/sdks/main) if you didn't in the previous step:
 
-```console
-$ go get buf.build/gen/go/bufbuild/buf/connectrpc/go
+```sh
+go get buf.build/gen/go/bufbuild/buf/connectrpc/go
 ```
 
 Then in your Go code, set up the subscription:
@@ -231,8 +231,8 @@ You can manage your webhooks with the `buf beta registry webhook` commands. `WEB
 
 #### Create a webhook subscription with the Buf CLI
 
-```console
-$ buf beta registry webhook create \
+```sh
+buf beta registry webhook create \
   --owner="<the organization or username that owns the repository>" \
   --repository="<the repository name>" \
   --callback-url="https://your.callback.url/buf.alpha.webhook.v1alpha1.EventService/Event" \
@@ -242,8 +242,8 @@ $ buf beta registry webhook create \
 
 #### List webhook subscriptions with the Buf CLI
 
-```console
-$ buf beta registry webhook list \
+```sh
+buf beta registry webhook list \
   --owner="<the organization or username that owns the repository>" \
   --repository="<the repository name>" \
   --remote="BSR_INSTANCE_DOMAIN_NAME"
@@ -251,8 +251,8 @@ $ buf beta registry webhook list \
 
 #### Delete webhook subscriptions with the Buf CLI
 
-```console
-$ buf beta registry webhook delete \
+```sh
+buf beta registry webhook delete \
   --id="the-webhook-id-that-will-be-deleted" \
   --remote="BSR_INSTANCE_DOMAIN_NAME"
 ```
@@ -265,8 +265,8 @@ Webhooks are managed through the [BSR API](https://buf.build/bufbuild/buf/docs/m
 
 Use the [`CreateWebhook` RPC](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1#buf.alpha.registry.v1alpha1.WebhookService.CreateWebhook) to create webhooks for a repository:
 
-```console
-$ curl --location --request POST 'https://BSR_INSTANCE_DOMAIN_NAME/buf.alpha.registry.v1alpha1.WebhookService/CreateWebhook' \
+```sh
+curl --location --request POST 'https://BSR_INSTANCE_DOMAIN_NAME/buf.alpha.registry.v1alpha1.WebhookService/CreateWebhook' \
 --header 'Authorization: Bearer <BSR api token>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -297,8 +297,8 @@ For the `callback_url` parameter, make sure you use an **https** scheme, and you
 
 After creating a webhook subscription for a repository, you can confirm its existence using the [`ListWebhooks` RPC](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1#buf.alpha.registry.v1alpha1.WebhookService.ListWebhooks):
 
-```console
-$ curl --location --request POST 'https://BSR_INSTANCE_DOMAIN_NAME/buf.alpha.registry.v1alpha1.WebhookService/ListWebhooks' \
+```sh
+curl --location --request POST 'https://BSR_INSTANCE_DOMAIN_NAME/buf.alpha.registry.v1alpha1.WebhookService/ListWebhooks' \
 --header 'Authorization: Bearer <your BSR api token>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -331,8 +331,8 @@ Content-Type: application/json
 
 Webhooks can be deleted using the [`DeleteWebhook` RPC](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1#buf.alpha.registry.v1alpha1.WebhookService.DeleteWebhook):
 
-```console
-$ curl --location --request POST 'https://BSR_INSTANCE_DOMAIN_NAME/buf.alpha.registry.v1alpha1.WebhookService/DeleteWebhook' \
+```sh
+curl --location --request POST 'https://BSR_INSTANCE_DOMAIN_NAME/buf.alpha.registry.v1alpha1.WebhookService/DeleteWebhook' \
 --header 'Authorization: Bearer <your BSR api token>' \
 --header 'Content-Type: application/json' \
 --data-raw '{

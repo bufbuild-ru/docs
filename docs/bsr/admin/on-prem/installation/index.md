@@ -62,8 +62,8 @@ You will need both to proceed.
 
 To get started, authenticate `helm` with the Buf OCI registry using the keyfile that was sent alongside this documentation. _The keyfile should contain a base64 encoded string._
 
-```console
-$ cat keyfile | helm registry login -u _json_key_base64 --password-stdin \
+```sh
+cat keyfile | helm registry login -u _json_key_base64 --password-stdin \
   https://us-docker.pkg.dev/buf-images-1/bsr
 ```
 
@@ -71,16 +71,16 @@ $ cat keyfile | helm registry login -u _json_key_base64 --password-stdin \
 
 Create a Kubernetes namespace in the k8s cluster for the `bsr` Helm Chart to use:
 
-```console
-$ kubectl create namespace bsr
+```sh
+kubectl create namespace bsr
 ```
 
 ## 3\. Create a pull secret
 
 Create a pull secret using the same provided keyfile from step 1. The cluster uses it to pull images from the Buf OCI registry:
 
-```console
-$ kubectl create secret --namespace bsr docker-registry bufpullsecret \
+```sh
+kubectl create secret --namespace bsr docker-registry bufpullsecret \
   --docker-server=us-docker.pkg.dev/buf-images-1/bsr \
   --docker-username=_json_key_base64 \
   --docker-password="$(cat keyfile)"
@@ -193,8 +193,8 @@ Alternatively, you may instead use an access key pair.
 
 2.  Create a k8s secret containing the s3 access secret key:
 
-    ```console
-    $ kubectl create secret --namespace bsr generic bufd-storage \
+    ```sh
+    kubectl create secret --namespace bsr generic bufd-storage \
       --from-literal=secret_access_key=<s3 secret access key>
     ```
 
@@ -277,8 +277,8 @@ Alternatively, you may instead use the storage account key.
 
 2.  Create a k8s secret containing an Azure storage account key:
 
-    ```console
-    $ kubectl create secret --namespace bsr generic bufd-storage \
+    ```sh
+    kubectl create secret --namespace bsr generic bufd-storage \
       --from-literal=account_key=<azure storage account key>
     ```
 
@@ -329,8 +329,8 @@ postgres:
 
 Then create a k8s secret containing the Postgres user password:
 
-```console
-$ kubectl create secret --namespace bsr generic bufd-postgres \
+```sh
+kubectl create secret --namespace bsr generic bufd-postgres \
   --from-literal=password=<postgres password>
 ```
 
@@ -383,8 +383,8 @@ The BSR requires a [Redis](https://redis.com/) instance.
 
 To configure Redis, create a k8s secret containing the address:
 
-```console
-$ kubectl create secret --namespace bsr generic bufd-redis \
+```sh
+kubectl create secret --namespace bsr generic bufd-redis \
   --from-literal=address=redis.example.com:6379
 ```
 
@@ -408,8 +408,8 @@ redis:
 
 Example of a secret containing both an authentication token and a CA certificate:
 
-```console
-$ kubectl create secret --namespace bsr generic bufd-redis \
+```sh
+kubectl create secret --namespace bsr generic bufd-redis \
   --from-literal=address=redis.example.com:6379 \
   --from-literal=auth=<redis auth string> \
   --from-file=ca=<redis ca.crt>
@@ -417,8 +417,8 @@ $ kubectl create secret --namespace bsr generic bufd-redis \
 
 Example of a secret containing an authentication token, assuming a connection string like `redis.example.com:6379,password=<password>,ssl=True,abortConnect=False`:
 
-```console
-$ kubectl create secret --namespace bsr generic bufd-redis \
+```sh
+kubectl create secret --namespace bsr generic bufd-redis \
   --from-literal=address=redis.example.com:6379 \
   --from-literal=auth=<redis password>
 ```
@@ -461,9 +461,9 @@ auth:
 
 SAML requires the application to have access to a certificate used for signing/encryption as part of the authentication process. For the BSR, this is stored as a [Kubernetes TLS secret](https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets) named `bsr-saml-cert`, and may be self-signed. For example, you can generate a certificate and create the required secret using [OpenSSL](https://www.openssl.org/).
 
-```console
-$ openssl req -newkey rsa:2048 -nodes -keyout ca.key -subj "/CN=example.com" -x509 -days 3650 -out ca.crt \
-$ kubectl create secret --namespace bsr tls bsr-saml-cert \
+```sh
+openssl req -newkey rsa:2048 -nodes -keyout ca.key -subj "/CN=example.com" -x509 -days 3650 -out ca.crt \
+kubectl create secret --namespace bsr tls bsr-saml-cert \
   --key ca.key \
   --cert ca.crt
 ```
@@ -494,8 +494,8 @@ auth:
 
 Additionally, a [Kubernetes secret](https://kubernetes.io/docs/concepts/configuration/secret/#opaque-secrets) must be created for OIDC to function:
 
-```console
-$ kubectl create secret --namespace bsr generic bufd-client-secret \
+```sh
+kubectl create secret --namespace bsr generic bufd-client-secret \
   --from-literal=client_secret=<oidc client secret>
 ```
 
@@ -667,8 +667,8 @@ observability:
 
 Using the `bsr.yaml` Helm values file, install the Helm Chart for the cluster and set the correct BSR Version:
 
-```console
-$ helm install bsr oci://us-docker.pkg.dev/buf-images-1/bsr/charts/bsr \
+```sh
+helm install bsr oci://us-docker.pkg.dev/buf-images-1/bsr/charts/bsr \
   --version "1.x.x" \
   --namespace=bsr \
   --values bsr.yaml

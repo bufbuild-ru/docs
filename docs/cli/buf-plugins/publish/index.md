@@ -72,8 +72,8 @@ Once pushed, the plugin is now available in the BSR and can be used by other dev
 
 You can also push a plugin with labels. To do this, add the `--label` flag with the label name. This allows you to version your plugin and make it easier for other developers to find the right version.
 
-```console
-$ buf plugin push buf.build/acme/rpc-suffix \
+```sh
+buf plugin push buf.build/acme/rpc-suffix \
   --binary=rpc-suffix.wasm \
   --label=v1.0.0 \
   --label=v1.0 \
@@ -106,14 +106,14 @@ To use the plugin, you update your `buf.yaml` file to point to the remote plugin
 
 Next, you need to update the `buf.lock` file to set the plugin version:
 
-```console
-$ buf plugin update
+```sh
+buf plugin update
 ```
 
 When you run `buf lint` and `buf breaking` checks, they now use the plugin you just pushed to the BSR.
 
-```console
-$ buf lint
+```sh
+buf lint
 
 proto/pet/v1/pet.proto:30:3:method name should not end with "Method" (buf.build/acme/rpc-suffix)
 ```

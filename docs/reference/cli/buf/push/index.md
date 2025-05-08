@@ -49,8 +49,8 @@ Push to a registry
 
 ### Usage
 
-```console
-$ buf push <source> [flags]
+```sh
+buf push <source> [flags]
 ```
 
 ### Description

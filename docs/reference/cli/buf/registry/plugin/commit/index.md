@@ -49,8 +49,8 @@ Manage a plugin's commits
 
 ### Usage
 
-```console
-$ buf registry plugin commit [flags]
+```sh
+buf registry plugin commit [flags]
 ```
 
 ### Flags

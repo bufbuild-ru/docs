@@ -74,8 +74,8 @@ All references to buf.example.com below should be replaced with the hostname for
 
 2.  Run [`buf dep update`](../../../reference/cli/buf/dep/update/) to verify and lock the dependency.
 
-    ```console
-    $ buf dep update
+    ```sh
+    buf dep update
     ```
 
 3.  Add one or more [`buf.confluent.v1.subject`](https://buf.build/bufbuild/confluent/docs/main:buf.confluent.v1) options to a new or existing Protobuf message, including your Confluent Schema Registry [instance name](../manage-instances/#create-an-instance) and the subject's name.
@@ -104,8 +104,8 @@ All references to buf.example.com below should be replaced with the hostname for
 
 4.  Run [`buf push`](../../../reference/cli/buf/push/) to update the module in the BSR. If successful, the subject is created or updated with the message as its schema.
 
-    ```console
-    $ buf push
+    ```sh
+    buf push
     ```
 
     You can check it in the browser using your instance URL (you must be logged into the BSR):

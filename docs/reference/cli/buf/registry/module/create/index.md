@@ -49,8 +49,8 @@ Create a BSR module
 
 ### Usage
 
-```console
-$ buf registry module create <remote/owner/module> [flags]
+```sh
+buf registry module create <remote/owner/module> [flags]
 ```
 
 ### Flags

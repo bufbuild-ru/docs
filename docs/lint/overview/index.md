@@ -171,32 +171,32 @@ The Buf CLI can lint [inputs](../../reference/inputs/) beyond your local Protobu
 
 ::: info Lint output from protoc passed to stdin
 
-```console
-$ protoc -I . --include_source_info $(find . -name '*.proto') -o /dev/stdout | buf lint -
+```sh
+protoc -I . --include_source_info $(find . -name '*.proto') -o /dev/stdout | buf lint -
 ```
 
 :::
 
 ::: info Lint a remote Git repository on the fly and override its config to use your local config file
 
-```console
-$ buf lint 'https://github.com/googleapis/googleapis.git' --config buf.yaml
+```sh
+buf lint 'https://github.com/googleapis/googleapis.git' --config buf.yaml
 ```
 
 :::
 
 ::: info Lint a module published to the Buf Schema Registry
 
-```console
-$ buf lint buf.build/acme/petapis
+```sh
+buf lint buf.build/acme/petapis
 ```
 
 :::
 
 ::: info Output lint error messages as JSON
 
-```console
-$ buf lint --error-format=json
+```sh
+buf lint --error-format=json
 ```
 
 :::
@@ -207,16 +207,16 @@ For remote locations that require authentication, see [HTTPS Authentication](../
 
 By default, the Buf CLI builds all files under your [`buf.yaml`](../../configuration/v2/buf-yaml/) configuration file, but you can choose to lint only specific files or directories. This is an advanced feature that's mostly intended to be used by other systems like editors. In general, it's better to let the Buf CLI discover all files and handle this for you. If you do need this, however, you can use the `--path` flag:
 
-```console
-$ buf lint \
+```sh
+buf lint \
   --path path/to/foo.proto \
   --path path/to/bar.proto
 ```
 
 You can also combine this with an inline configuration override:
 
-```console
-$ buf lint \
+```sh
+buf lint \
   --path path/to/foo.proto \
   --path path/to/bar.proto \
   --config '{"version":"v2","lint":{"use":["BASIC"]}}'

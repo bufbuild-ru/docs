@@ -49,8 +49,8 @@ Get a BSR plugin
 
 ### Usage
 
-```console
-$ buf registry plugin info <remote/owner/plugin> [flags]
+```sh
+buf registry plugin info <remote/owner/plugin> [flags]
 ```
 
 ### Flags

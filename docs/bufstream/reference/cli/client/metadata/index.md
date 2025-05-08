@@ -49,8 +49,8 @@ client metadata command
 
 ### Usage
 
-```console
-$ bufstream client metadata [flags]
+```sh
+bufstream client metadata [flags]
 ```
 
 ### Description

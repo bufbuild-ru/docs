@@ -49,8 +49,8 @@ Show label information
 
 ### Usage
 
-```console
-$ buf registry module label info <remote/owner/module:label> [flags]
+```sh
+buf registry module label info <remote/owner/module:label> [flags]
 ```
 
 ### Flags

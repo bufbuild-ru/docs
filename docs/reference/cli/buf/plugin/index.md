@@ -49,8 +49,8 @@ Work with check plugins
 
 ### Usage
 
-```console
-$ buf plugin [flags]
+```sh
+buf plugin [flags]
 ```
 
 ### Flags

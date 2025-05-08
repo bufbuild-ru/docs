@@ -89,8 +89,8 @@ Users can also be deactivated by issuing API commands directly:
 2.  Export `BUF_TOKEN`, `USERNAME_TO_DEACTIVATE` and `PRIVATE_BSR_HOSTNAME` according to your details.
 3.  Get the userID:
 
-    ```console
-    $ curl \
+    ```sh
+    curl \
         -H "Authorization: Bearer ${BUF_TOKEN}" \
         -H "Content-Type: application/json" \
         -d "{\"username\":\"${USERNAME_TO_DEACTIVATE}\"}" \
@@ -99,8 +99,8 @@ Users can also be deactivated by issuing API commands directly:
 
 4.  Extract the returned `user.id`, export it as `USER_ID` and use it to deactivate the user:
 
-    ```console
-    $ curl \
+    ```sh
+    curl \
         -H "Authorization: Bearer ${BUF_TOKEN}" \
         -H "Content-Type: application/json" \
         -d "{\"id\":\"${USER_ID}\"}" \

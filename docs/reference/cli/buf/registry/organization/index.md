@@ -49,8 +49,8 @@ Manage organizations
 
 ### Usage
 
-```console
-$ buf registry organization [flags]
+```sh
+buf registry organization [flags]
 ```
 
 ### Flags

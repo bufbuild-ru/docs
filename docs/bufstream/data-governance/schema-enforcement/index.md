@@ -57,8 +57,8 @@ It's often helpful to make Kafka messages self-describing, so that tools and fra
 
 1.  Create a secret containing CSR credentials:
 
-    ```console
-    $ kubectl create secret --namespace bufstream generic bufstream-csr \
+    ```sh
+    kubectl create secret --namespace bufstream generic bufstream-csr \
       --from-literal=username=<your user> \
       --from-literal=password=<your password>
     ```

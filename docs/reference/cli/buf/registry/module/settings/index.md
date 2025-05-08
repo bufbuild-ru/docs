@@ -49,8 +49,8 @@ Manage a module's settings
 
 ### Usage
 
-```console
-$ buf registry module settings [flags]
+```sh
+buf registry module settings [flags]
 ```
 
 ### Flags

@@ -49,8 +49,8 @@ Start the language server
 
 ### Usage
 
-```console
-$ buf beta lsp [flags]
+```sh
+buf beta lsp [flags]
 ```
 
 ### Flags

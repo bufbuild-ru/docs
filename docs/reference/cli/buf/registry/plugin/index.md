@@ -49,8 +49,8 @@ Manage BSR plugins
 
 ### Usage
 
-```console
-$ buf registry plugin [flags]
+```sh
+buf registry plugin [flags]
 ```
 
 ### Flags

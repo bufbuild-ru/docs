@@ -49,8 +49,8 @@ Log out of the Buf Schema Registry
 
 ### Usage
 
-```console
-$ buf registry logout [domain] [flags]
+```sh
+buf registry logout [domain] [flags]
 ```
 
 ### Description

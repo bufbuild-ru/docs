@@ -49,8 +49,8 @@ Resolve module and plugin reference to a specific Generated SDK version
 
 ### Usage
 
-```console
-$ buf registry sdk version --module=<buf.build/owner/repository[:ref]> --plugin=<buf.build/owner/plugin[:version]> [flags]
+```sh
+buf registry sdk version --module=<buf.build/owner/repository[:ref]> --plugin=<buf.build/owner/plugin[:version]> [flags]
 ```
 
 ### Description
@@ -59,15 +59,15 @@ This command returns the version of the Generated SDK for the given module and p
 
 Get the version of the eliza module and the go plugin for use with the Go module proxy.
 
-```console
-$ buf registry sdk version --module=buf.build/connectrpc/eliza --plugin=buf.build/protocolbuffers/go
+```sh
+buf registry sdk version --module=buf.build/connectrpc/eliza --plugin=buf.build/protocolbuffers/go
 v1.33.0-20230913231627-233fca715f49.1
 ```
 
 Use a specific module version and plugin version.
 
-```console
-$ buf registry sdk version --module=buf.build/connectrpc/eliza:233fca715f49425581ec0a1b660be886 --plugin=buf.build/protocolbuffers/go:v1.32.0
+```sh
+buf registry sdk version --module=buf.build/connectrpc/eliza:233fca715f49425581ec0a1b660be886 --plugin=buf.build/protocolbuffers/go:v1.32.0
 v1.32.0-20230913231627-233fca715f49.1
 ```
 

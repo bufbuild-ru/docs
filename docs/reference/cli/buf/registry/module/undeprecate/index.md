@@ -49,8 +49,8 @@ Undeprecate a BSR module
 
 ### Usage
 
-```console
-$ buf registry module undeprecate <buf.build/owner/module> [flags]
+```sh
+buf registry module undeprecate <buf.build/owner/module> [flags]
 ```
 
 ### Flags

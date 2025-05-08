@@ -75,20 +75,20 @@ When you push from your workspace, the Buf CLI automatically resolves the intern
 1.  Open a command prompt and change to your workspace root directory.
 2.  Run `buf dep update` to fetch the latest digests for the specified `deps` references in the `buf.yaml` file, and write them and any transitive dependencies to the `buf.lock` file.
 
-    ```console
-    $ buf dep update
+    ```sh
+    buf dep update
     ```
 
 3.  Run `buf build` to make sure everything is working. This builds the Protobuf files into a Buf image, which is necessary for the modules in the workspace to be accepted into the registry.
 
-    ```console
-    $ buf build
+    ```sh
+    buf build
     ```
 
 4.  Push your workspace to the BSR. If successful, the Buf CLI outputs the BSR commit hashes for each module in the workspace.
 
-    ```console
-    $ buf push
+    ```sh
+    buf push
 
     buf.build/example/module:280bdcbf4b0341d6aefd8bfcafc018eb
     ```
@@ -103,8 +103,8 @@ To apply a label to a commit, add the `--label` flag — you can add multiple la
 
 ::: info Apply the 'v1.0.1' and 'releases' labels to the commit
 
-```console
-$ buf push --label v1.0.1 --label releases
+```sh
+buf push --label v1.0.1 --label releases
 ```
 
 :::

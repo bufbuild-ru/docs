@@ -64,14 +64,14 @@ To authenticate with the CLI:
 
 1.  Log in to the BSR from the command line:
 
-    ```console
-    $ buf registry login
+    ```sh
+    buf registry login
     ```
 
     If you're on a private BSR instance, specify it in the command:
 
-    ```console
-    $ buf registry login buf.build
+    ```sh
+    buf registry login buf.build
     ```
 
 2.  Your browser opens. Log into the BSR and click **Approve** to approve the CLI access.
@@ -80,8 +80,8 @@ To authenticate with the CLI:
 
 To log out, run
 
-```console
-$ buf registry logout
+```sh
+buf registry logout
 ```
 
 ## Tokens
@@ -118,8 +118,8 @@ Access the secret token as specified by your CI provider and make it available a
 
 If this isn't possible, you can also login via the Buf CLI (assuming `BUF_TOKEN` is set):
 
-```console
-$ echo ${BUF_TOKEN} | buf registry login --token-stdin
+```sh
+echo ${BUF_TOKEN} | buf registry login --token-stdin
 ```
 
 For GitHub Actions, follow these steps:
@@ -147,16 +147,16 @@ For more information on `.netrc`, check out the [curl documentation](https://eve
 
 `BUF_TOKEN` can contain a single token that's used when authenticating with the BSR. You can set `BUF_TOKEN` by running this command:
 
-```console
-$ export BUF_TOKEN=${YOUR_TOKEN}
+```sh
+export BUF_TOKEN=${YOUR_TOKEN}
 ```
 
 #### Multiple tokens
 
 The `BUF_TOKEN` environment variable can also contain tokens with specific BSR addresses. Each token has the format `${BUF_TOKEN}@${BSR_HOSTNAME}` with multiple tokens separated by a comma. The Buf CLI finds the correct authentication token for each remote address. You can set `BUF_TOKEN` by running the following command:
 
-```console
-$ export BUF_TOKEN=${TOKEN1}@${BSR_HOSTNAME1},${TOKEN2}@${BSR_HOSTNAME2},...
+```sh
+export BUF_TOKEN=${TOKEN1}@${BSR_HOSTNAME1},${TOKEN2}@${BSR_HOSTNAME2},...
 ```
 
 ### Order of precedence

@@ -49,8 +49,8 @@ Delete a plugin from the registry
 
 ### Usage
 
-```console
-$ buf beta registry plugin delete <buf.build/owner/plugin[:version]> [flags]
+```sh
+buf beta registry plugin delete <buf.build/owner/plugin[:version]> [flags]
 ```
 
 ### Flags

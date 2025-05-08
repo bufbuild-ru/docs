@@ -57,15 +57,15 @@ The Buf CLI is your Swiss army knife for working with Protobuf files. In this qu
 
 - [Install the Buf CLI](../installation/) if you haven't already. You need version 1.32.0 or higher to do the tour, so if you previously installed the Buf CLI, check the version and update if necessary:
 
-  ```console
-  $ buf --version
+  ```sh
+  buf --version
   ```
 
 - Have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [`go`](https://go.dev/dl/) installed and in your `$PATH`.
 - Clone the `buf-examples` repo and go to this quickstart's directory:
 
-  ```console
-  $ git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/cli/quickstart/start/
+  ```sh
+  git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/cli/quickstart/start/
   ```
 
 The quickstart contains a `start` directory, where you work on the example files, and a `finish` directory that you can use to compare against.
@@ -80,8 +80,8 @@ You configure a Buf CLI workspace with a [`buf.yaml`](../../configuration/v2/buf
 
 ::: info cli/quickstart/start/
 
-```console
-$ buf config init
+```sh
+buf config init
 ```
 
 :::
@@ -131,9 +131,9 @@ Before you continue, verify that everything is set up properly and the module bu
 
 ::: info cli/quickstart/start/
 
-```console
-$ buf build
-$ echo $?
+```sh
+buf build
+echo $?
 0
 ```
 
@@ -151,8 +151,8 @@ Create a `buf.gen.yaml` file in the current directory:
 
 ::: info cli/quickstart/start/
 
-```console
-$ touch buf.gen.yaml
+```sh
+touch buf.gen.yaml
 ```
 
 :::
@@ -198,8 +198,8 @@ Now that you have a `buf.gen.yaml` file configured, you can generate the Connect
 
 ::: info cli/quickstart/start/
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 :::
@@ -238,8 +238,8 @@ Run this command to check all `.proto` files in the quickstart workspace for lin
 
 ::: info cli/quickstart/start/
 
-```console
-$ buf lint
+```sh
+buf lint
 
 proto/google/type/datetime.proto:17:1:Package name "google.type" should be suffixed with a correctly formed version, such as "google.type.v1".
 proto/pet/v1/pet.proto:42:10:Field name "petID" should be lower_snake_case, such as "pet_id".
@@ -284,8 +284,8 @@ Run `buf lint` again to verify that two of the failures are resolved:
 
 ::: info cli/quickstart/start/
 
-```console
-$ buf lint
+```sh
+buf lint
 
 google/type/datetime.proto:17:1:Package name "google.type" should be suffixed with a correctly formed version, such as "google.type.v1".
 ```
@@ -296,8 +296,8 @@ Because you changed the name of the `petID` field and the service, you need to r
 
 ::: info cli/quickstart/start/
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 :::
@@ -424,8 +424,8 @@ Before you write Go code, initialize a `go.mod` file with the `go mod init` comm
 
 ::: info cli/quickstart/start/
 
-```console
-$ go mod init github.com/bufbuild/buf-examples
+```sh
+go mod init github.com/bufbuild/buf-examples
 ```
 
 :::
@@ -438,9 +438,9 @@ Start implementing a server by creating a `server/main.go` file:
 
 ::: info cli/quickstart/start/
 
-```console
-$ mkdir server
-$ touch server/main.go
+```sh
+mkdir server
+touch server/main.go
 ```
 
 :::
@@ -518,8 +518,8 @@ Now that you have code for a server, run this command to resolve the dependencie
 
 ::: info cli/quickstart/start/
 
-```console
-$ go mod tidy
+```sh
+go mod tidy
 ```
 
 :::
@@ -532,8 +532,8 @@ First, run the server:
 
 ::: info cli/quickstart/start/
 
-```console
-$ go run server/main.go
+```sh
+go run server/main.go
 
 ...
 Listening on 127.0.0.1:8080
@@ -545,8 +545,8 @@ In a separate terminal, in the workspace root, add a pet to the store by calling
 
 ::: info cli/quickstart/start/
 
-```console
-$ buf curl \
+```sh
+buf curl \
   --schema . \
   --data '{"pet_type": "PET_TYPE_SNAKE", "name": "Ekans"}' \
   http://localhost:8080/pet.v1.PetStoreService/PutPet

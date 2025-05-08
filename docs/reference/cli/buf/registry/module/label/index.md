@@ -49,8 +49,8 @@ Manage a module's labels
 
 ### Usage
 
-```console
-$ buf registry module label [flags]
+```sh
+buf registry module label [flags]
 ```
 
 ### Flags

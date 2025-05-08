@@ -49,8 +49,8 @@ gets the current configuration
 
 ### Usage
 
-```console
-$ bufstream admin get [flags]
+```sh
+bufstream admin get [flags]
 ```
 
 ### Description

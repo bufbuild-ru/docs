@@ -189,14 +189,14 @@ If the [input](../inputs/) for a `buf` command is a directory containing a `buf.
 
 For example, suppose that we update both the `paymentapis` and `petapis` directories with some `lint` failures, such as using a camel case field name. We can easily lint all of the modules defined in a `buf.work.yaml` with a single command:
 
-```console
-$ ls
+```sh
+ls
 ---
 buf.work.yaml  paymentapis  petapis
 ```
 
-```console
-$ buf lint
+```sh
+buf lint
 ---
 paymentapis/acme/payment/v2/payment.proto:29:10:Field name "recipientID" should be lower_snake_case, such as "recipient_id".
 petapis/acme/pet/v1/pet.proto:51:27:Field name "orderV2" should be lower_snake_case, such as "order_v2".

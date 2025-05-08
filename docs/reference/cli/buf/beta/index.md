@@ -49,8 +49,8 @@ Beta commands. Unstable and likely to change
 
 ### Usage
 
-```console
-$ buf beta [flags]
+```sh
+buf beta [flags]
 ```
 
 ### Flags

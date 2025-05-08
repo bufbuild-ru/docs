@@ -51,8 +51,8 @@ The BSR API allows you to access the FileDescriptorSet of a module hosted on the
 
 ::: info Get the FileDescriptorSet and output the binary in the terminal
 
-```console
-$ curl -s "https://buf.build/acme/petapis/descriptor/main" --output -
+```sh
+curl -s "https://buf.build/acme/petapis/descriptor/main" --output -
 ```
 
 :::
@@ -61,8 +61,8 @@ You can also specify the commit or label reference of the BSR module:
 
 ::: info Get a module's FileDescriptorSet at a specific commit
 
-```console
-$ curl -s "https://buf.build/acme/petapis/descriptor/7abdb7802c8f4737a1a23a35ca8266ef" --output -
+```sh
+curl -s "https://buf.build/acme/petapis/descriptor/7abdb7802c8f4737a1a23a35ca8266ef" --output -
 ```
 
 :::
@@ -73,8 +73,8 @@ By default, the FileDescriptorSet includes all of the module's dependencies alon
 
 ::: info Exclude dependencies
 
-```console
-$ curl -s "https://buf.build/acme/petapis/descriptor/main?imports=false" --output -
+```sh
+curl -s "https://buf.build/acme/petapis/descriptor/main?imports=false" --output -
 ```
 
 :::
@@ -85,8 +85,8 @@ By default, the FileDescriptorSet includes no source code info. You can include 
 
 ::: info Include source code info
 
-```console
-$ curl -s "https://buf.build/acme/petapis/descriptor/main?source_info=true" --output -
+```sh
+curl -s "https://buf.build/acme/petapis/descriptor/main?source_info=true" --output -
 ```
 
 :::
@@ -99,8 +99,8 @@ You can extend the FileDescriptorSet output to include the source retention opti
 
 ::: info Include source retention options
 
-```console
-$ curl -s "https://buf.build/acme/petapis/descriptor/main?source_retention_options=true" --output -
+```sh
+curl -s "https://buf.build/acme/petapis/descriptor/main?source_retention_options=true" --output -
 ```
 
 :::
@@ -111,8 +111,8 @@ The module descriptor endpoint supports content negotiation, so that you can req
 
 ::: info Request JSON format
 
-```console
-$ curl -s "https://buf.build/acme/petapis/descriptor/main" -H "Accept: application/json"
+```sh
+curl -s "https://buf.build/acme/petapis/descriptor/main" -H "Accept: application/json"
 ```
 
 :::
@@ -121,8 +121,8 @@ You can also request the response to be compressed by providing `gzip` in the `A
 
 ::: info Request compressed response
 
-```console
-$ curl -s "https://buf.build/acme/petapis/descriptor/main" -H "Accept-Encoding: gzip" --output -
+```sh
+curl -s "https://buf.build/acme/petapis/descriptor/main" -H "Accept-Encoding: gzip" --output -
 ```
 
 :::

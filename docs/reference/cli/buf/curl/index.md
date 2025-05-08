@@ -49,8 +49,8 @@ Invoke an RPC endpoint, a la 'cURL'
 
 ### Usage
 
-```console
-$ buf curl <url> [flags]
+```sh
+buf curl <url> [flags]
 ```
 
 ### Description
@@ -75,30 +75,30 @@ Examples:
 
 Issue a unary RPC to a plain-text (i.e. "h2c") gRPC server, where the schema for the service is in a Buf module in the current directory, using an empty request message:
 
-```console
-$ buf curl --schema . --protocol grpc --http2-prior-knowledge  \
+```sh
+buf curl --schema . --protocol grpc --http2-prior-knowledge  \
      http://localhost:20202/foo.bar.v1.FooService/DoSomething
 ```
 
 Issue an RPC to a Connect server, where the schema comes from the Buf Schema Registry, using a request that is defined as a command-line argument:
 
-```console
-$ buf curl --schema buf.build/connectrpc/eliza  \
+```sh
+buf curl --schema buf.build/connectrpc/eliza  \
      --data '{"name": "Bob Loblaw"}'          \
      https://demo.connectrpc.com/connectrpc.eliza.v1.ElizaService/Introduce
 ```
 
 Issue a unary RPC to a server that supports reflection, with verbose output:
 
-```console
-$ buf curl --data '{"sentence": "I am not feeling well."}' -v  \
+```sh
+buf curl --data '{"sentence": "I am not feeling well."}' -v  \
      https://demo.connectrpc.com/connectrpc.eliza.v1.ElizaService/Say
 ```
 
 Issue a client-streaming RPC to a gRPC-web server that supports reflection, where custom headers and request data are both in a heredoc:
 
-```console
-$ buf curl --data @- --header @- --protocol grpcweb                              \
+```sh
+buf curl --data @- --header @- --protocol grpcweb                              \
      https://demo.connectrpc.com/connectrpc.eliza.v1.ElizaService/Converse  \
    <<EOM
 Custom-Header-1: foo-bar-baz

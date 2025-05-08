@@ -87,8 +87,8 @@ The following are the steps we'll cover to build and push a custom plugin:
 
 You can create an organization through the BSR UI (see [Manage organizations](../../admin/manage-organizations/)) or the Buf CLI (see the [buf registry](../../../reference/cli/buf/registry/organization/create/) command reference).
 
-```console
-$ buf registry organization create <BSR_INSTANCE/ORG_NAME>
+```sh
+buf registry organization create <BSR_INSTANCE/ORG_NAME>
 ```
 
 ### Build a Docker image
@@ -121,8 +121,8 @@ ENTRYPOINT [ "/protoc-gen-go-json" ]
 
 Once you've prepared the Dockerfile, build and tag the image:
 
-```console
-$ docker build --platform linux/amd64 -t buf.example.com/acme/go-json:v1.1.0 .
+```sh
+docker build --platform linux/amd64 -t buf.example.com/acme/go-json:v1.1.0 .
 ```
 
 ### Prepare `buf.plugin.yaml`
@@ -151,8 +151,8 @@ Make sure you have [authenticated to the BSR](../../authentication/).
 
 Once you have a Docker image and a `buf.plugin.yaml` file, run the following command:
 
-```console
-$ buf beta registry plugin push \
+```sh
+buf beta registry plugin push \
     --visibility [public,private] \
     --image buf.example.com/acme/go-json:v1.1.0
 ```
@@ -185,8 +185,8 @@ The BSR's plugins are publicly accessible, so you can start from the existing pl
 1.  Clone the following repository: [`https://github.com/bufbuild/plugins`](https://github.com/bufbuild/plugins).
 2.  Go to the directory of the version you want to use — we'll use the current version, `v1.6.0`:
 
-    ```console
-    $ cd plugins/bufbuild/es/v1.6.0
+    ```sh
+    cd plugins/bufbuild/es/v1.6.0
     ```
 
 3.  Update the `buf.plugin.yaml` file with the following changes:
@@ -225,16 +225,16 @@ The complete patch looks like this:
 
 Make sure to build the image for the correct platform (`linux/amd64`)
 
-```console
-$ docker build \
+```sh
+docker build \
     --platform linux/amd64 \
     -t jsexample.buf.dev/custom-plugins/bufbuild-es:v1.6.0 .
 ```
 
 ### Push the Docker image to the BSR
 
-```console
-$ buf beta registry plugin push \
+```sh
+buf beta registry plugin push \
     --visibility=public \
     --image=jsexample.buf.dev/custom-plugins/bufbuild-es:v1.6.0 \
     --override-remote=jsexample.buf.dev
@@ -242,8 +242,8 @@ $ buf beta registry plugin push \
 
 Now, when you `npm install` a generated SDK from this custom plugin:
 
-```console
-$ npm install @buf/acme_petapis.custom-plugins_bufbuild-es@latest
+```sh
+npm install @buf/acme_petapis.custom-plugins_bufbuild-es@latest
 ```
 
 It has `commonjs` imports instead of ESM:
@@ -268,16 +268,16 @@ If the version is omitted, then all versions for that plugin will be deleted.
 
 ::: info Delete all versions
 
-```console
-$ buf beta registry plugin delete buf.example.com/acme/go-json
+```sh
+buf beta registry plugin delete buf.example.com/acme/go-json
 ```
 
 :::
 
 ::: info Delete specific version
 
-```console
-$ buf beta registry plugin delete buf.example.com/acme/go-json:v1.1.0
+```sh
+buf beta registry plugin delete buf.example.com/acme/go-json:v1.1.0
 ```
 
 :::

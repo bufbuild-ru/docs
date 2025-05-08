@@ -49,8 +49,8 @@ Generate code with protoc plugins
 
 ### Usage
 
-```console
-$ buf generate <input> [flags]
+```sh
+buf generate <input> [flags]
 ```
 
 ### Description
@@ -325,32 +325,32 @@ The first argument is the source, module, or image to generate from. Defaults to
 
 Use buf.gen.yaml as template, current directory as input:
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 Same as the defaults (template of "buf.gen.yaml", current directory as input):
 
-```console
-$ buf generate --template buf.gen.yaml .
+```sh
+buf generate --template buf.gen.yaml .
 ```
 
 The --template flag also takes YAML or JSON data as input, so it can be used without a file:
 
-```console
-$ buf generate --template '{"version":"v2","plugins":[{"local":"protoc-gen-go","out":"gen/go"}]}'
+```sh
+buf generate --template '{"version":"v2","plugins":[{"local":"protoc-gen-go","out":"gen/go"}]}'
 ```
 
 Download the repository and generate code stubs per the bar.yaml template:
 
-```console
-$ buf generate --template bar.yaml https://github.com/foo/bar.git
+```sh
+buf generate --template bar.yaml https://github.com/foo/bar.git
 ```
 
 Generate to the bar/ directory, prepending bar/ to the out directives in the template:
 
-```console
-$ buf generate --template bar.yaml -o bar https://github.com/foo/bar.git
+```sh
+buf generate --template bar.yaml -o bar https://github.com/foo/bar.git
 ```
 
 The paths in the template and the -o flag will be interpreted as relative to the current directory, so you can place your template files anywhere.
@@ -359,20 +359,20 @@ If you only want to generate stubs for a subset of your input, you can do so via
 
 Only generate for the files in the directories proto/foo and proto/bar:
 
-```console
-$ buf generate --path proto/foo --path proto/bar
+```sh
+buf generate --path proto/foo --path proto/bar
 ```
 
 Only generate for the files proto/foo/foo.proto and proto/foo/bar.proto:
 
-```console
-$ buf generate --path proto/foo/foo.proto --path proto/foo/bar.proto
+```sh
+buf generate --path proto/foo/foo.proto --path proto/foo/bar.proto
 ```
 
 Only generate for the files in the directory proto/foo on your git repository:
 
-```console
-$ buf generate --template buf.gen.yaml https://github.com/foo/bar.git --path proto/foo
+```sh
+buf generate --template buf.gen.yaml https://github.com/foo/bar.git --path proto/foo
 ```
 
 Note that all paths must be contained within the same module. For example, if you have a module in "proto", you cannot specify "--path proto", however "--path proto/foo" is allowed as "proto/foo" is contained within "proto".

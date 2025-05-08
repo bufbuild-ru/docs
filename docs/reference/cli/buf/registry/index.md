@@ -49,8 +49,8 @@ Manage assets on the Buf Schema Registry
 
 ### Usage
 
-```console
-$ buf registry [flags]
+```sh
+buf registry [flags]
 ```
 
 ### Flags

@@ -83,8 +83,8 @@ Create a GKE standard cluster if you don't already have one. A GKE cluster invol
 
 If you don't already have one, you need the `Storage Admin` role (`roles/storage.admin`).
 
-```console
-$ gcloud storage buckets create gs://<bucket-name> --project <gcp-project-name>
+```sh
+gcloud storage buckets create gs://<bucket-name> --project <gcp-project-name>
 ```
 
 ## Create a CloudSQL instance for PostgreSQL
@@ -93,8 +93,8 @@ If you don't already have one, you need the `Cloud SQL Admin` role (`roles/cloud
 
 Create a new Cloud SQL instance with IAM authentication support:
 
-```console
-$ gcloud sql instances create <instance name> \
+```sh
+gcloud sql instances create <instance name> \
     --storage-size=100 \
     --database-version=POSTGRES_17 \
     --region=<region> \
@@ -106,16 +106,16 @@ $ gcloud sql instances create <instance name> \
 
 Set a password for the `postgres` user:
 
-```console
-$ gcloud sql users set-password postgres \
+```sh
+gcloud sql users set-password postgres \
     --instance=<instance name> \
     --prompt-for-password
 ```
 
 Create a database for Bufstream:
 
-```console
-$ gcloud sql databases create bufstream \
+```sh
+gcloud sql databases create bufstream \
     --instance=<instance name>
 ```
 
@@ -125,9 +125,9 @@ For more details about instance creation, see the [official docs](https://cloud.
 
 Bufstream needs a dedicated service account. If you don't have one yet, make sure you have the `Service Account Admin` role (`roles/iam.serviceAccountAdmin`) and create a service account:
 
-```console
-$ gcloud iam service-accounts create bufstream-service-account --project <project>
-$ gcloud iam service-accounts add-iam-policy-binding bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com \
+```sh
+gcloud iam service-accounts create bufstream-service-account --project <project>
+gcloud iam service-accounts add-iam-policy-binding bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com \
     --role roles/iam.workloadIdentityUser \
     --member "serviceAccount:<gcp-project-name>.svc.id.goog[bufstream/bufstream-service-account]"
 ```
@@ -138,24 +138,24 @@ $ gcloud iam service-accounts add-iam-policy-binding bufstream-service-account@<
 
 If you have the Storage Admin role, you can use add permissions directly on the bucket:
 
-```console
-$ gcloud storage buckets add-iam-policy-binding gs://<bucket-name> --member=serviceAccount:bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com --role=roles/storage.objectAdmin
+```sh
+gcloud storage buckets add-iam-policy-binding gs://<bucket-name> --member=serviceAccount:bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com --role=roles/storage.objectAdmin
 ```
 
 == Project-wide permissions
 
 If you have the the `Project IAM Admin` role (`roles/resourcemanager.projectIamAdmin`), you can also set the permission on the entire project:
 
-```console
-$ gcloud projects add-iam-policy-binding <gcp-project-name> --member=serviceAccount:bufstream-service-account --role=roles/storage.objectAdmin
+```sh
+gcloud projects add-iam-policy-binding <gcp-project-name> --member=serviceAccount:bufstream-service-account --role=roles/storage.objectAdmin
 ```
 
 +++
 
 Using Custom Object Storage permissions If you have the \`Role Administrator\` role (\`roles/iam.roleAdmin\`), you can also create a role with the minimal set of permissions required:
 
-```console
-$ gcloud iam roles create 'bufstream.gcs' \
+```sh
+gcloud iam roles create 'bufstream.gcs' \
   --project <gcp-project-name> \
   --permissions \
   storage.objects.create,\
@@ -174,8 +174,8 @@ Then replace \`--role=roles/storage.objectAdmin\` with \`--role=projects//roles/
 
 Create a database user for the `bufstream` service account:
 
-```console
-$ gcloud sql users create bufstream-service-account@<gcp-project-name>.iam \
+```sh
+gcloud sql users create bufstream-service-account@<gcp-project-name>.iam \
     --instance=<instance name> \
     --type=cloud_iam_service_account
 ```
@@ -189,10 +189,10 @@ GRANT ALL ON SCHEMA public TO "bufstream-service-account@<gcp-project-name>.iam"
 
 Allow the Bufstream service account to connect to the Cloud SQL instance:
 
-```console
-$ gcloud projects add-iam-policy-binding <gcp-project-name> \
+```sh
+gcloud projects add-iam-policy-binding <gcp-project-name> \
     --member=serviceAccount:bufstream-service-account --role=roles/cloudsql.client
-$ gcloud projects add-iam-policy-binding <gcp-project-name> \
+gcloud projects add-iam-policy-binding <gcp-project-name> \
     --member=serviceAccount:bufstream-service-account --role=roles/cloudsql.instanceUser
 ```
 
@@ -200,8 +200,8 @@ $ gcloud projects add-iam-policy-binding <gcp-project-name> \
 
 Create a Kubernetes namespace in the k8s cluster for the `bufstream` deployment to use:
 
-```console
-$ kubectl create namespace bufstream
+```sh
+kubectl create namespace bufstream
 ```
 
 ## Deploy Bufstream
@@ -210,8 +210,8 @@ $ kubectl create namespace bufstream
 
 To get started, authenticate `helm` with the Bufstream OCI registry using the keyfile that was sent alongside this documentation. _The keyfile should contain a base64 encoded string._
 
-```console
-$ cat keyfile | helm registry login -u _json_key_base64 --password-stdin \
+```sh
+cat keyfile | helm registry login -u _json_key_base64 --password-stdin \
   https://us-docker.pkg.dev/buf-images-1/bufstream
 ```
 
@@ -255,14 +255,14 @@ Alternatively, you can use service account credentials. You'll need the `Service
 
 1.  Create a key credential for the service account:
 
-```console
-$ gcloud iam service-accounts keys create credentials.json --iam-account=bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com --key-file-type=json
+```sh
+gcloud iam service-accounts keys create credentials.json --iam-account=bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com --key-file-type=json
 ```
 
 1.  Create a k8s secret containing the service account credentials:
 
-```console
-$ kubectl create secret --namespace bufstream generic bufstream-service-account-credentials \
+```sh
+kubectl create secret --namespace bufstream generic bufstream-service-account-credentials \
   --from-file=credentials.json=credentials.json
 ```
 
@@ -357,8 +357,8 @@ metadata:
 
 Using the `bufstream-values.yaml` Helm values file, install the Helm chart for the cluster and set the target Bufstream version:
 
-```console
-$ helm install bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
+```sh
+helm install bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
   --version "<version>" \
   --namespace=bufstream \
   --values bufstream-values.yaml
@@ -387,8 +387,8 @@ bufstream:
 
 Then run the `helm upgrade` command for Bufstream:
 
-```console
-$ helm upgrade bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
+```sh
+helm upgrade bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
   --version "<version>" \
   --namespace=bufstream \
   --values bufstream-values.yaml
@@ -402,16 +402,16 @@ Follow the [Container-native load balancing through standalone zonal NEGs docs](
 
 First, specify a list of target zones in a `ZONES` variable, which are used for future commands.
 
-```console
-$ ZONES=(<zone1> <zone2> <zone3>)
+```sh
+ZONES=(<zone1> <zone2> <zone3>)
 ```
 
 ### 2\. Create GCP service account association for all zones
 
 Create a Bufstream account association for the GCP service account in each zone:
 
-```console
-$ for ZONE in $ZONES; do
+```sh
+for ZONE in $ZONES; do
 gcloud iam service-accounts add-iam-policy-binding bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com \
     --role roles/iam.workloadIdentityUser \
     --member "serviceAccount:<gcp-project-name>.svc.id.goog[bufstream/bufstream-service-account-${ZONE}]"
@@ -422,8 +422,8 @@ done
 
 Then, use this script to iterate through the availability zones saved in the `ZONES` variable and create a Helm values file for each zone:
 
-```console
-$ for ZONE in $ZONES; do
+```sh
+for ZONE in $ZONES; do
   cat <<EOF > "bufstream-${ZONE}-values.yaml"
 nameOverride: bufstream-${ZONE}
 name: bufstream-${ZONE}
@@ -509,8 +509,8 @@ kafka:
 
 To deploy a zone-aware Bufstream using the `bufstream-values.yaml` Helm values file, install the Helm chart for the cluster, set the target Bufstream version, and supply the `ZONES` variable:
 
-```console
-$ for ZONE in $ZONES; do
+```sh
+for ZONE in $ZONES; do
   helm install "bufstream-${ZONE}" oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
     --version "<version>" \
     --namespace=bufstream \
@@ -525,8 +525,8 @@ If you change any configurations in the `bufstream-values.yaml` file, re-run the
 
 Create a regional service which creates a bootstrap address for bufstream across all the zones.
 
-```console
-$ cat <<EOF | kubectl apply -f -
+```sh
+cat <<EOF | kubectl apply -f -
 ---
 apiVersion: v1
 kind: Service

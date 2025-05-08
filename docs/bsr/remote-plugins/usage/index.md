@@ -63,8 +63,8 @@ Remote plugins generate code for [inputs](../../../reference/inputs/). An input 
 
 For our purposes, we'll assume you have a directory of `.proto` files with a `buf.yaml` configuration file that defines them as a workspace with at least one module. To create a `buf.yaml` in your current directory if you don't have one, run this command:
 
-```console
-$ buf config init
+```sh
+buf config init
 ```
 
 It creates a `buf.yaml` with the default settings:
@@ -217,8 +217,8 @@ Plugins are invoked in the order they're specified in `buf.gen.yaml`, with resul
 
 To generate using the module and `buf.gen.yaml` you defined, run this command from the root of the workspace:
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 The `buf generate` command:
@@ -229,8 +229,8 @@ The `buf generate` command:
 
 By default, `buf generate` looks for a [`buf.gen.yaml`](../../../configuration/v2/buf-gen-yaml/) in your current directory. An alternate location can be specified by using the `--template` flag:
 
-```console
-$ buf generate --template templates/buf.go.gen.yaml
+```sh
+buf generate --template templates/buf.go.gen.yaml
 ```
 
 If you used one of the example `buf.gen.yaml` files from above, you should end up with this file structure:

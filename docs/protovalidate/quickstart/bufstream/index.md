@@ -58,8 +58,8 @@ This tutorial shows how to add Protovalidate to a Go streaming application power
 - Use Linux or Mac and have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [`go`](https://go.dev/dl/), and `make` installed and in your `$PATH`.
 - Clone the `buf-examples` repo and navigate to the `protovalidate/bufstream/start` directory:
 
-  ```console
-  $ git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/protovalidate/bufstream/start
+  ```sh
+  git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/protovalidate/bufstream/start
   ```
 
 ## Goal
@@ -75,8 +75,8 @@ Before you begin to code, verify that the example is working. In one terminal wi
 
 ::: info Broker terminal
 
-```console
-$ make
+```sh
+make
 ```
 
 :::
@@ -96,8 +96,8 @@ In a second terminal window, start the producer with the `producer` target:
 
 ::: info Producer terminal
 
-```console
-$ make producer
+```sh
+make producer
 ```
 
 :::
@@ -118,8 +118,8 @@ In a third terminal window, start the consumer with the `consumer` target:
 
 ::: info Consumer terminal
 
-```console
-$ make consumer
+```sh
+make consumer
 ```
 
 :::
@@ -210,9 +210,9 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
 1.  Add Protovalidate to your Go project:
 
-    ```console
-    $ go get github.com/bufbuild/protovalidate-go@v0.9.3
-    $ go mod tidy
+    ```sh
+    go get github.com/bufbuild/protovalidate-go@v0.9.3
+    go mod tidy
     ```
 
 2.  Add Protovalidate as a dependency to `buf.yaml`.
@@ -241,8 +241,8 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
     ::: info Updating CLI dependencies
 
-    ```console
-    $ buf dep update
+    ```sh
+    buf dep update
     WARN    Module buf.build/bufbuild/protovalidate is declared in your buf.yaml deps but is unused...
     ```
 
@@ -355,8 +355,8 @@ Learn more about [string](../../../reference/protovalidate/rules/string_rules/) 
 
 Next, use any terminal window to compile your Protobuf and regenerate code, adding the Protovalidate options to all of your message descriptors:
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 With regenerated code, your broker, producer and consumer should still build and start. (If you're still running the either, stop them with `Ctrl-c`.)
@@ -365,8 +365,8 @@ Restart the broker:
 
 ::: info Broker terminal
 
-```console
-$ make
+```sh
+make
 ```
 
 :::
@@ -386,8 +386,8 @@ Restart the producer:
 
 ::: info Producer terminal
 
-```console
-$ make producer
+```sh
+make producer
 ```
 
 :::
@@ -408,8 +408,8 @@ In a third terminal window, start the consumer with the `consumer` target:
 
 ::: info Consumer terminal
 
-```console
-$ make consumer
+```sh
+make consumer
 ```
 
 :::
@@ -464,8 +464,8 @@ Bufstream is now configured to reject messages that fail to pass your validation
 
 ::: info Broker terminal
 
-```console
-$ make
+```sh
+make
 ```
 
 :::
@@ -485,8 +485,8 @@ Next, start your producer:
 
 ::: info Producer terminal
 
-```console
-$ make producer
+```sh
+make producer
 ```
 
 :::
@@ -526,8 +526,8 @@ In a third terminal window, start the consumer with the `consumer` target:
 
 ::: info Consumer terminal
 
-```console
-$ make consumer
+```sh
+make consumer
 ```
 
 :::

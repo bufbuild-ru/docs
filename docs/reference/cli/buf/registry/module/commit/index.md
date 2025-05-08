@@ -49,8 +49,8 @@ Manage a module's commits
 
 ### Usage
 
-```console
-$ buf registry module commit [flags]
+```sh
+buf registry module commit [flags]
 ```
 
 ### Flags

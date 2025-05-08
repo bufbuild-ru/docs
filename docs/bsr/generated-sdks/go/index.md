@@ -82,8 +82,8 @@ In this example, the BSR generates code for the [`connectrpc/eliza`](https://buf
 
 To generate the [`connectrpc/eliza`](https://buf.build/connectrpc/eliza) Protobuf module using the [`connect-go`](https://buf.build/connectrpc/go) plugin, you could install the generated SDK like this:
 
-```console
-$ go get buf.build/gen/go/connectrpc/eliza/connectrpc/go
+```sh
+go get buf.build/gen/go/connectrpc/eliza/connectrpc/go
 
 go: downloading buf.build/gen/go/connectrpc/eliza/connectrpc/go v1.11.0-20230727062025-d8fbf2620c60.1
 go: added buf.build/gen/go/connectrpc/eliza/connectrpc/go v1.11.0-20230727062025-d8fbf2620c60.1
@@ -137,16 +137,16 @@ By default, when you `go get` a [Buf module](../../../cli/modules-workspaces/), 
 
 To get the generated SDK for the latest version of the module, using the latest plugin version:
 
-```console
-$ go get buf.build/gen/go/connectrpc/eliza/connectrpc/go@latest
+```sh
+go get buf.build/gen/go/connectrpc/eliza/connectrpc/go@latest
 ```
 
 ### Commit
 
 To get the generated SDK for the module at a commit, using the latest plugin version:
 
-```console
-$ go get buf.build/gen/go/connectrpc/eliza/connectrpc/go@COMMIT_ID
+```sh
+go get buf.build/gen/go/connectrpc/eliza/connectrpc/go@COMMIT_ID
 ```
 
 ### Label
@@ -155,8 +155,8 @@ The BSR supports [commits on labels](../../../cli/modules-workspaces/#referencin
 
 To get the generated SDK for the module at a label, using the latest plugin version:
 
-```console
-$ go get buf.build/gen/go/connectrpc/eliza/connectrpc/go@LABEL
+```sh
+go get buf.build/gen/go/connectrpc/eliza/connectrpc/go@LABEL
 ```
 
 ::: tip Note
@@ -186,8 +186,8 @@ With SDK versions (valid [semver](https://semver.org)):
 
 Most users likely want to use `@latest`, but if you need to reference a version explicitly, you can do so like this:
 
-```console
-$ go get buf.build/gen/go/connectrpc/eliza/connectrpc/go@v1.11.0-20230727062025-d8fbf2620c60.1
+```sh
+go get buf.build/gen/go/connectrpc/eliza/connectrpc/go@v1.11.0-20230727062025-d8fbf2620c60.1
 ```
 
 If you need a more specific version than the `@latest`, `@COMMIT_ID` or `@LABEL` shorthands, such as needing to install a specific plugin version, you can use the [`buf registry sdk version` command](../../../reference/cli/buf/registry/sdk/version/).
@@ -214,14 +214,14 @@ Modify the Go environment using the `export` command in your shell or with the `
 
 == Temporary
 
-```console
-$ export GOPRIVATE="buf.build/gen/go,${GOPRIVATE}"
+```sh
+export GOPRIVATE="buf.build/gen/go,${GOPRIVATE}"
 ```
 
 == Persisted
 
-```console
-$ go env -w GOPRIVATE="buf.build/gen/go,${GOPRIVATE}"
+```sh
+go env -w GOPRIVATE="buf.build/gen/go,${GOPRIVATE}"
 ```
 
 +++

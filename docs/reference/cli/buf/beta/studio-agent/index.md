@@ -49,8 +49,8 @@ Run an HTTP(S) server as the Studio agent
 
 ### Usage
 
-```console
-$ buf beta studio-agent [flags]
+```sh
+buf beta studio-agent [flags]
 ```
 
 ### Flags

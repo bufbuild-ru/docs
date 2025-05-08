@@ -49,8 +49,8 @@ Prune unused plugins from buf.lock
 
 ### Usage
 
-```console
-$ buf plugin prune <directory> [flags]
+```sh
+buf plugin prune <directory> [flags]
 ```
 
 ### Description

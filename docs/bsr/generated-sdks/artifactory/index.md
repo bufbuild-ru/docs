@@ -169,20 +169,20 @@ You must be a BSR instance admin to set up Artifactory.
 1.  Click **Set Up Client/CI Tool** on the `go` virtual repository and follow the instructions.
 2.  Run the following in a terminal to configure Artifactory as the go proxy:
 
-    ```console
-    $ export GOPROXY="https://${ARTIFACTORY_USER}:${ARTIFACTORY_ACCESS_TOKEN}@example.jfrog.io/artifactory/api/go/go"
+    ```sh
+    export GOPROXY="https://${ARTIFACTORY_USER}:${ARTIFACTORY_ACCESS_TOKEN}@example.jfrog.io/artifactory/api/go/go"
     ```
 
 3.  Stop the go client from trying to resolve the sum with the global sumdb, see the [GONOSUMDB documentation](https://go.dev/ref/mod#environment-variables) for more.
 
-    ```console
-    $ export GONOSUMDB=buf.example.com/gen/go
+    ```sh
+    export GONOSUMDB=buf.example.com/gen/go
     ```
 
 4.  Install modules:
 
-    ```console
-    $ go get buf.example.com/gen/go/acme/petapis/protocolbuffers/go
+    ```sh
+    go get buf.example.com/gen/go/acme/petapis/protocolbuffers/go
     ```
 
 ### NPM
@@ -190,26 +190,26 @@ You must be a BSR instance admin to set up Artifactory.
 1.  Click **Set Up Client/CI Tool** on the `npm` virtual repository and follow the instructions.
 2.  Run the following to configure Artifactory as a global registry, so that all `npm install` requests are routed to it.
 
-    ```console
-    $ npm config set registry https://example.jfrog.io/artifactory/api/npm/npm/
+    ```sh
+    npm config set registry https://example.jfrog.io/artifactory/api/npm/npm/
     ```
 
     Or, configure only the `@bufteam` scope used by the BSR.
 
-    ```console
-    $ npm config set @bufteam:registry https://bufbuild.jfrog.io/artifactory/api/npm/npm/
+    ```sh
+    npm config set @bufteam:registry https://bufbuild.jfrog.io/artifactory/api/npm/npm/
     ```
 
 3.  Authenticate with Artifactory:
 
-    ```console
-    $ npm login
+    ```sh
+    npm login
     ```
 
 4.  Install packages:
 
-    ```console
-    $ npm install @bufteam/example_hello-service.protocolbuffers_js
+    ```sh
+    npm install @bufteam/example_hello-service.protocolbuffers_js
     ```
 
 ### Maven
@@ -368,8 +368,8 @@ dependencies {
 
 2.  Install packages:
 
-    ```console
-    $ pip install example_hello-service_protocolbuffers_python
+    ```sh
+    pip install example_hello-service_protocolbuffers_python
     ```
 
 ### Cargo
@@ -385,8 +385,8 @@ dependencies {
 
 2.  Install packages:
 
-    ```console
-    $ cargo add --registry artifactory example_hello-service_community_neoeinstein-prost
+    ```sh
+    cargo add --registry artifactory example_hello-service_community_neoeinstein-prost
     ```
 
 ### NuGet
@@ -403,6 +403,6 @@ dependencies {
 
 2.  Install packages:
 
-    ```console
-    $ dotnet add package Bsr.Example.HelloService.Grpc.Csharp
+    ```sh
+    dotnet add package Bsr.Example.HelloService.Grpc.Csharp
     ```

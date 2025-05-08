@@ -49,8 +49,8 @@ Get a BSR module
 
 ### Usage
 
-```console
-$ buf registry module info <remote/owner/module> [flags]
+```sh
+buf registry module info <remote/owner/module> [flags]
 ```
 
 ### Flags

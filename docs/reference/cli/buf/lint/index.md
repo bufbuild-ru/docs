@@ -49,8 +49,8 @@ Run linting on Protobuf files
 
 ### Usage
 
-```console
-$ buf lint <input> [flags]
+```sh
+buf lint <input> [flags]
 ```
 
 ### Description

@@ -49,8 +49,8 @@ Update pinned module dependencies in a buf.lock
 
 ### Usage
 
-```console
-$ buf dep update <directory> [flags]
+```sh
+buf dep update <directory> [flags]
 ```
 
 ### Description

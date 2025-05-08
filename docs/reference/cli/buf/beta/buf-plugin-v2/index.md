@@ -49,8 +49,8 @@ Run buf as a check plugin.
 
 ### Usage
 
-```console
-$ buf beta buf-plugin-v2 [flags]
+```sh
+buf beta buf-plugin-v2 [flags]
 ```
 
 ### Flags

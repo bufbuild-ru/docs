@@ -390,15 +390,15 @@ Compilers can produce a file containing a serialized `FileDescriptorSet`.
 
 The `-o` option tells buf to create a file with the given name. Its contents are a serialized `FileDescriptorSet`, encoded using the Protobuf binary format. You may optionally specify the `--exclude-source-info` flag to strip source code info from the resulting descriptors. This can shrink the resulting file, if source code info isn't needed (depends on how the descriptors are used).
 
-```console
-$ buf build ./proto \
+```sh
+buf build ./proto \
     -o descriptors.binpb
 ```
 
 The `-o` option works the same way with `protoc`. The `--include_imports` flag is important: without it, the resulting file may be incomplete and not loadable by an application. The `--include_source_info` flag is optional: without it, the resulting descriptors won't contain source code info (which may or may not be useful, depending on how the descriptors are used).
 
-```console
-$ protoc -I ./proto \
+```sh
+protoc -I ./proto \
     foo/bar/test.proto \
     -o descriptors.binpb \
     --include_imports \

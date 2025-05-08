@@ -49,8 +49,8 @@ Convert a message between binary, text, or JSON
 
 ### Usage
 
-```console
-$ buf convert <input> [flags]
+```sh
+buf convert <input> [flags]
 ```
 
 ### Description
@@ -59,44 +59,44 @@ Use an input proto to interpret a proto/json message and convert it to a differe
 
 Examples:
 
-```console
-$ buf convert <input> --type=<type> --from=<payload> --to=<output>
+```sh
+buf convert <input> --type=<type> --from=<payload> --to=<output>
 ```
 
 The `<input>` can be a local .proto file, binary output of "buf build", bsr module or local buf module:
 
-```console
-$ buf convert example.proto --type=Foo.proto --from=payload.json --to=output.binpb
+```sh
+buf convert example.proto --type=Foo.proto --from=payload.json --to=output.binpb
 ```
 
 All of `<input>`, "--from" and "to" accept formatting options:
 
-```console
-$ buf convert example.proto#format=binpb --type=buf.Foo --from=payload#format=json --to=out#format=json
+```sh
+buf convert example.proto#format=binpb --type=buf.Foo --from=payload#format=json --to=out#format=json
 ```
 
 Both `<input>` and "--from" accept stdin redirecting:
 
-```console
-$ buf convert <(buf build -o -)#format=binpb --type=foo.Bar --from=<(echo "{\"one\":\"55\"}")#format=json
+```sh
+buf convert <(buf build -o -)#format=binpb --type=foo.Bar --from=<(echo "{\"one\":\"55\"}")#format=json
 ```
 
 Redirect from stdin to --from:
 
-```console
-$ echo "{\"one\":\"55\"}" | buf convert buf.proto --type buf.Foo --from -#format=json
+```sh
+echo "{\"one\":\"55\"}" | buf convert buf.proto --type buf.Foo --from -#format=json
 ```
 
 Redirect from stdin to `<input>`:
 
-```console
-$ buf build -o - | buf convert -#format=binpb --type buf.Foo --from=payload.json
+```sh
+buf build -o - | buf convert -#format=binpb --type buf.Foo --from=payload.json
 ```
 
 Use a module on the bsr:
 
-```console
-$ buf convert <buf.build/owner/repository> --type buf.Foo --from=payload.json
+```sh
+buf convert <buf.build/owner/repository> --type buf.Foo --from=payload.json
 ```
 
 ### Flags

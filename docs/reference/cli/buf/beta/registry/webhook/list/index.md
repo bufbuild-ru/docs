@@ -49,8 +49,8 @@ List repository webhooks
 
 ### Usage
 
-```console
-$ buf beta registry webhook list [flags]
+```sh
+buf beta registry webhook list [flags]
 ```
 
 ### Flags

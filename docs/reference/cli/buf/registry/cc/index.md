@@ -49,8 +49,8 @@ Clear the registry cache
 
 ### Usage
 
-```console
-$ buf registry cc [flags]
+```sh
+buf registry cc [flags]
 ```
 
 ### Flags

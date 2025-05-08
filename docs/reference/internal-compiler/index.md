@@ -73,20 +73,20 @@ Instead of this...
 
 ::: info Adjust -I as necessary; this example includes the current directory
 
-```console
-$ rm -rf java
-$ mkdir java
-$ protoc -I . --java_out=java $(find . -name '*.proto')
+```sh
+rm -rf java
+mkdir java
+protoc -I . --java_out=java $(find . -name '*.proto')
 ```
 
 :::
 
 ...you can use `buf`'s compiler to generate your stubs with the `--descriptor_set_in` flag of `protoc`. We need to do `buf build | buf ls-files -` instead of `buf ls-files` to make sure that the filenames are root.
 
-```console
-$ rm -rf java
-$ mkdir java
-$ buf build -o - | protoc --descriptor_set_in=/dev/stdin --java_out=java $(buf ls-files)
+```sh
+rm -rf java
+mkdir java
+buf build -o - | protoc --descriptor_set_in=/dev/stdin --java_out=java $(buf ls-files)
 ```
 
 This results in protoc's internal parser not being used at all, so you can verify our claims further. If you do find an issue, [contact us](../../contact/).

@@ -49,8 +49,8 @@ Delete a BSR module
 
 ### Usage
 
-```console
-$ buf registry module delete <remote/owner/module> [flags]
+```sh
+buf registry module delete <remote/owner/module> [flags]
 ```
 
 ### Flags

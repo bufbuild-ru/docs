@@ -49,8 +49,8 @@ Perform Bufstream cleaning tasks
 
 ### Usage
 
-```console
-$ bufstream admin clean [flags]
+```sh
+bufstream admin clean [flags]
 ```
 
 ### Flags

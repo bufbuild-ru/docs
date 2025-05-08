@@ -49,8 +49,8 @@ Deprecate a BSR module
 
 ### Usage
 
-```console
-$ buf registry module deprecate <remote/owner/module> [flags]
+```sh
+buf registry module deprecate <remote/owner/module> [flags]
 ```
 
 ### Flags

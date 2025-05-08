@@ -62,8 +62,8 @@ There's an example of Protovalidate for Connect and Go in [GitHub](https://githu
 - Have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [`go`](https://go.dev/dl/) installed and in your `$PATH`.
 - Clone the `buf-examples` repo and navigate to the `protovaldiate/connect-go/start` directory:
 
-  ```console
-  $ git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/protovalidate/connect-go/start
+  ```sh
+  git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/protovalidate/connect-go/start
   ```
 
 ## Goal
@@ -75,8 +75,8 @@ This tutorial's `CreateInvoice` RPC doesn't have any input validation. Your goal
 
 Run the test now, and you can see that it fails:
 
-```console
-$ go test -v ./...
+```sh
+go test -v ./...
 --- PASS: TestCreateInvoice/A_valid_invoice_passes_validation (0.00s)
 --- FAIL: TestCreateInvoice/InvoiceId_is_required (0.00s)
 --- FAIL: TestCreateInvoice/Two_line_items_cannot_have_the_same_product_id_and_unit_price (0.00s)
@@ -88,8 +88,8 @@ When this test passes, you've met your goal.
 
 Before you begin to code, verify that the example is working. Compile and start the included server:
 
-```console
-$ go run cmd/server.go
+```sh
+go run cmd/server.go
 ```
 
 After a few seconds, you should see that it has started:
@@ -100,8 +100,8 @@ After a few seconds, you should see that it has started:
 
 In a second terminal window, use `buf curl` to send an invalid `CreateInvoiceRequest`:
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{ "invoice": { "invoice_id": "" } }' \
     --schema . \
     --http2-prior-knowledge \
@@ -189,8 +189,8 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
 1.  Add Protovalidate to your Go project:
 
-    ```console
-    $ go get github.com/bufbuild/protovalidate-go@v0.9.3
+    ```sh
+    go get github.com/bufbuild/protovalidate-go@v0.9.3
     ```
 
 2.  Add Protovalidate as a dependency to `buf.yaml`.
@@ -220,8 +220,8 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
     ::: info Updating CLI dependencies
 
-    ```console
-    $ buf dep update
+    ```sh
+    buf dep update
     WARN    Module buf.build/bufbuild/protovalidate is declared in your buf.yaml deps but is unused...
     ```
 
@@ -396,14 +396,14 @@ Learn more about [custom rules](../../schemas/custom-rules/).
 
 Next, compile your Protobuf and regenerate code, adding the Protovalidate options to all of your message descriptors:
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 If you're still running the server, stop it with `Ctrl-c`. Compile the new generated code and restart:
 
-```console
-$ go run cmd/server.go
+```sh
+go run cmd/server.go
 ```
 
 After a few seconds, you should see that it has started:
@@ -414,8 +414,8 @@ After a few seconds, you should see that it has started:
 
 In a second terminal window, use `buf curl` to send the same invalid `CreateInvoiceRequest`:
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{ "invoice": { "invoice_id": "" } }' \
     --schema . \
     --http2-prior-knowledge \
@@ -445,8 +445,8 @@ Follow these steps to begin enforcing Protovalidate rules with `connectrpc.com/v
 1.  In your first terminal window, use `Ctrl-c` to stop your server.
 2.  Install the interceptor.
 
-    ```console
-    $ go get connectrpc.com/validate
+    ```sh
+    go get connectrpc.com/validate
     ```
 
 3.  Import `connectprc.com/connect` and `connectrpc.com/validate` in `cmd/server.go`.
@@ -502,8 +502,8 @@ Follow these steps to begin enforcing Protovalidate rules with `connectrpc.com/v
 
 5.  Stop (`Ctrl-c`) and restart your server:
 
-    ```console
-    $ go run cmd/server.go
+    ```sh
+    go run cmd/server.go
     ```
 
     After a few seconds, you should see that it has started:
@@ -514,8 +514,8 @@ Follow these steps to begin enforcing Protovalidate rules with `connectrpc.com/v
 
 Now that you've added the Connect interceptor and restarted your server, try the `buf curl` command again:
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{ "invoice": { "invoice_id": "" } }' \
     --schema . \
     --http2-prior-knowledge \
@@ -547,8 +547,8 @@ This time, you should receive a block of JSON representing Protovalidate's enfor
 
 Running the `buf curl` command again with the `--verbose` flag shows that the interceptor also sends the correct HTTP status code:
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{ "invoice": { "invoice_id": "" } }' \
     --schema . \
     --http2-prior-knowledge \
@@ -566,8 +566,8 @@ buf: < (#1) HTTP/2.0 400 Bad Request
 
 Last, use `buf curl` to test the custom rule that checks for logically unique `LineItems`:
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{ "invoice": { "invoice_id": "079a91c2-cb8b-4f01-9cf9-1b9c0abdd6d2", "line_items": [{"product_id": "A", "unit_price": "1" }, {"product_id": "A", "unit_price": "1" }] } }' \
     --schema . \
     --http2-prior-knowledge \
@@ -670,8 +670,8 @@ func TestCreateInvoice(t *testing.T) {
 
 To check your work, run all tests with the `-v` flag.
 
-```console
-$  go test -v ./...
+```sh
+ go test -v ./...
 ```
 
 If all tests pass, you've met your goal:

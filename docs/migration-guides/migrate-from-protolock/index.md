@@ -137,31 +137,31 @@ This section assumes you are using stored [Buf image](../../reference/images/) f
 
 ### `protolock init`
 
-```console
-$ buf build -o lock.binpb
+```sh
+buf build -o lock.binpb
 ```
 
 This writes a binary [Buf image](../../reference/images/) of your current Protobuf schema. If you prefer this to be stored as JSON, as Protolock does, instead write to a file with a `.json` extension, such as `buf build -o lock.json`. Note that by default, `buf build` include source code info, which makes the resulting file significantly larger. If this isn't a concern, we recommend keeping the source code info for usage with other parts of Buf, but if you are only using `buf` for breaking change detection, you can safely suppress source code info with the `--exclude-source-info` flag.
 
 ### `protolock status`
 
-```console
-$ buf breaking --against lock.binpb
+```sh
+buf breaking --against lock.binpb
 ```
 
 This checks for breaking changes against the `lock.binpb` [Buf image](../../reference/images/) file. Use `buf breaking --against lock.json` if you wrote a JSON file.
 
 ### `protolock commit`
 
-```console
-$ buf breaking --against lock.binpb && buf build -o lock.binpb
+```sh
+buf breaking --against lock.binpb && buf build -o lock.binpb
 ```
 
 ## Docker
 
 Protolock provides a [Docker image](https://hub.docker.com/r/nilslice/protolock) with `protolock` installed. The equivalent Docker image for `buf` is [bufbuild/buf](https://hub.docker.com/r/bufbuild/buf). For example:
 
-```console
-$ docker pull bufbuild/buf
-$ docker run --volume "$(pwd):/workspace" --workdir "/workspace" bufbuild/buf lint
+```sh
+docker pull bufbuild/buf
+docker run --volume "$(pwd):/workspace" --workdir "/workspace" bufbuild/buf lint
 ```

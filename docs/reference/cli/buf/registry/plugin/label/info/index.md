@@ -49,8 +49,8 @@ Show label information
 
 ### Usage
 
-```console
-$ buf registry plugin label info <remote/owner/plugin:label> [flags]
+```sh
+buf registry plugin label info <remote/owner/plugin:label> [flags]
 ```
 
 ### Flags

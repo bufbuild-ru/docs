@@ -49,8 +49,8 @@ Resolve various identifiers
 
 ### Usage
 
-```console
-$ bufstream admin resolve [flags]
+```sh
+bufstream admin resolve [flags]
 ```
 
 ### Description

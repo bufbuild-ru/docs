@@ -49,8 +49,8 @@ Create a new BSR organization
 
 ### Usage
 
-```console
-$ buf registry organization create <remote/organization> [flags]
+```sh
+buf registry organization create <remote/organization> [flags]
 ```
 
 ### Flags

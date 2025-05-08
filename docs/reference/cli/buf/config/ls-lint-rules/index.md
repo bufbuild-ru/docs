@@ -49,8 +49,8 @@ List lint rules
 
 ### Usage
 
-```console
-$ buf config ls-lint-rules [flags]
+```sh
+buf config ls-lint-rules [flags]
 ```
 
 ### Flags

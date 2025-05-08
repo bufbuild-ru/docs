@@ -49,8 +49,8 @@ Get statistics for a given source or module
 
 ### Usage
 
-```console
-$ buf beta stats <source> [flags]
+```sh
+buf beta stats <source> [flags]
 ```
 
 ### Description

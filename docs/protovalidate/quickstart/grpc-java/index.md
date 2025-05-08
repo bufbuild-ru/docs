@@ -62,8 +62,8 @@ There's an example of Protovalidate for gRPC and Java in [GitHub](https://github
 - Have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [`Java 11+`](https://www.oracle.com/in/java/) installed and in your `$PATH`.
 - Clone the `buf-examples` repo and navigate to the `protovalidate/grpc-java/start` directory:
 
-  ```console
-  $ git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/protovalidate/grpc-java/start
+  ```sh
+  git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/protovalidate/grpc-java/start
   ```
 
 ## Goal
@@ -75,8 +75,8 @@ This tutorial's `CreateInvoice` RPC doesn't have any input validation. Your goal
 
 Run the test now, and you can see that it fails:
 
-```console
-$ ./gradlew test
+```sh
+./gradlew test
 InvoiceServerTest > InvoiceId is required FAILED
     org.opentest4j.AssertionFailedError at InvoiceServerTest.java:98
 InvoiceServerTest > Two line items cannot have the same product_id and unit price FAILED
@@ -89,8 +89,8 @@ When this test passes, you've met your goal.
 
 Before you begin to code, verify that the example is working. Compile and run the server using its [Gradle](https://gradle.org/) wrapper:
 
-```console
-$ ./gradlew run
+```sh
+./gradlew run
 ```
 
 After a few seconds, you should see that it has started:
@@ -101,8 +101,8 @@ INFO: Server started on port 50051
 
 In a second terminal window, use `buf curl` to send an invalid `CreateInvoiceRequest`:
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{ "invoice": { "invoice_id": "" } }' \
     --protocol grpc \
     --http2-prior-knowledge \
@@ -231,8 +231,8 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
     ::: info Updating CLI dependencies
 
-    ```console
-    $ buf dep update
+    ```sh
+    buf dep update
     WARN    Module buf.build/bufbuild/protovalidate is declared in your buf.yaml deps but is unused...
     ```
 
@@ -407,14 +407,14 @@ Learn more about [custom rules](../../schemas/custom-rules/).
 
 Next, compile your Protobuf and regenerate code, adding the Protovalidate options to all of your message descriptors:
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 With regenerated code, your server should still compile and build. (If you're still running the server, stop it with `Ctrl-c`.)
 
-```console
-$ ./gradlew run
+```sh
+./gradlew run
 ```
 
 After a few seconds, you should see that it has started:
@@ -425,8 +425,8 @@ INFO: Server started on port 50051
 
 In a second terminal window, use `buf curl` to send the same invalid `CreateInvoiceRequest`:
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{ "invoice": { "invoice_id": "" } }' \
     --protocol grpc \
     --http2-prior-knowledge \
@@ -492,8 +492,8 @@ Follow these steps to begin enforcing Protovalidate rules:
 
 4.  Stop (`Ctrl-c`) and restart your server:
 
-    ```console
-    $ ./gradlew run
+    ```sh
+    ./gradlew run
     ```
 
     After a few seconds, you should see that it has started:
@@ -504,8 +504,8 @@ Follow these steps to begin enforcing Protovalidate rules:
 
 Now that you've added the Protovalidate interceptor and restarted your server, try the `buf curl` command again:
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{ "invoice": { "invoice_id": "" } }' \
     --protocol grpc \
     --http2-prior-knowledge \
@@ -537,8 +537,8 @@ This time, you should receive a block of JSON representing Protovalidate's enfor
 
 Last, use `buf curl` to test the custom rule that checks for logically unique `LineItems`:
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{ "invoice": { "invoice_id": "079a91c2-cb8b-4f01-9cf9-1b9c0abdd6d2", "line_items": [{"product_id": "A", "unit_price": "1" }, {"product_id": "A", "unit_price": "1" }] } }' \
     --protocol grpc \
     --http2-prior-knowledge \
@@ -650,8 +650,8 @@ public class InvoiceServerTest {
 
 To check your work, run all tests.
 
-```console
-$  ./gradlew test --rerun
+```sh
+ ./gradlew test --rerun
 ```
 
 If all tests pass, you've met your goal:

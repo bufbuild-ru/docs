@@ -49,8 +49,8 @@ Manage webhooks for a repository on the Buf Schema Registry
 
 ### Usage
 
-```console
-$ buf beta registry webhook [flags]
+```sh
+buf beta registry webhook [flags]
 ```
 
 ### Flags

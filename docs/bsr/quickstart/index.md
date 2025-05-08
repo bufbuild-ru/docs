@@ -58,8 +58,8 @@ The Buf Schema Registry (BSR) is the missing package manager for Protobuf, allow
 - [Create a Buf account](https://buf.build/signup?original_uri=/signup/), allowing you to access and share modules.
 - Clone the [`buf-examples`](https://github.com/bufbuild/buf-examples) repo and go to the example code directory:
 
-  ```console
-  $ git clone git@github.com:bufbuild/buf-examples.git && \
+  ```sh
+  git clone git@github.com:bufbuild/buf-examples.git && \
       cd buf-examples/bsr/quickstart/start/server
   ```
 
@@ -97,8 +97,8 @@ Update the workspace to install the new dependency and pin its version in `buf.l
 
 ::: info bsr/start/server/
 
-```console
-$ buf dep update
+```sh
+buf dep update
 WARN    Module buf.build/bufbuild/protovalidate is declared in your buf.yaml deps but is unused.
 ```
 
@@ -178,8 +178,8 @@ You're all set — time to generate code for your Protobuf changes:
 
 ::: info bsr/start/server/
 
-```console
-$ buf generate
+```sh
+buf generate
 ```
 
 :::
@@ -190,8 +190,8 @@ Next, validate your code. Start the server (which imports the code stubs you jus
 
 ::: info bsr/start/server/
 
-```console
-$ go run cmd/main.go
+```sh
+go run cmd/main.go
 ... Listening on localhost:8080
 ```
 
@@ -205,8 +205,8 @@ Then, open a new terminal, stay in the `server` directory and try a bad request:
 
 ::: info bsr/start/server/
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{ "invoice": { "customer_id": "fake-customer-id" }}' \
     --schema . \
     --http2-prior-knowledge \
@@ -225,8 +225,8 @@ Your fix worked! The bad request returned a validation error. Now try a good req
 
 ::: info bsr/start/server/
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{ "invoice": { "customer_id": "bob", "line_items": [{"unit_price": "999", "quantity": "2"}] }, "tags": { "tag": ["spring-promo","valued-customer"] } }' \
     --schema . \
     --http2-prior-knowledge \
@@ -268,14 +268,14 @@ Before you can move the `tags.proto` file, you need to create a new BSR reposito
 
 Sign in to the BSR:
 
-```console
-$ buf registry login
+```sh
+buf registry login
 ```
 
 You'll be asked to create a token, and the BSR then logs you in with it. Next, create an empty repository in the BSR:
 
-```console
-$ buf registry module create buf.build/USERNAME/common --visibility public
+```sh
+buf registry module create buf.build/USERNAME/common --visibility public
 Created buf.build/USERNAME/common.
 ```
 
@@ -283,9 +283,9 @@ Create a new directory for your `common` module at the same level as `server`. T
 
 ::: info bsr/start/server/
 
-```console
-$ cd ..
-$ mkdir common && cd common
+```sh
+cd ..
+mkdir common && cd common
 ```
 
 :::
@@ -296,8 +296,8 @@ First, initialize the module (this creates its `buf.yaml` file):
 
 ::: info bsr/start/common/
 
-```console
-$ buf config init
+```sh
+buf config init
 ```
 
 :::
@@ -328,8 +328,8 @@ Move the `tag.proto` file to the `common/proto` module directory:
 
 ::: info bsr/start/common
 
-```console
-$ mkdir proto && mv ../server/proto/tag/ ./proto
+```sh
+mkdir proto && mv ../server/proto/tag/ ./proto
 ```
 
 :::
@@ -338,8 +338,8 @@ Test the module by building it (you should receive no output):
 
 ::: info bsr/start/common
 
-```console
-$ buf build
+```sh
+buf build
 ```
 
 :::
@@ -348,8 +348,8 @@ Push the module to the BSR (you should receive a commit ID):
 
 ::: info bsr/start/common
 
-```console
-$ buf push
+```sh
+buf push
 buf.build/USERNAME/common:e1fb01dc1bac43ad9b8ca03b7911834c
 ```
 
@@ -363,8 +363,8 @@ Create a new `README.md` file in the `common` directory with some basic content:
 
 ::: info bsr/start/common
 
-```console
-$ echo -e "# Tags\n\nThis module allows you to add custom tags for tracking or analysis." > README.md
+```sh
+echo -e "# Tags\n\nThis module allows you to add custom tags for tracking or analysis." > README.md
 ```
 
 :::
@@ -399,8 +399,8 @@ breaking:
 
 Update your dependencies:
 
-```console
-$ buf dep update
+```sh
+buf dep update
 ```
 
 If you look at `buf.lock` again, you see the new dependency on the `common` module, pinned to your commit (which is the latest).
@@ -428,18 +428,18 @@ Regenerate your code stubs, update their Go dependencies, and restart the server
 
 ::: info bsr/start/server/
 
-```console
-$ buf generate
-$ go mod tidy
-$ go run cmd/main.go
+```sh
+buf generate
+go mod tidy
+go run cmd/main.go
 ```
 
 :::
 
 Then go back to the other terminal and retry the good request:
 
-```console
-$ buf curl \
+```sh
+buf curl \
     --data '{ "invoice": { "customer_id": "bob", "line_items": [{"unit_price": "999", "quantity": "2"}] }, "tags": { "tag": ["spring-promo","valued-customer"] } }' \
     --schema . \
     --http2-prior-knowledge \
@@ -463,8 +463,8 @@ Back in the `/server` directory:
 
     ::: info bsr/start/server/
 
-    ```console
-    $ buf registry module create buf.build/USERNAME/invoice --visibility public
+    ```sh
+    buf registry module create buf.build/USERNAME/invoice --visibility public
     Created buf.build/USERNAME/invoice.
     ```
 
@@ -497,8 +497,8 @@ Back in the `/server` directory:
 
     ::: info bsr/start/server
 
-    ```console
-    $ buf push
+    ```sh
+    buf push
     buf.build/USERNAME/invoice:e1fb01dc1bac43ad9b8ca03b7911834c
     ```
 
@@ -600,9 +600,9 @@ Make sure your server's running, then update your Go dependencies and run the cl
 
 ::: info bsr/start/client/
 
-```console
-$ go mod tidy
-$ go run cmd/main.go
+```sh
+go mod tidy
+go run cmd/main.go
 2025/03/20 09:58:03 Valid invoice created
 ```
 

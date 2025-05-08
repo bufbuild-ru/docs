@@ -49,8 +49,8 @@ Log in to the Buf Schema Registry
 
 ### Usage
 
-```console
-$ buf registry login [domain] [flags]
+```sh
+buf registry login [domain] [flags]
 ```
 
 ### Description

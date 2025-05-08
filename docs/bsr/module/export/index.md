@@ -58,32 +58,32 @@ The `buf export` command allows you to copy `.proto` files to your local environ
 
 The basic `buf export` command requires a local destination directory path for the output and defaults to the current local directory as the source:
 
-```console
-$ buf export -o /path/to/directory
+```sh
+buf export -o /path/to/directory
 ```
 
 You can also specify a BSR module or a Git repository as the source:
 
 ::: info Export a module @latest
 
-```console
-$ buf export buf.build/grpc/grpc -o /path/to/directory
+```sh
+buf export buf.build/grpc/grpc -o /path/to/directory
 ```
 
 :::
 
 ::: info Export a module at a specific commit
 
-```console
-$ buf export buf.build/grpc/grpc:334e348dc5854e4b99a3a0d25d8ff376 -o /path/to/directory
+```sh
+buf export buf.build/grpc/grpc:334e348dc5854e4b99a3a0d25d8ff376 -o /path/to/directory
 ```
 
 :::
 
 ::: info Export the Protobuf files from a Git repo
 
-```console
-$ buf export https://github.com/bufbuild/protovalidate.git -o /path/to/directory
+```sh
+buf export https://github.com/bufbuild/protovalidate.git -o /path/to/directory
 ```
 
 :::
@@ -94,16 +94,16 @@ You can also limit the output to a subset of the source by either excluding or i
 
 ::: info Exclude the 'geo' directory
 
-```console
-$ buf export buf.build/googleapis/googleapis -o /path/to/directory --exclude-path google/geo
+```sh
+buf export buf.build/googleapis/googleapis -o /path/to/directory --exclude-path google/geo
 ```
 
 :::
 
 ::: info Only export the 'geo' and 'longrunning' directories
 
-```console
-$ buf export buf.build/googleapis/googleapis -o /path/to/directory --path google/geo,google/longrunning
+```sh
+buf export buf.build/googleapis/googleapis -o /path/to/directory --path google/geo,google/longrunning
 ```
 
 :::
@@ -141,8 +141,8 @@ By default, the module archive includes only the specified module's content, exc
 
 ::: info Download a module archive that includes dependencies
 
-```console
-$ curl -sOJ "https://buf.build/acme/petapis/archive/main.zip?imports=true"
+```sh
+curl -sOJ "https://buf.build/acme/petapis/archive/main.zip?imports=true"
 ```
 
 :::

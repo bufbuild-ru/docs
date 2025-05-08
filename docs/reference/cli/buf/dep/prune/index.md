@@ -49,8 +49,8 @@ Prune unused dependencies from a buf.lock
 
 ### Usage
 
-```console
-$ buf dep prune <directory> [flags]
+```sh
+buf dep prune <directory> [flags]
 ```
 
 ### Description

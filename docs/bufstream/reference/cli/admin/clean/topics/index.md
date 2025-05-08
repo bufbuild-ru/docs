@@ -49,8 +49,8 @@ cleans topics/partitions
 
 ### Usage
 
-```console
-$ bufstream admin clean topics [flags]
+```sh
+bufstream admin clean topics [flags]
 ```
 
 ### Description

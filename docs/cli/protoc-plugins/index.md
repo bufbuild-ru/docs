@@ -88,8 +88,8 @@ An example option:
 
 Here's an example usage of the binary in conjunction with protoc:
 
-```console
-$ protoc \
+```sh
+protoc \
   -I . \
   --buf-breaking_out=. \
   '--buf-breaking_opt={"against_input":"image.binpb","limit_to_input_files":true}' \
@@ -132,8 +132,8 @@ An example option:
 
 Here's an example usage of the binary in conjunction with protoc:
 
-```console
-$ protoc \
+```sh
+protoc \
   -I . \
   --buf-lint_out=. \
   $(find . -name '*.proto')
@@ -146,8 +146,8 @@ pet/v1/pet.proto:47:9:Service name "PetStore" should be suffixed with "Service".
 
 You can also use a custom configuration:
 
-```console
-$ protoc \
+```sh
+protoc \
   -I . \
   --buf-lint_out=. \
   '--buf-lint_opt={"input_config":{"version":"v1","lint":{"use":["SERVICE_SUFFIX"]}}}' \

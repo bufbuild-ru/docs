@@ -54,8 +54,8 @@ This tutorial demonstrates how to define your own rules in a Buf plugin and how 
 - Install the [Buf CLI](../../installation/) or update your existing version to >=1.40
 - Clone the `buf-tour` repo:
 
-  ```console
-  $ git clone git@github.com:bufbuild/buf-tour.git
+  ```sh
+  git clone git@github.com:bufbuild/buf-tour.git
   ```
 
 This tutorial shows how to write a Buf plugin in Go, taking advantage of the [`bufplugin-go`](https://github.com/bufbuild/bufplugin-go) library, but you can write them in any language as long as the plugin conforms to the [Bufplugin framework](https://github.com/bufbuild/bufplugin).
@@ -64,8 +64,8 @@ This tutorial shows how to write a Buf plugin in Go, taking advantage of the [`b
 
 In this tutorial, we provide you with a sample Protobuf module, so start in its directory:
 
-```console
-$ cd buf-tour/start/tutorial-create-buf-plugin
+```sh
+cd buf-tour/start/tutorial-create-buf-plugin
 ```
 
 It contains a `buf.yaml` and a `pet.proto` with definitions related to a pet store:
@@ -97,10 +97,10 @@ Notice that `GetPetMethod` is an RPC method but shouldn't end with the word `Met
 
 Run the following to scaffold the plugin:
 
-```console
-$ go mod init plugin/tutorial
-$ mkdir -p cmd/rpc-suffix
-$ touch cmd/rpc-suffix/main.go
+```sh
+go mod init plugin/tutorial
+mkdir -p cmd/rpc-suffix
+touch cmd/rpc-suffix/main.go
 ```
 
 Copy and paste the following content into `cmd/rpc-suffix/main.go`:
@@ -159,9 +159,9 @@ The plugin's `main.go` file imports the SDK and has three components:
 
 To see the plugin in action, first install its binary:
 
-```console
-$ go mod tidy
-$ go install ./cmd/rpc-suffix
+```sh
+go mod tidy
+go install ./cmd/rpc-suffix
 ```
 
 then add the plugin and its rule ID to the `buf.yaml` config file:
@@ -184,8 +184,8 @@ plugins:
 
 You can now verify that the new rule is being checked when you lint:
 
-```console
-$ buf lint
+```sh
+buf lint
 <input>:1:1:hello world (rpc-suffix)
 ```
 
@@ -245,9 +245,9 @@ func checkRPCSuffix(
 
 Now the Buf linter only prints error when a method ends with the keyword `Method`. In addition, the plugin passes the `check.WithDescriptor(methodDescriptor)` option for printing, which provides location information about where the error happened. To verify this, re-install and run the plugin:
 
-```console
-$ go install ./cmd/rpc-suffix
-$ buf lint
+```sh
+go install ./cmd/rpc-suffix
+buf lint
 
 proto/pet/v1/pet.proto:6:3:method name should not end with "Method" (rpc-suffix)
 ```
@@ -352,9 +352,9 @@ func checkRPCSuffix(
 
 Now the plugin uses `option.GetStringSliceValue(request.Options(), forbiddenRPCSuffixesOptionKey)` to check whether the option is specified by the users and use its list of values if so. To verify that it uses the option values, re-install and run the plugin:
 
-```console
-$ go install ./cmd/rpc-suffix
-$ buf lint
+```sh
+go install ./cmd/rpc-suffix
+buf lint
 
 proto/pet/v1/pet.proto:6:3:method name should not end with "Method" (rpc-suffix)
 proto/pet/v1/pet.proto:7:3:method name should not end with "RPC" (rpc-suffix)

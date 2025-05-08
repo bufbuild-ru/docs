@@ -49,8 +49,8 @@ Export proto files from one location to another
 
 ### Usage
 
-```console
-$ buf export <source> [flags]
+```sh
+buf export <source> [flags]
 ```
 
 ### Description
@@ -61,32 +61,32 @@ Examples:
 
 Export proto files in `<source>` to an output directory.
 
-```console
-$ buf export <source> --output=<output-dir>
+```sh
+buf export <source> --output=<output-dir>
 ```
 
 Export current directory to another local directory.
 
-```console
-$ buf export . --output=<output-dir>
+```sh
+buf export . --output=<output-dir>
 ```
 
 Export the latest remote module to a local directory.
 
-```console
-$ buf export <buf.build/owner/repository> --output=<output-dir>
+```sh
+buf export <buf.build/owner/repository> --output=<output-dir>
 ```
 
 Export a specific version of a remote module to a local directory.
 
-```console
-$ buf export <buf.build/owner/repository:ref> --output=<output-dir>
+```sh
+buf export <buf.build/owner/repository:ref> --output=<output-dir>
 ```
 
 Export a git repo to a local directory.
 
-```console
-$ buf export https://github.com/owner/repository.git --output=<output-dir>
+```sh
+buf export https://github.com/owner/repository.git --output=<output-dir>
 ```
 
 ### Flags

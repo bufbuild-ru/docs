@@ -49,8 +49,8 @@ Unarchive a plugin label
 
 ### Usage
 
-```console
-$ buf registry plugin label unarchive <remote/owner/plugin:label> [flags]
+```sh
+buf registry plugin label unarchive <remote/owner/plugin:label> [flags]
 ```
 
 ### Flags

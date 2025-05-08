@@ -110,8 +110,8 @@ You can change the visibility of BSR repositories.
 
   ::: info Change a repository's visibility
 
-  ```console
-  $ buf beta registry repository update <{REMOTE}/{OWNER}/{REPOSITORY}> --visibility [public,private]
+  ```sh
+  buf beta registry repository update <{REMOTE}/{OWNER}/{REPOSITORY}> --visibility [public,private]
   ```
 
   :::
@@ -162,16 +162,16 @@ You can deprecate BSR repositories to indicate to others that depending on the u
 
   ::: info Deprecate a repository
 
-  ```console
-  $ buf registry module deprecate <{REMOTE}/{OWNER}/{REPOSITORY}> [--message <deprecation message>]
+  ```sh
+  buf registry module deprecate <{REMOTE}/{OWNER}/{REPOSITORY}> [--message <deprecation message>]
   ```
 
   :::
 
   ::: info Undeprecate a repository
 
-  ```console
-  $ buf registry module undeprecate <{REMOTE}/{OWNER}/{REPOSITORY}>
+  ```sh
+  buf registry module undeprecate <{REMOTE}/{OWNER}/{REPOSITORY}>
   ```
 
   :::

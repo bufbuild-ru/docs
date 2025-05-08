@@ -49,8 +49,8 @@ Create a repository webhook
 
 ### Usage
 
-```console
-$ buf beta registry webhook create [flags]
+```sh
+buf beta registry webhook create [flags]
 ```
 
 ### Flags

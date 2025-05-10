@@ -224,31 +224,31 @@ Make the following changes to `proto/bufbuild/weather/v1/weather_service.proto` 
 
 ::: info proto/bufbuild/weather/v1/weather_service.proto
 
-```diff
+```protobuf
 syntax = "proto3";
 
 package bufbuild.weather.v1;
 
-+ import "buf/validate/validate.proto";
+import "buf/validate/validate.proto"; // [!code ++]
 import "google/protobuf/timestamp.proto";
 
 // GetWeatherRequest is a request for weather at a point on Earth.
 message GetWeatherRequest {
   // latitude must be between -90 and 90, inclusive, to be valid. Use of a
   // float allows precision to about one square meter.
-- float latitude = 1;
-+ float latitude = 1 [
-+   (buf.validate.field).float.gte = -90,
-+   (buf.validate.field).float.lte = 90
-+ ];
+  float latitude = 1; // [!code --]
+  float latitude = 1 [
+   (buf.validate.field).float.gte = -90,
+   (buf.validate.field).float.lte = 90
+  ];
 
   // longitude must be between -180 and 180, inclusive, to be valid. Use of a
   // float allows precision to about one square meter.
-- float longitude = 2;
-+ float longitude = 2 [
-+   (buf.validate.field).float.gte = -180,
-+   (buf.validate.field).float.lte = 180
-+ ];
+  float longitude = 2; // [!code --]
+  float longitude = 2 [
+   (buf.validate.field).float.gte = -180,
+   (buf.validate.field).float.lte = 180
+  ];
 
   // forecast_date for the weather request. It must be within the next
   // three days.
@@ -284,7 +284,7 @@ Adding a CEL-based rule to a field is straightforward. Instead of a providing a 
 
 ::: info proto/bufbuild/weather/v1/weather_service.proto
 
-```diff
+```protobuf
 syntax = "proto3";
 
 package bufbuild.weather.v1;
@@ -309,12 +309,12 @@ message GetWeatherRequest {
 
   // forecast_date for the weather request. It must be within the next
   // three days.
-- google.protobuf.Timestamp forecast_date = 3;
-+ google.protobuf.Timestamp forecast_date = 3 [(buf.validate.field).cel = {
-+     id: "forecast_date.within_72_hours"
-+     message: "Forecast date must be in the next 72 hours."
-+     expression: "this >= now && this <= now + duration('72h')"
-+ }];
+  google.protobuf.Timestamp forecast_date = 3; // [!code --]
+  google.protobuf.Timestamp forecast_date = 3 [(buf.validate.field).cel = {
+     id: "forecast_date.within_72_hours"
+     message: "Forecast date must be in the next 72 hours."
+     expression: "this >= now && this <= now + duration('72h')"
+  }];
 }
 ```
 

@@ -213,12 +213,12 @@ Tampering means someone has made unauthorized changes in your dependencies — m
 
 ::: info money.proto
 
-```diff
+```protobuf
 message MoveMoney {
--  string from_email = 1;
-+  string from_email = 2;
--  string to_email = 2;
-+  string to_email = 1;
+  string from_email = 1; // [!code --]
+  string from_email = 2; // [!code ++]
+  string to_email = 2; // [!code --]
+  string to_email = 1; // [!code ++]
   google.type.Money amount = 3;
 }
 ```

@@ -334,24 +334,27 @@ Now modify the `BUILD` file with the `gazelle` target to include the `buf` exten
 
 ::: info BUILD
 
-```diff
--load("@bazel_gazelle//:def.bzl", "gazelle")
-+load("@bazel_gazelle//:def.bzl", "gazelle", "gazelle_binary")
+```python
+load("@bazel_gazelle//:def.bzl", "gazelle") # [!code --]
+load("@bazel_gazelle//:def.bzl", "gazelle", "gazelle_binary") # [!code ++]
 
-+gazelle_binary(
-+    name = "gazelle-buf",
-+    languages = [
-+        # Loads the native proto extension
-+        "@bazel_gazelle//language/proto:go_default_library",
-+        # Loads the Buf extension
-+        "@rules_buf//gazelle/buf:buf",
-+        # NOTE: This needs to be loaded after the proto language
-+    ],
-+)
+gazelle_binary( # [!code ++]
+    name = "gazelle-buf", # [!code ++]
+    languages = [ # [!code ++]
+# [!code ++]
+        # Loads the native proto extension
+        "@bazel_gazelle//language/proto:go_default_library", # [!code ++]
+# [!code ++]
+        # Loads the Buf extension
+        "@rules_buf//gazelle/buf:buf", # [!code ++]
+# [!code ++]
+        # NOTE: This needs to be loaded after the proto language
+    ], # [!code ++]
+) # [!code ++]
 
 gazelle(
     name = "gazelle",
-+    gazelle = ":gazelle-buf",
+    gazelle = ":gazelle-buf", # [!code ++]
 )
 ```
 

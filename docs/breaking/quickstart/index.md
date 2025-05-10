@@ -110,7 +110,7 @@ The example code is a Git repository, so you can check whether your uncommitted 
 
 ::: info cli/breaking-change-detection/start/proto/pet/v1/pet.proto
 
-```diff
+```protobuf
 // PetType represents the different types of pets in the pet store.
 enum PetType {
   PET_TYPE_UNSPECIFIED = 0;
@@ -118,7 +118,7 @@ enum PetType {
   PET_TYPE_DOG = 2;
   PET_TYPE_SNAKE = 3;
   PET_TYPE_HAMSTER = 4;
-+ PET_TYPE_BIRD = 5;
+  PET_TYPE_BIRD = 5; // [!code ++]
 }
 ```
 
@@ -163,15 +163,15 @@ This time, make a breaking change to the schema by changing the fourth item in t
 
 ::: info cli/breaking-change-detection/start/proto/pet/v1/pet.proto
 
-```diff
+```protobuf
 // PetType represents the different types of pets in the pet store.
 enum PetType {
   PET_TYPE_UNSPECIFIED = 0;
   PET_TYPE_CAT = 1;
   PET_TYPE_DOG = 2;
   PET_TYPE_SNAKE = 3;
-- PET_TYPE_HAMSTER = 4;
-+ PET_TYPE_RODENT = 4;
+  PET_TYPE_HAMSTER = 4; // [!code --]
+  PET_TYPE_RODENT = 4; // [!code ++]
   PET_TYPE_BIRD = 5;
 }
 ```
@@ -210,17 +210,17 @@ Delete the enum from `pet.proto`, and add an `import` statement to reference the
 
 ::: info cli/breaking-change-detection/start/proto/pet/v1/pet.proto
 
-```diff
-+import "pet/v1/pet_type.proto";
-- // PetType represents the different types of pets in the pet store.
-- enum PetType {
--   PET_TYPE_UNSPECIFIED = 0;
--   PET_TYPE_CAT = 1;
--   PET_TYPE_DOG = 2;
--   PET_TYPE_SNAKE = 3;
--   PET_TYPE_RODENT = 4;
--   PET_TYPE_BIRD = 5;
-- }
+```protobuf
+import "pet/v1/pet_type.proto"; // [!code ++]
+  // PetType represents the different types of pets in the pet store. // [!code --]
+  enum PetType { // [!code --]
+   PET_TYPE_UNSPECIFIED = 0; // [!code --]
+   PET_TYPE_CAT = 1; // [!code --]
+   PET_TYPE_DOG = 2; // [!code --]
+   PET_TYPE_SNAKE = 3; // [!code --]
+   PET_TYPE_RODENT = 4; // [!code --]
+   PET_TYPE_BIRD = 5; // [!code --]
+  }
 ```
 
 :::

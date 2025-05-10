@@ -118,11 +118,11 @@ Now that you know what needs to be fixed, you can go through your `.proto` file 
 
 ::: info cli/linting/start/proto/acme/weather/v1/weather.proto
 
-```diff
+```protobuf
 syntax = "proto3";
 
-- package weather;
-+ package acme.weather.v1;
+package weather; // [!code --]
+package acme.weather.v1; // [!code ++]
 ```
 
 :::

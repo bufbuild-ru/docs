@@ -249,12 +249,12 @@ You'll now add a [standard rule](../../schemas/standard-rules/) to `proto/invoic
 
 ::: info proto/invoice/v1/invoice.proto
 
-```diff
+```protobuf
 syntax = "proto3";
 
 package invoice.v1;
 
-+ import "buf/validate/validate.proto";
+import "buf/validate/validate.proto"; // [!code ++]
 import "google/protobuf/timestamp.proto";
 ```
 
@@ -264,14 +264,14 @@ You could use the `required` rule to verify that requests provide this field, bu
 
 ::: info proto/invoice/v1/invoice.proto
 
-```diff
+```protobuf
 // Invoice is a collection of goods or services sold to a customer.
 message Invoice {
   // invoice_id is a unique identifier for this invoice.
-- string invoice_id = 1;
-+ string invoice_id = 1 [
-+   (buf.validate.field).string.uuid = true
-+ ];
+  string invoice_id = 1; // [!code --]
+  string invoice_id = 1 [
+   (buf.validate.field).string.uuid = true
+  ];
 
   // account_id is the unique identifier for the account purchasing goods.
   string account_id = 2;
@@ -304,7 +304,7 @@ First, use the `min_items` standard rule to require at least one `LineItem`:
 
 ::: info proto/invoice.proto
 
-```diff
+```protobuf
 // Invoice is a collection of goods or services sold to a customer.
 message Invoice {
   // invoice_id is a unique identifier for this invoice.
@@ -320,10 +320,10 @@ message Invoice {
   google.protobuf.Timestamp invoice_date = 3;
 
   // line_items represent individual items on this invoice.
-- repeated LineItem line_items = 4;
-+ repeated LineItem line_items = 4 [
-+    (buf.validate.field).repeated.min_items = 1
-+ ];
+  repeated LineItem line_items = 4; // [!code --]
+  repeated LineItem line_items = 4 [
+    (buf.validate.field).repeated.min_items = 1
+  ];
 }
 ```
 
@@ -333,7 +333,7 @@ Next, use a CEL expression to add a custom rule. Use the `map`, `string`, and `u
 
 ::: info proto/invoice.proto
 
-```diff
+```protobuf
 // Invoice is a collection of goods or services sold to a customer.
 message Invoice {
   // invoice_id is a unique identifier for this invoice.
@@ -350,14 +350,14 @@ message Invoice {
 
   // line_items represent individual items on this invoice.
   repeated LineItem line_items = 4 [
--    (buf.validate.field).repeated.min_items = 1
-+    (buf.validate.field).repeated.min_items = 1,
-+
-+    (buf.validate.field).cel = {
-+      id: "line_items.logically_unique"
-+      message: "line items must be unique combinations of product_id and unit_price"
-+      expression: "this.map( it, it.product_id + '-' + string(it.unit_price) ).unique()"
-+    }
+    (buf.validate.field).repeated.min_items = 1
+    (buf.validate.field).repeated.min_items = 1,
+
+    (buf.validate.field).cel = {
+      id: "line_items.logically_unique"
+      message: "line items must be unique combinations of product_id and unit_price"
+      expression: "this.map( it, it.product_id + '-' + string(it.unit_price) ).unique()"
+    }
   ];
 }
 ```

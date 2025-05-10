@@ -294,7 +294,7 @@ You'll now add [standard rules](../../schemas/standard-rules/) to `demo.proto` r
 
 ::: info proto/bufstream/demo/v1/demo.proto
 
-```diff
+```protobuf
 syntax = "proto3";
 
 // Implements types for the Bufstream demo.
@@ -306,7 +306,7 @@ package bufstream.demo.v1;
 // See the https://buf.build/bufbuild/confluent module
 // for the full documentation.
 import "buf/confluent/v1/extensions.proto";
-+ import "buf/validate/validate.proto";
+import "buf/validate/validate.proto"; // [!code ++]
 ```
 
 :::
@@ -318,15 +318,15 @@ Next, add field-level validation rules:
 
 ::: info proto/bufstream/demo/v1/demo.proto
 
-```diff
+```protobuf
 message EmailUpdated {
   // Code omitted for brevity
 
   // The ID of the user associated with this email address update.
-- string id = 1;
-+ string id = 1 [
-+   (buf.validate.field).string.uuid = true
-+ ];
+  string id = 1; // [!code --]
+  string id = 1 [
+   (buf.validate.field).string.uuid = true
+  ];
 
   // The old email address.
   string old_email_address = 2 [
@@ -337,11 +337,11 @@ message EmailUpdated {
     debug_redact = true
   ];
   // The new email address.
-- string new_email_address = 3;
-+ string new_email_address = 3 [
-+   (buf.validate.field).required = true,
-+   (buf.validate.field).string.email = true
-+ ];
+  string new_email_address = 3; // [!code --]
+  string new_email_address = 3 [
+   (buf.validate.field).required = true,
+   (buf.validate.field).string.email = true
+  ];
 }
 ```
 

@@ -256,7 +256,7 @@ Start by fixing the lint failures for the `pet/v1/pet.proto` file, which stem fr
 
 ::: info cli/quickstart/start/proto/pet/v1/pet.proto
 
-```diff
+```protobuf
 syntax = "proto3";
 
 package pet.v1;
@@ -264,14 +264,14 @@ package pet.v1;
 ...
 
 message DeletePetRequest {
--  string petID = 1;
-+  string pet_id = 1;
+  string petID = 1; // [!code --]
+  string pet_id = 1; // [!code ++]
 }
 
 message DeletePetResponse {}
 
--service PetStore {
-+service PetStoreService {
+service PetStore { // [!code --]
+service PetStoreService { // [!code ++]
   rpc GetPet(GetPetRequest) returns (GetPetResponse) {}
   rpc PutPet(PutPetRequest) returns (PutPetResponse) {}
   rpc DeletePet(DeletePetRequest) returns (DeletePetResponse) {}
@@ -365,10 +365,10 @@ Change the type of the `Pet.pet_type` field from `PetType` to `string`:
 
 ::: info cli/quickstart/start/proto/pet/v1/pet.proto
 
-```diff
+```protobuf
 message Pet {
-- PetType pet_type = 1;
-+ string pet_type = 1;
+  PetType pet_type = 1; // [!code --]
+  string pet_type = 1; // [!code ++]
   string pet_id = 2;
   string name = 3;
 }
@@ -403,10 +403,10 @@ Once you've determined that your change is breaking, revert it:
 
 ::: info cli/quickstart/start/proto/pet/v1/pet.proto
 
-```diff
+```protobuf
 message Pet {
-- string pet_type = 1;
-+ PetType pet_type = 1;
+  string pet_type = 1; // [!code --]
+  PetType pet_type = 1; // [!code ++]
   string pet_id = 2;
   string name = 3;
 }

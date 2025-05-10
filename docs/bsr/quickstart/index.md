@@ -110,20 +110,20 @@ With Protovalidate in place, you can import it and add a rule to your schema to 
 
 ::: info bsr/start/server/proto/invoice/v1/invoice.proto
 
-```diff
+```protobuf
 syntax = "proto3";
 
 package invoice.v1;
 
-+import "buf/validate/validate.proto";
+import "buf/validate/validate.proto"; // [!code ++]
 import "tag/v1/tag.proto";
 
 // Invoice is a collection of goods or services sold to a customer.
 message Invoice {
   string invoice_id = 1;
   string customer_id = 2;
-- repeated LineItem line_items = 3;
-+ repeated LineItem line_items = 3 [(buf.validate.field).repeated.min_items = 1];
+  repeated LineItem line_items = 3; // [!code --]
+  repeated LineItem line_items = 3 [(buf.validate.field).repeated.min_items = 1];
 }
 
 // Code omitted for brevity

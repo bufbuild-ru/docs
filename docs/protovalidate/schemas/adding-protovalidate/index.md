@@ -107,12 +107,12 @@ Now that Protovalidate is available as a dependency, it can be imported within P
 
 ::: info Import buf/validate/validate.proto
 
-```diff
+```protobuf
 syntax = "proto3";
 
 package bufbuild.weather.v1;
 
-+import "buf/validate/validate.proto";
+import "buf/validate/validate.proto"; // [!code ++]
 ```
 
 :::
@@ -166,12 +166,12 @@ Now that Protovalidate is on the filesystem, you can import it within Protobuf f
 
 ::: info Import buf/validate/validate.proto
 
-```diff
+```protobuf
 syntax = "proto3";
 
 package bufbuild.weather.v1;
 
-+import "buf/validate/validate.proto";
+import "buf/validate/validate.proto"; // [!code ++]
 ```
 
 :::

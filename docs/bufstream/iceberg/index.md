@@ -45,7 +45,7 @@ head:
 
 # Bufstream Apache Iceberg integration
 
-Bufstream streams data directly to Apache Iceberg™ from any topic, eliminating the need for an additional, expensive ETL pipeline and transforming data to as it passes through the broker. Once data is transformed and at rest in object storage, Bufstream layers Iceberg metadata on top of the Parquet files. Transformed data is queryable and discoverable by tools like Apache Spark, Amazon Athena, Dremio, Trino, and Starburst without having to copy data into a separate lakehouse table and duplicate storage. Bufstream also optionally updates your existing Iceberg catalog and exposes configuration options to do so, reducing the time it takes to gain insight from your data.
+Bufstream streams data directly to Apache Iceberg™ from any topic, eliminating the need for an additional, expensive ETL pipeline and transforming data to as it passes through the broker. Once data is transformed and at rest in object storage, Bufstream layers Iceberg metadata on top of Parquet files. Transformed data is queryable and discoverable by tools like Apache Spark, Amazon Athena, Dremio, Trino, and Starburst without having to copy data into a separate lakehouse table and duplicate storage. Bufstream also optionally updates your existing Iceberg catalog and exposes configuration options to do so, reducing the time it takes to gain insight from your data.
 
 Bufstream supports updates to the following catalogs today:
 
@@ -64,7 +64,7 @@ Bufstream's Iceberg REST catalog support allows you to deploy a [REST adapter](h
 
 ## Why Iceberg?
 
-The existing processes for getting data out of Kafka and into a data lake, warehouse, or analytics tool are prone to human error, introduce duplicative storage, and increase operational expenses. Bufstream eliminates these complex and brittle processes, delegates data transformation to the broker, and makes object storage the single source of truth for ready to query data -- leading your team to critical insights faster.
+The existing processes for getting data out of Kafka and into a data lake, warehouse, or analytics tool are prone to human error, introduce duplicative storage, and increase operational expenses. Bufstream eliminates these complex and brittle processes, delegates data transformation to the broker, and makes object storage the single source of truth for ready to query data — leading your team to critical insights faster.
 
 Over the last few years, Iceberg has grown to be the leading standard for storing big data sets in the data lakehouse, and as a result we've seen the ecosystem grow to unite data platform teams and analytics teams with tools like Apache Spark, Amazon Athena, Dremio, Trino, and Starburst. These conditions made Iceberg a great fit for Bufstream.
 
@@ -78,7 +78,7 @@ As a result, teams require twice the time and expense to use the same data in a 
 
 ### What does Bufstream do differently?
 
-Bufstream shifts all of the work to materialize, transform, and validate data into the streaming data pipeline, reducing the maintenance, cost, and operations burden for data platform and analytics teams. Bufstream's brokers are schema-aware, semantically intelligent, and able to transform data in transit meaning there is only one tool and process needed to stream and process your data to get it ready for the lakehouse and analytics engines.
+Bufstream shifts all of the work to materialize, transform, and validate data into the streaming data pipeline, reducing the maintenance, cost, and operations burden for data platform and analytics teams. Bufstream's brokers are schema-aware, semantically intelligent, and able to transform data in transit, meaning there is only one tool and process needed to stream and process your data to get it ready for the lakehouse and analytics engines.
 
 Bufstream's broker-side data quality enforcement ensures that data entering your lakehouse or used by query engines conforms to a known schema from your schema registry as well as meets validation requirements for each field, forbidding malformed or invalid data from entering your lakehouse. Once the data has been assessed for quality, Bufstream transforms your data into Parquet and materializes the Iceberg metadata from the approved schema, eliminating manual transformation tools that need routine maintenance for every change made to application data. As a result, lakehouse compatible data rests in object storage as a source of truth without having to transform, materialize, and persist a new copy of the raw data _just_ for analytics use-cases.
 

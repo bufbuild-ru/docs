@@ -231,18 +231,6 @@ Our tamper resistance technique is a typical solution to this problem: use a cry
 
 Every time a module is pushed to a BSR repository, the CLI sends the source files to the BSR as separated blobs with their calculated hash, along with a module's manifest that includes a canonical list of all of the files and the digest that are being pushed. The BSR receives these separated blobs and manifest and stores them as [CAS (Content-Addressable-Storage)](https://en.wikipedia.org/wiki/Content-addressable_storage), making sure that the generated commit points to the manifest, and this manifest links to all of the files that were pushed in the original request.
 
-::: tip Note
-Files that are pushed on a `buf push` run:
-
-- [Configuration file](../../../configuration/v2/buf-yaml/): `buf.yaml`
-- [Dependencies lock file](../../../configuration/v1/buf-lock/): `buf.lock`
-- [Module's license](../../../cli/modules-workspaces/#module-license): `LICENSE`
-- [Module's documentation](../../../cli/modules-workspaces/#module-documentation): `buf.md`, or `README.md`
-- All of your `*.proto` files.
-
-For a deep dive on these files, see Buf's [source management](../../../cli/modules-workspaces/#workspace-layout) docs.
-:::
-
 After that, when a pushed module is used as a dependency in another repository, the original manifest digest is recorded in the `buf.lock` file, so you can check the cryptographic digest of each dependency into source control. For example:
 
 ::: info buf.lock

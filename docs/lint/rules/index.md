@@ -45,10 +45,6 @@ head:
 
 # Rules and categories
 
-::: tip Note
-The rules and categories described here belong to the [`v1`](../../configuration/v1/buf-yaml/) and [`v2`](../../configuration/v2/buf-yaml/) configurations. If you're still using `v1beta1` configuration files and haven't [migrated](../../migration-guides/migrate-v2-config-files/) yet, refer to the previous [reference](../../configuration/v1beta1/lint-rules/).
-:::
-
 The Buf CLI applies individual lint rules across your Protobuf schema, reporting any violations as errors. This page describes the available categories and the individual rules within each category. You can also use custom rules and categories defined in [Buf plugins](../../cli/buf-plugins/overview/), either alongside or in place of Buf's. See the [overview](../overview/#usage-examples) for usage and the [`buf.yaml` reference](../../configuration/v2/buf-yaml/) for configuration options.
 
 ## Categories
@@ -344,13 +340,11 @@ This rule checks that field names are lower_snake_case.
 
 ### `FIELD_NOT_REQUIRED`
 
+**This rule can only be used with `v2` configuration files.**
+
 **Categories:** `BASIC`, `STANDARD`
 
 This rule checks that field isn't configured as required. This means that using the "required" label in proto2 sources isn't allowed and using the feature `field_presence = LEGACY_REQUIRED` isn't allowed in Editions sources.
-
-::: tip Note
-This is a new rule that can only be used with `v2` configuration files.
-:::
 
 ### `FILE_LOWER_SNAKE_CASE`
 
@@ -743,3 +737,7 @@ If you'd like a new rule added, [contact us](../../contact/) to discuss it. We'l
 ## Style guide
 
 The [style guide](../../best-practices/style-guide/) provides a concise document that includes all rules in the [`STANDARD`](#standard) category, as well as additional recommendations that aren't enforced by the linter. We provide this for ease of consumption across your teams.
+
+## Migrating from v1beta1
+
+The rules and categories described here work with the [v1](../../configuration/v1/buf-yaml/) and [v2](../../configuration/v2/buf-yaml/) configurations, except for a few v2-only rules that are noted. If you're still using v1beta1 configuration files and haven't [migrated](../../migration-guides/migrate-v2-config-files/) yet, refer to the previous [reference](../../configuration/v1beta1/lint-rules/).

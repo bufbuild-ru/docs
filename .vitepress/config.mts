@@ -75,7 +75,7 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: 'Overview', link: '/docs/generate/overview/' },
-                  { text: 'Tutorial', link: '/docs/generate/tutorial/' },
+                  { text: 'Quickstart', link: '/docs/generate/tutorial/' },
                   {
                     text: 'Managed mode',
                     link: '/docs/generate/managed-mode/',
@@ -95,7 +95,7 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: 'Overview', link: '/docs/breaking/overview/' },
-                  { text: 'Tutorial', link: '/docs/breaking/quickstart/' },
+                  { text: 'Quickstart', link: '/docs/breaking/quickstart/' },
                   {
                     text: 'Rules and categories',
                     link: '/docs/breaking/rules/',
@@ -111,7 +111,7 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: 'Overview', link: '/docs/lint/overview/' },
-                  { text: 'Tutorial', link: '/docs/lint/quickstart/' },
+                  { text: 'Quickstart', link: '/docs/lint/quickstart/' },
                   { text: 'Rules and categories', link: '/docs/lint/rules/' },
                   {
                     text: 'buf.yaml',
@@ -124,7 +124,7 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: 'Overview', link: '/docs/format/style/' },
-                  { text: 'Tutorial', link: '/docs/format/tutorial/' },
+                  { text: 'Quickstart', link: '/docs/format/tutorial/' },
                 ],
               },
               {
@@ -137,7 +137,7 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: 'Overview', link: '/docs/build/overview/' },
-                  { text: 'Tutorial', link: '/docs/build/tutorial/' },
+                  { text: 'Quickstart', link: '/docs/build/tutorial/' },
                 ],
               },
               {
@@ -146,7 +146,7 @@ export default defineConfig({
                 items: [
                   { text: 'Overview', link: '/docs/cli/buf-plugins/overview/' },
                   {
-                    text: 'Tutorial',
+                    text: 'Quickstart',
                     link: '/docs/cli/buf-plugins/tutorial-create-buf-plugin/',
                   },
                   {
@@ -220,7 +220,10 @@ export default defineConfig({
                     text: 'Overview',
                     link: '/docs/bsr/remote-plugins/overview/',
                   },
-                  { text: 'Tutorial', link: '/docs/bsr/remote-plugins/usage/' },
+                  {
+                    text: 'Quickstart',
+                    link: '/docs/bsr/remote-plugins/usage/',
+                  },
                   {
                     text: 'Custom plugins',
                     link: '/docs/bsr/remote-plugins/custom-plugins/',
@@ -236,7 +239,7 @@ export default defineConfig({
                     link: '/docs/bsr/generated-sdks/overview/',
                   },
                   {
-                    text: 'Tutorial',
+                    text: 'Quickstart',
                     link: '/docs/bsr/generated-sdks/tutorial/',
                   },
                   {
@@ -529,23 +532,20 @@ export default defineConfig({
               { text: 'Benchmarks and cost', link: '/docs/bufstream/cost/' },
               {
                 text: 'Deployment',
+                link: '/docs/bufstream/deployment/',
                 collapsed: true,
                 items: [
-                  {
-                    text: 'Tuning and performance',
-                    link: '/docs/bufstream/deployment/tuning-performance/',
-                  },
                   {
                     text: 'AWS',
                     collapsed: true,
                     items: [
                       {
-                        text: 'Deploy with etcd',
-                        link: '/docs/bufstream/deployment/aws/deploy-etcd/',
-                      },
-                      {
                         text: 'Deploy with Postgres',
                         link: '/docs/bufstream/deployment/aws/deploy-postgres/',
+                      },
+                      {
+                        text: 'Deploy with etcd',
+                        link: '/docs/bufstream/deployment/aws/deploy-etcd/',
                       },
                     ],
                   },
@@ -554,16 +554,16 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                       {
-                        text: 'Deploy with etcd',
-                        link: '/docs/bufstream/deployment/gcp/deploy-etcd/',
-                      },
-                      {
                         text: 'Deploy with Postgres',
                         link: '/docs/bufstream/deployment/gcp/deploy-postgres/',
                       },
                       {
                         text: 'Deploy with Spanner',
                         link: '/docs/bufstream/deployment/gcp/deploy-spanner/',
+                      },
+                      {
+                        text: 'Deploy with etcd',
+                        link: '/docs/bufstream/deployment/gcp/deploy-etcd/',
                       },
                     ],
                   },
@@ -572,14 +572,18 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                       {
-                        text: 'Deploy with etcd',
-                        link: '/docs/bufstream/deployment/azure/deploy-etcd/',
-                      },
-                      {
                         text: 'Deploy with Postgres',
                         link: '/docs/bufstream/deployment/azure/deploy-postgres/',
                       },
+                      {
+                        text: 'Deploy with etcd',
+                        link: '/docs/bufstream/deployment/azure/deploy-etcd/',
+                      },
                     ],
+                  },
+                  {
+                    text: 'Cluster recommendations',
+                    link: '/docs/bufstream/deployment/cluster-recommendations/',
                   },
                 ],
               },
@@ -779,7 +783,7 @@ export default defineConfig({
                   },
                 ],
               },
-              { text: 'Release notes', link: '/docs/bufstream/release-notes/' },
+              { text: 'Releases', link: '/docs/bufstream/releases/' },
             ],
           },
           {
@@ -793,10 +797,6 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   {
-                    text: 'Adding Protovalidate',
-                    link: '/docs/protovalidate/schemas/adding-protovalidate/',
-                  },
-                  {
                     text: 'Standard rules',
                     link: '/docs/protovalidate/schemas/standard-rules/',
                   },
@@ -807,6 +807,10 @@ export default defineConfig({
                   {
                     text: 'Predefined rules',
                     link: '/docs/protovalidate/schemas/predefined-rules/',
+                  },
+                  {
+                    text: 'Compile with protoc',
+                    link: '/docs/protovalidate/schemas/compile-with-protoc/',
                   },
                 ],
               },

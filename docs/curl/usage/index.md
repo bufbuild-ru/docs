@@ -79,9 +79,7 @@ buf curl --protocol grpc --http2-prior-knowledge \
 
 :::
 
-::: tip Note
 The gRPC protocol can't be used with HTTP 1.1, but the other two can as long as the method being invoked isn't a bidirectional streaming method.
-:::
 
 ## Request Data
 
@@ -148,9 +146,7 @@ You can separately configure headers used for reflection requests using `--refle
 
 If server reflection is used, the assumed URL for the reflection service is the same as the given RPC target URL, but with the last two path elements removed and replaced with the service and method name for the server reflection protocol.
 
-::: tip Note
-Server reflection doesn't currently work with HTTP 1.1 since the supported reflection protocols rely on bidirectional streaming.
-:::
+Server reflection doesn't currently work with HTTP 1.1 because the supported reflection protocols rely on bidirectional streaming.
 
 ## Output
 

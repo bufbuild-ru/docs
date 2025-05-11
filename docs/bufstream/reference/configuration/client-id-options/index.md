@@ -9,7 +9,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/reference/configuration/helm-values/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/release-notes/"
+      href: "https://bufbuild.ru/docs/bufstream/releases/"
   - - meta
     - property: "og:title"
       content: "Bufstream client ID options - Buf Docs"

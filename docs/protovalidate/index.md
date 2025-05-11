@@ -6,7 +6,7 @@ head:
       href: "https://bufbuild.ru/docs/protovalidate/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/release-notes/"
+      href: "https://bufbuild.ru/docs/bufstream/releases/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/protovalidate/quickstart/"
@@ -266,6 +266,5 @@ By embracing the schema-first nature of Protovalidate, all teams inherit consist
 
 Read on to learn more about enabling schema-first validation with Protovalidate:
 
-- See Protovalidate in action in the [developer quickstart](quickstart/).
-- Learn [how to add Protovalidate to Protobuf projects](schemas/adding-protovalidate/).
+- Learn [how to use Protovalidate in Protobuf projects](quickstart/).
 - Discover [how to enforce Protovalidate rules within Kafka streams](quickstart/bufstream/).

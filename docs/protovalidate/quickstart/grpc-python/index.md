@@ -45,16 +45,14 @@ head:
 
 # Protovalidate in gRPC and Python
 
-This tutorial shows how to add Protovalidate to a Python RPC powered by [gRPC](https://grpc.io/docs/languages/python/quickstart/):
+This quickstart shows how to add Protovalidate to a Python RPC powered by [gRPC](https://grpc.io/docs/languages/python/quickstart/):
 
 1.  Adding the Protovalidate dependency.
 2.  Annotating Protobuf files and regenerating code.
 3.  Adding a Connect interceptor.
 4.  Testing your validation logic.
 
-::: tip Just need an example?
-There's an example of Protovalidate for gRPC and Python in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/grpc-python/finish).
-:::
+Just need an example? There's an example of Protovalidate for gRPC and Python in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/grpc-python/finish).
 
 ## Prerequisites
 
@@ -66,7 +64,7 @@ There's an example of Protovalidate for gRPC and Python in [GitHub](https://gith
   git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/protovalidate/grpc-python/start
   ```
 
-- Create, start, and initialize a virtual environment to isolate this tutorial from any other Python environments:
+- Create, start, and initialize a virtual environment to isolate this quickstart from any other Python environments:
 
   ```sh
   python3 -m venv .venv
@@ -76,7 +74,7 @@ There's an example of Protovalidate for gRPC and Python in [GitHub](https://gith
 
 ## Goal
 
-This tutorial's `CreateInvoice` RPC doesn't have any input validation. Your goal is to pass a unit test verifying that you've added two validation rules using Protovalidate:
+This quickstart's `CreateInvoice` RPC doesn't have any input validation. Your goal is to pass a unit test verifying that you've added two validation rules using Protovalidate:
 
 1.  Requests must provide an `Invoice` with a UUID `invoice_id`.
 2.  Within the `Invoice` message, all of its `repeated LineItem line_items` must have unique combinations of `product_id` and `unit_price`.
@@ -126,9 +124,9 @@ The server should respond with the version number of the invoice that was create
 
 Before you start coding, take a few minutes to explore the code in the example.
 
-## Explore tutorial code
+## Explore quickstart code
 
-This tutorial uses the example in `grpc-python/start`.
+This quickstart uses the example in `grpc-python/start`.
 
 ### Protobuf
 
@@ -181,9 +179,7 @@ When you add Protovalidate, you'll update the following files:
 
 You'll be working in `invoice_server.py`. It's an executable that runs a server on port 50051. You'll edit it to add a Protovalidate interceptor to gRPC.
 
-::: tip Where's the service itself?
 `invoice/v1/invoice_service.py` provides `InvoiceService`, an subclass of the generated `invoice_service_pb2_grpc.InvoiceServiceServicer`. Its `CreateInvoice` function sends back a static response.
-:::
 
 Now that you know your way around the example code, it's time to integrate Protovalidate.
 
@@ -237,12 +233,6 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
 4.  Verify that configuration is complete by running `buf generate`. It should complete with no error.
 
-::: tip Further reading and protoc
-Further reading and `protoc`
-
-Learn more about incorporating Protovalidate and `protoc` support in the [Adding protovalidate](../../schemas/adding-protovalidate/) page.
-:::
-
 ### Add a standard rule
 
 You'll now add a [standard rule](../../schemas/standard-rules/) to `proto/invoice.proto` to require that the `invoice_id` field is a UUID. Start by importing Protovalidate:
@@ -287,9 +277,7 @@ message Invoice {
 
 :::
 
-::: tip Learn more about string and standard rules.
 Learn more about [string](../../../reference/protovalidate/rules/string_rules/) and [standard](../../schemas/standard-rules/) rules.
-:::
 
 ### Enforce complex rules
 
@@ -366,9 +354,7 @@ message Invoice {
 
 You've added validation rules to your Protobuf. To enforce them, you still need to regenerate code and add a Protovalidate interceptor to your server.
 
-::: tip Learn more about custom rules.
 Learn more about [custom rules](../../schemas/custom-rules/).
-:::
 
 ### Compile Protobuf and Python
 
@@ -408,11 +394,7 @@ The response may be a surprise: the server still considers the request valid and
 }
 ```
 
-The RPC is still successful because gRPC hasn't been told to validate inbound requests.
-
-::: tip Note
-No Connect or gRPC implementations automatically enforce Protovalidate rules. To enforce your validation rules, you'll need to add an interceptor.
-:::
+The RPC is still successful because no Connect or gRPC implementations automatically enforce Protovalidate rules. To enforce your validation rules, you'll need to add an interceptor.
 
 ### Add a Protovalidate interceptor
 
@@ -538,7 +520,7 @@ You've now added Protovalidate to a gRPC in Python, but `buf curl` isn't a great
 
 ## Test Protovalidate errors
 
-The starting code for this tutorial contains a `InvoiceServerTest` unit test in `invoice_server_test.py`. It starts a server with a Protovalidate interceptor and iterates through a series of test cases.
+The starting code for this quickstart contains a `InvoiceServerTest` unit test in `invoice_server_test.py`. It starts a server with a Protovalidate interceptor and iterates through a series of test cases.
 
 In the prior section, you saw that the `violations` list returned by Protovalidate follows a predictable structure. Each violation in the list is a Protobuf message named `Violation`, [defined within Protovalidate itself](../../../reference/protovalidate/violations/).
 
@@ -631,7 +613,7 @@ The `finish` directory contains a thorough test that you can use as an example f
 
 ## Wrapping up
 
-In this tutorial, you've learned the basics of working with Protovalidate:
+In this quickstart, you've learned the basics of working with Protovalidate:
 
 1.  Adding Protovalidate to your project.
 2.  Declaring validation rules in your Protobuf files.

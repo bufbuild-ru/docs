@@ -4,7 +4,7 @@ prev: false
 next: false
 
 title: "Tip of the week #2: Compress your Protos!"
-description: "Compression is everywhere:. This pervasiveness means that wire size tradeoffs matter less than they used to twenty years ago, when Protobuf was designed."
+description: "Compression is everywhere. This pervasiveness means that wire size tradeoffs matter less than they used to twenty years ago, when Protobuf was designed."
 
 head:
   - - link
@@ -15,7 +15,7 @@ head:
       content: "Tip of the week #2: Compress your Protos!"
   - - meta
     - property: "og:description"
-      content: "Compression is everywhere:. This pervasiveness means that wire size tradeoffs matter less than they used to twenty years ago, when Protobuf was designed."
+      content: "Compression is everywhere. This pervasiveness means that wire size tradeoffs matter less than they used to twenty years ago, when Protobuf was designed."
   - - meta
     - property: "og:image"
       content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/67f82330bff5b5fbb0f1820f_totw2%20compress%20your%20protos.png"
@@ -27,7 +27,7 @@ head:
       content: "Tip of the week #2: Compress your Protos!"
   - - meta
     - property: "twitter:description"
-      content: "Compression is everywhere:. This pervasiveness means that wire size tradeoffs matter less than they used to twenty years ago, when Protobuf was designed."
+      content: "Compression is everywhere. This pervasiveness means that wire size tradeoffs matter less than they used to twenty years ago, when Protobuf was designed."
   - - meta
     - property: "twitter:image"
       content: "https://cdn.prod.website-files.com/6723e92f5d187330e4da8144/67f82330bff5b5fbb0f1820f_totw2%20compress%20your%20protos.png"

@@ -45,7 +45,7 @@ head:
 
 # Using Protovalidate in Kafka with Bufstream
 
-This tutorial shows how to add Protovalidate to a Go streaming application powered by [Bufstream](../../../bufstream/):
+This quickstart shows how to add Protovalidate to a Go streaming application powered by [Bufstream](../../../bufstream/):
 
 1.  Adding the Protovalidate dependency.
 2.  Annotating Protobuf files.
@@ -64,7 +64,7 @@ This tutorial shows how to add Protovalidate to a Go streaming application power
 
 ## Goal
 
-This tutorial's Kafka producer publishes `EmailUpdated` messages that change a fictitious user's email from an old value to a new value, but it doesn't have any input validation. Your goal is to add the following validation rules using Protovalidate:
+This quickstart's Kafka producer publishes `EmailUpdated` messages that change a fictitious user's email from an old value to a new value, but it doesn't have any input validation. Your goal is to add the following validation rules using Protovalidate:
 
 1.  Messages must provide an `id` value that's a valid UUID.
 2.  Messages must provide a valid email address for the `new_email_address` field.
@@ -140,9 +140,9 @@ Note that there's something fishy in the last log message — the new email isn'
 
 It's okay to use `Ctrl-C` to stop the broker, producer, and consumer before continuing.
 
-## Explore tutorial code
+## Explore quickstart code
 
-This tutorial uses the example in `bufstream/start`. All filenames are relative to this directory.
+This quickstart uses the example in `bufstream/start`. All filenames are relative to this directory.
 
 ### Makefile
 
@@ -282,12 +282,6 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 
 5.  In any of your open terminal windows, verify that configuration is complete by running `buf generate`. It should complete with no error.
 
-::: tip Further reading and protoc
-Further reading and `protoc`
-
-Learn more about incorporating Protovalidate and `protoc` support in the [Adding protovalidate](../../schemas/adding-protovalidate/) page.
-:::
-
 ### Add Protovalidate rules
 
 You'll now add [standard rules](../../schemas/standard-rules/) to `demo.proto` requiring that the `id` field is a UUID and that the `new_email_address` is a valid email address. Start by importing Protovalidate:
@@ -347,9 +341,7 @@ message EmailUpdated {
 
 :::
 
-::: tip Learn more about string and standard rules.
 Learn more about [string](../../../reference/protovalidate/rules/string_rules/) and [standard](../../schemas/standard-rules/) rules.
-:::
 
 ### Compile Protobuf
 
@@ -547,7 +539,7 @@ You've now added Protovalidate enforcement to a Bufstream broker. All consumers 
 
 ## Conclusion
 
-In this tutorial, you've learned how to add Protovalidate to your Protobuf project, declare validation rules in your Protobuf files, and enable their enforcement within Bufstream.
+In this quickstart, you've learned how to add Protovalidate to your Protobuf project, declare validation rules in your Protobuf files, and enable their enforcement within Bufstream.
 
 ## Further reading
 

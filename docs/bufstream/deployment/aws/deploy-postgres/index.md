@@ -6,10 +6,10 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/deployment/aws/deploy-postgres/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/aws/deploy-etcd/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/gcp/deploy-etcd/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/aws/deploy-etcd/"
   - - meta
     - property: "og:title"
       content: "Deploy with Postgres - Buf Docs"
@@ -45,7 +45,7 @@ head:
 
 # Deploy Bufstream to AWS with RDS for PostgreSQL
 
-This page walks you through installing Bufstream into your AWS deployment, using PostgreSQL for metadata storage. See [Tuning and performance](../../tuning-performance/) for defaults and recommendations about resources, replicas, storage, and scaling.
+This page walks you through installing Bufstream into your AWS deployment, using PostgreSQL for metadata storage.
 
 Data from your Bufstream cluster never leaves your network or reports back to Buf.
 
@@ -299,30 +299,30 @@ The k8s service account to create the pod identity association for is named `buf
 
 Alternatively, you can use an access key pair.
 
-1.  Create a k8s secret containing the s3 access secret key:
+1.  Create a k8s secret containing the S3 access secret key:
 
-```sh
-kubectl create secret --namespace bufstream generic bufstream-storage \
-  --from-literal=secret_access_key=<s3 secret access key>
-```
+    ```sh
+    kubectl create secret --namespace bufstream generic bufstream-storage \
+      --from-literal=secret_access_key=<s3 secret access key>
+    ```
 
-1.  Add the `accessKeyId` to the configuration:
+2.  Add the `accessKeyId` to the configuration:
 
-::: info bufstream-values.yaml
+    ::: info bufstream-values.yaml
 
-```yaml
-storage:
-  use: s3
-  s3:
-    accessKeyId: "AKIAIOSFODNN7EXAMPLE"
-    secretName: bufstream-storage
-    bucket: <bucket-name>
-    region: <region>
-    # forcePathStyle: false # Optional, use path-style bucket URLs (http://s3.amazonaws.com/BUCKET/KEY)
-    # endpoint: "https://example.com" # Optional
-```
+    ```yaml
+    storage:
+      use: s3
+      s3:
+        accessKeyId: "AKIAIOSFODNN7EXAMPLE"
+        secretName: bufstream-storage
+        bucket: <bucket-name>
+        region: <region>
+        # forcePathStyle: false # Optional, use path-style bucket URLs (http://s3.amazonaws.com/BUCKET/KEY)
+        # endpoint: "https://example.com" # Optional
+    ```
 
-:::
+    :::
 
 +++
 
@@ -445,7 +445,7 @@ helm install bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/buf
 
 If you change any configuration in the `bufstream-values.yaml` file, re-run the Helm install command to apply the changes.
 
-### Network load balancer
+## Network load balancer
 
 To access the Bufstream cluster from outside the Kubernetes cluster, create an AWS Network Load Balancer (NLB). The easiest way to create an NLB is to use the [AWS Load Balancer Controller](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/deploy/installation/). Once the controller is successfully installed in the EKS cluster, add the following configuration to `bufstream-values.yaml` file:
 

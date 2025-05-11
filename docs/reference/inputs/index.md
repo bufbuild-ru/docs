@@ -49,9 +49,7 @@ The various I/O options for the Buf CLI may seem a bit daunting — this referen
 
 In general, a Buf input is a collection of Protobuf files acted on by many of the Buf CLI commands. In most cases, the input is a [module](../../cli/modules-workspaces/), but a variety of other formats are supported and explained below.
 
-::: tip Note
 By default, the Buf CLI uses the current directory as its input for all commands.
-:::
 
 ## Terminology
 

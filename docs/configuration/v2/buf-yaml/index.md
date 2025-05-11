@@ -45,12 +45,6 @@ head:
 
 # buf.yaml v2 config file
 
-::: tip Note
-This file has changed between `v1` and `v2` configurations.
-:::
-
-See the [v1 to v2 migration guide](../../../migration-guides/migrate-v2-config-files/) for migration instructions or the [v1 reference](../../v1/buf-yaml/) if you're still using `v1` configuration files.
-
 The `buf.yaml` file defines a [workspace](../../../cli/modules-workspaces/), which represents a directory or directories of Protobuf files that you want to treat as a unit. The set consists of one or more packages — see [Files and packages](../../../reference/protobuf-files-and-packages/) for more details about these relationships and how to structure your files.
 
 The `buf.yaml` config file and field definitions below explain usage for each field. See the [lint](../../../lint/overview/#defaults-and-configuration) and [breaking change detection](../../../breaking/overview/#defaults-and-configuration) overviews for default configurations for those features.
@@ -205,9 +199,7 @@ plugins:
 
 **Optional.** Lists directories within this directory to exclude from Protobuf file discovery. Any directories added to this list are completely skipped and excluded from Buf operations. This can be specified together with `includes`, in which case each directory in `excludes` must be contained in a directory in `includes`.
 
-::: warning Warning
 **We don't recommend using this option**, but in some situations it's unavoidable.
-:::
 
 ## `deps`
 
@@ -217,9 +209,7 @@ The value must be a valid path to a BSR module (either the public BSR at `buf.bu
 
 The path can also include a specific reference, which is either a [commit or a label](../../../bsr/commits-labels/).
 
-::: tip Note
 Depending on specific module references is an advanced feature — you should depend on the latest commit whenever possible. Your `deps` don't need to include the `:<reference>` suffix in most cases.
-:::
 
 ## `lint`
 

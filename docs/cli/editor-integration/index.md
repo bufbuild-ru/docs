@@ -75,9 +75,7 @@ Our Buf extension currently supports [linting](../../lint/overview/) your `.prot
 
 The Buf CLI is executed in the root of your workspace, which means it's configured by the [`buf.yaml`](../../configuration/v2/buf-yaml/) there.
 
-::: tip Note
 The `vscode-buf` extension doesn't work in conjunction with the `vscode-proto` extension. More generally, if you run into issues you may need to disable other extensions that register the `.proto` file suffix.
-:::
 
 ## JetBrains IDEs
 

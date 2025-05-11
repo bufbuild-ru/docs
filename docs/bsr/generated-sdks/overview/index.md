@@ -68,7 +68,7 @@ As a result, you only need to install a single generated SDK to use the schema.
 
 In addition to simpler dependency management, generated SDKs also make iterating on Protobuf APIs easier. All [labels](../../commits-labels/#labels) in the BSR produce SDKs, allowing consumer teams to work with pre-release client code before pushing their APIs to the default label. Consumers can use the latest version of a generated SDK (the default) or pin it to a specific commit or label instead.
 
-Go to the tutorial to learn [how to install generated SDKs from the BSR](../tutorial/), or the guides linked below for manual installation instructions and specific versioning syntax.
+Go to the quickstart to learn [how to install generated SDKs from the BSR](../tutorial/), or the guides linked below for manual installation instructions and specific versioning syntax.
 
 ## Configuration limitations
 

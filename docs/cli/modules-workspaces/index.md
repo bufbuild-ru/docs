@@ -94,9 +94,7 @@ Public repositories on the public BSR are often used to share open source softwa
 
 As a best practice, we encourage you to include the license file with your module. To do this, simply include a `LICENSE` file at the module root and push it to the BSR.
 
-::: tip Note
 You need to have a LICENSE file (or at least a symlink to one) in your module directory for its Go package to display on pkg.go.dev, per the [Go license policy](https://pkg.go.dev/license-policy).
-:::
 
 #### Disclaimer
 

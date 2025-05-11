@@ -3,7 +3,7 @@ sidebar: false
 prev: false
 next: false
 
-title: "Cheap Kafka is cool. Schema-driven-development with Kafka is cooler."
+title: "Cheap Kafka is cool. Schema-driven development with Kafka is cooler."
 description: "If you're looking for a modern drop-in replacement for Apache Kafka to save costs and complexity, Bufstream is probably your best bet. However, we've got a bigger mission here. Buf wants to bring schema-driven development across your entire stack, from your network APIs, to your streaming data, to your lakehouse, unified behind one schema language that can do it all."
 
 head:
@@ -12,7 +12,7 @@ head:
       href: "https://bufbuild.ru/blog/kafka-schema-driven-development"
   - - meta
     - property: "og:title"
-      content: "Cheap Kafka is cool. Schema-driven-development with Kafka is cooler."
+      content: "Cheap Kafka is cool. Schema-driven development with Kafka is cooler."
   - - meta
     - property: "og:description"
       content: "If you're looking for a modern drop-in replacement for Apache Kafka to save costs and complexity, Bufstream is probably your best bet. However, we've got a bigger mission here. Buf wants to bring schema-driven development across your entire stack, from your network APIs, to your streaming data, to your lakehouse, unified behind one schema language that can do it all."
@@ -24,7 +24,7 @@ head:
       content: "website"
   - - meta
     - property: "twitter:title"
-      content: "Cheap Kafka is cool. Schema-driven-development with Kafka is cooler."
+      content: "Cheap Kafka is cool. Schema-driven development with Kafka is cooler."
   - - meta
     - property: "twitter:description"
       content: "If you're looking for a modern drop-in replacement for Apache Kafka to save costs and complexity, Bufstream is probably your best bet. However, we've got a bigger mission here. Buf wants to bring schema-driven development across your entire stack, from your network APIs, to your streaming data, to your lakehouse, unified behind one schema language that can do it all."
@@ -36,7 +36,7 @@ head:
       content: "summary_large_image"
 ---
 
-# Cheap Kafka is cool. Schema-driven-development with Kafka is cooler.
+# Cheap Kafka is cool. Schema-driven development with Kafka is cooler.
 
 We've been hard at work on [Bufstream](/docs/bufstream/index.md), our drop-in replacement for Apache Kafka® rebuilt on top of S3-compatible object storage. It's one of the new breed of object-storage-based Kafka replacements, which seem to have become a dime a dozen. WarpStream kicked off the race in 2023, quickly followed by Bufstream, StreamNative Ursa, and Confluent Freight. In the coming months, even Redpanda is finally getting into the game, and there's a proposal to add support for object storage to Apache Kafka itself in the coming years.
 
@@ -71,7 +71,7 @@ A unified schema approach can dramatically reshape data engineering:
 
 - Schema-driven development adopted across your entire stack would eliminate so much boilerplate that engineers would have to find new (and better) uses of their time.
 - If schemas defined more than just basic properties ("this field is a string", "this field is an int") but semantic properties ("this string field must be a valid email address", "this int field is a human age and must be between 0 and 150", "this other int field must never be 0", "if field 1 exists, field 2 must exist"), we could have confidence that additional application-level logic was not needed to truly represent the shape of our data.
-- If a single schema language were used to describe both your network, application, and data shapes, producers could define the data's properties and make sure data sent downstream conforms to those properties. The closer to the data source you go, the better the understanding of what the shape and properties of the data is. Bad data could be stopped at the source. Patterns like the [medallion architecture](https://www.databricks.com/glossary/medallion-architecture) could go from mainstream to niche.
+- If a single schema language were used to describe your network, application, and data shapes, producers could define the data's properties and make sure data sent downstream conforms to those properties. The closer to the data source you go, the better the understanding of what the shape and properties of the data is. Bad data could be stopped at the source. Patterns like the [medallion architecture](https://www.databricks.com/glossary/medallion-architecture) could go from mainstream to niche.
 - If schemas never broke compatibility, consumers would never have to live in fear of whether the data they're consuming continues to match their expectations. BI dashboards or model training would not end up broken days after the fact due to missing columns (and the Kafka team would not get falsely blamed).
 - If access control could be defined at the schema level, and understood by our RPC frameworks, Kafka-compatible message queues, and data lakes, we could have a unified view and understanding of data governance.
 
@@ -81,7 +81,7 @@ The largest data engineering pain point — poor data quality — can be solved,
 
 While what specific schema language is chosen is somewhat unimportant in theory, at Buf, we think it should be [Protobuf](https://protobuf.dev/):
 
-- [Avro](https://avro.apache.org/) has a lot of similarities, but falls short as a schema language to use across your entire stack. Importantly, Avro is unable to support forwards compatibility. Because of how Avro's binary format works, if you add a field to a schema, a reader will be unable to decode an Avro message without the latest version of the schema. Therefore in practice, readers must always have access to the exact schema the writer used to produce a message. This makes Avro largely impractical for network APIs, and Avro's adoption has largely been limited to big data use cases. Additionally, tooling is heavily focused on the JVM.
+- [Avro](https://avro.apache.org/) has a lot of similarities, but falls short as a schema language to use across your entire stack. Avro's adoption has largely been limited to big data. Importantly, because of quirks in how Avro's binary format works, there are very few schema changes that are backward and forward compatible. In practice, a reader will be unable to reliably decode an Avro message without access to the exact version of the schema used to write it. This makes Avro largely impractical for network APIs, and no production-grade RPC framework using Avro has ever been widely adopted. Additionally, tooling is heavily focused on the JVM.
 - JSON is a universal language that is useful as a human-readable representation of your data, but is inefficient as an interchange format, since every key is consistently duplicated across messages as a long-form string. This is especially problematic for high-throughput streaming data use cases. While tools like [JSON Schema](https://json-schema.org/) help solve the inherent freeform nature of JSON interchange, JSON's drawbacks make JSON Schema fall short as a modern schema language.
 - SQL has in effect become a schema language of sorts for data lakes via `CREATE TABLE` statements. Given SQL's widespread use in big data, this is useful at one end of the spectrum. However, SQL is not a schema language appropriate for all parts of your stack; you'd never use `CREATE TABLE` statements to describe the shape of your RPCs and there's no tooling to do so. SQL just isn't great for structured data: nested types and lists need to be projected into sub-tables, and the mapping to language-specific objects or structs is less than obvious.
 - Other Protobuf-like products like [Apache Thrift™](https://thrift.apache.org/), [Cap'n Proto](https://capnproto.org/), [Flatbuffers](https://flatbuffers.dev/), and many others all have their pros and cons, but in the end, they aren't widely differentiated and aren't widely used.
@@ -96,15 +96,15 @@ Adopting schemas across your stack has historically been a story of fragmentatio
 
 Buf brought together the world's Protobuf experts to solve this once and for all:
 
-- The [Buf CLI](https://github.com/bufbuild/buf) integrates tightly with your [IDE](/docs/cli/editor-integration/index.md) to make local Protobuf development easy. Compilation, stub generation, breaking change detection, linting, formatting, encoding conversion - `buf` is your one-stop shop for anything Protobuf. The Buf CLI has become the de facto standard for local Protobuf development across the industry.
+- The [Buf CLI](https://github.com/bufbuild/buf) integrates tightly with your [IDE](/docs/cli/editor-integration/index.md) to make local Protobuf development easy. Compilation, stub generation, breaking change detection, linting, formatting, encoding conversion – `buf` is your one-stop shop for anything Protobuf. The Buf CLI has become the de facto standard for local Protobuf development across the industry.
 - The [Buf Schema Registry](https://buf.build/product/bsr) is the missing package manager for Protobuf. The BSR provides centralized distribution of your Protobuf APIs, generated SDKs that can be consumed via the native [language package manager](https://buf.build/bufbuild/registry/sdks/main:protobuf) of your choice, generated documentation, plugin management, and breaking change and policy enforcement that is required for proper schema governance. The largest companies in the world rely on the BSR to back their Protobuf deployments.
-- [ConnectRPC](https://connectrpc.com/) brings Protobuf an RPC framework that simply works across backend, frontend, and mobile use cases. It's entirely gRPC-compatible (in fact it's even more compatible with the gRPC spec than [the core gRPC libraries](/blog/grpc-conformance-deep-dive/index.md)) but provides HTTP/1.1 and JSON compatibility where it matters. Implementations are based on the concept of production-grade through simplicity. Connect has [joined the CNCF](/blog/connect-rpc-joins-cncf/index.md) as a vendor-neutral home, and has been adopted by many large organizations.
+- [ConnectRPC](https://connectrpc.com/) brings to Protobuf an RPC framework that simply works across backend, frontend, and mobile use cases. It's entirely gRPC-compatible (in fact it's even more compatible with the gRPC spec than [the core gRPC libraries](/blog/grpc-conformance-deep-dive/index.md)) but provides HTTP/1.1 and JSON compatibility where it matters. Implementations are based on the concept of production-grade through simplicity. Connect has [joined the CNCF](/blog/connect-rpc-joins-cncf/index.md) as a vendor-neutral home, and has been adopted by many large organizations.
 - [Protovalidate](/docs/protovalidate/index.md) provides the semantic validation libraries required to properly represent your data's properties beyond simple field types. It builds on the success of the widely-adopted [protoc-gen-validate](/blog/protoc-gen-validate-v1-and-v2/index.md), which Buf was asked to take over from the Envoy project. Protovalidate uses [CEL](https://cel.dev/) to provide proper Protobuf validation across [Go](https://github.com/bufbuild/protovalidate-go), [Python](https://github.com/bufbuild/protovalidate-python), [Java](https://github.com/bufbuild/protovalidate-java), [C++](https://github.com/bufbuild/protovalidate-cc), and [TypeScript](https://github.com/bufbuild/protovalidate-es).
 - [Bazel rules](https://github.com/bufbuild/rules_buf), [Gradle support](https://github.com/bufbuild/buf-gradle-plugin), [a modern Protobuf compiler](https://github.com/bufbuild/protocompile), [LSP support](https://github.com/bufbuild/buf/releases/tag/v1.43.0), even the world's only [language spec for Protobuf](https://protobuf.com/docs/language-spec).
 
 All built at Buf, to make Protobuf work for everyone.
 
-## Streaming data has a data quality problem
+## Streaming data has a data problem
 
 So where does Bufstream fit in?
 
@@ -124,7 +124,7 @@ Bufstream's awareness of your schemas provides so much more, from direct mapping
 
 It isn't enough to ensure that bad data for your current schemas doesn't proliferate. You also need to ensure that bad schema changes don't make it to production either. Deleting fields, changing their type, or adding backwards-incompatible semantic properties all can result in downstream consumers being hopelessly broken without any recourse. In almost all cases, breaking schema changes should never hit your network APIs, Kafka topics, or Iceberg tables, until you do a proper v2.
 
-Consumers need the confidence that producers will never break their schemas until v2 (usually, in an entirely new topic or table), but current practices do not incentivize proper schema management and evolution. Schemas are typically shared via a schema registry, such as the Confluent Schema Registry or Glue Schema Registry. Unfortunately, new schemas are registered with these schema registries at **runtime** via **clients** that provide whatever schemas are baked into their code. These schemas have no guarantee of compatibility or having done through proper review - they could even appear from dev laptops from code on feature branches in the worst case.
+Consumers need the confidence that producers will never break their schemas until v2 (usually, in an entirely new topic or table), but current practices do not incentivize proper schema management and evolution. Schemas are typically shared via a schema registry, such as the Confluent Schema Registry or Glue Schema Registry. Unfortunately, new schemas are registered with these schema registries at **runtime** via **clients** that provide whatever schemas are baked into their code. These schemas have no guarantee of compatibility or having gone through proper review – they could even appear from dev laptops from code on feature branches in the worst case.
 
 Here's a typical flow for a producer using the Confluent Schema Registry (CSR):
 
@@ -132,12 +132,12 @@ Here's a typical flow for a producer using the Confluent Schema Registry (CSR):
 - The client would like this record to be enveloped using the [Confluent Wire Format](https://docs.confluent.io/platform/current/schema-registry/fundamentals/serdes-develop/index.html#wire-format), requiring a schema ID to be retrieved for the schema from the CSR.
 - The client sends its representation of the schema to the CSR.
 - If the CSR has seen this schema before, great, it will send back the associated schema ID.
-- If the CSR has not seen this schema before and this schema breaks what CSR considers to be compatibility, great (sort of), the CSR will send back an error.
+- If the CSR has not seen this schema before and this schema breaks what CSR considers to be compatible, great (sort of), the CSR will send back an error.
 - If the CSR has not seen this schema before but deems it to be compatible, it will send back a new schema ID representing this previously-unknown schema.
 
 This is a recipe for disaster. The CSR's checks for compatibility are basic, and don't take semantic properties into account. For Protobuf, the CSR doesn't check all properties that must be checked to ensure true Protobuf compatibility (a fact we'll dive into in a future post). Schemas can appear at runtime without any vetting.
 
-Buf introduces a different world with the Buf Schema Registry (BSR). Schemas cannot appear out of thin air, instead only being allowed to appear at **build-time** via explicit pushes from source control after passing stringent breaking change and policy checks. Buf will check not only basic properties, but semantic properties as well via Protovalidate. And Buf has the world's Protobuf experts - when we validate that your schemas have no breaking changes, [we mean it](/docs/breaking/rules/index.md). Schemas are code reviewed by relevant teams, just like any other piece of code. In the same flow as above:
+Buf introduces a different world with the Buf Schema Registry (BSR). Schemas cannot appear out of thin air, instead only being allowed to appear at **build-time** via explicit pushes from source control after passing stringent breaking change and policy checks. Buf will check not only basic properties, but semantic properties as well via Protovalidate. And Buf has the world's Protobuf experts – when we validate that your schemas have no breaking changes, [we mean it](/docs/breaking/rules/index.md). Schemas are code reviewed by relevant teams, just like any other piece of code. In the same flow as above:
 
 - If the BSR has seen this schema before, great, it will send back the associated schema ID.
 - If the BSR has not seen this schema before , the BSR will send back an error, end of story.

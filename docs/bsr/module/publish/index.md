@@ -93,6 +93,14 @@ When you push from your workspace, the Buf CLI automatically resolves the intern
     buf.build/example/module:280bdcbf4b0341d6aefd8bfcafc018eb
     ```
 
+Files that are pushed on a `buf push` run:
+
+- [Configuration file](../../../configuration/v2/buf-yaml/): `buf.yaml`
+- [Dependencies lock file](../../../configuration/v1/buf-lock/): `buf.lock`
+- [Module's license](../../../cli/modules-workspaces/#module-license): `LICENSE`
+- [Module's documentation](../../../cli/modules-workspaces/#module-documentation): `buf.md` and `README.md`
+- All of your `*.proto` files.
+
 ## Pushing with labels
 
 Labels allow you to add a commit to the history of a specific stream of development like a release or a feature, similar to branches and tags in a VCS. If no other label is applied, the commit is added to the history of the [default label](../../repositories/#default-label), which is similar to the default branch in a VCS (for example `main` in Git).

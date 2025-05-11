@@ -61,21 +61,28 @@ The BSR itself is a good example of this principle, as it exposes a large public
 
 ## Track types usage
 
-To help you track usage costs, the BSR provides a dashboard to organization admins on `buf.build` that shows monthly average type usage for the organization. Go to the organization's side menu, then **Account > Usage** to view it.
+To help you track usage costs, the BSR provides usage dashboards that can help you keep track of the number of types you're using. There are some differences in the way we compute types for private instances vs. the public BSR, which reflect the terms around how these contracts are billed:
+
+- Types usage for the public BSR is computed as the average number of types over the organization's billing period.
+- Private instance usage tracks the maximum number of types for all organizations on the entire instance over a calendar month.
+
+### Public BSR organizations
+
+On the public BSR, each organization has a dashboard accessible by organization admins that shows monthly average type usage for the organization. Go to the organization's side menu, then **Account > Usage** to view it.
 
 ![Example dashboard](../../images/bsr/types-usage-public.png)
 
-### Types usage by instance, owner, and repository
+### Private BSR instances
 
 ::: warning
 This feature is only available on the Enterprise plan.
 :::
 
-The BSR provides more detailed reporting for private instances: current type usage and historical data for billable types. Instance admins have access to both dashboards, and they can be exported to CSV to easily share usage information with others. Both dashboards can also be filtered on specific organizations and repos in addition to viewing for the entire instance.
+The BSR provides more detailed reporting for private instances: maximum type usage for the current calendar month and historical data for billable types. Instance admins have access to both dashboards, and they can be exported to CSV to easily share usage information with others. Both dashboards can also be filtered on specific organizations and repos in addition to viewing for the entire instance.
 
 #### Current types usage
 
-Instance admins can view this dashboard at `https://buf.build/admin/current-usage`. It shows the current type usage at that moment, broken out by repository and each type.
+Instance admins can view this dashboard at `https://buf.build/admin/current-usage`. It shows the type usage at that moment, broken out by owner and each type:
 
 ![Example dashboard](../../images/bsr/types-usage-private-current.png)
 
@@ -83,8 +90,8 @@ You can sort the table by any column, and click through to view usage down to th
 
 #### Billable types history
 
-Instance admins can view this dashboard at `https://buf.build/admin/billable-history`. It shows the maximum types billed by month for up to a year of data, with each month further broken out by type.
+Instance admins can view this dashboard at `https://buf.build/admin/billable-history`. It shows the number of types billed by month for up to a year of data, with each month further broken out by type.
 
 ![Example dashboard](../../images/bsr/types-usage-private-history.png)
 
-You can change the data range as needed.
+You can change the date range as needed.

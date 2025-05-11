@@ -45,7 +45,15 @@ head:
 
 # Files and packages
 
-::: tip TL;DR
+In the Protobuf IDL, files have two important facets to their identity:
+
+1.  **Package**: the name that appears in a `package` declaration in the file. If there is no such declaration, the file uses the global, unnamed package.
+2.  **File path**: the path of the source file (relative to some “import” or “project” root directory), as used by the compiler when code is generated for the file.
+
+The following sections discuss these in depth as well as some best practices to avoid relevant pitfalls.
+
+## TL;DR
+
 Adhere to the following best practices to avoid issues in your generated code related to file collisions:
 
 1.  Always declare a package in your Protobuf sources.
@@ -56,14 +64,6 @@ Adhere to the following best practices to avoid issues in your generated code re
 3.  Always import a file using the same path that was used to compile that file.
 
 A highly recommended practice is to [lint](../../lint/overview/) your schemas as part of CI verification. In fact, most of the above best practices are already enforced by the Buf CLI’s lint rules!
-:::
-
-In the Protobuf IDL, files have two important facets to their identity:
-
-1.  **Package**: the name that appears in a `package` declaration in the file. If there is no such declaration, the file uses the global, unnamed package.
-2.  **File path**: the path of the source file (relative to some “import” or “project” root directory), as used by the compiler when code is generated for the file.
-
-The following sections discuss these in depth as well as some best practices to avoid relevant pitfalls.
 
 ## Packages
 
@@ -123,9 +123,7 @@ For example, within a single system or product, you can subdivide packages furth
 
 Within a single service, you might create sub-packages for orthogonal functions. For example, within `google.bigtable`, there is a sub-package named [`google.bigtable.admin`](https://github.com/googleapis/googleapis/tree/master/google/bigtable/admin) which contains administrative APIs for the BigTable control plane.
 
-::: tip Note
 Avoid including parts of your org chart — like team names — in the package. Attributes like these can change over time, and ownership over particular parts of the codebase can also change over time. So it’s better to use names or descriptive words that are unlikely to change.
-:::
 
 ## File Paths
 

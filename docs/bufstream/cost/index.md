@@ -9,7 +9,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/blog-posts/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/tuning-performance/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/"
   - - meta
     - property: "og:title"
       content: "Benchmarks and cost - Buf Docs"

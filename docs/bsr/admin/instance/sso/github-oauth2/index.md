@@ -64,9 +64,7 @@ The steps below must be carried out by a GitHub administrator for your organizat
 
 ## Create an SSO GitHub App
 
-::: tip Note
 This GitHub App is only used for SSO and is separate from the Buf GitHub App used for CI/CD integration.
-:::
 
 1.  Sign in to your GitHub organization at `https://github.com/organizations/YOUR_GITHUB_ORG/settings/apps`.
 2.  Click the **New GitHub App** button.

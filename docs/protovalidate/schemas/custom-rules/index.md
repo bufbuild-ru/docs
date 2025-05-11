@@ -77,9 +77,7 @@ Validity is often a function of multiple fields. In these scenarios, CEL express
 
 With CEL available at the field and message levels, it's hard to think of validation rules that can't be expressed within Protobuf files.
 
-::: tip Note
 Learn how to create complex CEL expressions in [advanced CEL rules](../../cel/).
-:::
 
 ## Creating field rules
 
@@ -105,9 +103,7 @@ message DeviceInfo {
 
 :::
 
-::: tip What is "this?"
 Within field-level custom rules, `this` refers to the value of the field. For more information about `this`, see [advanced CEL rules](../../cel/).
-:::
 
 ### Combining field rules
 
@@ -171,6 +167,14 @@ message IndirectFlightRequest {
 ```
 
 :::
+
+### Combining message rules
+
+You can combine multiple message-level rules to handle complex validation scenarios. They can also access properties of nested messages, allowing CEL expressions to traverse graphs of related messages.
+
+The following advanced example illustrates this by combining multiple rules, CEL functions, numeric type coercion, and nested message traversal to lift complex domain validation logic into a schema. Modeling a request to search for apartments, it optionally considers local zoning regulations to enforce a maximum ratio of occupants per bedroom.
+
+Try changing `occupants` to `4` or removing the `occupancy_rules` and you'll see that the sample message becomes valid.
 
 ## Next steps
 

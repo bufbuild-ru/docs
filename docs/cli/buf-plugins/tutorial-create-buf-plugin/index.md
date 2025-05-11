@@ -12,7 +12,7 @@ head:
       href: "https://bufbuild.ru/docs/cli/buf-plugins/webassembly/"
   - - meta
     - property: "og:title"
-      content: "Tutorial - Buf Docs"
+      content: "Quickstart - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/cli/buf-plugins/tutorial-create-buf-plugin.png"
@@ -33,7 +33,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Tutorial - Buf Docs"
+      content: "Quickstart - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/cli/buf-plugins/tutorial-create-buf-plugin.png"
@@ -43,32 +43,27 @@ head:
 
 ---
 
-# Create a Buf plugin – Tutorial
+# Buf plugin quickstart
 
 Buf's [lint](../../../lint/overview/) and [breaking change](../../../breaking/overview/) checks come with pre-defined rules and categories that cover the vast majority of customer needs. However, organizations sometimes need to enforce different or additional rules. For these cases, you can create [Buf plugins](../overview/) that work with the Buf checkers so you can integrate your own rules and categories into your workflows.
 
-This tutorial demonstrates how to define your own rules in a Buf plugin and how to install and use it locally.
+This quickstart demonstrates how to define your own rules in a Buf plugin and how to install and use it locally.
 
 ## Prerequisites
 
 - Install the [Buf CLI](../../installation/) or update your existing version to >=1.40
-- Clone the `buf-tour` repo:
+- Clone the `buf-examples` repo and go to this quickstart's directory:
 
   ```sh
-  git clone git@github.com:bufbuild/buf-tour.git
+  git clone git@github.com:bufbuild/buf-examples.git &&
+      cd buf-examples/bsr/buf-check-plugin/start
   ```
 
-This tutorial shows how to write a Buf plugin in Go, taking advantage of the [`bufplugin-go`](https://github.com/bufbuild/bufplugin-go) library, but you can write them in any language as long as the plugin conforms to the [Bufplugin framework](https://github.com/bufbuild/bufplugin).
+This quickstart shows how to write a Buf plugin in Go, taking advantage of the [`bufplugin-go`](https://github.com/bufbuild/bufplugin-go) library, but you can write them in any language as long as the plugin conforms to the [Bufplugin framework](https://github.com/bufbuild/bufplugin).
 
 ## Inspect the workspace
 
-In this tutorial, we provide you with a sample Protobuf module, so start in its directory:
-
-```sh
-cd buf-tour/start/tutorial-create-buf-plugin
-```
-
-It contains a `buf.yaml` and a `pet.proto` with definitions related to a pet store:
+The sample module contains a `buf.yaml` and a `pet.proto` with definitions related to a pet store:
 
 ```text
 .
@@ -79,9 +74,9 @@ It contains a `buf.yaml` and a `pet.proto` with definitions related to a pet sto
             └── pet.proto
 ```
 
-For the sake of this tutorial, `pet.proto` includes an undesirable naming style:
+For the sake of this quickstart, `pet.proto` includes an undesirable naming style:
 
-::: info ~/.../buf-tour/start/tutorial-create-buf-plugin/proto/pet/v1/pet.proto
+::: info bsr/buf-check-plugin/startproto/pet/v1/pet.proto
 
 ```protobuf{2}
 service PetStoreService {
@@ -98,14 +93,14 @@ Notice that `GetPetMethod` is an RPC method but shouldn't end with the word `Met
 Run the following to scaffold the plugin:
 
 ```sh
-go mod init plugin/tutorial
+go mod init plugin/quickstart
 mkdir -p cmd/rpc-suffix
 touch cmd/rpc-suffix/main.go
 ```
 
 Copy and paste the following content into `cmd/rpc-suffix/main.go`:
 
-::: info ~/.../buf-tour/start/tutorial-create-buf-plugin/cmd/rpc-suffix/main.go
+::: info bsr/buf-check-plugin/start/cmd/rpc-suffix/main.go
 
 ```go
 package main
@@ -151,7 +146,7 @@ func checkRPCSuffix(
 
 :::
 
-The plugin's `main.go` file imports the SDK and has three components:
+The plugin's `main.go` file imports the [`bufplugin-go` SDK](https://github.com/bufbuild/bufplugin-go) and has three components:
 
 - An `rpcSuffixRuleSpec` definition, which defines the lint rule with fields like its ID and purpose.
 - A `main` function that calls `check.Main`, which creates a fully functional plugin function using the lint rule you just defined.
@@ -164,18 +159,18 @@ go mod tidy
 go install ./cmd/rpc-suffix
 ```
 
-then add the plugin and its rule ID to the `buf.yaml` config file:
+Then add the plugin and its rule ID to the `buf.yaml` config file:
 
 ```yaml
- version: v2
- modules:
-   - path: proto
-     name: buf.build/tutorials/breaking
- lint:
-   use:
-     - STANDARD
-    // [!code ++]
-    - RPC_SUFFIX
+version: v2
+modules:
+  - path: proto
+    name: buf.build/tutorials/lint
+lint:
+  use:
+    - MINIMAL
+  // [!code ++]
+  - RPC_SUFFIX
 // [!code ++]
 plugins:
   // [!code ++]
@@ -249,7 +244,7 @@ Now the Buf linter only prints error when a method ends with the keyword `Method
 go install ./cmd/rpc-suffix
 buf lint
 
-proto/pet/v1/pet.proto:6:3:method name should not end with "Method" (rpc-suffix)
+proto/pet/v1/pet.proto:44:3:method name should not end with "Method" (rpc-suffix)
 ```
 
 Now that you've implemented the rule logic, let's look at how to make a rule configurable.
@@ -262,7 +257,7 @@ Instead of hard-coding the check against the `Method` suffix, suppose you want t
  version: v2
  modules:
    - path: proto
-     name: buf.build/tutorials/lint-plugin
+     name: buf.build/tutorials/lint
  lint:
    use:
      - STANDARD
@@ -350,14 +345,28 @@ func checkRPCSuffix(
 }
 ```
 
-Now the plugin uses `option.GetStringSliceValue(request.Options(), forbiddenRPCSuffixesOptionKey)` to check whether the option is specified by the users and use its list of values if so. To verify that it uses the option values, re-install and run the plugin:
+Now the plugin uses `option.GetStringSliceValue(request.Options(), forbiddenRPCSuffixesOptionKey)` to check whether the option is specified by the user, and uses its list of values if so. To verify that it uses the option values, change `pet.proto` so that it violates the additional rule:
+
+::: info bsr/buf-check-plugin/start/proto/pet/v1/pet.proto
+
+```protobuf
+// Code omitted for brevity
+
+service PetStoreService {
+  rpc GetPetMethod(GetPetRequest) returns (GetPetResponse) {}
+  rpc GetPetRPC(GetPetRequest) returns (GetPetResponse) {}
+}
+```
+
+:::
+
+Then re-install and run the plugin:
 
 ```sh
 go install ./cmd/rpc-suffix
 buf lint
 
-proto/pet/v1/pet.proto:6:3:method name should not end with "Method" (rpc-suffix)
-proto/pet/v1/pet.proto:7:3:method name should not end with "RPC" (rpc-suffix)
+proto/pet/v1/pet.proto:44:3:method name should not end with "RPC" (rpc-suffix)
 ```
 
 ## Add a breaking change rule to the same plugin

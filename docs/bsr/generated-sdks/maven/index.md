@@ -47,7 +47,7 @@ head:
 
 The Buf Schema Registry provides generated SDKs for JVM-based languages in the form of a Maven repository, just like any other Java or Kotlin library. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.
 
-The BSR's Maven repository is hosted at [https://buf.build/gen/maven](https://buf.build/gen/maven). See the [tutorial](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.
+The BSR's Maven repository is hosted at [https://buf.build/gen/maven](https://buf.build/gen/maven). See the [quickstart](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.
 
 ## Setup and usage
 

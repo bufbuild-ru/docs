@@ -71,12 +71,13 @@ message MyMessage {
 If `required` is true, the field must be populated. A populated field can be described as "serialized in the wire format," which includes:
 
 - the following "nullable" fields must be explicitly set to be considered populated:
-  - singular message fields (whose fields may be unpopulated/default values)
+  - singular message fields (whose fields may be unpopulated / default values)
   - member fields of a oneof (may be their default value)
   - proto3 optional fields (may be their default value)
   - proto2 scalar fields (both optional and required)
 - proto3 scalar fields must be non-zero to be considered populated
 - repeated and map fields must be non-empty to be considered populated
+- map keys/values and repeated items are always considered populated
 
 ::: info field.required example
 

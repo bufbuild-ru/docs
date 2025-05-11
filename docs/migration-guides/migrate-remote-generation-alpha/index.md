@@ -45,10 +45,6 @@ head:
 
 # Migrate from remote generation alpha
 
-::: tip Note
-The remote generation alpha was deprecated as of April 30, 2023. Please migrate to [remote plugins](../../bsr/remote-plugins/overview/) or [generated SDKs](../../bsr/generated-sdks/overview/).
-:::
-
 The remote generation alpha included two features: remote plugin execution (now called remote plugins), and remote code execution (now called generated SDKs). This document describes the changes and migration requirements for each feature.
 
 ## Plugin changes

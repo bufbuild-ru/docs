@@ -234,6 +234,8 @@ Note that extension ranges can't be defined in `proto3` files, so this only impa
 
 ### `EXTENSION_NO_DELETE`
 
+**This rule can only be used with `v2` configuration files.**
+
 **Category:** `FILE`
 
 This checks that no extensions are deleted from a given file, identified by their fully qualified name. Deleting an extension deletes the corresponding generated extension type, which could be referenced in source code. Instead of deleting an extension, deprecate it:
@@ -244,10 +246,6 @@ extend Foo {
   ...
 }
 ```
-
-::: tip Note
-This is a new rule that can only be used with `v2` configuration files.
-:::
 
 ### `FIELD_NO_DELETE`
 
@@ -261,9 +259,7 @@ message Bar {
 }
 ```
 
-::: tip Note
 Unlike other field checks, this rule _doesn't_ apply to extensions.
-:::
 
 ### `FIELD_NO_DELETE_UNLESS_NAME_RESERVED`
 
@@ -281,9 +277,7 @@ message Bar {
 
 Note that it's usually better to deprecate message fields than to reserve them in advance.
 
-::: tip Note
 Unlike other field checks, this rule _doesn't_ apply to extensions.
-:::
 
 ### `FIELD_NO_DELETE_UNLESS_NUMBER_RESERVED`
 
@@ -300,9 +294,7 @@ message Bar {
 
 Note that deprecating a field instead of deleting it has the same effect as reserving the field (as well as reserving the name for JSON).
 
-::: tip Note
 Unlike other field checks, this rule _doesn't_ apply to extensions.
-:::
 
 ### `FIELD_SAME_CARDINALITY`
 
@@ -330,11 +322,9 @@ The `ctype` option is a Google-internal field option, so generally you won't hav
 
 ### `FIELD_SAME_CTYPE`
 
-::: warning Warning
-This check is **deprecated**.
-:::
+**This rule is deprecated.**
 
-It has been replaced with the [`FIELD_SAME_CPP_STRING_TYPE`](#field_same_cpp_string_type) check. It isn't a valid rule name when used with `v2` configuration files. When using earlier configuration versions, it's treated as an alias for `FIELD_SAME_CPP_STRING_TYPE`.
+It has been replaced with the [`FIELD_SAME_CPP_STRING_TYPE`](#field_same_cpp_string_type) rule. It isn't a valid rule name when used with `v2` configuration files. When using earlier configuration versions, it's treated as an alias for `FIELD_SAME_CPP_STRING_TYPE`.
 
 ### `FIELD_SAME_DEFAULT`
 
@@ -344,13 +334,11 @@ This checks that fields have the same default value, if a default is specified. 
 
 ### `FIELD_SAME_STANDARD`
 
+**This rule can only be used with `v2` configuration files.**
+
 **Categories:** `FILE`, `PACKAGE`, `WIRE_JSON`, `WIRE`
 
 This checks that the default value for a field doesn't change. In `proto3` files, the default value is always the zero value for the type, but in `proto2` and in Editions, non-repeated, non-message fields can configure an alternate default value. Changing the default value isn't backwards-compatible since it means that producers and consumers of the schema interpret serialized data differently.
-
-::: tip Note
-This is a new rule that can only be used with `v2` configuration files.
-:::
 
 ### `FIELD_SAME_JAVA_UTF8_VALIDATION`
 
@@ -376,9 +364,7 @@ This checks that a given field has the same value for the [`jstype` option](http
 
 ### `FIELD_SAME_LABEL`
 
-::: warning Warning
-This check is **deprecated**.
-:::
+**This check is deprecated.**
 
 It has been replaced with the following checks:
 
@@ -523,9 +509,7 @@ This checks that the value of this [file option](https://github.com/protocolbuff
 
 ### `FILE_SAME_JAVA_STRING_CHECK_UTF8`
 
-::: warning Warning
-This check is **deprecated**.
-:::
+**This check is deprecated.**
 
 It has been replaced with the [`FIELD_SAME_JAVA_UTF8_VALIDATION`](#field_same_java_utf8_validation) check. It isn't a valid rule name when used with `v2` configuration files. When using earlier configuration versions, it's treated as an alias for `FIELD_SAME_JAVA_UTF8_VALIDATION`.
 
@@ -555,11 +539,7 @@ This checks that the value of this [file option](https://github.com/protocolbuff
 
 ### `FILE_SAME_PHP_GENERIC_SERVICES`
 
-::: warning Warning
-As of v1.32.0 of `buf` (and v26.0 of Protobuf), there is no longer a `php_generic_services` file option.
-
-This rule is **deprecated** and has no replacement.
-:::
+**As of v1.32.0 of `buf` (and v26.0 of Protobuf), there is no longer a `php_generic_services` file option. This rule is deprecated and has no replacement.**
 
 It isn't a valid rule name when used with `v2` configuration files. When using earlier configuration versions, it's effectively ignored.
 
@@ -662,13 +642,11 @@ This has the same effect as `ENUM_NO_DELETE`, except that it verifies that types
 
 ### `PACKAGE_EXTENSION_NO_DELETE`
 
+**This rule can only be used with `v2` configuration files.**
+
 **Category:** `PACKAGE`
 
 This has the same effect as `EXTENSION_NO_DELETE`, except that it verifies that types aren't deleted from a given package, while letting them move between files in the same package.
-
-::: tip Note
-This is a new rule that can only be used with `v2` configuration files.
-:::
 
 ### `PACKAGE_MESSAGE_NO_DELETE`
 

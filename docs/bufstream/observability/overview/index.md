@@ -107,7 +107,7 @@ Because consumer group IDs and topic names are user-provided and may contain inf
 
 ```yaml
 observability:
-  # -- Redact sensitive information such as topic names, before adding to to metrics, traces and logs.
+  # -- Redact sensitive information, such as topic names, before adding to to metrics, traces, and logs.
   # Supports [NONE, OPAQUE].
   # Default: NONE.
   sensitiveInformationRedaction: "OPAQUE"

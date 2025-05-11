@@ -45,10 +45,6 @@ head:
 
 # v1beta1 Lint rules and categories
 
-::: tip Note
-Lint rules and categories have been simplified between `v1beta1` and `v1` configurations. The old `v1beta1` documentation is included here for posterity, but we strongly recommend migrating to a `v2` configuration. See the [migration guide](../../../migration-guides/migrate-v2-config-files/) to get started. You can find the `v1` lint rules [here](../../../lint/rules/) (they're unchanged for `v2` configurations).
-:::
-
 `buf` provides a carefully curated set of lint rules designed to provide consistency and maintainability across a Protobuf schema of any size and any purpose, but without being so opinionated as to restrict organizations from making the design decisions they need to make for their individual APIs.
 
 `buf lint` applies individual lint rules across your Protobuf schema, reporting any violations as errors. All lint rules have an **ID**, and belong to one or more **categories**. On this page, we'll discuss the available categories, and the individual rules within each category.
@@ -66,6 +62,10 @@ Although categories aren't required to be in tree form, they can be represented 
 - `COMMENTS`
 - `UNARY_RPC`
 - `OTHER`
+
+::: tip Note
+Lint rules and categories were simplified between `v1beta1` and `v1` configurations, and they're unchanged for `v2` configurations. We strongly recommend migrating to a `v2` configuration — see the [migration guide](../../../migration-guides/migrate-v2-config-files/) to get started.
+:::
 
 ## Style guide
 

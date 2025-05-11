@@ -82,8 +82,6 @@ enum UserAccess {
 }
 ```
 
-`‍   `
-
 **Services** provide an interface that represents an **RPC** system and will generate service interface code and stubs in a chosen language. Each RPC should be a single, isolated piece of functionality. The documentation for RPCs should state the expected inputs and outputs of the RPC and what changes occur to the system, if any, when run.
 
 ```protobuf
@@ -100,8 +98,6 @@ service UserService {
 }
 ```
 
-`‍   `
-
 All leading comments for type definitions are published as documentation. There are also links between imported types across packages and repositories so engineers can easily review type definitions and get the full picture of a given package.
 
 ## Package-Level Documentation
@@ -116,8 +112,6 @@ syntax = "proto3";
 // Package acme.v1.user defines a set of APIs for managing users at Acme Co.
 package acme.v1.user;
 ```
-
-`‍   `
 
 ## Module-Level Documentation
 

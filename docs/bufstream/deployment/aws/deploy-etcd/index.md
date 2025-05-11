@@ -6,10 +6,10 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/deployment/aws/deploy-etcd/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/tuning-performance/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/aws/deploy-postgres/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/aws/deploy-postgres/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/gcp/deploy-postgres/"
   - - meta
     - property: "og:title"
       content: "Deploy with etcd - Buf Docs"
@@ -45,7 +45,7 @@ head:
 
 # Deploy Bufstream to AWS with etcd
 
-This page walks you through installing Bufstream into your AWS deployment, using etcd for metadata storage. See [Tuning and performance](../../tuning-performance/) for defaults and recommendations about resources, replicas, storage, and scaling.
+This page walks you through installing Bufstream into your AWS deployment, using etcd for metadata storage.
 
 Data from your Bufstream cluster never leaves your network or reports back to Buf.
 
@@ -265,8 +265,6 @@ Refer to the [guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credent
 
 +++
 
----
-
 ```sh
 aws iam create-policy \
   --policy-name BufstreamS3 \
@@ -305,7 +303,7 @@ kubectl create namespace bufstream
 
 ## Deploy etcd
 
-Bufstream requires an [`etcd`](https://etcd.io/) cluster. To set up an example deployment of `etcd` on Kubernetes, use the [Bitnami `etcd` Helm chart](https://github.com/bitnami/charts/tree/main/bitnami/etcd) with the following values:
+Bufstream requires an [etcd](https://etcd.io/) cluster. To set up an example deployment of etcd on Kubernetes, use the [Bitnami etcd Helm chart](https://github.com/bitnami/charts/tree/main/bitnami/etcd) with the following values:
 
 ```sh
 helm install \
@@ -354,9 +352,7 @@ EOF
 
 Check that etcd is running after installation.
 
-::: warning Warning
-`etcd` is sensitive to disk performance, so we recommend using the [AWS EBS CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) with `gp3` or `io1/io2` disks, instead of the default `gp2` disks EKS uses.
-:::
+etcd is sensitive to disk performance, so we recommend using the [AWS EBS CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) with `gp3` or `io1/io2` disks, instead of the default `gp2` disks EKS uses.
 
 The storage class in the example above can be changed by setting the `persistence.storageClass` value to a custom storage class using those disks.
 
@@ -436,36 +432,36 @@ The k8s service account to create the pod identity association for is named `buf
 
 Alternatively, you can use an access key pair.
 
-1.  Create a k8s secret containing the s3 access secret key:
+1.  Create a k8s secret containing the S3 access secret key:
 
-```sh
-kubectl create secret --namespace bufstream generic bufstream-storage \
-  --from-literal=secret_access_key=<s3 secret access key>
-```
+    ```sh
+    kubectl create secret --namespace bufstream generic bufstream-storage \
+      --from-literal=secret_access_key=<s3 secret access key>
+    ```
 
-1.  Add the `accessKeyId` to the configuration:
+2.  Add the `accessKeyId` to the configuration:
 
-::: info bufstream-values.yaml
+    ::: info bufstream-values.yaml
 
-```yaml
-storage:
-  use: s3
-  s3:
-    accessKeyId: "AKIAIOSFODNN7EXAMPLE"
-    secretName: bufstream-storage
-    bucket: <bucket-name>
-    region: <region>
-    # forcePathStyle: false # Optional, use path-style bucket URLs (http://s3.amazonaws.com/BUCKET/KEY)
-    # endpoint: "https://example.com" # Optional
-```
+    ```yaml
+    storage:
+      use: s3
+      s3:
+        accessKeyId: "AKIAIOSFODNN7EXAMPLE"
+        secretName: bufstream-storage
+        bucket: <bucket-name>
+        region: <region>
+        # forcePathStyle: false # Optional, use path-style bucket URLs (http://s3.amazonaws.com/BUCKET/KEY)
+        # endpoint: "https://example.com" # Optional
+    ```
 
-:::
+    :::
 
 +++
 
-#### Configure `etcd`
+#### Configure etcd
 
-Then, configure Bufstream to connect to the `etcd` cluster:
+Then, configure Bufstream to connect to the etcd cluster:
 
 ::: info bufstream-values.yaml
 
@@ -579,7 +575,7 @@ helm install bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/buf
 
 If you change any configuration in the `bufstream-values.yaml` file, re-run the Helm install command to apply the changes.
 
-### Network load balancer
+## Network load balancer
 
 To access the Bufstream cluster from outside the Kubernetes cluster, create an AWS Network Load Balancer (NLB). The easiest way to create an NLB is to use the [AWS Load Balancer Controller](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/deploy/installation/). Once the controller is successfully installed in the EKS cluster, add the following configuration to `bufstream-values.yaml` file:
 
@@ -597,7 +593,7 @@ bufstream:
 
 :::
 
-and run the `helm upgrade` command for Bufstream:
+Run the `helm upgrade` command for Bufstream:
 
 ```sh
 helm upgrade bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
@@ -606,13 +602,13 @@ helm upgrade bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/buf
   --values bufstream-values.yaml
 ```
 
-check the progress of the NLB creation using the following command:
+Check the progress of the NLB creation using the following command:
 
 ```sh
 kubectl describe service bufstream
 ```
 
-once the NLB is created, to get its DNS name and more details, use the following commands:
+Once the NLB is created, use the following commands to get its DNS name and more details:
 
 ```console
 # save the dns name into a variable
@@ -636,7 +632,7 @@ kafka:
 
 :::
 
-and run the `helm upgrade` command for Bufstream to update the public address:
+Run the `helm upgrade` command for Bufstream to update the public address:
 
 ```sh
 helm upgrade bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \

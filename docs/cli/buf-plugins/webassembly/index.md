@@ -47,7 +47,7 @@ head:
 
 [WebAssembly](https://webassembly.org/) (Wasm) is a portable binary instruction format that allows you to run code written in multiple languages. Compiling Buf plugins to Wasm allows them to run on any platform the Buf CLI supports, including Windows, macOS, and Linux. You can use any language that supports Wasm, including Go, Rust, and C++.
 
-To use WebAssembly with Buf plugins, you need to compile the plugin to Wasm. The process varies depending on the language you're using — in this example, we'll use the `rpc-suffix` plugin built in Go from the [tutorial](../tutorial-create-buf-plugin/).
+To use WebAssembly with Buf plugins, you need to compile the plugin to Wasm. The process varies depending on the language you're using — in this example, we'll use the `rpc-suffix` plugin built in Go from the [quickstart](../tutorial-create-buf-plugin/).
 
 ## Compiling the plugin
 

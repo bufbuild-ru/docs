@@ -90,11 +90,7 @@ kubectl create secret --namespace bsr docker-registry bufpullsecret \
 
 The BSR is configured using Helm values through the `bsr` Helm Chart.
 
-Create a file named `bsr.yaml` to store the Helm values, which is required by the `helm install` step below.
-
-::: tip Note
-This file can be in any location, but we recommend creating it in the same directory where the helm commands are run.
-:::
+Create a file named `bsr.yaml` to store the Helm values, which is required by the `helm install` step below. This file can be in any location, but we recommend creating it in the same directory where the helm commands are run.
 
 Set the desired `host` and configure the chart to use the license provided to you by Buf and the image pull secret created above:
 
@@ -505,13 +501,9 @@ kubectl create secret --namespace bsr generic bufd-client-secret \
 
 The BSR uses a Kubernetes [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource to handle incoming traffic and for terminating TLS.
 
-::: warning Warning
-The domain used here must match the `host` set in the Helm values above.
-:::
-
-::: warning Warning
-TLS is required for the BSR to function properly. HTTP2 is preferred to allow for gRPC support.
-:::
+- The domain used here must match the `host` set in the Helm values above.
+- TLS is required for the BSR to function properly.
+- HTTP2 is preferred to allow for gRPC support.
 
 ```yaml
 bufd:
@@ -565,7 +557,7 @@ observability:
 
 ### Trusting additional certificates
 
-If you bump into issues regarding self signed certificates, such as seeing the error `tls: failed to verify certificate: x509: certificate signed by unknown authority`, you can add your root certificates on the BSR. To trust additional certificates, mount the files on the `bufd` pod and include them in the client TLS configuration.
+If you bump into issues regarding self-signed certificates, such as seeing the error `tls: failed to verify certificate: x509: certificate signed by unknown authority`, you can add your root certificates on the BSR. To trust additional certificates, mount the files on the `bufd` pod and include them in the client TLS configuration.
 
 +++tabs key:ef945c58f0e958bc93079d56bead345f
 

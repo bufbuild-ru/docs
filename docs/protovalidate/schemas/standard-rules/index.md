@@ -6,7 +6,7 @@ head:
       href: "https://bufbuild.ru/docs/protovalidate/schemas/standard-rules/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/protovalidate/schemas/adding-protovalidate/"
+      href: "https://bufbuild.ru/docs/protovalidate/quickstart/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/protovalidate/schemas/custom-rules/"
@@ -45,7 +45,7 @@ head:
 
 # Using Protovalidate standard rules
 
-Once you've [added Protovalidate to your project](../adding-protovalidate/), you're ready to begin adding validation rules to your Protobuf files. On this page, you'll learn how rules are defined and explore the standard rules for scalar types, `oneofs`, `maps`, `enums`, and even entire messages.
+Once you've [added Protovalidate to your project](../../quickstart/#add-protovalidate-to-schemas), you're ready to begin adding validation rules to your Protobuf files. On this page, you'll learn how rules are defined and explore the standard rules for scalar types, `oneofs`, `maps`, `enums`, and even entire messages.
 
 ::: info Code available
 Companion code for this page is available in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/rules-standard).
@@ -290,6 +290,8 @@ View reference documentation for [message rules](../../../reference/protovalidat
 ## Nested messages
 
 Protovalidate validates the entire message, including nested messages.
+
+In the following example, `Person` contains an `Address`, each requiring all fields. Because no `postal_code` is provided for the `address`, the entire `Person` message is invalid.
 
 ### Ignoring
 

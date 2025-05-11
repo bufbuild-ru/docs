@@ -69,7 +69,7 @@ In this quickstart, you'll learn to create a local Bufstream and Iceberg environ
 
 ## Configure Bufstream for Iceberg
 
-Bufstream works with your existing Iceberg catalogs. It doesn't limit you — you're free to use your existing infrastructure and multiple catalogs. To use Iceberg, you'll need to create at least one named catalog in your [Bufstream Iceberg configuration](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.IcebergIntegrationConfig).
+Bufstream works with your existing Iceberg catalogs. To use it, you'll need to create at least one named catalog in your [Bufstream Iceberg configuration](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.IcebergIntegrationConfig).
 
 This example includes a REST Iceberg catalog as part of its Docker compose project. Edit `config/bufstream.yaml` and add the following to reference it:
 
@@ -127,9 +127,7 @@ time=2025-04-04T09:04:42.377-04:00 level=INFO msg="Published message" number=2 o
 time=2025-04-04T09:04:42.542-04:00 level=INFO msg="Published message" number=3 of=100 "new email"=herminiofeeney@gleichner.name
 ```
 
-::: info Tip
-If the process hangs or shows error messages, check your Docker output for the Bufstream container. Mistyping changes to bufsteam.yaml can cause it to fail.
-:::
+If the process hangs or shows error messages, check your Docker output for the Bufstream container. Mistyping changes to `bufstream.yaml` can cause it to fail.
 
 ## Configure topic for Iceberg
 
@@ -143,9 +141,7 @@ We've included AKHQ, a GUI for Kafka management, to make it easy to configure a 
 
 You should see a success message appear — if you don't, double-check your changes. Your topic is now configured for Iceberg archival.
 
-::: info Tip
 In production, you should include this configuration as part of your infrastructure management.
-:::
 
 ## Archive all topics
 

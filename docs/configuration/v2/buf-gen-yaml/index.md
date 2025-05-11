@@ -45,10 +45,6 @@ head:
 
 # buf.gen.yaml v2 config file
 
-::: tip Note
-This file has changed significantly between `v1` and `v2` configurations. See the [v1 to v2 migration guide](../../../migration-guides/migrate-v2-config-files/) for migration instructions or the [v1 reference](../../v1/buf-gen-yaml/) if you're still using `v1` configuration files.
-:::
-
 `buf.gen.yaml` is a configuration file used by the `buf generate` command to generate integration code for the languages of your choice. This file is most often used with a Buf [workspace](../../../cli/modules-workspaces/), but can be used with other [input](../../../reference/inputs/) types. It's typically placed with your [`buf.yaml`](../buf-yaml/) file at the root of your Protobuf files:
 
 ```text
@@ -436,7 +432,6 @@ plugins:
 
 **Optional.** Exclude the specified types when generating with this plugin.
 
-::: tip Filtering order for 'types' and 'exclude-types'
 The `types` and `exclude-types` filters can be scoped to inputs, to plugins, or both. In addition, they can be applied to inputs both in `buf.gen.yaml` and as command-line flags. Filtering cumulatively restricts the types that are generated, and is applied in this order:
 
 1.  Per input in `buf.gen.yaml`.
@@ -444,7 +439,6 @@ The `types` and `exclude-types` filters can be scoped to inputs, to plugins, or 
 3.  Against all inputs when specified in the command line.
 
 Each filter operates on the input image that's the result of the previous operation.
-:::
 
 ## `inputs`
 

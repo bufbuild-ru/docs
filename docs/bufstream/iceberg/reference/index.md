@@ -53,13 +53,9 @@ When the specified archive format is `iceberg`, Bufstream will also update the c
 
 ### Data transformations
 
-::: tip Note
-Transformations are only available for Protobuf encoded data.
-:::
+At the start of each archiving job, Bufstream queries the configured schema registry to fetch the latest message schema and caches it in memory to reduce concurrent queries for the same topic. The retrieved Protobuf schema is used to compute an Iceberg schema, and Bufstream stores the state of the Iceberg schema in the system's metadata store (e.g. etcd) to ensure proper re-use of allocated field IDs. The stored state also tracks deleted fields and columns and decides whether to create or rename fields if there are incompatible changes to a column's type. Once the Iceberg schema is computed, Bufstream checks the catalog to determine whether or not the schema has changed. If there are changes, Bufstream updates the schema in the table's metadata. If no Iceberg table exists yet, Bufstream creates it and sets the schema ID to 0 for the computed schema.
 
-At the start of each archiving job, Bufstream queries the configured schema registry to fetch the latest message schema and caches it in memory to reduce concurrent queries for the same topic. The retrieved Protobuf schema is used to compute an Iceberg schema, and Bufstream stores the state of the Iceberg schema in the system's metadata store (e.g. etcd) to ensure proper re-use of allocated field IDs. The stored state also tracks deleted field and columns and decides whether to create or rename fields if there are incompatible changes to a column's type. Once the Iceberg schema is computed, Bufstream checks the catalog to determine whether or not the schema has changed. If there are changes, Bufstream will update the schema in the table's metadata. If no Iceberg table exists yet, Bufstream creates it and sets the schema ID to 0 for the computed schema.
-
-From the computed Iceberg schema, Bufstream derives a Parquet schema that is used to write the data files. Bufstream synthesizes elements from the Protobuf data to map it to Parquet column values. At this time, Bufstream does not support customizing the name of Iceberg or Parquet field types via the use of Protobuf options.
+From the computed Iceberg schema, Bufstream derives a Parquet schema that is used to write the data files. Bufstream synthesizes elements from the Protobuf data to map it to Parquet column values. At this time, Bufstream does not support customizing the name of Iceberg or Parquet field types via the use of Protobuf options. Transformations are only available for Protobuf encoded data.
 
 ## Table Schema
 
@@ -143,10 +139,10 @@ This field identifies the first offset in the batch that contained this record. 
 
 ## Memory and Performance
 
-Enabling the Bufstream Iceberg integration may result in higher read latency (particularly for consumers that are lagging) and memory usage as a result of the additional broker and reconciliation processes needed to transform data, archive Parquet files, and read from and update Iceberg catalogs.
+Enabling Bufstream's Iceberg integration may result in higher read latency (particularly for consumers that are lagging) and memory usage as a result of the additional broker and reconciliation processes needed to transform data, archive Parquet files, and read from and update Iceberg catalogs.
 
 To maintain Iceberg table freshness and consistency, we recommend adjusting the Bufstream cleanup interval. The default for Bufstream's cleanup jobs is 6 hours. We recommend a 1 hour cleanup interval for any topics archived as Iceberg.
 
 The above adjustments decrease the latency in getting data into the source Iceberg table in the face of temporary errors, like a momentary network partition or outage of the Iceberg catalog. In particular, the reconciliation process (when a synchronous catalog update fails) happens on the same schedule as compaction and cleaning.
 
-Because Bufstream does not currently compact Iceberg topics, this process is not designed to improve query performance. Without regular compaction, there is a tradeoff between latency of getting records into the Iceberg table vs. query performance. Configuring a larger `max_bytes`, `complete_delay_max`, and `idle_max` values in [archive configuration](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.ArchiveConfig) will increase the latency between a record being published to Bufstream and it being added to the Iceberg table. But the underlying Parquet data files will be larger and improve query performance for the Iceberg table.
+Because Bufstream doesn't currently compact Iceberg topics, this process isn't designed to improve query performance. Without regular compaction, there's a tradeoff between the latency of getting records into the Iceberg table vs. query performance. Configuring larger `max_bytes`, `complete_delay_max`, and `idle_max` values in [archive configuration](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.ArchiveConfig) increases the latency between a record being published to Bufstream and it being added to the Iceberg table, but the underlying Parquet data files will be larger and improve query performance for the Iceberg table.

@@ -75,7 +75,7 @@ FetchContent_Declare(googleapis_googleapis_protocolbuffers_cpp
 FetchContent_MakeAvailable(googleapis_googleapis_protocolbuffers_cpp)
 ```
 
-The `FetchContent_Declare` command accepts a name for the content as its first parameter, which is then passed to `FetchContent_MakeAvailable`. The BSR chooses a name for you based on the module and plugin in use according to the following scheme:
+The `FetchContent_Declare` command accepts a name for the content as its first parameter, which is then passed to `FetchContent_MakeAvailable`. The BSR chooses a library name for you based on the module and plugin in use according to the following scheme:
 
 ```text
 {moduleOwner}_{moduleName}_{pluginOwner}_{pluginName}
@@ -117,9 +117,7 @@ target_link_libraries(
 )
 ```
 
-::: tip Note
-This library name must be what the BSR specifies, _not_ the name of the CMake file from step 1 or the name used with `FetchContent`. This is because it's named this way in the downloaded content from the BSR.
-:::
+This library name must be what the BSR specifies, _not_ the name of the CMake file from step 1 or the URL used with `FetchContentDeclare`. This is because it's named this way in the downloaded content from the BSR.
 
 ## Troubleshooting
 

@@ -3,7 +3,7 @@ sidebar: false
 prev: false
 next: false
 
-title: "Tip of the Week #4: Accepting mistakes we can’t fix"
+title: "Tip of the week #4: Accepting mistakes we can’t fix"
 description: "Protobuf’s distributed nature introduces evolution risks that make it hard to fix some types of mistakes. Sometimes the best thing to do is to just let it be."
 
 head:
@@ -12,7 +12,7 @@ head:
       href: "https://bufbuild.ru/blog/totw-4-accepting-mistakes"
   - - meta
     - property: "og:title"
-      content: "Tip of the Week #4: Accepting mistakes we can’t fix"
+      content: "Tip of the week #4: Accepting mistakes we can’t fix"
   - - meta
     - property: "og:description"
       content: "Protobuf’s distributed nature introduces evolution risks that make it hard to fix some types of mistakes. Sometimes the best thing to do is to just let it be."
@@ -24,7 +24,7 @@ head:
       content: "website"
   - - meta
     - property: "twitter:title"
-      content: "Tip of the Week #4: Accepting mistakes we can’t fix"
+      content: "Tip of the week #4: Accepting mistakes we can’t fix"
   - - meta
     - property: "twitter:description"
       content: "Protobuf’s distributed nature introduces evolution risks that make it hard to fix some types of mistakes. Sometimes the best thing to do is to just let it be."
@@ -36,7 +36,7 @@ head:
       content: "summary_large_image"
 ---
 
-# Tip of the Week #4: Accepting mistakes we can’t fix
+# Tip of the week #4: Accepting mistakes we can’t fix
 
 > _Bad humor is an evasion of reality; good humor is an acceptance of it. — Malcolm Muggeridge_
 

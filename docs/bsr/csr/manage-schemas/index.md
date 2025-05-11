@@ -57,9 +57,7 @@ You create subjects within the BSR's Confluent Schema Registry by annotating mes
 
 The subject is claimed by the module that contains the annotated message, preventing use of that subject by other modules. It's an error to annotate multiple messages in a module with the same instance and subject name.
 
-::: tip Note
-All references to buf.example.com below should be replaced with the hostname for your private BSR instance.
-:::
+All references to `buf.example.com` below should be replaced with the hostname for your private BSR instance.
 
 1.  Add a dependency on the [bufbuild/confluent](https://buf.build/bufbuild/confluent) managed module to your Buf workspace's [`buf.yaml`](../../../configuration/v2/buf-yaml/#deps) file.
 

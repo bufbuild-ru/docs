@@ -6,7 +6,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/data-governance/schema-enforcement/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/azure/deploy-postgres/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/cluster-recommendations/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bufstream/data-governance/semantic-validation/"
@@ -99,7 +99,7 @@ It's often helpful to make Kafka messages self-describing, so that tools and fra
             readOnly: true
     ```
 
-With this configuration, consumers _always_ receive well-formed, self-describing data. If the producer sends un-enveloped messages, Bufstream automatically envelopes them using the latest revision of the topic's schema. Bufstream then parses the message using the schema from the envelope. If the message doesn't match the schema, Bufstream rejects it and the data producer sees an error.
+With this configuration, consumers _always_ receive well-formed, self-describing data. If the producer sends unenveloped messages, Bufstream automatically envelopes them using the latest revision of the topic's schema. Bufstream then parses the message using the schema from the envelope. If the message doesn't match the schema, Bufstream rejects it and the data producer sees an error.
 
 ## Advanced configurations
 
@@ -131,7 +131,7 @@ produce:
 
 ### Automatically enveloping old messages
 
-If a topic contains un-enveloped data, Bufstream can envelope the existing data on the fly as it's read. To automatically envelope the data and verify that it matches the schema, hiding messages with invalid data from the consumer, add the following to your Helm values file:
+If a topic contains unenveloped data, Bufstream can envelope the existing data on the fly as it's read. To automatically envelope the data and verify that it matches the schema, hiding messages with invalid data from the consumer, add the following to your Helm values file:
 
 ```yaml
 dataEnforcement:

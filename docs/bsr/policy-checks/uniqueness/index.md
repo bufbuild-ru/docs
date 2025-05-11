@@ -51,15 +51,7 @@ This feature is only available on the Enterprise plan.
 
 BSR administrators can configure their instances to require that all Protobuf file paths and type names remain unique across modules. Enabling this feature causes the BSR to reject any pushes that introduce violations to this rule.
 
-::: tip Note
-When checking for unique file paths and type names, the BSR ignores the [Buf-managed modules](../../admin/instance/managed-modules/), given that their sources aren't managed by Buf nor by the BSR administrators or users.
-
-This allows BSR users to maintain their own copies of any of those modules, and/or reuse some of those file paths.
-
-The BSR does report collisions across 2 or more user-managed modules, even if those file paths or type names are also present in the Buf-managed modules.
-:::
-
-Enabling the instance-wide uniqueness check is a three-step process:
+Setting up the instance-wide uniqueness check is a three-step process:
 
 1.  Scan your existing modules to check for non-unique identifiers (collisions).
 2.  Resolve the collisions and re-push modules to the BSR.
@@ -67,7 +59,7 @@ Enabling the instance-wide uniqueness check is a three-step process:
 
 ## Scan for collisions
 
-The scan checks all modules in your BSR instance.
+The scan checks all modules in your BSR instance, except for [Buf-managed modules](#managed-modules).
 
 1.  Go to the Admin panel and select **Type uniqueness** in the **Settings** section of the menu. If your BSR instance is `https://buf.example.com`, it's available at `https://buf.example.com/admin/uniqueness`.
 
@@ -102,3 +94,7 @@ Once the prerequisites are met, the feature toggle is enabled.
     ![enforcement toggle](../../../images/bsr/policy-checks/enforce-toggle.png)
 
 The uniqueness check is now enabled for your instance, and the BSR blocks any attempted commits that include collisions.
+
+## Exception for Buf-managed modules
+
+When checking for unique file paths and type names, the BSR ignores the [Buf-managed modules](../../admin/instance/managed-modules/), given that their sources aren't managed by Buf nor by the BSR administrators or users. This allows BSR users to have their own copies of any of those modules, and/or reuse some of those file paths. The BSR does report collisions across 2 or more user-managed modules, even if those file paths or type names are also present in the Buf-managed modules.

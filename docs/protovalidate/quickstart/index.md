@@ -9,7 +9,7 @@ head:
       href: "https://bufbuild.ru/docs/protovalidate/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/protovalidate/schemas/adding-protovalidate/"
+      href: "https://bufbuild.ru/docs/protovalidate/schemas/standard-rules/"
   - - meta
     - property: "og:title"
       content: "Quickstart - Buf Docs"
@@ -67,9 +67,9 @@ If you'd like to code along in Go, Java, or Python, complete the following steps
 
 Each language's quickstart code contains Buf CLI configuration files (`buf.yaml`, `buf.gen.yaml`), a simple `weather_service.proto`, and an idiomatic unit test.
 
-## Adding Protovalidate to schemas
+## Add Protovalidate to schemas
 
-### Depending on Protovalidate
+### Depend on Protovalidate
 
 Published publicly on the [Buf Schema Registry](../../bsr/), the Protovalidate module provides the Protobuf extensions, options, and messages powering validation.
 
@@ -216,7 +216,7 @@ disable:
 
 +++
 
-### Adding rules to a message
+### Add rules to a message
 
 To add rules to a message, you'll first import Protovalidate and then add Protovalidate annotations.
 
@@ -258,7 +258,53 @@ message GetWeatherRequest {
 
 :::
 
-## Generating code
+::: info Run this code
+You can [run this example in the Protovalidate playground](https://play.protovalidate.com?ws=CtcFc3ludGF4ID0gInByb3RvMyI7CgpwYWNrYWdlIGJ1ZmJ1aWxkLndlYXRoZXIudjE7CgppbXBvcnQgImJ1Zi92YWxpZGF0ZS92YWxpZGF0ZS5wcm90byI7CgovLyBHZXRXZWF0aGVyUmVxdWVzdCBpcyBhIHJlcXVlc3QgZm9yIHdlYXRoZXIgYXQgYSBwb2ludCBvbiBFYXJ0aC4KbWVzc2FnZSBHZXRXZWF0aGVyUmVxdWVzdCB7CiAgZmxvYXQgbGF0aXR1ZGUgPSAyIAogIC8qIFVuY29tbWVudCB0aGVzZSBsaW5lcyBhbmQgdGhlbiBjbGljayAiUnVuIiB0byBzZWUgUHJvdG92YWxpZGF0ZSBpbiBhY3Rpb24hCiAgICBbCiAgICAgIChidWYudmFsaWRhdGUuZmllbGQpLmZsb2F0Lmd0ZSA9IC05MCwKICAgICAgKGJ1Zi52YWxpZGF0ZS5maWVsZCkuZmxvYXQubHRlID0gOTAKICAgIF0gCiAgKi8KICA7CiAgZmxvYXQgbG9uZ2l0dWRlID0gMTsKfQoKLy8gR2V0V2VhdGhlclJlc3BvbnNlIHByb3ZpZGVzIGEgdGVtcGVyYXR1cmUuCm1lc3NhZ2UgR2V0V2VhdGhlclJlc3BvbnNlIHsKICAgIGZsb2F0IHRlbXBlcmF0dXJlID0gMTsKfQoKLy8gV2VhdGhlclNlcnZpY2UgcHJvdmlkZXMgd2VhdGhlciBmb3JlY2FzdHMKc2VydmljZSBXZWF0aGVyU2VydmljZSB7CiAgLy8gR2V0V2VhdGhlciByZXR1cm5zIHRoZSB0ZW1wZXJhdHVyZSBmb3IgYSBwb2ludCBvbiBlYXJ0aC4KICBycGMgR2V0V2VhdGhlciggR2V0V2VhdGhlclJlcXVlc3QgKSByZXR1cm5zIChHZXRXZWF0aGVyUmVzcG9uc2UpOwp9ChJPChNidWZidWlsZC53ZWF0aGVyLnYxEhFHZXRXZWF0aGVyUmVxdWVzdBolYnVmYnVpbGQud2VhdGhlci52MS5HZXRXZWF0aGVyUmVxdWVzdBovewogICAgImxhdGl0dWRlIjogLTk1LjAwLAogICAgImxvbmdpdHVkZSI6IDkwCn0=), a miniature IDE where Protovalidate rules can be tested against sample payloads.
+:::
+
+### Lint your changes
+
+It's possible to add rules to a message that compile but cause unexpected results or exceptions at runtime. If the prior example is changed to require `latitude` but to also skip its validation when unpopulated, it contains a logical contradiction:
+
+::: info A logical contradiction within a message
+
+```protobuf{3,4}
+message GetWeatherRequest {
+  float latitude = 1 [
+    (buf.validate.field).ignore = IGNORE_IF_UNPOPULATED,
+    (buf.validate.field).required = true,
+    (buf.validate.field).float.gte = -90,
+    (buf.validate.field).float.lte = 90
+  ];
+}
+```
+
+:::
+
+The Buf CLI's `lint` command identifies these and other problems, like invalid CEL expressions, with its [`PROTOVALIDATE` rule](../../lint/rules/#protovalidate) :
+
+::: info Buf lint errors for the PROTOVALIDATE rule
+
+```sh
+buf lint
+proto/bufbuild/weather/v1/weather_service.proto:29:5:Field "latitude" has both
+(buf.validate.field).required and (buf.validate.field).ignore=IGNORE_IF_UNPOPULATED.
+A field cannot be empty if it is required.
+```
+
+:::
+
+We recommend using `buf lint` any time you're editing schemas, as well in [GitHub Actions](../../bsr/ci-cd/github-actions/) or [other CI/CD tools](../../bsr/ci-cd/setup/).
+
+### Build the module
+
+Now that you've added Protovalidate as a dependency, updated your schema with rules, and validated changes with `buf lint`, your module should build with no errors:
+
+```sh
+buf build
+```
+
+## Generate code
 
 Protovalidate doesn't introduce any new code generation plugins because its rules are compiled as part of your service and message descriptors — `buf generate` works without any changes.
 
@@ -270,7 +316,7 @@ buf generate
 
 To learn more about generating code with the Buf CLI, read the [code generation overview](../../generate/overview/).
 
-## Adding business logic with CEL
+## Add business logic with CEL
 
 If Protovalidate only provided logical validations on known types, such as maximum and minimum values or verifying required fields were provided, it'd be an incomplete library. Real world validation rules are often more complicated:
 
@@ -326,7 +372,11 @@ Remember to recompile and regenerate code:
 buf generate
 ```
 
-## Running validations
+::: info Run this code
+You can [run this example in the Protovalidate playground](https://play.protovalidate.com?ws=CroGc3ludGF4ID0gInByb3RvMyI7CgpwYWNrYWdlIGJ1ZmJ1aWxkLndlYXRoZXIudjE7CgppbXBvcnQgImJ1Zi92YWxpZGF0ZS92YWxpZGF0ZS5wcm90byI7CmltcG9ydCAiZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byI7CgovLyBHZXRXZWF0aGVyUmVxdWVzdCBpcyBhIHJlcXVlc3QgZm9yIHdlYXRoZXIgYXQgYSBwb2ludCBvbiBFYXJ0aC4KbWVzc2FnZSBHZXRXZWF0aGVyUmVxdWVzdCB7CiAgZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCBmb3JlY2FzdF9kYXRlID0gMyBbKGJ1Zi52YWxpZGF0ZS5maWVsZCkuY2VsID0gewogICAgaWQ6ICJmb3JlY2FzdF9kYXRlLndpdGhpbl83Ml9ob3VycyIKICAgIG1lc3NhZ2U6ICJGb3JlY2FzdCBkYXRlIG11c3QgYmUgaW4gdGhlIG5leHQgNzIgaG91cnMuIgogICAgZXhwcmVzc2lvbjogInRoaXMgPj0gbm93ICYmIHRoaXMgPD0gbm93ICsgZHVyYXRpb24oJzcyaCcpIgogIH1dOwoKICBmbG9hdCBsYXRpdHVkZSA9IDI7CiAgZmxvYXQgbG9uZ2l0dWRlID0gMTsKfQoKLy8gR2V0V2VhdGhlclJlc3BvbnNlIHByb3ZpZGVzIGEgdGVtcGVyYXR1cmUuCm1lc3NhZ2UgR2V0V2VhdGhlclJlc3BvbnNlIHsKICAgIGZsb2F0IHRlbXBlcmF0dXJlID0gMTsKfQoKLy8gV2VhdGhlclNlcnZpY2UgcHJvdmlkZXMgd2VhdGhlciBmb3JlY2FzdHMKc2VydmljZSBXZWF0aGVyU2VydmljZSB7CiAgLy8gR2V0V2VhdGhlciByZXR1cm5zIHRoZSB0ZW1wZXJhdHVyZSBmb3IgYSBwb2ludCBvbiBlYXJ0aC4KICBycGMgR2V0V2VhdGhlciggR2V0V2VhdGhlclJlcXVlc3QgKSByZXR1cm5zIChHZXRXZWF0aGVyUmVzcG9uc2UpOwp9ChJPChNidWZidWlsZC53ZWF0aGVyLnYxEhFHZXRXZWF0aGVyUmVxdWVzdBolYnVmYnVpbGQud2VhdGhlci52MS5HZXRXZWF0aGVyUmVxdWVzdBpgewogICAgImxhdGl0dWRlIjogLTk1LjAwLAogICAgImxvbmdpdHVkZSI6IDkwLAogICAgImZvcmVjYXN0X2RhdGUiOiAiMjA1MC0wMS0wMVQwMDowMDowMC4wMDBaIgp9), a miniature IDE where Protovalidate rules can be tested against sample payloads.
+:::
+
+## Run validation
 
 All Protovalidate languages provide an idiomatic API for validating a Protobuf message.
 
@@ -498,7 +548,7 @@ In the final code exercise, you'll use it directly, checking enforcement of `Get
 
 You've now walked through the basic steps for using Protovalidate: adding it as a dependency, annotating your schemas with rules, and validating Protobuf messages.
 
-### Validating API requests
+### Validate API requests
 
 One of Protovalidate's most common use cases is for validating requests made to RPC APIs. Though it's possible to use the above examples to add a validation request at the start of every request handler, it's not efficient. Instead, use Protovalidate within a ConnectRPC or gRPC interceptor, providing global input validation.
 
@@ -561,14 +611,14 @@ server = grpc.server(
 
 +++
 
-For a deep dive into using Protovalidate for RPC APIs with executable tutorials, explore one of these example Protovalidate integrations:
+For a deep dive into using Protovalidate for RPC APIs, explore one of the Protovalidate integration quickstarts:
 
 - [Connect RPC and Go](connect-go/)
 - [gRPC and Go](grpc-go/)
 - [gRPC and Java](grpc-java/)
 - [gRPC and Python](grpc-python/)
 
-### Validating Kafka messages
+### Validate Kafka messages
 
 In traditional Kafka, brokers are simple data pipes — they have no understanding of what data traverses them. Though this simplicity helped Kafka gain ubiquity, most data sent through Kafka topics is structured and should follow a schema.
 
@@ -596,6 +646,6 @@ For a deep dive into using Protovalidate with Bufstream, follow the [Protovalida
 
 Read on to learn more about enabling schema-first validation with Protovalidate:
 
-- Discover how to [add Protovalidate](../schemas/adding-protovalidate/) to Protobuf schemas.
+- Review Protovalidate's library of ready-to-use [standard rules](../schemas/standard-rules/).
 - Learn how to write [custom validation rules](../schemas/custom-rules/) with Common Expression Language.
 - Explore how Protovalidate works in [advanced CEL topics](../cel/).

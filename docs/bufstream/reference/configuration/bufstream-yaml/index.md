@@ -459,6 +459,16 @@ Specifies the AWS secret access key for authentication to the bucket.
 
 By default, authentication is performed using the metadata service of the broker's host. If set, `access_key_id` must also be provided.
 
+#### `session_token`
+
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
+
+Specifies the AWS session token when using AWS temporary credentials to access the storage bucket. Omit when not using temporary credentials.
+
+Temporary credentials are not recommended for production workloads, but can be useful in development and test environments to authenticate local processes with remote AWS resources.
+
+This value should only be present when `access_key_id` and `secret_access_key` are also set.
+
 #### `get_hedge_delay`
 
 _duration_
@@ -717,7 +727,7 @@ An archive completes when:
 
 - It contains more than `max_bytes` (at a suitable data boundary).
 - No new records are produced for `idle_max`. (The topic/partition is idle.)
-- The archive is `upload_delay_max` old.
+- The archive is `complete_delay_max` old.
 
 Dynamically configurable as `bufstream.archive.min.bytes`.
 
@@ -1276,7 +1286,7 @@ Configuration settings for the PostgreSQL connection pool.
 
 _int32_
 
-The maximum size of the connection pool. Defaults to 10.
+The maximum size of the connection pool. Defaults to 20.
 
 #### `min_connections`
 
@@ -1580,6 +1590,12 @@ _string_
 
 Optional URI prefix. This is separate from any URI prefix present in `url`. This prefix appears after the "/v1/" API path component but before the remainder of the URI path.
 
+#### `warehouse`
+
+_string_
+
+Optional warehouse location. Some REST catalogs require this property for replying to configuration requests. If absent, Bufstream uses the URL of its configured storage location, e.g. "s3:///".
+
 #### `tls`
 
 _[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig)_
@@ -1824,7 +1840,7 @@ The AWS service to indicate in the credential scope of the signature. The defaul
 
 _[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
 
-Specifies the AWS access key ID for authentication to the bucket.
+Specifies the AWS access key ID for authentication to the resource.
 
 By default, authentication is performed using the metadata service of the broker's host. If set, `secret_access_key` must also be provided.
 
@@ -1832,9 +1848,19 @@ By default, authentication is performed using the metadata service of the broker
 
 _[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
 
-Specifies the AWS secret access key for authentication to the bucket.
+Specifies the AWS secret access key for authentication to the resource.
 
 By default, authentication is performed using the metadata service of the broker's host. If set, `access_key_id` must also be provided.
+
+#### `session_token`
+
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
+
+Specifies the AWS session token when using AWS temporary credentials to access the cloud resource. Omit when not using temporary credentials.
+
+Temporary credentials are not recommended for production workloads, but can be useful in development and test environments to authenticate local processes with remote AWS resources.
+
+This value should only be present when `access_key_id` and `secret_access_key` are also set.
 
 ### `JWTConfig`
 
@@ -1970,8 +1996,6 @@ HTTP/2
 
 Redact sensitive information such as topic names, before adding to to metrics, traces and logs.
 
-#### `REDACTION_UNSPECIFIED`
-
 #### `NONE`
 
 This shows sensitive information as is. For example, topic names will be included as attributes in metrics.
@@ -2011,8 +2035,6 @@ Azure Blob Storage
 ### `PartitionGranularity`
 
 The granularity of time-based partitioning of Parquet files.
-
-#### `PARTITION_GRANULARITY_UNSPECIFIED`
 
 #### `MONTHLY`
 
@@ -2209,8 +2231,6 @@ The HMAC+SHA384 keyed hash algorithm. The JWT key is the binary shared secret.
 The HMAC+SHA512 keyed hash algorithm. The JWT key is the binary shared secret.
 
 ### `HashFunction`
-
-#### `HASH_FUNCTION_UNSPECIFIED`
 
 #### `SHA256`
 

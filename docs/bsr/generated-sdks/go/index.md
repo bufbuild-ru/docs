@@ -47,7 +47,7 @@ head:
 
 The Buf Schema Registry provides generated SDKs for Go from modules and plugins using `go get`, just like any other Go library. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.
 
-See the [tutorial](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.
+See the [quickstart](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.
 
 The BSR Go module proxy implements the [GOPROXY protocol](https://golang.org/ref/mod#goproxy-protocol) for [Buf modules](../../../cli/modules-workspaces/) by generating SDKs on the fly — Go code stubs aren't generated until you request them using `go get`. Once generated, they're cached, and the cached SDKs are returned from subsequent requests.
 
@@ -159,9 +159,7 @@ To get the generated SDK for the module at a label, using the latest plugin vers
 go get buf.build/gen/go/connectrpc/eliza/connectrpc/go@LABEL
 ```
 
-::: tip Note
 References with names that contain `/` are _not_ compatible with the Go generated SDKs versioning scheme.
-:::
 
 ### Full syntax
 

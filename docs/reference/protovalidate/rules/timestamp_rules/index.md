@@ -180,3 +180,18 @@ message MyTimestamp {
 :::
 
 ## example
+
+`example` specifies values that the field may have. These values SHOULD conform to other rules. `example` values will not impact validation but may be used as helpful guidance on how to populate the given field.
+
+::: info timestamp.example example
+
+```proto
+message MyTimestamp {
+  google.protobuf.Timestamp value = 1 [
+    (buf.validate.field).timestamp.example = { seconds: 1672444800 },
+    (buf.validate.field).timestamp.example = { seconds: 1672531200 },
+  ];
+}
+```
+
+:::

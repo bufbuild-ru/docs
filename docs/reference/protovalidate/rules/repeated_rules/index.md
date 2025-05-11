@@ -98,6 +98,8 @@ message MyRepeated {
 
 `items` details the rules to be applied to each item in the field. Even for repeated message fields, validation is executed against each item unless skip is explicitly specified.
 
+Note that repeated items are always considered populated. The `required` rule does not apply.
+
 ::: info repeated.items example
 
 ```proto

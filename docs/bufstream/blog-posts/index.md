@@ -45,6 +45,12 @@ head:
 
 # Blog Posts
 
+### [Cheap Kafka is cool. Schema-driven development with Kafka is cooler.](/blog/kafka-schema-driven-development/index.md)
+
+**May 2, 2025**
+
+> If you're looking for a modern drop-in replacement for Apache Kafka to save costs and complexity, Bufstream is probably your best bet. However, we've got a bigger mission here. Buf wants to bring schema-driven development across your entire stack, from your network APIs, to your streaming data, to your lakehouse, unified behind one schema language that can do it all.
+
 ---
 
 ### [Multi-region, active-active Bufstream at 100 GiB/s](/blog/bufstream-multi-region/index.md)

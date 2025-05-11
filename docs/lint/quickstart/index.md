@@ -12,7 +12,7 @@ head:
       href: "https://bufbuild.ru/docs/lint/rules/"
   - - meta
     - property: "og:title"
-      content: "Tutorial - Buf Docs"
+      content: "Quickstart - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/lint/quickstart.png"
@@ -33,7 +33,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Tutorial - Buf Docs"
+      content: "Quickstart - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/lint/quickstart.png"
@@ -129,9 +129,7 @@ package acme.weather.v1; // [!code ++]
 
 If you run `buf lint` again, the first two errors about the package no longer appear. You can work through the rest of the errors in a similar way — the messages provide specific suggestions to help you fix them.
 
-::: tip Note
-The changes the linter recommends are breaking changes for this package, which illustrates why it's best (if possible) to start linting when you first create your Protobuf files. It's not always possible, so we also provide a way to temporarily ignore rules when you first bring your `.proto` files into Buf — [see below](#step5).
-:::
+The changes the linter recommends are breaking changes for this package, which illustrates why it's best (if possible) to start linting when you first create your Protobuf files. However, it's not always possible, so we also provide a way to temporarily ignore rules when you first bring your `.proto` files into Buf — see [step 5](#step5) below.
 
 ## Customize lint configuration
 

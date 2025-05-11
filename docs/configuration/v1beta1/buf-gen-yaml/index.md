@@ -45,4 +45,6 @@ head:
 
 # buf.gen.yaml v1beta1 configuration
 
-The `buf.gen.yaml` file is largely unchanged between `v1beta1` and `v1`, so refer to the `v1` [`buf.gen.yaml`](../../v1/buf-gen-yaml/) documentation. If you were an early adopter of [managed mode](../../../generate/managed-mode/) in `v1beta1`, we strongly recommend upgrading to `v2` configuration files. See the [migration guide](../../../migration-guides/migrate-v2-config-files/) for instructions and context for managed mode changes.
+This page documents an older version of this Buf config file — for new projects, you should use v2 files. If you were an early adopter of [managed mode](../../../generate/managed-mode/) in `v1beta1`, we especially recommend upgrading to `v2` configuration files — the current version is much easier to use. See the [v2 `buf.gen.yaml` reference](../../v2/buf-gen-yaml/) and the [migration guide](../../../migration-guides/migrate-v2-config-files/) for details about the current configuration and migration instructions.
+
+The `buf.gen.yaml` file is largely unchanged between `v1beta1` and `v1`, so refer to the `v1` [`buf.gen.yaml`](../../v1/buf-gen-yaml/) documentation if you haven't upgraded yet.

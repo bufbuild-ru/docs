@@ -64,11 +64,9 @@ The [plugin protocol](../../../reference/descriptors/#code-generation) defines h
 
 The main requirement of a plugin is that it deterministically outputs files via a `CodeGeneratorResponse` message based only on the input `CodeGeneratorRequest` message. This strict protocol is what allows the BSR to parallelize local code generation, and implement [generated SDKs](../../generated-sdks/overview/) and [remote plugins](../overview/) on the BSR.
 
-::: warning Warning
 Plugins that access the file system, make network requests, or otherwise cause the `CodeGeneratorResponse` to depend on information other than what is in the `CodeGeneratorRequest`, do not conform to the protocol and are **not supported**.
 
 Plugins that don't conform to the protocol may work on your local machine, but you may run into issues that we're not able to help you troubleshoot or fix, and these plugins will not work with [generated SDKs](../../generated-sdks/overview/) or [remote plugins](../overview/) on the BSR.
-:::
 
 ## Creating a custom plugin
 

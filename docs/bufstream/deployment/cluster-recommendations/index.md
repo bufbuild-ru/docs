@@ -3,22 +3,22 @@
 head:
   - - link
     - rel: "canonical"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/tuning-performance/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/cluster-recommendations/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/cost/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/azure/deploy-etcd/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/aws/deploy-etcd/"
+      href: "https://bufbuild.ru/docs/bufstream/data-governance/schema-enforcement/"
   - - meta
     - property: "og:title"
-      content: "Tuning and performance - Buf Docs"
+      content: "Cluster recommendations - Buf Docs"
   - - meta
     - property: "og:image"
-      content: "https://buf.build/docs/assets/images/social/bufstream/deployment/tuning-performance.png"
+      content: "https://buf.build/docs/assets/images/social/bufstream/deployment/cluster-recommendations.png"
   - - meta
     - property: "og:url"
-      content: "https://bufbuild.ru/docs/bufstream/deployment/tuning-performance/"
+      content: "https://bufbuild.ru/docs/bufstream/deployment/cluster-recommendations/"
   - - meta
     - property: "og:type"
       content: "website"
@@ -33,17 +33,17 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Tuning and performance - Buf Docs"
+      content: "Cluster recommendations - Buf Docs"
   - - meta
     - property: "twitter:image"
-      content: "https://buf.build/docs/assets/images/social/bufstream/deployment/tuning-performance.png"
+      content: "https://buf.build/docs/assets/images/social/bufstream/deployment/cluster-recommendations.png"
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
 
 ---
 
-# Tuning and performance
+# Cluster recommendations
 
 This page provides recommendations for configuring your Bufstream cluster to optimize cost and performance.
 
@@ -153,40 +153,6 @@ configOverrides:
 
 ## Metadata storage
 
-### etcd
-
-We recommend [configuring `etcd`](https://etcd.io/docs/v3.5/op-guide/configuration/) with the following settings:
-
-```yaml
-auto-compaction-mode: periodic
-auto-compaction-retention: 30s
-```
-
-Because `etcd` is sensitive to disk performance, we also recommend using these disks:
-
-- **AWS:** `gp3` or `io1/io2` EBS disks
-- **Azure:** `Premium SSD v2` disks
-- **Google Cloud:** SSD-backed disks
-
-#### Permissions
-
-Bufstream uses the [Bitnami etcd package](https://bitnami.com/stack/etcd/helm). Most Bitnami containers are non-root, so privileged tasks like mounting volumes may fail during deployment as the containers don't have the correct privileges to modify ownership of the filesystem.
-
-If a Bufstream deploy fails as a result of etcd attempting to mount a persistent volume, the following error appears in your logs:
-
-```text
-"error":"cannot access data directory: mkdir /bitnami/etcd/data: permission denied
-```
-
-To resolve this error and grant the Bitnami etcd containers the right permissions, add the following to your Helm values to allow the container to change the owner and group of etcd's mountpoint to one with appropriate filesystem permissions:
-
-```yaml
-volumePermissions:
-  enabled: true
-```
-
-To learn more about this Helm value or other configurable permissions in Bitnami's etcd chart, consult the Bitnami etcd [README](https://github.com/bitnami/charts/tree/main/bitnami/etcd#bitnami-package-for-etcd). For more information about troubleshooting Bitnami helm chart issues, read the [troubleshooting guide](https://docs.bitnami.com/general/how-to/troubleshoot-helm-chart-issues/).
-
 ### Postgres
 
 Resource requirements depend on the expected load, but we recommend the following instances.
@@ -212,3 +178,37 @@ We recommend using an instance with a minimum of 4 vCPUs and 16 GiB RAM (`Standa
 We recommend using an instance with a minimum of 4 vCPUs and 8 GiB RAM (`db-custom-4-8192` instance class) with a minimum of 100 GB of provisioned storage.
 
 +++
+
+### etcd
+
+We recommend [configuring etcd](https://etcd.io/docs/v3.5/op-guide/configuration/) with the following settings:
+
+```yaml
+auto-compaction-mode: periodic
+auto-compaction-retention: 30s
+```
+
+Because etcd is sensitive to disk performance, we also recommend using these disks:
+
+- **AWS:** `gp3` or `io1/io2` EBS disks
+- **Azure:** `Premium SSD v2` disks
+- **Google Cloud:** SSD-backed disks
+
+#### Permissions
+
+Bufstream uses the [Bitnami etcd package](https://bitnami.com/stack/etcd/helm). Most Bitnami containers are non-root, so privileged tasks like mounting volumes may fail during deployment as the containers don't have the correct privileges to modify ownership of the filesystem.
+
+If a Bufstream deploy fails as a result of etcd attempting to mount a persistent volume, the following error appears in your logs:
+
+```text
+"error":"cannot access data directory: mkdir /bitnami/etcd/data: permission denied
+```
+
+To resolve this error and grant the Bitnami etcd containers the right permissions, add the following to your Helm values to allow the container to change the owner and group of etcd's mountpoint to one with appropriate filesystem permissions:
+
+```yaml
+volumePermissions:
+  enabled: true
+```
+
+To learn more about this Helm value or other configurable permissions in Bitnami's etcd chart, consult the Bitnami etcd [README](https://github.com/bitnami/charts/tree/main/bitnami/etcd#bitnami-package-for-etcd). For more information about troubleshooting Bitnami helm chart issues, read the [troubleshooting guide](https://docs.bitnami.com/general/how-to/troubleshoot-helm-chart-issues/).

@@ -45,11 +45,11 @@ head:
 
 # Configuration
 
-For Bufstream to store data as Iceberg tables, you must update the top-level Bufstream configuration as well topic-level configuration to instruct Bufstream to update a corresponding Iceberg catalog. Once you have set these options, Bufstream will begin storing data as Parquet file archives for long term storage. Each archive will only contain data for a single topic partition and is then further partitioned by date, ensuring that Iceberg tables contain only committed messages.
+For Bufstream to store data as Iceberg tables, you must update the top-level Bufstream configuration as well as the topic-level configuration to instruct Bufstream to update a corresponding Iceberg catalog. Once you've set these options, Bufstream begins storing data as Parquet file archives for long term storage. Each archive only contains data for a single topic partition and is then further partitioned by date, ensuring that Iceberg tables contain only committed messages.
 
 ### Bufstream configuration options
 
-To store Iceberg tables and interact with you preferred catalog, Bufstream will need configuration information about the specific catalog you wish to update. The example below illustrates how to configure Bufstream to use [BigQuery Metastore](https://cloud.google.com/bigquery/docs/about-bqms):
+To store Iceberg tables and interact with your preferred catalog, Bufstream needs configuration information about the specific catalog you wish to update. The example below illustrates how to configure Bufstream to use [BigQuery Metastore](https://cloud.google.com/bigquery/docs/about-bqms):
 
 ```yaml
 iceberg_integration:
@@ -58,7 +58,7 @@ iceberg_integration:
       bigquery_metastore: {}
 ```
 
-While BigQuery Metastore does not have any required properties, to ensure that there are no interruptions to archiving or reading data, we recommend setting the following values:
+Though BigQuery Metastore doesn't have any required properties, to ensure that there are no interruptions to archiving or reading data, we recommend setting the following values:
 
 ```yaml
 iceberg_integration:
@@ -81,14 +81,14 @@ For additional information about config values and requirements, consult the [Bu
 
 ### Topic level configuration
 
-If a topic is using Protobuf as its message data format, Bufstream will ensure that the Iceberg schema mirrors the Protobuf message schema. However, for other message formats (e.g. Avro, JSON), Bufstream will represent the message keys and values as binary columns which are opaque to human readers. Bufstream's direct to Iceberg integration also respects any data enforcement configuration set in the cluster configuration. If topics are using the `pass through` data enforcement setting, Bufstream will store the non-compliant message data in an `__unrecognized__` binary field with encoded bytes. Data in the `__unrecognized__` field may include the following: invalid data, fields that have since been deleted from the schema stored in the schema registry, or new fields that are not yet in sync with the schema registry.
+If a topic uses Protobuf as its message data format, Bufstream ensures that the Iceberg schema mirrors the Protobuf message schema. However, for other message formats (e.g. Avro, JSON), Bufstream represents the message keys and values as binary columns that are opaque to human readers. Bufstream's direct-to-Iceberg integration also respects any data enforcement configuration set in the cluster configuration. If topics use the `pass through` data enforcement setting, Bufstream stores the non-compliant message data in an `__unrecognized__` binary field with encoded bytes. Data in the `__unrecognized__` field may include the following: invalid data, fields that have since been deleted from the schema stored in the schema registry, or new fields that aren't yet in sync with the schema registry.
 
-At this time, Bufstream does not support creating fields in the Iceberg schema for Protobuf extensions. If schemas contain extensions, the extensions will also populate the `__unrecognized__` field. Additionally, at this time, Bufstream does not support using Iceberg as the archive format for compacted topics.
+At this time, Bufstream doesn't support creating fields in the Iceberg schema for Protobuf extensions. If schemas contain extensions, the extensions also populate the `__unrecognized__` field. Additionally, at this time, Bufstream doesn't support using Iceberg as the archive format for compacted topics.
 
 To enable Iceberg storage for topics, you will need to explicitly set the archive format, catalog name, and table name when creating a new topic. The following constraints apply to topic configuration:
 
 - `bufstream.archive.kind` must be set to `ICEBERG`
 - `bufstream.archive.iceberg.catalog` must have the same name as the catalog configured in `bufstream.yaml`
-- `bufstream.archive.iceberg.table`must be a valid namespace and table for the configured catalog. This value be in the form `namespace.table`. There must be at least one component in the namespace, therefore a value of `table` is considered invalid since it includes no namespace component. Backend systems may impose other constraints on table names not imposed by Bufstream (e.g. BigQuery does not allow a table named "table" as that is a reserved word in their query syntax).
+- `bufstream.archive.iceberg.table` must be a valid namespace and table for the configured catalog. This value must be in the form `namespace.table`. There must be at least one component in the namespace — therefore, a value of `table` is considered invalid since it includes no namespace component. Backend systems may impose other constraints on table names not imposed by Bufstream (e.g. BigQuery doesn't allow a table named "table" because that is a reserved word in their query syntax).
 
 You can read and update the topic configuration values from Kafka GUIs like AKHQ or Redpanda Console. The values will be listed as `bufstream.archive.kind`, `bufstream.archive.iceberg.catalog`, and `bufstream.archive.iceberg.table`.

@@ -66,9 +66,7 @@ If you can't use Connect, see the [Webhooks without Connect](#webhooks-without-c
 - manage webhook subscriptions using a regular curl+JSON payload; and
 - build an event listener that's compatible with [Connect](https://connectrpc.com/) (`application/proto`) requests.
 
-::: tip Note
-In the samples below, please use the domain name for your private BSR instance (for example, `https://buf.example.com`) in place of `BSR_INSTANCE_DOMAIN_NAME`.
-:::
+In the samples below, use the domain name for your private BSR instance (for example, `https://buf.example.com`) in place of `BSR_INSTANCE_DOMAIN_NAME`.
 
 ## Webhooks with Connect
 

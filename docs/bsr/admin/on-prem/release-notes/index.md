@@ -45,6 +45,12 @@ head:
 
 # Release notes
 
+## v1.22.1
+
+**_Release date:_** 2025-05-07 | **_Database version:_** 354 | **_Minimum CLI version:_** v1.24.0
+
+- **Generated SDKs:** We've updated Swift generated SDKs to use `.upToNextMinor` to specify their [dependency requirements](https://docs.swift.org/package-manager/PackageDescription/PackageDescription.html#package-dependency-requirement) instead of `exact`, improving version resolution of transitive Swift SDK dependencies.
+
 ## v1.22.0
 
 **_Release date:_** 2025-04-30 | **_Database version:_** 354 | **_Minimum CLI version:_** v1.24.0

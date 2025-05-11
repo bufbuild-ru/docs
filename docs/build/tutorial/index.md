@@ -12,7 +12,7 @@ head:
       href: "https://bufbuild.ru/docs/cli/buf-plugins/overview/"
   - - meta
     - property: "og:title"
-      content: "Tutorial - Buf Docs"
+      content: "Quickstart - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/build/tutorial.png"
@@ -33,7 +33,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Tutorial - Buf Docs"
+      content: "Quickstart - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/build/tutorial.png"
@@ -43,9 +43,9 @@ head:
 
 ---
 
-# Build Buf images – Tutorial
+# Build Buf images quickstart
 
-This tutorial takes you through building a Buf [image](../../reference/images/) from your Protobuf files and introspecting the contents of an image.
+This quickstart takes you through building a Buf [image](../../reference/images/) from your Protobuf files and introspecting the contents of an image.
 
 ## Prerequisites
 

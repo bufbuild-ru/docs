@@ -49,7 +49,7 @@ Bufstream supports several [SASL](https://datatracker.ietf.org/doc/html/rfc4422)
 
 ### OAUTH
 
-You can use the [SASL/OAUTHBEARER](https://datatracker.ietf.org/doc/html/rfc7628) mechanism to leverage OAuth2.0/OIDC Authorization frameworks in a SASL context. Clients can send a signed JSON Web Token (JWT) aquired from an Identity Provider (IdP), which the server can validate using the public key of the signing key provided as a JSON Web Key Set (JWKS).
+You can use the [SASL/OAUTHBEARER](https://datatracker.ietf.org/doc/html/rfc7628) mechanism to leverage OAuth2.0/OIDC Authorization frameworks in a SASL context. Clients can send a signed JSON Web Token (JWT) acquired from an Identity Provider (IdP), which the server can validate using the public key of the signing key provided as a JSON Web Key Set (JWKS).
 
 ```yaml
 kafka:
@@ -62,7 +62,7 @@ kafka:
           staticConfig:
           # A hosted JWKS that is accessible to the cluster.
           remote:
-            # Kubernetes configMap with key 'url' of JWKS's URL, which must be a HTTPS url.
+            # Kubernetes configMap with key 'url' of JWKS's URL, which must be an HTTPS url.
             urlConfig:
             # The keys are loaded once on startup and are refreshed every hour by default.
             # This controls the refresh interval.

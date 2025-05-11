@@ -73,7 +73,7 @@ The quickstart's `InvoiceService` has a critical bug — it allows clients to cr
 
 The `buf.yaml` file in the `server` folder configures your module and local workspace, so add the dependency there:
 
-::: info bsr/start/server/buf.yaml
+::: info bsr/quickstart/start/server/buf.yaml
 
 ```yaml
 version: v2
@@ -95,7 +95,7 @@ breaking:
 
 Update the workspace to install the new dependency and pin its version in `buf.lock` (don't worry about the warning for now):
 
-::: info bsr/start/server/
+::: info bsr/quickstart/start/server/
 
 ```sh
 buf dep update
@@ -108,7 +108,7 @@ WARN    Module buf.build/bufbuild/protovalidate is declared in your buf.yaml dep
 
 With Protovalidate in place, you can import it and add a rule to your schema to validate the invoices:
 
-::: info bsr/start/server/proto/invoice/v1/invoice.proto
+::: info quickstart/start/server/proto/invoice/v1/invoice.proto
 
 ```protobuf
 syntax = "proto3";
@@ -154,7 +154,7 @@ import (
 
 To fix this, disable the `go_package` file option for the dependency in the [managed mode](../../generate/managed-mode/) section of `buf.gen.yaml`:
 
-::: info bsr/start/server/buf.gen.yaml
+::: info bsr/quickstart/start/server/buf.gen.yaml
 
 ```yaml
 // Code omitted for brevity
@@ -176,7 +176,7 @@ disable:
 
 You're all set — time to generate code for your Protobuf changes:
 
-::: info bsr/start/server/
+::: info bsr/quickstart/start/server/
 
 ```sh
 buf generate
@@ -188,7 +188,7 @@ A new `gen` directory appears, which contains your generated code.
 
 Next, validate your code. Start the server (which imports the code stubs you just generated):
 
-::: info bsr/start/server/
+::: info quickstart/start/server/
 
 ```sh
 go run cmd/main.go
@@ -197,13 +197,9 @@ go run cmd/main.go
 
 :::
 
-::: tip Note
-The server code in `cmd/main.go` is [preconfigured](https://github.com/bufbuild/buf-examples/blob/main/bsr/quickstart/start/server/cmd/main.go#L35-L39) with the Protovalidate interceptor. Normally you need to add that to your code also — see the [Protovalidate documentation](https://github.com/bufbuild/protovalidate) for specifics.
-:::
-
 Then, open a new terminal, stay in the `server` directory and try a bad request:
 
-::: info bsr/start/server/
+::: info bsr/quickstart/start/server/
 
 ```sh
 buf curl \
@@ -221,9 +217,15 @@ buf curl \
 
 :::
 
-Your fix worked! The bad request returned a validation error. Now try a good request:
+Your fix worked! The bad request returned a validation error.
 
-::: info bsr/start/server/
+::: tip Note
+The server code in `cmd/main.go` is [preconfigured](https://github.com/bufbuild/buf-examples/blob/main/bsr/quickstart/start/server/cmd/main.go#L35-L39) with the Protovalidate interceptor. Normally you need to add that to your code also — see the [Protovalidate documentation](https://github.com/bufbuild/protovalidate) for specifics.
+:::
+
+Now try a good request:
+
+::: info bsr/quickstart/start/server/
 
 ```sh
 buf curl \
@@ -238,7 +240,7 @@ buf curl \
 
 Go back to the terminal where the server is running — you should see the output from the request:
 
-::: info bsr/start/server/
+::: info bsr/quickstart/start/server/
 
 ```console
 2025/03/04 17:21:59 Creating invoice for customer bob for 1998
@@ -258,9 +260,7 @@ Seeing that the tags may have use for other teams, you decide to split them out 
 
 To share just the tags functionality, you need to move the `tag.proto` file into a new module.
 
-::: tip Note
-The BSR doesn't dictate any particular strategies with regard to monorepo, multi-repo, or "many repos with a 'common' repo." The use of the `common` BSR repo here is for illustrative purposes, and you should conform to your organization's norms instead.
-:::
+The BSR doesn't dictate any particular strategies with regard to monorepo, multi-repo, or "many repos with a 'common' repo." The use of the `common` BSR repo here is for illustration.
 
 ### Create a BSR repository
 
@@ -281,7 +281,7 @@ Created buf.build/USERNAME/common.
 
 Create a new directory for your `common` module at the same level as `server`. The `/start` directory should now contain `/client`, `/server`, and `/common`.
 
-::: info bsr/start/server/
+::: info bsr/quickstart/start/server/
 
 ```sh
 cd ..
@@ -294,7 +294,7 @@ mkdir common && cd common
 
 First, initialize the module (this creates its `buf.yaml` file):
 
-::: info bsr/start/common/
+::: info bsr/quickstart/start/common/
 
 ```sh
 buf config init
@@ -304,7 +304,7 @@ buf config init
 
 Set up the module to match the repository you just created:
 
-::: info bsr/start/common/buf.yaml
+::: info bsr/quickstart/start/common/buf.yaml
 
 ```yaml{2,3,4}
 version: v2
@@ -326,7 +326,7 @@ breaking:
 
 Move the `tag.proto` file to the `common/proto` module directory:
 
-::: info bsr/start/common
+::: info bsr/quickstart/start/common
 
 ```sh
 mkdir proto && mv ../server/proto/tag/ ./proto
@@ -336,7 +336,7 @@ mkdir proto && mv ../server/proto/tag/ ./proto
 
 Test the module by building it (you should receive no output):
 
-::: info bsr/start/common
+::: info bsr/quickstart/start/common
 
 ```sh
 buf build
@@ -346,7 +346,7 @@ buf build
 
 Push the module to the BSR (you should receive a commit ID):
 
-::: info bsr/start/common
+::: info bsr/quickstart/start/common
 
 ```sh
 buf push
@@ -361,7 +361,7 @@ The BSR auto-generates schema documentation from your Protobuf files, which you 
 
 Create a new `README.md` file in the `common` directory with some basic content:
 
-::: info bsr/start/common
+::: info bsr/quickstart/start/common
 
 ```sh
 echo -e "# Tags\n\nThis module allows you to add custom tags for tracking or analysis." > README.md
@@ -377,7 +377,7 @@ Congrats — you've made a dependency that other teams can integrate into their 
 
 Go back to the `server` directory and update `buf.yaml` to depend on your new `common` module:
 
-::: info bsr/start/server/buf.yaml
+::: info bsr/quickstart/start/server/buf.yaml
 
 ```yaml
 version: v2
@@ -405,7 +405,7 @@ buf dep update
 
 If you look at `buf.lock` again, you see the new dependency on the `common` module, pinned to your commit (which is the latest).
 
-::: info bsr/start/server/buf.lock
+::: info bsr/quickstart/start/server/buf.lock
 
 ```yaml
 # Generated by buf. DO NOT EDIT.
@@ -426,7 +426,7 @@ deps:
 
 Regenerate your code stubs, update their Go dependencies, and restart the server:
 
-::: info bsr/start/server/
+::: info bsr/quickstart/start/server/
 
 ```sh
 buf generate
@@ -461,7 +461,7 @@ Back in the `/server` directory:
 
 1.  Create a BSR repository for the invoice module:
 
-    ::: info bsr/start/server/
+    ::: info bsr/quickstart/start/server/
 
     ```sh
     buf registry module create buf.build/USERNAME/invoice --visibility public
@@ -472,7 +472,7 @@ Back in the `/server` directory:
 
 2.  Configure `buf.yaml` to push this module to the BSR:
 
-    ::: info bsr/start/server/buf.yaml
+    ::: info bsr/quickstart/start/server/buf.yaml
 
     ```yaml{4}
     version: v2
@@ -495,7 +495,7 @@ Back in the `/server` directory:
 
 3.  Push the module:
 
-    ::: info bsr/start/server
+    ::: info bsr/quickstart/start/server
 
     ```sh
     buf push
@@ -512,7 +512,7 @@ Teams consuming your APIs can import generated SDKs using their package manager 
 
 You'll be using a client Go module for this section, so switch to the `start/client` directory. To use the BSR's generated SDKs, you integrate them like any other package, so `go get` them by name:
 
-::: info bsr/start/client/
+::: info bsr/quickstart/start/client/
 
 ```console
 # Base Protobuf types
@@ -531,7 +531,7 @@ They're lazily generated, so it takes a moment or two.
 
 Replace the code in `client/cmd/main.go` with the following boilerplate — you can see that it imports the SDKs you just installed:
 
-::: info bsr/start/client/cmd/main.go
+::: info bsr/quickstart/start/client/cmd/main.go
 
 ```go{4,5,6}
 // Copyright 2020-2025 Buf Technologies, Inc.
@@ -598,7 +598,7 @@ func main() {
 
 Make sure your server's running, then update your Go dependencies and run the client:
 
-::: info bsr/start/client/
+::: info bsr/quickstart/start/client/
 
 ```sh
 go mod tidy
@@ -610,7 +610,7 @@ go run cmd/main.go
 
 Go back to the `server` terminal, and you should see a successful request like before:
 
-::: info bsr/start/server/
+::: info bsr/quickstart/start/server/
 
 ```console
 2025/03/20 09:58:03 Creating invoice for customer customer-one for 1998

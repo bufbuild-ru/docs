@@ -47,7 +47,7 @@ head:
 
 The Buf Schema Registry provides generated SDKs for JavaScript-based languages in the form of an NPM registry, just like any other JavaScript library. It generates SDKs automatically when you push schema changes, which eliminates the need to manage a Protobuf toolchain or generate code locally.
 
-The BSR's NPM registry is hosted at buf.build/gen/npm/v1. See the [tutorial](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.
+The BSR's NPM registry is hosted at buf.build/gen/npm/v1. See the [quickstart](../tutorial/) for instructions on how to access generated SDKs from the BSR directly.
 
 ## Setup
 
@@ -111,9 +111,7 @@ With your NPM config [set](#setup), you can install `@buf/*` SDKs in any standar
 npm install @buf/connectrpc_eliza.bufbuild_es
 ```
 
-::: tip Slow installation?
 You may notice that installing SDKs from the BSR NPM registry using `npm install` can take longer than installing from the standard NPM registry. This happens because they're lazily generated and then cached. The first `npm install` typically takes longer than subsequent requests because of this.
-:::
 
 ## Versions
 
@@ -153,9 +151,7 @@ To get the generated SDK for the module at a label, using the latest plugin vers
 npm install @buf/connectrpc_eliza.bufbuild_es@label-demo
 ```
 
-::: tip Note
 Labels with names that contain `/` aren't compatible with the NPM registry versioning scheme.
-:::
 
 ### Full syntax
 

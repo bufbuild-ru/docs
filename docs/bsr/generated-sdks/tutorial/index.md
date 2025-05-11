@@ -12,7 +12,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/generated-sdks/sdk-documentation/"
   - - meta
     - property: "og:title"
-      content: "Tutorial - Buf Docs"
+      content: "Quickstart - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/bsr/generated-sdks/tutorial.png"
@@ -33,7 +33,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Tutorial - Buf Docs"
+      content: "Quickstart - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/bsr/generated-sdks/tutorial.png"
@@ -43,11 +43,11 @@ head:
 
 ---
 
-# Import and use generated SDKs – Tutorial
+# Generated SDKs quickstart
 
 The Buf Schema Registry (BSR) generates SDKs that contain code generated from Protobuf schemas (stored as Buf modules) and plugins. They can be installed as dependencies using popular package managers like Cargo, Go, Gradle, Maven, NPM, pip, and Swift Package Manager, enabling you to easily consume Protobuf APIs without manually generating code or interacting with the schemas directly. For example, mobile or web teams who don't directly own Protobuf schemas can use generated SDKs to consume Protobuf APIs from other teams.
 
-This tutorial shows how to depend on the generated SDK for the `connectrpc/eliza` module using NPM. The process is similar for other SDKs.
+This quickstart shows how to depend on the generated SDK for the `connectrpc/eliza` module using NPM. The process is similar for other SDKs.
 
 ## Prerequisites
 

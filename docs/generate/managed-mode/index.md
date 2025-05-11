@@ -45,10 +45,6 @@ head:
 
 # Managed mode
 
-::: tip Note
-This feature has changed significantly between `v1` and `v2` configurations. See the [v1 to v2 migration guide](../../migration-guides/migrate-v2-config-files/) for migration instructions or the [v1 `buf.gen.yaml` reference](../../configuration/v1/buf-gen-yaml/) if you're still using `v1` configuration files.
-:::
-
 Managed mode is a feature of `buf generate` that allows API consumers to control file and field options when generating code from Protobuf files, even without control of the API itself. It's easy to implement and provides a thoughtful set of defaults for these options, with enough granularity to manage them more directly as needed. It hides some of Protobuf's quirks and allows consumers to start generating code quickly.
 
 It removes the need for API producers to make these decisions for consumers. Instead, producers can leave this information out and different types of consumers can rely on managed mode to generate code in the ways that they need to use it.
@@ -128,9 +124,7 @@ There is one special case: when the last rules that modify `java_package` are `j
 
 You may need to override an option to make your generated code conform to your company's source control directory structure or API endpoints. To override an option, you create a rule with its name and the new value in the `override` section of your `buf.gen.yaml` file. If no input is specified in the rule, the value is modified for all inputs, but each rule can specify inputs down to the field level of a single `.proto` file if you need to be that granular.
 
-::: tip Note
 See the [Defaults and override behavior](#default-behavior) section below for default behavior and specific `override` examples for each language.
-:::
 
 For example, managed mode's defaults set `java_package` to `com.<proto_package>`, which means that given this configuration and an input with this `.proto` file `package` value:
 
@@ -473,9 +467,7 @@ namespace data.Acme.Weather.V1
 
 Go has two options: `go_package` and `go_package_prefix`. It requires you to [specify a Go import path](https://protobuf.dev/reference/go/go-generated/#package) using `go_package`, but managed mode doesn't set a default, so you must set a value for one of these options in the `override` section. If `go_package_prefix` is set, managed mode defaults to building out directories for each part of the package name. The examples below show the output of these two options, and assume that the Go plugin's `opt` value is the default of `paths=import`.
 
-::: tip Note
 Because both options modify the package name, only one should be set for any given input. If both options are set, the last one specified wins.
-:::
 
 ::: info Set go_package_prefix
 
@@ -1071,6 +1063,10 @@ This option doesn't have a default value.
 #### `jstype` field option
 
 This option doesn't have a default value. The accepted values are `JS_NORMAL`, `JS_NUMBER` and `JS_STRING`.
+
+## Migrating from v1
+
+This feature has changed significantly between `v1` and `v2` configurations. See the [migration guide](../../migration-guides/migrate-v2-config-files/) for migration instructions or the [v1 `buf.gen.yaml` reference](../../configuration/v1/buf-gen-yaml/) if you're still using `v1` configuration files.
 
 ## Troubleshooting
 

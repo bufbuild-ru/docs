@@ -49,7 +49,7 @@ Publishing a plugin to the BSR allows you to share it with other developers. To 
 
 ## Pushing a plugin
 
-To push a plugin to the BSR, you use the `buf plugin push` command. We'll use the `rpc-suffix.wasm` plugin built in Go from the [tutorial](../tutorial-create-buf-plugin/) and compiled to [Wasm](../webassembly/) to demonstrate how to push a plugin to the BSR.
+To push a plugin to the BSR, you use the `buf plugin push` command. We'll use the `rpc-suffix.wasm` plugin built in Go from the [quickstart](../tutorial-create-buf-plugin/) and compiled to [Wasm](../webassembly/) to demonstrate how to push a plugin to the BSR.
 
 ```sh
 $ buf plugin push buf.build/acme/rpc-suffix \

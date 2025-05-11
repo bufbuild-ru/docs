@@ -59,9 +59,7 @@ To discover all publicly available plugins, go to [buf.build/plugins](https://bu
 
     ![Remote plugin browse screen, showing available collections and languages](../../../images/bsr/plugins/remote-plugins-browse.png)
 
-    ::: tip Note
     Plugins without an associated language or collection appear in the **Other** category at the bottom of the filter panel.
-    :::
 
 2.  Click through to the group you want, and all available plugins display:
 
@@ -98,9 +96,7 @@ Then invoke `buf generate` and you're done — no maintaining these plugins, no 
 
 See the [`buf.gen.yaml` reference](../../../configuration/v2/buf-gen-yaml/) for more information about the other keys under `plugin`.
 
-::: tip Note
 If you don't specify a plugin version, the latest version is used to generate. To avoid unexpected updates and possible breaking changes, pin to a specific version.
-:::
 
 ## Request a public plugin
 

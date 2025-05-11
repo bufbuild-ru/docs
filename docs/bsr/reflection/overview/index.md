@@ -71,9 +71,7 @@ The Buf Reflection API can be found in the public BSR: [buf.build/bufbuild/refle
 
 It contains a single RPC service: `buf.reflect.v1beta1.FileDescriptorSetService`. This service contains a single endpoint named `GetFileDescriptorSet`, which is for downloading the schema for a particular module (optionally, at a specific version). The response is in the form of a [`FileDescriptorSet`](https://github.com/protocolbuffers/protobuf/blob/v21.0/src/google/protobuf/descriptor.proto#L55-L59). You can find reference documentation for all the request and response fields [in the BSR](https://buf.build/bufbuild/reflect/docs/main:buf.reflect.v1beta1#buf.reflect.v1beta1.FileDescriptorSetService).
 
-::: tip Note
 For the general mechanics of how to use APIs exposed by the BSR, see [Invoking the BSR APIs](../../apis/api-access/).
-:::
 
 The endpoint accepts a module name, in `<bsr-domain>/<owner>/<repo>` format. For example, `buf.build/connectrpc/eliza` is the module name for the Eliza service (a demo service for [Connect](https://connectrpc.com)). The domain of the BSR is "buf.build" (the public BSR); the owner is the "connectrpc" organization; and the repo name is "eliza".
 
@@ -91,9 +89,7 @@ Assuming a valid BSR token is used in the `Authorization` header, this returns a
 
 The above request doesn't contain a `version` field in the request, which means it returns the latest version. This is the same as asking for `"version": "main"`, which also returns the latest version. The version can also refer to a [commit](https://buf.build/connectrpc/eliza/commits/main), either via the commit name or an associated label.
 
-::: tip Note
 These are the same ways one can pin a particular version in the `deps` section of a `buf.yaml` file.
-:::
 
 See the [Overview](../../module/dependency-management/) section on dependencies for more.
 

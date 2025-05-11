@@ -6,10 +6,10 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/deployment/azure/deploy-etcd/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/gcp/deploy-spanner/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/azure/deploy-postgres/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/azure/deploy-postgres/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/cluster-recommendations/"
   - - meta
     - property: "og:title"
       content: "Deploy with etcd - Buf Docs"
@@ -45,7 +45,7 @@ head:
 
 # Deploy Bufstream to Azure with etcd
 
-This page walks you through installing Bufstream into your Azure deployment, using etcd for metadata storage. See [Tuning and performance](../../tuning-performance/) for defaults and recommendations about resources, replicas, storage, and scaling.
+This page walks you through installing Bufstream into your Azure deployment, using etcd for metadata storage.
 
 Data from your Bufstream cluster never leaves your network or reports back to Buf.
 
@@ -143,7 +143,7 @@ kubectl create namespace bufstream
 
 ## Deploy etcd
 
-Bufstream requires an [`etcd`](https://etcd.io/) cluster. To set up an example deployment of `etcd` on Kubernetes, use the [Bitnami `etcd` Helm chart](https://github.com/bitnami/charts/tree/main/bitnami/etcd) with the following values:
+Bufstream requires an [etcd](https://etcd.io/) cluster. To set up an example deployment of etcd on Kubernetes, use the [Bitnami etcd Helm chart](https://github.com/bitnami/charts/tree/main/bitnami/etcd) with the following values:
 
 ```sh
 helm install \
@@ -190,11 +190,9 @@ extraEnvVars:
 EOF
 ```
 
-Check that `etcd` is running after installation.
+Check that etcd is running after installation.
 
-::: warning Warning
-`etcd` is sensitive to disk performance, so we recommend using the [Azure Disks Container Storage Interface](https://learn.microsoft.com/en-us/azure/aks/azure-disk-csi) with `Premium SSD v2` disks.
-:::
+etcd is sensitive to disk performance, so we recommend using the [Azure Disks Container Storage Interface](https://learn.microsoft.com/en-us/azure/aks/azure-disk-csi) with `Premium SSD v2` disks.
 
 The storage class in the example above can be changed by setting the `persistence.storageClass` value to a custom storage class using those disks.
 
@@ -286,9 +284,9 @@ Alternatively, you can use a shared key pair.
 
 +++
 
-#### Configure `etcd`
+#### Configure etcd
 
-Then, configure Bufstream to connect to the `etcd` cluster:
+Then, configure Bufstream to connect to the etcd cluster:
 
 ::: info bufstream-values.yaml
 

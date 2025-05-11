@@ -49,4 +49,4 @@ With Buf plugins, you can create custom lint and breaking change rules and categ
 
 Buf plugins are built on top of the [Bufplugin](https://github.com/bufbuild/bufplugin) Protobuf API and the [PluginRPC](https://github.com/pluginrpc) framework. [`bufplugin-go`](https://github.com/bufbuild/bufplugin-go) connects them into a library that makes implementing and testing rules simple and straightforward. All of Buf's built-in [lint](../../../lint/rules/) and [breaking change](../../../breaking/rules/) rules run on this platform.
 
-The `bufplugin-go` library provides several detailed [implementation examples](https://github.com/bufbuild/bufplugin-go?tab=readme-ov-file#examples) to help get you started, and the [tutorial](../tutorial-create-buf-plugin/) is a step-by-step walkthrough of creating a plugin from scratch.
+The `bufplugin-go` library provides several detailed [implementation examples](https://github.com/bufbuild/bufplugin-go?tab=readme-ov-file#examples) to help get you started, and the [quickstart](../tutorial-create-buf-plugin/) is a step-by-step walkthrough of creating a plugin from scratch.

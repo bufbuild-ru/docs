@@ -46,7 +46,7 @@ head:
 # buf.yaml v1beta1 configuration
 
 ::: tip Note
-The `v1beta1` configuration file described in this page is deprecated and we recommend upgrading to a [`v2`](../../v2/buf-yaml/) configuration. For instructions and context, see the [migration guide](../../../migration-guides/migrate-v2-config-files/).
+The configuration file described in this page is deprecated and we recommend upgrading to a [v2](../../v2/buf-yaml/) configuration. See the [migration guide](../../../migration-guides/migrate-v2-config-files/) for instructions.
 :::
 
 The `buf.yaml` file defines a [module](../../../cli/modules-workspaces/), and is placed at the root of the Protobuf source files it defines. The placement of the `buf.yaml` configuration tells `buf` where to search for `.proto` files, and how to handle imports.

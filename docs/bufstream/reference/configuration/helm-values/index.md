@@ -781,7 +781,7 @@ Defaults to `{"maxConnections":0,"minConnections":0}`.
 
 _int_
 
-The maximum size of the connection pool. Defaults to 10.
+The maximum size of the connection pool. Defaults to 20.
 
 Defaults to `0`.
 
@@ -1342,7 +1342,7 @@ metadata:
       privateIP: false
     # -- Connection pool configuration.
     pool:
-      # -- The maximum size of the connection pool. Defaults to 10.
+      # -- The maximum size of the connection pool. Defaults to 20.
       maxConnections: 0
       # -- The minimum size of the connection pool.
       minConnections: 0
@@ -1593,4 +1593,4 @@ configOverrides: {}
 
 ## Related documentation
 
-To configure Bufstream with recommended, cloud-specific settings, consult the [tuning performance](../../../deployment/tuning-performance/) documentation.
+To configure Bufstream with recommended cloud-specific settings, consult the [Cluster recommendations](../../../deployment/cluster-recommendations/).

@@ -71,7 +71,7 @@ Only BSR administrators can create a Confluent Schema Registry instance. To crea
 ## Delete an instance
 
 ::: warning Warning
-Deleting an instance is permanent! All subjects and schemas registered to the instance will be immediately removed and inaccessible from the Confluent Schema Registry's API.
+Deleting an instance is permanent. All subjects and schemas registered to the instance are immediately removed and inaccessible from the Confluent Schema Registry's API.
 :::
 
 Only BSR administrators can delete a Confluent Schema Registry instance. To delete an instance:

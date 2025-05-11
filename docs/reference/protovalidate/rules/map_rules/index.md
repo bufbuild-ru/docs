@@ -81,6 +81,8 @@ message MyMap {
 
 Specifies the rules to be applied to each key in the field.
 
+Note that map keys are always considered populated. The `required` rule does not apply.
+
 ::: info map.keys example
 
 ```proto
@@ -100,6 +102,8 @@ message MyMap {
 ## values
 
 Specifies the rules to be applied to the value of each key in the field. Message values will still have their validations evaluated unless skip is specified here.
+
+Note that map values are always considered populated. The `required` rule does not apply.
 
 ::: info map.values example
 

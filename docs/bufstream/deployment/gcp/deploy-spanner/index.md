@@ -9,7 +9,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/deployment/gcp/deploy-postgres/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/azure/deploy-etcd/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/gcp/deploy-etcd/"
   - - meta
     - property: "og:title"
       content: "Deploy with Spanner - Buf Docs"
@@ -45,7 +45,7 @@ head:
 
 # Deploy Bufstream to Google Cloud with Spanner
 
-This page walks you through installing Bufstream into your Google Cloud Platform (GCP) deployment, using Spanner for metadata stores. See [Tuning and performance](../../tuning-performance/) for defaults and recommendations about resources, replicas, storage, and scaling.
+This page walks you through installing Bufstream into your Google Cloud Platform (GCP) deployment, using Spanner for metadata stores.
 
 Data from your Bufstream cluster never leaves your network or reports back to Buf.
 
@@ -72,11 +72,11 @@ If you don't yet have your GCP environment, you'll need at least the following I
 
 Create a GKE standard cluster if you don't already have one. A GKE cluster involves many settings that vary depending on your use case. See the [official documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-regional-cluster) for details, but you'll need at least these settings:
 
-- \[Optional, but recommended\] Workload identity federation:
+- (Optional, but recommended) Workload identity federation:
   - Toggle `Enable Workload Identity` in the console under the Security tab when creating the cluster; or
   - Include `--workload-pool=<gcp-project-name.svc.id.goog>` on the gcloud command.
   - [See the official documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity#enable_on_clusters_and_node_pools)
-- Bufstream brokers use 2 CPUs and 8 GiB of memory by default, so you'll need a node pool with machine types at least as big as `n2d-standard-4`. Learn more about configuring resources in [Tuning and performance](../../tuning-performance/#resources-and-replicas).
+- Bufstream brokers use 2 CPUs and 8 GiB of memory by default, so you'll need a node pool with machine types at least as big as `n2d-standard-4`. Learn more about configuring resources in [Cluster recommendations](../../cluster-recommendations/#resources-and-replicas).
 
 ## Create a GCS bucket
 
@@ -142,7 +142,9 @@ gcloud projects add-iam-policy-binding <gcp-project-name> --member=serviceAccoun
 
 +++
 
-Using Custom Object Storage permissions If you have the \`Role Administrator\` role (\`roles/iam.roleAdmin\`), you can also create a role with the minimal set of permissions required:
+### Using Custom Object Storage permissions
+
+If you have the `Role Administrator` role (`roles/iam.roleAdmin`), you can also create a role with the minimal set of permissions required:
 
 ```sh
 gcloud iam roles create 'bufstream.gcs' \
@@ -158,7 +160,7 @@ gcloud iam roles create 'bufstream.gcs' \
   storage.multipartUploads.listParts
 ```
 
-Then replace \`--role=roles/storage.objectAdmin\` with \`--role=projects//roles/bufstream.gcs\` in the preceding commands.
+Then replace `--role=roles/storage.objectAdmin` with `--role=projects/<gcp-project-name>/roles/bufstream.gcs` in the preceding commands.
 
 ## Create a namespace
 
@@ -188,7 +190,7 @@ Bufstream is configured using Helm values that are passed to the `bufstream` Hel
 
 #### Configure object storage
 
-Bufstream requires GCS object storage. See [Tuning and performance](../../tuning-performance/#permissions) for a minimal set of permissions required.
+Bufstream requires GCS object storage. See [Cluster recommendations](../../cluster-recommendations/#permissions) for a minimal set of permissions required.
 
 +++tabs key:7aa715642264784801820a6eecd2ac16
 
@@ -219,30 +221,30 @@ Alternatively, you can use service account credentials. You'll need the `Service
 
 1.  Create a key credential for the service account:
 
-```sh
-gcloud iam service-accounts keys create credentials.json --iam-account=bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com --key-file-type=json
-```
+    ```sh
+    gcloud iam service-accounts keys create credentials.json --iam-account=bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com --key-file-type=json
+    ```
 
-1.  Create a k8s secret containing the service account credentials:
+2.  Create a k8s secret containing the service account credentials:
 
-```sh
-kubectl create secret --namespace bufstream generic bufstream-service-account-credentials \
-  --from-file=credentials.json=credentials.json
-```
+    ```sh
+    kubectl create secret --namespace bufstream generic bufstream-service-account-credentials \
+      --from-file=credentials.json=credentials.json
+    ```
 
-1.  Set the `secretName` in the configuration:
+3.  Set the `secretName` in the configuration:
 
-::: info bufstream-values.yaml
+    ::: info bufstream-values.yaml
 
-```yaml
-storage:
-  use: gcs
-  gcs:
-    bucket: <bucket-name>
-    secretName: "bufstream-service-account-credentials"
-```
+    ```yaml
+    storage:
+      use: gcs
+      gcs:
+        bucket: <bucket-name>
+        secretName: "bufstream-service-account-credentials"
+    ```
 
-:::
+    :::
 
 +++
 
@@ -319,7 +321,7 @@ metadata:
 
 Using the `bufstream-values.yaml` Helm values file, install the Helm chart for the cluster and set the target Bufstream version:
 
-### Single-region
+#### Single-region
 
 ```sh
 helm install bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \
@@ -328,7 +330,7 @@ helm install bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/buf
   --values bufstream-values.yaml
 ```
 
-### Multi-region
+#### Multi-region
 
 Install the helm chart to separate regional kubernetes clusters by specifying the `--kube-context=<gke cluster context>` argument.
 
@@ -364,7 +366,7 @@ bufstream:
 
 :::
 
-and run the `helm upgrade` command for Bufstream:
+Then run the `helm upgrade` command for Bufstream:
 
 ```sh
 helm upgrade bufstream oci://us-docker.pkg.dev/buf-images-1/bufstream/charts/bufstream \

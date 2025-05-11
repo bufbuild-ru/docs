@@ -9,7 +9,7 @@ head:
       href: "https://bufbuild.ru/docs/protovalidate/schemas/custom-rules/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/protovalidate/quickstart/connect-go/"
+      href: "https://bufbuild.ru/docs/protovalidate/schemas/compile-with-protoc/"
   - - meta
     - property: "og:title"
       content: "Predefined rules - Buf Docs"

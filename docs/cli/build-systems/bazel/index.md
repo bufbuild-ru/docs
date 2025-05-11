@@ -193,9 +193,7 @@ We recommend using a single `buf_dependencies` rule for each `buf.yaml` file. Th
 
 `buf_lint_test` is a test rule that lints one or more `proto_library` targets.
 
-::: tip Note
 Unused imports can't be detected due to the way the lint plugin captures warnings ([Issue #32](https://github.com/bufbuild/rules_buf/issues/32)).
-:::
 
 #### Attributes
 

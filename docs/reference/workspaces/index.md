@@ -45,7 +45,7 @@ head:
 
 # v1 workspace configuration
 
-::: warning Warning
+::: tip Note
 This document describes the way workspaces are configured using `v1` configuration files. We recommend migrating to `v2` configuration files for a more intuitive way of working with multiple modules and sharing dependencies. See the [blog post](/blog/buf-cli-next-generation/index.md) and [migration guide](../../migration-guides/migrate-v2-config-files/) for information and instructions.
 :::
 
@@ -102,9 +102,7 @@ deps:
 
 :::
 
-::: tip Note
 You don't need to add modules to the `deps` field to use them locally within a workspace, but you will need to do so when you're ready to [push your modules](#pushing-modules) to the BSR.
-:::
 
 See the [`buf.work.yaml` config file reference](../../configuration/v1/buf-work-yaml/) for more information about its fields.
 
@@ -202,9 +200,7 @@ paymentapis/acme/payment/v2/payment.proto:29:10:Field name "recipientID" should 
 petapis/acme/pet/v1/pet.proto:51:27:Field name "orderV2" should be lower_snake_case, such as "order_v2".
 ```
 
-::: tip Note
 When using `buf breaking` in workspace mode, the two [inputs](../inputs/) you're comparing must contain the same number of modules. Otherwise, the Buf CLI can't reliably verify compatibility between the workspaces.
-:::
 
 ## Interaction with module cache
 
@@ -214,9 +210,7 @@ Without a workspace, the Buf CLI relies on the module's [`buf.lock`](../../confi
 
 With a workspace, the module cache is only used for dependencies **not defined in the workspace**. For all directories listed in the `buf.work.yaml` file, the workspace overrides the module cache and allows you to use the new changes without pushing and updating.
 
-::: tip Note
 Modules that are dependencies **must be named** (have a value for the `name` field in their buf.yaml file) for the workspace to override the module cache. If the `name` either doesn't match the importing module's dependency or doesn't exist, the Buf CLI uses the module cache instead.
-:::
 
 ## Pushing modules from workspaces
 

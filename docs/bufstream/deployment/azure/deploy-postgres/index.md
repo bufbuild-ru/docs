@@ -6,10 +6,10 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/deployment/azure/deploy-postgres/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/azure/deploy-etcd/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/gcp/deploy-etcd/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/data-governance/schema-enforcement/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/azure/deploy-etcd/"
   - - meta
     - property: "og:title"
       content: "Deploy with Postgres - Buf Docs"
@@ -45,7 +45,7 @@ head:
 
 # Deploy Bufstream to Azure with Azure Database for PostgreSQL
 
-This page walks you through installing Bufstream into your Azure deployment, using PostgreSQL for metadata storage. See [Tuning and performance](../../tuning-performance/) for defaults and recommendations about resources, replicas, storage, and scaling.
+This page walks you through installing Bufstream into your Azure deployment, using PostgreSQL for metadata storage.
 
 Data from your Bufstream cluster never leaves your network or reports back to Buf.
 

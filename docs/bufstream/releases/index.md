@@ -3,7 +3,7 @@
 head:
   - - link
     - rel: "canonical"
-      href: "https://bufbuild.ru/docs/bufstream/release-notes/"
+      href: "https://bufbuild.ru/docs/bufstream/releases/"
   - - link
     - rel: "prev"
       href: "https://bufbuild.ru/docs/bufstream/reference/configuration/client-id-options/"
@@ -12,13 +12,13 @@ head:
       href: "https://bufbuild.ru/docs/protovalidate/"
   - - meta
     - property: "og:title"
-      content: "Release notes - Buf Docs"
+      content: "Releases - Buf Docs"
   - - meta
     - property: "og:image"
-      content: "https://buf.build/docs/assets/images/social/bufstream/release-notes.png"
+      content: "https://buf.build/docs/assets/images/social/bufstream/releases.png"
   - - meta
     - property: "og:url"
-      content: "https://bufbuild.ru/docs/bufstream/release-notes/"
+      content: "https://bufbuild.ru/docs/bufstream/releases/"
   - - meta
     - property: "og:type"
       content: "website"
@@ -33,21 +33,66 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Release notes - Buf Docs"
+      content: "Releases - Buf Docs"
   - - meta
     - property: "twitter:image"
-      content: "https://buf.build/docs/assets/images/social/bufstream/release-notes.png"
+      content: "https://buf.build/docs/assets/images/social/bufstream/releases.png"
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
 
 ---
 
+# Releases
+
+The latest binaries of Bufstream can be downloaded here:
+
+| File                                                                                            | OS    | Arch   |
+| ----------------------------------------------------------------------------------------------- | ----- | ------ |
+| [bufstream-latest-Darwin-arm64](https://buf.build/dl/bufstream/latest/bufstream-Darwin-arm64)   | macOS | ARM64  |
+| [bufstream-latest-Darwin-x86_64](https://buf.build/dl/bufstream/latest/bufstream-Darwin-x86_64) | macOS | x86-64 |
+| [bufstream-latest-Linux-aarch64](https://buf.build/dl/bufstream/latest/bufstream-Linux-aarch64) | Linux | ARM64  |
+| [bufstream-latest-Linux-x86_64](https://buf.build/dl/bufstream/latest/bufstream-Linux-x86_64)   | Linux | x86-64 |
+
 # Release notes
+
+## v0.3.25
+
+**_Release date:_** 2025-05-08 | **_Status:_** latest
+
+#### Bug fixes
+
+- Improve error messages and connection handling in the Apache Iceberg™ REST catalog client.
+- Remove unnecessary calls to create namespaces in the Apache Iceberg™ REST catalog.
+- Fix excessive error logging in Kafka metrics observer.
+- Increase PostgreSQL default connection pool size from 10 to 20 connections.
+
+#### Features and improvements
+
+- Allow specifying an Apache Iceberg™ warehouse location, required for some REST catalogs.
+- Support HTTP proxies for Apache Iceberg™ REST catalogs, using standard `HTTP_PROXY`, `HTTPS_PROXY`, and `NO_PROXY` environment variables.
+
+## v0.3.24
+
+**_Release date:_** 2025-05-06
+
+#### Bug fixes
+
+- Fix a rare case of OOM when large records are written to a Parquet file.
+- Fix an internal metric error that caused frequent `unknown storage error` logs when using PostgreSQL.
+
+#### Features and improvements
+
+- Allow Apache Iceberg™ to use schemas even when `skip_parse` is set in the data enforcement policy.
+- Smooth out CPU usage by introducing jitter to Parquet files building and flushing.
+- Previously, Bufstream was efficient with heavier workloads, but had higher CPU usage than needed at idle when using PostgreSQL. We have tuned this down to have a very gradual backoff to reduce idle costs, which increases latency for the first message received after a period of idle. After this message, latency jumps back down to normal.
+- Reduce memory usage when handling Kafka requests by lowering per-connection buffer sizes, when a broker uses PostgreSQL or when writing to a Parquet file.
+- Allow setting the `delete_retention` topic configuration, which corresponds to `delete.retention.ms`, even though this value is currently unused by Bufstream.
+- Add the `session_token` storage option, used to access to the storage bucket, when using AWS temporary credentials. Temporary credentials are not recommended for production workloads.
 
 ## v0.3.23
 
-**_Release date:_** 2025-04-30 | **_Status:_** latest
+**_Release date:_** 2025-04-30
 
 #### Bug fixes
 

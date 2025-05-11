@@ -152,10 +152,6 @@ Breaking change detection doesn't work on changes to custom options like `google
 
 ### Git and GitHub
 
-::: tip Note
-Check out Buf's dedicated [GitHub Action](../../bsr/ci-cd/github-actions/) to seamlessly add breaking change detection into your CI/CD pipeline.
-:::
-
 #### Local repositories
 
 You can directly compare against the `.proto` files at the head of a `git` branch or a `git` tag. See the [inputs](../../reference/inputs/) documentation for details on `git` branches and `git` tags. It's especially useful for iterating on your schema locally.

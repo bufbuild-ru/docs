@@ -12,7 +12,7 @@ head:
       href: "https://bufbuild.ru/docs/curl/usage/"
   - - meta
     - property: "og:title"
-      content: "Tutorial - Buf Docs"
+      content: "Quickstart - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/format/tutorial.png"
@@ -33,7 +33,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Tutorial - Buf Docs"
+      content: "Quickstart - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/format/tutorial.png"
@@ -43,7 +43,7 @@ head:
 
 ---
 
-# Format Protobuf files – Tutorial
+# Format Protobuf files quickstart
 
 > We recommend completing the [Buf CLI quickstart](../../cli/quickstart/) for an introduction to the `buf format` command.
 
@@ -51,7 +51,7 @@ Formatting your Protobuf files using a consistent and standardized style is a cr
 
 `buf format` rewrites Protobuf files according to an opinionated [style](../style/), so it has no configuration options. No need to waste time and energy deciding how `.proto` files ought to be formatted — the tool decides so you don't have to.
 
-In this tutorial, you'll learn how to solve some common formatting problems with `buf format`.
+In this quickstart, you'll learn how to solve some common formatting problems with `buf format`.
 
 ## Usage and examples
 
@@ -167,10 +167,6 @@ message Object {
 }
 ```
 
-::: tip Note
-Most people will want to use `buf format -w`.
-:::
-
 **To display a diff between the original and formatted content, use `-d` or `--diff`.**
 
 ```sh
@@ -226,6 +222,4 @@ buf format buf.build/acme/weather -o formatted
 
 :::
 
-::: warning Warning
-The -w and -o flags can't be used together in a single invocation.
-:::
+The `-w` and `-o` flags are mutually exclusive.

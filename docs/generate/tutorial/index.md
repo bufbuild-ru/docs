@@ -12,7 +12,7 @@ head:
       href: "https://bufbuild.ru/docs/generate/managed-mode/"
   - - meta
     - property: "og:title"
-      content: "Tutorial - Buf Docs"
+      content: "Quickstart - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/generate/tutorial.png"
@@ -33,7 +33,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Tutorial - Buf Docs"
+      content: "Quickstart - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/generate/tutorial.png"
@@ -45,15 +45,15 @@ head:
 
 # Code generation quickstart
 
-The Buf CLI's `buf generate` command generates code from your Protobuf files. It uses a `buf.gen.yaml` configuration file to configure input, plugin, and output options, and is a direct replacement for code generation in `protoc`. It can accept many [input types](../../reference/inputs/) — for this tutorial, you'll use a single-module [workspace](../../cli/modules-workspaces/).
+The Buf CLI's `buf generate` command generates code from your Protobuf files. It uses a `buf.gen.yaml` configuration file to configure input, plugin, and output options, and is a direct replacement for code generation in `protoc`. It can accept many [input types](../../reference/inputs/) — for this quickstart, you'll use a single-module [workspace](../../cli/modules-workspaces/).
 
-The tutorial takes you through various ways to set up your generation, from fully local to managed mode.
+The quickstart takes you through various ways to set up your generation, from fully local to managed mode.
 
 ## Prerequisites
 
 We recommend completing the [Buf CLI quickstart](../../cli/quickstart/#generate-code) to get an overview of the Buf CLI first.
 
-This tutorial assumes you already have [Protocol Buffers](https://protobuf.dev/downloads/) installed.
+This quickstart assumes you already have [Protocol Buffers](https://protobuf.dev/downloads/) installed.
 
 - Install the [Buf CLI](../../cli/installation/)
 - Install the `protoc-gen-go` plugin, or have the corresponding `protoc` plugin for your output language of choice installed and in your `$PATH`. The code examples use the Go plugin.
@@ -67,10 +67,10 @@ This tutorial assumes you already have [Protocol Buffers](https://protobuf.dev/d
 
 Modules represent a collection of files that are configured, built, and versioned as a logical unit when performing Buf operations. Workspaces are collections of modules and are configured by the `buf.yaml` configuration file, which should usually be put above the directories that contain the modules within it.
 
-For example, a `buf-codegen-tutorial` workspace with a single module would be structured like this (this workspace is the example throughout):
+For example, a `buf-codegen-quickstart` workspace with a single module would be structured like this (this workspace is the example throughout):
 
 ```text
-buf-codegen-tutorial
+buf-codegen-quickstart
 ├── buf.yaml
 └── proto
     └── acme
@@ -82,8 +82,8 @@ buf-codegen-tutorial
 Create a basic boilerplate `buf.yaml` file with all the required elements by running `buf config init` in your workspace root:
 
 ```sh
-mkdir buf-codegen-tutorial
-cd buf-codegen-tutorial
+mkdir buf-codegen-quickstart
+cd buf-codegen-quickstart
 buf config init
 ```
 
@@ -125,11 +125,9 @@ breaking:
 
 :::
 
-This new module is your input for the `buf generate` commands in the rest of the tutorial.
+This new module is your input for the `buf generate` commands in the rest of the quickstart.
 
-::: tip Note
 For more information about the specific fields, see the [`buf.yaml`](../../configuration/v2/buf-yaml/) reference.
-:::
 
 ## Add Protobuf files to your module
 
@@ -185,7 +183,7 @@ To generate code with the Buf CLI, you use a `buf.gen.yaml` configuration file t
 Create a new `buf.gen.yaml` file in the workspace root, and copy/paste the following code into it.
 
 ```text
-buf-codegen-tutorial
+buf-codegen-quickstart
 ├── buf.gen.yaml
 ├── buf.yaml
 └── proto
@@ -210,11 +208,9 @@ inputs:
 
 :::
 
-The file defines which plugins to use to generate code, where to output it, what the inputs are. It uses `clean` to state that we'd like to delete all previously generated code each time we run `buf generate`. For more information about the available fields, see the [`buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/).
+The file defines which plugins to use to generate code, where to output it, and what the inputs are. It uses `clean` to state that we'd like to delete all previously generated code each time we run `buf generate`. For more information about the available fields, see the [`buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/).
 
-::: tip Note
 `buf generate` can take many types of input beyond a local directory. See the [inputs reference](../../reference/inputs/) for details about how to specify other types of input to Buf CLI commands.
-:::
 
 ## Generate code using local plugins
 
@@ -231,7 +227,7 @@ buf generate
 You should see a new `gen` directory appear in your tree, containing the generated client code. The file structure under the `gen` directory corresponds to the structure of your Protobuf files:
 
 ```text
-buf-codegen-tutorial
+buf-codegen-quickstart
 ├── buf.gen.yaml
 ├── buf.yaml
 ├── gen
@@ -261,7 +257,7 @@ rm -rf gen
 
 :::
 
-Then modify your `buf.gen.yaml` file to point the `plugins` keys to the remote plugin. Note that you can specify the version (and revision number, if one exists).
+Then modify your `buf.gen.yaml` file to point the `plugins` key to the remote plugin. Note that you can specify the version (and revision number, if one exists).
 
 ::: info buf.gen.yaml
 
@@ -290,9 +286,7 @@ buf generate
 
 The `gen` directory reappears with the same structure and files as before. You've now removed the necessity for locally installed `protoc` plugins for this set of `.proto` files.
 
-::: tip Note
 See the [remote plugins overview](../../bsr/remote-plugins/overview/) for more information about the advantages of remote plugins and where to find them.
-:::
 
 ## Generate code using managed mode
 
@@ -301,7 +295,7 @@ Managed mode is Buf's way of clearly separating API producer concerns from consu
 - Producers are free to publish clean API definitions without including Protobuf options like language-specific package and class prefixes in their `.proto` files.
 - Consumers can enable managed mode with two lines of code and generate code with thoughtful default settings for these options, while still having the flexibility to override them if needed. There's no need to remember or share text files of arcane invocation flags.
 
-Because your project may not include these Protobuf options, we'll use the files below to demonstrate the concept. Given the requirement that the `go_package` file option needs to be prepended with `github.com/acme/weather/gen/go`, add the corresponding managed mode settings to your `buf.gen.yaml`:
+Given the requirement that the `go_package` file option needs to be prepended with `github.com/acme/weather/gen/go`, add the corresponding managed mode settings to your `buf.gen.yaml`:
 
 ::: info buf.gen.yaml with managed mode settings for go_package
 
@@ -348,7 +342,7 @@ option go_package = "github.com/acme/weather/gen/go/acme/weather/v1"
 This generates Go code in the specified structure:
 
 ```text
-buf-codegen-tutorial
+buf-codegen-quickstart
 ├── buf.gen.yaml
 ├── buf.yaml
 ├── gen
@@ -369,6 +363,4 @@ buf-codegen-tutorial
                 └── weather.proto
 ```
 
-::: tip Note
 For more information about managed mode's defaults, usage, and fields, see [Managed mode](../managed-mode/) and the [buf.gen.yaml reference](../../configuration/v2/buf-gen-yaml/).
-:::

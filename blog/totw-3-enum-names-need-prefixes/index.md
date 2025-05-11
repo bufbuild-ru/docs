@@ -159,6 +159,6 @@ It may be tempting to have a specific “good default” value for the zero valu
 
 ## Why don’t all of Google’s Protobuf files do this?
 
-Name prefixes and zero values also teach us an important lesson: because Protobuf names are forever, it’s really hard to fix style mistakes, especially as we collectively get better at using Protobuf.
+Name prefixes and zero values also teach us an important lesson: because [Protobuf names are forever](/blog/totw-1-field-names/), it’s really hard to fix style mistakes, especially as we collectively get better at using Protobuf.
 
 `google.rpc.Code` is intended to be source-compatible with very old existing C++ code, so it throws caution to the wind. `FieldDescriptorProto.Type` doesn’t have a zero value because in `proto2` , which doesn’t have zero value footguns in its wire format, you don’t need to worry about that. The lesson isn’t just to use Buf’s linter to try to avoid some of the known pitfalls, but also to remember that even APIs designed by the authors of the language make unfixable mistakes, so unlike other programming languages, imitating “existing practice” isn’t always the best strategy.

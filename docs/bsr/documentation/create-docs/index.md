@@ -91,9 +91,7 @@ package pet.v1;
 
 ![Package docs](../../../images/bsr/docs-package.png)
 
-::: tip Note
 Comments on the package directive aren't merged across files. Files are parsed alphabetically, and only the first file with a non-empty comment is displayed in the generated documentation.
-:::
 
 ## Annotated Protobuf options
 

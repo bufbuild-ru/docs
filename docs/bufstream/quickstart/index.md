@@ -51,7 +51,7 @@ head:
 
 Additionally, for teams sending Protobuf messages across their Kafka topics, Bufstream is a perfect partner. Bufstream can enforce data quality and governance requirements on the broker with [Protovalidate](https://github.com/bufbuild/protovalidate). Bufstream can directly persist records as [Apache Iceberg™](https://iceberg.apache.org/) tables, reducing time-to-insight in popular data lakehouse products such as Snowflake or ClickHouse.
 
-In this tutorial, we'll first explore Bufstream just as a Kafka replacement. Then, we'll explore Bufstream's additional capabilities when paired with Protobuf.
+In this quickstart, we'll first explore Bufstream just as a Kafka replacement. Then, we'll explore Bufstream's additional capabilities when paired with Protobuf.
 
 ## Run the broker
 
@@ -173,7 +173,7 @@ Open two more terminals in `bufstream-demo`, for a total of three:
 
 Bufstream integrates directly with any registry that implements Confluent Schema Registry API to provide first-class support for Protobuf schemas on the broker-side. Bufstream's understanding of the schema of your topic[1](#fn:1) allows it to provide some interesting functionality unavailable in other Kafka-compatible implementations.
 
-In this tutorial, we'll use the [Buf Schema Registry](../../bsr/) as our Confluent-compatible schema registry. The BSR has the ability to automatically associate Protobuf messages that it stores with subjects via a custom message option contained in the [buf.build/bufbuild/confluent](https://buf.build/bufbuild/confluent) [module](../../cli/modules-workspaces/). In the bufstream-demo example, we associate the [`EmailUpdated`](https://demo.buf.dev/bufbuild/bufstream-demo/docs/main:bufstream.demo.v1#bufstream.demo.v1.EmailUpdated) message with the `email-updated` topic (via the `email-updated-value` subject).
+In this quickstart, we'll use the [Buf Schema Registry](../../bsr/) as our Confluent-compatible schema registry. The BSR has the ability to automatically associate Protobuf messages that it stores with subjects via a custom message option contained in the [buf.build/bufbuild/confluent](https://buf.build/bufbuild/confluent) [module](../../cli/modules-workspaces/). In the bufstream-demo example, we associate the [`EmailUpdated`](https://demo.buf.dev/bufbuild/bufstream-demo/docs/main:bufstream.demo.v1#bufstream.demo.v1.EmailUpdated) message with the `email-updated` topic (via the `email-updated-value` subject).
 
 ```protobuf
 message EmailUpdated {
@@ -406,7 +406,7 @@ This is great! The producer sent unenveloped data, and got an error when trying 
 
 ### Semantic validation
 
-Astute followers of this tutorial will notice that some messages had new email addresses that weren't valid emails:
+Astute followers of this quickstart will notice that some messages had new email addresses that weren't valid emails:
 
 ```console
 msg="consumed message with new email pug and old email lanestanton@swift.net"
@@ -501,4 +501,4 @@ This is only scratching the surface. Explore the Bufstream docs to learn more, a
 
 ---
 
-1.  Topics? Subjects? Subject naming strategies? The astute will point out that schemas are not associated with topics, rather schemas are associated with subjects, which are associated with record keys and values via their subject naming strategy. For the purposes of this tutorial, we'll assume that we are universally using the TopicNameStrategy, and are using Protobuf to represent the schema of our record values — the 99% case. Therefore, we'll assume that schemas are associated with topics. [↩](#fnref:1 "Jump back to footnote 1 in the text")
+1.  Topics? Subjects? Subject naming strategies? The astute will point out that schemas are not associated with topics, rather schemas are associated with subjects, which are associated with record keys and values via their subject naming strategy. For the purposes of this quickstart, we'll assume that we are universally using the TopicNameStrategy, and are using Protobuf to represent the schema of our record values — the 99% case. Therefore, we'll assume that schemas are associated with topics. [↩](#fnref:1 "Jump back to footnote 1 in the text")

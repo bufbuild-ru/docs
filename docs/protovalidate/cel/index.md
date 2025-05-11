@@ -49,9 +49,7 @@ Understanding how a tool works can be just as important as understanding how to 
 
 When you're finished, you should have a better understanding of CEL, be able to explain how Protovalidate works, and maybe even have ideas about using CEL in other projects.
 
-::: tip What this page isn't
-This page is **not** a tutorial for how to write CEL-based Protovalidate rules. If that's what you're looking for, see [custom](../schemas/custom-rules/) or [predefined](../schemas/predefined-rules/) rules.
-:::
+This page is **not** a guide for how to write CEL-based Protovalidate rules. If that's what you're looking for, see [custom](../schemas/custom-rules/) or [predefined](../schemas/predefined-rules/) rules.
 
 ## What is CEL?
 
@@ -106,7 +104,7 @@ After CEL expressions are compiled into CEL programs, the program can be provide
 
 It's not too different from writing any other compiled program: the source code is compiled, turned into an executable program, and then a runtime executes the program with any provided input.
 
-For more details on how to use CEL directly, see the [CEL tutorials for Go, Java, and C++](https://cel.dev/tutorials/cel-get-started-tutorial).
+For more details on how to use CEL directly, see the [CEL quickstarts for Go, Java, and C++](https://cel.dev/tutorials/cel-get-started-tutorial).
 
 ## Protovalidate and CEL
 
@@ -175,11 +173,7 @@ Your application:
     4.  Transforming those results into the `Violation` and `Violations` messages defined by Protovalidate.
 5.  Handles the idiomatic response from the Validator: Go uses an `error`, Java uses a `ValidationResult` class, etc.
 
-::: tip It's easier than it sounds.
-If that sounds like a lot, and you're just interested in using Protovalidate in RPC APIs, don't fret.
-
-Buf provides quickstarts with either open-source or example interceptors that do all of this for you. They're available for [Connect and Go](../quickstart/connect-go/), [gRPC and Go](../quickstart/grpc-go/), [gRPC and Java](../quickstart/grpc-java/), and [gRPC and Python](../quickstart/grpc-python/).
-:::
+If that sounds like a lot, and you're just interested in using Protovalidate in RPC APIs, don't fret — Buf provides quickstarts with either open-source or example interceptors that do all of this for you. They're available for [Connect and Go](../quickstart/connect-go/), [gRPC and Go](../quickstart/grpc-go/), [gRPC and Java](../quickstart/grpc-java/), and [gRPC and Python](../quickstart/grpc-python/).
 
 ### What CEL unlocks
 

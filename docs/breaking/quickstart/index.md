@@ -12,7 +12,7 @@ head:
       href: "https://bufbuild.ru/docs/breaking/rules/"
   - - meta
     - property: "og:title"
-      content: "Tutorial - Buf Docs"
+      content: "Quickstart - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/breaking/quickstart.png"
@@ -33,7 +33,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Tutorial - Buf Docs"
+      content: "Quickstart - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/breaking/quickstart.png"
@@ -134,9 +134,7 @@ buf breaking --against '../../../.git#subdir=cli/breaking-change-detection/start
 
 :::
 
-::: tip Note
 Note that in the `--against` target, you need to point to the root of your Git repository, then traverse back down to the directory you're comparing against using the `subdir` option.
-:::
 
 ## Compare against the Buf Schema Registry (BSR)
 

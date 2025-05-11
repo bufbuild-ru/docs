@@ -45,7 +45,7 @@ head:
 
 # buf.lock v2 config file
 
-If your [`buf.yaml`](../buf-yaml/) declares any dependencies in the `deps` field, you also need a `buf.lock` file that contains the dependency manifest for your [workspace](../../../cli/modules-workspaces/). It represents a single, reproducible build of the workspace's external dependencies. Read [Dependency management](../../../bsr/module/dependency-management/) for more information on how Buf handles dependencies.
+If your [`buf.yaml`](../buf-yaml/) declares any dependencies in the `deps` field, you also need a `buf.lock` file that contains the dependency manifest for your [workspace](../../../cli/modules-workspaces/). It represents a single, reproducible build of the workspace's external dependencies and should never be hand-edited. Read [Dependency management](../../../bsr/module/dependency-management/) for more information on how Buf handles dependencies.
 
 You can create or update a `buf.lock` file by running the [`buf dep update`](../../../reference/cli/buf/dep/update/) command at the root of the workspace (where the `buf.yaml` file is):
 
@@ -79,10 +79,6 @@ deps:
 
 :::
 
-::: warning Warning
-As the file itself notes, `buf.lock` should never be hand-edited, as it's the result of actually resolving the workspace dependencies.
-:::
-
 ## `version`
 
 Buf configuration version. Valid values are `v2`, `v1`, and `v1beta1`.
@@ -91,6 +87,6 @@ Buf configuration version. Valid values are `v2`, `v1`, and `v1beta1`.
 
 Each entry in the `deps` key is a module pin, which uniquely represents a specific snapshot of the given module (`buf.build/googleapis/googleapis:7a6bc1e3207144b38e9066861e1de0ff` in this case). It's protected with a cryptographic digest of all of the files in it (see how we [protect dependencies against tampering](../../../bsr/module/dependency-management/#tamper-proofing)). With this, the local snapshot of the workspace and all of its dependencies are uniquely represented, reproducible, and protected against tampering.
 
-::: tip Note
+## Deprecated fields
+
 Older versions of the Buf CLI included include `branch`, `commit`, and `create_time` as a part of the dependencies. Your `buf.lock` shouldn't include these fields if you've run `buf dep update` with a current version.
-:::

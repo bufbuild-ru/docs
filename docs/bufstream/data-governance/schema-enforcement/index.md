@@ -1,4 +1,5 @@
 ---
+description: "Rather than trusting producers, Bufstream can validate that all messages match the expected schema"
 
 head:
   - - link

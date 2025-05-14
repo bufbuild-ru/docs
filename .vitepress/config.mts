@@ -478,6 +478,10 @@ export default defineConfig({
                         link: '/docs/bsr/admin/on-prem/installation/',
                       },
                       {
+                        text: 'Resource requirements',
+                        link: '/docs/bsr/admin/on-prem/resource-requirements/',
+                      },
+                      {
                         text: 'Optional configuration',
                         link: '/docs/bsr/admin/on-prem/configuration/',
                       },

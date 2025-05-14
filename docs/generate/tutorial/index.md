@@ -1,4 +1,5 @@
 ---
+description: "Step-by-step walkthrough of the Buf CLI's code generation features"
 
 head:
   - - link

@@ -1,4 +1,5 @@
 ---
+description: "Instructions for configuring Kafka clients for Bufstream"
 
 head:
   - - link

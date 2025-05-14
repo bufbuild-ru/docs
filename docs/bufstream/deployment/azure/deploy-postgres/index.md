@@ -1,4 +1,5 @@
 ---
+description: "How to install Bufstream using PostgreSQL into your Azure deployment"
 
 head:
   - - link

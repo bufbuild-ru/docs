@@ -1,4 +1,5 @@
 ---
+description: "Validate and transform messages with Bufstream"
 
 head:
   - - link

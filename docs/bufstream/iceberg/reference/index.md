@@ -1,4 +1,5 @@
 ---
+description: "Technical reference information about Bufstream's Apache Iceberg integration"
 
 head:
   - - link

@@ -1,4 +1,5 @@
 ---
+description: "Publish a plugin to the BSR"
 
 head:
   - - link

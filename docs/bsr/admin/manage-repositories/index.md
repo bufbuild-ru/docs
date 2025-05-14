@@ -1,4 +1,5 @@
 ---
+description: "Managing repositories on the Buf Schema Registry"
 
 head:
   - - link

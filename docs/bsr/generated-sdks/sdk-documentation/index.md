@@ -1,4 +1,5 @@
 ---
+description: "Guide to creating getting started documentation for generated SDK end users"
 
 head:
   - - link

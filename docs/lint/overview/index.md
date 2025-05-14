@@ -1,4 +1,5 @@
 ---
+description: "High-level overview of the Buf CLI's Protobuf linting capabilities"
 
 head:
   - - link

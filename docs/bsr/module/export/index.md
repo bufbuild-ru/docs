@@ -1,4 +1,5 @@
 ---
+description: "Documentation about how to export Protobuf files from the BSR"
 
 head:
   - - link

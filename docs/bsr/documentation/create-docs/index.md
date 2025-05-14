@@ -1,4 +1,5 @@
 ---
+description: "Enterprise-grade Kafka and gRPC for the modern age."
 
 head:
   - - link
@@ -55,7 +56,7 @@ To create module documentation, add a `README.md` file and push it to the BSR al
 
 Because documentation is part of your module, any updates to either `README.md` or `buf.md` create new commits in the BSR. You can put the documentation at either the module level or the workspace root. Modules within the workspace without their own documentation fall back to the workspace `README.md` file.
 
-In this example, the module at `proto/acme/weatherapi/v1` displays its own `README.md` file, and the module at `proto/acme/units/v1` displays the workspace `README.md` file.
+In this example, the module at `proto/weatherapi` displays its own `README.md` file, and the module at `proto/units` displays the workspace `README.md` file.
 
 ```text{9,14}
 workspace_root

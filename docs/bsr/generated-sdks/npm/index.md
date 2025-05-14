@@ -1,4 +1,5 @@
 ---
+description: "Installation and usage instructions for using Buf's generated SDKs with npm"
 
 head:
   - - link

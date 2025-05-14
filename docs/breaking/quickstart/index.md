@@ -1,4 +1,5 @@
 ---
+description: "Step-by-step walkthrough of how to use the Buf CLI's breaking change detection features"
 
 head:
   - - link

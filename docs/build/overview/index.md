@@ -1,4 +1,5 @@
 ---
+description: "Overview of the Buf CLI's build feature"
 
 head:
   - - link

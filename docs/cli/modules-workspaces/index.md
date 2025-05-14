@@ -1,4 +1,5 @@
 ---
+description: "Concept doc explaining the relationships between modules and workspaces"
 
 head:
   - - link

@@ -1,4 +1,5 @@
 ---
+description: "How to monitor the Bufstream health and status"
 
 head:
   - - link

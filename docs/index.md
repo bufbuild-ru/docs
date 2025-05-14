@@ -1,4 +1,5 @@
 ---
+description: "Enterprise-grade Kafka and gRPC for the modern age."
 
 head:
   - - link
@@ -46,16 +47,16 @@ Buf provides enterprise-grade Kafka and gRPC services for the modern age. Use Bu
 
 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px">
 
-<div data-v-43384334 onclick="window.location.href='/docs/bsr'" class="pager-link" style="cursor: pointer"><h5>Buf Schema Registry</h5>The missing package manager for Protobuf.</div>
+<div onclick="window.location.href='/docs/bsr'" class="card-link"><h5>Buf Schema Registry</h5>The missing package manager for Protobuf.</div>
 
-<div data-v-43384334 onclick="window.location.href='/docs/bufstream'" class="pager-link" style="cursor: pointer"><h5>Bufstream</h5>The drop-in replacement for Apache Kafka® built for the data lakehouse era.</div>
+<div onclick="window.location.href='/docs/bufstream'" class="card-link"><h5>Bufstream</h5>The drop-in replacement for Apache Kafka® built for the data lakehouse era.</div>
 
-<div data-v-43384334 onclick="window.location.href='/docs/cli'" class="pager-link" style="cursor: pointer"><h5>Buf CLI</h5>Your one-stop-shop for local Protobuf development.</div>
+<div onclick="window.location.href='/docs/cli'" class="card-link"><h5>Buf CLI</h5>Your one-stop-shop for local Protobuf development.</div>
 
-<div data-v-43384334 onclick="window.location.href='/docs/best-practices/style-guide'" class="pager-link" style="cursor: pointer"><h5>Protobuf Style Guide</h5>Recommendations on rules to follow when writing Protobuf APIs.</div>
+<div onclick="window.location.href='/docs/best-practices/style-guide'" class="card-link"><h5>Protobuf Style Guide</h5>Recommendations on rules to follow when writing Protobuf APIs.</div>
 
-<div data-v-43384334 onclick="window.location.href='/blog'" class="pager-link" style="cursor: pointer"><h5>Blog</h5>Stay up to date with Buf product launches.</div>
+<div onclick="window.location.href='/blog'" class="card-link"><h5>Blog</h5>Stay up to date with Buf product launches.</div>
 
-<div data-v-43384334 onclick="window.location.href='https://buf.build/contact-us'" class="pager-link" style="cursor: pointer"><h5>Contact Us</h5>Get in touch with any questions.</div>
+<div onclick="window.location.href='https://buf.build/contact-us'" class="card-link"><h5>Contact Us</h5>Get in touch with any questions.</div>
 
 </div>

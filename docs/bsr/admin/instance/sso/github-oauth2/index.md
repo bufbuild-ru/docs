@@ -1,4 +1,5 @@
 ---
+description: "GitHub OAuth configuration guide for enterprise instance of the Buf Schema Registry"
 
 head:
   - - link

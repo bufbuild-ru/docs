@@ -1,4 +1,5 @@
 ---
+description: "Streamline your Protobuf compilation and code generation with Buf—a guide to migrating from protoc"
 
 head:
   - - link

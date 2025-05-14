@@ -1,4 +1,5 @@
 ---
+description: "Enterprise-grade Kafka and gRPC for the modern age."
 
 head:
   - - link
@@ -56,9 +57,24 @@ The latest binaries of Bufstream can be downloaded here:
 
 # Release notes
 
+## v0.3.26
+
+**_Release date:_** 2025-05-13 | **_Status:_** latest
+
+#### Bug fixes
+
+- Compatibility fixes to ensure Bufstream works with the AWS Glue Data Catalog.
+- Improve Kafka connection logging and graceful shutdown with idle clients.
+- Fix `failed to listen prefix` errors with the Postgres metadata store enabled.
+
+#### Features and improvements
+
+- Add support for AWS Glue as an Iceberg™ catalog.
+- Support configuring Iceberg™ REST and AWS Glue data catalogs in the Bufstream Helm chart.
+
 ## v0.3.25
 
-**_Release date:_** 2025-05-08 | **_Status:_** latest
+**_Release date:_** 2025-05-08
 
 #### Bug fixes
 

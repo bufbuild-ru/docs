@@ -1,4 +1,5 @@
 ---
+description: "High-level overview of generating code from Protocol Buffers with the Buf CLI"
 
 head:
   - - link

@@ -1,4 +1,5 @@
 ---
+description: "Enterprise-grade Kafka and gRPC for the modern age."
 
 head:
   - - link
@@ -95,13 +96,13 @@ See the [Releases](https://github.com/bufbuild/buf/releases) page for the curren
 
 The binary is all you need to get started.
 
-To install just the `buf` binary to `/usr/local/bin` for version `1.53.0`:
+To install just the `buf` binary to `/usr/local/bin` for version `1.54.0`:
 
 ```sh
 # Substitute BIN for your bin directory.
 # Substitute VERSION for the current released version.
 BIN="/usr/local/bin" && \
-VERSION="1.53.0" && \
+VERSION="1.54.0" && \
 curl -sSL \
 "https://github.com/bufbuild/buf/releases/download/v${VERSION}/buf-$(uname -s)-$(uname -m)" \
 -o "${BIN}/buf" && \
@@ -120,13 +121,13 @@ rm -f "${BIN}/buf"
 
 **Tarball**
 
-To install the `buf`, `protoc-gen-buf-breaking`, and `protoc-gen-buf-lint` binaries, and bash/fish/zsh completion to `/usr/local` for version `1.53.0`:
+To install the `buf`, `protoc-gen-buf-breaking`, and `protoc-gen-buf-lint` binaries, and bash/fish/zsh completion to `/usr/local` for version `1.54.0`:
 
 ```sh
 # Substitute PREFIX for your install prefix.
 # Substitute VERSION for the current released version.
 PREFIX="/usr/local" && \
-VERSION="1.53.0" && \
+VERSION="1.54.0" && \
 curl -sSL \
 "https://github.com/bufbuild/buf/releases/download/v${VERSION}/buf-$(uname -s)-$(uname -m).tar.gz" | \
 tar -xvzf - -C "${PREFIX}" --strip-components 1
@@ -161,13 +162,13 @@ The release assets can be verified using this command (assuming that `minisign` 
 ```sh
 # Download and verify the checksum file for the release
 # Substitute VERSION for the current released version.
-VERSION="1.53.0" && \
+VERSION="1.54.0" && \
 curl -OL https://github.com/bufbuild/buf/releases/download/v${VERSION}/sha256.txt && \
 curl -OL https://github.com/bufbuild/buf/releases/download/v${VERSION}/sha256.txt.minisig && \
 minisign -Vm sha256.txt -P RWQ/i9xseZwBVE7pEniCNjlNOeeyp4BQgdZDLQcAohxEAH5Uj5DEKjv6
 
 # Download the file(s) you want to verify, for example the tarball
-VERSION="1.53.0" && \
+VERSION="1.54.0" && \
 curl -OL \
 "https://github.com/bufbuild/buf/releases/download/v${VERSION}/buf-$(uname -s)-$(uname -m).tar.gz"
 
@@ -184,7 +185,7 @@ The binary can be installed from source if `go` is installed. However, we recomm
 ```sh
 # Substitute GOBIN for your bin directory
 # Leave unset to default to $GOPATH/bin
-GOBIN=/usr/local/bin go install github.com/bufbuild/buf/cmd/buf@v1.53.0
+GOBIN=/usr/local/bin go install github.com/bufbuild/buf/cmd/buf@v1.54.0
 ```
 
 #### Windows
@@ -192,7 +193,7 @@ GOBIN=/usr/local/bin go install github.com/bufbuild/buf/cmd/buf@v1.53.0
 ```sh
 # Substitute GOBIN for your bin directory
 # Leave unset to default to %GOPATH%\bin
-GOBIN=C:\dev\go\bin go install github.com/bufbuild/buf/cmd/buf@v1.53.0
+GOBIN=C:\dev\go\bin go install github.com/bufbuild/buf/cmd/buf@v1.54.0
 ```
 
 #### Errors when using `tools.go`

@@ -1,4 +1,5 @@
 ---
+description: "Overview and usage information for invoking RPC APIs with the Buf CLI"
 
 head:
   - - link

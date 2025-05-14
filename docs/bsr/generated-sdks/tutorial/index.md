@@ -1,4 +1,5 @@
 ---
+description: "Quickstart demonstrating how to use the Buf Schema Registry's generated SDKs"
 
 head:
   - - link

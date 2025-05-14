@@ -1,4 +1,5 @@
 ---
+description: "Enterprise-grade Kafka and gRPC for the modern age."
 
 head:
   - - link
@@ -536,6 +537,14 @@ _list_
 Extra Kubernetes objects to install as part of this chart.
 
 Defaults to `[]`.
+
+### `iceberg.catalogs`
+
+_object_
+
+Configuration for Iceberg REST and AWS Glue Data catalogs to use with topics stored in Iceberg format.
+
+Defaults to `{}`.
 
 ### `imagePullSecrets`
 
@@ -1263,6 +1272,66 @@ kafka:
     # # The maximum receive size allowed before and during initial authentication.
     # # Default receive size is 512KB. Set to -1 for no limit.
     # maxReceiveBytes: 0
+
+iceberg:
+  # -- Configuration for Iceberg REST and AWS Glue Data catalogs to use with topics stored in Iceberg format.
+  catalogs:
+    {}
+    # example_rest:
+    #   use: "rest"
+    #   rest:
+    #     url: ""
+    #     uriPrefix: ""
+    #     # warehouse: ""
+    #
+    #     tls:
+    #       # Controls whether a client verifies the server's certificate chain and host name.
+    #       insecureSkipVerify: false
+    #       # The existing secret name that contains ca.crt key of the PEM-encoded root certificate
+    #       # authorities used by the client to validate the server certificates.
+    #       rootCaSecret: ""
+    #
+    #     ## OAuth2
+    #     authentication:
+    #       use: "oauth2"
+    #       # Defaults to the catalog's base URL with "v1/oauth/tokens" appended to the URI path.
+    #       # tokenEndpointUrl: ""
+    #       # Defaults to "catalog" if not specified.
+    #       # scope: ""
+    #       # Kubernetes secret containing `client-id` and `client-secret` as secret keys.
+    #       secretName: ""
+    #       # Optional alternate TLS configuration for token endpoint, otherwise the REST catalog TLS configuration is used.
+    #       tls:
+    #         # Controls whether a client verifies the server's certificate chain and host name.
+    #         insecureSkipVerify: false
+    #         # The existing secret name that contains ca.crt key of the PEM-encoded root certificate
+    #         # authorities used by the client to validate the server certificates.
+    #         rootCaSecret: ""
+    #
+    #     ## Bearer Auth
+    #     # authentication:
+    #     #   use: "bearer"
+    #     #   # Kubernetes secret containing `token` as a secret key.
+    #     #   secretName: ""
+    #
+    #     ## Basic Auth
+    #     # authentication:
+    #     #   use: "basic"
+    #     #   # Kubernetes secrets containing `username` and `password` as secret keys.
+    #     #   secretName: ""
+    #
+    # example_glue:
+    #   use: "awsGlue"
+    #   awsGlue:
+    #     # AWS account ID of the AWS Glue Data Catalog. Defaults to the account ID for the IAM user of the workload.
+    #     accountId: ""
+    #     # AWS region. Defaults to the region of the broker's host.
+    #     region: ""
+    #     # Access Key ID to use instead of the metadata server.
+    #     accessKeyId: ""
+    #     # Kubernetes secret containing a `secret_access_key` (as the secret key) to use instead of the metadata server.
+    #     secretName: ""
+    #
 
 # -- connectTLS contains TLS configuration for Control Server which is used for inter-broker communication using Connect protocol.
 connectTLS:

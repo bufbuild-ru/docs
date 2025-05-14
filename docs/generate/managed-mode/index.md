@@ -1,4 +1,5 @@
 ---
+description: "How to configure Protobuf field and file options with Buf's managed mode"
 
 head:
   - - link

@@ -1,4 +1,5 @@
 ---
+description: "High-level overview of the Buf Schema Registry's generated SDKs feature"
 
 head:
   - - link
@@ -93,20 +94,20 @@ The BSR currently supports generated SDKs for these languages:
 
 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px">
 
-<div data-v-43384334 onclick="window.location.href='/docs/bsr/generated-sdks/go/'" class="pager-link" style="cursor: pointer"><h5>Go</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/go.svg width="64" /></div></div>
+<div onclick="window.location.href='/docs/bsr/generated-sdks/go/'" class="card-link"><h5>Go</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/go.svg width="64" /></div></div>
 
-<div data-v-43384334 onclick="window.location.href='/docs/bsr/generated-sdks/npm/'" class="pager-link" style="cursor: pointer"><h5>JavaScript and TypeScript</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/javascript.svg width="64" /> <img src=/docs/images/logos/typescript.svg width="64" /></div></div>
+<div onclick="window.location.href='/docs/bsr/generated-sdks/npm/'" class="card-link"><h5>JavaScript and TypeScript</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/javascript.svg width="64" /> <img src=/docs/images/logos/typescript.svg width="64" /></div></div>
 
-<div data-v-43384334 onclick="window.location.href='/docs/bsr/generated-sdks/maven/'" class="pager-link" style="cursor: pointer"><h5>Java and Kotlin</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/java.svg width="64" /> <img src=/docs/images/logos/kotlin.svg width="64" /></div></div>
+<div onclick="window.location.href='/docs/bsr/generated-sdks/maven/'" class="card-link"><h5>Java and Kotlin</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/java.svg width="64" /> <img src=/docs/images/logos/kotlin.svg width="64" /></div></div>
 
-<div data-v-43384334 onclick="window.location.href='/docs/bsr/generated-sdks/swift/'" class="pager-link" style="cursor: pointer"><h5>Swift</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/swift.svg width="64" /></div></div>
+<div onclick="window.location.href='/docs/bsr/generated-sdks/swift/'" class="card-link"><h5>Swift</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/swift.svg width="64" /></div></div>
 
-<div data-v-43384334 onclick="window.location.href='/docs/bsr/generated-sdks/python/'" class="pager-link" style="cursor: pointer"><h5>Python</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/python.svg width="64" /></div></div>
+<div onclick="window.location.href='/docs/bsr/generated-sdks/python/'" class="card-link"><h5>Python</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/python.svg width="64" /></div></div>
 
-<div data-v-43384334 onclick="window.location.href='/docs/bsr/generated-sdks/cargo/'" class="pager-link" style="cursor: pointer"><h5>Rust/Cargo</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/rust.svg width="64" /></div></div>
+<div onclick="window.location.href='/docs/bsr/generated-sdks/cargo/'" class="card-link"><h5>Rust/Cargo</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/rust.svg width="64" /></div></div>
 
-<div data-v-43384334 onclick="window.location.href='/docs/bsr/generated-sdks/nuget/'" class="pager-link" style="cursor: pointer"><h5>C#/Dotnet</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/csharp.svg width="64" /></div></div>
+<div onclick="window.location.href='/docs/bsr/generated-sdks/nuget/'" class="card-link"><h5>C#/Dotnet</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/csharp.svg width="64" /></div></div>
 
-<div data-v-43384334 onclick="window.location.href='/docs/bsr/generated-sdks/cmake/'" class="pager-link" style="cursor: pointer"><h5>C++</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/cpp.svg width="64" /></div></div>
+<div onclick="window.location.href='/docs/bsr/generated-sdks/cmake/'" class="card-link"><h5>C++</h5><div style="display: flex; flex-direction: row; gap: 8px"><img src=/docs/images/logos/cpp.svg width="64" /></div></div>
 
 </div>

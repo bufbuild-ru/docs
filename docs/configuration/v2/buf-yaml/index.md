@@ -1,4 +1,5 @@
 ---
+description: "Reference documenting all fields in the buf.yaml v2 configuration file"
 
 head:
   - - link

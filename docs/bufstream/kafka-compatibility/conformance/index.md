@@ -1,4 +1,5 @@
 ---
+description: "Reference guide for Bufstream's conformance with Kafka features, endpoints, and APIs"
 
 head:
   - - link

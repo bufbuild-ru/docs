@@ -1,4 +1,5 @@
 ---
+description: "A benchmark and cost analysis of Bufstream, with a comparison to Apache Kafka."
 
 head:
   - - link

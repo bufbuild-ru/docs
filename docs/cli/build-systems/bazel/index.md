@@ -1,4 +1,5 @@
 ---
+description: "Guide for using the Buf CLI with Bazel"
 
 head:
   - - link
@@ -132,7 +133,7 @@ By default, `rules_buf_toolchains` loads the latest `buf` version. For hermetic 
 ```diff
 # rules_buf fetches the sha based on the version number--the version is enough for hermetic builds.
 -rules_buf_toolchains()
-+rules_buf_toolchains(version = "v1.53.0")
++rules_buf_toolchains(version = "v1.54.0")
 ```
 
 :::

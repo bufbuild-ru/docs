@@ -1,4 +1,5 @@
 ---
+description: "How to configure Bufstream to store data at rest as Apache Iceberg tables"
 
 head:
   - - link

@@ -1,4 +1,5 @@
 ---
+description: "Reference describing the different input/output options for working with the Buf CLI and Buf Schema Registry"
 
 head:
   - - link

@@ -1,4 +1,5 @@
 ---
+description: "Concept doc explaining how the Buf Schema Registry defines and uses commits and labels"
 
 head:
   - - link

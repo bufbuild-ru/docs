@@ -1,4 +1,5 @@
 ---
+description: "Detailed descriptions of all rules and categories used by Buf's breaking change detection"
 
 head:
   - - link

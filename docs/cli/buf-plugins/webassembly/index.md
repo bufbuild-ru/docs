@@ -1,4 +1,5 @@
 ---
+description: "Learn how to compile Buf plugins to WebAssembly"
 
 head:
   - - link

@@ -1,4 +1,5 @@
 ---
+description: "Cluster recommendations for deploying Bufstream"
 
 head:
   - - link

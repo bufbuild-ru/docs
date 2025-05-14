@@ -1,4 +1,5 @@
 ---
+description: "Configuring Bufstream to use SASL"
 
 head:
   - - link

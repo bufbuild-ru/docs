@@ -1,4 +1,5 @@
 ---
+description: "Instructions for module admins about how to review BSR commits that contain breaking changes"
 
 head:
   - - link

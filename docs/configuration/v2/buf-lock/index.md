@@ -1,4 +1,5 @@
 ---
+description: "Reference documenting the buf.lock configuration file"
 
 head:
   - - link

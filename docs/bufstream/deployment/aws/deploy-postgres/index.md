@@ -1,4 +1,5 @@
 ---
+description: "How to install Bufstream using RDS for PostgreSQL into your AWS deployment"
 
 head:
   - - link

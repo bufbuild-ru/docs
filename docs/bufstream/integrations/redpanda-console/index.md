@@ -1,4 +1,5 @@
 ---
+description: "Integration instructions for Redpanda Console, a web application that helps you manage and debug Kafka-compatible workloads."
 
 head:
   - - link

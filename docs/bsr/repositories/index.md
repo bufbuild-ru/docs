@@ -1,4 +1,5 @@
 ---
+description: "Concept doc explaining Buf Schema Registry repositories"
 
 head:
   - - link

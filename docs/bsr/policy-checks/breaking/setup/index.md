@@ -1,4 +1,5 @@
 ---
+description: "Setup guide for the Buf Schema Registry's instance-wide breaking change policy check"
 
 head:
   - - link

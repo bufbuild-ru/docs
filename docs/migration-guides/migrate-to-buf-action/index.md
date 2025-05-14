@@ -1,4 +1,5 @@
 ---
+description: "Enterprise-grade Kafka and gRPC for the modern age."
 
 head:
   - - link
@@ -125,7 +126,7 @@ jobs:
         with:
           buf_api_token: ${{ secrets.BUF_API_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          version: "1.53.0"
+          version: "1.54.0"
       # Run a lint check on Protobuf sources
       - uses: bufbuild/buf-lint-action@v1
       # Run breaking change detection for Protobuf sources against the current

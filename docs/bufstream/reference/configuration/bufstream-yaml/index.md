@@ -1,4 +1,5 @@
 ---
+description: "Enterprise-grade Kafka and gRPC for the modern age."
 
 head:
   - - link
@@ -1376,17 +1377,17 @@ REST catalog. Valid table names must be in the form "namespace.table". The names
 
 Also see https://github.com/apache/iceberg/blob/main/open-api/rest-catalog-open-api.yaml
 
-#### `biglake_metastore`
-
-_[`BigLakeMetastoreConfig`](#buf.bufstream.config.v1alpha1.BigLakeMetastoreConfig)_
-
-Google Cloud BigLake Metastore. Valid table names must be in the form "database.table".
-
 #### `bigquery_metastore`
 
 _[`BigQueryMetastoreConfig`](#buf.bufstream.config.v1alpha1.BigQueryMetastoreConfig)_
 
 Google Cloud BigQuery Metastore. Valid table names must be in the form "dataset.table". This catalog is still in Preview/Beta but is expected to eventually replace usages of Google Cloud BigLake Metastore.
+
+#### `aws_glue_data_catalog`
+
+_[`AWSGlueDataCatalogConfig`](#buf.bufstream.config.v1alpha1.AWSGlueDataCatalogConfig)_
+
+AWS Glue Data Catalog. Valid table names must be in the form "database.table".
 
 ### `Certificate`
 
@@ -1594,7 +1595,7 @@ Optional URI prefix. This is separate from any URI prefix present in `url`. This
 
 _string_
 
-Optional warehouse location. Some REST catalogs require this property for replying to configuration requests. If absent, Bufstream uses the URL of its configured storage location, e.g. "s3:///".
+Optional warehouse location. Some REST catalogs require this property in the client's initial configuration requests.
 
 #### `tls`
 
@@ -1620,40 +1621,6 @@ _[`OAuth2Config`](#buf.bufstream.config.v1alpha1.OAuth2Config)_
 
 Authenticate against the Iceberg catalog with the given OAuth2 configuration.
 
-#### `sigv4`
-
-_[`AWSSigV4Config`](#buf.bufstream.config.v1alpha1.AWSSigV4Config)_
-
-Authenticate against the Iceberg catalog using AWS Signature V4 request signing.
-
-#### `jwt`
-
-_[`JWTConfig`](#buf.bufstream.config.v1alpha1.JWTConfig)_
-
-Authenticate against the Iceberg catalog using JWTs.
-
-### `BigLakeMetastoreConfig`
-
-Configuration for using BigLake Metastore as an Iceberg catalog.
-
-#### `project`
-
-_string_
-
-The GCP project of the BigLake Metastore. If empty, this is assumed to be the current project in which the bufstream workload is running.
-
-#### `location`
-
-_string (required)_
-
-The location of the BigLake Metastore. (Note that BigQuery can only access Metastore instances in the same location.)
-
-#### `catalog`
-
-_string (required)_
-
-The name of an Iceberg catalog in the Metastore.
-
 ### `BigQueryMetastoreConfig`
 
 Configuration for using BigQuery Metastore as an Iceberg catalog.
@@ -1677,6 +1644,52 @@ _string_
 The name of a BigQuery Cloud Resource connection. This is only the simple name of the connection, not the full name. Since a BigQuery dataset can only use connections in the same project and location, the full connection name (which includes its project and location) is not necessary.
 
 If absent, no override connection will be associated with created tables.
+
+### `AWSGlueDataCatalogConfig`
+
+Configuration for using AWS Glue Data Catalog as an Iceberg catalog.
+
+#### `aws_account_id`
+
+_string_
+
+The AWS account ID of the AWS Glue catalog.
+
+This is normally not necessary as it defaults to the account ID for the IAM user of the workload. But if the workload's credentials are not those of an IAM user or if the Glue catalog is defined in a different AWS account, then this must be specified.
+
+#### `region`
+
+_string_
+
+The AWS region to indicate in the credential scope of the signature.
+
+This field defaults to the region of the broker's host.
+
+#### `access_key_id`
+
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
+
+Specifies the AWS access key ID for authentication to the resource.
+
+By default, authentication is performed using the metadata service of the broker's host. If set, `secret_access_key` must also be provided.
+
+#### `secret_access_key`
+
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
+
+Specifies the AWS secret access key for authentication to the resource.
+
+By default, authentication is performed using the metadata service of the broker's host. If set, `access_key_id` must also be provided.
+
+#### `session_token`
+
+_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
+
+Specifies the AWS session token when using AWS temporary credentials to access the cloud resource. Omit when not using temporary credentials.
+
+Temporary credentials are not recommended for production workloads, but can be useful in development and test environments to authenticate local processes with remote AWS resources.
+
+This value should only be present when `access_key_id` and `secret_access_key` are also set.
 
 ### `LabelValueList`
 
@@ -1817,96 +1830,6 @@ The credentials used to authenticate to the token endpoint.
 _[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig)_
 
 Optional alternate TLS configuration for the token endpoint. If not specified, accessing the token endpoint will use the same TLS configuration as used for accessing other REST catalog endpoints. (See RESTCatalogConfig.tls).
-
-### `AWSSigV4Config`
-
-Configuration for a client to use AWS Signature V4 to authenticate with a server by signing the request contents.
-
-#### `region`
-
-_string_
-
-The AWS region to indicate in the credential scope of the signature.
-
-This field defaults to the region of the broker's host.
-
-#### `service`
-
-_string_
-
-The AWS service to indicate in the credential scope of the signature. The default service depends on how this configuration is used. For authenticating with an Iceberg REST catalog, it defaults to "execute-api".
-
-#### `access_key_id`
-
-_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
-
-Specifies the AWS access key ID for authentication to the resource.
-
-By default, authentication is performed using the metadata service of the broker's host. If set, `secret_access_key` must also be provided.
-
-#### `secret_access_key`
-
-_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
-
-Specifies the AWS secret access key for authentication to the resource.
-
-By default, authentication is performed using the metadata service of the broker's host. If set, `access_key_id` must also be provided.
-
-#### `session_token`
-
-_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
-
-Specifies the AWS session token when using AWS temporary credentials to access the cloud resource. Omit when not using temporary credentials.
-
-Temporary credentials are not recommended for production workloads, but can be useful in development and test environments to authenticate local processes with remote AWS resources.
-
-This value should only be present when `access_key_id` and `secret_access_key` are also set.
-
-### `JWTConfig`
-
-Configuration for minting JWTs for authenticating with a server.
-
-#### `alg`
-
-_[`JWTAlgorithm`](#buf.bufstream.config.v1alpha1.JWTAlgorithm) (required)_
-
-Specifies the algorithm to use when generating a JWT.
-
-#### `key`
-
-_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource) (required)_
-
-Specifies the key used to sign JWTs. For HMAC keyed hashes, the value is just a sequence of opaque bytes used as a shared secret. For the others (asymmetric digital signature algorithms), the value must be a PEM-encoded private key. The type of the key must match the configured algorithm.
-
-#### `expiry`
-
-_duration_
-
-The duration after which a newly minted JWT will expire. If not specified and use_jti is not set, JWTs will default to a duration of one hour.
-
-#### `use_jti`
-
-_bool_
-
-When set, JWTs will be used exactly once. Furthermore, each JWT will be assigned a unique ID, which servers can record to prevent re-use (and to more strongly prevent replay attacks). Note that this involves creating and signing a new JWT for every request, which will use extra CPU resources and can add latency to each request.
-
-#### `issuer`
-
-_string (required)_
-
-The issuer claim in the JWT.
-
-#### `subject`
-
-_string (required)_
-
-The subject claim in the JWT.
-
-#### `audience`
-
-_string_
-
-The optional audience claim in the JWT.
 
 ### `SCRAMCredentials`
 
@@ -2173,62 +2096,6 @@ Rejects the record batch containing the error, returning an error to the caller.
 #### `FILTER_RECORD`
 
 Filters out the record from the batch, while preserving the rest of the data. Note that this will result in data loss if used on the producer side. On the consumer side, invalid records will be skipped.
-
-### `JWTAlgorithm`
-
-Supported algorithms for computing a signature or keyed hash when creating a new JWT.
-
-#### `ED25519`
-
-The ED25519 algorithm. The JWT key must be an ED25519 private key.
-
-#### `ECDSA_SHA256`
-
-The ECDSA algorithm combined with SHA256. The JWT key must be an ECDSA private key.
-
-#### `ECDSA_SHA384`
-
-The ECDSA algorithm combined with SHA384. The JWT key must be an ECDSA private key.
-
-#### `ECDSA_SHA512`
-
-The ECDSA algorithm combined with SHA512. The JWT key must be an ECDSA private key.
-
-#### `RSA_SHA256`
-
-The RSA PKCS algorithm combined with SHA256. The JWT key must be an RSA private key.
-
-#### `RSA_SHA384`
-
-The RSA PKCS algorithm combined with SHA384. The JWT key must be an RSA private key.
-
-#### `RSA_SHA512`
-
-The RSA PKCS algorithm combined with SHA512. The JWT key must be an RSA private key.
-
-#### `RSAPSS_SHA256`
-
-The RSA PSS algorithm combined with SHA256. The JWT key must be an RSA private key.
-
-#### `RSAPSS_SHA384`
-
-The RSA PSS algorithm combined with SHA384. The JWT key must be an RSA private key.
-
-#### `RSAPSS_SHA512`
-
-The RSA PSS algorithm combined with SHA512. The JWT key must be an RSA private key.
-
-#### `HMAC_SHA256`
-
-The HMAC+SHA256 keyed hash algorithm. The JWT key is the binary shared secret.
-
-#### `HMAC_SHA384`
-
-The HMAC+SHA384 keyed hash algorithm. The JWT key is the binary shared secret.
-
-#### `HMAC_SHA512`
-
-The HMAC+SHA512 keyed hash algorithm. The JWT key is the binary shared secret.
 
 ### `HashFunction`
 

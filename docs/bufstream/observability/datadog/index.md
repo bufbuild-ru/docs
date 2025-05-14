@@ -1,4 +1,5 @@
 ---
+description: "How to install and configure Datadoc dashboards for Bufstream"
 
 head:
   - - link

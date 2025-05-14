@@ -1,4 +1,5 @@
 ---
+description: "Guide to using the Buf CLi with Gradle"
 
 head:
   - - link

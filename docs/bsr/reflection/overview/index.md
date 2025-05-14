@@ -1,4 +1,5 @@
 ---
+description: "Overview of using the Buf Schema Registry Reflection API for runtime Protobuf decoding"
 
 head:
   - - link

@@ -1,4 +1,5 @@
 ---
+description: "Manage your Buf subscription"
 
 head:
   - - link
@@ -89,11 +90,11 @@ Navigate to your organizations registry settings:
 3.  Select the Organization you manage.
 4.  Select the registry on the left navigation panel.
 
-### View Billing Info
+### View billing info
 
 From the **Billing** tab of the **Account** page, select the **View Billing Info** button. You will be taken to a page where you can enter new card details, update billing info such as company name and tax info, and view invoice history.
 
-### Usage Alerts
+### Usage alerts
 
 Buf will send an email alert to organization administrators when usage has progressed beyond a configured threshold. Admins can choose to be notified when usage has exceeded a specified number of Types (for example 500).
 

@@ -1,4 +1,5 @@
 ---
+description: "Enterprise-grade Kafka and gRPC for the modern age."
 
 head:
   - - link
@@ -62,7 +63,7 @@ The first step is to get the Buf CLI running on your CI/CD worker. To do so, you
 
 PROJECT=<your-project-name>
 # Use your desired buf version
-BUF_VERSION=1.53.0
+BUF_VERSION=1.54.0
 # buf is installed to ~/bin/your-project-name.
 BIN_DIR=$HOME/bin/$PROJECT
 

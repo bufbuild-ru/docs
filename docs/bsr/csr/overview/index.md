@@ -1,4 +1,5 @@
 ---
+description: "High-level overview of Buf's Confluent Schema Registry integration in the BSR"
 
 head:
   - - link

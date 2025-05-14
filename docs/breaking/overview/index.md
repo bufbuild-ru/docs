@@ -1,4 +1,5 @@
 ---
+description: "High-level overview of the Buf CLI's breaking change detection feature"
 
 head:
   - - link

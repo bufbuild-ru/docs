@@ -1,4 +1,5 @@
 ---
+description: "Enterprise-grade Kafka and gRPC for the modern age."
 
 head:
   - - link
@@ -9,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/admin/instance/support/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/admin/on-prem/configuration/"
+      href: "https://bufbuild.ru/docs/bsr/admin/on-prem/resource-requirements/"
   - - meta
     - property: "og:title"
       content: "Installation - Buf Docs"
@@ -51,12 +52,11 @@ Review the list of [BSR dependencies](../architecture/#dependencies) before gett
 
 ## Prerequisites
 
-Alongside this documentation you should have received two files:
-
 1.  A _keyfile_ to pull the BSR Helm Chart and accompanying Docker images from an OCI registry. This keyfile should contain a base64 encoded string.
 2.  A _license_ to operate the BSR. The license file should contain `buflicense-` followed by a base64 encoded string.
+3.  An [appropriately sized Kubernetes cluster](../resource-requirements/) to deploy to.
 
-You will need both to proceed.
+We send #1 and #2 to customers during the onboarding process.
 
 ## 1\. Authenticate `helm`
 

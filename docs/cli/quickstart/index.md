@@ -1,4 +1,5 @@
 ---
+description: "10-minute demonstration of the Buf CLI's features"
 
 head:
   - - link

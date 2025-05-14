@@ -1,4 +1,5 @@
 ---
+description: "Enterprise-grade Kafka and gRPC for the modern age."
 
 head:
   - - link
@@ -49,16 +50,10 @@ Bufstream streams data directly to Apache Iceberg™ from any topic, eliminating
 
 Bufstream supports updates to the following catalogs today:
 
-- REST Catalog
+- REST Catalogs (including Apache Polaris)
+- Glue Data Catalog (AWS)
 - BigLake Metastore (GCP)
 - BigQuery Metastore (GCP)
-
-We plan to add support for the following catalogs in an upcoming release:
-
-- Snowflake Polaris
-- Databricks Unity Catalog
-- Snowflake Horizon
-- Glue (AWS)
 
 Bufstream's Iceberg REST catalog support allows you to deploy a [REST adapter](https://hub.docker.com/r/tabulario/iceberg-rest) in front of Iceberg catalogs that don't have an explicit integration with Bufstream. As a result, Bufstream is able to integrate with _any_ existing catalog as well as bespoke implementations.
 

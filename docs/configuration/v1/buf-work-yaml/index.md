@@ -1,4 +1,5 @@
 ---
+description: "Reference page for the v1 Buf workspaces configuration file"
 
 head:
   - - link

@@ -1,4 +1,5 @@
 ---
+description: "Enterprise-grade Kafka and gRPC for the modern age."
 
 head:
   - - link
@@ -6,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/admin/on-prem/configuration/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/admin/on-prem/installation/"
+      href: "https://bufbuild.ru/docs/bsr/admin/on-prem/resource-requirements/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/admin/on-prem/observability/"

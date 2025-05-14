@@ -1,4 +1,5 @@
 ---
+description: "Guide to using v1 workspaces for easier local dependency management and multiple module operations"
 
 head:
   - - link

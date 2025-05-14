@@ -1,4 +1,5 @@
 ---
+description: "How to simplify code generation with the Buf Schema Registry's remote plugins"
 
 head:
   - - link

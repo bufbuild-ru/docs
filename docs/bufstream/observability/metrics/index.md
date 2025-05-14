@@ -1,4 +1,5 @@
 ---
+description: "Reference page of available Bufstream metrics and attributes"
 
 head:
   - - link

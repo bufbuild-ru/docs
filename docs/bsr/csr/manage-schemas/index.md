@@ -1,4 +1,5 @@
 ---
+description: "How to associate Confluent subjects and Kafka topics with schemas in the Buf Schema Registry"
 
 head:
   - - link

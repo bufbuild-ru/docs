@@ -1,4 +1,5 @@
 ---
+description: "How to integrate the Buf Schema Registry into Confluent-aware Kafka clients"
 
 head:
   - - link

@@ -1,4 +1,5 @@
 ---
+description: "Migration guide for updating to Buf v2 configuration files"
 
 head:
   - - link

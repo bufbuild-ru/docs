@@ -1,4 +1,5 @@
 ---
+description: "Bufstream: The drop-in replacement for Apache Kafka® built for the data lakehouse era"
 
 head:
   - - link

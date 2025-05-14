@@ -1,4 +1,5 @@
 ---
+description: "How to install and configure Grafana dashboards for Bufstream"
 
 head:
   - - link

@@ -1,4 +1,5 @@
 ---
+description: "Quickstart showing how to build Buf images"
 
 head:
   - - link

@@ -1,4 +1,5 @@
 ---
+description: "How to create a Confluent Schema Registry integration instance within in the Buf Schema Registry"
 
 head:
   - - link

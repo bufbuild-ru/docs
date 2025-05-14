@@ -1,4 +1,5 @@
 ---
+description: "Documentation about how to get the File Descriptor Sets of a module from the BSR"
 
 head:
   - - link

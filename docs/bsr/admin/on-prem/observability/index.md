@@ -56,7 +56,7 @@ Buf provides a set of Prometheus [alerting rules](https://prometheus.io/docs/pro
 
 - `prometheus-slo-rpc-rules.yaml`: Provides alerting rules and recording rules for all RPC endpoints.
 - `prometheus-slo-http-rules.yaml`: Provides alerting rules and recording rules for all HTTP endpoints.
-- `prometheus-slo-registry-rules.yaml`: Provides alerting rules and recording rules for language registry endpoints that serve [Generated SDKs](../../../generated-sdks/overview/).
+- `prometheus-slo-registry-rules.yaml`: Provides alerting rules and recording rules for language registry endpoints that serve [Generated SDKs](../../../generated-sdks/).
 
 ### Grafana dashboards
 
@@ -64,7 +64,7 @@ To import the dashboards, follow [Grafana's instructions](https://grafana.com/do
 
 - `grafana-slo-rpc-dashboard.json` is for monitoring all RPC traffic with the capability to group by `cluster`, `rpc_service`, and/or `rpc_method`.
 - `grafana-slo-http-dashboard.json` is for monitoring all HTTP traffic with the capability to group by `cluster`.
-- `grafana-slo-registry-dashboard.json` is for monitoring language registry endpoints that serve [Generated SDKs](../../../generated-sdks/overview/).
+- `grafana-slo-registry-dashboard.json` is for monitoring language registry endpoints that serve [Generated SDKs](../../../generated-sdks/).
 
 ## Dashboards
 

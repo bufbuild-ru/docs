@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/bsr/apis/api-access/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/rate-limits/"
+      href: "https://bufbuild.ru/docs/bsr/reflection/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/reflection/overview/"
+      href: "https://bufbuild.ru/docs/bsr/reflection/prototransform/"
   - - meta
     - property: "og:title"
       content: "Invoking the BSR APIs - Buf Docs"
@@ -60,7 +60,7 @@ The APIs are served from the same domain with the web UI. For example, to send A
 
 All APIs provided by the BSR are [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) services, defined in Protobuf modules available on the public BSR in the [bufbuild](https://buf.build/bufbuild) organization. They're exposed using [Connect](https://connectrpc.com/) and support clients using three different protocols: Connect, [gRPC](https://grpc.io/), and [gRPC-Web](https://github.com/grpc/grpc-web#readme).
 
-Since the APIs are defined in Protobuf, you can use `buf generate` to generate an API client in a variety of languages. Connect support is still growing, so you can use gRPC clients if you use a language not yet supported. You can also use [generated SDKs](../../generated-sdks/overview/) to download a client from the BSR.
+Since the APIs are defined in Protobuf, you can use `buf generate` to generate an API client in a variety of languages. Connect support is still growing, so you can use gRPC clients if you use a language not yet supported. You can also use [generated SDKs](../../generated-sdks/) to download a client from the BSR.
 
 The [Connect protocol](https://connectrpc.com/docs/protocol) also makes it easy to consume non-streaming (aka “unary”) endpoints from clients that, for whatever reason, can't use a generated Connect or gRPC client. For example, you can even use `curl` or `wget` with unary endpoints. Connect supports JSON encoding of request and response messages out of the box. Since the API is defined in Protobuf, refer to the [official JSON mapping documentation](https://protobuf.dev/programming-guides/proto3#json) for how a message is represented in JSON.
 
@@ -90,7 +90,7 @@ curl \
    -d '{"module": "buf.build/connectrpc/eliza"}'
 ```
 
-`curl` is a great way for us to understand how to access the APIs, but it's unlikely to be useful in application code. For that, let's look at an example using another feature of the BSR called [generated SDKs](../../generated-sdks/overview/), which can generate an API client package for you to use just like using any other third-party package. For this example, we'll use Go.
+`curl` is a great way for us to understand how to access the APIs, but it's unlikely to be useful in application code. For that, let's look at an example using another feature of the BSR called [generated SDKs](../../generated-sdks/), which can generate an API client package for you to use just like using any other third-party package. For this example, we'll use Go.
 
 ### SDK
 
@@ -137,4 +137,4 @@ As can be seen above, we use these packages to create an API client, build a req
 
 Below is the list of API categories. The list is short right now, but is expected to grow. As more of the BSR's functions become sufficiently stable, we'll add relevant APIs to this list.
 
-- [Reflection](../../reflection/overview/) (Beta)
+- [Reflection](../../reflection/) (Beta)

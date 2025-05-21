@@ -52,7 +52,7 @@ Bufstream's [schema enforcement](../schema-enforcement/) ensures that messages m
 
 In addition to schema enforcement, Bufstream supports semantic validation of binary Protobuf messages whose schemas use [Protovalidate](../../../protovalidate/) annotations. Coupled with schema enforcement, this guarantees that consumers receive the highest-quality data possible.
 
-Because it requires the message schema, semantic validation requires the Buf Schema Registry (or any other Protobuf registry that supports Confluent's REST API). To associate Protobuf schemas with a Kafka topic in the Buf Schema Registry, follow [the documentation for integrating the BSR with Kafka](../../../bsr/csr/overview/).
+Because it requires the message schema, semantic validation requires the Buf Schema Registry (or any other Protobuf registry that supports Confluent's REST API). To associate Protobuf schemas with a Kafka topic in the Buf Schema Registry, follow [the documentation for integrating the BSR with Kafka](../../../bsr/csr/).
 
 ## Adding semantic validation to Protobuf schemas
 

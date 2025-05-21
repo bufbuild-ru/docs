@@ -10,10 +10,10 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/data-governance/semantic-validation/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/iceberg/quickstart/"
+      href: "https://bufbuild.ru/docs/bufstream/iceberg/configuration/"
   - - meta
     - property: "og:title"
-      content: "Overview - Buf Docs"
+      content: "Iceberg - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/bufstream/iceberg/index.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Overview - Buf Docs"
+      content: "Iceberg - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/bufstream/iceberg/index.png"

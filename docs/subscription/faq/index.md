@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/subscription/migrate/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/"
+      href: "https://bufbuild.ru/docs/bsr/reflection/"
   - - meta
     - property: "og:title"
       content: "FAQs - Buf Docs"
@@ -114,7 +114,7 @@ Types are billed according to monthly average usage, and the cost per Type depen
 
 ### How can I reduce my bill?
 
-There are two methods for lowering your monthly cost: converting private repositories to public and reducing the number of types in private repositories. All plans allow for unlimited public repositories. To lower your bill, you can consider converting some private repositories to public to reduce the number of types. Alternatively, you can update private repositories to hold fewer types, lowering your monthly average cost.
+See [Manage subscription costs](../manage-costs/) to learn how to track and reduce your types usage.
 
 ### Do I need to do anything at the end of my subscription term?
 

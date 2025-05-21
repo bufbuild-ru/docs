@@ -7,13 +7,13 @@ head:
       href: "https://bufbuild.ru/docs/protovalidate/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/releases/"
+      href: "https://bufbuild.ru/docs/bufstream/reference/configuration/client-id-options/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/protovalidate/quickstart/"
   - - meta
     - property: "og:title"
-      content: "Overview - Buf Docs"
+      content: "Introduction - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/protovalidate/index.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Overview - Buf Docs"
+      content: "Introduction - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/protovalidate/index.png"
@@ -269,3 +269,4 @@ Read on to learn more about enabling schema-first validation with Protovalidate:
 
 - Learn [how to use Protovalidate in Protobuf projects](quickstart/).
 - Discover [how to enforce Protovalidate rules within Kafka streams](quickstart/bufstream/).
+- If you're already using protoc-gen-validate, learn how to [migrate to Protovalidate](../migration-guides/migrate-from-protoc-gen-validate/).

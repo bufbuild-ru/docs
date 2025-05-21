@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/lint/quickstart/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/configuration/v2/buf-yaml/"
+      href: "https://bufbuild.ru/docs/format/"
   - - meta
     - property: "og:title"
       content: "Rules and categories - Buf Docs"
@@ -46,7 +46,7 @@ head:
 
 # Rules and categories
 
-The Buf CLI applies individual lint rules across your Protobuf schema, reporting any violations as errors. This page describes the available categories and the individual rules within each category. You can also use custom rules and categories defined in [Buf plugins](../../cli/buf-plugins/overview/), either alongside or in place of Buf's. See the [overview](../overview/#usage-examples) for usage and the [`buf.yaml` reference](../../configuration/v2/buf-yaml/) for configuration options.
+The Buf CLI applies individual lint rules across your Protobuf schema, reporting any violations as errors. This page describes the available categories and the individual rules within each category. You can also use custom rules and categories defined in [Buf plugins](../../cli/buf-plugins/), either alongside or in place of Buf's. See the [overview](../#usage-examples) for usage and the [`buf.yaml` reference](../../configuration/v2/buf-yaml/) for configuration options.
 
 ## Categories
 
@@ -312,7 +312,7 @@ This rule checks that enum values are UPPER_SNAKE_CASE.
 
 **Categories:** `STANDARD`
 
-This rule requires that all enum values have a zero value with a defined suffix. By default, it verifies that the zero value of all enums ends in `_UNSPECIFIED`, but the suffix is [configurable](../overview/).
+This rule requires that all enum values have a zero value with a defined suffix. By default, it verifies that the zero value of all enums ends in `_UNSPECIFIED`, but the suffix is [configurable](../).
 
 ```protobuf
 enum Foo {
@@ -677,7 +677,7 @@ service BazService {}
 
 Service names inherently end up having a lot of overlap with package names, and service naming often ends up inconsistent as a result across a larger Protobuf schema. Enforcing a consistent suffix takes away some of this inconsistency.
 
-The suffix is [configurable](../overview/). For example, if you have this configuration in your `buf.yaml`:
+The suffix is [configurable](../). For example, if you have this configuration in your `buf.yaml`:
 
 ::: info buf.yaml
 

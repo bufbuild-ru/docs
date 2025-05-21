@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/repositories/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/quickstart/"
+      href: "https://bufbuild.ru/docs/bsr/authentication/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/commits-labels/"
@@ -98,7 +98,7 @@ Each BSR repository has a default label that's used by default in BSR web UI and
 
 - [References to a module](../../cli/modules-workspaces/#referencing-a-module) that don't specify a particular commit or label resolve to the latest commit on the default label.
 - New commits pushed to the BSR are automatically assigned to the default label if no other label is provided. However, we recommend explicitly associating labels when pushing instead of relying on the default label.
-- A commit made to a label that's the default label at the time of push becomes the latest released commit for [generated SDKs](../generated-sdks/overview/).
+- A commit made to a label that's the default label at the time of push becomes the latest released commit for [generated SDKs](../generated-sdks/).
 
 The initial default label for a repository is `main`.
 
@@ -106,12 +106,12 @@ The initial default label for a repository is `main`.
 
 - Dependency references resolve by default to what's released.
 - Users browsing docs on the BSR see what's released.
-- Dependency automation tools (for example [Dependabot](https://github.com/dependabot), [Renovate](https://github.com/renovatebot/renovate)) automatically keep clients updated with the latest released version of [generated SDKs](../generated-sdks/overview/).
+- Dependency automation tools (for example [Dependabot](https://github.com/dependabot), [Renovate](https://github.com/renovatebot/renovate)) automatically keep clients updated with the latest released version of [generated SDKs](../generated-sdks/).
 
 ### Name change restrictions
 
 There are some restrictions on changing the default label.
 
 - You can only change the default label to point to a label that exists and isn't [archived](../commits-labels/#archived-labels).
-- You can't change the default label if [policy checks](../policy-checks/breaking/overview/) are enabled.
-- If [Confluent Schema Registry (CSR)](../csr/overview/) integration is enabled, you can't update the default label to another label if the latest commit on the other label doesn't pass CSR compatibility checks relative to the latest commit on the current default label.
+- You can't change the default label if [policy checks](../policy-checks/breaking/) are enabled.
+- If [Confluent Schema Registry (CSR)](../csr/) integration is enabled, you can't update the default label to another label if the latest commit on the other label doesn't pass CSR compatibility checks relative to the latest commit on the current default label.

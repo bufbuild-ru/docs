@@ -112,7 +112,7 @@ Streaming data has a major problem with data quality, namely we have no guarante
 
 Unfortunately, in the Kafka ecosystem, schema validation is precariously left to clients, bolted on as an afterthought to an ecosystem not designed to understand schemas in the first place. Client-side enforcement is in effect "opt-in" enforcement. Producers can choose to do it or not, meaning you have no guarantees as to the quality of data sent to your consumers. This is a state of the world we'd never accept in i.e. network APIs – imagine if your application servers relied on your web clients to validate their data and your applications persisted whatever they were given – we'd all be in trouble!
 
-Bufstream is more than just a drop-in Kafka replacement. Bufstream is built from the ground up to understand the shape of the data traversing it's topics. We call this **broker-side schema awareness**, and it brings some interesting capabilities. Chief among these is its ability to block bad data from entering topics in the first place.
+Bufstream is more than just a drop-in Kafka replacement. Bufstream is built from the ground up to understand the shape of the data traversing its topics. We call this **broker-side schema awareness**, and it brings some interesting capabilities. Chief among these is its ability to block bad data from entering topics in the first place.
 
 Bufstream provides **governed topics** that enable semantic validation via Protovalidate on the producer API. If a record is produced with a message that doesn't pass validation, the entire batch is rejected or the offending record is sent to a DLQ. Importantly, since this happens on the broker, consumers can rely on the knowledge that data within topics always matches its stated constraints.
 
@@ -202,5 +202,3 @@ You should be able to:
 - Mask out all PII fields for **clients of your networks APIs, consumers of your Kafka topics, and users of your data lake tables** for those without PII access. Your RPC framework, Kafka-compatible message queue, and data lake of choice should all understand the RBAC annotations from your single schema language, and these annotations should be propagated. Kafka should automatically apply masking via the Consumer API, and Iceberg tables read into Snowflake or Databricks should take RBAC annotations into account via [Snowflake column-level security](https://docs.snowflake.com/en/user-guide/security-column-intro) or [Databricks column masks](https://docs.databricks.com/aws/en/tables/row-and-column-filters#what-are-column-masks).
 
 And so much more. If this is a world that interests you, [get in touch](https://buf.build/contact), we'd love to get to work.
-
-‍

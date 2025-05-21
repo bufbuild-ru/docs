@@ -4,22 +4,22 @@ description: "High-level overview of the Buf CLI's Protobuf linting capabilities
 head:
   - - link
     - rel: "canonical"
-      href: "https://bufbuild.ru/docs/lint/overview/"
+      href: "https://bufbuild.ru/docs/lint/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/configuration/v2/buf-yaml/"
+      href: "https://bufbuild.ru/docs/breaking/rules/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/lint/quickstart/"
   - - meta
     - property: "og:title"
-      content: "Overview - Buf Docs"
+      content: "Lint Protobuf files - Buf Docs"
   - - meta
     - property: "og:image"
-      content: "https://buf.build/docs/assets/images/social/lint/overview.png"
+      content: "https://buf.build/docs/assets/images/social/lint/index.png"
   - - meta
     - property: "og:url"
-      content: "https://bufbuild.ru/docs/lint/overview/"
+      content: "https://bufbuild.ru/docs/lint/"
   - - meta
     - property: "og:type"
       content: "website"
@@ -34,10 +34,10 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Overview - Buf Docs"
+      content: "Lint Protobuf files - Buf Docs"
   - - meta
     - property: "twitter:image"
-      content: "https://buf.build/docs/assets/images/social/lint/overview.png"
+      content: "https://buf.build/docs/assets/images/social/lint/index.png"
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
@@ -54,14 +54,14 @@ This document provides an overview of Buf's Protobuf linting features.
 
 The Buf CLI's linter can check your schemas at two phases of development:
 
-- **During development:** You can [integrate with your editor](../../cli/editor-integration/) for immediate feedback as you're iterating, and also spot-check by running `buf lint`.
-- **In code review:** You can [integrate with your CI/CD workflows](../../bsr/ci-cd/setup/) (like GitHub Actions) to ensure that linting errors get flagged directly in your review flow without the need for constant human vigilance.
+- **During development:** You can [integrate with your editor](../cli/editor-integration/) for immediate feedback as you're iterating, and also spot-check by running `buf lint`.
+- **In code review:** You can [integrate with your CI/CD workflows](../bsr/ci-cd/setup/) (like GitHub Actions) to ensure that linting errors get flagged directly in your review flow without the need for constant human vigilance.
 
-The linter has a built-in set of rules and categories and can also accept rules and categories via [Buf plugins](../../cli/buf-plugins/overview/). You can use them alongside or in place of Buf's defaults.
+The linter has a built-in set of rules and categories and can also accept rules and categories via [Buf plugins](../cli/buf-plugins/). You can use them alongside or in place of Buf's defaults.
 
 ## Rules and categories
 
-The linter's built-in rules are split up into categories to make choosing a strictness level straightforward, but rules can also be selected individually to more closely match your organization's policies. See the [rules and categories](../rules/) page for detailed information.
+The linter's built-in rules are split up into categories to make choosing a strictness level straightforward, but rules can also be selected individually to more closely match your organization's policies. See the [rules and categories](rules/) page for detailed information.
 
 The configuration categories, from strictest to most lenient, are:
 
@@ -73,7 +73,7 @@ Changes that pass linting under a stricter policy also pass with all less-strict
 
 ## Defaults and configuration
 
-You configure lint rules in the [`buf.yaml`](../../configuration/v2/buf-yaml/) configuration file, which is placed at the root of the Protobuf module it defines. If the input to `buf lint` doesn't contain a `buf.yaml` file, the Buf CLI operates as if there's a `buf.yaml` file with these values:
+You configure lint rules in the [`buf.yaml`](../configuration/v2/buf-yaml/) configuration file, which is placed at the root of the Protobuf module it defines. If the input to `buf lint` doesn't contain a `buf.yaml` file, the Buf CLI operates as if there's a `buf.yaml` file with these values:
 
 ::: info buf.yaml
 
@@ -93,7 +93,7 @@ lint:
 
 You can skip the Buf linter's built-in rules and categories entirely by omitting them and listing categories or rules provided by Buf plugins instead. If any configures Buf plugins have rules where [`default`](https://github.com/bufbuild/bufplugin/blob/main/buf/plugin/check/v1/rule.proto#L87) is set to `true`, those rules are automatically checked if none of the plugin's rules or categories are listed in the `lint` sections of `buf.yaml`.
 
-Below is an example of each `buf lint` configuration option. For more information on specific options and Buf's rules and categories, see the [`buf.yaml` reference](../../configuration/v2/buf-yaml/) and the [rules and categories](../rules/) page.
+Below is an example of each `buf lint` configuration option. For more information on specific options and Buf's rules and categories, see the [`buf.yaml` reference](../configuration/v2/buf-yaml/) and the [rules and categories](rules/) page.
 
 ::: info buf.yaml
 
@@ -168,7 +168,7 @@ You can get a list of all of your workspace's rules and categories (including th
 
 ## Usage examples
 
-The Buf CLI can lint [inputs](../../reference/inputs/) beyond your local Protobuf files, such as [Git repositories](../../reference/inputs/#git) and [tarballs](../../reference/inputs/#tar). This can be useful in a variety of scenarios, such as using [`protoc`](https://github.com/protocolbuffers/protobuf) output as Buf CLI input. Here are some example scripts:
+The Buf CLI can lint [inputs](../reference/inputs/) beyond your local Protobuf files, such as [Git repositories](../reference/inputs/#git) and [tarballs](../reference/inputs/#tar). This can be useful in a variety of scenarios, such as using [`protoc`](https://github.com/protocolbuffers/protobuf) output as Buf CLI input. Here are some example scripts:
 
 ::: info Lint output from protoc passed to stdin
 
@@ -202,11 +202,11 @@ buf lint --error-format=json
 
 :::
 
-For remote locations that require authentication, see [HTTPS Authentication](../../reference/inputs/#https) and [SSH Authentication](../../reference/inputs/#ssh).
+For remote locations that require authentication, see [HTTPS Authentication](../reference/inputs/#https) and [SSH Authentication](../reference/inputs/#ssh).
 
 ### Limit to specific files
 
-By default, the Buf CLI builds all files under your [`buf.yaml`](../../configuration/v2/buf-yaml/) configuration file, but you can choose to lint only specific files or directories. This is an advanced feature that's mostly intended to be used by other systems like editors. In general, it's better to let the Buf CLI discover all files and handle this for you. If you do need this, however, you can use the `--path` flag:
+By default, the Buf CLI builds all files under your [`buf.yaml`](../configuration/v2/buf-yaml/) configuration file, but you can choose to lint only specific files or directories. This is an advanced feature that's mostly intended to be used by other systems like editors. In general, it's better to let the Buf CLI discover all files and handle this for you. If you do need this, however, you can use the `--path` flag:
 
 ```sh
 buf lint \
@@ -230,7 +230,7 @@ This feature allows you to turn off lint warnings for a specific line of a Proto
 - In `v2` configurations, comment ignores are enabled by default, but won't work if your `buf.yaml` file has `disallow_comment_ignores` set to `true`.
 - In `v1` configurations, comment ignores are disabled by default, so you need to set `allow_comment_igrnoes` to `true` to enable them.
 
-To ignore a lint rule, add the comment ignore directly above the line it should apply to, using the `// buf:lint:ignore RULE_ID` syntax. You can use comment ignores for any lint rules — both Buf's [built-in rules](../rules/) and custom rules from configured [Buf plugins](../../cli/buf-plugins/overview/). Adding a comment for context is also helpful, and it must be above the comment ignore:
+To ignore a lint rule, add the comment ignore directly above the line it should apply to, using the `// buf:lint:ignore RULE_ID` syntax. You can use comment ignores for any lint rules — both Buf's [built-in rules](rules/) and custom rules from configured [Buf plugins](../cli/buf-plugins/). Adding a comment for context is also helpful, and it must be above the comment ignore:
 
 ```protobuf{3,4,5}
 syntax = "proto3";
@@ -246,4 +246,4 @@ You could then set the corresponding `ignore` or `ignore_only` values in `buf.ya
 
 ## Integration with CI/CD workflows
 
-Because `buf lint` is part of a CLI, you can easily integrate it into CI/CD workflows. For instructions, see the [General CI/CD setup](../../bsr/ci-cd/setup/) and [GitHub Actions](../../bsr/ci-cd/github-actions/) pages.
+Because `buf lint` is part of a CLI, you can easily integrate it into CI/CD workflows. For instructions, see the [General CI/CD setup](../bsr/ci-cd/setup/) and [GitHub Actions](../bsr/ci-cd/github-actions/) pages.

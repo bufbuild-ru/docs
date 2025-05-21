@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/kafka-compatibility/configure-clients/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/iceberg/reference/"
+      href: "https://bufbuild.ru/docs/bufstream/observability/grafana/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bufstream/kafka-compatibility/conformance/"

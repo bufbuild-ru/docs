@@ -44,10 +44,10 @@ We built the [Buf CLI](https://buf.build/product/cli) to be a one-stop shop for 
 
 When using Protobuf schemas to build Java and Kotlin clients with the Buf CLI, developers typically generate outputs manually and check them into source control. Additionally, other housekeeping tasks such as linting and validating backward compatibility are done manually. **We now provide a** [**Gradle plugin**](https://github.com/bufbuild/buf-gradle-plugin) **with a set of tasks that encapsulate Buf CLI invocations to simplify these workflows and eliminate the need to check in generated code:**
 
-- `bufGenerate`: Generates Java/Kotlin sources from Protobuf schemas with [`buf generate`](/docs/generate/overview/index.md). **This can be run as part of the build process, eliminating the need for checking in generated code.**
-- `bufBreaking`: Checks Protobuf schemas against a previous version for backward-incompatible changes using the [`buf breaking`](/docs/breaking/overview/index.md) functionality.
-- `bufFormatCheck`/`bufFormatApply`: Validates and enforces formatting of Protobuf files using [`buf format`](/docs/format/style/index.md).
-- `bufLint`: Runs lint checks using [`buf lint`](/docs/lint/overview/index.md).
+- `bufGenerate`: Generates Java/Kotlin sources from Protobuf schemas with [`buf generate`](/docs/generate/index.md). **This can be run as part of the build process, eliminating the need for checking in generated code.**
+- `bufBreaking`: Checks Protobuf schemas against a previous version for backward-incompatible changes using the [`buf breaking`](/docs/breaking/index.md) functionality.
+- `bufFormatCheck`/`bufFormatApply`: Validates and enforces formatting of Protobuf files using [`buf format`](/docs/format/index.md).
+- `bufLint`: Runs lint checks using [`buf lint`](/docs/lint/index.md).
 
 To learn more about the Gradle plugin and how to integrate it, check out our [documentation](/docs/cli/build-systems/gradle/index.md).
 

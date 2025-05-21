@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/migration-guides/migrate-from-prototool/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc/"
+      href: "https://bufbuild.ru/docs/reference/cli/buf/"
   - - meta
     - property: "og:title"
       content: "Migrate from Protolock - Buf Docs"
@@ -48,7 +48,7 @@ head:
 
 [Protolock](https://github.com/nilslice/protolock) is a widely used Protobuf tool that primarily concentrates on breaking change detection. It deserves a lot of praise — in the OSS world, it largely pioneered the breaking change detection effort, and has been well maintained. We can't heap enough praise on this effort, it's helped the Protobuf ecosystem move forward in a big way.
 
-In this document, we'll discuss the pros and cons of Protolock vs. `buf`'s [breaking change detector](../../breaking/overview/), as well as `buf`\-equivalent commands and migration.
+In this document, we'll discuss the pros and cons of Protolock vs. `buf`'s [breaking change detector](../../breaking/), as well as `buf`\-equivalent commands and migration.
 
 ## Protolock pros
 
@@ -61,16 +61,16 @@ In this document, we'll discuss the pros and cons of Protolock vs. `buf`'s [brea
 - Protolock only enforces 8 rules related to API compatibility in strict mode, and 5 with strict mode disabled. `buf` enforces 46 rules related to API compatibility in its strictest mode (`FILE`), and 15 rules related to wire-only compatibility in its weakest mode (`WIRE`). We believe that the additional rules that `buf` enforces are critical to API compatibility.
 - Breaking change rules aren't a binary proposition — there are different kinds of breaking changes that you may care about. `buf` provides [four categories](../../breaking/rules/) of breaking change rules to select — per-file generated stub breaking changes, per-package generated stub breaking changes, wire breaking changes, and wire + JSON breaking changes. Within these categories, you can go further and enable or disable individual rules through configuration.
 - `buf` provides `file:line:column:message` references for breaking change violations, letting you know where a violation occurred, including potentially integrating this into your editor in the future. These reference your current Protobuf schema, including if types move across files between versions of your Protobuf schema. The error output can be outputted as text or JSON, with other formats coming in the future. Protolock prints out unreferenced messages.
-- Protolock relies on `proto.lock` files as the only way to store the representation of your previous Protobuf schema, and these files are represented by a custom structure. `buf` allows you to use lock files through `buf build`, but also allows [other methods](../../breaking/overview/) to store and retrieve your previous Protobuf schema, including:
+- Protolock relies on `proto.lock` files as the only way to store the representation of your previous Protobuf schema, and these files are represented by a custom structure. `buf` allows you to use lock files through `buf build`, but also allows [other methods](../../breaking/) to store and retrieve your previous Protobuf schema, including:
   - Cloning the head of a branch of a Git repository, either local or remote, and compiling on the fly.
   - Reading a tar or zip archive, either local or remote and optionally compressed, and compiling on the fly.
   - Reading a "lock file", represented as a [Buf image](../../reference/images/), from either a local location or a remote http/https location.
-- Both Protolock and `buf` run file discovery for your Protobuf files, however `buf` allows you to skip file discovery and specify your files [manually](../../build/overview/#limit-to-specific-files) for use cases that require this, such as [Bazel](../../cli/build-systems/bazel/).
+- Both Protolock and `buf` run file discovery for your Protobuf files, however `buf` allows you to skip file discovery and specify your files [manually](../../build/#limit-to-specific-files) for use cases that require this, such as [Bazel](../../cli/build-systems/bazel/).
 - Since `buf` can process `FileDescriptorSet`s as input, `buf` provides a [protoc plugin](../../cli/protoc-plugins/#breaking) to allow you to use `buf`'s breaking change detection functionality with your current `protoc` setup.
 
 ## Configuration
 
-See the [breaking configuration](../../breaking/overview/#defaults-and-configuration) documentation for more details. Note that configuration can be provided via the `--config` flag on the command line if you don't want to have a configuration file.
+See the [breaking configuration](../../breaking/#defaults-and-configuration) documentation for more details. Note that configuration can be provided via the `--config` flag on the command line if you don't want to have a configuration file.
 
 ### Protolock rules to `buf` configured rules
 

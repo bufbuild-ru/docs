@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/deployment/cluster-recommendations/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/azure/deploy-etcd/"
+      href: "https://bufbuild.ru/docs/bufstream/auth/mtls/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/data-governance/schema-enforcement/"
+      href: "https://bufbuild.ru/docs/bufstream/releases/"
   - - meta
     - property: "og:title"
       content: "Cluster recommendations - Buf Docs"

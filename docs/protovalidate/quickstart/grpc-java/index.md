@@ -53,7 +53,7 @@ This quickstart shows how to add Protovalidate to a Java RPC powered by [gRPC](h
 3.  Adding a Connect interceptor.
 4.  Testing your validation logic.
 
-Just need an example?" There's an example of Protovalidate for gRPC and Java in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/grpc-java/finish).
+Just need an example? There's an example of Protovalidate for gRPC and Java in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/grpc-java/finish).
 
 ## Prerequisites
 

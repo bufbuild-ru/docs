@@ -4,7 +4,7 @@ description: "Enterprise-grade Kafka and gRPC for the modern age."
 head:
   - - link
     - rel: "canonical"
-      href: "https://bufbuild.ru/docs/bsr/admin/instance/scim/overview/"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/scim/"
   - - link
     - rel: "prev"
       href: "https://bufbuild.ru/docs/bsr/admin/instance/sso/okta-saml/"
@@ -13,13 +13,13 @@ head:
       href: "https://bufbuild.ru/docs/bsr/admin/instance/scim/azure-saml/"
   - - meta
     - property: "og:title"
-      content: "Overview - Buf Docs"
+      content: "SCIM - Buf Docs"
   - - meta
     - property: "og:image"
-      content: "https://buf.build/docs/assets/images/social/bsr/admin/instance/scim/overview.png"
+      content: "https://buf.build/docs/assets/images/social/bsr/admin/instance/scim/index.png"
   - - meta
     - property: "og:url"
-      content: "https://bufbuild.ru/docs/bsr/admin/instance/scim/overview/"
+      content: "https://bufbuild.ru/docs/bsr/admin/instance/scim/"
   - - meta
     - property: "og:type"
       content: "website"
@@ -34,10 +34,10 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Overview - Buf Docs"
+      content: "SCIM - Buf Docs"
   - - meta
     - property: "twitter:image"
-      content: "https://buf.build/docs/assets/images/social/bsr/admin/instance/scim/overview.png"
+      content: "https://buf.build/docs/assets/images/social/bsr/admin/instance/scim/index.png"
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
@@ -73,7 +73,7 @@ SCIM 2.0 defines [core user and group schemas](https://www.rfc-editor.org/rfc/rf
 
 ## SCIM prerequisites
 
-If you plan to push groups from your IdP to the BSR, you must have [automated organization provisioning](../../user-lifecycle/#autoprovisioning) enabled.
+If you plan to push groups from your IdP to the BSR, you must have [automated organization provisioning](../user-lifecycle/#autoprovisioning) enabled.
 
 ### Create a SCIM token
 

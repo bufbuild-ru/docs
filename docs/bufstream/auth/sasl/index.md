@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/auth/sasl/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/kafka-compatibility/conformance/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/azure/deploy-etcd/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bufstream/auth/mtls/"

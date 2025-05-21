@@ -32,7 +32,7 @@ head:
 
 # Remote packages and remote plugins are approaching v1!
 
-Remote packages are now called "generated SDKs". See the [documentation](/docs/bsr/generated-sdks/overview/index.md) for more information.
+Remote packages are now called "generated SDKs". See the [documentation](/docs/bsr/generated-sdks/index.md) for more information.
 
 We're excited to share an update to the Buf Schema Registry remote generation alpha - namely, that the alpha is ending, and we're approaching v1! Today, we're launching the release candidate for what we now call **remote plugins** and **remote packages**.
 
@@ -42,7 +42,7 @@ One of the greatest challenges with Protobuf code generation is the complexity o
 
 Every organization and open-source project develops homegrown Protobuf tooling in an effort to maintain consistent output across developers. A handful of organizations might get a workable solution, but these remain brittle and difficult to maintain over time.
 
-At Buf, we believe code generation is a key building block and the Protobuf ecosystem deserves a proper solution. With [**remote plugins**](/docs/bsr/remote-plugins/overview/index.md), you no longer have to concern yourself with maintaining, downloading, or running plugins on your local machine. Using a plugin is as simple as referencing it in your `buf.gen.yaml`:
+At Buf, we believe code generation is a key building block and the Protobuf ecosystem deserves a proper solution. With [**remote plugins**](/docs/bsr/remote-plugins/index.md), you no longer have to concern yourself with maintaining, downloading, or running plugins on your local machine. Using a plugin is as simple as referencing it in your `buf.gen.yaml`:
 
 ```yaml
 version: v1
@@ -61,7 +61,7 @@ plugins:
 
 Protobuf is a fantastic way to programmatically define your APIs and generate away a lot of the common work we perform as software engineers to communicate across our services. Here at Buf, we believe the eventual promise of Protobuf is for us to stop publishing English-language API specs, and instead move to generated SDKs that we all consume.
 
-[**Remote packages**](/docs/bsr/generated-sdks/overview/index.md) is the movement towards this promise. With remote packages, Buf will take your modules and Protobuf plugins, add a little elbow grease, and generate full-serve packages for you to consume just like any third-party library in your native programming language. This means you don't have to worry about Protobuf code generation at all - you can push [modules](/docs/bsr/index.md#modules) to the BSR and install code stubs generated from those modules using dependency management tools like `npm` and `go`.
+[**Remote packages**](/docs/bsr/generated-sdks/index.md) is the movement towards this promise. With remote packages, Buf will take your modules and Protobuf plugins, add a little elbow grease, and generate full-serve packages for you to consume just like any third-party library in your native programming language. This means you don't have to worry about Protobuf code generation at all - you can push [modules](/docs/bsr/index.md#modules) to the BSR and install code stubs generated from those modules using dependency management tools like `npm` and `go`.
 
 - Zero tooling to install: forget about plugins or Protobuf compilers entirely.
 - API producers can provide two lines of installation instructions instead of publishing their own SDKs.
@@ -116,7 +116,7 @@ After a ton of work by the Buf team, we're ready to present our new remote plugi
 - Remote packages are now created per plugin, instead of per template. Templates have been removed in favor of plugin dependencies. Users can import remote packages from multiple plugins and no longer worry about issues like Go [protobuf namespace conflicts](https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict).
 - Significant performance improvements to Go and NPM remote registries (large NPM packages install up to 90% faster than before). We also added support for Node ESM modules and declaring minimum Go version for remote packages.
 
-Check out the full docs for additional details on [remote plugins](/docs/bsr/remote-plugins/overview/index.md) and [remote packages](/docs/bsr/generated-sdks/overview/index.md).
+Check out the full docs for additional details on [remote plugins](/docs/bsr/remote-plugins/index.md) and [remote packages](/docs/bsr/generated-sdks/index.md).
 
 Obviously, all of this is a major change, and not everything is compatible with the remote generation alpha. However, do not worry - **we're keeping the remote generation alpha working until April 30, 2023** to give you time to migrate. For more details, see the documentation on [migration to remote plugins](/docs/migration-guides/migrate-remote-generation-alpha/index.md) and [migration to remote packages](/docs/migration-guides/migrate-remote-generation-alpha/index.md).
 

@@ -13,7 +13,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/admin/on-prem/release-notes/"
   - - meta
     - property: "og:title"
-      content: "Upgrade/Downgrade - Buf Docs"
+      content: "Upgrade or downgrade - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/bsr/admin/on-prem/upgrade.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Upgrade/Downgrade - Buf Docs"
+      content: "Upgrade or downgrade - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/bsr/admin/on-prem/upgrade.png"
@@ -44,7 +44,9 @@ head:
 
 ---
 
-# Upgrade/Downgrade
+# Upgrade or downgrade
+
+This page describes how to upgrade or download an on-prem BSR instance.
 
 ## Upgrade
 
@@ -82,7 +84,7 @@ Beyond patch releases, downgrading is generally safe within the previous minor r
 
 ### Downgrade steps
 
-If you haven't used new features or losing their data is acceptable, you can downgrade with no downtime within the previous minor release by following these steps::
+If you haven't used new features or losing their data is acceptable, you can downgrade with no downtime within the previous minor release by following these steps:
 
 1.  Deploy the version you want to roll back to (for example `1.1.0`). This is safe to do as a rolling deployment, so that you don't incur downtime.
 2.  Ensure that the rollback has completed and there are no more instances of the newer version (for example `1.2.0`) running.

@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/lint/quickstart/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/lint/overview/"
+      href: "https://bufbuild.ru/docs/lint/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/lint/rules/"
@@ -46,7 +46,7 @@ head:
 
 # Linting quickstart
 
-Buf offers linting for Protobuf files via the `buf lint` command in the Buf CLI. In this quickstart, you'll explore how to use linting to maintain code quality and consistency in your projects. Read the [overview](../overview/#key-concepts) to learn about editor integration and see usage examples.
+Buf offers linting for Protobuf files via the `buf lint` command in the Buf CLI. In this quickstart, you'll explore how to use linting to maintain code quality and consistency in your projects. Read the [overview](../#key-concepts) to learn about editor integration and see usage examples.
 
 ## Prerequisites
 

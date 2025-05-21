@@ -7,13 +7,13 @@ head:
       href: "https://bufbuild.ru/docs/bsr/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/cli/build-systems/gradle/"
+      href: "https://bufbuild.ru/docs/reference/internal-compiler/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/quickstart/"
   - - meta
     - property: "og:title"
-      content: "Overview - Buf Docs"
+      content: "Introduction - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/bsr/index.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Overview - Buf Docs"
+      content: "Introduction - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/bsr/index.png"
@@ -66,11 +66,11 @@ The BSR offers complete documentation for your Protobuf files through a browsabl
 
 ### Remote plugins
 
-The Buf team manages [hosted Protobuf plugins](remote-plugins/overview/) that can be referenced in [`buf.gen.yaml`](../configuration/v2/buf-gen-yaml/#plugins) files. Code generation takes place remotely on the BSR and generated source code is written out to disk.
+The Buf team manages [hosted Protobuf plugins](remote-plugins/) that can be referenced in [`buf.gen.yaml`](../configuration/v2/buf-gen-yaml/#plugins) files. Code generation takes place remotely on the BSR and generated source code is written out to disk.
 
 ### Generated SDKs
 
-The BSR exposes [generated artifacts](generated-sdks/overview/) through managed software repositories you fetch like any other library with tools you already know like `go get`, `npm install`, `mvn`, or `gradle`.
+The BSR exposes [generated artifacts](generated-sdks/) through managed software repositories you fetch like any other library with tools you already know like `go get`, `npm install`, `mvn`, or `gradle`.
 
 ## Why use the BSR?
 
@@ -86,7 +86,7 @@ Since the BSR is a Protobuf-aware registry, it prevents Protobuf files that don'
 
 Sadly, readily consumable _and_ up-to-date documentation is rarely available for Protobuf files. Some organizations setup workflows to generate documentation, but this is yet another manual step that has to be configured and maintained. Furthermore, much of the tooling and plugins are unsupported and generate incomplete documentation.
 
-The BSR comes built-in with [generated documentation](documentation/overview/). You get live documentation for every commit to the BSR. Which means live and up-to-date documentation for latest and historic commits. Even better, the documentation the BSR provides has syntax highlighting, definitions, and references.
+The BSR comes built-in with [generated documentation](documentation/). You get live documentation for every commit to the BSR. Which means live and up-to-date documentation for latest and historic commits. Even better, the documentation the BSR provides has syntax highlighting, definitions, and references.
 
 ### Schemas should be distributed from one place
 

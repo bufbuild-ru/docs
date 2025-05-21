@@ -44,12 +44,12 @@ A few months ago, we added the ability for customers on our Enterprise plan to [
 
 **Today we’re extending the BSR’s ability to manage schema evolution by introducing a new _governance workflow_ which allows administrators to use the BSR to review, approve, and reject commits that introduce breaking changes. This feature is built around developers' existing git workflows, and is a post-merge safeguard to protect downstream consumers against breaking changes:**
 
-- **Ensure breaking changes are reviewed by the right team members:** Commits that introduce breaking changes must be reviewed and approved by a module administrator — even if they've been merged in git upstream — before they are made available to downstream consumers such as generated SDKs, Buf Studio, and reflection APIs ([see our documentation](/docs/bsr/policy-checks/breaking/overview/index.md#downstream)).
+- **Ensure breaking changes are reviewed by the right team members:** Commits that introduce breaking changes must be reviewed and approved by a module administrator — even if they've been merged in git upstream — before they are made available to downstream consumers such as generated SDKs, Buf Studio, and reflection APIs ([see our documentation](/docs/bsr/policy-checks/breaking/index.md#downstream)).
 - **Visibility into breaking changes:** The BSR provides a view that shows which commits contain breaking changes, whether they’ve been reviewed, and what the outcome of the reviews were, providing a paper trail of schema evolution over time.
 - **Safely revert bad changes:** If a breaking change is mistakenly pushed to the BSR, the original offending git commit can be reverted and the BSR will automatically dismiss its review requirement and hide the commit from downstream consumers, thus unblocking the module for development.
 - **Stay on top of reviews:** Reviewers are notified via email and through the new BSR Inbox when a breaking change requires review, and the committer is made aware of changes to their commit’s review status through the same channels.
 
-Additional details can be found in our [documentation](/docs/bsr/policy-checks/breaking/overview/index.md).
+Additional details can be found in our [documentation](/docs/bsr/policy-checks/breaking/index.md).
 
 ## Reviewing commits
 

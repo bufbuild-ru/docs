@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/protovalidate/quickstart/connect-go/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/protovalidate/schemas/compile-with-protoc/"
+      href: "https://bufbuild.ru/docs/protovalidate/quickstart/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/protovalidate/quickstart/grpc-go/"

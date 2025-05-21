@@ -68,10 +68,10 @@ For more details on these plans, please visit our [pricing page](https://buf.bui
 Buf is the only end-to-end developer platform for Protocol Buffers and gRPC, and our customers rely on the BSR to fulfill Protobuf’s promise of fast, safe, and convenient API evolution:
 
 - [Manage Protobuf schemas across repositories](/docs/bsr/module/dependency-management/index.md), leveraging the BSR as the single source of truth
-- Enable teams in your organization to effectively search, discover, and build on APIs independently using [generated documentation](/docs/bsr/documentation/overview/index.md) and built-in dependency management
-- [Generate SDKs from your schemas](/docs/bsr/remote-plugins/overview/index.md), allowing engineers to effectively build APIs and consume generated SDKs via package managers like NPM without having to configure environments or manage plugins and compiler versions
-- [Prevent breaking changes](/docs/breaking/overview/index.md) and enforce best practices, improving system reliability and preventing outages
-- [Host, invoke, and consume custom plugins](/docs/bsr/remote-plugins/overview/index.md), replacing the need for custom Protobuf tooling, processes, and vendoring infrastructure
+- Enable teams in your organization to effectively search, discover, and build on APIs independently using [generated documentation](/docs/bsr/documentation/index.md) and built-in dependency management
+- [Generate SDKs from your schemas](/docs/bsr/remote-plugins/index.md), allowing engineers to effectively build APIs and consume generated SDKs via package managers like NPM without having to configure environments or manage plugins and compiler versions
+- [Prevent breaking changes](/docs/breaking/index.md) and enforce best practices, improving system reliability and preventing outages
+- [Host, invoke, and consume custom plugins](/docs/bsr/remote-plugins/index.md), replacing the need for custom Protobuf tooling, processes, and vendoring infrastructure
 - [Validate and transform dynamic data at runtime](/docs/bsr/reflection/prototransform/index.md), bringing Protobuf to data pipelines and other event-based systems
 
 We’re constantly expanding what the BSR can do. If you have feedback you would like to share, please join the discussion in our [community Slack channel](https://buf.build/b/slack).

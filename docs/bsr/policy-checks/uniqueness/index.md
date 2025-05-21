@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/review-commits/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/csr/overview/"
+      href: "https://bufbuild.ru/docs/bsr/csr/"
   - - meta
     - property: "og:title"
       content: "Uniqueness - Buf Docs"

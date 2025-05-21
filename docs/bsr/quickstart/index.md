@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/repositories/"
+      href: "https://bufbuild.ru/docs/bsr/authentication/"
   - - meta
     - property: "og:title"
       content: "Quickstart - Buf Docs"
@@ -358,7 +358,7 @@ buf.build/USERNAME/common:e1fb01dc1bac43ad9b8ca03b7911834c
 
 ### Add documentation
 
-The BSR auto-generates schema documentation from your Protobuf files, which you can see in your repository at `https://buf.build/USERNAME/common/docs`. You'll add a basic `README` file to describe the module as well. See the [Schema documentation](../documentation/overview/) section for more information on other ways to document your schemas.
+The BSR auto-generates schema documentation from your Protobuf files, which you can see in your repository at `https://buf.build/USERNAME/common/docs`. You'll add a basic `README` file to describe the module as well. See the [Schema documentation](../documentation/) section for more information on other ways to document your schemas.
 
 Create a new `README.md` file in the `common` directory with some basic content:
 
@@ -452,7 +452,7 @@ All's well — you've made a common module that other teams can use, and refacto
 
 ## Use generated SDKs
 
-One way Protobuf beats REST is that it relies on [generated SDKs](../generated-sdks/overview/). Instead of having to manage HTTP requests, anyone wanting to use your Protobuf API can simply download your generated SDK, import it with your URL, and immediately begin using strongly typed, idiomatic code to call your API.
+One way Protobuf beats REST is that it relies on [generated SDKs](../generated-sdks/). Instead of having to manage HTTP requests, anyone wanting to use your Protobuf API can simply download your generated SDK, import it with your URL, and immediately begin using strongly typed, idiomatic code to call your API.
 
 ### Configure SDK generation
 

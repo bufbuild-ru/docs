@@ -85,7 +85,7 @@ Create a GKE standard cluster if you don't already have one. A GKE cluster invol
 If you don't already have one, you need the `Storage Admin` role (`roles/storage.admin`).
 
 ```sh
-gcloud storage buckets create gs://<bucket-name> --project <gcp-project-name>
+gcloud storage buckets create gs://<bucket-name> --project=<gcp-project-name>
 ```
 
 ## Create a CloudSQL instance for PostgreSQL
@@ -96,6 +96,7 @@ Create a new Cloud SQL instance with IAM authentication support:
 
 ```sh
 gcloud sql instances create <instance name> \
+    --project=<gcp-project-name> \
     --storage-size=100 \
     --database-version=POSTGRES_17 \
     --region=<region> \
@@ -109,6 +110,7 @@ Set a password for the `postgres` user:
 
 ```sh
 gcloud sql users set-password postgres \
+    --project=<gcp-project-name> \
     --instance=<instance name> \
     --prompt-for-password
 ```
@@ -117,6 +119,7 @@ Create a database for Bufstream:
 
 ```sh
 gcloud sql databases create bufstream \
+    --project=<gcp-project-name> \
     --instance=<instance name>
 ```
 
@@ -127,8 +130,9 @@ For more details about instance creation, see the [official docs](https://cloud.
 Bufstream needs a dedicated service account. If you don't have one yet, make sure you have the `Service Account Admin` role (`roles/iam.serviceAccountAdmin`) and create a service account:
 
 ```sh
-gcloud iam service-accounts create bufstream-service-account --project <project>
+gcloud iam service-accounts create bufstream-service-account --project=<gcp-project-name>
 gcloud iam service-accounts add-iam-policy-binding bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com \
+    --project=<gcp-project-name> \
     --role roles/iam.workloadIdentityUser \
     --member "serviceAccount:<gcp-project-name>.svc.id.goog[bufstream/bufstream-service-account]"
 ```
@@ -159,7 +163,7 @@ If you have the `Role Administrator` role (`roles/iam.roleAdmin`), you can also 
 
 ```sh
 gcloud iam roles create 'bufstream.gcs' \
-  --project <gcp-project-name> \
+  --project=<gcp-project-name> \
   --permissions \
   storage.objects.create,\
   storage.objects.get,\
@@ -179,11 +183,16 @@ Create a database user for the `bufstream` service account:
 
 ```sh
 gcloud sql users create bufstream-service-account@<gcp-project-name>.iam \
+    --project=<gcp-project-name> \
     --instance=<instance name> \
     --type=cloud_iam_service_account
 ```
 
 Using the [client in the Cloud Shell](https://cloud.google.com/sql/docs/postgres/connect-admin-ip#cloud-shell), connect to the instance via the private IP address (requires Cloud SQL proxy) and execute the following SQL queries to grant the permissions to Bufstream:
+
+::: tip Note
+Ensure these commands are executed against the database in the `gcloud sql databases create` call above and not the `postgres` database.
+:::
 
 ```sql
 GRANT ALL PRIVILEGES ON DATABASE bufstream TO "bufstream-service-account@<gcp-project-name>.iam";
@@ -416,8 +425,8 @@ Create a Bufstream account association for the GCP service account in each zone:
 ```sh
 for ZONE in $ZONES; do
 gcloud iam service-accounts add-iam-policy-binding bufstream-service-account@<gcp-project-name>.iam.gserviceaccount.com \
-    --role roles/iam.workloadIdentityUser \
-    --member "serviceAccount:<gcp-project-name>.svc.id.goog[bufstream/bufstream-service-account-${ZONE}]"
+    --role=roles/iam.workloadIdentityUser \
+    --member="serviceAccount:<gcp-project-name>.svc.id.goog[bufstream/bufstream-service-account-${ZONE}]"
 done
 ```
 

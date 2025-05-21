@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/data-governance/schema-enforcement/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/cluster-recommendations/"
+      href: "https://bufbuild.ru/docs/bufstream/iceberg/quickstart/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bufstream/data-governance/semantic-validation/"
@@ -48,7 +48,7 @@ head:
 
 ## Data quality enforcement
 
-Rather than trusting producers to send valid data, Bufstream can reject messages that don't match the topic's schema. This _guarantees_ that consumers always receive well-formed data, eliminating a large class of data outages. This feature works with binary-encoded Protobuf messages and the Buf Schema Registry (or any other Protobuf registry that supports Confluent's REST API). To associate Protobuf schemas with a Kafka topic in the Buf Schema Registry, follow [the documentation for integrating the BSR with Kafka](../../../bsr/csr/overview/).
+Rather than trusting producers to send valid data, Bufstream can reject messages that don't match the topic's schema. This _guarantees_ that consumers always receive well-formed data, eliminating a large class of data outages. This feature works with binary-encoded Protobuf messages and the Buf Schema Registry (or any other Protobuf registry that supports Confluent's REST API). To associate Protobuf schemas with a Kafka topic in the Buf Schema Registry, follow [the documentation for integrating the BSR with Kafka](../../../bsr/csr/).
 
 ## Self-describing data
 

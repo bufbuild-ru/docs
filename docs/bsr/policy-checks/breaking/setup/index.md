@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/setup/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/overview/"
+      href: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/review-commits/"
@@ -50,7 +50,7 @@ head:
 This feature is only available on the Enterprise plan.
 :::
 
-This page describes how to enable and disable the [breaking change policy check](../overview/) on your private BSR instance. You must be a BSR administrator to access these settings.
+This page describes how to enable and disable the [breaking change policy check](../) on your private BSR instance. You must be a BSR administrator to access these settings.
 
 ## Setup
 

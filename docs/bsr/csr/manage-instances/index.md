@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/csr/manage-instances/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/csr/overview/"
+      href: "https://bufbuild.ru/docs/bsr/csr/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/csr/manage-schemas/"

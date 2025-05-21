@@ -32,7 +32,7 @@ head:
 
 # Introducing the Buf Schema Registry 🎉
 
-Buf's mission is to dramatically improve the experience of developing APIs using [Protocol Buffers](https://github.com/protocolbuffers/protobuf), or **Protobuf** for short. Our first major contribution to the Protobuf ecosystem was the [`buf`](/docs/cli/quickstart/index.md) tool, which enables you to replace complex [`protoc`](https://github.com/protocolbuffers/protobuf) invocations and shell scripts with an intuitive CLI and [YAML](https://yaml.org/)\-based configuration for common actions like [generating code stubs](/docs/generate/tutorial/index.md), detecting [breaking changes](/docs/breaking/overview/index.md), and [linting](/docs/lint/overview/index.md) Protobuf files. Now, we're extremely excited to announce our next major contribution: the **Buf Schema Registry**, or the [BSR](/docs/bsr/index.md), which is officially in **beta**.
+Buf's mission is to dramatically improve the experience of developing APIs using [Protocol Buffers](https://github.com/protocolbuffers/protobuf), or **Protobuf** for short. Our first major contribution to the Protobuf ecosystem was the [`buf`](/docs/cli/quickstart/index.md) tool, which enables you to replace complex [`protoc`](https://github.com/protocolbuffers/protobuf) invocations and shell scripts with an intuitive CLI and [YAML](https://yaml.org/)\-based configuration for common actions like [generating code stubs](/docs/generate/tutorial/index.md), detecting [breaking changes](/docs/breaking/index.md), and [linting](/docs/lint/index.md) Protobuf files. Now, we're extremely excited to announce our next major contribution: the **Buf Schema Registry**, or the [BSR](/docs/bsr/index.md), which is officially in **beta**.
 
 The BSR is a SaaS platform for managing your [Protocol Buffer](https://github.com/protocolbuffers/protobuf) APIs. It provides not just a centralized registry for publishing and sharing modules but also a set of [features](/blog/announcing-bsr/index.md#features) that go above and beyond what you may expect from a schema registry — features that we think could transform not just the Protobuf ecosystem but API development more broadly.
 
@@ -140,7 +140,7 @@ We believe that Protocol Buffers have the potential to transform API development
   - [Maven](https://search.maven.org/) repositories
   - Python packages ([PyPi](https://pypi.org/))
   - Ruby ([RubyGems](https://rubygems.org/))
-- Enforced server-side [linting](/docs/lint/overview/index.md) and compatibility checks
+- Enforced server-side [linting](/docs/lint/index.md) and compatibility checks
 - Fully qualified Protobuf import paths
 - A Protobuf standard library
 - Mock servers for your Protobuf APIs

@@ -4,22 +4,22 @@ description: "Enterprise-grade Kafka and gRPC for the modern age."
 head:
   - - link
     - rel: "canonical"
-      href: "https://bufbuild.ru/docs/bsr/documentation/overview/"
+      href: "https://bufbuild.ru/docs/bsr/documentation/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/csr/kafka-clients/"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-to-buf-action/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/documentation/create-docs/"
   - - meta
     - property: "og:title"
-      content: "Overview - Buf Docs"
+      content: "Document schemas - Buf Docs"
   - - meta
     - property: "og:image"
-      content: "https://buf.build/docs/assets/images/social/bsr/documentation/overview.png"
+      content: "https://buf.build/docs/assets/images/social/bsr/documentation/index.png"
   - - meta
     - property: "og:url"
-      content: "https://bufbuild.ru/docs/bsr/documentation/overview/"
+      content: "https://bufbuild.ru/docs/bsr/documentation/"
   - - meta
     - property: "og:type"
       content: "website"
@@ -34,10 +34,10 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Overview - Buf Docs"
+      content: "Document schemas - Buf Docs"
   - - meta
     - property: "twitter:image"
-      content: "https://buf.build/docs/assets/images/social/bsr/documentation/overview.png"
+      content: "https://buf.build/docs/assets/images/social/bsr/documentation/index.png"
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
@@ -51,8 +51,8 @@ The Buf Schema Registry (BSR) enables five types of documentation for your schem
 - Source code with navigation
 - Module documentation (as a `README.md` file you can include in the module)
 - Package documentation (as a code comment above the `package` declaration in your `.proto` files)
-- API reference documentation for their [generated SDKs](../../generated-sdks/sdk-documentation/#api-reference)
-- Getting started guide for their [generated SDKs](../../generated-sdks/sdk-documentation/)
+- API reference documentation for their [generated SDKs](../generated-sdks/sdk-documentation/#api-reference)
+- Getting started guide for their [generated SDKs](../generated-sdks/sdk-documentation/)
 
 This page covers the three types that are directly included in a module.
 
@@ -62,7 +62,7 @@ The BSR generates documentation for each module, enabling anyone to view the mod
 
 To view the documentation for any BSR module, go to its **Docs** tab:
 
-![Docs tab in main navigation](../../../images/bsr/docs-nav-link.png)
+![Docs tab in main navigation](../../images/bsr/docs-nav-link.png)
 
 To click around an example, see the [`connectrpc/eliza` module](https://buf.build/connectrpc/eliza).
 
@@ -78,12 +78,12 @@ You can do a diff of the schema between any two commits or labels in a BSR repos
 
 When you first go to the module documentation, there are links into each of its packages, and any module documentation that the schema owner has provided.
 
-![Module documentation](../../../images/bsr/docs-generated-module.png)
+![Module documentation](../../images/bsr/docs-generated-module.png)
 
 ## Package documentation
 
 When you click into a package, you see the package docs at the top, an index of the entities categorized by field type on the left, and the entities themselves in the same order on the right:
 
-![Entity documentation](../../../images/bsr/docs-generated-fields.png)
+![Entity documentation](../../images/bsr/docs-generated-fields.png)
 
 Clicking in the index takes you to the referenced item, and you can quickly navigate from the docs to the Protobuf file by clicking the filename on the right side of each entity. Each entity's header also has a unique anchor tag that you can click to copy, enabling you to share a link to the exact item.

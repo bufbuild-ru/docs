@@ -13,7 +13,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/reference/configuration/client-id-options/"
   - - meta
     - property: "og:title"
-      content: "Helm chart - Buf Docs"
+      content: "Helm values - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/bufstream/reference/configuration/helm-values.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Helm chart - Buf Docs"
+      content: "Helm values - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/bufstream/reference/configuration/helm-values.png"
@@ -175,6 +175,14 @@ Defaults to `[]`.
 _list_
 
 Bufstream Deployment Extra environment variables for the bufstream container.
+
+Defaults to `[]`.
+
+### `bufstream.deployment.extraInitContainers`
+
+_list_
+
+Bufstream Deployment Extra init containers for the bufstream deployment.
 
 Defaults to `[]`.
 
@@ -1322,15 +1330,25 @@ iceberg:
     #
     # example_glue:
     #   use: "awsGlue"
-    #   awsGlue:
-    #     # AWS account ID of the AWS Glue Data Catalog. Defaults to the account ID for the IAM user of the workload.
-    #     accountId: ""
-    #     # AWS region. Defaults to the region of the broker's host.
-    #     region: ""
-    #     # Access Key ID to use instead of the metadata server.
-    #     accessKeyId: ""
-    #     # Kubernetes secret containing a `secret_access_key` (as the secret key) to use instead of the metadata server.
-    #     secretName: ""
+    #   # awsGlue:
+    #   #   # AWS account ID of the AWS Glue Data Catalog. Defaults to the account ID for the IAM user of the workload.
+    #   #   accountId: ""
+    #   #   # AWS region. Defaults to the region of the broker's host.
+    #   #   region: ""
+    #   #   # Access Key ID to use instead of the metadata server.
+    #   #   accessKeyId: ""
+    #   #   # Kubernetes secret containing a `secret_access_key` (as the secret key) to use instead of the metadata server.
+    #   #   secretName: ""
+    #
+    # example_bigquery:
+    #   use: "bigQuery"
+    #   # bigQuery:
+    #   #   # Google Cloud project ID of the BigQuery Metastore. Defaults to the current project in which the Bufstream broker is running.
+    #   #   projectId: ""
+    #   #   # Optional location for any BigQuery datasets that are created. Must be present if cloudResourceConnection is present. If absent, datasets cannot be auto-created, so any dataset referenced by an Iceberg table must already exist.
+    #   #   location: ""
+    #   #   # Optional name of a BigQuery Cloud Resource connection (only the simple name, not the full name). Since a BigQuery dataset can only use connections in the same project and location, the full connection name is not necessary.
+    #   #   cloudResourceConnection: ""
     #
 
 # -- connectTLS contains TLS configuration for Control Server which is used for inter-broker communication using Connect protocol.
@@ -1594,6 +1612,8 @@ bufstream:
     affinity: {}
     # -- Bufstream Deployment Tolerations.
     tolerations: []
+    # -- Bufstream Deployment Extra init containers for the bufstream deployment.
+    extraInitContainers: []
     # -- Bufstream Deployment Extra environment variables for the bufstream container.
     extraEnv: []
     # -- Bufstream Deployment Extra volume mounts for the bufstream container.

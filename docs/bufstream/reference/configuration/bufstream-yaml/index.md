@@ -13,7 +13,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/reference/configuration/helm-values/"
   - - meta
     - property: "og:title"
-      content: "Bufstream configuration files - Buf Docs"
+      content: "bufstream.yaml - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/bufstream/reference/configuration/bufstream-yaml.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Bufstream configuration files - Buf Docs"
+      content: "bufstream.yaml - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/bufstream/reference/configuration/bufstream-yaml.png"
@@ -112,37 +112,11 @@ _bool_
 
 If true, the broker will run migrations for the metadata storage on startup.
 
-Only one broker per cluster should have this option enabled.
-
 ### `storage`
 
 _[`StorageConfig`](#buf.bufstream.config.v1alpha1.StorageConfig)_
 
 The data storage configuration.
-
-### `dispatch`
-
-_[`DispatchConfig`](#buf.bufstream.config.v1alpha1.DispatchConfig)_
-
-Configuration for dispatching of requests and data flow between brokers.
-
-### `intake`
-
-_[`IntakeConfig`](#buf.bufstream.config.v1alpha1.IntakeConfig)_
-
-Configuration for intake and processing of produced data.
-
-### `cache`
-
-_[`CacheConfig`](#buf.bufstream.config.v1alpha1.CacheConfig)_
-
-Configuration for caches maintained by the broker.
-
-### `archive`
-
-_[`ArchiveConfig`](#buf.bufstream.config.v1alpha1.ArchiveConfig)_
-
-Configuration for archiving and compaction performed by the broker.
 
 ### `kafka`
 
@@ -156,19 +130,11 @@ _[`DataEnforcementConfig`](#buf.bufstream.config.v1alpha1.DataEnforcementConfig)
 
 Configuration for data enforcement via schemas of records flowing in and out of the broker.
 
-### `iceberg_integration`
+### `iceberg`
 
-_[`IcebergIntegrationConfig`](#buf.bufstream.config.v1alpha1.IcebergIntegrationConfig)_
+_[`IcebergConfig`](#buf.bufstream.config.v1alpha1.IcebergConfig)_
 
 Configuration for Iceberg integration, for exposing Kafka topics as tables in Apache Iceberg v2 format.
-
-### `available_memory_bytes`
-
-_uint64_
-
-The maximum amount of memory bufstream should consider usable.
-
-By default this is expected to be 4GiB per vCPU, as determined at startup. The configured value is not a hard limit, and is used to influence the default sizes of various caches. Explicitly setting a cache size elsewhere overrides any settings derived from this value.
 
 ### `labels`
 
@@ -186,22 +152,6 @@ The address to listen on for inter-broker Connect RPCs.
 
 By default, brokers bind to a random, available port on localhost.
 
-### `connect_public_address`
-
-_[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)_
-
-The public address advertised to other brokers.
-
-This field should only be set if different from `connect_address`.
-
-### `connect_tls`
-
-_[`ConnectTlsConfig`](#buf.bufstream.config.v1alpha1.ConnectTlsConfig)_
-
-The TLS configuration for inter-broker Connect RPCs.
-
-By default TLS is not used.
-
 ### `admin_address`
 
 _[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)_
@@ -213,38 +163,6 @@ The address to listen on for Admin RPCs.
 _[`TLSListenerConfig`](#buf.bufstream.config.v1alpha1.TLSListenerConfig)_
 
 If populated, enables and enforces TLS termination on the Admin RPCs server.
-
-### `connect_http_version`
-
-_[`ConnectHttpVersion`](#buf.bufstream.config.v1alpha1.ConnectHttpVersion)_
-
-The HTTP version to use for inter-broker Connect RPCs.
-
-By default, HTTP/1.1 is used.
-
-### `connect_isolation`
-
-_bool_
-
-Whether inter-broker Connect clients should be unique for reads and writes.
-
-Disabled by default. Recommended when using HTTP/2 in `connect_http_version`.
-
-### `record_expiry_delay_max`
-
-_duration_
-
-How often to scan all owned partitions to (try to) delete expired records.
-
-Defaults to 6h.
-
-### `fetch_sync_group_count`
-
-_int32_
-
-The number of 'groups' to cluster fetchers into for synchronization at the same log append time.
-
-Dynamically configurable as `bufstream.fetch.sync.group.count`.
 
 ### `data_dir`
 
@@ -267,18 +185,6 @@ Configuration for observability primitives
 _[`Level`](#buf.bufstream.log.v1alpha1.Log.Level)_
 
 log level, defaults to INFO
-
-#### `log_format`
-
-_[`Format`](#buf.bufstream.log.v1alpha1.Log.Format)_
-
-log format, defaults to TEXT when connected to a terminal, otherwise JSON.
-
-#### `log_git_version`
-
-_bool_
-
-If set, include "version=" in log output.
 
 #### `metrics`
 
@@ -321,20 +227,6 @@ _list<[`HostPort`](#buf.bufstream.net.v1alpha1.HostPort)\>_
 The etcd node addresses.
 
 Currently, Bufstream assumes no path-prefix when connecting to the etcd cluster.
-
-#### `session_ttl_seconds`
-
-_int32_
-
-The amount of time an etcd node can be unreachable before it is considered down.
-
-After this TTL, the broker's presence in the cluster is essentially lost. Currently, the broker will shutdown if this TTL is exceeded.
-
-#### `tls`
-
-_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig)_
-
-TLS configuration options for connecting to etcd. The empty value of this message means connecting to etcd cluster without TLS.
 
 ### `PostgresConfig`
 
@@ -460,356 +352,6 @@ Specifies the AWS secret access key for authentication to the bucket.
 
 By default, authentication is performed using the metadata service of the broker's host. If set, `access_key_id` must also be provided.
 
-#### `session_token`
-
-_[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)_
-
-Specifies the AWS session token when using AWS temporary credentials to access the storage bucket. Omit when not using temporary credentials.
-
-Temporary credentials are not recommended for production workloads, but can be useful in development and test environments to authenticate local processes with remote AWS resources.
-
-This value should only be present when `access_key_id` and `secret_access_key` are also set.
-
-#### `get_hedge_delay`
-
-_duration_
-
-How long before a GET request to the data storage provider is hedged with an additional request.
-
-Hedging improves p99 performance of requests to the storage provider. Defaults to 250ms.
-
-#### `debug_logging`
-
-_[`Level`](#buf.bufstream.log.v1alpha1.Log.Level)_
-
-Enables data storage debug logging at the specified level.
-
-This level must be equal to or higher than the level specified in `observability.log_level`.
-
-#### `put_hedge_delay`
-
-_duration_
-
-Enables hedging of PUT requests to the data storage provider with the specified delay.
-
-Hedging of PUT requests should only be hedged for S3 and GCS providers.
-
-#### `write_isolation`
-
-_bool_
-
-If writes should use the same clients as reads.
-
-By default, different clients are used between reads and writes.
-
-### `DispatchConfig`
-
-Configuration options specific to request dispatching and data flow between brokers.
-
-Dispatch controls Bufstream `<->` Bufstream communication and is used to improve the efficiency of a Bufstream cluster by fanning in requests for the same data to shared 'authoritative' brokers. For example, setting all `local_*` options to false, disables all Bufstream `<->` Bufstream communication.
-
-#### `local_intake_cache`
-
-_bool_
-
-Whether the intake cache should be handled separately by each broker or dispatched to shared brokers.
-
-#### `local_produce`
-
-_bool_
-
-Whether calls to produce records should be handled separately by each broker or dispatched to shared brokers.
-
-#### `local_fetch_recent`
-
-_bool_
-
-Whether calls to fetch recent records should be handled separately by each broker or dispatched to shared brokers.
-
-#### `local_fetch_archive`
-
-_bool_
-
-Whether calls to fetch archive records should be handled separately by each broker or dispatched to shared brokers.
-
-#### `unavailable_retry_count`
-
-_int32_
-
-The number of retry attempts to make when an Unavailable error is encountered.
-
-When N, N retries, N+1 attempts in total.
-
-### `IntakeConfig`
-
-Configuration options specific to intake and processing of produced data.
-
-#### `delay_max`
-
-_duration_
-
-The maximum delay to wait before writing an intake file.
-
-Dynamically configurable as `bufstream.intake.delay.max.ms`.
-
-#### `delay_max_bytes`
-
-_int64_
-
-The maximum number of bytes to enqueue before writing an intake file.
-
-Dynamically configurable as `bufstream.intake.delay.max.bytes`.
-
-#### `txn_timeout_max`
-
-_duration_
-
-The maximum timeout for all transactions.
-
-#### `txn_timeout_default`
-
-_duration_
-
-The default timeout for a new transactions.
-
-#### `log_append_time_difference_max`
-
-_duration_
-
-The maximum difference between intake write time and log append time.
-
-Dynamically configurable as `bufstream.intake.log.append.time.difference.max.ms`.
-
-#### `recent_sequence_eager`
-
-_bool_
-
-Whether recent messages should be sequenced actively.
-
-When true, recent messages will be sequenced as soon as they are available. When false, recent messages will be sequenced only when requested.
-
-#### `producer_id_batch_size`
-
-_int32_
-
-How many producer IDs a Bufstream process reserves at a time.
-
-#### `file_delete_delay_max`
-
-_duration_
-
-How often to scan all intake files to (try to) delete old files.
-
-#### `write_through_cache`
-
-_bool_
-
-Whether intake entries should be written through the cache.
-
-#### `write_stream`
-
-_bool_
-
-Whether intake entries should be streamed when written.
-
-#### `write_stream_chunk_bytes`
-
-_int32_
-
-The maximum number of bytes to write in a single intake write stream chunk.
-
-#### `shelf_msg_max`
-
-_int32_
-
-The maximum number of recent messages to shelve in at a time.
-
-#### `recent_msg_min`
-
-_int32_
-
-The minimum number of recent messages to keep for each topic/partition.
-
-#### `end_txn_skew_max`
-
-_duration_
-
-The maximum amount of time an end transaction request can appear to come _before_ the last modification to the transaction.
-
-#### `end_txn_revision_check`
-
-_bool_
-
-Whether to record the revision that the end transaction request was started at and to fail the request if the transaction changed while active since then.
-
-#### `sequence_delay_max`
-
-_duration_
-
-The maximum delay to wait before sequencing a message.
-
-#### `default_sequence_shard_count`
-
-_int32_
-
-The default number of sequence shards to use for new clusters.
-
-### `CacheConfig`
-
-Configuration options specific to the cache behavior of the broker.
-
-#### `intake_max_bytes`
-
-_int64_
-
-The maximum number of intake file bytes to keep in memory.
-
-#### `intake_load_max`
-
-_int32_
-
-The maximum number of intake files to load concurrently.
-
-No limit is enforced when set to 0.
-
-#### `shelf_max_bytes`
-
-_int64_
-
-The maximum number of shelf bytes to keep in memory.
-
-#### `archive_max_bytes`
-
-_int64_
-
-The maximum number of archive log entry bytes to keep in memory.
-
-#### `fetch_record_max_bytes`
-
-_int64_
-
-The maximum number of record bytes fetched from recent or shelf messages to keep in memory.
-
-#### `kafka_fetch_eager_max_bytes`
-
-_int64_
-
-The maximum number of record bytes to keep in memory for eagerly fetched records.
-
-#### `producer_max`
-
-_int32_
-
-The maximum number of producers tracked per topic/partition. (May be exceeded due to other constraints.)
-
-Each topic/partition tracks the sequence number and transaction state for each producer writing to it.
-
-The sequence number may be forgotten for the least-recently-used producer, when this limit is exceeded.
-
-#### `topic_max`
-
-_int32_
-
-The maximum number of topics to keep in memory.
-
-### `ArchiveConfig`
-
-Configuration options specific to the archiving of the broker.
-
-#### `min_bytes`
-
-_int64_
-
-Determines when to start writing an archive for any topart.
-
-When -1, no archive ever starts. When 0, an archive starts as soon as a shelf write is detected (see start_delay_max) or a previous archive completes (unless the topic/partition was idle). When >0, an archive starts once the accumulation of that many bytes is detected (see start_delay_max) in the shelves.
-
-An archive completes when:
-
-- It contains more than `max_bytes` (at a suitable data boundary).
-- No new records are produced for `idle_max`. (The topic/partition is idle.)
-- The archive is `complete_delay_max` old.
-
-Dynamically configurable as `bufstream.archive.min.bytes`.
-
-#### `max_bytes`
-
-_int64_
-
-The maximum size of an archive.
-
-Actually the threshold after which an archive is completed.
-
-Dynamically configurable as `bufstream.archive.max.bytes`.
-
-#### `start_delay_max`
-
-_duration_
-
-How often to check a topic/partition to start a new archive.
-
-#### `complete_delay_max`
-
-_duration_
-
-The maximum time before an archive upload is completed.
-
-Dynamically configurable as `bufstream.archive.complete.delay.max.ms`.
-
-#### `idle_max`
-
-_duration_
-
-The duration to wait for more data before completing an archive.
-
-When 0, an archive completes as soon as there are no more records to archive. When >0, an archive completes after waiting this duration with no new records.
-
-Dynamically configurable as `bufstream.archive.idle.max.ms`.
-
-#### `concurrent_max`
-
-_int32_
-
-The maximum number of topic/partitions to archive at once.
-
-When unset (or 0), the default limit is used. When -1, no limit is enforced. When >0, only that many topic/partitions are archived at once per broker.
-
-#### `fetch_sync`
-
-_bool_
-
-Whether archive fetches should be synchronized to read at the same log append time.
-
-Dynamically configurable as `bufstream.archive.fetch.sync`.
-
-#### `fetch_max_batches`
-
-_int32_
-
-The maximum number of batches to fetch from an archive in a single request, per topic/partition.
-
-When set to 0, no maximum is enforced. When set to -1, no maximum is enforced _and_ batches entirely before the requested offset may be returned by the server for performance reasons. These batches are ignored by the client.
-
-#### `follow_active`
-
-_bool_
-
-Whether archive creation should try to read/write from the last active zone.
-
-The last active zone is the zone that most recently read the topic/partition. Or is no zone has read the topic/partition, the zone that most recently wrote to it.
-
-#### `default_log_level`
-
-_[`Level`](#buf.bufstream.log.v1alpha1.Log.Level)_
-
-The default log level for background archive operations.
-
-#### `parquet_partition_granularity`
-
-_[`PartitionGranularity`](#buf.bufstream.config.v1alpha1.ArchiveConfig.PartitionGranularity)_
-
-The granularity of partitions for Parquet files. Parquet files will be organized into a directory hierarchy to enable efficient pruning for time-based queries (compatible with Hive-style partitioning). The partitions are based on the ingestion timestamp. If unspecified, the default granularity is daily. Using a coarser granularity (i.e. monthly) is useful for low-volume topics, to enable reasonably large files (query systems generally prefer to operate on fewer, larger files instead of many small files). Finer granularity (i.e. hour) is for topics that are both high-volume and where queries are expected to frequently filter on intra-day timestamps.
-
 ### `KafkaConfig`
 
 Configuration options specific to the broker's Kafka interface
@@ -844,12 +386,6 @@ When false, fetch wait for every topic/partition to be queried. When true, fetch
 
 Dynamically configurable as `bufstream.kafka.fetch.eager`.
 
-#### `fetch_eager_offset_strategy`
-
-_[`FetchEagerOffsetStrategy`](#buf.bufstream.config.v1alpha1.KafkaConfig.FetchEagerOffsetStrategy)_
-
-The strategy to use when no data is available for a topic partition.
-
 #### `fetch_sync`
 
 _bool_
@@ -882,30 +418,6 @@ How to balance topic/partitions across bufstream brokers.
 
 Dynamically configurable as `bufstream.kafka.partition.balance.strategy`.
 
-#### `request_buffer_size`
-
-_uint32_
-
-The number of Kafka requests to unmarshal and buffer before processing.
-
-Defaults to 5.
-
-#### `idle_timeout`
-
-_duration_
-
-How long a Kafka connection can be idle before being closed by the server.
-
-If set a value less than or equal to zero, the timeout will be disabled.
-
-#### `request_timeout`
-
-_duration_
-
-The maximum amount of time to wait for a Kafka request to complete.
-
-If set a value less than or equal to zero, the default timeout will be used.
-
 #### `num_partitions`
 
 _int32_
@@ -913,87 +425,6 @@ _int32_
 The default number of partitions to use for a new topic.
 
 Dynamically configurable as `num.partitions`.
-
-#### `exact_log_sizes`
-
-_bool_
-
-If exact log sizes should be fetched when listing sizes for all topics/partitions.
-
-#### `exact_log_offsets`
-
-_bool_
-
-If exact log high water mark and start offsets should be computed when fetching records.
-
-#### `distinct_hosts`
-
-_bool_
-
-If the casing of hostnames should be randomized per 'broker'.
-
-#### `wait_for_latest`
-
-_bool_
-
-If 'broker' should ensure a topic/partition is fully loaded before serving.
-
-#### `group_consumer_session_timeout`
-
-_duration_
-
-The default group consumer session timeout.
-
-Dynamically configurable as `group.consumer.session.timeout.ms`.
-
-#### `group_consumer_session_timeout_min`
-
-_duration_
-
-The minimum group consumer session timeout.
-
-Dynamically configurable as `group.consumer.min.session.timeout.ms`.
-
-#### `group_consumer_session_timeout_max`
-
-_duration_
-
-The maximum group consumer session timeout.
-
-Dynamically configurable as `group.consumer.max.session.timeout.ms`.
-
-#### `shutdown_grace_period`
-
-_duration_
-
-The grace period to allow clients before shutting down.
-
-#### `producer_request_timeout`
-
-_duration_
-
-The maximum period to wait for a producer RPC to complete.
-
-This includes:
-
-- Produce
-- EndTxn
-
-Set lower than `request.timeout.ms` to mitigate race conditions in some clients that erroneously assume a timeout means the request was not processed.
-
-#### `default_broker_count`
-
-_int32_
-
-The default number of brokers to report to clients.
-
-When set to zero, each bufstream broker is reported as a broker.
-
-#### `group_consumer_offset_update_concurrent_max`
-
-_int32_
-
-The maximum number of consumer group offset updates to process concurrently.
 
 #### `authentication`
 
@@ -1023,7 +454,7 @@ _list<[`DataEnforcementPolicy`](#buf.bufstream.config.v1alpha1.DataEnforcementPo
 
 Policies to attempt to apply to fetch responses. The first policy that matches the topic will be used. If none match, no data enforcement will occur.
 
-### `IcebergIntegrationConfig`
+### `IcebergConfig`
 
 Configuration of Iceberg integration settings, for archiving Kafka topic data to Iceberg tables.
 
@@ -1048,26 +479,6 @@ A hostname or IP address to connect to or listen on.
 _uint32_
 
 The associated port. If unspecified, refer to the field documentation for default behavior.
-
-### `ConnectTlsConfig`
-
-#### `server_name`
-
-_string_
-
-The server name clients should use for TLS verification when connecting to this ConnectRPC server. If unset, the listener address will be used.
-
-#### `server`
-
-_[`TLSListenerConfig`](#buf.bufstream.config.v1alpha1.TLSListenerConfig) (required)_
-
-Enables and enforces TLS termination on the Connect server.
-
-#### `client`
-
-_[`TLSDialerConfig`](#buf.bufstream.config.v1alpha1.TLSDialerConfig) (required)_
-
-The TLS client configuration options for connecting to the other Bufstream brokers in the cluster.
 
 ### `TLSListenerConfig`
 
@@ -1120,12 +531,6 @@ This url path used by the OTLP_HTTP exporter, this defaults to "/v1/metrics". Th
 _bool_
 
 If set to true, TLS is disabled for the OTLP exporter.
-
-#### `enable_internal_metrics`
-
-_bool_
-
-Whether to emit `bufstream.internal.*` metrics.
 
 #### `enable_labels`
 
@@ -1200,28 +605,6 @@ The default base address used by OTLP_HTTP and OTLP_GRPC exporters, with a host 
 _bool_
 
 If set to true, TLS is disabled for the OTLP exporter. This can be overwritten by metrics.insecure or traces.insecure.
-
-### `TLSDialerConfig`
-
-TLSDialerConfig is TLS/SSL configuration options for clients. The empty value of this message is a valid configuration for most applications.
-
-#### `certificate`
-
-_[`Certificate`](#buf.bufstream.config.v1alpha1.Certificate)_
-
-Certificate to present if client certificate verification is enabled on the server (i.e., mTLS).
-
-#### `insecure_skip_verify`
-
-_bool_
-
-Controls whether a client verifies the server's certificate chain and host name. If true, the dialer accepts any certificate presented by the server and host name in that certificate. In this mode, TLS is susceptible to machine-in-the-middle attacks and should only be used for testing.
-
-#### `root_cas`
-
-_list<[`DataSource`](#buf.bufstream.config.v1alpha1.DataSource)\>_
-
-The PEM-encoded root certificate authorities used by the client to validate the server certificates. If empty, the host's root CA set is used.
 
 ### `DataSource`
 
@@ -1413,25 +796,25 @@ Configuration for metrics aggregation, taking precedence over sensitive informat
 
 _bool_
 
-Aggregate metrics across all topics to avoid cardinality issues with clusters with a large number of topics. Metrics that support this aggregation will report the 'kafka.topic.name' attribute as '_all_topics_'. NOTE: This implies partitions aggregation, which omits metrics like 'bufstream.kafka.topic.partition.offset.high_water_mark'.
+Aggregate metrics across all topics to avoid cardinality issues with clusters with a large number of topics. Metrics that support this aggregation will report the `kafka.topic.name` attribute as `_all_topics_`. NOTE: This implies partitions aggregation, which omits metrics like `bufstream.kafka.topic.partition.offset.high_water_mark`.
 
 #### `partitions`
 
 _bool_
 
-Aggregate metrics across all partitions to avoid cardinality issues with clusters with a large number of partitions. Metrics that support aggregation will report the 'kafka.partition.id' attribute as -1, while some metrics, such as 'bufstream.kafka.topic.partition.offset.high_water_mark' will be omitted if partition level aggregation is enabled.
+Aggregate metrics across all partitions to avoid cardinality issues with clusters with a large number of partitions. Metrics that support aggregation will report the `kafka.partition.id` attribute as -1, while some metrics, such as `bufstream.kafka.topic.partition.offset.high_water_mark` will be omitted if partition level aggregation is enabled.
 
 #### `consumer_groups`
 
 _bool_
 
-Aggregate metrics across all consumer groups to avoid cardinality issues with clusters with a large number of groups. Metrics that support aggregation will report the 'kafka.consumer.group.id' as '_all_groups_', while some metrics such as 'bufstream.kafka.consumer.group.generation' will be omitted if consumer group level aggregation is enabled.
+Aggregate metrics across all consumer groups to avoid cardinality issues with clusters with a large number of groups. Metrics that support aggregation will report the `kafka.consumer.group.id` as `_all_groups_`, while some metrics such as `bufstream.kafka.consumer.group.generation` will be omitted if consumer group level aggregation is enabled.
 
 #### `principal_ids`
 
 _bool_
 
-Aggregate metrics across all authentication principals to avoid cardinality issues with clusters with a large number of principals. Metrics that support aggregation will report the 'authentication.principal*id' as '\_all_principal_ids*'.
+Aggregate metrics across all authentication principals to avoid cardinality issues with clusters with a large number of principals. Metrics that support aggregation will report the `authentication.principal_id` as `_all_principal_ids_`.
 
 ### `SASLConfig`
 
@@ -1741,6 +1124,16 @@ _string_
 
 If provided, will match the 'iss' claim to this value.
 
+### `TLSDialerConfig`
+
+TLSDialerConfig is TLS/SSL configuration options for clients. The empty value of this message is a valid configuration for most applications.
+
+#### `insecure_skip_verify`
+
+_bool_
+
+Controls whether a client verifies the server's certificate chain and host name. If true, the dialer accepts any certificate presented by the server and host name in that certificate. In this mode, TLS is susceptible to machine-in-the-middle attacks and should only be used for testing.
+
 ### `BasicAuth`
 
 Basic Authentication username/password pair.
@@ -1887,18 +1280,6 @@ _uint32_
 
 ## Enums
 
-### `ConnectHttpVersion`
-
-HTTP version options used by ConnectRPC clients.
-
-#### `CONNECT_HTTP_VERSION_1_1`
-
-HTTP/1.1
-
-#### `CONNECT_HTTP_VERSION_2_0`
-
-HTTP/2
-
 ### `Level`
 
 #### `DEBUG`
@@ -1908,12 +1289,6 @@ HTTP/2
 #### `WARN`
 
 #### `ERROR`
-
-### `Format`
-
-#### `TEXT`
-
-#### `JSON`
 
 ### `Redaction`
 
@@ -1954,36 +1329,6 @@ This option should only be used for testing purposes.
 #### `AZURE`
 
 Azure Blob Storage
-
-### `PartitionGranularity`
-
-The granularity of time-based partitioning of Parquet files.
-
-#### `MONTHLY`
-
-Files will be partitioned into yearly and monthly directories. E.g.: year=2025/month=1
-
-#### `DAILY`
-
-Files will be partitioned into yearly, monthly, and daily directories. E.g.: year=2025/month=1/day=15
-
-#### `HOURLY`
-
-Files will be partitioned into yearly, monthly, daily, and hourly directories. E.g.: year=2025/month=1/day=15/hour=23
-
-### `FetchEagerOffsetStrategy`
-
-#### `FETCH_EAGER_OFFSET_STRATEGY_FAKE`
-
-Return fake offsets when no data is available.
-
-#### `FETCH_EAGER_OFFSET_STRATEGY_CACHE`
-
-Recturn cached offsets when no data is available.
-
-#### `FETCH_EAGER_OFFSET_STRATEGY_LATEST`
-
-Return latest offsets when no data is available.
 
 ### `BalanceStrategy`
 

@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/ci-cd/github-actions/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/remote-plugins/overview/"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-to-buf-action/"
   - - meta
     - property: "og:title"
       content: "Other tools - Buf Docs"
@@ -141,7 +141,7 @@ Also valid:
 buf breaking proto --against "ssh://git@github.com/<your-org>/<your-repo>.git#branch=main,subdir=proto"
 ```
 
-If you are on [TravisCI](https://travis-ci.org) or [CircleCI](https://circleci.com) they don't clone any branches outside of the one being tested, so this enables the Buf CLI to clone using the remote and run the [breaking change detector](../../../breaking/overview/).
+If you are on [TravisCI](https://travis-ci.org) or [CircleCI](https://circleci.com) they don't clone any branches outside of the one being tested, so this enables the Buf CLI to clone using the remote and run the [breaking change detector](../../../breaking/).
 
 ## Handling concurrent non-breaking changes
 

@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/iceberg/configuration/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/kafka-compatibility/configure-clients/"
+      href: "https://bufbuild.ru/docs/bufstream/observability/"
   - - meta
     - property: "og:title"
       content: "Reference - Buf Docs"
@@ -48,7 +48,7 @@ head:
 
 ## Intake and archive
 
-Bufstream stores topic data in archive files in object storage. Before data is archived by Bufstream it enters the system as an intake file. Intake files include messages from any number of topics and partitions and are grouped according to a time boundary. If you are using transactions, intake files will also include uncommitted messages. Intake files are refined into archives per the configured [delay](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.ArchiveConfig) values. Once intake files are refined into archives, each archive file will contain committed messages for a single topic partition.
+Bufstream stores topic data in archive files in object storage. Before data is archived by Bufstream it enters the system as an intake file. Intake files include messages from any number of topics and partitions and are grouped according to a time boundary. If you are using transactions, intake files will also include uncommitted messages. Intake files are refined into archive files, with each archive file containing committed messages for a single topic partition.
 
 When the specified archive format is `iceberg`, Bufstream will also update the configured Iceberg catalog when it publishes an archive to sync the new data file to the table's metadata. The catalog update process is performed synchronously. If the catalog update fails, it is addressed later via a reconciliation process.
 
@@ -58,7 +58,7 @@ At the start of each archiving job, Bufstream queries the configured schema regi
 
 From the computed Iceberg schema, Bufstream derives a Parquet schema that is used to write the data files. Bufstream synthesizes elements from the Protobuf data to map it to Parquet column values. At this time, Bufstream does not support customizing the name of Iceberg or Parquet field types via the use of Protobuf options. Transformations are only available for Protobuf encoded data.
 
-## Table Schema
+## Table schema
 
 Because the archived Parquet files are used by Bufstream to serve Kafka subscribers, the schema for these files and for the corresponding Iceberg table includes additional metadata in order to reconstruct the stream data.
 
@@ -138,7 +138,7 @@ _int64_
 
 This field identifies the first offset in the batch that contained this record. The system can preserve the grouping when reconstructing the batches to send to Kafka consumers.
 
-## Memory and Performance
+## Memory and performance
 
 Enabling Bufstream's Iceberg integration may result in higher read latency (particularly for consumers that are lagging) and memory usage as a result of the additional broker and reconciliation processes needed to transform data, archive Parquet files, and read from and update Iceberg catalogs.
 
@@ -146,4 +146,4 @@ To maintain Iceberg table freshness and consistency, we recommend adjusting the 
 
 The above adjustments decrease the latency in getting data into the source Iceberg table in the face of temporary errors, like a momentary network partition or outage of the Iceberg catalog. In particular, the reconciliation process (when a synchronous catalog update fails) happens on the same schedule as compaction and cleaning.
 
-Because Bufstream doesn't currently compact Iceberg topics, this process isn't designed to improve query performance. Without regular compaction, there's a tradeoff between the latency of getting records into the Iceberg table vs. query performance. Configuring larger `max_bytes`, `complete_delay_max`, and `idle_max` values in [archive configuration](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.ArchiveConfig) increases the latency between a record being published to Bufstream and it being added to the Iceberg table, but the underlying Parquet data files will be larger and improve query performance for the Iceberg table.
+Because Bufstream doesn't currently compact Iceberg topics, this process isn't designed to improve query performance. Without regular compaction, there's a tradeoff between the latency of getting records into the Iceberg table vs. query performance.

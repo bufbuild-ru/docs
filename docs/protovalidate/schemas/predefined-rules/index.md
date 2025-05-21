@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/protovalidate/schemas/custom-rules/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/protovalidate/schemas/compile-with-protoc/"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc-gen-validate/"
   - - meta
     - property: "og:title"
       content: "Predefined rules - Buf Docs"

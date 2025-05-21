@@ -48,8 +48,8 @@ head:
 
 Buf provides official support for the [Bazel](https://bazel.build) build tool with [`rules_buf`](https://github.com/bufbuild/rules_buf), which enables you to:
 
-- [Lint](../../../lint/overview/) Protobuf sources using the [`buf_lint_test`](#buf-lint-test) rule.
-- Perform [breaking change detection](../../../breaking/overview/) for Protobuf [Inputs](../../../reference/inputs/) using the [`buf_breaking_test`](#buf-breaking-test) rule.
+- [Lint](../../../lint/) Protobuf sources using the [`buf_lint_test`](#buf-lint-test) rule.
+- Perform [breaking change detection](../../../breaking/) for Protobuf [Inputs](../../../reference/inputs/) using the [`buf_breaking_test`](#buf-breaking-test) rule.
 - Use the [Gazelle](#gazelle) extension to generate Bazel rules.
 
 ## Setup
@@ -436,7 +436,7 @@ bazel query 'kind(buf_lint_test, //...)'
 
 ### Breaking change detection
 
-To run [breaking change detection](../../../breaking/overview/) against Protobuf sources, you need to add a Gazelle [directive](https://github.com/bazelbuild/bazel-gazelle#directives) that points to an [Image](../../../reference/images/) target to generate breaking change detection rules. Gazelle directives are top-level comments in Bazel [`BUILD` files](https://docs.bazel.build/versions/main/build-ref.html#BUILD_files) that provide Gazelle with configuration.
+To run [breaking change detection](../../../breaking/) against Protobuf sources, you need to add a Gazelle [directive](https://github.com/bazelbuild/bazel-gazelle#directives) that points to an [Image](../../../reference/images/) target to generate breaking change detection rules. Gazelle directives are top-level comments in Bazel [`BUILD` files](https://docs.bazel.build/versions/main/build-ref.html#BUILD_files) that provide Gazelle with configuration.
 
 See the [Image inputs](#image-input) section for instructions on maintaining image files themselves.
 

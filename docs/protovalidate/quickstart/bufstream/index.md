@@ -10,10 +10,10 @@ head:
       href: "https://bufbuild.ru/docs/protovalidate/quickstart/grpc-python/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/protovalidate/cel/"
+      href: "https://bufbuild.ru/docs/protovalidate/schemas/standard-rules/"
   - - meta
     - property: "og:title"
-      content: "Kafka quickstart - Buf Docs"
+      content: "Kafka - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/protovalidate/quickstart/bufstream.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Kafka quickstart - Buf Docs"
+      content: "Kafka - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/protovalidate/quickstart/bufstream.png"
@@ -44,7 +44,7 @@ head:
 
 ---
 
-# Using Protovalidate in Kafka with Bufstream
+# Protovalidate in Kafka with Bufstream
 
 This quickstart shows how to add Protovalidate to a Go streaming application powered by [Bufstream](../../../bufstream/):
 
@@ -149,7 +149,7 @@ This quickstart uses the example in `bufstream/start`. All filenames are relativ
 
 This project's `Makefile` provides targets for downloading and running the Bufstream broker and the included Go-based producer and consumer applications.
 
-One item to note is that producer and consumer targets both specify Kafka targets, groups, and [Buf Schema Registry (BSR)-based Confluent Schema Registry](../../../bsr/csr/overview/) URLs. When using Protovalidate in your own Bufstream-based Kafka applications, they should be configured for your equivalents.
+One item to note is that producer and consumer targets both specify Kafka targets, groups, and [Buf Schema Registry (BSR)-based Confluent Schema Registry](../../../bsr/csr/) URLs. When using Protovalidate in your own Bufstream-based Kafka applications, they should be configured for your equivalents.
 
 ::: info Makefile producer target
 

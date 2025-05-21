@@ -7,13 +7,13 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/subscription/faq/"
+      href: "https://bufbuild.ru/docs/bsr/reflection/prototransform/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bufstream/quickstart/"
   - - meta
     - property: "og:title"
-      content: "Overview - Buf Docs"
+      content: "Introduction - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/bufstream/index.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Overview - Buf Docs"
+      content: "Introduction - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/bufstream/index.png"

@@ -64,7 +64,7 @@ Adhere to the following best practices to avoid issues in your generated code re
 2.  Always organize your Protobuf files into a directory structure that mirrors the package name.
 3.  Always import a file using the same path that was used to compile that file.
 
-A highly recommended practice is to [lint](../../lint/overview/) your schemas as part of CI verification. In fact, most of the above best practices are already enforced by the Buf CLI’s lint rules!
+A highly recommended practice is to [lint](../../lint/) your schemas as part of CI verification. In fact, most of the above best practices are already enforced by the Buf CLI’s lint rules!
 
 ## Packages
 
@@ -126,7 +126,7 @@ Within a single service, you might create sub-packages for orthogonal functions.
 
 Avoid including parts of your org chart — like team names — in the package. Attributes like these can change over time, and ownership over particular parts of the codebase can also change over time. So it’s better to use names or descriptive words that are unlikely to change.
 
-## File Paths
+## File paths
 
 If you compile a file using a very short path, like `util.proto`, it's possible that another user may use the exact same path to compile their unrelated file. Just like above, this _might be_ fine — until you start integrating with code whose author made a similar conflicting choice.
 

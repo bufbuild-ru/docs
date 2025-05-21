@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/integrations/akhq/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/observability/grafana/"
+      href: "https://bufbuild.ru/docs/bufstream/kafka-compatibility/conformance/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bufstream/integrations/redpanda-console/"

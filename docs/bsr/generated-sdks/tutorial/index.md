@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/generated-sdks/tutorial/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/generated-sdks/overview/"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/generated-sdks/sdk-documentation/"
@@ -109,46 +109,27 @@ You can pin the SDK to a specific plugin version by going to the **Version** dro
 
 ## Download an archive
 
-Similarly to generated SDKs, the BSR allows you to download an archive that contains the output of code generation for a combination of any module and Protobuf plugin. This enables you to transform your pre-validated Protobuf schemas into other formats such as JSON Schema or BigQuery for use in later processing steps. You can use the archive with your native package manager, CI/CD workflows, or data pipelines.
+Some plugins aren't compatible with package managers, so instead you can download an archive that contains the output of code generation for a combination of any module and Protobuf plugin. This enables you to transform your pre-validated Protobuf schemas into other formats such as JSON Schema or BigQuery for use in later processing steps. You can also use archives with CI/CD workflows or data pipelines.
+
+For plugins that _are_ compatible with package managers, we recommend installing the generated SDK for a better user experience. The archive download link doesn't appear in the BSR for them, but if you prefer an archive, you can use the `curl` commands below.
 
 To generate an archive, you can either:
 
-- Choose a plugin and download from the BSR UI, or
-- Download from the BSR API directly using `curl`
+- Download the archive from the BSR web app, or
+- Download via the BSR API using `curl` (this is necessary if you want to include imports or Well Known Types, or pin to a specific module commit)
 
-### Download from the BSR UI
+### Download from the BSR web app
 
-To generate and download an archive from the BSR:
+To download an archive from the web app:
 
-1.  Choose your module and plugins from the **SDK** tab.
-2.  Click the **Download archive** button at the top right of the SDK section.
-3.  From the dropdowns, choose the version of the plugin and the file format you want to use when generating the archive. You have the option of zip or tarball archives.
-
-    ![Screenshot of download archive dropdown](../../../images/bsr/sdks/sdk-download-archive.png)
-
-4.  Click **Download** to download the archive, or copy the URL to use with `curl`.
+1.  Go to the module you want and click the **SDKs** tab.
+2.  Choose the plugin for the SDK.
+3.  If desired, change the plugin version and/or module label by using the dropdowns, the same as for a generated SDK above.
+4.  Click **Download archive** at the top right of the SDK section, choose the archive format, and click **Download** or copy the URL to use with `curl`.
 
 ### Download with the BSR API
 
-To download an archive directly from the BSR API using `curl`, you need to construct a command with the module, plugin, and reference information:
-
-::: info Syntax
-
-```bash
-$ curl -nsSOJL https://BSR_INSTANCE/gen/archive/MODULE_OWNER/MODULE_NAME/PLUGIN_OWNER/PLUGIN_NAME/REFERENCE.FILE_EXT
-
-# Examples
-curl -nsSOJL https://buf.build/gen/archive/connectrpc/eliza/bufbuild/bufbuild/es/latest.tar.gz
-curl -nsSOJL https://buf.build/gen/archive/connectrpc/eliza/bufbuild/bufbuild/es/main.tar.gz
-curl -nsSOJL https://buf.build/gen/archive/connectrpc/eliza/bufbuild/bufbuild/es/fc19856dc93042e290c9197d39a2beca.tar.gz
-curl -nsSOJL https://buf.build/gen/archive/connectrpc/eliza/bufbuild/bufbuild/es/v1.2.3-fc19856dc930.tar.gz
-```
-
-:::
-
-Hitting this endpoint always returns a 302 redirect to the download URL, so clients must handle the redirect independently.
-
-The URL contains these elements:
+To download an archive using the BSR API and `curl`, you need to construct a command with the module, plugin, and reference information. The URL contains these elements:
 
 - _BSR_INSTANCE_ is the domain name of your BSR instance. (Default: `buf.build`)
 - _MODULE_OWNER_ is the owner of the module.
@@ -156,28 +137,56 @@ The URL contains these elements:
 - _PLUGIN_OWNER_ is the owner of the plugin.
 - _PLUGIN_NAME_ is the name of the plugin.
 - _REFERENCE_ must be one of the following:
-  - `latest`: uses the most recent versions of both the module (on its default label) and the plugin.
-  - [label name](../../commits-labels/#labels): uses the latest commit for the given label and the most recent plugin version
-  - commit ID: uses the explicit BSR module commit and the most recent plugin version. The commit must be the full module commit name.
-  - a full version reference, in the format `vX.Y.Z-commit.N`. Here, `X.Y.Z` represents the plugin version, `commit` refers to the module's shortened commit name (12 characters), and `N` refers to the plugin revision number. This format is commonly used when you want complete control over generation, allowing you to pin to a specific module commit and plugin version.
+  - `latest`: Uses the most recent versions of both the module (on its default label) and the plugin.
+  - A [label name](../../commits-labels/#labels): Uses the latest commit for the given label and the most recent plugin version.
+  - A commit ID: Uses the explicit BSR module commit and the most recent plugin version. The commit must be the full module commit name.
 - _FILE_EXT_ is the file extension of the archive. This can be either `tar.gz` or `zip`.
 
 Hitting this endpoint always returns a 302 redirect to the download URL, so clients must handle the redirect independently.
 
-You can also set the `imports` and `wkt` parameters to include the module's imports or the Well Known Types by appending them to the URL:
+::: info Syntax for latest version of plugin
 
-```console
-curl -nsSOJL https://buf.build/gen/archive/connectrpc/eliza/bufbuild/bufbuild/es/v1.2.3-fc19856dc930.tar.gz+imports
-curl -nsSOJL https://buf.build/gen/archive/connectrpc/eliza/bufbuild/bufbuild/es/v1.2.3-fc19856dc930.tar.gz+imports_wkt
+```bash
+$ curl -fsSL -O https://BSR_INSTANCE/gen/archive/MODULE_OWNER/MODULE_NAME/PLUGIN_OWNER/PLUGIN_NAME/REFERENCE.FILE_EXT
+
+# Get latest version of module's default label
+$ curl -fsSL -O https://buf.build/gen/archive/connectrpc/eliza/bufbuild/protoschema-jsonschema/latest.zip
+
+# Get latest version of specific module label ('demo')
+$ curl -fsSL -O https://buf.build/gen/archive/connectrpc/eliza/bufbuild/protoschema-jsonschema/demo.zip
+
+# Get specific module commit
+$ curl -fsSL -O https://buf.build/gen/archive/connectrpc/eliza/bufbuild/protoschema-jsonschema/d8fbf2620c604277a0ece1ff3a26f2ff.zip
 ```
 
-Both flags must be set to include the Well Known Types. This behaves the same as applying the `--include_imports` and `--include_wkt` flags to `buf generate` at the command line or setting them in `buf.gen.yaml`:
+:::
 
-```yaml{5,6}
-version: v2
-plugins:
-  - remote: buf.build/protocolbuffers/go
-    out: gen/proto
-    include_imports: true
-    include_wkt: true
+You can also set the `imports` and `wkt` parameters to include the module's imports and/or the Well Known Types. This behaves the same as applying the `--include_imports` and `--include_wkt` flags to `buf generate` at the command line or setting them in `buf.gen.yaml`. Both flags must be set to include the Well Known Types.
+
+::: info Syntax for imports and Well Known Types
+
+```bash
+$ curl -fsSL -O "https://buf.build/gen/archive/connectrpc/eliza/bufbuild/protoschema-jsonschema/latest.zip?imports=true&wkt=true"
 ```
+
+:::
+
+#### Specific plugin version and module commit
+
+If you need to pin the archive to a specific plugin version and module commit, the `curl` syntax changes slightly. The `latest` and label name references aren't available in this case, so you must specify the reference in the format `vX.Y.Z-commit.N`:
+
+- _X.Y.Z_ and _N_ are the plugin version and revision number respectively, which you can view in the sample URL on the SDK's installation page.
+- `commit` is the shortened 12-character module commit name.
+
+::: info Syntax for specific plugin version and module commit
+
+```bash
+$ curl -fsSL -O https://BSR_INSTANCE/gen/archive/MODULE_OWNER/MODULE_NAME/PLUGIN_OWNER/PLUGIN_NAME/vX.Y.Z-commit.N.FILE_EXT
+
+# Get specific module commit and plugin version
+$ curl -fsSL -O https://buf.build/gen/archive/connectrpc/eliza/bufbuild/protoschema-jsonschema/v0.3.1-d8fbf2620c60.1.zip
+$ curl -fsSL -O "https://buf.build/gen/archive/connectrpc/eliza/bufbuild/protoschema-jsonschema/v0.3.1-d8fbf2620c60.1.zip?imports=true"
+$ curl -fsSL -O "https://buf.build/gen/archive/connectrpc/eliza/bufbuild/protoschema-jsonschema/v0.3.1-d8fbf2620c60.1.zip?imports=true&wkt=true"
+```
+
+:::

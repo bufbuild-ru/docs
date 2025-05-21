@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/cli/build-systems/bazel/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc/"
   - - meta
     - property: "og:title"
       content: "Gradle - Buf Docs"
@@ -48,7 +48,7 @@ head:
 
 Buf provides official support for the [Gradle](http://gradle.org/) build tool with the [Buf Gradle Plugin](https://github.com/bufbuild/buf-gradle-plugin), which enables you to:
 
-- [Lint](../../../lint/overview/) Protobuf sources using the [`bufLint`](#buf-lint) task.
+- [Lint](../../../lint/) Protobuf sources using the [`bufLint`](#buf-lint) task.
 - Perform [breaking change detection](#buf-breaking) for Protobuf [inputs](../../../reference/inputs/) using the [`bufBreaking`](#buf-breaking) task.
 
 ## Setup
@@ -171,7 +171,7 @@ buf {
 
 ### Generating code
 
-`bufGenerate` is configured as described in the [Buf docs](../../../generate/overview/). Create a `buf.gen.yaml` in the project root and `bufGenerate` generates code in the project's build directory at `"$buildDir/bufbuild/generated/<out path from buf.gen.yaml>"`.
+`bufGenerate` is configured as described in the [Buf docs](../../../generate/). Create a `buf.gen.yaml` in the project root and `bufGenerate` generates code in the project's build directory at `"$buildDir/bufbuild/generated/<out path from buf.gen.yaml>"`.
 
 An example for Java code generation using the remote plugin:
 

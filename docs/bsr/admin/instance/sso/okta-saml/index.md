@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/admin/instance/sso/okta-oidc/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/admin/instance/scim/overview/"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/scim/"
   - - meta
     - property: "og:title"
       content: "Okta - SAML - Buf Docs"

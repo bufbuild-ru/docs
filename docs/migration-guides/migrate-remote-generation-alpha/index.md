@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/migration-guides/migrate-remote-generation-alpha/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/migration-guides/migrate-to-buf-action/"
+      href: "https://bufbuild.ru/docs/bsr/remote-plugins/custom-plugins/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-prototool/"
+      href: "https://bufbuild.ru/docs/cli/buf-plugins/"
   - - meta
     - property: "og:title"
       content: "Migrate from remote generation alpha - Buf Docs"
@@ -66,7 +66,7 @@ The BSR will still allow you to upload custom private plugins. [Contact us](mail
 
 ## Migrate to remote plugins
 
-The documentation for [remote plugins](../../bsr/remote-plugins/overview/) (the update to remote plugin execution) has the usage details. It's extremely similar to the alpha, but there are a few changes to the buf.gen.yaml file to note:
+The documentation for [remote plugins](../../bsr/remote-plugins/) (the update to remote plugin execution) has the usage details. It's extremely similar to the alpha, but there are a few changes to the buf.gen.yaml file to note:
 
 1.  The `name` and `remote` keys used to reference plugins changed to just `plugin`. The `plugin` key understands both local and remote references. Requires [buf CLI version 1.8](https://github.com/bufbuild/buf/releases/tag/v1.8.0) or later.
 2.  When referencing remote plugins, remove the `/plugins/` path.
@@ -84,7 +84,7 @@ plugins:
 
 ## Migrate to generated SDKs
 
-The documentation for [generated SDKs](../../bsr/generated-sdks/overview/) (the update to remote code execution) fully covers its usage. This section walks you through what changed, and outlines exactly how to migrate from remote code execution to generated SDKs.
+The documentation for [generated SDKs](../../bsr/generated-sdks/) (the update to remote code execution) fully covers its usage. This section walks you through what changed, and outlines exactly how to migrate from remote code execution to generated SDKs.
 
 ### Templates removed
 
@@ -197,7 +197,7 @@ func main() {
 
 #### protoc-gen-validate plugin
 
-If you used a custom template that included the [`protoc-gen-validate`](https://github.com/envoyproxy/protoc-gen-validate) plugin, there is no current direct migration path. We've taken [stewardship](https://github.com/envoyproxy/protoc-gen-validate/issues/616) of protoc-gen-validate from the Envoy team, and will continue to work to improve it, but protoc-gen-validate generated code is required to be generated to the same package as protoc-gen-go code, which doesn't fit cleanly into the generated SDKs model. In the meantime, switch to [remote plugins](../../bsr/remote-plugins/overview/) using `buf generate`.
+If you used a custom template that included the [`protoc-gen-validate`](https://github.com/envoyproxy/protoc-gen-validate) plugin, there is no current direct migration path. We've taken [stewardship](https://github.com/envoyproxy/protoc-gen-validate/issues/616) of protoc-gen-validate from the Envoy team, and will continue to work to improve it, but protoc-gen-validate generated code is required to be generated to the same package as protoc-gen-go code, which doesn't fit cleanly into the generated SDKs model. In the meantime, switch to [remote plugins](../../bsr/remote-plugins/) using `buf generate`.
 
 #### protoc-gen-grpc-gateway plugin
 

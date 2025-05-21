@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/kafka-compatibility/configure-clients/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/auth/sasl/"
+      href: "https://bufbuild.ru/docs/bufstream/integrations/akhq/"
   - - meta
     - property: "og:title"
       content: "Supported APIs - Buf Docs"
@@ -46,7 +46,7 @@ head:
 
 # Supported APIs in Bufstream
 
-Bufstream is built to work with any Kafka client software, such as the Apache Kafka reference clients, `librdkakfa`, or `franz-go`. It was built to support the latest version of each Kafka API (as of Kafka 3.7.1), while making a best effort to support all previous endpoint versions. Our formal conformance tests run on Kafka clients going back to version 3.2.0, but older client versions haven't been tested extensively. Future releases of Bufstream may establish a minimum supported API version for some or all endpoints.
+Bufstream is built to work with any Kafka client software, such as the Apache Kafka reference clients, `librdkakfa`, or `franz-go`. It was built to support the latest version of each Kafka API (as of Kafka 3.7), while making a best effort to support all previous endpoint versions. Our formal conformance tests run on Kafka clients going back to version 3.2, but older client versions haven't been tested extensively. Future releases of Bufstream may establish a minimum supported API version for some or all endpoints.
 
 Bufstream supports all of these modern Kafka features:
 

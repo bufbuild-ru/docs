@@ -10,10 +10,10 @@ head:
       href: "https://bufbuild.ru/docs/cli/buf-plugins/webassembly/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/cli/protoc-plugins/"
+      href: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/"
   - - meta
     - property: "og:title"
-      content: "Publish plugins to the BSR - Buf Docs"
+      content: "Publish to the BSR - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/cli/buf-plugins/publish.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Publish plugins to the BSR - Buf Docs"
+      content: "Publish to the BSR - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/cli/buf-plugins/publish.png"

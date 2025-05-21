@@ -48,11 +48,11 @@ The `buf lint` command enables you to [lint](/docs/lint/quickstart/index.md) `.p
 
 ### Breaking change detection
 
-The `buf breaking` command enables you to perform [breaking change detection](/docs/breaking/overview/index.md) between any two Protobuf [inputs](/docs/reference/inputs/index.md). You can use this to ensure, for example, that the Protobuf sources in the `development` branch of a [Git](/docs/breaking/overview/index.md#git) repository are compatible with the `main` branch. As with [linting](/blog/buf-cli-v1/index.md#linting), `buf` can apply specific [breaking change rules](/docs/breaking/rules/index.md).
+The `buf breaking` command enables you to perform [breaking change detection](/docs/breaking/index.md) between any two Protobuf [inputs](/docs/reference/inputs/index.md). You can use this to ensure, for example, that the Protobuf sources in the `development` branch of a [Git](/docs/breaking/index.md#git) repository are compatible with the `main` branch. As with [linting](/blog/buf-cli-v1/index.md#linting), `buf` can apply specific [breaking change rules](/docs/breaking/rules/index.md).
 
 ### Code generation
 
-The `buf generate` command enables you to [generate code stubs](/docs/generate/overview/index.md) from Protobuf sources and configure your [plugins](/docs/bsr/remote-plugins/overview/index.md) and code output directories in a [`buf.gen.yaml`](/docs/configuration/v1/buf-gen-yaml/index.md) file. With this functionality, you can remove complex [`protoc`](https://github.com/protocolbuffers/protobuf) invocations from your workflows, which have traditionally been one of the rougher edges in Protobuf-based API development.
+The `buf generate` command enables you to [generate code stubs](/docs/generate/index.md) from Protobuf sources and configure your [plugins](/docs/bsr/remote-plugins/index.md) and code output directories in a [`buf.gen.yaml`](/docs/configuration/v1/buf-gen-yaml/index.md) file. With this functionality, you can remove complex [`protoc`](https://github.com/protocolbuffers/protobuf) invocations from your workflows, which have traditionally been one of the rougher edges in Protobuf-based API development.
 
 ### Dependency management
 
@@ -60,7 +60,7 @@ Managing `.proto` files has long been a pain point in the Protobuf ecosystem. In
 
 ### The Buf Schema Registry (BSR)
 
-You can use the `buf` CLI to interact with the [Buf Schema Registry](/docs/bsr/index.md), which provides a centralized platform for managing Protobuf assets, like [versioned Buf modules](/docs/cli/modules-workspaces/index.md) and [Protobuf plugins](/docs/bsr/remote-plugins/overview/index.md), and features like [remote code generation](/blog/announcing-bsr/index.md#remote-code-generation), [generated Protobuf API documentation](/docs/bsr/documentation/overview/index.md), and [hosted Protobuf plugins](/docs/migration-guides/migrate-remote-generation-alpha/index.md). The BSR recently [went beta](/blog/announcing-bsr/index.md) and most BSR-related `buf` actions are under the `buf beta` command, but we aim to bring `buf`'s BSR functionality out of beta soon.
+You can use the `buf` CLI to interact with the [Buf Schema Registry](/docs/bsr/index.md), which provides a centralized platform for managing Protobuf assets, like [versioned Buf modules](/docs/cli/modules-workspaces/index.md) and [Protobuf plugins](/docs/bsr/remote-plugins/index.md), and features like [remote code generation](/blog/announcing-bsr/index.md#remote-code-generation), [generated Protobuf API documentation](/docs/bsr/documentation/index.md), and [hosted Protobuf plugins](/docs/migration-guides/migrate-remote-generation-alpha/index.md). The BSR recently [went beta](/blog/announcing-bsr/index.md) and most BSR-related `buf` actions are under the `buf beta` command, but we aim to bring `buf`'s BSR functionality out of beta soon.
 
 ## The meaning of the 1.0 milestone
 

@@ -95,7 +95,7 @@ head:
 **_Release date:_** 2025-03-05 | **_Database version:_** 332 | **_Minimum CLI version:_** v1.24.0
 
 - **[API reference documentation](../../../generated-sdks/sdk-documentation/#api-reference):** The BSR can now generate API reference documentation for the plugin version and module commit specified by a Generated SDK.
-- **[Reviewing CSR breaking changes](../../../csr/overview/#breaking-changes):** Any commits introducing breaking changes to a CSR subject’s schema are no longer blocked at push time. Those commits can now be [reviewed and approved](../../../policy-checks/breaking/review-commits/) by an admin by downgrading the compatibility mode of any affected subjects.
+- **[Reviewing CSR breaking changes](../../../csr/#breaking-changes):** Any commits introducing breaking changes to a CSR subject’s schema are no longer blocked at push time. Those commits can now be [reviewed and approved](../../../policy-checks/breaking/review-commits/) by an admin by downgrading the compatibility mode of any affected subjects.
 - We’ve updated the BSR to return a clearer [error message](https://github.com/bufbuild/buf/issues/3650) when running `buf generate` if a given plugin exists but the requested version does not.
 - We've upgraded the [OCI Registry external dependency](../architecture/#external-dependencies) to [v3.0.0-rc.3](https://github.com/distribution/distribution/releases/tag/v3.0.0-rc.3). If you’ve customized your OCI Registry destination, consider updating your internal mirror also.
 
@@ -116,7 +116,7 @@ head:
 
 **_Release date:_** 2025-02-06 | **_Database version:_** 327 | **_Minimum CLI version:_** v1.24.0
 
-- **Explore and share plugins and SDKs:** We made improvements to the [plugins](../../../remote-plugins/overview/) and generated SDKs pages, including changes to navigation to allow for better exploration and link sharing capabilities.
+- **Explore and share plugins and SDKs:** We made improvements to the [plugins](../../../remote-plugins/) and generated SDKs pages, including changes to navigation to allow for better exploration and link sharing capabilities.
 - **User documentation for SDKs:** We've added support for [user documentation](../../../generated-sdks/sdk-documentation/) for SDKs.
 - **[Recommended SDKs](../../instance/recommended-sdks/):** Admins can now recommend generated SDKs at their respective levels (instance/organization/repository) to help guide schema consumers toward preferred plugins.
 - **Dark mode:** We’ve added dark mode to the BSR, so users can now choose between a light or dark theme for their UI.
@@ -252,8 +252,8 @@ Expand to see previous releases
 
 **_Release date:_** 2024-05-29 | **_Database version:_** 280 | **_Minimum CLI version:_** v1.24.0
 
-- **Rust SDKs:** The BSR now provides [generated SDKs](../../../generated-sdks/overview/) for Cargo in the form of a Crate Registry. You can consume generated SDKs from modules and plugins using `cargo`. SDKs are generated automatically when you push schema changes, eliminating the need to manage a Protobuf toolchain or generate code locally.
-- **Archive Registry:** The Buf Schema Registry allows you to [generate and download an archive](../../../generated-sdks/tutorial/#download-archive) that contains the output of code generation for a combination of any module and Protobuf plugin, similar to what you would get with [generated SDKs](../../../generated-sdks/overview/) (except it works for any plugin, not just the languages supported by generated SDKs).
+- **Rust SDKs:** The BSR now provides [generated SDKs](../../../generated-sdks/) for Cargo in the form of a Crate Registry. You can consume generated SDKs from modules and plugins using `cargo`. SDKs are generated automatically when you push schema changes, eliminating the need to manage a Protobuf toolchain or generate code locally.
+- **Archive Registry:** The Buf Schema Registry allows you to [generate and download an archive](../../../generated-sdks/tutorial/#download-archive) that contains the output of code generation for a combination of any module and Protobuf plugin, similar to what you would get with [generated SDKs](../../../generated-sdks/) (except it works for any plugin, not just the languages supported by generated SDKs).
 - **Module dependency UI:** We've updated the module dependency tab to list dependencies rather than display a dot graph. This makes browsing and exploring dependencies much easier, especially for modules with many transitive dependencies.
 
 ## v1.8.0
@@ -343,7 +343,7 @@ Expand to see previous releases
 
 **_Release date:_** 2023-11-07 | **_Database version:_** 239 | **_Minimum CLI version:_** v1.23.0
 
-- **[Governance flow](../../../policy-checks/breaking/overview/#review-flow):** Buf's breaking change policy check includes a review flow, so that when developers attempt to push breaking changes to the BSR, commits can be approved or rejected by code owners instead of being rejected outright. This gives downstream consumers protection from breaking schema changes, but allows for nuance in cases where breaking changes are acceptable.
+- **[Governance flow](../../../policy-checks/breaking/#review-flow):** Buf's breaking change policy check includes a review flow, so that when developers attempt to push breaking changes to the BSR, commits can be approved or rejected by code owners instead of being rejected outright. This gives downstream consumers protection from breaking schema changes, but allows for nuance in cases where breaking changes are acceptable.
 - **Updated activity view:** The activity view in the BSR has been updated to support branches and improve the ability to view commit history and tags. Throughout the BSR UI, branches have replaced drafts.
 - **Generated SDKs:** Remote Packages has been rebranded as Generated SDKs, and includes clearer instructions with plugin filtering based on the preferred programming language.
 

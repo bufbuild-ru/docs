@@ -4,22 +4,22 @@ description: "Overview and usage information for invoking RPC APIs with the Buf 
 head:
   - - link
     - rel: "canonical"
-      href: "https://bufbuild.ru/docs/curl/usage/"
+      href: "https://bufbuild.ru/docs/curl/"
   - - link
     - rel: "prev"
       href: "https://bufbuild.ru/docs/format/tutorial/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/build/overview/"
+      href: "https://bufbuild.ru/docs/build/"
   - - meta
     - property: "og:title"
-      content: "Overview - Buf Docs"
+      content: "Call Protobuf APIs - Buf Docs"
   - - meta
     - property: "og:image"
-      content: "https://buf.build/docs/assets/images/social/curl/usage.png"
+      content: "https://buf.build/docs/assets/images/social/curl/index.png"
   - - meta
     - property: "og:url"
-      content: "https://bufbuild.ru/docs/curl/usage/"
+      content: "https://bufbuild.ru/docs/curl/"
   - - meta
     - property: "og:type"
       content: "website"
@@ -34,10 +34,10 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Overview - Buf Docs"
+      content: "Call Protobuf APIs - Buf Docs"
   - - meta
     - property: "twitter:image"
-      content: "https://buf.build/docs/assets/images/social/curl/usage.png"
+      content: "https://buf.build/docs/assets/images/social/curl/index.png"
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
@@ -58,7 +58,7 @@ buf curl \
 
 You can view a listing of all supported options and how to use them by running `buf help curl`.
 
-## RPC Target
+## RPC target
 
 The only positional argument is the URL of the RPC method to invoke. The name of the method to invoke comes from the last two path components of the URL, which should be the fully qualified service name and method name, respectively.
 
@@ -82,7 +82,7 @@ buf curl --protocol grpc --http2-prior-knowledge \
 
 The gRPC protocol can't be used with HTTP 1.1, but the other two can as long as the method being invoked isn't a bidirectional streaming method.
 
-## Request Data
+## Request data
 
 The input request is specified via the `-d` or `--data` flag. If absent, an empty request is sent unless the method uses a request stream, in which case an empty stream is sent.
 
@@ -95,7 +95,7 @@ The request body is a JSON document that contains the JSON formatted request mes
 
 If the `--data` flag is specified multiple times, only the value of the last occurrence is used.
 
-## Request Metadata
+## Request metadata
 
 Request metadata (such as headers) are defined using `-H` or `--header` flags. The flag value is in `name: value` format.
 
@@ -121,11 +121,11 @@ Authorization: token jas8374hgnkvje9wpkerebncjqol4
 
 The `--header` flag may be specified multiple times. The headers sent with the request are the union of all values provided.
 
-## RPC Schema
+## RPC schema
 
 Transcoding from the binary Protobuf format to JSON requires access to the schema for the messages in question. By default, `buf curl` expects the server to expose the [server](https://github.com/grpc/grpc/blob/master/src/proto/grpc/reflection/v1/reflection.proto) [reflection](https://github.com/connectrpc/grpcreflect-go) [service](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md#known-implementations).
 
-If the server doesn't support reflection, you can instead indicate the schema to use via a `--schema` option. This option accepts the same kind of [inputs](../../reference/inputs/) as `buf build` and `buf generate`, letting you point to Protobuf sources on disk, in a Git repo, or in a [BSR](../../bsr/) module.
+If the server doesn't support reflection, you can instead indicate the schema to use via a `--schema` option. This option accepts the same kind of [inputs](../reference/inputs/) as `buf build` and `buf generate`, letting you point to Protobuf sources on disk, in a Git repo, or in a [BSR](../bsr/) module.
 
 ```sh
 buf curl \
@@ -134,7 +134,7 @@ buf curl \
     https://demo.connectrpc.com/connectrpc.eliza.v1.ElizaService/Introduce
 ```
 
-### Server Reflection
+### Server reflection
 
 By default, `buf curl` tries the latest and most appropriate server reflection protocol and then falls back to other protocols if necessary. As of this writing, there are two protocols supported:
 

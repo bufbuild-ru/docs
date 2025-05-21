@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/generate/tutorial/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/configuration/v2/buf-gen-yaml/"
+      href: "https://bufbuild.ru/docs/generate/troubleshooting/"
   - - meta
     - property: "og:title"
       content: "Managed mode - Buf Docs"

@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/ci-cd/github-actions/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/module/descriptor/"
+      href: "https://bufbuild.ru/docs/bsr/module/publish/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/ci-cd/setup/"
@@ -46,7 +46,7 @@ head:
 
 # GitHub Action
 
-The [buf-action](https://github.com/bufbuild/buf-action) GitHub Action makes it easy to run the [Buf CLI](https://buf.build) within a workflow to check for [build](../../../reference/cli/buf/build/), [lint](../../../lint/overview/), [format](../../../format/style/), and [breaking change](../../../breaking/overview/) errors, and automatically [publish schema changes](../../module/publish/) to the [Buf Schema Registry (BSR)](https://buf.build/product/bsr).
+The [buf-action](https://github.com/bufbuild/buf-action) GitHub Action makes it easy to run the [Buf CLI](https://buf.build) within a workflow to check for [build](../../../reference/cli/buf/build/), [lint](../../../lint/), [format](../../../format/), and [breaking change](../../../breaking/) errors, and automatically [publish schema changes](../../module/publish/) to the [Buf Schema Registry (BSR)](https://buf.build/product/bsr).
 
 ![Annotations example for lint and breaking changes](../../../images/integrations/gh-annotations-example.png "Annotations example")
 

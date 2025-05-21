@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/protovalidate/further-reading/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc-gen-validate/"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/cel_extensions/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/reference/cli/buf/"
+      href: "https://bufbuild.ru/docs/best-practices/style-guide/"
   - - meta
     - property: "og:title"
       content: "Further reading - Buf Docs"

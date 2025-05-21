@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/reference/protobuf-files-and-packages/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/migration-guides/migrate-v2-config-files/"
+      href: "https://bufbuild.ru/docs/contact/"
   - - meta
     - property: "og:title"
       content: "Descriptors - Buf Docs"

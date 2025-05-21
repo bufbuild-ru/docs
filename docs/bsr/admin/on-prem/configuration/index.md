@@ -82,7 +82,7 @@ auth:
 
 ## SMTP server for email notification
 
-To send email notifications for the breaking change policy check [review flow](../../../policy-checks/breaking/overview/#review-flow) via an SMTP server, set the `notifications` Helm value:
+To send email notifications for the breaking change policy check [review flow](../../../policy-checks/breaking/#review-flow) via an SMTP server, set the `notifications` Helm value:
 
 ```yaml
 notifications:

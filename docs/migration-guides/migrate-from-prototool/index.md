@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/migration-guides/migrate-from-prototool/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/migration-guides/migrate-remote-generation-alpha/"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protolock/"
@@ -63,7 +63,7 @@ In this page, we'll discuss the pros and cons of Prototool vs `buf`'s build, lin
 
   `buf` can actually use [many types of input](../../reference/inputs/), including `protoc` output, local or remote Git repositories, and local or remote archives. `buf` never shells out to external commands to perform any of its functionality. `buf` also has no cache as it doesn't need to cache any external binaries to perform its functionality.
 
-- Prototool runs file discovery for your Protobuf files, but provides no mechanism to skip file discovery and specify your files manually, outside of running commands for files one at a time, which breaks some lint and breaking change detection functionality. `buf` enables you to skip file discovery and specify your files [manually](../../build/overview/#limit-to-specific-files) for use cases that require this, such as [Bazel](../../cli/build-systems/bazel/).
+- Prototool runs file discovery for your Protobuf files, but provides no mechanism to skip file discovery and specify your files manually, outside of running commands for files one at a time, which breaks some lint and breaking change detection functionality. `buf` enables you to skip file discovery and specify your files [manually](../../build/#limit-to-specific-files) for use cases that require this, such as [Bazel](../../cli/build-systems/bazel/).
 - Prototool's lint functionality lets you select a single group, currently `google`, `uber1`, or `uber2`, and then add and remove rules from that specific group. `buf` instead provides [lint categories](../../lint/rules/) that you can mix and match, and lets you exclude entire categories or rules if you want. `buf` also presents a clear path to add additional rules to new categories in a backwards-compatible manner without touching existing categories.
 - Prototool's breaking change detector can't be configured as to what rules it runs to verify breaking change detection. `buf`'s rules are fully configurable, including ignores on a per-directory or per-file basis for every breaking rule or category.
 - Breaking change rules aren't a binary proposition - there are different kinds of breaking changes that you may care about. `buf` provides [four categories](../../breaking/rules/) of breaking change rules to select - per-file generated stub breaking changes, per-package generated stub breaking changes, wire breaking changes, and wire + JSON breaking changes. Within these categories, you can go further and enable or disable individual rules through configuration. Prototool effectively only checks per-package generated stub breaking changes.
@@ -185,7 +185,7 @@ Corresponds to `lint.ignore_only` in `buf`.
 
 Corresponds to `lint.use` and `lint.except` in `buf`.
 
-See the [lint configuration](../../lint/overview/#defaults-and-configuration) documentation for more details.
+See the [lint configuration](../../lint/#defaults-and-configuration) documentation for more details.
 
 ### `lint.file_header`
 
@@ -286,7 +286,7 @@ buf format
 buf generate
 ```
 
-See the [generation documentation](../../generate/overview/) for more details.
+See the [generation documentation](../../generate/) for more details.
 
 ### `prototool grpc`
 
@@ -294,7 +294,7 @@ See the [generation documentation](../../generate/overview/) for more details.
 buf curl
 ```
 
-See the [documentation for invoking RPCs](../../curl/usage/) for more details.
+See the [documentation for invoking RPCs](../../curl/) for more details.
 
 ### `prototool lint`
 

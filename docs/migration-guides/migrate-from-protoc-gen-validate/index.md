@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc-gen-validate/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc/"
+      href: "https://bufbuild.ru/docs/protovalidate/schemas/predefined-rules/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/contact/"
+      href: "https://bufbuild.ru/docs/protovalidate/schemas/compile-with-protoc/"
   - - meta
     - property: "og:title"
       content: "Migrate from protoc-gen-validate - Buf Docs"
@@ -65,7 +65,7 @@ Protovalidate performs all validations using reflection, so there's no `protoc` 
 
 1.  **(Optional) Format Protobuf files**
 
-    Though the migration tool does a best-effort attempt to preserve the formatting of the original file, it may produce valid but ill-formatted code. To reduce noise related to reformatting, run a formatter (such as [`buf format`](../../format/style/)) over the corpus of `.proto` files and commit its changes before proceeding.
+    Though the migration tool does a best-effort attempt to preserve the formatting of the original file, it may produce valid but ill-formatted code. To reduce noise related to reformatting, run a formatter (such as [`buf format`](../../format/)) over the corpus of `.proto` files and commit its changes before proceeding.
 
 2.  **Run the migration tool**
 

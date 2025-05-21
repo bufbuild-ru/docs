@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/migration-guides/migrate-v2-config-files/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/reference/descriptors/"
+      href: "https://bufbuild.ru/docs/configuration/v1beta1/lint-rules/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/migration-guides/migrate-to-buf-action/"
+      href: "https://bufbuild.ru/docs/reference/inputs/"
   - - meta
     - property: "og:title"
       content: "Migrate to v2 config files - Buf Docs"
@@ -391,7 +391,7 @@ version: v2
 
 :::
 
-See the [code generation overview](../../generate/overview/), [managed mode](../../generate/managed-mode/), and [v2 `buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/) pages for more details about configuration and usage.
+See the [code generation overview](../../generate/), [managed mode](../../generate/managed-mode/), and [v2 `buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/) pages for more details about configuration and usage.
 
 ## Buf CLI command changes
 

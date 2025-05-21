@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/releases/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/reference/configuration/client-id-options/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/cluster-recommendations/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/protovalidate/"
+      href: "https://bufbuild.ru/docs/bufstream/cost/"
   - - meta
     - property: "og:title"
       content: "Releases - Buf Docs"
@@ -57,9 +57,34 @@ The latest binaries of Bufstream can be downloaded here:
 
 # Release notes
 
+## v0.3.27
+
+**_Release date:_** 2025-05-20 | **_Status:_** latest
+
+### Added
+
+- Support configuring BigQuery metastore catalogs in `iceberg.catalogs`, by setting `use: bigQuery` in the Helm chart.
+- Added the observability port in the Service exposed ports when deployed with the Helm chart.
+- Added the `extraInitContainers` option to add extra init containers in the Bufstream Helm chart.
+
+### Changed
+
+- The `iceberg_integration` configuration option was renamed to `iceberg` and references to it need to be updated. The corresponding Helm value key, which was already named `iceberg`, is unchanged.
+- Reduced writes to the object store for topics with a retention of <= 1 hour, which now no longer archive data. Instead, the data remain in the intake files until the records expire.
+
+### Fixed
+
+- Fixed an issue that caused the error `could not get or create the spanner instance: storage unavailable` at startup when using Spanner.
+- Fixed persistent `dispatch retrying unavailable error` in brokers with Postgres enabled, more likely to occur when using `bufstream.deployment.kind=Deployment` instead of the default `StatefulSet`.
+- Fixed bug where consuming records from Parquet archives could result in an infinite loop, indicated by consumers not making progress and excessive CPU usage.
+- Reduced CPU usage for handling batches with records already in the CSR wire format, when coercion in data enforcement is enabled.
+- Fixed bug where records not in the CSR wire format fail to produce when coercion in data enforcement is disabled and `on_no_schema` is set to `PASS_THROUGH`.
+- Fixed bug where fetch responses constructed from Parquet archives didn't use correct compression mode.
+- Removed a redundant error log `connection write handler failed` that was emitted when a Kafka client unexpectedly disconnected. Also improved the remaining warning log to clarify that the disconnecting client in question is a Kafka client (rather than a client internal to Bufstream). Updated wording: `connection closed unexpectedly by the Kafka client`.
+
 ## v0.3.26
 
-**_Release date:_** 2025-05-13 | **_Status:_** latest
+**_Release date:_** 2025-05-13
 
 #### Bug fixes
 
@@ -70,7 +95,7 @@ The latest binaries of Bufstream can be downloaded here:
 #### Features and improvements
 
 - Add support for AWS Glue as an Iceberg™ catalog.
-- Support configuring Iceberg™ REST and AWS Glue data catalogs in the Bufstream Helm chart.
+- Support configuring Iceberg REST and AWS Glue data catalogs in the Bufstream Helm chart.
 
 ## v0.3.25
 
@@ -78,15 +103,15 @@ The latest binaries of Bufstream can be downloaded here:
 
 #### Bug fixes
 
-- Improve error messages and connection handling in the Apache Iceberg™ REST catalog client.
-- Remove unnecessary calls to create namespaces in the Apache Iceberg™ REST catalog.
+- Improve error messages and connection handling in the Apache Iceberg REST catalog client.
+- Remove unnecessary calls to create namespaces in the Apache Iceberg REST catalog.
 - Fix excessive error logging in Kafka metrics observer.
 - Increase PostgreSQL default connection pool size from 10 to 20 connections.
 
 #### Features and improvements
 
-- Allow specifying an Apache Iceberg™ warehouse location, required for some REST catalogs.
-- Support HTTP proxies for Apache Iceberg™ REST catalogs, using standard `HTTP_PROXY`, `HTTPS_PROXY`, and `NO_PROXY` environment variables.
+- Allow specifying an Apache Iceberg warehouse location, required for some REST catalogs.
+- Support HTTP proxies for Apache Iceberg REST catalogs, using standard `HTTP_PROXY`, `HTTPS_PROXY`, and `NO_PROXY` environment variables.
 
 ## v0.3.24
 
@@ -99,7 +124,7 @@ The latest binaries of Bufstream can be downloaded here:
 
 #### Features and improvements
 
-- Allow Apache Iceberg™ to use schemas even when `skip_parse` is set in the data enforcement policy.
+- Allow Apache Iceberg to use schemas even when `skip_parse` is set in the data enforcement policy.
 - Smooth out CPU usage by introducing jitter to Parquet files building and flushing.
 - Previously, Bufstream was efficient with heavier workloads, but had higher CPU usage than needed at idle when using PostgreSQL. We have tuned this down to have a very gradual backoff to reduce idle costs, which increases latency for the first message received after a period of idle. After this message, latency jumps back down to normal.
 - Reduce memory usage when handling Kafka requests by lowering per-connection buffer sizes, when a broker uses PostgreSQL or when writing to a Parquet file.
@@ -113,8 +138,8 @@ The latest binaries of Bufstream can be downloaded here:
 #### Bug fixes
 
 - Partial rollback of [KIP-896](https://cwiki.apache.org/confluence/display/KAFKA/KIP-896%3A+Remove+old+client+protocol+API+versions+in+Kafka+4.0) deprecations for the Produce RPC. librdkafka clients (as of v2.10.0) [erroneously disable compression](https://github.com/confluentinc/librdkafka/issues/4956) if the minimum version of the Produce RPC isn't v0. This release reestablishes that minimum, but always returns an error for v0-v2 Produce RPCs.
-- Fix Apache Iceberg™ [snapshot summary metrics](https://iceberg.apache.org/spec/#metrics) for deleted files and records. Previously, these metrics erroneously reflected the added files and records.
-- Correct Apache Iceberg™ deletion flow to remove a Parquet file reference from the table metadata prior to removing the file from object storage. Previously, the cleanup process deleted the file before updating the table.
+- Fix Apache Iceberg [snapshot summary metrics](https://iceberg.apache.org/spec/#metrics) for deleted files and records. Previously, these metrics erroneously reflected the added files and records.
+- Correct Apache Iceberg deletion flow to remove a Parquet file reference from the table metadata prior to removing the file from object storage. Previously, the cleanup process deleted the file before updating the table.
 - Fix bug in data enforcement causing Produce responses to contain partial results. In order to fail open, the enforcement logic "cleans" the Produce request of any failed batches prior to handing it to the actual Kafka logic. However, the enforcement logic was erroneously removing batches without an assigned policy, causing them to be excluded from the result. This release corrects the behavior and ensures responses are complete.
 
 #### Features and improvements
@@ -249,7 +274,7 @@ _This release has been archived due to a permanent start-up bug when using Postg
 #### Features and improvements
 
 - Improve robustness of handling unexpected Protocol Buffer data when writing to Parquet files
-- Allow Iceberg™ tables to self-heal if there are errors during archiving
+- Allow Iceberg tables to self-heal if there are errors during archiving
 - Schema enforcement now ensures the specified schema ID on a record matches the subject/topic it's produced to
 - Additional performance improvements
 
@@ -264,10 +289,10 @@ _This release has been archived due to a permanent start-up bug when using Postg
 
 #### Features and improvements
 
-- Add `kafka.partition` column to Parquet and Iceberg™ table schemas
-- Set identifier fields of Iceberg™ tables as a composite of `kafka.partition` and `kafka.offset` fields
-- Set sort order of Iceberg™ tables as a composite of `kafka.ingest_timestamp` and `kafka.offset` fields
-- Support `delete` retention policies for Iceberg™ tables
+- Add `kafka.partition` column to Parquet and Iceberg table schemas
+- Set identifier fields of Iceberg tables as a composite of `kafka.partition` and `kafka.offset` fields
+- Set sort order of Iceberg tables as a composite of `kafka.ingest_timestamp` and `kafka.offset` fields
+- Support `delete` retention policies for Iceberg tables
 - Update Kafka API version handling to better reflect our support matrix
 - Additional performance improvements
 
@@ -335,7 +360,7 @@ _This release has been archived due to a permanent start-up bug when using Postg
 - Release preview of mTLS and SASL authentication
 - Release preview of Google Cloud Spanner metadata storage
 - Switch to use enum logical type instead of int32 for enum fields in Parquet archives
-- Include support for partitions in Apache Iceberg™ table archives
+- Include support for partitions in Apache Iceberg table archives
 - Improve caching of consumer group metadata that is read often and written rarely
 - Add more aggressive caching of schema registry lookups used by data enforcement
 - Additional performance improvements
@@ -350,7 +375,7 @@ _This release has been archived due to a permanent start-up bug when using Postg
 
 #### Features and improvements
 
-- Release preview of Apache Parquet and Iceberg™ archiving
+- Release preview of Apache Parquet and Iceberg archiving
 - Reduce memory allocations when decoding compressed record batches
 - Reduce memory allocations when marshaling Kafka protocol payloads
 - Cache topic configurations on produce to minimize metadata queries

@@ -10,10 +10,10 @@ head:
       href: "https://bufbuild.ru/docs/protovalidate/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/protovalidate/schemas/standard-rules/"
+      href: "https://bufbuild.ru/docs/protovalidate/quickstart/connect-go/"
   - - meta
     - property: "og:title"
-      content: "Quickstart - Buf Docs"
+      content: "Using Protovalidate - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/protovalidate/quickstart.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Quickstart - Buf Docs"
+      content: "Using Protovalidate - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/protovalidate/quickstart.png"
@@ -44,9 +44,9 @@ head:
 
 ---
 
-# Quickstart
+# Protovalidate quickstart
 
-This quickstart steps through adding Protovalidate to existing Protobuf projects using the [Buf CLI](../../cli/):
+This quickstart steps through using Protovalidate in Protobuf projects with the [Buf CLI](../../cli/):
 
 1.  Adding Protovalidate rules to schemas.
 2.  Using CEL to add domain-specific validation logic.
@@ -315,7 +315,7 @@ Run it to include your new rules in the `GetWeatherRequest` descriptor:
 buf generate
 ```
 
-To learn more about generating code with the Buf CLI, read the [code generation overview](../../generate/overview/).
+To learn more about generating code with the Buf CLI, read the [code generation overview](../../generate/).
 
 ## Add business logic with CEL
 
@@ -623,7 +623,7 @@ For a deep dive into using Protovalidate for RPC APIs, explore one of the Protov
 
 In traditional Kafka, brokers are simple data pipes — they have no understanding of what data traverses them. Though this simplicity helped Kafka gain ubiquity, most data sent through Kafka topics is structured and should follow a schema.
 
-Using [Bufstream](../../bufstream/) — the Kafka-compatible message queue built for the data lakehouse era — you can add Protovalidate rule enforcement to broker-side schema awareness. With a Bufstream broker already using the [Buf Schema Registry's Confluent Schema Registry support](../../bsr/csr/overview/), enabling Protovalidate is a two-line configuration change within `data_enforcement`:
+Using [Bufstream](../../bufstream/) — the Kafka-compatible message queue built for the data lakehouse era — you can add Protovalidate rule enforcement to broker-side schema awareness. With a Bufstream broker already using the [Buf Schema Registry's Confluent Schema Registry support](../../bsr/csr/), enabling Protovalidate is a two-line configuration change within `data_enforcement`:
 
 ::: info Bufstream Configuration YAML
 

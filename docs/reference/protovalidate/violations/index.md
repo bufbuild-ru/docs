@@ -7,13 +7,13 @@ head:
       href: "https://bufbuild.ru/docs/reference/protovalidate/violations/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/reference/internal-compiler/"
+      href: "https://bufbuild.ru/docs/protovalidate/cel/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/reference/protovalidate/rules/field_rules/"
   - - meta
     - property: "og:title"
-      content: "Violations - Buf Docs"
+      content: "Violations messages - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/reference/protovalidate/violations.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Violations - Buf Docs"
+      content: "Violations messages - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/reference/protovalidate/violations.png"

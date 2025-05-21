@@ -13,7 +13,7 @@ head:
       href: "https://bufbuild.ru/docs/cli/installation/"
   - - meta
     - property: "og:title"
-      content: "Overview - Buf Docs"
+      content: "Introduction - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/cli/index.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Overview - Buf Docs"
+      content: "Introduction - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/cli/index.png"
@@ -52,11 +52,11 @@ The Buf CLI is the ultimate tool for modern, fast, and efficient Protobuf API ma
 
 The links below go to detailed usage guides. See the [Buf CLI reference](../reference/cli/buf/) for complete options and flags for each command.
 
-- [`build`](../build/overview/): Build Protobuf files into a Buf image (key to many other `buf` operations)
-- [`generate`](../generate/overview/): Generate code stubs from Protobuf files using `protoc` plugins
-- [`breaking`](../breaking/overview/): Verify no breaking changes have been made, to guard against compatibility issues
-- [`lint`](../lint/overview/) and [`format`](../format/style/): Lint and format your Protobuf files according to best practice and your org rules
-- [`curl`](../curl/usage/): Test your APIs by invoking an RPC endpoint, similar to using `curl`
+- [`build`](../build/): Build Protobuf files into a Buf image (key to many other `buf` operations)
+- [`generate`](../generate/): Generate code stubs from Protobuf files using `protoc` plugins
+- [`breaking`](../breaking/): Verify no breaking changes have been made, to guard against compatibility issues
+- [`lint`](../lint/) and [`format`](../format/): Lint and format your Protobuf files according to best practice and your org rules
+- [`curl`](../curl/): Test your APIs by invoking an RPC endpoint, similar to using `curl`
 - `convert`: Convert a message from binary to JSON or vice versa — useful when debugging or testing
 - `config`, `registry`, `push`, and [`export`](../bsr/module/export/): Manage your repositories in the Buf Schema Registry
 

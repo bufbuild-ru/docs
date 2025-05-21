@@ -110,7 +110,7 @@ Users can also be deactivated by issuing API commands directly:
 
 ### SCIM
 
-You can also deactivate users by removing them from your identity provider if you've connected it to the BSR. See the [SCIM documentation](../scim/overview/) for setup details.
+You can also deactivate users by removing them from your identity provider if you've connected it to the BSR. See the [SCIM documentation](../scim/) for setup details.
 
 ### Permanent account deletion
 

@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/iceberg/configuration/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/iceberg/quickstart/"
+      href: "https://bufbuild.ru/docs/bufstream/iceberg/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bufstream/iceberg/reference/"
@@ -53,7 +53,7 @@ For Bufstream to store data as Iceberg tables, you must update the top-level Buf
 To store Iceberg tables and interact with your preferred catalog, Bufstream needs configuration information about the specific catalog you wish to update. The example below illustrates how to configure Bufstream to use [BigQuery Metastore](https://cloud.google.com/bigquery/docs/about-bqms):
 
 ```yaml
-iceberg_integration:
+iceberg:
   catalogs:
     - name: gcp
       bigquery_metastore: {}
@@ -62,7 +62,7 @@ iceberg_integration:
 Though BigQuery Metastore doesn't have any required properties, to ensure that there are no interruptions to archiving or reading data, we recommend setting the following values:
 
 ```yaml
-iceberg_integration:
+iceberg:
   catalogs:
     - name: gcp
       bigquery_metastore:

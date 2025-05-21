@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protolock/"
+      href: "https://bufbuild.ru/docs/cli/build-systems/gradle/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc-gen-validate/"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-prototool/"
   - - meta
     - property: "og:title"
       content: "Migrate from protoc - Buf Docs"

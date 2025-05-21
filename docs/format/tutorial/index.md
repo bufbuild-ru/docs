@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/format/tutorial/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/format/style/"
+      href: "https://bufbuild.ru/docs/format/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/curl/usage/"
+      href: "https://bufbuild.ru/docs/curl/"
   - - meta
     - property: "og:title"
       content: "Quickstart - Buf Docs"
@@ -50,7 +50,7 @@ head:
 
 Formatting your Protobuf files using a consistent and standardized style is a critical aspect of ensuring the readability and maintainability of your codebase. The Buf CLI provides a simple and powerful solution for enforcing this. With the `buf format` command, you can ensure that your Protobuf files adhere to industry best practices.
 
-`buf format` rewrites Protobuf files according to an opinionated [style](../style/), so it has no configuration options. No need to waste time and energy deciding how `.proto` files ought to be formatted — the tool decides so you don't have to.
+`buf format` rewrites Protobuf files according to an opinionated [style](../), so it has no configuration options. No need to waste time and energy deciding how `.proto` files ought to be formatted — the tool decides so you don't have to.
 
 In this quickstart, you'll learn how to solve some common formatting problems with `buf format`.
 

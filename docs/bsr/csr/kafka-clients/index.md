@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/csr/manage-schemas/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/documentation/overview/"
+      href: "https://bufbuild.ru/docs/bsr/studio/"
   - - meta
     - property: "og:title"
       content: "Integrate with Kafka clients - Buf Docs"

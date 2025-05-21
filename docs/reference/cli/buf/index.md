@@ -7,13 +7,13 @@ head:
       href: "https://bufbuild.ru/docs/reference/cli/buf/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/protovalidate/further-reading/"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protolock/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/reference/cli/buf/breaking/"
   - - meta
     - property: "og:title"
-      content: "Buf CLI commands - Buf Docs"
+      content: "Commands - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/reference/cli/buf/index.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Buf CLI commands - Buf Docs"
+      content: "Commands - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/reference/cli/buf/index.png"

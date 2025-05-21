@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/bsr/rate-limits/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/studio/"
+      href: "https://bufbuild.ru/docs/bsr/admin/roles/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/apis/api-access/"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/setup-pro/"
   - - meta
     - property: "og:title"
       content: "Rate limits - Buf Docs"
@@ -54,7 +54,7 @@ The BSR limits the number of API requests you can make within a specified amount
 
 #### Unauthenticated traffic
 
-The BSR allows 10 unauthenticated code generation requests per hour, with a burst of up to 10 requests. If you send more than 10 unauthenticated requests per hour using [remote plugins](../remote-plugins/overview/), you’ll receive a rate limit error.
+The BSR allows 10 unauthenticated code generation requests per hour, with a burst of up to 10 requests. If you send more than 10 unauthenticated requests per hour using [remote plugins](../remote-plugins/), you’ll receive a rate limit error.
 
 To prevent service interruptions, ensure that your CI jobs and local usages of the Buf CLI authenticate with the Buf Schema Registry (BSR) before making these requests.
 

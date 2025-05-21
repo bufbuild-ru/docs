@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/best-practices/style-guide/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/reference/protovalidate/cel_extensions/"
+      href: "https://bufbuild.ru/docs/protovalidate/further-reading/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/reference/protobuf-files-and-packages/"
@@ -186,7 +186,7 @@ lint:
 
 ## Recommendations
 
-While not strictly related to style, you should always set up breaking change detection for your Protobuf schema. See the [breaking change detection documentation](../../breaking/overview/) for more details on how Buf helps enforce this.
+While not strictly related to style, you should always set up breaking change detection for your Protobuf schema. See the [breaking change detection documentation](../../breaking/) for more details on how Buf helps enforce this.
 
 Use `//` instead of `/* */` for comments.
 
@@ -194,7 +194,7 @@ Over-document, and use complete sentences for comments. Put documentation above 
 
 Avoid widely used keywords for all types, especially packages. For example, if your package name is `foo.internal.bar`, the `internal` component blocks importing the generated stubs in other packages for Go.
 
-Lay out files in this order (this matches [Google's current recommendations](https://protobuf.dev/programming-guides/style/#file-structure)), and the [`buf format`](../../format/style/) command checks for all but the first two:
+Lay out files in this order (this matches [Google's current recommendations](https://protobuf.dev/programming-guides/style/#file-structure)), and the [`buf format`](../../format/) command checks for all but the first two:
 
 - License header (if applicable)
 - File overview

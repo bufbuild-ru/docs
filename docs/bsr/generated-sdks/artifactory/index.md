@@ -13,7 +13,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/generated-sdks/cargo/"
   - - meta
     - property: "og:title"
-      content: "Use SDKs with Artifactory - Buf Docs"
+      content: "Use with Artifactory - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/bsr/generated-sdks/artifactory.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Use SDKs with Artifactory - Buf Docs"
+      content: "Use with Artifactory - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/bsr/generated-sdks/artifactory.png"

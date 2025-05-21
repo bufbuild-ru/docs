@@ -7,13 +7,13 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/iceberg/quickstart/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/iceberg/"
+      href: "https://bufbuild.ru/docs/bufstream/quickstart/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/iceberg/configuration/"
+      href: "https://bufbuild.ru/docs/bufstream/data-governance/schema-enforcement/"
   - - meta
     - property: "og:title"
-      content: "Quickstart - Buf Docs"
+      content: "Iceberg quickstart - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/bufstream/iceberg/quickstart.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Quickstart - Buf Docs"
+      content: "Iceberg quickstart - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/bufstream/iceberg/quickstart.png"
@@ -64,20 +64,20 @@ In this quickstart, you'll learn to create a local Bufstream and Iceberg environ
 - Clone the `buf-examples` repo and go to the example code directory:
 
   ```sh
-  git clone git@github.com:bufbuild/buf-examples.git && \
-      cd buf-examples/bufstream/iceberg-quickstart
+  git clone https://github.com/bufbuild/buf-examples.git && \
+      cd ./buf-examples/bufstream/iceberg-quickstart
   ```
 
 ## Configure Bufstream for Iceberg
 
-Bufstream works with your existing Iceberg catalogs. To use it, you'll need to create at least one named catalog in your [Bufstream Iceberg configuration](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.IcebergIntegrationConfig).
+Bufstream works with your existing Iceberg catalogs. To use it, you'll need to create at least one named catalog in your [Bufstream Iceberg configuration](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.IcebergConfig).
 
-This example includes a REST Iceberg catalog as part of its Docker compose project. Edit `config/bufstream.yaml` and add the following to reference it:
+This example includes a REST Iceberg catalog as part of its Docker compose project. Edit `config/bufstream.yaml` and uncomment the following at the bottom of the file:
 
 ::: info config/bufstream.yaml
 
 ```yaml
-iceberg_integration:
+iceberg:
   catalogs:
     - name: local-rest-catalog
       rest:
@@ -90,22 +90,10 @@ iceberg_integration:
 
 Integrating Bufstream with Iceberg requires the Bufstream broker, object storage, and an Iceberg catalog implementation. These are all available via Docker images, so we've included a `docker-compose.yml` that makes it easy to run all of this infrastructure locally. Additionally, it starts AKHQ (a GUI for Kafka management) and Apache Spark (an analytics engine compatible with Iceberg).
 
-Start all of this with one command:
+Start all of this in a new terminal with one command:
 
 ```sh
-docker compose up -d
-```
-
-After dependencies are downloaded, the console should show that all containers have started:
-
-```console
- ✔ Network iceberg_net         Created                                      0.0s
- ✔ Container minio             Started                                      0.6s
- ✔ Container iceberg-rest      Started                                      0.6s
- ✔ Container spark-iceberg     Started                                      0.8s
- ✔ Container bufstream         Started                                      0.7s
- ✔ Container mc                Started                                      0.7s
- ✔ Container akhq              Started                                      0.9s
+docker compose up
 ```
 
 ## Publish Kafka messages
@@ -146,7 +134,7 @@ In production, you should include this configuration as part of your infrastruct
 
 ## Archive all topics
 
-In production, Bufstream automatically archives topic data to Iceberg based on a [scheduled interval](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.ArchiveConfig). Decreasing this interval decreases latency but increases cost.
+In production, Bufstream automatically archives topic data to Iceberg based on a scheduled interval.
 
 In development, it's handy to be able to control this manually. Using Bufstream's `admin` command, you can immediately archive all pending (hot) topic data to Iceberg (cold) storage:
 
@@ -258,7 +246,7 @@ com    10
 
 ## Clean up
 
-To remove the containers you've created and shutdown all services, run the following:
+To remove the containers you've created and shutdown all services, ctrl+c `docker-compose` in your other terminal:
 
 ```sh
 docker compose down

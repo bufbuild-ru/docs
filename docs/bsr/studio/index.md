@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/bsr/studio/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/documentation/create-docs/"
+      href: "https://bufbuild.ru/docs/bsr/csr/kafka-clients/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/rate-limits/"
+      href: "https://bufbuild.ru/docs/bsr/admin/user-account/"
   - - meta
     - property: "og:title"
       content: "Explore your APIs in Buf Studio - Buf Docs"

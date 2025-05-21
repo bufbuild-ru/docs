@@ -57,6 +57,6 @@ Buf provides enterprise-grade Kafka and gRPC services for the modern age. Use Bu
 
 <div onclick="window.location.href='/blog'" class="card-link"><h5>Blog</h5>Stay up to date with Buf product launches.</div>
 
-<div onclick="window.location.href='https://buf.build/contact-us'" class="card-link"><h5>Contact Us</h5>Get in touch with any questions.</div>
+<div onclick="window.location.href='https://buf.build/contact-us'" class="card-link"><h5>Contact us</h5>Get in touch with any questions.</div>
 
 </div>

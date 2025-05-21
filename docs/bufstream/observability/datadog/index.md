@@ -44,7 +44,9 @@ head:
 
 ---
 
-# Datadog configuration
+# Datadog dashboards and monitors
+
+This page describes how to install and configure Bufstream's Datadog dashboards and monitors.
 
 ## Downloads
 
@@ -52,19 +54,17 @@ head:
 | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
 | [bufstream-datadog-v0.3.6.zip](../../../assets/bufstream/observability/bufstream-datadog-v0.3.6.zip) | Bufstream dashboard and monitor JSON files for Datadog |
 
-## Release Notes
+## About the dashboard
 
-### v0.3.6
+The overview dashboard (`dashboard-overview.json`) provides a Summary group for high-level Bufstream status and groups of panels for Bufstream brokers, Kafka Producers/Consumers, Bufstream metrics (including [data governance](../../data-governance/schema-enforcement/)), and etcd metrics. To report etcd metrics, configure the [etcd integration](https://docs.datadoghq.com/integrations/etcd/).
 
-**_Release Date:_** 2025-01-14
+Top-level label drop-downs allow filtering by the Bufstream cluster, topic, consumer group, host (for Go metrics), and etcd cluster.
 
-- Update dashboards to use new fetch and produce request metrics instead of previous errors metrics.
+![Bufstream Overview Dashboard](../../../images/bufstream/observability/datadog-dashboard-overview.png)
 
-### v0.3.3
+## About the status monitor
 
-**_Release Date:_** 2024-12-19
-
-- Initial release of Datadog dashboard and monitor for Bufstream.
+The status monitor (`monitor-status.json`) warns when any Bufstream broker's [status probes](../status-endpoint/) report warnings and alerts if any are in error status. This monitor is based on the [`bufstream.status` metric](../metrics/#available-metrics).
 
 ## Installation
 
@@ -83,7 +83,7 @@ head:
 
 ## Configuration
 
-When configuring Datadog for [OTLP](../overview/#otlp), we recommend [reporting metrics with Delta temporality](https://docs.datadoghq.com/opentelemetry/guide/otlp_delta_temporality/). In the Bufstream helm values, specify the following to enable Delta temporality:
+When configuring Datadog for [OTLP](../#otlp), we recommend [reporting metrics with Delta temporality](https://docs.datadoghq.com/opentelemetry/guide/otlp_delta_temporality/). In the Bufstream helm values, specify the following to enable Delta temporality:
 
 ```yaml
 observability:
@@ -100,14 +100,16 @@ Additionally, depending on your monitoring needs, you can enable [Percentiles](h
 
 Enabling percentiles provides p50, p75, p90, p95, and p99 aggregations.
 
-## Bufstream overview dashboard
+## Release notes
 
-![Bufstream Overview Dashboard](../../../images/bufstream/observability/datadog-dashboard-overview.png)
+### v0.3.6
 
-The overview dashboard (dashboard-overview.json) provides a Summary group for high-level Bufstream status as well as groups of panels for Bufstream brokers, Kafka Producers/Consumers, Bufstream metrics (including [data governance](../../data-governance/schema-enforcement/)), and etcd metrics. To report etcd metrics, configure the [etcd integration](https://docs.datadoghq.com/integrations/etcd/).
+**_Release Date:_** 2025-01-14
 
-Top-level label drop-downs allow filtering by the Bufstream cluster, topic, consumer group, host (for Go metrics), and etcd cluster.
+- Update dashboards to use new fetch and produce request metrics instead of previous errors metrics.
 
-## Bufstream status monitor
+### v0.3.3
 
-The status monitor (monitor-status.json) warns when any Bufstream broker's [status probes](../status-endpoint/) report warnings and alerts if any are in error status. This monitor is based on the [`bufstream.status` metric](../metrics/#available-metrics).
+**_Release Date:_** 2024-12-19
+
+- Initial release of Datadog dashboard and monitor for Bufstream.

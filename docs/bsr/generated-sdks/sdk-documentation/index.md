@@ -82,4 +82,4 @@ Most Go and JavaScript/Typescript SDKs have an easily accessible API reference o
 
 ![Screenshot of the API reference button](../../../images/bsr/sdks/sdk-docs-button.png)
 
-If the API reference for the SDK hasn't been generated before, the BSR displays a "Docs Generating" banner — otherwise, it displays a link to the reference's root directory. Click through to a package, and it shows its import statement and links to each of the package's descendants. You can then navigate around the documentation as needed.
+If the API reference for the SDK hasn't been generated before, the BSR displays a "Docs Generating" banner — otherwise, it displays a link to the reference's root directory. Click through to a package and it shows its import statement and links to each of the package's descendants — you can navigate around the documentation from there.

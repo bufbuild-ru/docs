@@ -67,7 +67,7 @@ There are many places where Protobuf could have made schema evolution easier, bu
 For example, if we notice a `int32` value is too small, and should have been 64-bit, you can’t upgrade it without readers from the past potentially truncating it. But we really have to upgrade it! What are our options?
 
 1.  Issue a new version of the message and all of its dependencies. This is the main reason why sticking a version number in the package name, as enforced by Buf’s [`PACKAGE_VERSION_SUFFIX`](/docs/lint/rules/index.md#package_version_suffix) lint rule, is so important.
-2.  Do the upgrade anyway and hope nothing breaks. This _can_ work for certain kinds of upgrades, if the underlying format is compatible, but it can have **disastrous consequences** if you don’t know what you’re doing, especially if it’s a type that’s not completely internal to a team’s project. [Buf breaking change detection](/docs/breaking/overview/index.md) helps you avoid changes with potential for breakage.
+2.  Do the upgrade anyway and hope nothing breaks. This _can_ work for certain kinds of upgrades, if the underlying format is compatible, but it can have **disastrous consequences** if you don’t know what you’re doing, especially if it’s a type that’s not completely internal to a team’s project. [Buf breaking change detection](/docs/breaking/index.md) helps you avoid changes with potential for breakage.
 
 Of course, there is a third option, which is to accept that some things aren’t worth fixing. When the cost of a fix is so high, fixes just aren’t worth it, especially when the language is working against us.
 

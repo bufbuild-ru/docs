@@ -38,7 +38,7 @@ head:
 
 # Introducing buf curl - Call your gRPC endpoints with the simplicity of buf
 
-Today, we’re introducing a new tool for Protobuf APIs: [`buf curl`](/docs/curl/usage/index.md).
+Today, we’re introducing a new tool for Protobuf APIs: [`buf curl`](/docs/curl/index.md).
 
 This addition to the Buf CLI makes it easy to invoke [gRPC](https://grpc.io/), [gRPC-Web](https://github.com/grpc/grpc-web), and [Connect](https://connectrpc.com/) endpoints when debugging, when testing, or in cases where using a generated RPC client is too heavy. It is designed to match the same workflow as [`curl`](https://everything.curl.dev/), even providing many of its familiar flags. Upgrade to v1.12.0 of [`buf`](https://github.com/bufbuild/buf) to use `buf curl` today!
 
@@ -108,6 +108,6 @@ The command-line interface and options for `buf curl` were designed to mirror th
 
 ### Try it out
 
-Take `buf curl` for [a spin](/docs/cli/installation/index.md)! More details about the command can be found on our [documentation site](/docs/curl/usage/index.md) or by running `buf help curl` after installing v1.12.0. If you have any requests or find a bug, please let us know by filing a [GitHub issue](https://github.com/bufbuild/buf/issues).
+Take `buf curl` for [a spin](/docs/cli/installation/index.md)! More details about the command can be found on our [documentation site](/docs/curl/index.md) or by running `buf help curl` after installing v1.12.0. If you have any requests or find a bug, please let us know by filing a [GitHub issue](https://github.com/bufbuild/buf/issues).
 
 ‍

@@ -7,13 +7,13 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/reference/cli/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/integrations/redpanda-console/"
+      href: "https://bufbuild.ru/docs/bufstream/blog-posts/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bufstream/reference/cli/migrate/"
   - - meta
     - property: "og:title"
-      content: "Bufstream CLI commands - Buf Docs"
+      content: "CLI commands - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/bufstream/reference/cli/index.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Bufstream CLI commands - Buf Docs"
+      content: "CLI commands - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/bufstream/reference/cli/index.png"

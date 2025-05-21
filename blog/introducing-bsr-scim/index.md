@@ -58,6 +58,6 @@ Historically, the BSR's user access management involved creating user accounts a
 
 ## Get started with SCIM in the BSR
 
-To learn more about SCIM or to set it up in the BSR, check out the [BSR SCIM documentation](/docs/bsr/admin/instance/scim/overview/index.md). If you’re not yet on our Pro or Enterprise plan, [pricing details](https://buf.build/pricing/) are available on our website.
+To learn more about SCIM or to set it up in the BSR, check out the [BSR SCIM documentation](/docs/bsr/admin/instance/scim/index.md). If you’re not yet on our Pro or Enterprise plan, [pricing details](https://buf.build/pricing/) are available on our website.
 
 Don't hesitate to reach out to us on the [Buf Slack](https://buf.build/b/slack/) with any questions. We'd love to hear your feedback!

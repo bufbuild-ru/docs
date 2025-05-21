@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/cli/protoc-plugins/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/cli/buf-plugins/publish/"
+      href: "https://bufbuild.ru/docs/cli/editor-integration/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/cli/build-systems/bazel/"
@@ -55,7 +55,7 @@ Buf doesn't use these binaries but they can be useful in situations where you ha
 
 ## `protoc-gen-buf-breaking`
 
-The `protoc-gen-buf-breaking` binary performs [breaking change detection](../../breaking/overview/) as a `protoc` plugin.
+The `protoc-gen-buf-breaking` binary performs [breaking change detection](../../breaking/) as a `protoc` plugin.
 
 All flags and config are passed to the plugin as an option in JSON format. You need to pass these options using `--buf-breaking_opt` as opposed to `--buf-breaking_out`, as the option includes the `:` character as part of JSON.
 
@@ -85,7 +85,7 @@ An example option:
 ```
 
 - `against_input` is required and limited to [Buf image formats](../../reference/images/). The format must be `binpb`, `json`, or `txtpb`, and can't be `dir`, `git`, `tar`, `zip`, etc.
-- `limit_to_input_files` limits checks to those files under build by `protoc` in the current invocation, in this case the `file_to_generate` in the [`CodeGeneratorRequest`](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/compiler/plugin.proto). We usually recommend setting this option when using this plugin. We don't make this the default in order to maintain symmetry with [`buf breaking`](../../breaking/overview/).
+- `limit_to_input_files` limits checks to those files under build by `protoc` in the current invocation, in this case the `file_to_generate` in the [`CodeGeneratorRequest`](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/compiler/plugin.proto). We usually recommend setting this option when using this plugin. We don't make this the default in order to maintain symmetry with [`buf breaking`](../../breaking/).
 
 Here's an example usage of the binary in conjunction with protoc:
 
@@ -101,7 +101,7 @@ pet/v1/pet.proto:18:3:Field "1" on message "Pet" changed type from "enum" to "st
 
 ## `protoc-gen-buf-lint`
 
-The `protoc-gen-buf-lint` binary performs [linting](../../lint/overview/) as a `protoc` plugin.
+The `protoc-gen-buf-lint` binary performs [linting](../../lint/) as a `protoc` plugin.
 
 All flags and config are passed to the plugin as an option in JSON format. You need to pass these options using `--buf-lint_opt` as opposed to `--buf-lint_out`, as the option includes the `:` character as part of JSON.
 

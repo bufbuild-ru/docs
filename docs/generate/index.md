@@ -4,7 +4,7 @@ description: "High-level overview of generating code from Protocol Buffers with 
 head:
   - - link
     - rel: "canonical"
-      href: "https://bufbuild.ru/docs/generate/overview/"
+      href: "https://bufbuild.ru/docs/generate/"
   - - link
     - rel: "prev"
       href: "https://bufbuild.ru/docs/cli/modules-workspaces/"
@@ -13,13 +13,13 @@ head:
       href: "https://bufbuild.ru/docs/generate/tutorial/"
   - - meta
     - property: "og:title"
-      content: "Overview - Buf Docs"
+      content: "Generate code - Buf Docs"
   - - meta
     - property: "og:image"
-      content: "https://buf.build/docs/assets/images/social/generate/overview.png"
+      content: "https://buf.build/docs/assets/images/social/generate/index.png"
   - - meta
     - property: "og:url"
-      content: "https://bufbuild.ru/docs/generate/overview/"
+      content: "https://bufbuild.ru/docs/generate/"
   - - meta
     - property: "og:type"
       content: "website"
@@ -34,10 +34,10 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Overview - Buf Docs"
+      content: "Generate code - Buf Docs"
   - - meta
     - property: "twitter:image"
-      content: "https://buf.build/docs/assets/images/social/generate/overview.png"
+      content: "https://buf.build/docs/assets/images/social/generate/index.png"
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
@@ -58,13 +58,13 @@ Buf's code generation streamlines all of that and is designed to work with whate
 
 In addition, Buf offers several features that ease many of the frustrations of generating client code from Protobuf files, especially in larger organizations:
 
-- **[Remote plugins](../../bsr/remote-plugins/overview/):** Avoid installing and maintaining `protoc` plugins locally. Specify our hosted versions instead, right down to the version number, so it's easy to standardize across teams or use different versions for different projects as needed.
-- **[Managed mode](../managed-mode/):** Produce universal APIs by removing user and language specific Protobuf options from `.proto` files. API consumers can then enable smart defaults for these options in the config file with two lines of code and never think about them again.
-- **[Generated SDKs](../../bsr/generated-sdks/overview/):** Skip the entire code generation process and consume your APIs via NPM, Maven, and other common dependency management tools. They're created automatically when modules are pushed to the BSR.
+- **[Remote plugins](../bsr/remote-plugins/):** Avoid installing and maintaining `protoc` plugins locally. Specify our hosted versions instead, right down to the version number, so it's easy to standardize across teams or use different versions for different projects as needed.
+- **[Managed mode](managed-mode/):** Produce universal APIs by removing user and language specific Protobuf options from `.proto` files. API consumers can then enable smart defaults for these options in the config file with two lines of code and never think about them again.
+- **[Generated SDKs](../bsr/generated-sdks/):** Skip the entire code generation process and consume your APIs via NPM, Maven, and other common dependency management tools. They're created automatically when modules are pushed to the BSR.
 
 The sections below discuss key concepts, local generation (with and without remote plugins), managed mode, and specific invocations of the `buf generate` command.
 
-See the [quickstart](../tutorial/) for a step-by-step walkthrough of setting up code generation, basic usage, and using remote plugins and managed mode.
+See the [quickstart](tutorial/) for a step-by-step walkthrough of setting up code generation, basic usage, and using remote plugins and managed mode.
 
 ## Key concepts
 
@@ -74,23 +74,23 @@ See the [quickstart](../tutorial/) for a step-by-step walkthrough of setting up 
 
 input
 
-To the Buf CLI, an input is the representation of the Protobuf files you want to manage. It can take many forms, such as a local directory of `.proto` files, a module hosted in the Buf Schema Registry, or a `.zip` file. See the [Inputs reference](../../reference/inputs/) for a full list of inputs that the Buf CLI accepts.
+To the Buf CLI, an input is the representation of the Protobuf files you want to manage. It can take many forms, such as a local directory of `.proto` files, a module hosted in the Buf Schema Registry, or a `.zip` file. See the [Inputs reference](../reference/inputs/) for a full list of inputs that the Buf CLI accepts.
 
 plugins
 
-Plugins are external programs that implement a specific Protobuf interface. They're used by `protoc` and Buf to generate code or perform other custom processing on Protobuf files. With the Buf CLI, you can either install and use plugins locally, or save time and improve consistency by referencing the [remote plugins](../../bsr/remote-plugins/overview/) that we host in the Buf Schema Registry (BSR). They're the same as the ones you locally install.
+Plugins are external programs that implement a specific Protobuf interface. They're used by `protoc` and Buf to generate code or perform other custom processing on Protobuf files. With the Buf CLI, you can either install and use plugins locally, or save time and improve consistency by referencing the [remote plugins](../bsr/remote-plugins/) that we host in the Buf Schema Registry (BSR). They're the same as the ones you locally install.
 
 `buf.gen.yaml`
 
 This is the Buf config file specifically related to code generation. It's usually placed at the root of your workspace and specifies the plugin to be used for each output, the output path, and set of options that enables you to customize the generated code further.
 
-To see all of the available configuration options, go to the [`buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/).
+To see all of the available configuration options, go to the [`buf.gen.yaml` reference](../configuration/v2/buf-gen-yaml/).
 
 ## Generating with local plugins
 
 Generating client code with locally installed plugins works similar to `protoc`, but faster. In the diagram below, the `plugins.local` key specifies a local version of `protoc-gen-go`.
 
-![Diagram of local code generation from the Buf CLI](../../images/cli/generate-local-plugin.png)
+![Diagram of local code generation from the Buf CLI](../images/cli/generate-local-plugin.png)
 
 For plugins that are built into `protoc`, use the `plugins.protoc_builtin` key and specify the language as the value:
 
@@ -122,7 +122,7 @@ plugins:
 
 As noted above, managing a set of local plugins can complicate your workflow, especially if you're trying to be consistent across teams. A common solution is to rely on custom tooling, which frequently leads to "works on my machine" reproducibility problems. With Buf, you can standardize code generation by specifying the mirrors of the `protoc` plugins that we host in the BSR. Just point the `plugins.remote` key to the BSR, and it generates the code.
 
-![Diagram of code generation using the BSR's remote plugins](../../images/cli/generate-remote-plugin.png)
+![Diagram of code generation using the BSR's remote plugins](../images/cli/generate-remote-plugin.png)
 
 ::: info buf.gen.yaml – Generate code using a remote plugin
 
@@ -135,7 +135,7 @@ plugins:
 
 :::
 
-For more information, see the [remote plugins overview](../../bsr/remote-plugins/overview/).
+For more information, see the [remote plugins overview](../bsr/remote-plugins/).
 
 ## Using managed mode
 
@@ -197,7 +197,7 @@ plugins:
 
 :::
 
-For more information, see the [Managed mode](../managed-mode/) and [`buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/) pages.
+For more information, see the [Managed mode](managed-mode/) and [`buf.gen.yaml` reference](../configuration/v2/buf-gen-yaml/) pages.
 
 ## Referencing imports
 
@@ -262,7 +262,7 @@ message Bar {
 
 The examples below show ways of invoking `buf generate` for different inputs or subsets of inputs. Generally, you should specify all inputs in the `buf.gen.yaml` file, but they can also be passed to `buf generate` at the command line as in the examples below. If you specify an input in `buf.gen.yaml` and in the command, the command takes precedence and only that input is generated.
 
-See the [`buf.gen.yaml`](../../configuration/v2/buf-gen-yaml/) configuration file documentation to learn how to specify inputs there.
+See the [`buf.gen.yaml`](../configuration/v2/buf-gen-yaml/) configuration file documentation to learn how to specify inputs there.
 
 ::: info Generate from the current workspace root
 
@@ -311,7 +311,7 @@ $ buf generate --include-imports --include-wkt
 
 ### Limit to specific files
 
-By default, the Buf CLI builds all files in the workspace. You can instead manually specify the file or directory paths to build. This is an advanced feature intended to be used for editor or [Bazel](../../cli/build-systems/bazel/) integration. It's better to let the Buf CLI discover all files under management and handle this for you.
+By default, the Buf CLI builds all files in the workspace. You can instead manually specify the file or directory paths to build. This is an advanced feature intended to be used for editor or [Bazel](../cli/build-systems/bazel/) integration. It's better to let the Buf CLI discover all files under management and handle this for you.
 
 If you only want to generate code for a subset of your input, you can do so via the `--path` flag:
 

@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/protovalidate/schemas/standard-rules/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/protovalidate/quickstart/"
+      href: "https://bufbuild.ru/docs/protovalidate/quickstart/bufstream/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/protovalidate/schemas/custom-rules/"
@@ -230,14 +230,22 @@ Protovalidate provides standard rules for [Protobuf's Well-Known Types](https://
 ```protobuf
 message Event {
     google.protobuf.Any data = 1 [
-        (buf.validate.field).any.required = true
+        (buf.validate.field).any = {
+            in: ["type.googleapis.com/MyType1"]
+        }
     ];
     google.protobuf.Duration duration = 2 [
-        (buf.validate.field).duration.gte = "1s",
-        (buf.validate.field).duration.lte = "1h"
+        (buf.validate.field).duration.gte = {
+            seconds: 1
+        },
+        (buf.validate.field).duration.lte = {
+            seconds: 3600
+        }
     ];
     google.protobuf.Timestamp timestamp = 3 [
-        (buf.validate.field).timestamp.lte = "2021-01-01T00:00:00Z"
+        (buf.validate.field).timestamp.lte = {
+            seconds: 1735689600 // 2025-01-01T00:00:00Z
+        }
     ];
 }
 ```

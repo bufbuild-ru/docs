@@ -38,7 +38,7 @@ head:
 
 # The BSR now integrates with Kong Insomnia, making gRPC even easier to use
 
-Kong Insomnia’s 9.0 release, which [shipped](https://konghq.com/blog/product-releases/insomnia-9-0-pre-request-scripting-api-mocking) last week, [integrates support for the Buf Schema Registry](https://github.com/Kong/insomnia/pull/6975). Organizations adopting gRPC can now take advantage of Insomnia's rich feature set while keeping schema access simple and secure. Under the hood, this integration is powered by the [BSR's new Reflection API](/docs/bsr/reflection/overview/index.md) — the first production-ready API for dynamic Protobuf schema access.
+Kong Insomnia’s 9.0 release, which [shipped](https://konghq.com/blog/product-releases/insomnia-9-0-pre-request-scripting-api-mocking) last week, [integrates support for the Buf Schema Registry](https://github.com/Kong/insomnia/pull/6975). Organizations adopting gRPC can now take advantage of Insomnia's rich feature set while keeping schema access simple and secure. Under the hood, this integration is powered by the [BSR's new Reflection API](/docs/bsr/reflection/index.md) — the first production-ready API for dynamic Protobuf schema access.
 
 Insomnia integration is available now for all BSR users, so [**sign up for free (no credit card required) and try it out!**](https://buf.build/pricing)
 

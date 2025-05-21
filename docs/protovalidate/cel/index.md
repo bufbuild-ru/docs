@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/protovalidate/cel/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/protovalidate/quickstart/bufstream/"
+      href: "https://bufbuild.ru/docs/protovalidate/schemas/compile-with-protoc/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc-gen-validate/"
+      href: "https://bufbuild.ru/docs/reference/protovalidate/violations/"
   - - meta
     - property: "og:title"
       content: "Advanced CEL topics - Buf Docs"

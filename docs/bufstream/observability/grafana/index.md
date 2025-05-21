@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/observability/datadog/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/integrations/akhq/"
+      href: "https://bufbuild.ru/docs/bufstream/kafka-compatibility/configure-clients/"
   - - meta
     - property: "og:title"
       content: "Grafana - Buf Docs"
@@ -44,7 +44,9 @@ head:
 
 ---
 
-# Grafana
+# Grafana dashboards and alerts
+
+This page describes how to install and configure Bufstream's Grafana dashboards and alerts.
 
 ## Downloads
 
@@ -52,19 +54,17 @@ head:
 | ---------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | [bufstream-grafana-v0.3.6.zip](../../../assets/bufstream/observability/bufstream-grafana-v0.3.6.zip) | Bufstream dashboard .json and alert .yaml files for Grafana |
 
-## Release notes
+## About the dashboard
 
-### v0.3.6
+The overview dashboard (`grafana-overview-dashboard.json`) provides an Overview row for high-level Bufstream status and rows of panels for Bufstream brokers, Kafka Producers/Consumers, Bufstream metrics (including [data governance](../../data-governance/schema-enforcement/)), and etcd metrics.
 
-**_Release Date:_** 2025-01-14
+Top-level label drop-downs allow filtering by the Kubernetes cluster, Bufstream cluster, Kafka API key, topic, and consumer group.
 
-- Update dashboards to use new fetch and produce request metrics instead of previous errors metrics.
+![Bufstream Overview Dashboard](../../../images/bufstream/observability/grafana-dashboard-overview.png)
 
-### v0.3.3
+## About the status alert
 
-**_Release Date:_** 2024-12-19
-
-- Initial release of Grafana dashboard and alerts for Bufstream.
+The status alert (`prometheus-status-rules.yaml`) fires when any Bufstream broker's [status probes](../status-endpoint/) report alerts. If any Bufstream broker is in an unhealthy status, it reports an alert to the status probe. This monitor is based on the [`bufstream.status` metric](../metrics/#available-metrics).
 
 ## Installation
 
@@ -90,7 +90,7 @@ When using Grafana, Bufstream metrics can either be scraped at a Prometheus endp
 
 ### Prometheus
 
-If Bufstream is configured to expose a [Prometheus](../overview/#prometheus) endpoint, metrics can be scraped at `https://0.0.0.0:9090/metrics/`.
+If Bufstream is configured to expose a [Prometheus](../#prometheus) endpoint, metrics can be scraped at `https://0.0.0.0:9090/metrics/`.
 
 We recommend setting pod annotations for the Bufstream pods. Specify the annotations in your Helm values file:
 
@@ -105,20 +105,22 @@ bufstream:
 
 ### OTLP
 
-If you've configured metrics to be exported in [OTLP](../overview/#otlp), an OLTP-compatible collector such as Alloy is also needed.
+If you've configured metrics to be exported in [OTLP](../#otlp), an OLTP-compatible collector such as Alloy is also needed.
 
 ### etcd
 
 To monitor etcd, you may need to enable metrics for your etcd deployment. For etcd dashboards, see [etcd's recommended template](https://etcd.io/docs/v3.5/op-guide/monitoring/#grafana).
 
-## Bufstream overview dashboard
+## Release notes
 
-![Bufstream Overview Dashboard](../../../images/bufstream/observability/grafana-dashboard-overview.png)
+### v0.3.6
 
-The overview dashboard (grafana-overview-dashboard.json) provides a Overview row for high-level Bufstream status as well as rows of panels for Bufstream brokers, Kafka Producers/Consumers, Bufstream metrics (including [data governance](../../data-governance/schema-enforcement/)), and etcd metrics.
+**_Release Date:_** 2025-01-14
 
-Top-level label drop-downs allow filtering by the Kubernetes cluster, Bufstream cluster, Kafka API key, topic, and consumer group.
+- Update dashboards to use new fetch and produce request metrics instead of previous errors metrics.
 
-## Bufstream status alerting rule
+### v0.3.3
 
-The status alert (prometheus-status-rules.yaml) fires when any Bufstream broker's [status probes](../status-endpoint/) report alerts. If any Bufstream broker is in an unhealthy status, it will report an alert to the status probe. This monitor is based on the [`bufstream.status` metric](../metrics/#available-metrics).
+**_Release Date:_** 2024-12-19
+
+- Initial release of Grafana dashboard and alerts for Bufstream.

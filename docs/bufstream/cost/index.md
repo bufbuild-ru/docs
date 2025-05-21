@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/cost/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/blog-posts/"
+      href: "https://bufbuild.ru/docs/bufstream/releases/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/"
+      href: "https://bufbuild.ru/docs/bufstream/blog-posts/"
   - - meta
     - property: "og:title"
       content: "Benchmarks and cost - Buf Docs"

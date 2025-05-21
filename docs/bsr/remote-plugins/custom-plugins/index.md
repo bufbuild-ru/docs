@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/remote-plugins/usage/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/generated-sdks/overview/"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-remote-generation-alpha/"
   - - meta
     - property: "og:title"
       content: "Custom plugins - Buf Docs"
@@ -57,17 +57,17 @@ You can upload unlimited custom plugins, which can be public or private within y
 - Public: All user accounts with access to the instance have access to the plugin
 - Private: Only user accounts who are members of the organization that owns a plugin have access to the plugin
 
-Custom plugins are interleaved with Buf-managed plugins in the [filter categories](../overview/#finding-remote-plugins) of the plugin catalog. They appear in the language category of the plugin (if one is assigned in the [`buf.plugin.yaml` file](https://github.com/bufbuild/plugins/blob/main/CONTRIBUTING.md#bufpluginyaml-file)), otherwise they're listed in the **Other** category.
+Custom plugins are interleaved with Buf-managed plugins in the [filter categories](../#finding-remote-plugins) of the plugin catalog. They appear in the language category of the plugin (if one is assigned in the [`buf.plugin.yaml` file](https://github.com/bufbuild/plugins/blob/main/CONTRIBUTING.md#bufpluginyaml-file)), otherwise they're listed in the **Other** category.
 
 ## Plugin protocol requirements
 
 The [plugin protocol](../../../reference/descriptors/#code-generation) defines how the compiler and a plugin interact with each other, and we can only support plugins that adhere to it.
 
-The main requirement of a plugin is that it deterministically outputs files via a `CodeGeneratorResponse` message based only on the input `CodeGeneratorRequest` message. This strict protocol is what allows the BSR to parallelize local code generation, and implement [generated SDKs](../../generated-sdks/overview/) and [remote plugins](../overview/) on the BSR.
+The main requirement of a plugin is that it deterministically outputs files via a `CodeGeneratorResponse` message based only on the input `CodeGeneratorRequest` message. This strict protocol is what allows the BSR to parallelize local code generation, and implement [generated SDKs](../../generated-sdks/) and [remote plugins](../) on the BSR.
 
-Plugins that access the file system, make network requests, or otherwise cause the `CodeGeneratorResponse` to depend on information other than what is in the `CodeGeneratorRequest`, do not conform to the protocol and are **not supported**.
+Plugins that access the file system, make network requests, or otherwise cause the `CodeGeneratorResponse` to depend on information other than what is in the `CodeGeneratorRequest`, don't conform to the protocol and are **not supported**.
 
-Plugins that don't conform to the protocol may work on your local machine, but you may run into issues that we're not able to help you troubleshoot or fix, and these plugins will not work with [generated SDKs](../../generated-sdks/overview/) or [remote plugins](../overview/) on the BSR.
+Plugins that don't conform to the protocol may work on your local machine, but you may run into issues that we're not able to help you troubleshoot or fix, and these plugins won't work with [generated SDKs](../../generated-sdks/) or [remote plugins](../) on the BSR.
 
 ## Creating a custom plugin
 

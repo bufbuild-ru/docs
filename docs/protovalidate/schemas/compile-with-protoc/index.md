@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/protovalidate/schemas/compile-with-protoc/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/protovalidate/schemas/predefined-rules/"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc-gen-validate/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/protovalidate/quickstart/connect-go/"
+      href: "https://bufbuild.ru/docs/protovalidate/cel/"
   - - meta
     - property: "og:title"
       content: "Compile with protoc - Buf Docs"

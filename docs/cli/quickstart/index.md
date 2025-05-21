@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/cli/installation/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/cli/editor-integration/"
+      href: "https://bufbuild.ru/docs/cli/modules-workspaces/"
   - - meta
     - property: "og:title"
       content: "Quickstart - Buf Docs"
@@ -190,7 +190,7 @@ Given this config, the Buf CLI does two things:
 There are a few things to note in this configuration:
 
 - **Managed mode:** [Managed mode](../../generate/managed-mode/) is a configuration option that tells the Buf CLI to set all the [file options](https://protobuf.dev/programming-guides/proto3/#options) in your workspace according to an opinionated set of values suitable for each of the supported Protobuf languages. The file options have long been a source of confusion and frustration for Protobuf users, so managed mode sets them on the fly per the configuration, allowing you to remove them from your `.proto` files.
-- **Remote plugins:** The plugins specified here are [remote plugins](../../bsr/remote-plugins/overview/) hosted on the [Buf Schema Registry](https://buf.build/plugins). Using them removes the need to download, maintain, or run plugins on your local machine.
+- **Remote plugins:** The plugins specified here are [remote plugins](../../bsr/remote-plugins/) hosted on the [Buf Schema Registry](https://buf.build/plugins). Using them removes the need to download, maintain, or run plugins on your local machine.
 - **Inputs:** The `buf generate` command can accept many types of input, such as Buf modules, GitHub repositories, and tarball/zip archives. The example code points to the `proto` subdirectory in the workspace.
 
 ### Generate Go and Connect RPC stubs
@@ -233,7 +233,7 @@ That's how easy it is to generate code using the Buf CLI. There's no need to bui
 
 ## Lint your Protobuf files
 
-Though the Buf CLI is a great drop-in replacement for `protoc`, it's far more than a just a Protobuf compiler. It also provides linting functionality through the [`buf lint`](../../lint/overview/) command. When you run `buf lint`, it checks all the modules listed in the `buf.yaml` file against the specified set of lint rules.
+Though the Buf CLI is a great drop-in replacement for `protoc`, it's far more than a just a Protobuf compiler. It also provides linting functionality through the [`buf lint`](../../lint/) command. When you run `buf lint`, it checks all the modules listed in the `buf.yaml` file against the specified set of lint rules.
 
 Run this command to check all `.proto` files in the quickstart workspace for lint errors:
 

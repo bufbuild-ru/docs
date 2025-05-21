@@ -4,22 +4,22 @@ description: "High-level overview of the Buf CLI's Protobuf formatting feature"
 head:
   - - link
     - rel: "canonical"
-      href: "https://bufbuild.ru/docs/format/style/"
+      href: "https://bufbuild.ru/docs/format/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/configuration/v2/buf-yaml/"
+      href: "https://bufbuild.ru/docs/lint/rules/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/format/tutorial/"
   - - meta
     - property: "og:title"
-      content: "Overview - Buf Docs"
+      content: "Format Protobuf files - Buf Docs"
   - - meta
     - property: "og:image"
-      content: "https://buf.build/docs/assets/images/social/format/style.png"
+      content: "https://buf.build/docs/assets/images/social/format/index.png"
   - - meta
     - property: "og:url"
-      content: "https://bufbuild.ru/docs/format/style/"
+      content: "https://bufbuild.ru/docs/format/"
   - - meta
     - property: "og:type"
       content: "website"
@@ -34,10 +34,10 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Overview - Buf Docs"
+      content: "Format Protobuf files - Buf Docs"
   - - meta
     - property: "twitter:image"
-      content: "https://buf.build/docs/assets/images/social/format/style.png"
+      content: "https://buf.build/docs/assets/images/social/format/index.png"
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
@@ -46,7 +46,7 @@ head:
 
 # Code formatting – Overview
 
-One of Buf's primary goals is to enforce consistency across all of Protobuf. The [linter](../../lint/overview/) ensures that the APIs themselves conform to a strong set of standards, but those have nothing to do with the structure of the `.proto` source file itself. That's where `buf format` comes in. It reformats your Protobuf files according to the following best practices for file layout and style, so you can focus on more business-critical problems.
+One of Buf's primary goals is to enforce consistency across all of Protobuf. The [linter](../lint/) ensures that the APIs themselves conform to a strong set of standards, but those have nothing to do with the structure of the `.proto` source file itself. That's where `buf format` comes in. It reformats your Protobuf files according to the following best practices for file layout and style, so you can focus on more business-critical problems.
 
 ## Structure
 
@@ -246,7 +246,7 @@ message Object {
 
 ## Configuration
 
-Unlike `buf breaking` and `buf lint`, `buf format` isn't configurable in the `buf.yaml` file. However, you can exclude a subset of your `.proto` files by using the [`--exclude-path`](../../reference/cli/buf/format/#exclude-path) flag.
+Unlike `buf breaking` and `buf lint`, `buf format` isn't configurable in the `buf.yaml` file. However, you can exclude a subset of your `.proto` files by using the [`--exclude-path`](../reference/cli/buf/format/#exclude-path) flag.
 
 ## Troubleshooting
 
@@ -260,4 +260,4 @@ Failure: exec: "diff": executable file not found in %PATH%
 
 The solution for this is to add the path of `diff.exe` (`C:\Program Files\Git\usr\bin` by default) in the Control Panel.
 
-![Screenshot of Control Panel](../../images/cli/diff-path.png)
+![Screenshot of Control Panel](../images/cli/diff-path.png)

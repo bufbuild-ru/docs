@@ -48,7 +48,7 @@ head:
 
 The `buf.yaml` file defines a [workspace](../../../cli/modules-workspaces/), which represents a directory or directories of Protobuf files that you want to treat as a unit. The set consists of one or more packages — see [Files and packages](../../../reference/protobuf-files-and-packages/) for more details about these relationships and how to structure your files.
 
-The `buf.yaml` config file and field definitions below explain usage for each field. See the [lint](../../../lint/overview/#defaults-and-configuration) and [breaking change detection](../../../breaking/overview/#defaults-and-configuration) overviews for default configurations for those features.
+The `buf.yaml` config file and field definitions below explain usage for each field. See the [lint](../../../lint/#defaults-and-configuration) and [breaking change detection](../../../breaking/#defaults-and-configuration) overviews for default configurations for those features.
 
 The annotated `buf.yaml` file below assumes a directory structure like this:
 
@@ -314,7 +314,7 @@ package A; // buf:lint:ignore PACKAGE_VERSION_SUFFIX
 
 If this option is unset, the linter ignores the specified rule for any comment that starts with `// buf:lint:ignore RULE_ID`.
 
-If this option is set to `true`, any such comments are ignored. See the [lint overview](../../../lint/overview/#comment-ignores) to learn how and when to use comment ignores.
+If this option is set to `true`, any such comments are ignored. See the [lint overview](../../../lint/#comment-ignores) to learn how and when to use comment ignores.
 
 In `v1` configurations, this key was called `allow_comment_ignores` and defaulted to `false`. The default behavior in `v2` configurations is to allow comment ignores.
 
@@ -492,7 +492,7 @@ For example, if this option is set, these packages are ignored:
 
 ## `plugins`
 
-**Optional.** Specifies [Buf plugins](../../../cli/buf-plugins/overview/) for applying custom lint or breaking change rules and categories, either in place of or in addition to Buf's. All specified plugins must be installed locally to work. This field lists the plugins to use and their options, and you then specify their rules and categories in the `lint` and/or `breaking` sections where you want them to be checked.
+**Optional.** Specifies [Buf plugins](../../../cli/buf-plugins/) for applying custom lint or breaking change rules and categories, either in place of or in addition to Buf's. All specified plugins must be installed locally to work. This field lists the plugins to use and their options, and you then specify their rules and categories in the `lint` and/or `breaking` sections where you want them to be checked.
 
 ### `plugin`
 

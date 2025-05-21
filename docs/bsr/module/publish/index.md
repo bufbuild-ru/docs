@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/module/dependency-management/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/module/export/"
+      href: "https://bufbuild.ru/docs/bsr/ci-cd/github-actions/"
   - - meta
     - property: "og:title"
       content: "Publish modules to the BSR - Buf Docs"
@@ -48,7 +48,7 @@ head:
 
 When you want to make a module available for other developers, you push it to the Buf Schema Registry (BSR). Once the module is in the BSR, its code, documentation, and generated SDKs can be accessed by anyone with the correct permissions for your repository. This page describes how to push locally, how to archive and unarchive labels, and how pushing works in CI/CD environments.
 
-Pushing to the BSR also interacts with the BSR's [policy checks](../../policy-checks/breaking/overview/) and [Confluent Schema Registry integration](../../csr/overview/) features. See their documentation and [Commits and labels](../../commits-labels/#governance-interaction) for more details.
+Pushing to the BSR also interacts with the BSR's [policy checks](../../policy-checks/breaking/) and [Confluent Schema Registry integration](../../csr/) features. See their documentation and [Commits and labels](../../commits-labels/#governance-interaction) for more details.
 
 ## Module and repository setup
 
@@ -71,7 +71,9 @@ See [Manage repositories](../../admin/manage-repositories/#creating-a-repository
 
 ## Pushing from a local workspace
 
-When you push from your workspace, the Buf CLI automatically resolves the internal and external dependencies of the workspace and pushes each of the modules in dependency order. Generally, pushing to the BSR is done via CI/CD integration with your version control system (VCS), but you can also push a workspace manually using these steps:
+When you push from your workspace, the Buf CLI automatically resolves the internal and external dependencies of the workspace and pushes each of the modules in dependency order. It creates commits for all changed modules and all modules that depend on them.
+
+Generally, pushing to the BSR is done via CI/CD integration with your version control system (VCS), but you can also push a workspace manually using these steps:
 
 1.  Open a command prompt and change to your workspace root directory.
 2.  Run `buf dep update` to fetch the latest digests for the specified `deps` references in the `buf.yaml` file, and write them and any transitive dependencies to the `buf.lock` file.
@@ -118,7 +120,7 @@ buf push --label v1.0.1 --label releases
 
 :::
 
-When a commit is pushed to the BSR, it's appended to the history of each label it was pushed with. Each label begins resolving to this latest commit as long as [policy checks](../../policy-checks/breaking/overview/) are either passing or not enabled. All BSR artifacts for the modules in a commit can be referenced by any of their labels, which are available via a dropdown selector in the BSR UI. This repository has two labels, 'main' and 'demos'. 'main' is the default label:
+When a commit is pushed to the BSR, it's appended to the history of each label it was pushed with. Each label begins resolving to this latest commit as long as [policy checks](../../policy-checks/breaking/) are either passing or not enabled. All BSR artifacts for the modules in a commit can be referenced by any of their labels, which are available via a dropdown selector in the BSR UI. This repository has two labels, 'main' and 'demos'. 'main' is the default label:
 
 ![](../../../images/bsr/nav-label-dropdown.png)
 
@@ -168,7 +170,7 @@ Because most Git commits don't change your Protobuf files, creating new BSR comm
 
 ### Interaction with policy checks
 
-The commit that represents the existing `HEAD` of a label differs depending on whether [policy checks](../../policy-checks/breaking/overview/) are enabled. Because policy checks have the concept of a "resolved" commit, the BSR evaluates the commit's state in the policy check workflow when determining which commit is `HEAD`:
+The commit that represents the existing `HEAD` of a label differs depending on whether [policy checks](../../policy-checks/breaking/) are enabled. Because policy checks have the concept of a "resolved" commit, the BSR evaluates the commit's state in the policy check workflow when determining which commit is `HEAD`:
 
 - If they're _enabled_, it uses the _true latest_ commit in the label (regardless of review state)
 - If they're are _disabled_, it uses the commit that the label _resolves to_ (excludes "pending" and "rejected" commits)

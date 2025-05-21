@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/admin/manage-repositories/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/admin/instance/setup-pro/"
+      href: "https://bufbuild.ru/docs/bsr/rate-limits/"
   - - meta
     - property: "og:title"
       content: "Roles - Buf Docs"

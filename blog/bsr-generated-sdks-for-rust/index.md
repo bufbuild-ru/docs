@@ -44,7 +44,7 @@ We’re excited to announce that in addition to [Go](/docs/bsr/generated-sdks/go
 
 All of our generated SDKs provide native integration with ecosystem package management tooling, which for the Rust ecosystem means [Cargo](https://crates.io/).
 
-To date, [our other integrations](/docs/bsr/generated-sdks/overview/index.md) have relied on lazy source code generation, which entails waiting for a request for a specific package version, either fetching the generated package from the cache or running code generation on the fly, returning the package, and caching it for future requests.
+To date, [our other integrations](/docs/bsr/generated-sdks/index.md) have relied on lazy source code generation, which entails waiting for a request for a specific package version, either fetching the generated package from the cache or running code generation on the fly, returning the package, and caching it for future requests.
 
 A challenge we encountered with Rust is that Cargo’s index pages [require a checksum](https://doc.rust-lang.org/cargo/reference/registry-index.html#json-schema) to exist for all crate versions, meaning that to populate an index version, we’d need to have already created the `.crate` file and hashed it. We wanted to be able to generate an SDK for any combination of module commit and plugin version, but we wanted to avoid needing to pre-generate all possible combinations (which is what we would need to do to precompute all the necessary checksums) because most combinations would never be used.
 

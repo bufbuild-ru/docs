@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/deployment/azure/deploy-postgres/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/cluster-recommendations/"
+      href: "https://bufbuild.ru/docs/bufstream/auth/sasl/"
   - - meta
     - property: "og:title"
       content: "Deploy with etcd - Buf Docs"

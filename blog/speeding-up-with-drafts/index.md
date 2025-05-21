@@ -109,9 +109,9 @@ lint:
 
 Please be aware that since drafts are able to be deleted and overwritten, they can only be used as dependencies locally. **A module that has a dependency on a draft cannot be pushed to the BSR.**
 
-## Using drafts with [generated SDKs](/docs/bsr/generated-sdks/overview/index.md)
+## Using drafts with [generated SDKs](/docs/bsr/generated-sdks/index.md)
 
-In addition to using drafts with the `buf` CLI, engineers can also consume them with [generated SDKs](/docs/bsr/generated-sdks/overview/index.md).
+In addition to using drafts with the `buf` CLI, engineers can also consume them with [generated SDKs](/docs/bsr/generated-sdks/index.md).
 
 To reference a draft in generated SDKs, add a `@<DRAFT_NAME>` reference to the `go get` or `npm install` command. The package will be generated with the latest plugin version available when referencing the name of the draft for the remote package.
 

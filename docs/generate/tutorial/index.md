@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/generate/tutorial/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/generate/overview/"
+      href: "https://bufbuild.ru/docs/generate/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/generate/managed-mode/"
@@ -287,7 +287,7 @@ buf generate
 
 The `gen` directory reappears with the same structure and files as before. You've now removed the necessity for locally installed `protoc` plugins for this set of `.proto` files.
 
-See the [remote plugins overview](../../bsr/remote-plugins/overview/) for more information about the advantages of remote plugins and where to find them.
+See the [remote plugins overview](../../bsr/remote-plugins/) for more information about the advantages of remote plugins and where to find them.
 
 ## Generate code using managed mode
 

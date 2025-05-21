@@ -7,13 +7,13 @@ head:
       href: "https://bufbuild.ru/docs/reference/inputs/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/configuration/v1beta1/lint-rules/"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-v2-config-files/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/reference/images/"
   - - meta
     - property: "og:title"
-      content: "Buf CLI inputs - Buf Docs"
+      content: "Inputs - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/reference/inputs.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Buf CLI inputs - Buf Docs"
+      content: "Inputs - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/reference/inputs.png"
@@ -77,7 +77,7 @@ buf lint buf.build/acme/petapis
 
 ### Breaking change detection
 
-The biggest current use case is for [breaking change detection](../../breaking/overview/). When you are comparing your current Protobuf schema to an old version of your schema, you have to decide — where's your old version stored? The Buf CLI provides multiple options for this, including the ability to directly compile and compare against a Git branch or Git tag.
+The biggest current use case is for [breaking change detection](../../breaking/). When you are comparing your current Protobuf schema to an old version of your schema, you have to decide — where's your old version stored? The Buf CLI provides multiple options for this, including the ability to directly compile and compare against a Git branch or Git tag.
 
 It's sometimes preferable, however, to store a representation of your old version in a file. [Buf images](../images/) provide this functionality, allowing you to store your golden state, and then compare your current Protobuf schema against it. This includes support for partial comparisons, as well as storing the golden state in a remote location.
 

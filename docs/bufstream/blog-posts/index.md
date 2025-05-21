@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/blog-posts/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/quickstart/"
+      href: "https://bufbuild.ru/docs/bufstream/cost/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/cost/"
+      href: "https://bufbuild.ru/docs/bufstream/reference/cli/"
   - - meta
     - property: "og:title"
       content: "Blog posts - Buf Docs"
@@ -44,7 +44,7 @@ head:
 
 ---
 
-# Blog Posts
+# Blog posts
 
 ### [Cheap Kafka is cool. Schema-driven development with Kafka is cooler.](/blog/kafka-schema-driven-development/index.md)
 

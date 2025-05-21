@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/remote-plugins/usage/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/remote-plugins/overview/"
+      href: "https://bufbuild.ru/docs/bsr/remote-plugins/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/remote-plugins/custom-plugins/"
@@ -54,7 +54,7 @@ Buf's remote plugins remove this key obstacle to generating code. Instead of was
 
 ## Configuration
 
-The `buf.gen.yaml` file controls how the `buf generate` command executes Protobuf plugins for any [input](../../../reference/inputs/). In it, you specify [remote plugins](../overview/) to perform code generation. For more information on the `buf.gen.yaml` configuration, see the [reference](../../../configuration/v2/buf-gen-yaml/).
+The `buf.gen.yaml` file controls how the `buf generate` command executes Protobuf plugins for any [input](../../../reference/inputs/). In it, you specify [remote plugins](../) to perform code generation. For more information on the `buf.gen.yaml` configuration, see the [reference](../../../configuration/v2/buf-gen-yaml/).
 
 Buf verifies and maintains the commonly used plugins used across the Protobuf ecosystem. To discover all publicly available plugins, go to [buf.build/plugins](https://buf.build/plugins).
 
@@ -112,7 +112,7 @@ workspace_root
 
 ## Create a `buf.gen.yaml` file
 
-Now that you have an [input](../../../reference/inputs/) to generate code for, you need to define a `buf.gen.yaml` file and specify which `protoc` plugins you want to use. See the [overview](../overview/#finding-remote-plugins) for instructions on finding remote plugins. Copy the code for the language or framework you want to generate for and create a new `buf.gen.yaml` in the same directory as the `buf.yaml` file:
+Now that you have an [input](../../../reference/inputs/) to generate code for, you need to define a `buf.gen.yaml` file and specify which `protoc` plugins you want to use. See the [overview](../#finding-remote-plugins) for instructions on finding remote plugins. Copy the code for the language or framework you want to generate for and create a new `buf.gen.yaml` in the same directory as the `buf.yaml` file:
 
 +++tabs key:0fd70150e5874c9759c404fa81e260ae
 

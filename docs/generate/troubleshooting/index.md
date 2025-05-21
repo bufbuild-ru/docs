@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/generate/troubleshooting/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/configuration/v2/buf-gen-yaml/"
+      href: "https://bufbuild.ru/docs/generate/managed-mode/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/breaking/overview/"
+      href: "https://bufbuild.ru/docs/breaking/"
   - - meta
     - property: "og:title"
       content: "Troubleshooting code generation - Buf Docs"

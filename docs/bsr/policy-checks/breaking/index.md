@@ -4,22 +4,22 @@ description: "Overview of the Buf Schema Registry's instance-wide breaking chang
 head:
   - - link
     - rel: "canonical"
-      href: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/overview/"
+      href: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/generated-sdks/swift/"
+      href: "https://bufbuild.ru/docs/cli/buf-plugins/publish/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/setup/"
   - - meta
     - property: "og:title"
-      content: "Overview - Buf Docs"
+      content: "Breaking changes - Buf Docs"
   - - meta
     - property: "og:image"
-      content: "https://buf.build/docs/assets/images/social/bsr/policy-checks/breaking/overview.png"
+      content: "https://buf.build/docs/assets/images/social/bsr/policy-checks/breaking/index.png"
   - - meta
     - property: "og:url"
-      content: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/overview/"
+      content: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/"
   - - meta
     - property: "og:type"
       content: "website"
@@ -34,10 +34,10 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Overview - Buf Docs"
+      content: "Breaking changes - Buf Docs"
   - - meta
     - property: "twitter:image"
-      content: "https://buf.build/docs/assets/images/social/bsr/policy-checks/breaking/overview.png"
+      content: "https://buf.build/docs/assets/images/social/bsr/policy-checks/breaking/index.png"
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
@@ -50,7 +50,7 @@ head:
 This feature is only available on the Enterprise plan.
 :::
 
-Preventing unintended breaking changes in production is crucial for API and data producers, but often complex to implement across multiple teams. Buf's breaking change policy check allows you to enforce the Buf CLI's [breaking change rules](../../../../breaking/rules/) across your entire private BSR instance with minimal configuration. And because breaking changes are sometimes necessary, it also provides module owners the ability to review breaking changes before they enter the BSR and then approve or deny them. This allows for nuance in cases where breaking changes are acceptable.
+Preventing unintended breaking changes in production is crucial for API and data producers, but often complex to implement across multiple teams. Buf's breaking change policy check allows you to enforce the Buf CLI's [breaking change rules](../../../breaking/rules/) across your entire private BSR instance with minimal configuration. And because breaking changes are sometimes necessary, it also provides module owners the ability to review breaking changes before they enter the BSR and then approve or deny them. This allows for nuance in cases where breaking changes are acceptable.
 
 Buf's breaking change policy check:
 
@@ -60,9 +60,9 @@ Buf's breaking change policy check:
 
 ## How it works
 
-Organizations can choose to enforce one of two policies for Protobuf files generally: [`FILE`](../../../../breaking/rules/#categories) (the default) or [`WIRE_JSON`](../../../../breaking/rules/#categories). In addition, if your BSR instance has the [Confluent Schema Registry integration](../../../csr/overview/#breaking-changes) enabled, the BSR checks against a subset of breaking change rules related to compatibility for CSR subjects, even if the policy checks feature isn't enabled.
+Organizations can choose to enforce one of two policies for Protobuf files generally: [`FILE`](../../../breaking/rules/#categories) (the default) or [`WIRE_JSON`](../../../breaking/rules/#categories). In addition, if your BSR instance has the [Confluent Schema Registry integration](../../csr/#breaking-changes) enabled, the BSR checks against a subset of breaking change rules related to compatibility for CSR subjects, even if the policy checks feature isn't enabled.
 
-Once configured, every BSR module automatically adheres to the chosen policy, and all attempts to push non-compliant schemas are either rejected by the BSR or sent into the review flow, depending on your organization's setup. These settings take precedence over any breaking change configuration specified in a given workspace's `buf.yaml` file, and work even if `buf.yaml` disables the breaking change configuration completely.
+Once enabled, the breaking change policy check is enforced for all modules in the BSR. Non-compliant schemas enter into a review flow, where owners can approve or reject them. These settings take precedence over any breaking change configuration specified in a given workspace's `buf.yaml` file, and work even if `buf.yaml` disables the breaking change configuration completely.
 
 ### Ignoring in unstable packages
 
@@ -78,13 +78,13 @@ Buf's breaking change policy check includes a review flow, so that when develope
 
 With the breaking change policy check enabled, when commits that contain breaking changes are pushed to a repository's default label, they're placed into a review flow with a "pending" state and reviewed by the module's admins. This ensures that the code owners have the opportunity to assess the impact of the breaking changes by viewing the diff, and can make an informed decision about whether to accept them. The Buf CLI outputs a warning message to the committer, and sends an in-app notification and email to the owners notifying them that a commit needs to be reviewed.
 
-![Screenshot of the reviewer inbox in the BSR](../../../../images/bsr/policy-checks/breaking-review-flow-inbox.png)
+![Screenshot of the reviewer inbox in the BSR](../../../images/bsr/policy-checks/breaking-review-flow-inbox.png)
 
 Commits that require approval are annotated as such in the repository's **Commits** tab, and all users see a prominent banner indicating that the repository requires attention.
 
-![Screenshot of the reviewer notification in the BSR](../../../../images/bsr/policy-checks/breaking-review-flow-notification.png)
+![Screenshot of the reviewer notification in the BSR](../../../images/bsr/policy-checks/breaking-review-flow-notification.png)
 
-See [Reviewing commits](../review-commits/) for instructions about how to approve or deny breaking changes.
+See [Reviewing commits](review-commits/) for instructions about how to approve or deny breaking changes.
 
 ## Effects on downstream consumers
 
@@ -92,9 +92,9 @@ Any commits pushed after a commit that's pending are _also_ set to pending, whet
 
 - They're not available to install from any generated SDK registry, unless specifically requested by commit
   - The "latest" version of a generated SDK is kept at the latest approved or non-reviewed commit on the default label
-- They're not available to use in [Buf Studio](../../../studio/)
-- They're excluded from the [Reflection API](../../../reflection/overview/)
-- They don't update schemas in the [Confluent Schema Registry](../../../csr/overview/)
+- They're not available to use in [Buf Studio](../../studio/)
+- They're excluded from the [Reflection API](../../reflection/)
+- They don't update schemas in the [Confluent Schema Registry](../../csr/)
 
 ## Interaction with local breaking change configurations
 
@@ -107,4 +107,4 @@ When the breaking change policy check is enabled, local setups and CI configurat
 
 You can see the instance-wide policy that's applied for your organization by clicking the **Rules** tab in any module in the BSR.
 
-![Screen shot showing a module's breaking changes settings](../../../../images/bsr/policy-checks/policy-view.png)
+![Screen shot showing a module's breaking changes settings](../../../images/bsr/policy-checks/policy-view.png)

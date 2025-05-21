@@ -39,6 +39,12 @@ head:
 
 # Blog
 
+<h3><a href="/blog/totw-6-dangers-of-enum-aliases/">Tip of the week #6: The subtle dangers of enum aliases</a></h3>
+
+<h5>May 19, 2025</h5>
+
+Enum values are a poorly designed feature and shouldn’t be used.
+
 <h3><a href="/blog/totw-5-avoid-import-public-weak/">Tip of the week #5: Avoid import public/weak</a></h3>
 
 <h5>May 13, 2025</h5>

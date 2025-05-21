@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/reference/protovalidate/enums/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/best-practices/style-guide/"
+      href: "https://bufbuild.ru/docs/protovalidate/further-reading/"
   - - meta
     - property: "og:title"
       content: "CEL extensions - Buf Docs"

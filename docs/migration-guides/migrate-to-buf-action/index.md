@@ -7,13 +7,13 @@ head:
       href: "https://bufbuild.ru/docs/migration-guides/migrate-to-buf-action/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/migration-guides/migrate-v2-config-files/"
+      href: "https://bufbuild.ru/docs/bsr/ci-cd/setup/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/migration-guides/migrate-remote-generation-alpha/"
+      href: "https://bufbuild.ru/docs/bsr/documentation/"
   - - meta
     - property: "og:title"
-      content: "Migrating from individual Buf GitHub Actions - Buf Docs"
+      content: "Migrate from individual Buf GitHub Actions - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/migration-guides/migrate-to-buf-action.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Migrating from individual Buf GitHub Actions - Buf Docs"
+      content: "Migrate from individual Buf GitHub Actions - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/migration-guides/migrate-to-buf-action.png"
@@ -44,9 +44,9 @@ head:
 
 ---
 
-# Migrating from individual Buf GitHub Actions
+# Migrate from individual Buf GitHub Actions
 
-If you're currently using any of our individual GitHub Actions (\[buf-setup-action\]\[buf-setup\], \[buf-breaking-action\]\[buf-breaking\], \[buf-lint-action\]\[buf-lint\], or \[buf-push-action\]\[buf-push\]), we recommend migrating to the unified Action. We'll be deprecating the individual Actions soon and the unified Action significantly simplifies using the Buf CLI and BSR in your CI workflows.
+If you're currently using any of our individual GitHub Actions ([buf-setup-action](https://github.com/marketplace/actions/buf-setup), [buf-breaking-action](https://github.com/marketplace/actions/buf-breaking), [buf-lint-action](https://github.com/marketplace/actions/buf-lint), or [buf-push-action](https://github.com/marketplace/actions/buf-push)), we recommend migrating to [the unified Action](../../bsr/ci-cd/github-actions/). We'll be deprecating the individual Actions soon and the unified Action significantly simplifies using the Buf CLI and BSR in your CI workflows.
 
 The unified Action is a superset of the individual actions that combines all of your Buf CI configuration into a single `buf-ci.yaml` file. It also includes some additional capabilities:
 
@@ -69,7 +69,7 @@ Some of the previous Actions' parameter names have changed. The table below maps
 |                     | `buf_token`                | `token`            |          |
 | buf-lint-action     | `buf_token`                | `token`            |          |
 
-The unified Action also introduces several new parameters. See the \[complete list of parameters\]\[parameters\] in its GitHub repository.
+The unified Action also introduces several new parameters. See the [complete list of parameters](https://github.com/bufbuild/buf-action?tab=readme-ov-file#configuration) in its GitHub repository.
 
 ### Configuration comparison
 

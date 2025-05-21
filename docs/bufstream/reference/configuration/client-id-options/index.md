@@ -10,10 +10,10 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/reference/configuration/helm-values/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/releases/"
+      href: "https://bufbuild.ru/docs/protovalidate/"
   - - meta
     - property: "og:title"
-      content: "Bufstream client ID options - Buf Docs"
+      content: "Client ID options - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/bufstream/reference/configuration/client-id-options.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Bufstream client ID options - Buf Docs"
+      content: "Client ID options - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/bufstream/reference/configuration/client-id-options.png"

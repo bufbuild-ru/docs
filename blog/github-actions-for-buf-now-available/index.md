@@ -39,7 +39,7 @@ Buf officially supports a collection of [GitHub Actions](https://github.com/feat
 ## TL;DR
 
 - The [buf-setup](https://github.com/marketplace/actions/buf-setup) action installs `buf` for use in other custom actions that require the `buf` CLI.
-- The [buf-lint](https://github.com/marketplace/actions/buf-lint) and [buf-breaking](https://github.com/marketplace/actions/buf-breaking) actions ensure that your Protocol Buffers API changes always conform to your [`lint`](/docs/lint/overview/index.md#configuration) and [`breaking`](/docs/breaking/overview/index.md#configuration) configurations. Lint failures and breaking changes are written as **annotations** to GitHub Action runs and **in-line comments** on PRs.
+- The [buf-lint](https://github.com/marketplace/actions/buf-lint) and [buf-breaking](https://github.com/marketplace/actions/buf-breaking) actions ensure that your Protocol Buffers API changes always conform to your [`lint`](/docs/lint/index.md#configuration) and [`breaking`](/docs/breaking/index.md#configuration) configurations. Lint failures and breaking changes are written as **annotations** to GitHub Action runs and **in-line comments** on PRs.
 - The [buf-push](https://github.com/marketplace/actions/buf-push) action automatically keeps your GitHub repository in-sync with the [Buf Scheme Registry (BSR)](/docs/bsr/index.md).
 - Write your workflow configuration once and consistently across projects, and leave the rest to `buf`.
 

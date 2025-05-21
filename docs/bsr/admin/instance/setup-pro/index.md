@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/admin/instance/setup-pro/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/admin/roles/"
+      href: "https://bufbuild.ru/docs/bsr/rate-limits/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/admin/instance/setup-enterprise/"

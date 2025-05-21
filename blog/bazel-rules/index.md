@@ -78,7 +78,7 @@ You can read more about this in the [docs](/docs/cli/build-systems/bazel/index.m
 
 ## Lint and Breaking Checks
 
-[`buf lint`](/docs/lint/overview/index.md) and [`buf breaking`](/docs/breaking/overview/index.md) are widely used to ensure quality standards of `Protobuf` APIs are met. Now, you can use them within Bazel. Here's an example,
+[`buf lint`](/docs/lint/index.md) and [`buf breaking`](/docs/breaking/index.md) are widely used to ensure quality standards of `Protobuf` APIs are met. Now, you can use them within Bazel. Here's an example,
 
 **Breaking rule**
 

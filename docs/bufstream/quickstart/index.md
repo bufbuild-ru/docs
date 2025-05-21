@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/blog-posts/"
+      href: "https://bufbuild.ru/docs/bufstream/iceberg/quickstart/"
   - - meta
     - property: "og:title"
       content: "Quickstart - Buf Docs"

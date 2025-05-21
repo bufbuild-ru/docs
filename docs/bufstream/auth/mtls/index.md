@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/auth/sasl/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/observability/overview/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/cluster-recommendations/"
   - - meta
     - property: "og:title"
       content: "mTLS - Buf Docs"

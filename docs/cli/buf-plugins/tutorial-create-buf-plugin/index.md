@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/cli/buf-plugins/tutorial-create-buf-plugin/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/cli/buf-plugins/overview/"
+      href: "https://bufbuild.ru/docs/cli/buf-plugins/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/cli/buf-plugins/webassembly/"
@@ -46,7 +46,7 @@ head:
 
 # Buf plugin quickstart
 
-Buf's [lint](../../../lint/overview/) and [breaking change](../../../breaking/overview/) checks come with pre-defined rules and categories that cover the vast majority of customer needs. However, organizations sometimes need to enforce different or additional rules. For these cases, you can create [Buf plugins](../overview/) that work with the Buf checkers so you can integrate your own rules and categories into your workflows.
+Buf's [lint](../../../lint/) and [breaking change](../../../breaking/) checks come with pre-defined rules and categories that cover the vast majority of customer needs. However, organizations sometimes need to enforce different or additional rules. For these cases, you can create [Buf plugins](../) that work with the Buf checkers so you can integrate your own rules and categories into your workflows.
 
 This quickstart demonstrates how to define your own rules in a Buf plugin and how to install and use it locally.
 

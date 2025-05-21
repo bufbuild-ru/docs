@@ -4,22 +4,22 @@ description: "High-level overview of the Buf Schema Registry's generated SDKs fe
 head:
   - - link
     - rel: "canonical"
-      href: "https://bufbuild.ru/docs/bsr/generated-sdks/overview/"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/remote-plugins/custom-plugins/"
+      href: "https://bufbuild.ru/docs/bsr/module/descriptor/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/generated-sdks/tutorial/"
   - - meta
     - property: "og:title"
-      content: "Overview - Buf Docs"
+      content: "Consume generated SDKs - Buf Docs"
   - - meta
     - property: "og:image"
-      content: "https://buf.build/docs/assets/images/social/bsr/generated-sdks/overview.png"
+      content: "https://buf.build/docs/assets/images/social/bsr/generated-sdks/index.png"
   - - meta
     - property: "og:url"
-      content: "https://bufbuild.ru/docs/bsr/generated-sdks/overview/"
+      content: "https://bufbuild.ru/docs/bsr/generated-sdks/"
   - - meta
     - property: "og:type"
       content: "website"
@@ -34,10 +34,10 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Overview - Buf Docs"
+      content: "Consume generated SDKs - Buf Docs"
   - - meta
     - property: "twitter:image"
-      content: "https://buf.build/docs/assets/images/social/bsr/generated-sdks/overview.png"
+      content: "https://buf.build/docs/assets/images/social/bsr/generated-sdks/index.png"
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
@@ -46,7 +46,7 @@ head:
 
 # Generated SDKs – Overview
 
-When API producer teams push schemas to the Buf Schema Registry (BSR), it automatically generates SDKs for multiple languages that package up code generated from the Protobuf files and the BSR's [remote plugins](../../remote-plugins/overview/). Client teams can consume these SDKs using the language and package manager of their choice, just like any other dependency. This greatly simplifies workflows for your teams:
+When API producer teams push schemas to the Buf Schema Registry (BSR), it automatically generates SDKs for multiple languages that package up code generated from the Protobuf files and the BSR's [remote plugins](../remote-plugins/). Client teams can consume these SDKs using the language and package manager of their choice, just like any other dependency. This greatly simplifies workflows for your teams:
 
 - Natively integrate generated SDKs across backend, frontend, and mobile clients
 - Consume SDKs without worrying about your Protobuf environment, compiler, or plugins
@@ -67,9 +67,9 @@ As a result, you only need to install a single generated SDK to use the schema.
 
 ## Developing against pre-release code
 
-In addition to simpler dependency management, generated SDKs also make iterating on Protobuf APIs easier. All [labels](../../commits-labels/#labels) in the BSR produce SDKs, allowing consumer teams to work with pre-release client code before pushing their APIs to the default label. Consumers can use the latest version of a generated SDK (the default) or pin it to a specific commit or label instead.
+In addition to simpler dependency management, generated SDKs also make iterating on Protobuf APIs easier. All [labels](../commits-labels/#labels) in the BSR produce SDKs, allowing consumer teams to work with pre-release client code before pushing their APIs to the default label. Consumers can use the latest version of a generated SDK (the default) or pin it to a specific commit or label instead.
 
-Go to the quickstart to learn [how to install generated SDKs from the BSR](../tutorial/), or the guides linked below for manual installation instructions and specific versioning syntax.
+Go to the quickstart to learn [how to install generated SDKs from the BSR](tutorial/), or the guides linked below for manual installation instructions and specific versioning syntax.
 
 ## Configuration limitations
 
@@ -77,8 +77,8 @@ Generated SDKs have no configuration options, so for Free and Teams plans, you c
 
 To customize plugin options for the generated code, you can use the Buf CLI to generate the files yourself, and provide whatever configuration you want:
 
-- [Local code generation](../../../generate/overview/)
-- [Remote plugin code generation](../../remote-plugins/overview/)
+- [Local code generation](../../generate/)
+- [Remote plugin code generation](../remote-plugins/)
 
 ### Configure using custom plugins
 
@@ -86,7 +86,7 @@ To customize plugin options for the generated code, you can use the Buf CLI to g
 This feature is only available on the Pro and Enterprise plans.
 :::
 
-If you're on a private BSR instance, you can use the [custom plugin](../../remote-plugins/custom-plugins/#custom-plugin-sdks) feature to fork and change the configuration of the BSR's [curated plugins](https://github.com/bufbuild/plugins/). You can then upload it to the BSR and use it instead of the curated one (you may want to adjust your [recommended sdks](../../admin/instance/recommended-sdks/) to reflect this). Doing so means that you take on the burden of troubleshooting and maintenance, but for some organizations this method is a reasonable tradeoff.
+If you're on a private BSR instance, you can use the [custom plugin](../remote-plugins/custom-plugins/#custom-plugin-sdks) feature to fork and change the configuration of the BSR's [curated plugins](https://github.com/bufbuild/plugins/). You can then upload it to the BSR and use it instead of the curated one (you may want to adjust your [recommended sdks](../admin/instance/recommended-sdks/) to reflect this). Doing so means that you take on the burden of troubleshooting and maintenance, but for some organizations this method is a reasonable tradeoff.
 
 ## Supported languages
 

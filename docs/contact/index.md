@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/contact/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/migration-guides/migrate-from-protoc-gen-validate/"
+      href: "https://bufbuild.ru/docs/reference/descriptors/"
   - - meta
     - property: "og:title"
       content: "Contact us - Buf Docs"

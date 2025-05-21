@@ -10,10 +10,10 @@ head:
       href: "https://bufbuild.ru/docs/bsr/repositories/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/authentication/"
+      href: "https://bufbuild.ru/docs/bsr/module/dependency-management/"
   - - meta
     - property: "og:title"
-      content: "Commits and labels - Buf Docs"
+      content: "Commits and Labels - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/bsr/commits-labels.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Commits and labels - Buf Docs"
+      content: "Commits and Labels - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/bsr/commits-labels.png"
@@ -63,7 +63,7 @@ One key difference between VCS commits and BSR commits is that unlike a VCS comm
 - Commits may not be deleted.
 - Commits always belong to at least one label (the [default label](../repositories/#default-label) if not specified)
 - Commit can be present in multiple labels
-- If [policy checks](../policy-checks/breaking/overview/) are enabled, a commit can have different review states in different labels
+- If [policy checks](../policy-checks/breaking/) are enabled, a commit can have different review states in different labels
 - All commits within a label are recorded and the history always moves forward — commits are appended only if they're newer than the latest (see [Interaction with governance features](#governance-interaction) below)
 - All commits can be resolved as dependencies (for example, in `buf.lock` files or generated SDKs).
 - Multiple BSR commits can have the same content but different VCS URLs, so that the backlinks provide context for the changes via the VCS commits and PR discussions. For example (assuming no other changes to the module):
@@ -83,7 +83,7 @@ See the [Repository](../repositories/#default-label) page for more details about
 
 ### Interaction with governance features
 
-If the BSR's [policy checks](../policy-checks/breaking/overview/) or [Confluent Schema Registry (CSR)](../csr/overview/) integration features are enabled, it enforces restrictions on when a label's pointer updates to a new commit. This protects consumers from broken builds or downstream data issues.
+If the BSR's [policy checks](../policy-checks/breaking/) or [Confluent Schema Registry (CSR)](../csr/) integration features are enabled, it enforces restrictions on when a label's pointer updates to a new commit. This protects consumers from broken builds or downstream data issues.
 
 When policy checks are enabled, the new commit is allowed, but the label pointer only moves if either the commit doesn't introduce breaking changes _or_ an admin approves the commit from the review flow. Commits exist with one of these statuses at any given moment:
 
@@ -94,7 +94,7 @@ When policy checks are enabled, the new commit is allowed, but the label pointer
 
 ### Deleting labels
 
-You can't delete labels. The BSR is a package registry due to [generated SDKs](../generated-sdks/overview/), so deleting a label can have side effects that are much more impactful than branch deletion in Git. As a result, we don't allow it. However, you can [archive a label](../module/publish/#archiving-and-unarchiving-labels).
+You can't delete labels. The BSR is a package registry due to [generated SDKs](../generated-sdks/), so deleting a label can have side effects that are much more impactful than branch deletion in Git. As a result, we don't allow it. However, you can [archive a label](../module/publish/#archiving-and-unarchiving-labels).
 
 ### Archived labels
 

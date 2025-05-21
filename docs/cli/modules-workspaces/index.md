@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/cli/modules-workspaces/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/cli/editor-integration/"
+      href: "https://bufbuild.ru/docs/cli/quickstart/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/generate/overview/"
+      href: "https://bufbuild.ru/docs/generate/"
   - - meta
     - property: "og:title"
       content: "Modules and workspaces - Buf Docs"
@@ -250,7 +250,7 @@ The URL contains these elements:
 
 The module's `name` uniquely identifies it in the BSR, which allows it to be referenced as a dependency, consumed as an SDK, and much more.
 
-See the [`buf.yaml` documentation](../../configuration/v2/buf-yaml/) for full descriptions of its configuration options, and the [lint](../../lint/overview/) and [breaking change detection](../../breaking/overview/) documentation for full descriptions of their options and rules.
+See the [`buf.yaml` documentation](../../configuration/v2/buf-yaml/) for full descriptions of its configuration options, and the [lint](../../lint/) and [breaking change detection](../../breaking/) documentation for full descriptions of their options and rules.
 
 ## Buf operations in the workspace
 

@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/generated-sdks/python/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/policy-checks/breaking/overview/"
+      href: "https://bufbuild.ru/docs/bsr/remote-plugins/"
   - - meta
     - property: "og:title"
       content: "Swift Package Manager/Xcode - Buf Docs"

@@ -4,22 +4,22 @@ description: "Enterprise-grade Kafka and gRPC for the modern age."
 head:
   - - link
     - rel: "canonical"
-      href: "https://bufbuild.ru/docs/bufstream/observability/overview/"
+      href: "https://bufbuild.ru/docs/bufstream/observability/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/auth/mtls/"
+      href: "https://bufbuild.ru/docs/bufstream/iceberg/reference/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bufstream/observability/metrics/"
   - - meta
     - property: "og:title"
-      content: "Overview - Buf Docs"
+      content: "Observability - Buf Docs"
   - - meta
     - property: "og:image"
-      content: "https://buf.build/docs/assets/images/social/bufstream/observability/overview.png"
+      content: "https://buf.build/docs/assets/images/social/bufstream/observability/index.png"
   - - meta
     - property: "og:url"
-      content: "https://bufbuild.ru/docs/bufstream/observability/overview/"
+      content: "https://bufbuild.ru/docs/bufstream/observability/"
   - - meta
     - property: "og:type"
       content: "website"
@@ -34,10 +34,10 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Overview - Buf Docs"
+      content: "Observability - Buf Docs"
   - - meta
     - property: "twitter:image"
-      content: "https://buf.build/docs/assets/images/social/bufstream/observability/overview.png"
+      content: "https://buf.build/docs/assets/images/social/bufstream/observability/index.png"
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
@@ -46,7 +46,7 @@ head:
 
 # Observability – Overview
 
-Bufstream is instrumented for monitoring cluster health, performance, and errors. Metrics are instrumented using [OpenTelemetry](https://opentelemetry.io/), with support for standard exporters like OTLP and Prometheus. Specific configuration recommendations including dashboards and monitors/alerts for [Datadog](../datadog/) and [Grafana](../grafana/) are available.
+Bufstream is instrumented for monitoring cluster health, performance, and errors. Metrics are instrumented using [OpenTelemetry](https://opentelemetry.io/), with support for standard exporters like OTLP and Prometheus. Specific configuration recommendations including dashboards and monitors/alerts for [Datadog](datadog/) and [Grafana](grafana/) are available.
 
 ## Configuring metrics
 

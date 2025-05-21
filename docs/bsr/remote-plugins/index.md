@@ -4,22 +4,22 @@ description: "How to simplify code generation with the Buf Schema Registry's rem
 head:
   - - link
     - rel: "canonical"
-      href: "https://bufbuild.ru/docs/bsr/remote-plugins/overview/"
+      href: "https://bufbuild.ru/docs/bsr/remote-plugins/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/ci-cd/setup/"
+      href: "https://bufbuild.ru/docs/bsr/generated-sdks/swift/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/remote-plugins/usage/"
   - - meta
     - property: "og:title"
-      content: "Overview - Buf Docs"
+      content: "Remote plugins - Buf Docs"
   - - meta
     - property: "og:image"
-      content: "https://buf.build/docs/assets/images/social/bsr/remote-plugins/overview.png"
+      content: "https://buf.build/docs/assets/images/social/bsr/remote-plugins/index.png"
   - - meta
     - property: "og:url"
-      content: "https://bufbuild.ru/docs/bsr/remote-plugins/overview/"
+      content: "https://bufbuild.ru/docs/bsr/remote-plugins/"
   - - meta
     - property: "og:type"
       content: "website"
@@ -34,10 +34,10 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Overview - Buf Docs"
+      content: "Remote plugins - Buf Docs"
   - - meta
     - property: "twitter:image"
-      content: "https://buf.build/docs/assets/images/social/bsr/remote-plugins/overview.png"
+      content: "https://buf.build/docs/assets/images/social/bsr/remote-plugins/index.png"
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
@@ -58,17 +58,17 @@ To discover all publicly available plugins, go to [buf.build/plugins](https://bu
 
 1.  Choose a collection or language:
 
-    ![Remote plugin browse screen, showing available collections and languages](../../../images/bsr/plugins/remote-plugins-browse.png)
+    ![Remote plugin browse screen, showing available collections and languages](../../images/bsr/plugins/remote-plugins-browse.png)
 
     Plugins without an associated language or collection appear in the **Other** category at the bottom of the filter panel.
 
 2.  Click through to the group you want, and all available plugins display:
 
-    ![Remote plugin browse screen, showing plugins available for Go](../../../images/bsr/plugins/remote-plugins-select.png)
+    ![Remote plugin browse screen, showing plugins available for Go](../../images/bsr/plugins/remote-plugins-select.png)
 
 3.  Choose the plugin you want to use, and it provides the reference to add to `buf.gen.yaml` and installation instructions for any dependencies:
 
-    ![Remote plugin browse screen, showing plugins available for Go](../../../images/bsr/plugins/remote-plugins-yaml.png)
+    ![Remote plugin browse screen, showing plugins available for Go](../../images/bsr/plugins/remote-plugins-yaml.png)
 
 Use the dropdown to change the version if needed. To use the latest version, remove the version number from the reference.
 
@@ -95,7 +95,7 @@ plugins:
 
 Then invoke `buf generate` and you're done — no maintaining these plugins, no worrying about how to download or install them. You've generated your stubs and can get back to solving real problems.
 
-See the [`buf.gen.yaml` reference](../../../configuration/v2/buf-gen-yaml/) for more information about the other keys under `plugin`.
+See the [`buf.gen.yaml` reference](../../configuration/v2/buf-gen-yaml/) for more information about the other keys under `plugin`.
 
 If you don't specify a plugin version, the latest version is used to generate. To avoid unexpected updates and possible breaking changes, pin to a specific version.
 

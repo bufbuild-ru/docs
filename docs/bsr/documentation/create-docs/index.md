@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/bsr/documentation/create-docs/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/documentation/overview/"
+      href: "https://bufbuild.ru/docs/bsr/documentation/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/studio/"
+      href: "https://bufbuild.ru/docs/bsr/module/export/"
   - - meta
     - property: "og:title"
       content: "Adding documentation - Buf Docs"
@@ -58,22 +58,42 @@ Because documentation is part of your module, any updates to either `README.md` 
 
 In this example, the module at `proto/weatherapi` displays its own `README.md` file, and the module at `proto/units` displays the workspace `README.md` file.
 
-```text{9,14}
+::: info Directory structure
+
+```text{5,17}
 workspace_root
 ├─ buf.yaml
 ├─ proto
-│  └─ acme
-│     ├─ weatherapi
+│  └─ weatherapi
+│     ├─ README.md # Module-level documentation
+│     ├─ acme
+│     │  ├─ weatherapi
 │     │  └─ v1
 │     │     ├─ api.proto
-│     │     ├─ calculate.proto
-│     │     └─ README.md  # Module-level documentation
+│     │     └─ calculate.proto
 │     └─ units
-│        └─ v1
-│           ├─ imperial.proto
-│           └─ metric.proto
+│        └─ acme
+│           ├─ units
+│           └─ v1
+│              ├─ imperial.proto
+│              └─ metric.proto
 └─ README.md  # Workspace-level documentation
 ```
+
+:::
+
+::: info buf.yaml
+
+```yaml
+version: v2
+modules:
+  - path: proto/weatherapi
+    name: "buf.build/acme/weatherapi"
+  - path: proto/units
+    name: "buf.build/acme/units"
+```
+
+:::
 
 ## Package documentation
 

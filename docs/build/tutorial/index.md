@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/build/tutorial/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/build/overview/"
+      href: "https://bufbuild.ru/docs/build/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/cli/buf-plugins/overview/"
+      href: "https://bufbuild.ru/docs/cli/editor-integration/"
   - - meta
     - property: "og:title"
       content: "Quickstart - Buf Docs"

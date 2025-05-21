@@ -78,7 +78,7 @@ plugins:
     out: gen/proto/rust
 ```
 
-...and [generate](/docs/generate/overview/index.md) your code stubs with a single command:
+...and [generate](/docs/generate/index.md) your code stubs with a single command:
 
 ```bash
 $ buf generate <input>

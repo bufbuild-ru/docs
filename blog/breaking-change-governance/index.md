@@ -38,10 +38,10 @@ head:
 
 # Governance & breaking change policy enforcement for enterprises
 
-**Today we’re introducing the ability to** [**configure breaking change policy enforcement in the BSR UI**](/docs/bsr/policy-checks/breaking/overview/index.md) **for customers on our Enterprise plan, which provides a guarantee that breaking schema changes cannot be mistakenly deployed through the BSR and cause downstream outages or data loss.**
+**Today we’re introducing the ability to** [**configure breaking change policy enforcement in the BSR UI**](/docs/bsr/policy-checks/breaking/index.md) **for customers on our Enterprise plan, which provides a guarantee that breaking schema changes cannot be mistakenly deployed through the BSR and cause downstream outages or data loss.**
 
 - **Configure rules in the BSR UI:** Administrators can enable breaking change prevention and customize strictness requirements across **all** BSR organizations and modules without needing to add `buf.yaml` files to each repository.
-- **Guarantee no breaking changes in production:** When breaking change prevention is active, pushes to the BSR will be rejected if their schemas contain breaking changes that are not compliant with the specified [rule set](/docs/breaking/overview/index.md). This guarantees that no unexpected breaking changes will ever be deployed to production.
+- **Guarantee no breaking changes in production:** When breaking change prevention is active, pushes to the BSR will be rejected if their schemas contain breaking changes that are not compliant with the specified [rule set](/docs/breaking/index.md). This guarantees that no unexpected breaking changes will ever be deployed to production.
 - **Automatically ignore alpha, beta, and test packages:** Sometimes it makes sense to allow breaking changes to APIs that are still in development and require frequent iteration. To assist with these workflows, BSR admins can choose to disable breaking change enforcement for packages that are versioned as alpha or beta and those used for testing.
 
 In addition to these new features, we’re excited to share some details on other work we’re doing to provide administrators with new governance and data policy controls for Protobuf schemas.
@@ -90,6 +90,6 @@ If you’re interested in beta testing any of this functionality, please [let us
 
 ## Get started with breaking change policy enforcement
 
-To enable breaking change policy enforcement in the BSR, head over to your admin settings or take a look at the [documentation](/docs/bsr/policy-checks/breaking/overview/index.md). If you aren’t on our Enterprise plan today, you can check out our [pricing plans](https://buf.build/pricing/). As always, feedback and questions are welcome in the [Buf Slack](https://buf.build/b/slack/)!
+To enable breaking change policy enforcement in the BSR, head over to your admin settings or take a look at the [documentation](/docs/bsr/policy-checks/breaking/index.md). If you aren’t on our Enterprise plan today, you can check out our [pricing plans](https://buf.build/pricing/). As always, feedback and questions are welcome in the [Buf Slack](https://buf.build/b/slack/)!
 
 ‍

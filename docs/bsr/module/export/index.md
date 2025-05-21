@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/module/export/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/module/publish/"
+      href: "https://bufbuild.ru/docs/bsr/documentation/create-docs/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/module/descriptor/"

@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/observability/metrics/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/observability/overview/"
+      href: "https://bufbuild.ru/docs/bufstream/observability/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bufstream/observability/status-endpoint/"

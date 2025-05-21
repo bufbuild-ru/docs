@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/bsr/authentication/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/commits-labels/"
+      href: "https://bufbuild.ru/docs/bsr/quickstart/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/module/dependency-management/"
+      href: "https://bufbuild.ru/docs/bsr/repositories/"
   - - meta
     - property: "og:title"
       content: "Authentication - Buf Docs"

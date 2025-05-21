@@ -62,7 +62,7 @@ Here is a simplified architecture diagram for the Buf Schema Registry (BSR):
 
 The following images can be mirrored internally, if desired:
 
-- **[library/registry](https://hub.docker.com/_/registry)**: OCI Image Registry that holds container images for [remote plugins](../../../remote-plugins/overview/).
+- **[library/registry](https://hub.docker.com/_/registry)**: OCI Image Registry that holds container images for [remote plugins](../../../remote-plugins/).
 
 ## Main components
 
@@ -70,7 +70,7 @@ The following images can be mirrored internally, if desired:
 
 - The main [API](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1) used by the frontend app and Buf CLI
 - Provides the ability to remotely generate code from modules using **bufsandboxd**
-- [Remote package](../../../generated-sdks/overview/) APIs to support pulling generated code using package managers in several languages (for example **npm install**, **go get**)
+- [Remote package](../../../generated-sdks/) APIs to support pulling generated code using package managers in several languages (for example **npm install**, **go get**)
 - [buf studio](../../../studio/), a browser tool that allows developers to create, edit and send gRPC and connect messages to arbitrary servers
 
 ### bufsandboxd

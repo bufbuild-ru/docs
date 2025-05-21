@@ -7,10 +7,10 @@ head:
       href: "https://bufbuild.ru/docs/bsr/reflection/prototransform/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/reflection/overview/"
+      href: "https://bufbuild.ru/docs/bsr/apis/api-access/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bsr/admin/user-account/"
+      href: "https://bufbuild.ru/docs/bufstream/"
   - - meta
     - property: "og:title"
       content: "Prototransform - Buf Docs"
@@ -46,7 +46,7 @@ head:
 
 # Prototransform
 
-Like any Connect API, you can use the Buf Reflection API using a client [generated](../../../generate/tutorial/) via the Buf CLI (for example `buf generate buf.build/bufbuild/reflect`) or by downloading a [generated SDK](../../generated-sdks/overview/). This API client allows you to download `FileDescriptorProtos`.
+Like any Connect API, you can use the Buf Reflection API using a client [generated](../../../generate/tutorial/) via the Buf CLI (for example `buf generate buf.build/bufbuild/reflect`) or by downloading a [generated SDK](../../generated-sdks/). This API client allows you to download `FileDescriptorProtos`.
 
 A richer client library, that makes use of dynamic messages (provided by various Protobuf runtimes), is needed to fully unlock some powerful use cases enabled by the API.
 

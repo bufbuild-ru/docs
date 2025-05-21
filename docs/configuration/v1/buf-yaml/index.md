@@ -240,7 +240,7 @@ syntax = "proto3";
 package A; // buf:lint:ignore PACKAGE_VERSION_SUFFIX
 ```
 
-If this option is unset or `false`, any such comments are ignored. See the [lint overview](../../../lint/overview/#comment-ignores) to learn how and when to use comment ignores.
+If this option is unset or `false`, any such comments are ignored. See the [lint overview](../../../lint/#comment-ignores) to learn how and when to use comment ignores.
 
 #### `enum_zero_value_suffix`
 

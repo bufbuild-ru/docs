@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/configuration/v1beta1/buf-lock/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/reference/inputs/"
+      href: "https://bufbuild.ru/docs/migration-guides/migrate-v2-config-files/"
   - - meta
     - property: "og:title"
       content: "buf.work.yaml - Buf Docs"
@@ -377,7 +377,7 @@ enum Foo {
 }
 ```
 
-The suffix is [configurable](../../../lint/overview/#defaults-and-configuration).
+The suffix is [configurable](../../../lint/#defaults-and-configuration).
 
 All enums should have a zero value. Proto3 doesn't differentiate between set and unset fields, so if an enum field is not explicitly set, it defaults to the zero value. If an explicit zero value isn't part of the enum definition, this defaults to the actual zero value of the enum. For example, if you had:
 
@@ -418,7 +418,7 @@ service FooService {
 }
 ```
 
-There are [configuration options](../../../lint/overview/#defaults-and-configuration) associated with these three rules.
+There are [configuration options](../../../lint/#defaults-and-configuration) associated with these three rules.
 
 ##### `PACKAGE_VERSION_SUFFIX`
 
@@ -446,9 +446,9 @@ foo.bar.v1test
 foo.bar.v1testfoo
 ```
 
-One of the core promises of Protobuf API development is to never have breaking changes in your APIs, and Buf helps enforce this through the [breaking change detector](../../../breaking/overview/). There are scenarios, however, where you do want to properly version your API. Instead of making changes, the proper method to do so is to make a completely new Protobuf package that's a copy of your existing Protobuf package, serve both packages server-side, and manually migrate your callers. This rule enforces that all packages have a version attached so that it's clear when a package represents a new version.
+One of the core promises of Protobuf API development is to never have breaking changes in your APIs, and Buf helps enforce this through the [breaking change detector](../../../breaking/). There are scenarios, however, where you do want to properly version your API. Instead of making changes, the proper method to do so is to make a completely new Protobuf package that's a copy of your existing Protobuf package, serve both packages server-side, and manually migrate your callers. This rule enforces that all packages have a version attached so that it's clear when a package represents a new version.
 
-A common idiom is to use alpha and beta packages for packages that are still in development and can have breaking changes. You can [configure the breaking change detector](../../../breaking/overview/#defaults-and-configuration) to ignore breaking changes in files for these packages with the `ignore_unstable_packages` option:
+A common idiom is to use alpha and beta packages for packages that are still in development and can have breaking changes. You can [configure the breaking change detector](../../../breaking/#defaults-and-configuration) to ignore breaking changes in files for these packages with the `ignore_unstable_packages` option:
 
 ::: info buf.yaml
 

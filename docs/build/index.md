@@ -4,22 +4,22 @@ description: "Overview of the Buf CLI's build feature"
 head:
   - - link
     - rel: "canonical"
-      href: "https://bufbuild.ru/docs/build/overview/"
+      href: "https://bufbuild.ru/docs/build/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/curl/usage/"
+      href: "https://bufbuild.ru/docs/curl/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/build/tutorial/"
   - - meta
     - property: "og:title"
-      content: "Overview - Buf Docs"
+      content: "Build your Protobuf schema - Buf Docs"
   - - meta
     - property: "og:image"
-      content: "https://buf.build/docs/assets/images/social/build/overview.png"
+      content: "https://buf.build/docs/assets/images/social/build/index.png"
   - - meta
     - property: "og:url"
-      content: "https://bufbuild.ru/docs/build/overview/"
+      content: "https://bufbuild.ru/docs/build/"
   - - meta
     - property: "og:type"
       content: "website"
@@ -34,10 +34,10 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Overview - Buf Docs"
+      content: "Build your Protobuf schema - Buf Docs"
   - - meta
     - property: "twitter:image"
-      content: "https://buf.build/docs/assets/images/social/build/overview.png"
+      content: "https://buf.build/docs/assets/images/social/build/index.png"
   - - meta
     - name: "twitter:card"
       content: "summary_large_image"
@@ -46,7 +46,7 @@ head:
 
 # Build Buf images – Overview
 
-Buf CLI operations are based on Protobuf files that have been successfully compiled, or built. Building an [image](../../reference/images/) from the `.proto` files that define the schema is the first step `buf` executes when running commands like `buf lint` and `buf breaking`. The tooling compiles the `.proto` files into a single binary file that can be easily shared and stored. Generating an image with `buf build`, in its simplest form, is a way to verify that the [input](../../reference/inputs/) successfully compiles.
+Buf CLI operations are based on Protobuf files that have been successfully compiled, or built. Building an [image](../reference/images/) from the `.proto` files that define the schema is the first step `buf` executes when running commands like `buf lint` and `buf breaking`. The tooling compiles the `.proto` files into a single binary file that can be easily shared and stored. Generating an image with `buf build`, in its simplest form, is a way to verify that the [input](../reference/inputs/) successfully compiles.
 
 Generally you won't need to generate images directly, but if needed, you can build an image with `buf build`, where `-o` tells it to output to the provided file (and its implied format):
 
@@ -72,7 +72,7 @@ buf build -o -#format=json
 
 ### Strip imports and source code info
 
-By default, `buf` produces a [Buf image](../../reference/images/) with both imports and source code info. You can strip each of these:
+By default, `buf` produces a [Buf image](../reference/images/) with both imports and source code info. You can strip each of these:
 
 ```sh
 buf build --exclude-imports --exclude-source-info -o image.binpb
@@ -92,7 +92,7 @@ The `ImageFileExtension` field doesn't affect Protobuf plugins or any other oper
 
 ### Limit to specific files
 
-By default, `buf` builds all files under the `buf.yaml` configuration file. You can instead manually specify the file or directory paths to build. This is an advanced feature intended to be used for editor or [Bazel](../../cli/build-systems/bazel/) integration — it's better to let `buf` discover all files under management and handle this for you.
+By default, `buf` builds all files under the `buf.yaml` configuration file. You can instead manually specify the file or directory paths to build. This is an advanced feature intended to be used for editor or [Bazel](../cli/build-systems/bazel/) integration — it's better to let `buf` discover all files under management and handle this for you.
 
 The compiled result is limited to the given files if the `--path` flag is specified, as in this command:
 

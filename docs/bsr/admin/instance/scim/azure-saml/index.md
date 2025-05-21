@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/admin/instance/scim/azure-saml/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/admin/instance/scim/overview/"
+      href: "https://bufbuild.ru/docs/bsr/admin/instance/scim/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/admin/instance/scim/okta-saml/"
@@ -64,7 +64,7 @@ The steps below must be carried out by users with administrative privileges in y
 
 ## Enable SCIM provisioning
 
-1.  Complete the [SCIM prerequisites](../overview/) if you haven't already.
+1.  Complete the [SCIM prerequisites](../) if you haven't already.
 2.  Sign in to your Azure portal.
 3.  Navigate to your BSR application under **Enterprise applications** in your Azure Active Directory tenant.
 4.  Click **Provisioning** on the side bar, click **Configure Provisioning**.

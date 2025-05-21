@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bsr/admin/user-account/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bsr/reflection/prototransform/"
+      href: "https://bufbuild.ru/docs/bsr/studio/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bsr/admin/manage-organizations/"

@@ -46,53 +46,52 @@ head:
 
 # Manage subscription costs
 
-This page describes some best practices for managing the cost of your subscription by right-sizing the number of private types in your organization. For more information on pricing, read the [billing and subscription FAQ](../faq/).
-
-## Make dependencies public
-
-Your Protobuf files likely have dependencies on third-party types, most commonly something like [googleapis](https://buf.build/googleapis/googleapis). Before the BSR, it was normal to vendor dependencies in the same version control repository that contained your Protobuf files, to allow for easy linking when using `protoc`. With the BSR, you don't need to locally vendor dependencies, and can instead rely on its remote dependency management. See the [Dependency management](../../bsr/module/dependency-management/) page for more information.
-
-If you don't find an official repository for your dependency in the BSR, then create a new public repository in your organization. We don't charge for public types.
-
-## Open source your APIs
-
-Because Buf doesn't charge for public types, one of the easiest methods to manage costs is to move types that don't need to be private into a public repository. This can also lead to better API discovery for your customers, and encourage an open source community to emerge around your services. This way, you can limit the paid types in your subscription to the much smaller number of business-sensitive types stored in your organization's private repositories.
-
-The BSR itself is a good example of this principle, as it exposes a large public API at [https://buf.build/bufbuild/buf](https://buf.build/bufbuild/buf), and also has a handful of private types.
+This page describes how to view your types usage and provides some best practices for managing the cost of your subscription by right-sizing the number of private types in your organization.
 
 ## Track types usage
 
-To help you track usage costs, the BSR provides usage dashboards that can help you keep track of the number of types you're using. There are some differences in the way we compute types for private instances vs. the public BSR, which reflect the terms around how these contracts are billed:
+Teams, Pro, and Enterprise plans provide dashboards to help estimate your usage costs. The type of information in the dashboard and its location depend on the plan.
 
-- Types usage for the public BSR is computed as the average number of types over the organization's billing period.
-- Private instance usage tracks the maximum number of types for all organizations on the entire instance over a calendar month.
+### Teams and Pro plans
 
-### Public BSR organizations
+These subscriptions are per BSR organization and are billed based on average types usage per month. Organization admins can view the dashboard at:
 
-On the public BSR, each organization has a dashboard accessible by organization admins that shows monthly average type usage for the organization. Go to the organization's side menu, then **Account > Usage** to view it.
+`https://buf.build/ORGANIZATION/settings/usage`
 
 ![Example dashboard](../../images/bsr/types-usage-public.png)
 
-### Private BSR instances
+On the same page, admins can also request an email alert when types usage reaches a specific threshold.
 
-::: warning
-This feature is only available on the Enterprise plan.
-:::
+### Enterprise plans
 
-The BSR provides more detailed reporting for private instances: maximum type usage for the current calendar month and historical data for billable types. Instance admins have access to both dashboards, and they can be exported to CSV to easily share usage information with others. Both dashboards can also be filtered on specific organizations and repos in addition to viewing for the entire instance.
-
-#### Current types usage
-
-Instance admins can view this dashboard at `https://buf.build/admin/current-usage`. It shows the type usage at that moment, broken out by owner and each type:
-
-![Example dashboard](../../images/bsr/types-usage-private-current.png)
-
-You can sort the table by any column, and click through to view usage down to the repository level in addition to using the filter.
+These subscriptions are per BSR instance and are billed based on maximum types usage, with the interval set by your contract. The BSR provides two dashboards for Enterprise customers, both of which can be filtered by owner or repository and exported to CSV for sharing.
 
 #### Billable types history
 
-Instance admins can view this dashboard at `https://buf.build/admin/billable-history`. It shows the number of types billed by month for up to a year of data, with each month further broken out by type.
+This dashboard shows up to a year's worth of historical data for billable types per month, broken down by type. The date range is selectable. Instance admins can view this dashboard at:
+
+`https://BSR_INSTANCE/admin/billable-history`
 
 ![Example dashboard](../../images/bsr/types-usage-private-history.png)
 
-You can change the date range as needed.
+#### Current types usage
+
+This dashboard shows the current types usage broken out by owner and each type. The table can be sorted by any column, and clicking through allows you to view usage down to the repository level. Instance admins can view this dashboard at:
+
+`https://BSR_INSTANCE/admin/current-usage`
+
+![Example dashboard](../../images/bsr/types-usage-private-current.png)
+
+## Reduce private types usage
+
+We price based on types so that your cost aligns with usage of the BSR. That said, because the BSR offers true dependency management for Protobuf, you may be able to optimize your usage in private repositories by reducing vendored dependencies, and for some subscriptions, leveraging public repositories.
+
+### Reduce vendored dependencies
+
+Your Protobuf files likely have dependencies on third-party types like [googleapis](https://buf.build/googleapis/googleapis). Because the BSR provides many of these dependencies as modules, you can depend on its remote versions and remove any locally-vendored versions. See the [Dependency management](../../bsr/module/dependency-management/) page for more information.
+
+If you don't find an official repository for your dependency in the BSR, then create a new public repository in your organization to hold these types.
+
+### Convert private repositories to public
+
+If you have a Community or Teams subscription, another option is to move types that don't need to be private into a public repository — types there aren't counted for billing purposes. This way, you can limit the paid types in your subscription to the much smaller number of business-sensitive types stored in your organization's private repositories. Making your APIs public can also lead to better discovery for your customers and encourage an open source community to emerge around your services.

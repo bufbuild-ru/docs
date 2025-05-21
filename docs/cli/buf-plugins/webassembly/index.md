@@ -13,7 +13,7 @@ head:
       href: "https://bufbuild.ru/docs/cli/buf-plugins/publish/"
   - - meta
     - property: "og:title"
-      content: "Compiling to WebAssembly - Buf Docs"
+      content: "Compile to WebAssembly - Buf Docs"
   - - meta
     - property: "og:image"
       content: "https://buf.build/docs/assets/images/social/cli/buf-plugins/webassembly.png"
@@ -34,7 +34,7 @@ head:
       content: "630"
   - - meta
     - property: "twitter:title"
-      content: "Compiling to WebAssembly - Buf Docs"
+      content: "Compile to WebAssembly - Buf Docs"
   - - meta
     - property: "twitter:image"
       content: "https://buf.build/docs/assets/images/social/cli/buf-plugins/webassembly.png"

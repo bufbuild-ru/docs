@@ -50,19 +50,19 @@ This quickstart shows how to add Protovalidate to a Java RPC powered by [gRPC](h
 
 1.  Adding the Protovalidate dependency.
 2.  Annotating Protobuf files and regenerating code.
-3.  Adding a Connect interceptor.
+3.  Adding a gRPC interceptor.
 4.  Testing your validation logic.
 
 Just need an example? There's an example of Protovalidate for gRPC and Java in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/grpc-java/finish).
 
 ## Prerequisites
 
-- Install the [Buf CLI](../../../cli/). If you already have, run `buf --version` to verify that you're using at least `1.32.0`.
+- Install the [Buf CLI](../../../cli/). If you already have, run `buf --version` to verify that you're using at least `1.54.0`.
 - Have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [`Java 11+`](https://www.oracle.com/in/java/) installed and in your `$PATH`.
 - Clone the `buf-examples` repo and navigate to the `protovalidate/grpc-java/start` directory:
 
   ```sh
-  git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/protovalidate/grpc-java/start
+  git clone https://github.com/bufbuild/buf-examples.git && cd buf-examples/protovalidate/grpc-java/start
   ```
 
 ## Goal
@@ -185,7 +185,7 @@ It's time to add Protovalidate to your project. It may be useful to read the Pro
 
 Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../../bsr/) module, it's simple to add it to any Buf CLI project.
 
-1.  Open `build.gradle.kts` and verify that `build.buf:protovalidate` has already been added as a dependency. In your own projects, you'd need to add [build.buf:protovalidate:0.6.0](https://central.sonatype.com/artifact/build.buf/protovalidate/0.6.0/overview) as a dependency.
+1.  Open `build.gradle.kts` and verify that `build.buf:protovalidate` has already been added as a dependency. In your own projects, you'd need to add [build.buf:protovalidate:0.6.0](https://central.sonatype.com/artifact/build.buf/protovalidate/0.8.0/overview) as a dependency.
 
     ::: info build.gradle
 
@@ -213,7 +213,7 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
     // [!code ++]
     deps:
       // [!code ++]
-      - buf.build/bufbuild/protovalidate:v0.10.7
+      - buf.build/bufbuild/protovalidate:v0.11.1
     lint:
       use:
         - STANDARD
@@ -447,6 +447,7 @@ Follow these steps to begin enforcing Protovalidate rules:
 
     + import buf.build.example.protovalidate.ValidationInterceptor;
     + import build.buf.protovalidate.Validator;
+    + import build.buf.protovalidate.ValidatorFactory;
     import io.grpc.*;
     import io.grpc.protobuf.services.ProtoReflectionServiceV1;
     ```
@@ -461,7 +462,7 @@ Follow these steps to begin enforcing Protovalidate rules:
     public static void main(String[] args) throws IOException, InterruptedException {
         final BindableService service = new InvoiceService();
     -   final ServerServiceDefinition serviceDefinition = ServerInterceptors.intercept(service);
-    +   final ValidationInterceptor validationInterceptor = new ValidationInterceptor( new Validator() );
+    +   final ValidationInterceptor validationInterceptor = new ValidationInterceptor( ValidatorFactory.newBuilder().build() );
     +   final ServerServiceDefinition serviceDefinition = ServerInterceptors.intercept(service, validationInterceptor);
         final InvoiceServer invoiceServer = new InvoiceServer(50051, InsecureServerCredentials.create(), serviceDefinition);
 
@@ -503,13 +504,11 @@ This time, you should receive a block of JSON representing Protovalidate's enfor
 {
   "violations": [
     {
-      "fieldPath": "invoice.invoice_id",
-      "constraintId": "string.uuid_empty",
+      "ruleId": "string.uuid_empty",
       "message": "value is empty, which is not a valid UUID"
     },
     {
-      "fieldPath": "invoice.line_items",
-      "constraintId": "repeated.min_items",
+      "ruleId": "repeated.min_items",
       "message": "value must contain at least 1 item(s)"
     }
   ]
@@ -536,8 +535,7 @@ You can see that this more complex expression is enforced at runtime:
 {
   "violations": [
     {
-      "fieldPath": "invoice.line_items",
-      "constraintId": "line_items.logically_unique",
+      "ruleId": "line_items.logically_unique",
       "message": "line items must be unique combinations of product_id and unit_price"
     }
   ]
@@ -560,12 +558,12 @@ The test already provides a convenient way to declare expected violations throug
 
 ```java
 private static class ViolationSpec {
-    public final String constraintId;
+    public final String ruleId;
     public final String fieldPath;
     public final String message;
 
-    public ViolationSpec(String constraintId, String fieldPath, String message) {
-        this.constraintId = constraintId;
+    public ViolationSpec(String ruleId, String fieldPath, String message) {
+        this.ruleId = ruleId;
         this.fieldPath = fieldPath;
         this.message = message;
     }

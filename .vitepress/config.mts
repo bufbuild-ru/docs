@@ -1132,13 +1132,17 @@ export default defineConfig({
                 ],
               },
               {
-                text: 'Integrate with other systems',
+                text: 'Integrations',
                 collapsed: true,
                 items: [
                   { text: 'AKHQ', link: '/docs/bufstream/integrations/akhq/' },
                   {
                     text: 'Redpanda Console',
                     link: '/docs/bufstream/integrations/redpanda-console/',
+                  },
+                  {
+                    text: 'Factor House Kpow',
+                    link: '/docs/bufstream/integrations/factor-house-kpow/',
                   },
                 ],
               },
@@ -1600,12 +1604,4 @@ export default defineConfig({
       },
     ],
   ],
-
-  rewrites: {
-    '/docs/tutorials/getting-started-with-buf-cli/': '/docs/cli/quickstart/',
-    '/docs/bsr/introduction/': '/docs/bsr/',
-    '/docs/bsr/kafka/overview/': '/docs/bsr/csr/overview/',
-    '/docs/bsr/kafka/overview/index.md': '/docs/bsr/csr/overview/',
-    '/docs/bsr/kafka/overview/:page': '/docs/bsr/csr/overview/',
-  },
 });

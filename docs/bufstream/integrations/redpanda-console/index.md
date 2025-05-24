@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/integrations/akhq/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/"
+      href: "https://bufbuild.ru/docs/bufstream/integrations/factor-house-kpow/"
   - - meta
     - property: "og:title"
       content: "Redpanda Console - Buf Docs"

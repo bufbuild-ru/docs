@@ -57,12 +57,12 @@ Just need an example? There's an example of Protovalidate for Connect and Go in 
 
 ## Prerequisites
 
-- Install the [Buf CLI](../../../cli/). If you already have, run `buf --version` to verify that you're using at least `1.32.0`.
+- Install the [Buf CLI](../../../cli/). If you already have, run `buf --version` to verify that you're using at least `1.54.0`.
 - Have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [`go`](https://go.dev/dl/) installed and in your `$PATH`.
 - Clone the `buf-examples` repo and navigate to the `protovaldiate/connect-go/start` directory:
 
   ```sh
-  git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/protovalidate/connect-go/start
+  git clone https://github.com/bufbuild/buf-examples.git && cd buf-examples/protovalidate/connect-go/start
   ```
 
 ## Goal
@@ -187,7 +187,7 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 1.  Add Protovalidate to your Go project:
 
     ```sh
-    go get github.com/bufbuild/protovalidate-go@v0.9.3
+    go get buf.build/go/protovalidate@v0.12.0
     ```
 
 2.  Add Protovalidate as a dependency to `buf.yaml`.
@@ -202,7 +202,7 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
     // [!code ++]
     deps:
       // [!code ++]
-      - buf.build/bufbuild/protovalidate:v0.10.7
+      - buf.build/bufbuild/protovalidate:v0.11.1
     lint:
       use:
         - STANDARD
@@ -429,7 +429,7 @@ Follow these steps to begin enforcing Protovalidate rules with `connectrpc.com/v
 2.  Install the interceptor.
 
     ```sh
-    go get connectrpc.com/validate
+    go get connectrpc.com/validate@v0.3.0
     ```
 
 3.  Import `connectprc.com/connect` and `connectrpc.com/validate` in `cmd/server.go`.
@@ -513,13 +513,11 @@ This time, you should receive a block of JSON representing Protovalidate's enfor
 {
   "violations": [
     {
-      "fieldPath": "invoice.invoice_id",
-      "constraintId": "string.uuid_empty",
+      "ruleId": "string.uuid_empty",
       "message": "value is empty, which is not a valid UUID"
     },
     {
-      "fieldPath": "invoice.line_items",
-      "constraintId": "repeated.min_items",
+      "ruleId": "repeated.min_items",
       "message": "value must contain at least 1 item(s)"
     }
   ]
@@ -565,8 +563,7 @@ You can see that this more complex expression is enforced at runtime:
 {
   "violations": [
     {
-      "fieldPath": "invoice.line_items",
-      "constraintId": "line_items.logically_unique",
+      "ruleId": "line_items.logically_unique",
       "message": "line items must be unique combinations of product_id and unit_price"
     }
   ]
@@ -592,7 +589,7 @@ The test already provides a convenient way to declare expected violations throug
 // a connect.Error that we expect to contain Protovalidate validate.Violations
 // messages.
 type violationSpec struct {
-    constraintID string
+    ruleID string
     fieldPath    string
     message      string
 }
@@ -624,7 +621,7 @@ func TestCreateInvoice(t *testing.T) {
             },
             violations: []violationSpec{
                 {
-                    constraintID: "string.uuid_empty",
+                    ruleID: "string.uuid_empty",
                     fieldPath:    "invoice.invoice_id",
                     message:      "value is empty, which is not a valid UUID",
                 },
@@ -638,7 +635,7 @@ func TestCreateInvoice(t *testing.T) {
             },
             violations: []violationSpec{
                 {
-                    constraintID: "line_items.logically_unique",
+                    ruleID: "line_items.logically_unique",
                     fieldPath:    "invoice.line_items",
                     message:      "line items must be unique combinations of product_id and unit_price",
                 },

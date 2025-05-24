@@ -50,19 +50,19 @@ This quickstart shows how to add Protovalidate to a Python RPC powered by [gRPC]
 
 1.  Adding the Protovalidate dependency.
 2.  Annotating Protobuf files and regenerating code.
-3.  Adding a Connect interceptor.
+3.  Adding a gRPC interceptor.
 4.  Testing your validation logic.
 
 Just need an example? There's an example of Protovalidate for gRPC and Python in [GitHub](https://github.com/bufbuild/buf-examples/tree/main/protovalidate/grpc-python/finish).
 
 ## Prerequisites
 
-- Install the [Buf CLI](../../../cli/). If you already have, run `buf --version` to verify that you're using at least `1.32.0`.
+- Install the [Buf CLI](../../../cli/). If you already have, run `buf --version` to verify that you're using at least `1.54.0`.
 - Have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [`Python 3.7+`](https://www.python.org/downloads/) installed and in your `$PATH`.
 - Clone the `buf-examples` repo and navigate to the `protovalidate/grpc-python/start` directory:
 
   ```sh
-  git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/protovalidate/grpc-python/start
+  git clone https://github.com/bufbuild/buf-examples.git && cd buf-examples/protovalidate/grpc-python/start
   ```
 
 - Create, start, and initialize a virtual environment to isolate this quickstart from any other Python environments:
@@ -192,7 +192,7 @@ It's time to add Protovalidate to your project. It may be useful to read the Pro
 
 Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../../bsr/) module, it's simple to add it to any Buf CLI project.
 
-1.  In your virtual environment console, add Protovalidate to your Python project. In your own projects, you'd need to add the [protocolbuffers/pyi](https://buf.build/bufbuild/protovalidate/sdks/v0.10.7:protocolbuffers/pyi) and [protocolbuffers/python](https://buf.build/bufbuild/protovalidate/sdks/v0.10.7:protocolbuffers/python) generated SDKs for Protovalidate.
+1.  In your virtual environment console, add Protovalidate to your Python project. In your own projects, you'd need to add the [protocolbuffers/pyi](https://buf.build/bufbuild/protovalidate/sdks/v0.11.1:protocolbuffers/pyi) and [protocolbuffers/python](https://buf.build/bufbuild/protovalidate/sdks/v0.11.1:protocolbuffers/python) generated SDKs for Protovalidate.
 
     ```console
     (.venv) $ pip3 install protovalidate
@@ -210,7 +210,7 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
     // [!code ++]
     deps:
       // [!code ++]
-      - buf.build/bufbuild/protovalidate:v0.10.7
+      - buf.build/bufbuild/protovalidate:v0.11.1
     lint:
       use:
         - STANDARD
@@ -474,13 +474,11 @@ This time, you should receive a block of JSON representing Protovalidate's enfor
 {
   "violations": [
     {
-      "fieldPath": "invoice.invoice_id",
-      "constraintId": "string.uuid_empty",
+      "ruleId": "string.uuid_empty",
       "message": "value is empty, which is not a valid UUID"
     },
     {
-      "fieldPath": "invoice.line_items",
-      "constraintId": "repeated.min_items",
+      "ruleId": "repeated.min_items",
       "message": "value must contain at least 1 item(s)"
     }
   ]
@@ -507,8 +505,7 @@ You can see that this more complex expression is enforced at runtime:
 {
   "violations": [
     {
-      "fieldPath": "invoice.line_items",
-      "constraintId": "line_items.logically_unique",
+      "ruleId": "line_items.logically_unique",
       "message": "line items must be unique combinations of product_id and unit_price"
     }
   ]
@@ -531,7 +528,7 @@ The test already provides a convenient way to declare expected violations throug
 
 ```python
 class ViolationSpec:
-    constraint_id: str
+    rule_id: str
     field_path: str
     message: str
 ```

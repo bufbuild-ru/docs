@@ -55,12 +55,12 @@ This quickstart shows how to add Protovalidate to a Go streaming application pow
 
 ## Prerequisites
 
-- Install the [Buf CLI](../../../cli/). If you already have, run `buf --version` to verify that you're using at least `1.32.0`.
+- Install the [Buf CLI](../../../cli/). If you already have, run `buf --version` to verify that you're using at least `1.54.0`.
 - Use Linux or Mac and have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [`go`](https://go.dev/dl/), and `make` installed and in your `$PATH`.
 - Clone the `buf-examples` repo and navigate to the `protovalidate/bufstream/start` directory:
 
   ```sh
-  git clone git@github.com:bufbuild/buf-examples.git && cd buf-examples/protovalidate/bufstream/start
+  git clone https://github.com/bufbuild/buf-examples.git && cd buf-examples/protovalidate/bufstream/start
   ```
 
 ## Goal
@@ -212,7 +212,7 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
 1.  Add Protovalidate to your Go project:
 
     ```sh
-    go get github.com/bufbuild/protovalidate-go@v0.9.3
+    go get buf.build/go/protovalidate@v0.12.0
     go mod tidy
     ```
 
@@ -233,7 +233,7 @@ Because Protovalidate is a publicly available [Buf Schema Registry (BSR)](../../
       # comes from the demo.buf.dev/bufbuild/protovalidate module.
       - buf.build/bufbuild/confluent
       // [!code ++]
-      - buf.build/bufbuild/protovalidate:v0.10.7
+      - buf.build/bufbuild/protovalidate:v0.11.1
     ```
 
     :::

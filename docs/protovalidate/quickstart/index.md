@@ -56,12 +56,12 @@ This quickstart steps through using Protovalidate in Protobuf projects with the 
 
 If you'd like to code along in Go, Java, or Python, complete the following steps. If you're only here for a quick tour, feel free to skip ahead.
 
-1.  Install the [Buf CLI](../../cli/). If you already have, run `buf --version` to verify that you're using at least `1.32.0`.
+1.  Install the [Buf CLI](../../cli/). If you already have, run `buf --version` to verify that you're using at least `1.54.0`.
 2.  Have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and your choice of [`go`](https://go.dev/dl/), [`Java 17+`](https://www.oracle.com/in/java/), or [`Python 3.7+`](https://www.python.org/downloads/) installed.
 3.  Clone the `buf-examples` repository:
 
     ```sh
-    git clone git@github.com:bufbuild/buf-examples.git
+    git clone https://github.com/bufbuild/buf-examples.git
     ```
 
 4.  Open a terminal to the repository and navigate to the `protovalidate/quickstart-go/start`, `protovalidate/quickstart-java/start`, or `protovalidate/quickstart-python/start` directory.
@@ -90,7 +90,7 @@ modules:
 // [!code ++]
 deps:
   // [!code ++]
-  - buf.build/bufbuild/protovalidate:v0.10.7
+  - buf.build/bufbuild/protovalidate:v0.11.1
 lint:
   use:
     - STANDARD
@@ -113,7 +113,7 @@ modules:
 // [!code ++]
 deps:
   // [!code ++]
-  - buf.build/bufbuild/protovalidate:v0.10.7
+  - buf.build/bufbuild/protovalidate:v0.11.1
 lint:
   use:
     - STANDARD
@@ -136,7 +136,7 @@ modules:
 // [!code ++]
 deps:
   // [!code ++]
-  - buf.build/bufbuild/protovalidate:v0.10.7
+  - buf.build/bufbuild/protovalidate:v0.11.1
 lint:
   use:
     - STANDARD
@@ -391,7 +391,7 @@ In the final code exercise, you'll use it directly, checking enforcement of `Get
 2.  Install Protovalidate using `go get`.
 
     ```sh
-    go get github.com/bufbuild/protovalidate-go@v0.9.3
+    go get buf.build/go/protovalidate@v0.12.0
     ```
 
 3.  Run `weather/weather_test.go` with `go test`. It should fail — it expects invalid latitudes and longitudes to be rejected, but you haven't yet added any validation.
@@ -487,7 +487,7 @@ In the final code exercise, you'll use it directly, checking enforcement of `Get
     ```diff
     public class WeatherService {
 
-        private static final Validator validator = new Validator();
+        private static final Validator validator = ValidatorFactory.newBuilder().build();
 
         public ValidationResult validateGetWeatherRequest(GetWeatherRequest request) throws ValidationException {
     -       return new ValidationResult(Collections.emptyList());
@@ -507,7 +507,7 @@ In the final code exercise, you'll use it directly, checking enforcement of `Get
 == Python
 
 1.  Make sure you've navigated to `protovalidate/quickstart-python/start` within the `buf-examples` repository.
-2.  Using a virtual environment, install dependencies. In your own projects, you'd need to add the [protocolbuffers/pyi](https://buf.build/bufbuild/protovalidate/sdks/v0.10.7:protocolbuffers/pyi) and [protocolbuffers/python](https://buf.build/bufbuild/protovalidate/sdks/v0.10.7:protocolbuffers/python) generated SDKs for Protovalidate.
+2.  Using a virtual environment, install dependencies. In your own projects, you'd need to add the [protocolbuffers/pyi](https://buf.build/bufbuild/protovalidate/sdks/v0.11.1:protocolbuffers/pyi) and [protocolbuffers/python](https://buf.build/bufbuild/protovalidate/sdks/v0.11.1:protocolbuffers/python) generated SDKs for Protovalidate.
 
     ```sh
     python3 -m venv venv

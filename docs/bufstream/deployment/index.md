@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/deployment/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/integrations/redpanda-console/"
+      href: "https://bufbuild.ru/docs/bufstream/integrations/factor-house-kpow/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bufstream/deployment/aws/deploy-postgres/"

@@ -48,7 +48,7 @@ But there exists a category of systems and use cases where it is necessary or us
 
 All of these cases call for a mechanism where every version of a schema for a particular message type can be easily downloaded to interpret the binary data.
 
-**Today we are announcing the** [**Buf Reflection API**](/docs/bsr/reflection/#api-usageindex.md) **which enables developers to programmatically query the Buf Schema Registry (**[**BSR**](/docs/bsr/index.md)**) to provide versioned Protobuf schemas on demand.**
+**Today we are announcing the** [**Buf Reflection API**](/docs/bsr/reflection/index.md) **which enables developers to programmatically query the Buf Schema Registry (**[**BSR**](/docs/bsr/index.md)**) to provide versioned Protobuf schemas on demand.**
 
 Many kinds of powerful tools can be built on top of this API to solve the above problems, among others. As a first step, we're also releasing one such tool: A Go package called [_Prototransform_](/docs/bsr/reflection/prototransform/index.md) which makes use of the new API and allows for transcoding and manipulation of arbitrary Protobuf messages across several formats, including the Protobuf binary format.
 
@@ -132,7 +132,7 @@ message SayRequest {
 }
 ```
 
-Combined with a Protobuf runtime that [supports descriptors and dynamic messages](/docs/bsr/reflection/#api-usageindex.md#dynamic-messages), one can build amazing things such as dynamic message processors, dynamic RPC clients, and RPC gateways/bridges.
+Combined with a Protobuf runtime that [supports descriptors and dynamic messages](/docs/bsr/reflection/index.md#dynamic-messages), one can build amazing things such as dynamic message processors, dynamic RPC clients, and RPC gateways/bridges.
 
 This `FileDescriptorSetService` interface is implemented by the BSR, but it can theoretically also be implemented by other software, such as other schema registries or caching proxies.
 
@@ -210,6 +210,6 @@ The BSR's new reflection API and the Prototransform library make for indispensab
 
 Not only are there many cool things we can build on top of the new API, but we're also excited to see the kinds of awesome things that _you_, the community, can build on top of it, too.
 
-Check out the [Buf](https://github.com/bufbuild/reflect-api) [Reflection API](/docs/bsr/reflection/#api-usageindex.md) and [Prototransform](https://github.com/bufbuild/prototransform) package to get started! If you have any questions, don't hesitate to reach out to us on the [Buf Slack](https://buf.build/b/slack/). We'd love to hear your feedback!
+Check out the [Buf](https://github.com/bufbuild/reflect-api) [Reflection API](/docs/bsr/reflection/index.md) and [Prototransform](https://github.com/bufbuild/prototransform) package to get started! If you have any questions, don't hesitate to reach out to us on the [Buf Slack](https://buf.build/b/slack/). We'd love to hear your feedback!
 
 ‍

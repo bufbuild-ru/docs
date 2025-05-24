@@ -1604,4 +1604,71 @@ export default defineConfig({
       },
     ],
   ],
+
+  rewrites: {
+    '/docs/tutorials/getting-started-with-buf-cli/index.md':
+      '/docs/cli/quickstart/index.md',
+    '/docs/bsr/introduction/index.md': '/docs/bsr/index.md',
+    '/docs/tutorials/getting-started-with-bsr/index.md':
+      '/docs/bsr/quickstart/index.md',
+    '/docs/bsr/private/bot-users/index.md':
+      '/docs/bsr/admin/instance/bot-users/index.md',
+    '/docs/bsr/overview/index.md': '/docs/bsr/index.md',
+    '/docs/installation/index.md': '/docs/cli/installation/index.md',
+    '/docs/generate/index.md': '/docs/generate/overview/index.md',
+    '/docs/bsr/reflection/usage/index.md':
+      '/docs/bsr/reflection/overview/index.md',
+    '/docs/bsr/api-access/index.md': '/docs/bsr/apis/api-access/index.md',
+    '/docs/bsr/private/scim/overview/index.md':
+      '/docs/bsr/admin/instance/scim/overview/index.md',
+    '/docs/how-to/replace-protoc-with-buf/index.md':
+      '/docs/migration-guides/migrate-from-protoc/index.md',
+    '/docs/how-to/create-and-push-module/index.md':
+      '/docs/bsr/module/publish/index.md',
+    '/docs/how-to/use-remote-packages/index.md':
+      '/docs/bsr/generated-sdks/tutorial/index.md',
+    '/docs/generate/overview/overview/index.md':
+      '/docs/generate/overview/index.md',
+    '/docs/data-pipeline/confluent/overview/index.md':
+      '/docs/bsr/kafka/overview/index.md',
+    '/docs/generate/overview/tutorial/index.md':
+      '/docs/generate/tutorial/index.md',
+    '/docs/generate/overview/managed-mode/index.md':
+      '/docs/generate/managed-mode/index.md',
+    '/docs/tour/index.md': '/docs/cli/quickstart/index.md',
+    '/docs/concepts/modules-workspaces/index.md':
+      '/docs/cli/modules-workspaces/index.md',
+    '/docs/concepts/commits-labels/index.md':
+      '/docs/bsr/commits-labels/index.md',
+    '/docs/build-systems/bazel/index.md':
+      '/docs/cli/build-systems/bazel/index.md',
+    '/docs/lint/tutorial/index.md': '/docs/lint/quickstart/index.md',
+    '/docs/ci-cd/github-actions/index.md':
+      '/docs/bsr/ci-cd/github-actions/index.md',
+    '/docs/ci-cd/setup/index.md': '/docs/bsr/ci-cd/setup/index.md',
+    '/docs/build-systems/gradle/index.md':
+      '/docs/cli/build-systems/gradle/index.md',
+    '/docs/bsr/kafka/overview/index.md': '/docs/bsr/csr/overview/index.md',
+    '/docs/bufstream/deployment/tuning-performance/index.md':
+      '/docs/bufstream/deployment/cluster-recommendations/index.md',
+    '/docs/lint/overview/index.md': '/docs/lint/index.md',
+    '/docs/breaking/overview/index.md': '/docs/breaking/index.md',
+    '/docs/bsr/generated-sdks/overview/index.md':
+      '/docs/bsr/generated-sdks/index.md',
+    '/docs/bsr/policy-checks/breaking/overview/index.md':
+      '/docs/bsr/policy-checks/breaking/index.md',
+    '/docs/generate/overview/index.md': '/docs/generate/index.md',
+    '/docs/bsr/remote-plugins/overview/index.md':
+      '/docs/bsr/remote-plugins/index.md',
+    '/docs/bsr/documentation/overview/index.md':
+      '/docs/bsr/documentation/index.md',
+    '/docs/bsr/reflection/overview/index.md': '/docs/bsr/reflection/index.md',
+    '/docs/bsr/admin/instance/scim/overview/index.md':
+      '/docs/bsr/admin/instance/scim/index.md',
+    '/docs/bsr/csr/overview/index.md': '/docs/bsr/csr/index.md',
+    '/docs/curl/usage/index.md': '/docs/curl/index.md',
+    '/docs/format/style/index.md': '/docs/format/index.md',
+    '/docs/bsr/private/user-lifecycle/index.md':
+      '/docs/bsr/admin/instance/user-lifecycle/index.md',
+  },
 });

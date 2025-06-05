@@ -112,7 +112,7 @@ To support multi-part uploads, you must configure a lifecycle policy to clean up
 
 For Bufstream to interact with your object storage, you need to update the configuration with the appropriate permissions.
 
-+++tabs key:0c3de125175bbe0c120a1ded72b43dd3
++++tabs key:4cce369e58a8cd0434647ddc2bb597d6
 
 == AWS
 
@@ -126,10 +126,6 @@ Bufstream uses an S3 bucket for object storage, and needs to perform the followi
 
 For more information about S3 bucket permissions and actions, consult the [AWS S3 documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Operations_Amazon_Simple_Storage_Service.html).
 
-== Azure
-
-Bufstream uses Azure Blob Storage for object storage, and at minimum, requires the `Storage Blob Data Contributor` [RBAC role](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) on the Storage account container.
-
 == Google Cloud
 
 Bufstream uses a Google Cloud Storage bucket for object storage, and needs to perform the following operations:
@@ -139,6 +135,10 @@ Bufstream uses a Google Cloud Storage bucket for object storage, and needs to pe
 - `storage.objects.delete`: Remove old storage objects according to retention and compaction rules
 - `storage.objects.list`: View all storage objects to enforce retention and compaction rules
 - `storage.multipartUploads.*`: Allow multi-part uploads
+
+== Azure
+
+Bufstream uses Azure Blob Storage for object storage, and at minimum, requires the `Storage Blob Data Contributor` [RBAC role](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) on the Storage account container.
 
 +++
 

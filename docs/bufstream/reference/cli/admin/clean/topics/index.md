@@ -60,6 +60,10 @@ Performs shelving, archiving and vacuuming operations on topics/partitions.
 
 ### Flags
 
+#### \--fix
+
+If the cleaner should attempt to fix any issues it finds, instead of just reporting them.
+
 #### \-h, --help
 
 help for topics
@@ -78,7 +82,7 @@ Skip vacuuming.
 
 #### \--topic _strings_
 
-The topics. If not set, runs on all topics.
+The topics. If not set, runs on all topics. For example: topic, topic:0, or topic:0-3.
 
 ### Flags inherited from parent commands
 

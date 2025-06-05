@@ -67,143 +67,74 @@ IdP group mapping allows you to manage membership in BSR organizations and repos
 Once this is configured, all user tokens from the IdP must contain group information. If you're using SAML, any user for whom groups information isn't provided will be unable to login to the BSR. If you're using OIDC, their groups will be treated as empty and they will lose access to the mapped organizations and repositories.
 :::
 
-## Map an IdP group to an organization
+## BSR administrators
 
-To map a group to a BSR organization, issue an API command with a user who has [admin permissions](../../roles/#admin) on the organization:
+BSR admins can map IdP groups to both organizations and repositories through the BSR Admin panel.
 
-1.  [Create an API token](../../../authentication/#create-a-token).
-2.  Export `BUF_TOKEN`, `GROUP_NAME`, `ORGANIZATION_NAME` and `PRIVATE_BSR_HOSTNAME` according to your details.
-3.  Get the organization ID:
+### Map an IdP group to a resource
 
-    ```sh
-    curl \
-        -H "Authorization: Bearer ${BUF_TOKEN}" \
-        -H "Content-Type: application/json" \
-        -d "{\"name\":\"${ORGANIZATION_NAME}\"}" \
-        "https://${PRIVATE_BSR_HOSTNAME}/buf.alpha.registry.v1alpha1.OrganizationService/GetOrganizationByName"
-    ```
+To map a group to a resource:
 
-4.  Extract the returned `organization.id`, export it as `ORGANIZATION_ID` and use it to map the group (see below if you want to override the default member role):
+1.  Log into the BSR as an admin and navigate to the Admin panel via the dropdown under your username in the top right corner.
+2.  Select **IdP group mapping** in the left side menu.
 
-    ```sh
-    curl \
-        -H "Authorization: Bearer ${BUF_TOKEN}" \
-        -H "Content-Type: application/json" \
-        -d "{\"organization_id\":\"${ORGANIZATION_ID}\", \"group_name\":\"${GROUP_NAME}\"}" \
-        "https://${PRIVATE_BSR_HOSTNAME}/buf.alpha.registry.v1alpha1.OrganizationService/AddOrganizationGroup"
-    ```
+    ![Empty IdP mapping admin panel](../../../../images/bsr/idp-mapping/admin-panel-empty.png)
 
+3.  Click on the **Add new mapping** button, enter the name of a group from your identity provider, then select a resource to associate with the group.
+
+    ![Add a new group mapping](../../../../images/bsr/idp-mapping/admin-panel-add-mapping.png)
+
+4.  You can optionally choose to override the default [role](../../roles/#organization-roles). You can edit this selection after the mapping has been created.
+
+    OrganizationsRepositories
+
+    {tab}
+
+    ![Override default organization role](../../../../images/bsr/idp-mapping/override-default-organization-role.png)
+
+    {tab}
+
+    ![Override default repository role](../../../../images/bsr/idp-mapping/override-default-repo-role.png)
+
+5.  Click **Save**.
+6.  Ask your employees to logout/login for changes to take effect.
+
+### Unmap an IdP group from a resource
+
+1.  Log into the BSR as an admin and navigate to the Admin panel via the dropdown under your username in the top right corner.
+2.  Select **IdP group mapping** in the left side menu.
+3.  Click the three dots next to the mapping, and select **Delete**.
+
+    ![Delete a mapping](../../../../images/bsr/idp-mapping/admin-panel-delete-group-mapping.png)
+
+Members don't need to logout or login when a group is removed — they're removed from the organization or repository immediately.
+
+## Organization administrators
+
+Organization admins can map IdP groups to repositories that are owned by the organization through the organization's **Settings** page.
+
+### Map an IdP group to a repository
+
+To map a group to a repository:
+
+1.  Go to the owning organization's **Settings** page at `https://buf.build/ORGANIZATION/settings/general`.
+2.  Click on the **Add new mapping** button under the **IdP group mapping** section, enter the name of a group from your identity provider, then select a repository to associate with the group.
+
+    ![Add a new group repository mapping](../../../../images/bsr/idp-mapping/add-group-repository-mapping.png)
+
+3.  You can optionally choose to override the default resource role. You can edit this selection after the mapping has been created.
+
+    ![Override default resource role](../../../../images/bsr/idp-mapping/override-default-repo-role.png)
+
+4.  Click **Save**.
 5.  Ask your employees to logout/login for changes to take effect.
 
-### Override the default member role
+### Unmap an IdP group from a repository
 
-Members of the group are automatically added to the organization at the `Member` role by default. You can optionally override this by specifying a `role_override` in the payload, where the value is one of the [specified roles](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1#buf.alpha.registry.v1alpha1.OrganizationRole). The `ORGANIZATION_ROLE_MACHINE` is equivalent to the `WRITER` role.
+1.  Go to the owning organization's **Settings** page at `https://buf.build/ORGANIZATION/settings/general`.
+2.  Click the three dots next to the mapping, and select **Delete**.
 
-To create the mapping with a role override, issue this API command with a user who has admin permissions on the organization:
-
-```sh
-curl \
-    -H "Authorization: Bearer ${BUF_TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "{\"organization_id\":\"${ORGANIZATION_ID}\", \"group_name\":\"${GROUP_NAME}\", \"role_override\":\"ORGANIZATION_ROLE_ADMIN\"}" \
-    "https://${PRIVATE_BSR_HOSTNAME}/buf.alpha.registry.v1alpha1.OrganizationService/AddOrganizationGroup"
-```
-
-### Change or clear the role override
-
-If you want to change or clear the role override, issue this API command with a user who has admin permissions on the organization:
-
-```sh
-curl \
-    -H "Authorization: Bearer ${BUF_TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "{\"organization_id\":\"${ORGANIZATION_ID}\", \"group_name\":\"${GROUP_NAME}\", \"role_override\":\"ORGANIZATION_ROLE_ADMIN\"}" \
-    "https://${PRIVATE_BSR_HOSTNAME}/buf.alpha.registry.v1alpha1.OrganizationService/UpdateOrganizationGroup"
-```
-
-To clear the role override, use `ORGANIZATION_ROLE_UNSPECIFIED` as the `role_override` value.
-
-## Unmap a security group to an organization
-
-To unmap a group, issue the same commands as for mapping, except in the final step invoke `RemoveOrganizationGroup` instead.
-
-```sh{5}
-curl \
-    -H "Authorization: Bearer ${BUF_TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "{\"organization_id\":\"${ORGANIZATION_ID}\", \"group_name\":\"${GROUP_NAME}\"}" \
-    "https://${PRIVATE_BSR_HOSTNAME}/buf.alpha.registry.v1alpha1.OrganizationService/RemoveOrganizationGroup"
-```
-
-Members don't need to logout or login when a group is removed — they're removed from the organization immediately.
-
-## Map an IdP group to a repository
-
-You can only map groups to repositories that are owned by an organization. To map a group to a BSR repository, issue an API command with a user who has the [`Admin` resource role](../../roles/#base-resource-roles) on the repository:
-
-1.  [Create an API token](../../../authentication/#create-a-token).
-2.  Export `BUF_TOKEN`, `GROUP_NAME`, `REPOSITORY_NAME`, `ORGANIZATION_NAME`, and `PRIVATE_BSR_HOSTNAME` according to your details.
-3.  Get the repository ID:
-
-    ```sh
-    curl \
-        -H "Authorization: Bearer ${BUF_TOKEN}" \
-        -H "Content-Type: application/json" \
-        -d "{\"fullName\":\"${ORGANIZATION_NAME}/${REPOSITORY_NAME}\"}" \
-        "https://${PRIVATE_BSR_HOSTNAME}/buf.alpha.registry.v1alpha1.RepositoryService/GetRepositoryByFullName"
-    ```
-
-4.  Extract the returned `repository.id`, export it as `REPOSITORY_ID` and use it to map the group (see below if you want to override the default resource role):
-
-    ```sh
-    curl \
-        -H "Authorization: Bearer ${BUF_TOKEN}" \
-        -H "Content-Type: application/json" \
-        -d "{\"repository_id\":\"${REPOSITORY_ID}\", \"group_name\":\"${GROUP_NAME}\"}" \
-        "https://${PRIVATE_BSR_HOSTNAME}/buf.alpha.registry.v1alpha1.RepositoryService/AddRepositoryGroup"
-    ```
-
-5.  Ask your employees to logout/login for changes to take effect.
-
-### Override the default resource role
-
-Members of the group are automatically added to the repository with a `Read` resource role by default. You can optionally override this by specifying a `role_override` in the payload, where the value is one of the [specified roles](https://buf.build/bufbuild/buf/docs/main:buf.alpha.registry.v1alpha1#buf.alpha.registry.v1alpha1.RepositoryRole) (except for `REPOSITORY_ROLE_OWNER`, which is the parent organization).
-
-To create the mapping with a role override, issue this API command with a user who has the `Admin` resource role on the repository:
-
-```sh
-curl \
-    -H "Authorization: Bearer ${BUF_TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "{\"repository_id\":\"${REPOSITORY_ID}\", \"group_name\":\"${GROUP_NAME}\", \"role_override\":\"REPOSITORY_ROLE_WRITE\"}" \
-    "https://${PRIVATE_BSR_HOSTNAME}/buf.alpha.registry.v1alpha1.RepositoryService/AddRepositoryGroup"
-```
-
-### Change or clear the role override
-
-If you want to change or clear the role override, issue this API command with a user who has the `Admin` resource role on the repository:
-
-```sh
-curl \
-    -H "Authorization: Bearer ${BUF_TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "{\"repository_id\":\"${REPOSITORY_ID}\", \"group_name\":\"${GROUP_NAME}\", \"role_override\":\"REPOSITORY_ROLE_WRITE\"}" \
-    "https://${PRIVATE_BSR_HOSTNAME}/buf.alpha.registry.v1alpha1.RepositoryService/UpdateRepositoryGroup"
-```
-
-To clear the role override, use `REPOSITORY_ROLE_UNSPECIFIED` as the `role_override` value.
-
-## Unmap a security group to a repository
-
-To unmap a group, issue the same commands as for mapping, except in the final step invoke `RemoveRepositoryGroup` instead.
-
-```sh{5}
-curl \
-    -H "Authorization: Bearer ${BUF_TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "{\"repository_id\":\"${REPOSITORY_ID}\", \"group_name\":\"${GROUP_NAME}\"}" \
-    "https://${PRIVATE_BSR_HOSTNAME}/buf.alpha.registry.v1alpha1.RepositoryService/RemoveRepositoryGroup"
-```
+    ![Delete a mapping](../../../../images/bsr/idp-mapping/delete-repo-group-mapping.png)
 
 Members don't need to logout or login when a group is removed — they're removed from the repository immediately.
 

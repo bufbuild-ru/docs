@@ -10,7 +10,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/deployment/cluster-recommendations/"
   - - link
     - rel: "next"
-      href: "https://bufbuild.ru/docs/bufstream/cost/"
+      href: "https://bufbuild.ru/docs/bufstream/architecture/"
   - - meta
     - property: "og:title"
       content: "Releases - Buf Docs"
@@ -57,9 +57,57 @@ The latest binaries of Bufstream can be downloaded here:
 
 # Release notes
 
+## v0.3.30
+
+**_Release date:_** 2025-06-04 | **_Status:_** latest
+
+### Changed
+
+- Updated bufstream error logging to no longer emit full stack traces. Traced errors now include separate location attributes and simplify the error message shown to users.
+- Add attribute `kafka.fetch.timed_out` to the `bufstream.kafka.request.latency` metric indicating whether a Fetch request has timed out.
+- Updated bufstream's container default workdir to `/`.
+
+### Fixed
+
+- Fixed a shelving issue where `shelving incomplete data` errors could occur. This error caused excessive retries and log messages.
+- Fixed an issue where `Sequencer not found` errors could occur when starting up a new Bufstream instance.
+- Fixed a `traces export: string field contains invalid UTF-8` error with OTEL tracing and the `OTLP_GRPC` exporter enabled. The gRPC exporter rejects attributes containing non-UTF-8 data; the HTTP exporter is unaffected. This fix ensures any binary data is hex-encoded before being added as an attribute.
+- Fixed overflow error that was causing duration-based Kafka configuration properties set to the max `int64` value to be saved erroneously as `-1` instead.
+
+## v0.3.29
+
+**_Release date:_** 2025-05-29
+
+### Changed
+
+- Improved caching of fetch responses generated from Parquet archives, to improve "catch up" speed of consumers.
+- Changed the way that Iceberg schemas are generated to no longer include "identifier fields". This allows Bufstream's Iceberg tables to work with Snowflake (working around a limitation in Snowflake's support for external Iceberg tables).
+
+### Fixed
+
+- Fixed a compatibility issue where some clients could not detect reaching the end of a partition when the last record was an omitted control record. A control record is now returned in this case. A previous fix for this issue is included in v0.3.28, however this is now fixed for consumers using records from Parquet or Iceberg archives.
+- Fixed an issue where a topic that uses Parquet or Iceberg archives, has low volume, and has a large number of rolled-back transactional records could prevent intake files and related "shelf" metadata from being cleaned up.
+
+### Removed
+
+- The `auto_migrate_metadata_storage` option (Helm: `autoMigrateMetadataStorage`) is removed. Automatic migrations of the metadata store will always occur on startup without need for manual configuration or coordination.
+- The `name_strategy` options under the `data_enforcement` option (Helm: `dataEnforcement`) are removed, as there is only one supported name strategy. Uses of this option can be removed.
+
+## v0.3.28
+
+**_Release date:_** 2025-05-27
+
+### Fixed
+
+- Enabling a topic for Iceberg could return the error message "iceberg catalog cannot be blank" instead of "unknown catalog name" for catalogs not defined in the Bufstream configuration file. This has been fixed with improved validation in the AlterConfigs and IncrementalAlterConfigs Kafka RPCs.
+- Fixed a compatibility issue where some clients could not detect reaching the end of a partition when the last record was an omitted control record. A synthetic control record is now returned in this case.
+- Fixed an off-by-one bug when reading from Parquet or Iceberg archive files where single records could be inadvertently skipped.
+- Fixed an issue where reading Parquet or Iceberg archive files could cause consumers to be unable to progress and to emit "archive chunk not found" error logs.
+- Fixed a concurrency issue for topics with many partitions when parquet files for multiple partitions were added simultaneously when using Google Cloud BigQuery Metastore as the Iceberg catalog. The bug could result in table metadata corruption or a fatal error that crashed the bufstream process.
+
 ## v0.3.27
 
-**_Release date:_** 2025-05-20 | **_Status:_** latest
+**_Release date:_** 2025-05-20
 
 ### Added
 
@@ -553,7 +601,7 @@ Clusters on v0.1.x must first upgrade to a v0.2.x release before upgrading to th
 
 - Update metrics units to match OTEL recommendations
 - Allow configuring OTLP temporality preference
-- Expose bufstream health status via `bufsteam.status` metric
+- Expose bufstream health status via `bufstream.status` metric
 
 ## v0.3.0
 
@@ -591,7 +639,7 @@ New clusters will automatically opt-in to the new partition sequencing groups, h
 
 1.  Read these instructions completely before beginning the migration process
 2.  Upgrade Bufstream cluster to 0.3.x
-3.  Identify your [admin URL](../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.BufstreamConfig.admin_address) (default: http://localhost:9089)
+3.  Identify your `admin_address` URL (default: http://localhost:9089)
 4.  Run `bufstream admin clean-topics --skip-vacuuming --url=<admin URL>` and check results
 5.  Optionally, disable Kafka traffic to the cluster to reduce noise
 6.  Save an [etcd snapshot](https://etcd.io/docs/v3.5/op-guide/recovery/) as backup

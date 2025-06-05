@@ -481,6 +481,11 @@ auth:
     #   claim: "custom_claim" # The name of the OIDC claim containing groups information, default groups
     #   source: "userinfo" # Fetch group claim from the userinfo endpoint instead of id token claims
     #   requiredScope: "groups" # Additional scope to request from the IdP, to include groups information in the token/userinfo endpoint.
+    # scopes: # Override the scopes to request from the IdP
+    #   - openid
+    #   - profile
+    #   - email
+    #   - offline_access
   # Optional
   # A list of emails that will be granted BSR admin permissions on login
   # Note that this list is case-sensitive

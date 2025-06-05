@@ -12,3 +12,28 @@
 .card-link:hover {
   border-color: var(--vp-c-brand-1);
 }
+
+.group {
+  border-top: none !important;
+}
+
+.group > section > .item {
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding-bottom: 5px;
+}
+
+.group > section > .items {
+  margin-top: 5px;
+}
+
+nav div.group > section.level-0 > .items a.link > .text {
+  font-weight: bold;
+}
+
+nav div.group > section.level-0:has(> .item) > .items a.link > .text {
+  font-weight: normal;
+}
+
+.VPSidebarItem.level-0 {
+  padding-bottom: 5px !important;
+}

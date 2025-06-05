@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/deployment/aws/deploy-postgres/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/deployment/"
+      href: "https://bufbuild.ru/docs/bufstream/deployment/docker/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bufstream/deployment/aws/deploy-etcd/"

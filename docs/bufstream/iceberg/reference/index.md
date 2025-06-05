@@ -72,7 +72,7 @@ Represents the _key_ in the original published record.
 
 There is a child field named `__raw__` (_bytes_) that will always be populated, and it represents the original bytes of the key.
 
-Optionally, additional fields will be present if a Protobuf message schema is associated with the key of this Bufstream topic. A schema can be associated with the topic via the [data enforcement](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.BufstreamConfig.data_enforcement) configuration in `bufstream.yaml`.
+Optionally, additional fields will be present if a Protobuf message schema is associated with the key of this Bufstream topic. A schema can be associated with the topic via the [data enforcement](../../data-governance/schema-enforcement/) configuration in `bufstream.yaml`.
 
 When a Protobuf message schema is used, in addition to fields that mirror the structure of the message, there will also be fields named `__prefix__` (_bytes_) and `__err__` (_string_). The former includes any preamble to the message data in the format of a CSR envelope. The field is only populated when the original message included such a prefix or if the `coerce` option is configured in data enforcement. The latter field is present when the message data cannot be decoded, which should only be possible if data enforcement configuration allows invalid data to pass through. When the `__err__` field is present with a decoding error message, none of the other fields, aside from `__raw__` will be populated.
 
@@ -84,7 +84,7 @@ Represents the _value_ in the original published record.
 
 There is a child field named `__raw__` (_bytes_) that is optional, and it represents the original bytes of the value. It will only be populated when there is no Protobuf message schema or there was an error when processing and decoding the Protobuf data. When not populated, the value can be reconstructed from other fields.
 
-Optionally, additional fields will be present if a Protobuf message schema is associated with the value of the Bufstream topic. A schema can be associated with the topic via the [data enforcement](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.BufstreamConfig.data_enforcement) configuration in `bufstream.yaml`.
+Optionally, additional fields will be present if a Protobuf message schema is associated with the value of the Bufstream topic. A schema can be associated with the topic via the [data enforcement](../../data-governance/schema-enforcement/) configuration in `bufstream.yaml`.
 
 When a Protobuf message schema is used, in addition to fields that mirror the structure of the message, there will also be fields named `__prefix__` (_bytes_) and `__err__` (_string_). The former includes any preamble to the message data in the format of a CSR envelope. The field is only populated when the original message included such a prefix or if the `coerce` option is configured in data enforcement. The latter field is present when the message data cannot be decoded, which should only be possible if data enforcement configuration allows invalid data to pass through. When the `__err__` field is present with a decoding error message, none of the other fields, aside from `__raw__` will be populated.
 

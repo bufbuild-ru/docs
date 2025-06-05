@@ -432,12 +432,13 @@ Follow these steps to begin enforcing Protovalidate rules:
     go get github.com/grpc-ecosystem/go-grpc-middleware/v2/interceptors/protovalidate@v2.3.2
     ```
 
-3.  Import `protovalidate_middleware` in `cmd/server.go`.
+3.  Import `protovalidate` and `protovalidate_middleware` in `cmd/server.go`.
 
     ::: info cmd/server.go
 
     ```go
     import (
+        "buf.build/go/protovalidate" // [!code ++]
         "context"
         "errors"
         "fmt"
@@ -524,19 +525,6 @@ This time, you should receive a block of JSON representing Protovalidate's enfor
 ```
 
 :::
-
-Examining the beginning of the response shows that the interceptor also sends the correct gRPC status code and a plain-text error message:
-
-```console
-ERROR:
-  Code: InvalidArgument
-  Message: validation error:
- - invoice: invoice_id and account_id should not be the same [invoice_id.not.account_id]
- - invoice.invoice_id: value is empty, which is not a valid UUID [string.uuid_empty]
- - invoice.account_id: value is empty, which is not a valid UUID [string.uuid_empty]
- - invoice.invoice_date: value is required [required]
- - invoice.line_items: value must contain at least 1 item(s) [repeated.min_items]
-```
 
 Last, use `buf curl` to test the custom rule that checks for logically unique `LineItems`:
 
@@ -672,7 +660,7 @@ In this quickstart, you've learned the basics of working with Protovalidate:
 
 1.  Adding Protovalidate to your project.
 2.  Declaring validation rules in your Protobuf files.
-3.  Enabing their enforcement within an RPC API.
+3.  Enabling their enforcement within an RPC API.
 4.  Testing their functionality.
 
 ## Further reading

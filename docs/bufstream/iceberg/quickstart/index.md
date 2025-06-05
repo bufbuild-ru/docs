@@ -70,7 +70,7 @@ In this quickstart, you'll learn to create a local Bufstream and Iceberg environ
 
 ## Configure Bufstream for Iceberg
 
-Bufstream works with your existing Iceberg catalogs. To use it, you'll need to create at least one named catalog in your [Bufstream Iceberg configuration](../../reference/configuration/bufstream-yaml/#buf.bufstream.config.v1alpha1.IcebergConfig).
+Bufstream works with your existing Iceberg catalogs. To use it, you'll need to create at least one named Iceberg catalog in your [Bufstream configuration](../../reference/configuration/bufstream-yaml/).
 
 This example includes a REST Iceberg catalog as part of its Docker compose project. Edit `config/bufstream.yaml` and uncomment the following at the bottom of the file:
 

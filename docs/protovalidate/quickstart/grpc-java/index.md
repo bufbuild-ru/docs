@@ -659,7 +659,7 @@ In this quickstart, you've learned the basics of working with Protovalidate:
 
 1.  Adding Protovalidate to your project.
 2.  Declaring validation rules in your Protobuf files.
-3.  Enabing their enforcement within an RPC API.
+3.  Enabling their enforcement within an RPC API.
 4.  Testing their functionality.
 
 ## Further reading

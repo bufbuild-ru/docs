@@ -63,7 +63,7 @@ Certain BSR functionality is gated behind feature flags, which can be enabled th
 ```yaml
 featureFlags:
   # Prevent users from creating organizations in the BSR
-  # Server admins can still create organizations when this flag is enabled
+  # BSR admins can still create organizations when this flag is enabled
   disable_user_org_creation: true
   # Prevent creating a repository with an owner that is scoped to a user
   disable_user_scoped_repository_creation: true

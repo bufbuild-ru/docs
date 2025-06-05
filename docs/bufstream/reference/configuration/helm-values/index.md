@@ -48,6 +48,529 @@ head:
 
 The Bufstream Helm chart is used to deploy Bufstream on Kubernetes. The Bufstream Helm `values.yaml` file defines the configuration for the Bufstream Kubernetes cluster. The configuration parameters and defaults documented below are the common and recommended settings for deploying a Bufstream cluster.
 
+## Annotated `values.yaml`
+
+The Helm `values.yaml` file below contains all of the configuration parameters for a Bufstream cluster with recommended defaults. You can copy this annotated YAML into your Helm values file to use as a reference when configuring and deploying Bufstream.
+
+```yaml
+# -- Overrides .Chart.Name throughout the chart.
+nameOverride: ""
+# -- If set, is used as the namespace for all resources instead of .Release.namespace
+namespaceOverride: ""
+# -- Whether to create the namespace where resources are located.
+namespaceCreate: false
+# -- Reference to one or more secrets to be used when pulling images.
+# For more information, see [Pull an Image from a Private Registry](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/).
+imagePullSecrets: []
+# -- The name of the cluster. Used by bufstream to identify itself.
+cluster: bufstream
+# -- The zone location of brokers, e.g. the datacenter/availability zone where the broker is running.
+# If not provided, bufstream tries to infer this from node metadata.
+# This is currently for bufstream internal functionality, and doesn't control cloud providers such as GCP directly.
+zone: ""
+# -- When true, enables additional permissions so Bufstream can get the zone via the Kubernetes API server by reading the zone topology label of the node the bufstream pod is running on. Bufstream won't attempt to do the discovery if the zone option is false.
+discoverZoneFromNode: false
+# -- Configuration for data enforcement via schemas of records flowing in and out of the broker.
+dataEnforcement: {}
+kafka:
+  # -- The address the Kafka server should listen on. This defaults to 0.0.0.0 (any) and port 9092.
+  address:
+    host: 0.0.0.0
+    port: 9092
+  # -- The public address clients should use to connect to the Kafka server. This defaults to the K8S service DNS and port 9092.
+  # @default -- `{host: "<service>.<namespace>.svc.cluster.local", port: 9092}`
+  publicAddress: {}
+  # -- Kubernetes secrets containing a `tls.crt` and `tls.key` (as the secret keys, see https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets) to present to the client. The first certificate compatible with the client's requirements is selected automatically.
+  tlsCertificateSecrets: []
+  # -- Declare the policy the server will follow for mutual TLS (mTLS). Supported values are [NO_CERT, REQUEST_CERT, REQUIRE_CERT, VERIFY_CERT_IF_GIVEN, REQUIRE_AND_VERIFY_CERT]. Only supported when using tlsCertificateSecret.
+  # @default -- `"NO_CERT"`
+  tlsClientAuth: ""
+  # -- Kubernetes secret containing `tlsClientCasSecretKey` as the secret key (defaults to `tls.crt`) PEM-encoded certificate authorities used by the server to validate the client certificates. This field can't be empty if tlsClientAuth is set for client performing verification. Only supported when using tlsCertificateSecret.
+  tlsClientCasSecret: ""
+  # -- Key within the `tlsClientCasSecret` kubernetes secret containing the certificate authority.
+  tlsClientCasSecretKey: "tls.crt"
+  # -- Whether a fetch should return as soon as any records are available.
+  fetchEager: true
+  # -- Whether fetches from different readers should be synchronized to improve cache hit rates.
+  fetchSync: true
+  # -- Whether records from a producer to different topic/partitions may be sequenced concurrently instead of serially.
+  produceConcurrent: true
+  # -- How to balance clients across zones, when the client doesn't specify a zone. One of: ["BALANCE_STRATEGY_UNSPECIFIED", "BALANCE_STRATEGY_PARTITION", "BALANCE_STRATEGY_HOST", "BALANCE_STRATEGY_CLIENT_ID"]
+  zoneBalanceStrategy: BALANCE_STRATEGY_PARTITION
+  # -- How to balance topic/partitions across bufstream nodes. One of: ["BALANCE_STRATEGY_UNSPECIFIED", "BALANCE_STRATEGY_PARTITION", "BALANCE_STRATEGY_HOST", "BALANCE_STRATEGY_CLIENT_ID"]
+  partitionBalanceStrategy: BALANCE_STRATEGY_PARTITION
+  # -- The number of Kafka requests to unmarshal and buffer before processing.
+  requestBufferSize: 5
+  # -- How long a Kafka connection can be idle before being closed by the server. If set to a value less than or equal to zero, the timeout will be disabled.
+  idleTimeout: 0
+  # -- The default number of partitions to use for a new topic.
+  numPartitions: 1
+  # -- Whether exact log sizes should be fetched when listing sizes for all topics/partitions.
+  exactLogSizes: true
+  # -- Whether exact log hwm and start offsets should be computed when fetching records.
+  exactLogOffsets: false
+  # -- The default group consumer session timeout.
+  groupConsumerSessionTimeout: 45s
+  # -- The minimum group consumer session timeout.
+  groupConsumerSessionTimeoutMin: 10s
+  # -- The maximum group consumer session timeout.
+  groupConsumerSessionTimeoutMax: 2m
+
+  # -- The authentication config.
+  authentication:
+    {}
+    # sasl:
+    #   # Configuration for the PLAIN mechanism.
+    #   # See https://datatracker.ietf.org/doc/html/rfc4616.
+    #   plain:
+    #     # Kubernetes secrets containing `username` and `password` as secret keys.
+    #     credentialsSecrets: []
+    #   # Whether to accept ANONYMOUS as a mechanism. Not recommended.
+    #   # See https://datatracker.ietf.org/doc/html/rfc4505.
+    #   anonymous: false
+    #   # Configuration for the SCRAM-* mechanisms.
+    #   # See https://datatracker.ietf.org/doc/html/rfc5802.
+    #   scram:
+    #     adminCredentials:
+    #       # The hash algorithm used by the admin credentials. Supports [SHA256, SHA512].
+    #       hash: ""
+    #       # Only one of plaintextCredentialsSecret or salted can be set.
+    #       # Kubernetes secret containing `username` and `plaintext` as secret keys.
+    #       plaintextCredentialsSecret: ""
+    #       # Salted admin credentials.
+    #       salted:
+    #         iterations: 0
+    #         # Kubernetes secret containing 'username', 'salt', 'salted-password' as secret keys.
+    #         saltedSecret: ""
+    #   oauthBearer:
+    #     # How to acquire the JWKS.
+    #     jwks:
+    #       # If the JWKS is static, the configMap containing the JWKS at key 'jwks.json'.
+    #       staticConfig:
+    #       # A hosted JWKS, that is accessible to the cluster.
+    #       remote:
+    #         # Kubernetes configMap with key 'url' of JWKS's URL, which must be an HTTPS url.
+    #         urlConfig:
+    #         # The keys are loaded once on startup and are refreshed every hour by default.
+    #         # This controls the refresh interval.
+    #         refreshInterval: 60m
+    #         # Optional TLS config to access the url.
+    #         tls:
+    #           # Controls whether a client verifies the server's certificate chain and host name.
+    #           insecureSkipVerify: false
+    #           # The existing secret name that contains ca.crt key of the PEM-encoded root certificate
+    #           # authorities used by the client to validate the server certificates.
+    #           rootCaSecret: ""
+    #       # If provided, checks for the "aud" claim to match the provided value.
+    #       audience: ""
+    #       # If provided, checks for the "iss" claim to match the provided value.
+    #       issuer: ""
+    # mtls:
+    #   # Where to extract the principal from a verified certificate.
+    #   # If the certificate isn't required to be verified, this is
+    #   # a noop and the principal defaults to `User:Anonymous`.
+    #   # Supports [ANONYMOUS, SUBJECT_COMMON_NAME, SAN_DNS, SAN_URI].
+    #   principalSource: ""
+    # # The maximum receive size allowed before and during initial authentication.
+    # # Default receive size is 512KB. Set to -1 for no limit.
+    # maxReceiveBytes: 0
+
+iceberg:
+  # -- Configuration for Iceberg REST and AWS Glue Data catalogs to use with topics stored in Iceberg format.
+  catalogs:
+    {}
+    # example_rest:
+    #   use: "rest"
+    #   rest:
+    #     url: ""
+    #     uriPrefix: ""
+    #     # warehouse: ""
+    #
+    #     tls:
+    #       # Controls whether a client verifies the server's certificate chain and host name.
+    #       insecureSkipVerify: false
+    #       # The existing secret name that contains the ca.crt key of the PEM-encoded root certificate
+    #       # authorities used by the client to validate the server certificates.
+    #       rootCaSecret: ""
+    #
+    #     ## OAuth2
+    #     authentication:
+    #       use: "oauth2"
+    #       # Defaults to the catalog's base URL with "v1/oauth/tokens" appended to the URI path.
+    #       # tokenEndpointUrl: ""
+    #       # Defaults to "catalog" if not specified.
+    #       # scope: ""
+    #       # Kubernetes secret containing `client-id` and `client-secret` as secret keys.
+    #       secretName: ""
+    #       # Optional alternate TLS configuration for token endpoint, otherwise the REST catalog TLS configuration is used.
+    #       tls:
+    #         # Controls whether a client verifies the server's certificate chain and host name.
+    #         insecureSkipVerify: false
+    #         # The existing secret name that contains ca.crt key of the PEM-encoded root certificate
+    #         # authorities used by the client to validate the server certificates.
+    #         rootCaSecret: ""
+    #
+    #     ## Bearer Auth
+    #     # authentication:
+    #     #   use: "bearer"
+    #     #   # Kubernetes secret containing `token` as a secret key.
+    #     #   secretName: ""
+    #
+    #     ## Basic Auth
+    #     # authentication:
+    #     #   use: "basic"
+    #     #   # Kubernetes secrets containing `username` and `password` as secret keys.
+    #     #   secretName: ""
+    #
+    # example_glue:
+    #   use: "awsGlue"
+    #   # awsGlue:
+    #   #   # AWS account ID of the AWS Glue Data Catalog. Defaults to the account ID for the IAM user of the workload.
+    #   #   accountId: ""
+    #   #   # AWS region. Defaults to the region of the broker's host.
+    #   #   region: ""
+    #   #   # Access Key ID to use instead of the metadata server.
+    #   #   accessKeyId: ""
+    #   #   # Kubernetes secret containing a `secret_access_key` (as the secret key) to use instead of the metadata server.
+    #   #   secretName: ""
+    #
+    # example_bigquery:
+    #   use: "bigQuery"
+    #   # bigQuery:
+    #   #   # Google Cloud project ID of the BigQuery Metastore. Defaults to the current project in which the Bufstream broker is running.
+    #   #   projectId: ""
+    #   #   # Optional location for any BigQuery datasets that are created. Must be present if cloudResourceConnection is present. If absent, datasets cannot be auto-created, so any dataset referenced by an Iceberg table must already exist.
+    #   #   location: ""
+    #   #   # Optional name of a BigQuery Cloud Resource connection (only the simple name, not the full name). Since a BigQuery dataset can only use connections in the same project and location, the full connection name is not necessary.
+    #   #   cloudResourceConnection: ""
+    #
+
+# -- connectTLS contains TLS configuration for Control Server which is used for inter-broker communication using Connect protocol.
+connectTLS:
+  # -- Server contains server side TLS configuration.
+  server:
+    {}
+    # server:
+    #   # Kubernetes secrets containing a `tls.crt` and `tls.key` (as the secret keys, see https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets) to present to the client. The first certificate compatible with the client's requirements is selected automatically.
+    #   certificateSecrets: []
+  # -- Client contains client side TLS configuration to connect to the Control Server.
+  client:
+    {}
+    # client:
+    #   # Controls whether a client verifies the server's certificate chain and host name.
+    #   insecureSkipVerify: true
+    #   # The existing secret name that contains the ca.crt key of the PEM-encoded root certificate authorities used by the client to validate
+    #   # the server certificates.
+    #   rootCaSecret: ""
+
+# -- The HTTP version to use for inter-broker Connect RPCs. By default, HTTP/1.1 is used. Supports [CONNECT_HTTP_VERSION_1_1, CONNECT_HTTP_VERSION_2_0]
+connectHttpVersion: ""
+# -- Whether inter-broker Connect clients should be unique for reads and writes.
+# Disabled by default.
+# Recommended when using CONNECT_HTTP_VERSION_2_0 in `connectHttpVersion`
+connectIsolation: false
+
+# -- adminTLS contains TLS configuration for Admin Server.
+adminTLS:
+  {}
+  # adminTLS:
+  #   # Kubernetes secrets containing a `tls.crt` and `tls.key` (as the secret keys, see https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets) to present to the client. The first certificate compatible with the client's requirements is selected automatically.
+  #   certificateSecrets: []
+
+metadata:
+  # -- Which metadata storage bufstream is using.
+  # `etcd`, `postgres`, and `spanner` are supported.
+  use: etcd
+  etcd:
+    # -- Etcd addresses to connect to.
+    addresses: []
+    # addresses:
+    # - host: ""
+    #   port: 2379
+
+    # -- TLS client configuration for bufstream to connect to etcd.
+    tls: {}
+    # tls:
+    #   # Controls whether a client verifies the server's certificate chain and host name.
+    #   insecureSkipVerify: true
+    #   # The existing secret name that contains ca.crt key of the PEM-encoded root certificate authorities used by the client to validate
+    #   # the server certificates.
+    #   rootCaSecret: ""
+  spanner:
+    # -- Project ID of the Spanner database.
+    projectId: ""
+    # -- Instance ID of the Spanner database.
+    instanceId: ""
+    # -- Database name of the Spanner database. Defaults to `bufstream` if not specified.
+    databaseName: ""
+  postgres:
+    # -- Postgres DSN.
+    dsn: ""
+    # -- Kubernetes secret with a `dsn` key containing a Postgres DSN.
+    secretName: ""
+    # -- Environment variable name containing a Postgres DSN. See `bufstream.deployment.extraEnv` for configuring environment variables.
+    env: ""
+    # -- Cloud SQL configuration.
+    cloudsql:
+      # -- Cloud SQL instance connection name to connect to, typically in the format "project-name:region:instance-name".
+      instance: ""
+      # -- Connect using CloudSQL IAM authentication.
+      iam: false
+      # -- Connect to the CloudSQL instance using a private IP.
+      privateIP: false
+    # -- Connection pool configuration.
+    pool:
+      # -- The maximum size of the connection pool. Defaults to 20.
+      maxConnections: 0
+      # -- The minimum size of the connection pool.
+      minConnections: 0
+storage:
+  # -- Which object storage bufstream is using.
+  # Currently, `gcs`, `s3`, and `azure` are supported.
+  use: s3
+  gcs:
+    # -- GCS bucket name.
+    bucket: ""
+    # -- GCS prefix to use for all stored files.
+    prefix: ""
+    # -- Kubernetes secret containing a `credentials.json` (as the secret key) service account key to use instead of the metadata server.
+    secretName: ""
+  s3:
+    # -- S3 bucket name.
+    bucket: ""
+    # -- S3 bucket region.
+    region: ""
+    # -- S3 endpoint to use instead of the default — for example, https://example.com
+    endpoint: ""
+    # -- S3 prefix to use for all stored files.
+    prefix: ""
+    # -- S3 Force Path Style setting. See https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/examples-s3.html.
+    forcePathStyle: false
+    # -- S3 Access Key ID to use instead of the metadata server.
+    accessKeyId: ""
+    # -- Kubernetes secret containing a `secret_access_key` (as the secret key) to use instead of the metadata server.
+    secretName: ""
+  azure:
+    # -- Azure storage account container name.
+    bucket: ""
+    # -- Azure storage account endpoint to use — for example, https://<storage account>.blob.core.windows.net
+    endpoint: ""
+    # -- Azure prefix to use for all stored files.
+    prefix: ""
+    # -- Azure storage account name to use for auth instead of the metadata server.
+    accessKeyId: ""
+    # -- Kubernetes secret containing a `secret_access_key` (as the Azure storage account key) to use instead of the metadata server.
+    secretName: ""
+observability:
+  # -- Log level to use.
+  logLevel: INFO
+  # -- Open Telemetry base endpoint to push metrics and traces to.
+  # Deprecated: use exporter.address and exporter.insecure instead.
+  otlpEndpoint: ""
+  exporter:
+    # -- Open Telemetry base endpoint to push metrics and traces to. The value has a host and an optional port.
+    # It should not include the URL path, such as "/v1/traces" or the scheme.
+    # This can be overridden by metrics.address or tracing.address.
+    address: ""
+    # -- Whether to disable TLS for the exporter's HTTP connection.
+    # This can be overridden by metrics.insecure or tracing.insecure.
+    insecure: false
+  metrics:
+    # -- Open Telemetry exporter. Supports [NONE, STDOUT, HTTP, HTTPS, PROMETHEUS].
+    # Deprecated: use exporterType instead.
+    # @ignored
+    exporter: ""
+    # -- Open Telemetry exporter. Supports [NONE, STDOUT, OTLP_GRPC, OTLP_HTTP, PROMETHEUS]
+    exporterType: "NONE"
+    # -- The endpoint the exporter connects to. The value has a host and an optional port.
+    # It should not include the URL path, such as "/v1/metrics" or the scheme.
+    # Specify path and insecure instead.
+    address: ""
+    # The URL path appended to address. Defaults to "/v1/metrics".
+    # This can only be specified for the OTLP_HTTP exporter type.
+    path: ""
+    # -- Whether to disable TLS.
+    # This can only be specified for OTLP_HTTP exporter type.
+    insecure: false
+    # This omits metrics that depend on the kafka.topic.partition attribute, which may have high cardinality
+    # depending on the configuration. One example is kafka.topic.partition.offset.high_water_mark.
+    # This omits only the attribute for metrics that have this attribute without depending on it.
+    # One example is kafka.produce.record.size.
+    # Deprecated: set aggregation.partitions to true instead.
+    # @ignored
+    omitPartitionAttribute: false
+    # Whether to emit bufstream.internal.* metrics.
+    # @ignored
+    enableInternalMetrics: false
+    # Then labels to enable for metrics.
+    enableLabels: {}
+    # Allows changing the default temporality preference for OTLP metrics.
+    # This is recommended to be set to "delta" for reporting to Datadog agents.
+    # See https://docs.datadoghq.com/opentelemetry/guide/otlp_delta_temporality/ for more details.
+    otlpTemporalityPreference: ""
+    # This option, typically set to reduce cardinality, aggregates some metrics over certain attributes, such as kafka.topic.name.
+    aggregation:
+      # Aggregate metrics across all topics to avoid cardinality issues with clusters with a large number of topics.
+      # Metrics that support this aggregation will report the 'kafka.topic.name' attribute as '_all_topics_'.
+      # NOTE: This implies partitions aggregation, which omits metrics like 'bufstream.kafka.topic.partition.offset.high_water_mark'.
+      topics: false
+      # Aggregate metrics across all partitions to avoid cardinality issues with clusters with a large number of partitions.
+      # Metrics that support aggregation will report the 'kafka.partition.id' attribute as -1, while some metrics, such as
+      # 'bufstream.kafka.topic.partition.offset.high_water_mark' will be omitted if partition level aggregation is enabled.
+      partitions: false
+      # Aggregate metrics across all consumer groups to avoid cardinality issues with clusters with a large number of groups.
+      # Metrics that support aggregation will report the 'kafka.consumer.group.id' as '_all_groups_', while some metrics
+      # such as 'bufstream.kafka.consumer.group.generation' will be omitted if consumer group level aggregation is enabled.
+      consumerGroups: false
+      # Aggregate metrics across all authentication principals to avoid cardinality issues with clusters with a large number
+      # of principals. Metrics that support aggregation will report the 'authentication.principal_id' as '_all_principal_ids_'.
+      principalIDs: false
+  tracing:
+    # -- Open Telemetry exporter. Supports [NONE, STDOUT, HTTP, HTTPS].
+    # Deprecated: use exporterType instead.
+    # @ignored
+    exporter: ""
+    # -- Open Telemetry exporter. Supports [NONE, STDOUT, OTLP_GRPC, OTLP_HTTP]
+    exporterType: "NONE"
+    # -- The endpoint the exporter connects to. The value has a host and an optional port.
+    # It should not include the URL path, such as "/v1/traces" or the scheme.
+    # Specify path and insecure instead.
+    address: ""
+    # The URL path appended to address. Defaults to "/v1/traces".
+    # This can only be specified for the OTLP_HTTP or OTLP_GRPC exporter type.
+    path: ""
+    # -- Whether to disable TLS.
+    # This can only be specified for OTLP_HTTP exporter type.
+    insecure: false
+    # -- Trace sample ratio.
+    traceRatio: 0.1
+  # -- Redact sensitive information such as topic names, before adding to metrics, traces and logs.
+  # Supports [NONE, OPAQUE]
+  sensitiveInformationRedaction: "NONE"
+bufstream:
+  service:
+    # -- Whether to create a Kubernetes Service for this bufstream deployment.
+    enabled: true
+    # -- Kubernetes Service type.
+    type: ClusterIP
+    # -- Kubernetes Service annotations.
+    annotations: {}
+    # -- Kubernetes Service Load Balancer IP for when type is LoadBalancer.
+    loadBalancerIP: ""
+  serviceAccount:
+    # -- Whether to create a Kubernetes Service Account for this bufstream deployment.
+    create: true
+    # -- Kubernetes Service Account name.
+    name: bufstream-service-account
+    # -- Kubernetes Service Account annotations.
+    annotations: {}
+  deployment:
+    # -- Bufstream Deployment kind.
+    # Supports [Deployment, StatefulSet]
+    kind: StatefulSet
+    # -- Bufstream Deployment command.
+    # @default -- `["/usr/local/bin/bufstream"]`
+    command: []
+    # -- Bufstream Deployment args to be appended.
+    args: []
+    # -- Bufstream Deployment replica count.
+    replicaCount: 3
+    # -- Bufstream Deployment Pod annotations.
+    podAnnotations: {}
+    # -- Bufstream Deployment Selector labels.
+    selectorLabels: {}
+    # -- Bufstream Deployment Pod labels.
+    podLabels: {}
+    # -- Bufstream Deployment pod management policy to use when StatefulSet kind is used.
+    podManagementPolicy: Parallel
+    # -- Bufstream Deployment service name to link for per pod DNS registration when StatefulSet kind is used.
+    serviceName: ""
+
+    resources:
+      requests:
+        # -- Bufstream Deployment Resource request CPU.
+        cpu: 2
+        # -- Bufstream Deployment Resource request memory.
+        memory: 8Gi
+      limits:
+        # -- Bufstream Deployment Resource request CPU.
+        cpu: ""
+        # -- Bufstream Deployment Resource limits memory.
+        memory: 8Gi
+    # -- Bufstream Deployment Node selector.
+    nodeSelector: {}
+    # -- Bufstream Deployment Affinity.
+    affinity: {}
+    # -- Bufstream Deployment Tolerations.
+    tolerations: []
+    # -- Bufstream Deployment Extra init containers for the bufstream deployment.
+    extraInitContainers: []
+    # -- Bufstream Deployment Extra environment variables for the bufstream container.
+    extraEnv: []
+    # -- Bufstream Deployment Extra volume mounts for the bufstream container.
+    extraVolumeMounts: []
+    # -- Bufstream Deployment Extra volumes.
+    extraVolumes: []
+    # -- Bufstream Deployment Extra container ports for the bufstream container.
+    extraContainerPorts: {}
+    # -- Bufstream Deployment additional containers to run alongside the bufstream container.
+    extraContainers: []
+    livenessProbe:
+      # -- Bufstream Deployment Liveness Probe Maximum failure threshold.
+      failureThreshold: 3
+      # -- Bufstream Deployment Liveness Probe timeout.
+      timeoutSeconds: 5
+    readinessProbe:
+      # -- Bufstream Deployment Readiness Probe Maximum failure threshold.
+      failureThreshold: 3
+      # -- Bufstream Deployment Readiness Probe timeout.
+      timeoutSeconds: 5
+    startupProbe:
+      # -- Bufstream Deployment Liveness Probe Configuration
+      failureThreshold: 3
+    # -- Bufstream Deployment termination grace period.
+    terminationGracePeriodSeconds: 420 # 7 minutes
+    # -- Bufstream Deployment setting for sharing the process namespace.
+    shareProcessNamespace: false
+    autoscaling:
+      # -- Whether to enable the horizontal pod autoscaler.
+      enabled: false
+      # -- Minimum number of autoscaler allowed replicas.
+      minReplicas: 6
+      # -- Maximum number of autoscaler allowed replicas.
+      maxReplicas: 18
+      # -- Target CPU threshold for managing replica count.
+      targetCPU: "50"
+      # -- Target memory threshold for managing replica count.
+      targetMemory: ""
+      # -- [Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#configurable-scaling-behavior)
+      behavior: {}
+  controlServerService:
+    # -- Whether to create a Kubernetes Headless Service for the Bufstream Control Server (inter-broker RPC server using the Connect protocol).
+    enabled: false
+    # -- Kubernetes Service annotations.
+    annotations: {}
+  podDisruptionBudget:
+    # -- Whether to enable pod disruption budget.
+    enabled: false
+    # -- Number of pods that are available after eviction as number or percentage (eg.: 50%).
+    # @default -- `""` (defaults to 0 if not specified)
+    minAvailable: ""
+    # -- Number of pods that are unavailable after eviction as number or percentage (e.g.: 50%). Has higher precedence over `minAvailable`
+    maxUnavailable: ""
+  image:
+    # -- Bufstream Deployment container image repository.
+    repository: bufbuild/bufstream
+    # -- Overrides the image tag whose default is the chart version.
+    tag: "latest"
+    # -- Bufstream Deployment container image pull policy.
+    pullPolicy: IfNotPresent
+# -- Extra Kubernetes objects to install as part of this chart.
+extraObjects: []
+# -- Bufstream configuration overrides. Any value here will be set directly on the bufstream config.yaml, taking precedence over any other helm defined values.
+configOverrides: {}
+```
+
 ## Values and defaults
 
 ### `adminTLS`
@@ -57,14 +580,6 @@ _object_
 adminTLS contains TLS configuration for Admin Server.
 
 Defaults to `{}`.
-
-### `autoMigrateMetadataStorage`
-
-_bool_
-
-autoMigrateMetadataStorage enables the brokers to run migrations for the metadata storage on startup when it's true.
-
-Defaults to `true`.
 
 ### `bufstream.controlServerService.annotations`
 
@@ -534,7 +1049,7 @@ Defaults to `{}`.
 
 _bool_
 
-When true, it enables additional permissions so Bufstream can get the zone via the Kubernetes API server by reading the zone topology label of the node the bufstream pod is running on. Bufstream won't attempt to do the discovery if the zone option is false.
+When true, enables additional permissions so Bufstream can get the zone via the Kubernetes API server by reading the zone topology label of the node the bufstream pod is running on. Bufstream won't attempt to do the discovery if the zone option is false.
 
 Defaults to `false`.
 
@@ -582,7 +1097,7 @@ Defaults to `{}`.
 
 _bool_
 
-If exact log hwm and start offsets should be computed when fetching records.
+Whether exact log hwm and start offsets should be computed when fetching records.
 
 Defaults to `false`.
 
@@ -590,7 +1105,7 @@ Defaults to `false`.
 
 _bool_
 
-If exact log sizes should be fetched when listing sizes for all topics/partitions.
+Whether exact log sizes should be fetched when listing sizes for all topics/partitions.
 
 Defaults to `true`.
 
@@ -598,7 +1113,7 @@ Defaults to `true`.
 
 _bool_
 
-If a fetch should return as soon as any records are available.
+Whether a fetch should return as soon as any records are available.
 
 Defaults to `true`.
 
@@ -606,7 +1121,7 @@ Defaults to `true`.
 
 _bool_
 
-If fetches from different readers should be synchronized to improve cache hit rates.
+Whether fetches from different readers should be synchronized to improve cache hit rates.
 
 Defaults to `true`.
 
@@ -638,7 +1153,7 @@ Defaults to `"10s"`.
 
 _int_
 
-How long a Kafka connection can be idle before being closed by the server. If set a value less than or equal to zero, the timeout will be disabled.
+How long a Kafka connection can be idle before being closed by the server. If set to a value less than or equal to zero, the timeout will be disabled.
 
 Defaults to `0`.
 
@@ -662,7 +1177,7 @@ Defaults to `"BALANCE_STRATEGY_PARTITION"`.
 
 _bool_
 
-If records from a producer to different topic/partitions may be sequenced concurrently instead of serially.
+Whether records from a producer to different topic/partitions may be sequenced concurrently instead of serially.
 
 Defaults to `true`.
 
@@ -678,7 +1193,7 @@ Defaults to `{host: "<service>.<namespace>.svc.cluster.local", port: 9092}`.
 
 _int_
 
-The number of kafka requests to unmarshal and buffer before processing.
+The number of Kafka requests to unmarshal and buffer before processing.
 
 Defaults to `5`.
 
@@ -702,7 +1217,7 @@ Defaults to `"NO_CERT"`.
 
 _string_
 
-Kubernetes secret containing `tlsClientCasSecretKey` as the secret key (defaults to `tls.crt`) PEM-encoded certificate authorities used by the server to validate the client certificates. This field cannot be empty if tlsClientAuth is set for client performing verification. Only supported when using tlsCertificateSecret.
+Kubernetes secret containing `tlsClientCasSecretKey` as the secret key (defaults to `tls.crt`) PEM-encoded certificate authorities used by the server to validate the client certificates. This field can't be empty if tlsClientAuth is set for client performing verification. Only supported when using tlsCertificateSecret.
 
 Defaults to `""`.
 
@@ -718,7 +1233,7 @@ Defaults to `"tls.crt"`.
 
 _string_
 
-How to balance clients across zones, when the client does not specify a zone. One of: \["BALANCE_STRATEGY_UNSPECIFIED", "BALANCE_STRATEGY_PARTITION", "BALANCE_STRATEGY_HOST", "BALANCE_STRATEGY_CLIENT_ID"\]
+How to balance clients across zones, when the client doesn't specify a zone. One of: \["BALANCE_STRATEGY_UNSPECIFIED", "BALANCE_STRATEGY_PARTITION", "BALANCE_STRATEGY_HOST", "BALANCE_STRATEGY_CLIENT_ID"\]
 
 Defaults to `"BALANCE_STRATEGY_PARTITION"`.
 
@@ -846,7 +1361,7 @@ Defaults to `""`.
 
 _string_
 
-Which metadata storage that bufstream is using. `etcd` and `spanner` are supported.
+Which metadata storage bufstream is using. `etcd`, `postgres`, and `spanner` are supported.
 
 Defaults to `"etcd"`.
 
@@ -870,7 +1385,7 @@ Defaults to `false`.
 
 _string_
 
-Will be used as the namespace for all resources instead of .Release.namespace if set
+If set, is used as the namespace for all resources instead of .Release.namespace
 
 Defaults to `""`.
 
@@ -878,7 +1393,7 @@ Defaults to `""`.
 
 _string_
 
-Open Telemetry base endpoint to push metrics and traces. The value has a host and an optional port. It should not include the URL path, such as "/v1/traces" or the scheme. This can be overridden by metrics.address or tracing.address.
+Open Telemetry base endpoint to push metrics and traces to. The value has a host and an optional port. It should not include the URL path, such as "/v1/traces" or the scheme. This can be overridden by metrics.address or tracing.address.
 
 Defaults to `""`.
 
@@ -1142,7 +1657,7 @@ Defaults to `""`.
 
 _string_
 
-Which object storage that bufstream is using. Currently, `gcs` and `s3` are supported.
+Which object storage bufstream is using. Currently, `gcs`, `s3`, and `azure` are supported.
 
 Defaults to `"s3"`.
 
@@ -1150,535 +1665,9 @@ Defaults to `"s3"`.
 
 _string_
 
-The zone location of brokers, e.g., the datacenter/availability zone where the broker is running. If not given, bufstream will try to infer this from node metadata. This is currently for bufstream internal functionality, and does not control cloud providers such as GCP directly.
+The zone location of brokers, e.g. the datacenter/availability zone where the broker is running. If not provided, bufstream tries to infer this from node metadata. This is currently for bufstream internal functionality, and doesn't control cloud providers such as GCP directly.
 
 Defaults to `""`.
-
-## Annotated `values.yaml`
-
-The Helm `values.yaml` file below contains all of the configuration parameters for a Bufstream cluster with recomemnded defaults. You can copy this annotated YAML into your Helm values file to use as a reference when configuring and deploying Bufstream.
-
-```yaml
-# -- Overrides .Chart.Name throughout the chart.
-nameOverride: ""
-# -- Will be used as the namespace for all resources instead of .Release.namespace if set
-namespaceOverride: ""
-# -- Whether to create the namespace where resources are located.
-namespaceCreate: false
-# -- Reference to one or more secrets to be used when pulling images.
-# For more information, see [Pull an Image from a Private Registry](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/).
-imagePullSecrets: []
-# -- The name of the cluster. Used by bufstream to identify itself.
-cluster: bufstream
-# -- The zone location of brokers, e.g., the datacenter/availability zone where the broker is running.
-# If not given, bufstream will try to infer this from node metadata.
-# This is currently for bufstream internal functionality, and does not control cloud providers such as GCP directly.
-zone: ""
-# -- When true, it enables additional permissions so Bufstream can get the zone via the Kubernetes API server by reading the zone topology label of the node the bufstream pod is running on. Bufstream won't attempt to do the discovery if the zone option is false.
-discoverZoneFromNode: false
-# -- Configuration for data enforcement via schemas of records flowing in and out of the broker.
-dataEnforcement: {}
-kafka:
-  # -- The address the Kafka server should listen on. This defaults to 0.0.0.0 (any) and port 9092.
-  address:
-    host: 0.0.0.0
-    port: 9092
-  # -- The public address clients should use to connect to the Kafka server. This defaults to the K8S service DNS and port 9092.
-  # @default -- `{host: "<service>.<namespace>.svc.cluster.local", port: 9092}`
-  publicAddress: {}
-  # -- Kubernetes secrets containing a `tls.crt` and `tls.key` (as the secret keys, see https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets) to present to the client. The first certificate compatible with the client's requirements is selected automatically.
-  tlsCertificateSecrets: []
-  # -- Declare the policy the server will follow for mutual TLS (mTLS). Supported values are [NO_CERT, REQUEST_CERT, REQUIRE_CERT, VERIFY_CERT_IF_GIVEN, REQUIRE_AND_VERIFY_CERT]. Only supported when using tlsCertificateSecret.
-  # @default -- `"NO_CERT"`
-  tlsClientAuth: ""
-  # -- Kubernetes secret containing `tlsClientCasSecretKey` as the secret key (defaults to `tls.crt`) PEM-encoded certificate authorities used by the server to validate the client certificates. This field cannot be empty if tlsClientAuth is set for client performing verification. Only supported when using tlsCertificateSecret.
-  tlsClientCasSecret: ""
-  # -- Key within the `tlsClientCasSecret` kubernetes secret containing the certificate authority.
-  tlsClientCasSecretKey: "tls.crt"
-  # -- If a fetch should return as soon as any records are available.
-  fetchEager: true
-  # -- If fetches from different readers should be synchronized to improve cache hit rates.
-  fetchSync: true
-  # -- If records from a producer to different topic/partitions may be sequenced concurrently instead of serially.
-  produceConcurrent: true
-  # -- How to balance clients across zones, when the client does not specify a zone. One of: ["BALANCE_STRATEGY_UNSPECIFIED", "BALANCE_STRATEGY_PARTITION", "BALANCE_STRATEGY_HOST", "BALANCE_STRATEGY_CLIENT_ID"]
-  zoneBalanceStrategy: BALANCE_STRATEGY_PARTITION
-  # -- How to balance topic/partitions across bufstream nodes. One of: ["BALANCE_STRATEGY_UNSPECIFIED", "BALANCE_STRATEGY_PARTITION", "BALANCE_STRATEGY_HOST", "BALANCE_STRATEGY_CLIENT_ID"]
-  partitionBalanceStrategy: BALANCE_STRATEGY_PARTITION
-  # -- The number of kafka requests to unmarshal and buffer before processing.
-  requestBufferSize: 5
-  # -- How long a Kafka connection can be idle before being closed by the server. If set a value less than or equal to zero, the timeout will be disabled.
-  idleTimeout: 0
-  # -- The default number of partitions to use for a new topic.
-  numPartitions: 1
-  # -- If exact log sizes should be fetched when listing sizes for all topics/partitions.
-  exactLogSizes: true
-  # -- If exact log hwm and start offsets should be computed when fetching records.
-  exactLogOffsets: false
-  # -- The default group consumer session timeout.
-  groupConsumerSessionTimeout: 45s
-  # -- The minimum group consumer session timeout.
-  groupConsumerSessionTimeoutMin: 10s
-  # -- The maximum group consumer session timeout.
-  groupConsumerSessionTimeoutMax: 2m
-
-  # -- The authentication config.
-  authentication:
-    {}
-    # sasl:
-    #   # Configuration for the PLAIN mechanism.
-    #   # See https://datatracker.ietf.org/doc/html/rfc4616.
-    #   plain:
-    #     # Kubernetes secrets containing `username` and `password` as secret keys.
-    #     credentialsSecrets: []
-    #   # Whether to accept ANONYMOUS as a mechanism. Not recommended.
-    #   # See https://datatracker.ietf.org/doc/html/rfc4505.
-    #   anonymous: false
-    #   # Configuration for the SCRAM-* mechanisms.
-    #   # See https://datatracker.ietf.org/doc/html/rfc5802.
-    #   scram:
-    #     adminCredentials:
-    #       # The hash algorithm used by the admin credentials. Supports [SHA256, SHA512].
-    #       hash: ""
-    #       # Only one of plaintextCredentialsSecret or salted can be set.
-    #       # Kubernetes secret containing `username` and `plaintext` as secret keys.
-    #       plaintextCredentialsSecret: ""
-    #       # Salted admin credentials.
-    #       salted:
-    #         iterations: 0
-    #         # Kubernetes secret containing 'username', 'salt', 'salted-password' as secret keys.
-    #         saltedSecret: ""
-    #   oauthBearer:
-    #     # How to acquire the JWKS.
-    #     jwks:
-    #       # If the JWKS is static, the configMap containing the JWKS at key 'jwks.json'.
-    #       staticConfig:
-    #       # A hosted JWKS, that is accessible to the cluster.
-    #       remote:
-    #         # Kubernetes configMap with key 'url' of JWKS's URL, which must be an HTTPS url.
-    #         urlConfig:
-    #         # The keys are loaded once on startup and are refreshed every hour by default.
-    #         # This controls the refresh interval.
-    #         refreshInterval: 60m
-    #         # Optional TLS config to access the url.
-    #         tls:
-    #           # Controls whether a client verifies the server's certificate chain and host name.
-    #           insecureSkipVerify: false
-    #           # The existing secret name that contains ca.crt key of the PEM-encoded root certificate
-    #           # authorities used by the client to validate the server certificates.
-    #           rootCaSecret: ""
-    #       # if provided will check for the "aud" claim to match the provided value.
-    #       audience: ""
-    #       # if provided will check for the "iss" claim to match the provided value.
-    #       issuer: ""
-    # mtls:
-    #   # Where to extract the principal from a verified certificate.
-    #   # If the certificate is not required to be verified, this will
-    #   # be a noop and the principal will default to `User:Anonymous`.
-    #   # Supports [ANONYMOUS, SUBJECT_COMMON_NAME, SAN_DNS, SAN_URI].
-    #   principalSource: ""
-    # # The maximum receive size allowed before and during initial authentication.
-    # # Default receive size is 512KB. Set to -1 for no limit.
-    # maxReceiveBytes: 0
-
-iceberg:
-  # -- Configuration for Iceberg REST and AWS Glue Data catalogs to use with topics stored in Iceberg format.
-  catalogs:
-    {}
-    # example_rest:
-    #   use: "rest"
-    #   rest:
-    #     url: ""
-    #     uriPrefix: ""
-    #     # warehouse: ""
-    #
-    #     tls:
-    #       # Controls whether a client verifies the server's certificate chain and host name.
-    #       insecureSkipVerify: false
-    #       # The existing secret name that contains ca.crt key of the PEM-encoded root certificate
-    #       # authorities used by the client to validate the server certificates.
-    #       rootCaSecret: ""
-    #
-    #     ## OAuth2
-    #     authentication:
-    #       use: "oauth2"
-    #       # Defaults to the catalog's base URL with "v1/oauth/tokens" appended to the URI path.
-    #       # tokenEndpointUrl: ""
-    #       # Defaults to "catalog" if not specified.
-    #       # scope: ""
-    #       # Kubernetes secret containing `client-id` and `client-secret` as secret keys.
-    #       secretName: ""
-    #       # Optional alternate TLS configuration for token endpoint, otherwise the REST catalog TLS configuration is used.
-    #       tls:
-    #         # Controls whether a client verifies the server's certificate chain and host name.
-    #         insecureSkipVerify: false
-    #         # The existing secret name that contains ca.crt key of the PEM-encoded root certificate
-    #         # authorities used by the client to validate the server certificates.
-    #         rootCaSecret: ""
-    #
-    #     ## Bearer Auth
-    #     # authentication:
-    #     #   use: "bearer"
-    #     #   # Kubernetes secret containing `token` as a secret key.
-    #     #   secretName: ""
-    #
-    #     ## Basic Auth
-    #     # authentication:
-    #     #   use: "basic"
-    #     #   # Kubernetes secrets containing `username` and `password` as secret keys.
-    #     #   secretName: ""
-    #
-    # example_glue:
-    #   use: "awsGlue"
-    #   # awsGlue:
-    #   #   # AWS account ID of the AWS Glue Data Catalog. Defaults to the account ID for the IAM user of the workload.
-    #   #   accountId: ""
-    #   #   # AWS region. Defaults to the region of the broker's host.
-    #   #   region: ""
-    #   #   # Access Key ID to use instead of the metadata server.
-    #   #   accessKeyId: ""
-    #   #   # Kubernetes secret containing a `secret_access_key` (as the secret key) to use instead of the metadata server.
-    #   #   secretName: ""
-    #
-    # example_bigquery:
-    #   use: "bigQuery"
-    #   # bigQuery:
-    #   #   # Google Cloud project ID of the BigQuery Metastore. Defaults to the current project in which the Bufstream broker is running.
-    #   #   projectId: ""
-    #   #   # Optional location for any BigQuery datasets that are created. Must be present if cloudResourceConnection is present. If absent, datasets cannot be auto-created, so any dataset referenced by an Iceberg table must already exist.
-    #   #   location: ""
-    #   #   # Optional name of a BigQuery Cloud Resource connection (only the simple name, not the full name). Since a BigQuery dataset can only use connections in the same project and location, the full connection name is not necessary.
-    #   #   cloudResourceConnection: ""
-    #
-
-# -- connectTLS contains TLS configuration for Control Server which is used for inter-broker communication using Connect protocol.
-connectTLS:
-  # -- Server contains server side TLS configuration.
-  server:
-    {}
-    # server:
-    #   # Kubernetes secrets containing a `tls.crt` and `tls.key` (as the secret keys, see https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets) to present to the client. The first certificate compatible with the client's requirements is selected automatically.
-    #   certificateSecrets: []
-  # -- Client contains client side TLS configuration to connect to the Control Server.
-  client:
-    {}
-    # client:
-    #   # Controls whether a client verifies the server's certificate chain and host name.
-    #   insecureSkipVerify: true
-    #   # The existing secret name that contains ca.crt key of the PEM-encoded root certificate authorities used by the client to validate
-    #   # the server certificates.
-    #   rootCaSecret: ""
-
-# -- The HTTP version to use for inter-broker Connect RPCs. By default, HTTP/1.1 is used. Supports [CONNECT_HTTP_VERSION_1_1, CONNECT_HTTP_VERSION_2_0]
-connectHttpVersion: ""
-# -- Whether inter-broker Connect clients should be unique for reads and writes.
-# Disabled by default.
-# Recommended when using CONNECT_HTTP_VERSION_2_0 in `connectHttpVersion`
-connectIsolation: false
-
-# -- adminTLS contains TLS configuration for Admin Server.
-adminTLS:
-  {}
-  # adminTLS:
-  #   # Kubernetes secrets containing a `tls.crt` and `tls.key` (as the secret keys, see https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets) to present to the client. The first certificate compatible with the client's requirements is selected automatically.
-  #   certificateSecrets: []
-
-# -- autoMigrateMetadataStorage enables the brokers to run migrations for the metadata storage on startup when it's true.
-autoMigrateMetadataStorage: true
-
-metadata:
-  # -- Which metadata storage that bufstream is using.
-  # `etcd` and `spanner` are supported.
-  use: etcd
-  etcd:
-    # -- Etcd addresses to connect to.
-    addresses: []
-    # addresses:
-    # - host: ""
-    #   port: 2379
-
-    # -- TLS client configuration for bufstream to connect to etcd.
-    tls: {}
-    # tls:
-    #   # Controls whether a client verifies the server's certificate chain and host name.
-    #   insecureSkipVerify: true
-    #   # The existing secret name that contains ca.crt key of the PEM-encoded root certificate authorities used by the client to validate
-    #   # the server certificates.
-    #   rootCaSecret: ""
-  spanner:
-    # -- Project ID of the Spanner database.
-    projectId: ""
-    # -- Instance ID of the Spanner database.
-    instanceId: ""
-    # -- Database name of the Spanner database. Defaults to `bufstream` if not specified.
-    databaseName: ""
-  postgres:
-    # -- Postgres DSN.
-    dsn: ""
-    # -- Kubernetes secret with a `dsn` key containing a Postgres DSN.
-    secretName: ""
-    # -- Environment variable name containing a Postgres DSN. See `bufstream.deployment.extraEnv` for configuring environment variables.
-    env: ""
-    # -- Cloud SQL configuration.
-    cloudsql:
-      # -- Cloud SQL instance connection name to connect to, typically in the format "project-name:region:instance-name".
-      instance: ""
-      # -- Connect using CloudSQL IAM authentication.
-      iam: false
-      # -- Connect to the CloudSQL instance using a private IP.
-      privateIP: false
-    # -- Connection pool configuration.
-    pool:
-      # -- The maximum size of the connection pool. Defaults to 20.
-      maxConnections: 0
-      # -- The minimum size of the connection pool.
-      minConnections: 0
-storage:
-  # -- Which object storage that bufstream is using.
-  # Currently, `gcs` and `s3` are supported.
-  use: s3
-  gcs:
-    # -- GCS bucket name.
-    bucket: ""
-    # -- GCS prefix to use for all stored files.
-    prefix: ""
-    # -- Kubernetes secret containing a `credentials.json` (as the secret key) service account key to use instead of the metadata server.
-    secretName: ""
-  s3:
-    # -- S3 bucket name.
-    bucket: ""
-    # -- S3 bucket region.
-    region: ""
-    # -- S3 endpoint to use instead of the default — for example, https://example.com
-    endpoint: ""
-    # -- S3 prefix to use for all stored files.
-    prefix: ""
-    # -- S3 Force Path Style setting. See https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/examples-s3.html.
-    forcePathStyle: false
-    # -- S3 Access Key ID to use instead of the metadata server.
-    accessKeyId: ""
-    # -- Kubernetes secret containing a `secret_access_key` (as the secret key) to use instead of the metadata server.
-    secretName: ""
-  azure:
-    # -- Azure storage account container name.
-    bucket: ""
-    # -- Azure storage account endpoint to use — for example, https://<storage account>.blob.core.windows.net
-    endpoint: ""
-    # -- Azure prefix to use for all stored files.
-    prefix: ""
-    # -- Azure storage account name to use for auth instead of the metadata server.
-    accessKeyId: ""
-    # -- Kubernetes secret containing a `secret_access_key` (as the Azure storage account key) to use instead of the metadata server.
-    secretName: ""
-observability:
-  # -- Log level to use.
-  logLevel: INFO
-  # -- Open Telemetry base endpoint to push metrics and traces to.
-  # Deprecated: use exporter.address and exporter.insecure instead.
-  otlpEndpoint: ""
-  exporter:
-    # -- Open Telemetry base endpoint to push metrics and traces. The value has a host and an optional port.
-    # It should not include the URL path, such as "/v1/traces" or the scheme.
-    # This can be overridden by metrics.address or tracing.address.
-    address: ""
-    # -- Whether to disable TLS for the exporter's HTTP connection.
-    # This can be overridden by metrics.insecure or tracing.insecure.
-    insecure: false
-  metrics:
-    # -- Open Telemetry exporter. Supports [NONE, STDOUT, HTTP, HTTPS, PROMETHEUS].
-    # Deprecated: use exporterType instead.
-    # @ignored
-    exporter: ""
-    # -- Open Telemetry exporter. Supports [NONE, STDOUT, OTLP_GRPC, OTLP_HTTP, PROMETHEUS]
-    exporterType: "NONE"
-    # -- The endpoint the exporter connects to. The value has a host and an optional port.
-    # It should not include the URL path, such as "/v1/metrics" or the scheme.
-    # Specify path and insecure instead.
-    address: ""
-    # The URL path appended to address. Defaults to "/v1/metrics".
-    # This can only be specified for the OTLP_HTTP exporter type.
-    path: ""
-    # -- Whether to disable TLS.
-    # This can only be specified for OTLP_HTTP exporter type.
-    insecure: false
-    # This omits metrics that depend on the kafka.topic.partition attribute, which may have high cardinality
-    # depending on the configuration. One example is kafka.topic.partition.offset.high_water_mark.
-    # This omits only the attribute for metrics that have this attribute without depending on it.
-    # One example is kafka.produce.record.size.
-    # Deprecated: set aggregation.partitions to true instead.
-    # @ignored
-    omitPartitionAttribute: false
-    # Whether to emit bufstream.internal.* metrics.
-    # @ignored
-    enableInternalMetrics: false
-    # Then labels to enable for metrics.
-    enableLabels: {}
-    # Allows changing the default temporality preference for OTLP metrics.
-    # This is recommended to be set to "delta" for reporting to Datadog agents.
-    # See https://docs.datadoghq.com/opentelemetry/guide/otlp_delta_temporality/ for more details.
-    otlpTemporalityPreference: ""
-    # This option, typically set to reduce cardinality, aggregates some metrics over certain attributes, such as kafka.topic.name.
-    aggregation:
-      # Aggregate metrics across all topics to avoid cardinality issues with clusters with a large number of topics.
-      # Metrics that support this aggregation will report the 'kafka.topic.name' attribute as '_all_topics_'.
-      # NOTE: This implies partitions aggregation, which omits metrics like 'bufstream.kafka.topic.partition.offset.high_water_mark'.
-      topics: false
-      # Aggregate metrics across all partitions to avoid cardinality issues with clusters with a large number of partitions.
-      # Metrics that support aggregation will report the 'kafka.partition.id' attribute as -1, while some metrics, such as
-      # 'bufstream.kafka.topic.partition.offset.high_water_mark' will be omitted if partition level aggregation is enabled.
-      partitions: false
-      # Aggregate metrics across all consumer groups to avoid cardinality issues with clusters with a large number of groups.
-      # Metrics that support aggregation will report the 'kafka.consumer.group.id' as '_all_groups_', while some metrics
-      # such as 'bufstream.kafka.consumer.group.generation' will be omitted if consumer group level aggregation is enabled.
-      consumerGroups: false
-      # Aggregate metrics across all authentication principals to avoid cardinality issues with clusters with a large number
-      # of principals. Metrics that support aggregation will report the 'authentication.principal_id' as '_all_principal_ids_'.
-      principalIDs: false
-  tracing:
-    # -- Open Telemetry exporter. Supports [NONE, STDOUT, HTTP, HTTPS].
-    # Deprecated: use exporterType instead.
-    # @ignored
-    exporter: ""
-    # -- Open Telemetry exporter. Supports [NONE, STDOUT, OTLP_GRPC, OTLP_HTTP]
-    exporterType: "NONE"
-    # -- The endpoint the exporter connects to. The value has a host and an optional port.
-    # It should not include the URL path, such as "/v1/traces" or the scheme.
-    # Specify path and insecure instead.
-    address: ""
-    # The URL path appended to address. Defaults to "/v1/traces".
-    # This can only be specified for the OTLP_HTTP or OTLP_GRPC exporter type.
-    path: ""
-    # -- Whether to disable TLS.
-    # This can only be specified for OTLP_HTTP exporter type.
-    insecure: false
-    # -- Trace sample ratio.
-    traceRatio: 0.1
-  # -- Redact sensitive information such as topic names, before adding to metrics, traces and logs.
-  # Supports [NONE, OPAQUE]
-  sensitiveInformationRedaction: "NONE"
-bufstream:
-  service:
-    # -- Whether to create a Kubernetes Service for this bufstream deployment.
-    enabled: true
-    # -- Kubernetes Service type.
-    type: ClusterIP
-    # -- Kubernetes Service annotations.
-    annotations: {}
-    # -- Kubernetes Service Load Balancer IP for when type is LoadBalancer.
-    loadBalancerIP: ""
-  serviceAccount:
-    # -- Whether to create a Kubernetes Service Account for this bufstream deployment.
-    create: true
-    # -- Kubernetes Service Account name.
-    name: bufstream-service-account
-    # -- Kubernetes Service Account annotations.
-    annotations: {}
-  deployment:
-    # -- Bufstream Deployment kind.
-    # Supports [Deployment, StatefulSet]
-    kind: StatefulSet
-    # -- Bufstream Deployment command.
-    # @default -- `["/usr/local/bin/bufstream"]`
-    command: []
-    # -- Bufstream Deployment args to be appended.
-    args: []
-    # -- Bufstream Deployment replica count.
-    replicaCount: 3
-    # -- Bufstream Deployment Pod annotations.
-    podAnnotations: {}
-    # -- Bufstream Deployment Selector labels.
-    selectorLabels: {}
-    # -- Bufstream Deployment Pod labels.
-    podLabels: {}
-    # -- Bufstream Deployment pod management policy to use when StatefulSet kind is used.
-    podManagementPolicy: Parallel
-    # -- Bufstream Deployment service name to link for per pod DNS registration when StatefulSet kind is used.
-    serviceName: ""
-
-    resources:
-      requests:
-        # -- Bufstream Deployment Resource request CPU.
-        cpu: 2
-        # -- Bufstream Deployment Resource request memory.
-        memory: 8Gi
-      limits:
-        # -- Bufstream Deployment Resource request CPU.
-        cpu: ""
-        # -- Bufstream Deployment Resource limits memory.
-        memory: 8Gi
-    # -- Bufstream Deployment Node selector.
-    nodeSelector: {}
-    # -- Bufstream Deployment Affinity.
-    affinity: {}
-    # -- Bufstream Deployment Tolerations.
-    tolerations: []
-    # -- Bufstream Deployment Extra init containers for the bufstream deployment.
-    extraInitContainers: []
-    # -- Bufstream Deployment Extra environment variables for the bufstream container.
-    extraEnv: []
-    # -- Bufstream Deployment Extra volume mounts for the bufstream container.
-    extraVolumeMounts: []
-    # -- Bufstream Deployment Extra volumes.
-    extraVolumes: []
-    # -- Bufstream Deployment Extra container ports for the bufstream container.
-    extraContainerPorts: {}
-    # -- Bufstream Deployment additional containers to run alongside the bufstream container.
-    extraContainers: []
-    livenessProbe:
-      # -- Bufstream Deployment Liveness Probe Maximum failure threshold.
-      failureThreshold: 3
-      # -- Bufstream Deployment Liveness Probe timeout.
-      timeoutSeconds: 5
-    readinessProbe:
-      # -- Bufstream Deployment Readiness Probe Maximum failure threshold.
-      failureThreshold: 3
-      # -- Bufstream Deployment Readiness Probe timeout.
-      timeoutSeconds: 5
-    startupProbe:
-      # -- Bufstream Deployment Liveness Probe Configuration
-      failureThreshold: 3
-    # -- Bufstream Deployment termination grace period.
-    terminationGracePeriodSeconds: 420 # 7 minutes
-    # -- Bufstream Deployment setting for sharing the process namespace.
-    shareProcessNamespace: false
-    autoscaling:
-      # -- Whether to enable the horizontal pod autoscaler.
-      enabled: false
-      # -- Minimum number of autoscaler allowed replicas.
-      minReplicas: 6
-      # -- Maximum number of autoscaler allowed replicas.
-      maxReplicas: 18
-      # -- Target CPU threshold for managing replica count.
-      targetCPU: "50"
-      # -- Target memory threshold for managing replica count.
-      targetMemory: ""
-      # -- [Horizontal Pod Autoscaler behavior.](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#configurable-scaling-behavior)
-      behavior: {}
-  controlServerService:
-    # -- Whether to create a Kubernetes Headless Service for the Bufstream Control Server (inter-broker RPC server using the Connect protocol).
-    enabled: false
-    # -- Kubernetes Service annotations.
-    annotations: {}
-  podDisruptionBudget:
-    # -- Whether to enable pod disruption budget.
-    enabled: false
-    # -- Number of pods that are available after eviction as number or percentage (eg.: 50%).
-    # @default -- `""` (defaults to 0 if not specified)
-    minAvailable: ""
-    # -- Number of pods that are unavailable after eviction as number or percentage (e.g.: 50%). Has higher precedence over `minAvailable`
-    maxUnavailable: ""
-  image:
-    # -- Bufstream Deployment container image repository.
-    repository: bufbuild/bufstream
-    # -- Overrides the image tag whose default is the chart version.
-    tag: "latest"
-    # -- Bufstream Deployment container image pull policy.
-    pullPolicy: IfNotPresent
-# -- Extra Kubernetes objects to install as part of this chart.
-extraObjects: []
-# -- Bufstream configuration overrides. Any value here will be set directly on the bufstream config.yaml, taking precedence over any other helm defined values.
-configOverrides: {}
-```
 
 ## Related documentation
 

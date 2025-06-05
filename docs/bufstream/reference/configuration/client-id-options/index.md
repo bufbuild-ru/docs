@@ -86,4 +86,4 @@ When set, changes how many brokers are advertised as part of the cluster. This c
 
 _string_
 
-Each label pair is added as an attribute on all logs originating from the same client. For example, an option of `label.foo=bar` will be added to logs. While labels are arbitrary, they must be explicitly [enabled in the configuration](../bufstream-yaml/#buf.bufstream.config.v1alpha1.MetricsConfig.enable_labels).
+Each label pair is added as an attribute on all logs originating from the same client. For example, an option of `label.foo=bar` will be added to logs. While labels are arbitrary, they must be explicitly [enabled in the configuration](../bufstream-yaml/).

@@ -137,3 +137,84 @@ To learn more about how these plugins are packaged and distributed, go to the [b
 ### I get a 422 status code when trying to install a Python generated SDK. How do I get more information about what went wrong?
 
 A 422 status code means that the plugin failed to run. You can `curl` the wheel endpoint (which `pip` provides in the error message as a URL ending in `.whl`) or open it in your browser to get more details about the failure.
+
+### Python generated SDK dependency resolution is slow - what could be causing this?
+
+There are certain ecosystems like python and npm that make use of an index page in their underlying package registry protocols. The size of an SDK's index page grows as the number of plugin versions and module commits increases, potentially increasing times to resolve packages.
+
+The BSR provides a custom endpoint for Python package managers to fetch a flattened list of all packages in the dependency graph for a given SDK. This list can be used to aid package managers in dependency resolution by constraining the search for dependencies to within the given package constraints. This list can be fetched from:
+
+```text
+https://buf.build/gen/python/deps/{moduleOwner}-{moduleName}-{pluginOwner}-{pluginName}/{version}`
+```
+
+This endpoint follows the BSR's conventions for Python [names](#remote) and [versions](#full-syntax). You can exercise the endpoint with curl:
+
+```console
+ $ curl https://buf.build/gen/python/deps/acme-petapis-grpc-python/1.72.1.1.20220907172654+7abdb7802c8f
+```
+
+This should return a successful response in the form of:
+
+```console
+{
+    "packages": [
+        {
+            "name": "acme-petapis-grpc-python",
+            "version": "1.69.0.1.20250511171428+1269324e55bf"
+        },
+        {
+            "name": "acme-petapis-protocolbuffers-python",
+            "version": "29.2.0.1.20250511171428+1269324e55bf"
+        },
+        {
+            "name": "acme-petapis-protocolbuffers-pyi",
+            "version": "29.2.0.1.20250511171428+1269324e55bf"
+        },
+        {
+            "name": "acme-paymentapis-grpc-python",
+            "version": "1.69.0.1.20250511171427+1beaca87b579"
+        },
+        {
+            "name": "googleapis-googleapis-grpc-python",
+            "version": "1.69.0.1.20250511171426+6310aaead7ba"
+        },
+        {
+            "name": "acme-paymentapis-protocolbuffers-python",
+            "version": "29.2.0.1.20250511171427+1beaca87b579"
+        },
+        {
+            "name": "googleapis-googleapis-protocolbuffers-python",
+            "version": "29.2.0.1.20250511171426+6310aaead7ba"
+        },
+        {
+            "name": "acme-paymentapis-protocolbuffers-pyi",
+            "version": "29.2.0.1.20250511171427+1beaca87b579"
+        },
+        {
+            "name": "googleapis-googleapis-protocolbuffers-pyi",
+            "version": "29.2.0.1.20250511171426+6310aaead7ba"
+        }
+    ]
+}
+```
+
+In practice to use this endpoint with Poetry, you can combine the `curl` command with `jq` to create a flattened dependency list that can be directly added to the `tool.poetry.dependencies` section of your `pyproject.toml` file. The command would look like:
+
+```console
+ $ curl -s https://buf.build/gen/python/deps/acme-petapis-grpc-python/1.72.1.1.20220907172654+7abdb7802c8f | jq -r '.packages[] | "\(.name) = {version = \"~\(.version)\", source = \"buf\"}"'
+```
+
+This response would be added to `pyproject.toml`:
+
+```console
+acme-petapis-grpc-python = {version = "~1.72.1.1.20220907172654+7abdb7802c8f", source = "buf"}
+acme-petapis-protocolbuffers-python = {version = "~31.1.0.1.20220907172654+7abdb7802c8f", source = "buf"}
+acme-petapis-protocolbuffers-pyi = {version = "~31.1.0.1.20220907172654+7abdb7802c8f", source = "buf"}
+acme-paymentapis-grpc-python = {version = "~1.72.1.1.20220907172603+9a877cf260e1", source = "buf"}
+googleapis-googleapis-grpc-python = {version = "~1.72.1.1.20220906171522+62f35d8aed11", source = "buf"}
+acme-paymentapis-protocolbuffers-python = {version = "~31.1.0.1.20220907172603+9a877cf260e1", source = "buf"}
+googleapis-googleapis-protocolbuffers-python = {version = "~31.1.0.1.20220906171522+62f35d8aed11", source = "buf"}
+acme-paymentapis-protocolbuffers-pyi = {version = "~31.1.0.1.20220907172603+9a877cf260e1", source = "buf"}
+googleapis-googleapis-protocolbuffers-pyi = {version = "~31.1.0.1.20220906171522+62f35d8aed11", source = "buf"}
+```

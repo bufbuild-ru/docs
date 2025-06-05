@@ -46,10 +46,6 @@ head:
 
 # Pro setup
 
-::: warning
-This feature is only available on the Pro plan.
-:::
-
 This page describes the basic setup for a private Pro instance of the Buf Schema Registry (BSR).
 
 ## DNS setup

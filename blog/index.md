@@ -39,6 +39,12 @@ head:
 
 # Blog
 
+<h3><a href="/blog/totw-7-scoping-it-out/">Tip of the week #7: Scoping it out</a></h3>
+
+<h5>June 2, 2025</h5>
+
+buf convert and protoscope are powerful tools for examining and debugging wire format dumps.
+
 <h3><a href="/blog/totw-6-dangers-of-enum-aliases/">Tip of the week #6: The subtle dangers of enum aliases</a></h3>
 
 <h5>May 19, 2025</h5>

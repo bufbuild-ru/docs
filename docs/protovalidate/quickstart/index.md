@@ -54,17 +54,17 @@ This quickstart steps through using Protovalidate in Protobuf projects with the 
 
 ## Download the code (optional)
 
-If you'd like to code along in Go, Java, or Python, complete the following steps. If you're only here for a quick tour, feel free to skip ahead.
+If you'd like to code along in Go, TypeScript/JavaScript, Java, or Python, complete the following steps. If you're only here for a quick tour, feel free to skip ahead.
 
 1.  Install the [Buf CLI](../../cli/). If you already have, run `buf --version` to verify that you're using at least `1.54.0`.
-2.  Have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and your choice of [`go`](https://go.dev/dl/), [`Java 17+`](https://www.oracle.com/in/java/), or [`Python 3.7+`](https://www.python.org/downloads/) installed.
+2.  Have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and your choice of [`go`](https://go.dev/dl/), [`Node.js`](https://nodejs.org/en/download), [`Java 17+`](https://www.oracle.com/in/java/), or [`Python 3.7+`](https://www.python.org/downloads/) installed.
 3.  Clone the `buf-examples` repository:
 
     ```sh
     git clone https://github.com/bufbuild/buf-examples.git
     ```
 
-4.  Open a terminal to the repository and navigate to the `protovalidate/quickstart-go/start`, `protovalidate/quickstart-java/start`, or `protovalidate/quickstart-python/start` directory.
+4.  Open a terminal to the repository and navigate to the `protovalidate/quickstart-go/start`, `protovalidate/quickstart-es/start`, `protovalidate/quickstart-java/start`, or `protovalidate/quickstart-python/start` directory.
 
 Each language's quickstart code contains Buf CLI configuration files (`buf.yaml`, `buf.gen.yaml`), a simple `weather_service.proto`, and an idiomatic unit test.
 
@@ -76,17 +76,12 @@ Published publicly on the [Buf Schema Registry](../../bsr/), the Protovalidate m
 
 Add it as a dependency in `buf.yaml`:
 
-+++tabs key:70a55f19e07dd7ea6318bf95a4fe1060
-
-== Go
-
 ::: info buf.yaml
 
 ```yaml
 version: v2
 modules:
   - path: proto
-# v.10.7 is compatible with the current version of Protovalidate's Go implementation (0.9.3).
 // [!code ++]
 deps:
   // [!code ++]
@@ -100,54 +95,6 @@ breaking:
 ```
 
 :::
-
-== Java
-
-::: info buf.yaml
-
-```yaml
-version: v2
-modules:
-  - path: proto
-# v.10.7 is compatible with the current version of Protovalidate's Java implementation (0.6.0).
-// [!code ++]
-deps:
-  // [!code ++]
-  - buf.build/bufbuild/protovalidate:v0.11.1
-lint:
-  use:
-    - STANDARD
-breaking:
-  use:
-    - FILE
-```
-
-:::
-
-== Python
-
-::: info buf.yaml
-
-```yaml
-version: v2
-modules:
-  - path: proto
-# v.10.7 is compatible with the current version of Protovalidate's Python implementation (0.7.1).
-// [!code ++]
-deps:
-  // [!code ++]
-  - buf.build/bufbuild/protovalidate:v0.11.1
-lint:
-  use:
-    - STANDARD
-breaking:
-  use:
-    - FILE
-```
-
-:::
-
-+++
 
 Next, update dependencies. You may see a warning that Protovalidate hasn't yet been used. That's fine.
 
@@ -383,7 +330,7 @@ All Protovalidate languages provide an idiomatic API for validating a Protobuf m
 
 In the final code exercise, you'll use it directly, checking enforcement of `GetWeatherRequest`'s validation rules.
 
-+++tabs key:70a55f19e07dd7ea6318bf95a4fe1060
++++tabs key:a0ecb89f24d9c0d3cd0e58f423a1b7de
 
 == Go
 
@@ -441,6 +388,68 @@ In the final code exercise, you'll use it directly, checking enforcement of `Get
 
     ```sh
     go test ./weather
+    ```
+
+== TypeScript/JavaScript
+
+1.  Make sure you've navigated to `protovalidate/quickstart-es/start` within the `buf-examples` repository.
+2.  Install Protovalidate using `npm`.
+
+    ```sh
+    npm install @bufbuild/protovalidate
+    ```
+
+3.  Run `src/weather.test.ts` with `npm test`. It should fail — it expects invalid latitudes and longitudes to be rejected, but you haven't yet added any validation.
+
+    ```sh
+    npm run test
+
+    ❯ src/weather.test.ts (4 tests | 4 failed) 5ms
+      × valid message 3ms
+        → expected undefined to be defined
+      × latitude too high 0ms
+        → expected undefined to be defined
+      × latitude too low 0ms
+        → expected undefined to be defined
+      × too far in the future 1ms
+        → expected undefined to be defined
+    ```
+
+4.  Open `src/weather.ts` and make the following modifications.
+
+    ::: info src/weather.ts
+
+    ```diff
+    + import { createValidator, type ValidationResult } from "@bufbuild/protovalidate";
+    import {
+        GetWeatherRequest,
+    +   GetWeatherRequestSchema
+    } from "./gen/bufbuild/weather/v1/weather_service_pb.js";
+
+    + const validator = createValidator();
+
+    - export function validateWeather(msg: GetWeatherRequest): any {
+    + export function validateWeather(msg: GetWeatherRequest): ValidationResult {
+    -    // TODO: validate the request
+    +   return validator.validate(GetWeatherRequestSchema, msg);
+    }
+    ```
+
+    :::
+
+5.  Run `npm test`. Now that you've added validation, all tests should pass.
+
+    ```sh
+    npm run test
+
+    ✓ src/weather.test.ts (4 tests) 26ms
+    ✓ valid message 24ms
+    ✓ latitude too high 1ms
+    ✓ latitude too low 0ms
+    ✓ too far in the future 1ms
+
+    Test Files  1 passed (1)
+    Tests  4 passed (4)
     ```
 
 == Java

@@ -46,132 +46,57 @@ head:
 
 # Bazel
 
-Buf provides official support for the [Bazel](https://bazel.build) build tool with [`rules_buf`](https://github.com/bufbuild/rules_buf), which enables you to:
+Buf provides official support for the [Bazel](https://bazel.build) build tool with [rules_buf](https://github.com/bufbuild/rules_buf), which enables you to:
 
-- [Lint](../../../lint/) Protobuf sources using the [`buf_lint_test`](#buf-lint-test) rule.
-- Perform [breaking change detection](../../../breaking/) for Protobuf [Inputs](../../../reference/inputs/) using the [`buf_breaking_test`](#buf-breaking-test) rule.
+- [Lint](../../../lint/) Protobuf sources using the [buf_lint_test](#buf-lint-test) rule.
+- Perform [breaking change detection](../../../breaking/) for Protobuf [Inputs](../../../reference/inputs/) using the [buf_breaking_test](#buf-breaking-test) rule.
+- Depend on BSR modules.
 - Use the [Gazelle](#gazelle) extension to generate Bazel rules.
 
 ## Setup
 
-To get started, add a series of imports to your Bazel `WORKSPACE`,
+Add the following lines to your `MODULE.bazel` file:
 
-::: info WORKSPACE
-
-```python
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-
-http_archive(
-    name = "rules_buf",
-    sha256 = "523a4e06f0746661e092d083757263a249fedca535bd6dd819a8c50de074731a",
-    strip_prefix = "rules_buf-0.1.1",
-    urls = [
-        "https://github.com/bufbuild/rules_buf/archive/refs/tags/v0.1.1.zip",
-    ],
-)
-
-load("@rules_buf//buf:repositories.bzl", "rules_buf_dependencies", "rules_buf_toolchains")
-
-rules_buf_dependencies()
-
-rules_buf_toolchains()
-
-load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
-
-rules_proto_dependencies()
-
-rules_proto_toolchains()
-```
-
-:::
-
-### Using a specific version of the `rules_proto`
-
-[`rules_proto`](https://github.com/bazelbuild/rules_proto) is required to use `rules_buf`. By default, `rules_buf` automatically loads `rules_proto`, but you can use a specific version of it by loading it _before_ `rules_buf`:
-
-::: info WORKSPACE
+::: info MODULE.bazel
 
 ```python
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+bazel_dep(name = "rules_buf", version = "0.4.0")
+bazel_dep(name = "gazelle", version = "0.34.0")
+bazel_dep(name = "protobuf", version = "29.0", repo_name = "com_google_protobuf")
+bazel_dep(name = "rules_proto", version = "7.0.2")
 
-http_archive(
-    name = "rules_proto",
-    sha256 = "66bfdf8782796239d3875d37e7de19b1d94301e8972b3cbd2446b332429b4df1",
-    strip_prefix = "rules_proto-4.0.0",
-    urls = [
-        "https://mirror.bazel.build/github.com/bazelbuild/rules_proto/archive/refs/tags/4.0.0.tar.gz",
-        "https://github.com/bazelbuild/rules_proto/archive/refs/tags/4.0.0.tar.gz",
-    ],
-)
+buf = use_extension("@rules_buf//buf:extensions.bzl", "buf")
 
-load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
-
-rules_proto_dependencies()
-
-rules_proto_toolchains()
-
-http_archive(
-    name = "rules_buf",
-    sha256 = "523a4e06f0746661e092d083757263a249fedca535bd6dd819a8c50de074731a",
-    strip_prefix = "rules_buf-0.1.1",
-    urls = [
-        "https://github.com/bufbuild/rules_buf/archive/refs/tags/v0.1.1.zip",
-    ],
-)
-
-# Load the other rules_buf assets
+# The `buf` CLI version to use.
+buf.toolchains(version = "v1.50.0")
 ```
 
 :::
 
-### Pinning the `buf` version
+The latest versions are always listed on [Bazel Central Registry](https://registry.bazel.build/modules/rules_buf).
 
-By default, `rules_buf_toolchains` loads the latest `buf` version. For hermetic builds, pin the `buf` version using the version attribute.
+### BSR dependencies
 
-::: info WORKSPACE
+BSR dependencies can be managed using the `buf` extension:
 
-```diff
-# rules_buf fetches the sha based on the version number--the version is enough for hermetic builds.
--rules_buf_toolchains()
-+rules_buf_toolchains(version = "v1.54.0")
-```
-
-:::
-
-## Rules
-
-The rules work alongside `proto_library` rules. You can configure `rules_buf` using a [`buf.yaml`](../../../configuration/v2/buf-yaml/) configuration file. Export the `buf.yaml` using `exports_files(["buf.yaml"])` to reference it.
-
-> We recommend using the [Gazelle extension](#gazelle) to generate the following rules.
-
-### `buf_dependencies`
-
-`buf_dependencies` is a [repository rule](https://bazel.build/rules/repository_rules) that downloads one or more modules from the [Buf Schema Registry (BSR)](../../../bsr/) and generates build files using Gazelle. [Set up Gazelle](https://github.com/bazelbuild/bazel-gazelle#setup) to use this rule. To also use Gazelle to generate this rule and update `deps` in `proto_library` targets, see the [Dependencies](#gazelle-dependencies) section.
-
-#### Attributes
-
-| Name    | Description                                  | Type                                        | Mandatory | Default |
-| :------ | :------------------------------------------- | :------------------------------------------ | :-------- | :------ |
-| name    | A unique name for this repository.           | [Name](https://bazel.build/concepts/labels) | required  |         |
-| modules | The module pins `remote/owner/repo:revision` | List of strings                             | required  |         |
-
-#### Example
-
-::: info WORKSPACE
+::: info MODULE.bazel
 
 ```python
-load("@rules_buf//buf:defs.bzl", "buf_dependencies")
+buf = use_extension("@rules_buf//buf:extensions.bzl", "buf")
 
-buf_dependencies(
-    name = "buf_deps",
-    modules = [
-        "buf.build/envoyproxy/protoc-gen-validate:dc09a417d27241f7b069feae2cd74a0e",
-        "buf.build/acme/petapis:84a33a06f0954823a6f2a089fb1bb82e",
-    ],
-)
+buf.toolchains(version = "v1.50.0")
+
+# Note that the module should point to a immutable version. As of today, commits cannot be modified.
+buf.dependency(module = "buf.build/envoyproxy/protoc-gen-validate:eac44469a7af47e7839a7f1f3d7ac004")
+buf.dependency(module = "buf.build/acme/petapis:7abdb7802c8f4737a1a23a35ca8266ef")
+
+# Allow references to labels under @buf_deps.
+use_repo(buf, "buf_deps")
 ```
 
 :::
+
+This creates a repository rule with the name `buf_deps` which can be used to access `proto_library` targets:
 
 ::: info BUILD
 
@@ -188,7 +113,55 @@ proto_library(
 
 :::
 
-We recommend using a single `buf_dependencies` rule for each `buf.yaml` file. The [Gazelle extension](#gazelle-dependencies) does this by default.
+### Using the Buf CLI via Bazel
+
+You can use Bazel to run the downloaded Buf CLI by adding the following snippet to the `MODULE.bazel` file:
+
+::: info MODULE.bazel
+
+```python
+use_repo(buf, "rules_buf_toolchains")
+```
+
+:::
+
+It can then be used like this:
+
+```sh
+bazel run @rules_buf_toolchains//:buf -- --version
+```
+
+The above command prints the version of the Buf CLI and exits.
+
+## Rules
+
+The rules work alongside `proto_library` rules. You can configure `rules_buf` using a [buf.yaml](../../../configuration/v2/buf-yaml/) configuration file. Export the `buf.yaml` using `exports_files(["buf.yaml"])` to reference it.
+
+We recommend using the [Gazelle extension](#gazelle) to generate the following rules.
+
+### `buf_format`
+
+`buf_format` rule can run [buf format](../../../format/) via Bazel. This ensures the same `buf` version is used.
+
+It can be configured as shown below:
+
+::: info BUILD
+
+```python
+load("@rules_buf//buf:defs.bzl", "buf_format")
+
+buf_format(
+    name = "buf_format",
+)
+```
+
+:::
+
+Then you can run the following command to format Protobuf sources:
+
+```sh
+bazel run :buf_format
+```
 
 ### `buf_lint_test`
 
@@ -198,11 +171,11 @@ Unused imports can't be detected due to the way the lint plugin captures warning
 
 #### Attributes
 
-| Name      | Description                                                 | Type                                                             | Mandatory | Default                                                               |
-| :-------- | :---------------------------------------------------------- | :--------------------------------------------------------------- | :-------- | :-------------------------------------------------------------------- |
-| `name`    | A unique name for this target.                              | [Name](https://bazel.build/concepts/labels)                      | required  |                                                                       |
-| `config`  | The [`buf.yaml`](../../../configuration/v2/buf-yaml/) file. | [Label](https://bazel.build/docs/build-ref.html#labels)          | optional  | Applies the [default](../../../configuration/v2/buf-yaml/) `buf.yaml` |
-| `targets` | `proto_library` targets to lint                             | [List of labels](https://bazel.build/docs/build-ref.html#labels) | required  |                                                                       |
+| Name      | Description                                               | Type                                                             | Mandatory | Default                                                               |
+| :-------- | :-------------------------------------------------------- | :--------------------------------------------------------------- | :-------- | :-------------------------------------------------------------------- |
+| `name`    | A unique name for this target.                            | [Name](https://bazel.build/concepts/labels)                      | required  |                                                                       |
+| `config`  | The [buf.yaml](../../../configuration/v2/buf-yaml/) file. | [Label](https://bazel.build/docs/build-ref.html#labels)          | optional  | Applies the [default](../../../configuration/v2/buf-yaml/) `buf.yaml` |
+| `targets` | `proto_library` targets to lint                           | [List of labels](https://bazel.build/docs/build-ref.html#labels) | required  |                                                                       |
 
 #### Example
 
@@ -259,7 +232,7 @@ proto_library(
 
 buf_breaking_test(
     name = "foo_proto_breaking",
-    against = "//:image.binpb", # The Image file to check against.
+    against = "//:image.binpb", # The image file to check against.
     targets = [":foo_proto"], # The Protobuf library
     config = ":buf.yaml",
 )
@@ -287,14 +260,14 @@ buf build --exclude-imports -o image.binpb <input>
 
 The `<input>` is often a directory containing a `buf.yaml` file, but all of the other [Input formats](../../../reference/inputs/#format) are also supported.
 
-We recommend storing the Image file in a `testdata` directory and checking it in to version control and updating it as needed. In the case of repositories that follow a versioning scheme like [semver](https://semver.org), you can update it on each new release either manually or with a post-release hook.
+We recommend storing the image file in a `testdata` directory and checking it in to version control and updating it as needed. In the case of repositories that follow a versioning scheme like [semver](https://semver.org), you can update it on each new release either manually or with a post-release hook.
 
-As an alternative to checking the Image file into version control, you can use CI artifacts. Many CI servers, like [Travis CI](https://travis-ci.com), enable you to upload build artifacts to a backend like [S3](https://aws.amazon.com/s3). In CI, you can set up a pipeline to build the Image on each commit and then add those artifacts to your `WORKSPACE`:
+As an alternative to checking the image file into version control, you can use CI artifacts. Many CI servers, like [Travis CI](https://travis-ci.com), enable you to upload build artifacts to a backend like [S3](https://aws.amazon.com/s3). In CI, you can set up a pipeline to build the Image on each commit and then add those artifacts to your `MODULE.bazel`:
 
-::: info WORKSPACE
+::: info MODULE.bazel
 
 ```python
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
+http_file = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 
 # Assuming you're using s3 and bucket is at http://s3-us-east-1.amazonaws.com/bucket/foo/bar
 # and COMMIT is a variable storing the commit to compare against
@@ -313,11 +286,13 @@ A single image file should be maintained for each `buf.yaml` file. This is true 
 
 ## Gazelle
 
-[Gazelle](https://github.com/bazelbuild/bazel-gazelle) is a build file generator for Bazel projects that natively supports Protobuf. [`rules_buf`](https://github.com/bufbuild/rules_buf) includes a Gazelle extension for generating [`buf_breaking_test`](#buf-breaking-test) and [`buf_lint_test`](#buf-lint-test) rules out of [`buf.yaml`](../../../configuration/v2/buf-yaml/) configuration files.
+[Gazelle](https://github.com/bazelbuild/bazel-gazelle) is a build file generator for Bazel projects that natively supports Protobuf. [rules_buf](https://github.com/bufbuild/rules_buf) includes a Gazelle extension for generating [buf_breaking_test](#buf-breaking-test) and [buf_lint_test](#buf-lint-test) rules out of [buf.yaml](../../../configuration/v2/buf-yaml/) configuration files.
 
 ### Setup
 
-Start by [setting up](#rules-setup) `rules_buf`, then set up Gazelle using the [official instructions](https://github.com/bazelbuild/bazel-gazelle#setup). Once Gazelle is set up, add the following snippet at the end of the `WORKSPACE` file:
+Start by [setting up](#rules-setup) `rules_buf`, then set up Gazelle using the [official instructions](https://github.com/bazelbuild/bazel-gazelle#setup).
+
+WORKSPACE setup If you are using workspaces, once Gazelle is set up, add the following snippet at the end of the \`WORKSPACE\` file:
 
 ::: info WORKSPACE
 
@@ -361,7 +336,7 @@ gazelle(
 
 Export the `buf.yaml` file by adding `exports_files(["buf.yaml"])` to the `BUILD` file.
 
-> Inside Buf \[workspaces\]\[workspaces\], make sure to export each `buf.yaml` file.
+Inside Buf [workspaces](../../modules-workspaces/), make sure to export each `buf.yaml` file.
 
 Now run Gazelle:
 
@@ -370,59 +345,6 @@ bazel run //:gazelle
 ```
 
 This takes care of updating your Protobuf build files — just run `//:gazelle` whenever Protobuf files are added/removed.
-
-### Dependencies
-
-Gazelle can also be used to generate `buf_dependencies` rules. It imports dependencies from `buf.lock` files.
-
-Add the following code to the `BUILD` file,
-
-::: info BUILD
-
-```python
-gazelle(
-    name = "gazelle-update-repos",
-    args = [
-        # This can also be `buf.lock`.
-        "--from_file=buf.yaml",
-        # This is optional but recommended, if absent gazelle
-        # will add the rules directly to WORKSPACE
-        "-to_macro=buf_deps.bzl%buf_deps",
-        # Deletes outdated repo rules
-        "-prune",
-    ],
-    command = "update-repos",
-    gazelle = ":gazelle-buf",
-)
-```
-
-:::
-
-Add the following line of code anywhere after `rules_buf_toolchains` in the `WORKSPACE` file:
-
-::: info WORKSPACE
-
-```python
-load("@rules_buf//buf:defs.bzl", "buf_dependencies")
-```
-
-:::
-
-Now run Gazelle `update-repos` command:
-
-```sh
-bazel run //:gazelle-update-repos
-```
-
-This creates the file `buf_deps.bzl` with the `buf_deps` macro that loads the `buf_dependencies` rules. It also calls the macro from the `WORKSPACE` file.
-
-#### Arguments
-
-| Argument                                                                                                                                          | Mandatory                                                                                                           | Default  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------- |
-| `-from_file file` <br> <br>Must be one of `buf.yaml` or `buf.lock`. When using `buf.yaml`, the rule imports from the associated `buf.lock` file.  | Required                                                                                                            |          |
-| `-to_macro macroFile%defName` <br> <br>Tells Gazelle to write new repository rules into a `.bzl` macro function rather than the `WORKSPACE` file. | Optional                                                                                                            | ''       |
-| `-prune true`                                                                                                                                     | False <br> <br>When true, Gazelle removes `buf_dependencies` rules that no longer have equivalent `buf.yaml` files. | Optional |
 
 ### Lint
 
@@ -440,7 +362,7 @@ To run [breaking change detection](../../../breaking/) against Protobuf sources,
 
 See the [Image inputs](#image-input) section for instructions on maintaining image files themselves.
 
-Add this Gazelle directive to the top of the `BUILD` file at the root of the [Buf Module](../../modules-workspaces/), which is the directory with a [`buf.yaml`](../../../configuration/v2/buf-yaml/) file.
+Add this Gazelle directive to the top of the `BUILD` file at the root of the [Buf Module](../../modules-workspaces/), which is the directory with a [buf.yaml](../../../configuration/v2/buf-yaml/) file.
 
 ::: info BUILD
 
@@ -536,3 +458,192 @@ Let's break down this scenario,
 ## Examples
 
 Check out some of the [sample workspaces](https://github.com/bufbuild/rules_buf/tree/main/examples) that demonstrate usage in various scenarios.
+
+## Using `WORKSPACE`
+
+This section describes setup instructions for projects that haven't yet migrated to Bazel modules and use the `WORKSPACE` file. All the rules described above are available via `WORKSPACE` setup.
+
+### Setup
+
+To get started, add a series of imports to your Bazel `WORKSPACE`,
+
+::: info WORKSPACE
+
+```python
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "rules_buf",
+    sha256 = "523a4e06f0746661e092d083757263a249fedca535bd6dd819a8c50de074731a",
+    strip_prefix = "rules_buf-0.1.1",
+    urls = [
+        "https://github.com/bufbuild/rules_buf/archive/refs/tags/v0.1.1.zip",
+    ],
+)
+
+load("@rules_buf//buf:repositories.bzl", "rules_buf_dependencies", "rules_buf_toolchains")
+
+rules_buf_dependencies()
+
+rules_buf_toolchains()
+
+load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
+
+rules_proto_dependencies()
+
+rules_proto_toolchains()
+```
+
+:::
+
+### Using a specific version of the `rules_proto`
+
+[rules_proto](https://github.com/bazelbuild/rules_proto) is required to use `rules_buf`. By default, `rules_buf` automatically loads `rules_proto`, but you can use a specific version of it by loading it _before_ `rules_buf`:
+
+::: info WORKSPACE
+
+```python
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "rules_proto",
+    sha256 = "66bfdf8782796239d3875d37e7de19b1d94301e8972b3cbd2446b332429b4df1",
+    strip_prefix = "rules_proto-4.0.0",
+    urls = [
+        "https://mirror.bazel.build/github.com/bazelbuild/rules_proto/archive/refs/tags/4.0.0.tar.gz",
+        "https://github.com/bazelbuild/rules_proto/archive/refs/tags/4.0.0.tar.gz",
+    ],
+)
+
+load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
+
+rules_proto_dependencies()
+
+rules_proto_toolchains()
+
+http_archive(
+    name = "rules_buf",
+    sha256 = "523a4e06f0746661e092d083757263a249fedca535bd6dd819a8c50de074731a",
+    strip_prefix = "rules_buf-0.1.1",
+    urls = [
+        "https://github.com/bufbuild/rules_buf/archive/refs/tags/v0.1.1.zip",
+    ],
+)
+
+# Load the other rules_buf assets
+```
+
+:::
+
+### Pinning the `buf` version
+
+By default, `rules_buf_toolchains` loads the latest `buf` version. For hermetic builds, pin the `buf` version using the version attribute.
+
+::: info WORKSPACE
+
+```diff
+# rules_buf fetches the sha based on the version number--the version is enough for hermetic builds.
+-rules_buf_toolchains()
++rules_buf_toolchains(version = "v1.54.0")
+```
+
+:::
+
+### `buf_dependencies`
+
+`buf_dependencies` is a [repository rule](https://bazel.build/rules/repository_rules) that downloads one or more modules from the [Buf Schema Registry (BSR)](../../../bsr/) and generates build files using Gazelle. [Set up Gazelle](https://github.com/bazelbuild/bazel-gazelle#setup) to use this rule. To also use Gazelle to generate this rule and update `deps` in `proto_library` targets, see [Dependencies](#gazelle-dependencies).
+
+> This is only relevant for `WORKSPACE` users, as Bazel modules don't use repository rules directly.
+
+#### Attributes
+
+| Name    | Description                                  | Type                                        | Mandatory | Default |
+| :------ | :------------------------------------------- | :------------------------------------------ | :-------- | :------ |
+| name    | A unique name for this repository.           | [Name](https://bazel.build/concepts/labels) | required  |         |
+| modules | The module pins `remote/owner/repo:revision` | List of strings                             | required  |         |
+
+#### Example
+
+::: info WORKSPACE
+
+```python
+load("@rules_buf//buf:defs.bzl", "buf_dependencies")
+
+buf_dependencies(
+    name = "buf_deps",
+    modules = [
+        "buf.build/envoyproxy/protoc-gen-validate:dc09a417d27241f7b069feae2cd74a0e",
+        "buf.build/acme/petapis:84a33a06f0954823a6f2a089fb1bb82e",
+    ],
+)
+```
+
+:::
+
+::: info BUILD
+
+```python
+load("@rules_proto//proto:defs.bzl", "proto_library")
+
+# imports "validate/validate.proto"
+proto_library(
+    name = "foo_proto",
+    srcs = ["pet.proto"],
+    deps = ["@buf_deps//validate:validate_proto"],
+)
+```
+
+:::
+
+### Dependencies
+
+Gazelle can also be used to generate `buf_dependencies` rules. It imports dependencies from `buf.lock` files.
+
+Add the following code to the `BUILD` file:
+
+::: info BUILD
+
+```python
+gazelle(
+    name = "gazelle-update-repos",
+    args = [
+        # This can also be `buf.lock`.
+        "--from_file=buf.yaml",
+        # This is optional but recommended, if absent gazelle
+        # will add the rules directly to WORKSPACE
+        "-to_macro=buf_deps.bzl%buf_deps",
+        # Deletes outdated repo rules
+        "-prune",
+    ],
+    command = "update-repos",
+    gazelle = ":gazelle-buf",
+)
+```
+
+:::
+
+Add the following line of code anywhere after `rules_buf_toolchains` in the `WORKSPACE` file:
+
+::: info WORKSPACE
+
+```python
+load("@rules_buf//buf:defs.bzl", "buf_dependencies")
+```
+
+:::
+
+Now run Gazelle `update-repos` command:
+
+```sh
+bazel run //:gazelle-update-repos
+```
+
+This creates the file `buf_deps.bzl` with the `buf_deps` macro that loads the `buf_dependencies` rules. It also calls the macro from the `WORKSPACE` file.
+
+#### Arguments
+
+| Argument                                                                                                                                          | Mandatory | Default  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- |
+| `-from_file file` <br> <br>Must be one of `buf.yaml` or `buf.lock`. When using `buf.yaml`, the rule imports from the associated `buf.lock` file.  | Required  |          |
+| `-to_macro macroFile%defName` <br> <br>Tells Gazelle to write new repository rules into a `.bzl` macro function rather than the `WORKSPACE` file. | Optional  | ''       |
+| `-prune true` <br> <br>When true, Gazelle removes `buf_dependencies` rules that no longer have equivalent `buf.yaml` files.                       | False     | Optional |

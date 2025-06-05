@@ -59,7 +59,7 @@ They're useful for providing and managing permissions to your automated workflow
 The tokens created for bot users can perform most actions that are accessible to normal users, but there are also some limitations, namely:
 
 - Bot users have no ability to access the BSR web interface — the API token created for them can't be used to resolve a cookie through the browser.
-- Bot users can't manage their own tokens (their tokens must be managed by server administrators).
+- Bot users can't manage their own tokens (their tokens must be managed by BSR administrators).
 
 ## Setup
 

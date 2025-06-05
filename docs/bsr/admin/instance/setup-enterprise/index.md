@@ -46,10 +46,6 @@ head:
 
 # Enterprise setup
 
-::: warning
-This feature is only available on the Enterprise plan.
-:::
-
 This page describes the basic setup for a private instance of the Buf Schema Registry (BSR). Currently, this requires manual work and communication between Buf engineers and your organization.
 
 ## Configure your DNS

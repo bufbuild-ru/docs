@@ -7,7 +7,7 @@ head:
       href: "https://bufbuild.ru/docs/bufstream/cost/"
   - - link
     - rel: "prev"
-      href: "https://bufbuild.ru/docs/bufstream/releases/"
+      href: "https://bufbuild.ru/docs/bufstream/architecture/bufstream-network-deployment-guide/"
   - - link
     - rel: "next"
       href: "https://bufbuild.ru/docs/bufstream/blog-posts/"

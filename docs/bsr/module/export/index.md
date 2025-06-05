@@ -50,8 +50,8 @@ Within the Buf ecosystem, moving `.proto` files around is unnecessary. You can m
 
 To export `.proto` files from the BSR, you can either:
 
-- use the Buf CLI's `buf export` command
-- download and extract an archive file
+- Use the Buf CLI's `buf export` command.
+- Download and extract an archive file.
 
 ## Export with the Buf CLI
 
@@ -111,17 +111,18 @@ buf export buf.build/googleapis/googleapis -o /path/to/directory --path google/g
 
 ## Export with `curl`
 
-You can also request an archive of a module from the BSR using the `curl` command. It downloads a zip or tarball archive to your local environment. The download command requires a BSR module as the source, and has this syntax (the example shows a request for the latest commit on the default label):
+You can also request an archive of a module from the BSR using the `curl` command. It downloads a zip or tarball archive to your local environment. The download command requires a BSR module as the source, and has this syntax:
 
 ::: info Syntax
 
 ```bash
-$ curl -fsSL -OJ https://BSR_INSTANCE//MODULE_OWNER/MODULE_NAME/REFERENCE.FILE_EXT
+$ curl -fsSL -O https://BSR_INSTANCE/MODULE_OWNER/MODULE_NAME/archive/REFERENCE.FILE_EXT
 
-# Examples
-curl -fsSL -OJ https://buf.build/acme/petapis/main.tar.gz
-curl -fsSL -OJ https://buf.build/acme/petapis/fc19856dc93042e290c9197d39a2beca.tar.gz
-curl -fsSL -OJ https://buf.build/acme/petapis/v1.2.3-fc19856dc930.1.tar.gz
+# Examples:
+# The latest commit on the default label.
+curl -fsSL -O https://buf.build/acme/petapis/archive/main.tar.gz
+# A specific commit.
+curl -fsSL -O https://buf.build/acme/petapis/archive/7abdb7802c8f4737a1a23a35ca8266ef.tar.gz
 ```
 
 :::
@@ -132,8 +133,8 @@ The URL contains these elements:
 - _MODULE_OWNER_ is the owner of the module.
 - _MODULE_NAME_ is the name of the module.
 - _REFERENCE_ must be one of the following:
-  - \[label name\]\[label\]: uses the latest commit for the given label
-  - commit ID: uses the explicit BSR module commit and the most recent plugin version. The commit must be the full module commit name.
+  - A label name: uses the latest commit for the given label.
+  - A commit ID: uses the explicit BSR module commit. This must be the full module commit ID.
 - FILE_EXT is the file extension of the archive. This can be either `tar.gz` or `zip`.
 
 ### Including dependencies
@@ -143,7 +144,7 @@ By default, the module archive includes only the specified module's content, exc
 ::: info Download a module archive that includes dependencies
 
 ```sh
-curl -sOJ "https://buf.build/acme/petapis/archive/main.zip?imports=true"
+curl -fsSL -O "https://buf.build/acme/petapis/archive/main.zip?imports=true"
 ```
 
 :::

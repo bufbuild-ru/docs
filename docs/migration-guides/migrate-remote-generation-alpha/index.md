@@ -58,10 +58,6 @@ To see all publicly available plugins, go to [buf.build/plugins](https://buf.bui
 
 ### Custom plugins available for Pro and Enterprise customers
 
-::: warning
-This feature is only available on the Enterprise plan.
-:::
-
 The BSR will still allow you to upload custom private plugins. [Contact us](mailto:support@buf.build) if you are interested in working with us.
 
 ## Migrate to remote plugins

@@ -63,3 +63,5 @@ It’s important to choose the right tools when designing and building APIs, as 
 ## Thank you to our contributors and users
 
 We're grateful to all of the contributors who worked to get Connect-Swift to this milestone and to each user who provided the support and feedback to make the project what it is today. We look forward to continuing to evolve and improve the library alongside the Swift language and the rest of the Connect ecosystem! If you’d like to learn more, [check the project out on GitHub](https://github.com/connectrpc/connect-swift), read the [getting started guide](https://connectrpc.com/docs/swift/getting-started/), or [explore the Connect website](https://connectrpc.com/docs/introduction).
+
+‍

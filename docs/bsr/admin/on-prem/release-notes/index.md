@@ -46,6 +46,16 @@ head:
 
 # Release notes
 
+## v1.23.0
+
+**_Release date:_** 2025-06-04 | **_Database version:_** 359 | **_Minimum CLI version:_** v1.24.0
+
+- **Security group mapping:** We've added support for mapping IdP security groups to repositories or organizations in [the BSR UI](../../instance/manage-access-idp-groups/#map-group-repository).
+- **Python Generated SDKs:** To reduce the search space for package managers when resolving dependencies we've updated module dependency version constraints from `>=` to the [compatible release](https://packaging.python.org/en/latest/specifications/version-specifiers/#compatible-release) `~=` operator. Additionally we've added a [custom endpoint](../../../generated-sdks/python/#deps-endpoint) that can be used to fetch a flattened list of dependencies for a Python SDK, which can also be used to reduce a package manager's search space and speed up dependency resolution.
+- **OIDC:** You can now [override](../installation/#configure-authentication) the default set of scopes the BSR requests from IdPs.
+- **BSR image updates:** A new container called `buftoolsd` is deployed as part of the BSR now and should be mirrored along with other images.
+- **BSR configuration:** We've added default values for BSR resource usage to the Helm chart. This won't change anything for customers who have already set explicit resource requirements. The new default values are conservative, so we expect this will work without issues in general. However, if the cluster does not have enough capacity to satisfy the requirements, this may mean that the new pods will fail to be scheduled and remain in a `Pending` state.
+
 ## v1.22.1
 
 **_Release date:_** 2025-05-07 | **_Database version:_** 354 | **_Minimum CLI version:_** v1.24.0
@@ -98,6 +108,12 @@ head:
 - **[Reviewing CSR breaking changes](../../../csr/#breaking-changes):** Any commits introducing breaking changes to a CSR subject’s schema are no longer blocked at push time. Those commits can now be [reviewed and approved](../../../policy-checks/breaking/review-commits/) by an admin by downgrading the compatibility mode of any affected subjects.
 - We’ve updated the BSR to return a clearer [error message](https://github.com/bufbuild/buf/issues/3650) when running `buf generate` if a given plugin exists but the requested version does not.
 - We've upgraded the [OCI Registry external dependency](../architecture/#external-dependencies) to [v3.0.0-rc.3](https://github.com/distribution/distribution/releases/tag/v3.0.0-rc.3). If you’ve customized your OCI Registry destination, consider updating your internal mirror also.
+
+---
+
+# Older releases
+
+Expand to see previous releases
 
 ## v1.17.2
 
@@ -192,12 +208,6 @@ A license is now required to operate the BSR — more details on setup can be fo
 
 - **[Artifactory support for NuGet](../../../generated-sdks/artifactory/):** Users can now configure the BSR as a remote NuGet repository in Artifactory.
 - We fixed an issue that prevented the generation of Cargo assets for older plugin versions.
-
----
-
-# Older releases
-
-Expand to see previous releases
 
 ## v1.11.0
 
